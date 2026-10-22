@@ -70,7 +70,7 @@ module "site" {
   admin_emails             = var.admin_emails
   admin_bootstrap_subjects = var.admin_bootstrap_subjects
   postgres = {
-    sku_name          = "B_Standard_B1ms"
+    sku_name          = "B_Standard_B2s" # B1ms had geen capaciteit in Sweden Central (22-10-2026)
     storage_mb        = 32768
     high_availability = false
     backup_days       = 7
