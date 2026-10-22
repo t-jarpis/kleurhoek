@@ -39,7 +39,7 @@ De eerste keer draaien de apps een voorbeeldimage. Daarna:
 
 1. Zet in GitHub (repo › Settings › Environments) de omgevingen `dev` en `prod` aan, met voor `prod` een verplichte goedkeuring. Vul per omgeving deze **variables** in (geen geheimen; komen uit `terraform output site`):
    `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, `AZURE_SUBSCRIPTION_ID` (uit `github_deploy`), `ACR_NAME`, `RESOURCE_GROUP`, `SITE_URL`, `MARKETS` (bijv. `nl-nl`).
-2. Push naar `main` of start *Deploy* handmatig. De workflow bouwt de images, draait de migraties als job, rolt de drie apps uit en doet een rooktest.
+2. Zet in GitHub (repo › Settings › Secrets and variables › Actions › Variables) de repository-variabele `DEPLOY_ENABLED` op `true`. Tot dan slaat de *Deploy*-workflow pushes naar `main` over. Push daarna naar `main` of start *Deploy* handmatig. De workflow bouwt de images, draait de migraties als job, rolt de drie apps uit en doet een rooktest.
 3. Eenmalig per omgeving de catalogus vullen: `az containerapp job start -g <rg> -n caj-kh-<omgeving>-seed`.
 
 ## Keuzes

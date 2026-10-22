@@ -26,6 +26,9 @@ env:
 
 jobs:
   build:
+    # Automatisch uitrollen pas zodra Azure klaarstaat: zet dan de repository-variabele DEPLOY_ENABLED op true.
+    # Handmatig starten kan altijd.
+    if: github.event_name == 'workflow_dispatch' || vars.DEPLOY_ENABLED == 'true'
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment || 'dev' }}
     strategy:
