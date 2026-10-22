@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { ERASER, layout, paint, progress, strokeWidth } from "./studio";
+import { BOOK_MAX, ERASER, FRIDGE_MAX, hang, layout, paint, parseBook, progress, strokeWidth, togglePick } from "./studio";
 
 describe("kleurstudio", () => {
   it("telt goed gekleurde nummers, ongevoelig voor hoofdletters", () => {
@@ -20,5 +20,27 @@ describe("kleurstudio", () => {
   it("kiest de lijndikte bij de leeftijd tenzij anders gekozen", () => {
     expect(strokeWidth("auto", 3.4)).toBe(3.4);
     expect(strokeWidth("dun", 3.4)).toBe(1.7);
+  });
+  it("maakt ruimte voor een kleurenlijst onderaan", () => {
+    const l = layout({ name: "", learn: false, word: null, question: null, legend: 6 });
+    expect(l).toMatchObject({ height: 232, legendY: 200 });
+    expect(l.legendStep).toBeCloseTo(26);
+  });
+  it("de koelkast houdt het nieuwste werk en hooguit 24 platen", () => {
+    const item = (n: number) => ({ id: String(n), slug: "kat", version: 1, fills: {}, name: "", date: "" });
+    let list = Array.from({ length: FRIDGE_MAX }, (_, i) => item(i));
+    list = hang(list, item(99));
+    expect(list).toHaveLength(FRIDGE_MAX);
+    expect(list[0]!.id).toBe("99");
+    expect(list.at(-1)!.id).toBe(String(FRIDGE_MAX - 2));
+  });
+  it("leest de platen voor het boekje veilig uit de URL", () => {
+    expect(parseBook("kat,vis,kat,../etc,UIL, slak")).toEqual(["kat", "vis", "slak"]);
+    expect(parseBook(undefined)).toEqual([]);
+    expect(parseBook(Array.from({ length: 50 }, (_, i) => `p${i}`).join(","))).toHaveLength(BOOK_MAX);
+  });
+  it("zet platen aan en uit in de keuze", () => {
+    expect(togglePick(["kat"], "vis")).toEqual(["kat", "vis"]);
+    expect(togglePick(["kat", "vis"], "kat")).toEqual(["vis"]);
   });
 });

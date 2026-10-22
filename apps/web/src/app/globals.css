@@ -152,3 +152,73 @@ img { max-width: 100%; }
 .acct-menu { position: absolute; right: 0; top: calc(100% + 6px); z-index: 10; min-width: 180px; display: flex; flex-direction: column; background: var(--surface); border: 2px solid var(--fg); border-radius: 12px; padding: 6px; box-shadow: 0 10px 24px -14px rgba(20, 30, 50, .6); }
 .acct-menu a, .acct-menu button { font: 700 15px var(--f-body); color: var(--fg); background: none; border: 0; text-align: left; padding: 9px 10px; border-radius: 8px; text-decoration: none; cursor: pointer; }
 .acct-menu a:hover, .acct-menu button:hover { background: var(--bg); }
+
+/* Koelkast */
+.fridge-wrap { margin-top: 48px; display: flex; flex-direction: column; gap: 12px; }
+.fridge-wrap p { margin: 0; color: var(--muted); font-size: 14px; }
+.sec { font: 400 clamp(1.5rem, 4vw, 1.9rem)/1.1 var(--f-display); margin: 0; }
+.fridge { --fridge: #e3e8ec; --fridge2: #cfd7dd; position: relative; background: linear-gradient(180deg, var(--fridge), var(--fridge2)); border-radius: 20px; padding: 30px 54px 26px 22px; display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 28px 18px; border: 2px solid var(--line); }
+@media (prefers-color-scheme: dark) { .fridge { --fridge: #2a3038; --fridge2: #232830; } }
+.fridge::after { content: ""; position: absolute; right: 18px; top: 24px; bottom: 24px; width: 10px; border-radius: 6px; background: var(--line); }
+.magw { position: relative; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.mag { all: unset; cursor: pointer; display: block; background: var(--sheet); padding: 6px; border-radius: 2px; box-shadow: 0 6px 12px -8px rgba(0, 0, 0, .5); transform: rotate(var(--rot)); position: relative; transition: transform .15s; }
+.mag:hover { transform: rotate(0deg) scale(1.03); }
+.mag:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.mag::before { content: ""; position: absolute; z-index: 1; top: -7px; left: 50%; width: 16px; height: 16px; margin-left: -8px; border-radius: 50%; background: var(--mc); box-shadow: 0 2px 3px rgba(0, 0, 0, .3); }
+.mag svg { display: block; width: 100%; height: auto; }
+.mag .r { fill: #fff; stroke: var(--ink); stroke-width: var(--sw, 2); stroke-linejoin: round; }
+.mag .l { fill: none; stroke: var(--ink); stroke-width: var(--sw, 2); stroke-linecap: round; stroke-linejoin: round; }
+.mag .dot { fill: var(--ink); }
+.mag text.nm { font-family: var(--f-display); font-weight: 800; stroke-width: 1; }
+.mag-empty { display: block; aspect-ratio: 1; background: var(--sheet); }
+.magw small { font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; gap: 6px; align-items: center; flex-wrap: wrap; }
+.linkbtn { all: unset; cursor: pointer; font-weight: 800; color: var(--fg); text-decoration: underline; text-underline-offset: 2px; }
+.linkbtn:focus-visible { outline: 2px solid var(--accent); }
+@media (max-width: 760px) { .fridge { padding-right: 40px; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); } }
+@media (prefers-reduced-motion: reduce) { .mag { transition: none; } }
+
+/* Boekje kiezen */
+.card { position: relative; }
+button.card { all: unset; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; cursor: pointer; position: relative; }
+button.card:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: 6px; }
+.card .tick { position: absolute; z-index: 2; top: -8px; right: -8px; width: 30px; height: 30px; border-radius: 50%; background: var(--surface); border: 2px solid var(--line); display: grid; place-items: center; font-weight: 800; color: var(--accent-ink); }
+.card[aria-pressed="true"] .tick { background: var(--accent); border-color: var(--accent); }
+.card[aria-pressed="true"] .paper { outline: 3px solid var(--accent); outline-offset: 3px; }
+.grid.picking { padding-bottom: 96px; }
+.pickbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 15; background: var(--surface); border-top: 2px solid var(--line); padding: 12px max(16px, env(safe-area-inset-right)) calc(12px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); box-shadow: 0 -10px 24px -18px rgba(20, 30, 50, .5); }
+.pickbar .in { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; }
+.pickbar b { font: 400 20px var(--f-display); }
+.pickbar .hint { margin: 2px 0 0; }
+
+/* Boekje */
+.book { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 28px; align-items: start; }
+.book .studio-top { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; }
+.book .studio-top h1 { font: 400 clamp(1.5rem, 5vw, 2.2rem) var(--f-display); margin: 0; }
+.book .tools { position: sticky; top: 16px; }
+.sheets { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 20px; }
+.a4 { background: var(--sheet); aspect-ratio: 210 / 297; border-radius: 3px; box-shadow: 0 8px 20px -14px rgba(20, 30, 50, .6); padding: 10px 12px; display: flex; flex-direction: column; align-items: center; gap: 4px; color: #1d1b22; position: relative; min-width: 0; }
+.a4 h3 { margin: 0; padding: 0 30px; font: 400 13px var(--f-display); text-align: center; }
+.a4 svg { flex: 1; min-height: 0; width: 100%; }
+.a4 .pg { font-size: 10px; color: #6b7280; }
+.a4 .foot { display: none; }
+.a4 .x { position: absolute; top: 6px; right: 6px; width: 28px; height: 28px; border-radius: 50%; border: 2px solid #d5dde2; background: #fff; color: #1d1b22; font: 800 16px/1 var(--f-body); cursor: pointer; }
+.a4 .x:hover { border-color: var(--cal); color: var(--cal); }
+.a4 .sheet .r { fill: #fff; stroke: #1d1b22; }
+.a4 .sheet .l { stroke: #1d1b22; }
+@media (max-width: 760px) {
+  .book { grid-template-columns: minmax(0, 1fr); }
+  .book .tools { position: static; }
+  .sheets { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+}
+@media print {
+  .book { display: block; }
+  .sheets { display: block; }
+  .a4 { box-shadow: none; border-radius: 0; padding: 0; height: 268mm; aspect-ratio: auto; break-after: page; page-break-after: always; gap: 5mm; justify-content: flex-start; }
+  .a4:last-child { break-after: auto; page-break-after: auto; }
+  .a4 h3 { font-size: 22pt; padding: 0; }
+  .a4 svg { flex: none; width: 170mm; max-height: 225mm; height: auto; }
+  .a4.cover svg { width: 170mm; max-height: 240mm; }
+  .wrap { padding: 0; }
+  .a4 .pg { display: none; }
+  .a4 .foot { display: block; margin-top: auto; font: 10pt var(--f-body); color: #555; }
+}

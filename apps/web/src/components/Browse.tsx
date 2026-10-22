@@ -4,6 +4,7 @@ import { useMemo, type CSSProperties } from "react";
 import type { PlateItem, Taxonomy } from "@/lib/types";
 import { messages } from "@/i18n/nl";
 import { PlateCard } from "./PlateCard";
+import { book, useBook } from "@/lib/local";
 
 type Key = "onderwerp" | "werelddeel" | "land" | "feestdag" | "leeftijd";
 
@@ -13,6 +14,7 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
   const router = useRouter();
   const pathname = usePathname();
   const params = useSearchParams();
+  const picks = useBook();
   const f = {
     cat: params.get("onderwerp") ?? "alle", cont: params.get("werelddeel") ?? "alle", land: params.get("land") ?? "alle",
     hol: params.get("feestdag") ?? "alle", age: params.get("leeftijd") ?? "alle",
@@ -86,11 +88,14 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
           {age?.hint && <p className="hint">{age.hint}</p>}
         </div>
       </div>
-      <main className="grid">
+      <main className={`grid${picks.picking ? " picking" : ""}`}>
         {visible.length === 0 ? (
           <div className="empty"><b>{t.emptyTitle}</b><span>{t.emptyText}</span>
             <button type="button" className="btn" onClick={() => router.replace(pathname, { scroll: false })}>{t.showAll}</button></div>
-        ) : visible.map((p) => <PlateCard key={p.slug} plate={p} market={market} taxonomy={taxonomy} view={f.cat} yr={t.yr} />)}
+        ) : visible.map((p) => (
+          <PlateCard key={p.slug} plate={p} market={market} taxonomy={taxonomy} view={f.cat} yr={t.yr}
+            {...(picks.picking ? { pick: { selected: picks.slugs.includes(p.slug), onToggle: () => book.toggle(p.slug) } } : {})} />
+        ))}
       </main>
     </>
   );

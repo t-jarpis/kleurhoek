@@ -23,6 +23,16 @@ export const nl = {
   accountError: "Je account kan nu niet geladen worden. Probeer het later opnieuw.",
   name: "Naam", email: "E-mail", memberSince: "Lid sinds",
   accountPrivacy: "We bewaren alleen je naam en e-mailadres. Inloggen gaat via je eigen Google-, Apple- of Microsoft-account of een e-mailcode; we kennen geen wachtwoord.",
+  toFridge: "Op de koelkast", onFridge: "Opgehangen op de koelkast",
+  fridge: "Mijn koelkast", fridgeText: "Platen die je hebt opgehangen. Ze blijven op dit apparaat. Tik op een plaat om verder te kleuren.",
+  takeOff: "Haal eraf", takeOffSure: "Zeker?",
+  makeBook: "Maak een boekje", picking: "Platen kiezen…", stop: "Stoppen", viewBook: "Bekijk boekje",
+  picked: (n: number) => (n === 1 ? "1 plaat gekozen" : `${n} platen gekozen`), pickHint: "Tik op platen om ze in je boekje te zetten.",
+  book: "Jouw kleurboekje", backToPicking: "← Platen kiezen", cover: "Voorblad", bookOwner: "Van wie is het boekje?", bookOwnerPlaceholder: "Bijv. Sam",
+  sheetKind: "Soort platen", bookNumbers: "Kleur op nummer, met kleurenlijst onderaan", bookLearn: "Leerblad met woord en telvraag",
+  bookInfo: (n: number) => `Voorblad en ${n} ${n === 1 ? "plaat" : "platen"}, elk op een eigen A4.`, printBook: "Boekje printen",
+  remove: (name: string) => `${name} weghalen`, page: (n: number) => `Blad ${n}`, myBook: "Mijn kleurboek", of: "van",
+  bookCount: (n: number) => `${n} kleurplaten · Kleurhoek`, bookEmpty: "Nog geen platen gekozen. Ga terug en tik op de platen die je wilt.",
   deleteAccount: "Account verwijderen", deleteSure: "Zeker weten? Tik nog eens",
 } as const;
 

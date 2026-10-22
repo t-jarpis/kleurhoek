@@ -1,4 +1,5 @@
 import "server-only";
+import { svgInner } from "./svg";
 import type { PlateDetail, PlateItem, Season, Taxonomy } from "./types";
 
 const API_URL = process.env.API_URL ?? "http://localhost:3001";
@@ -21,8 +22,6 @@ export const api = {
   async plateSvgInner(path: string): Promise<{ inner: string }> {
     const res = await fetch(`${API_URL}${path}`, { next: { revalidate: 31_536_000, tags: ["svg"] } });
     if (!res.ok) throw new NotFound(path);
-    const svg = await res.text();
-    const inner = svg.replace(/^<svg[^>]*>/, "").replace(/<\/svg>\s*$/, "").replace(/<style>[\s\S]*?<\/style>/g, "");
-    return { inner };
+    return { inner: svgInner(await res.text()) };
   },
 };

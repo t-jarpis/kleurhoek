@@ -1,10 +1,12 @@
 "use client";
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import type { PlateDetail } from "@/lib/types";
 import { messages } from "@/i18n/nl";
 import { track } from "@/lib/track";
-import { ERASER, FREE_PALETTE, layout, paint, progress, strokeWidth, type Fills, type Line } from "@/lib/studio";
+import { ERASER, FREE_PALETTE, paint, progress, strokeWidth, type Fills, type Line } from "@/lib/studio";
+import { fridge } from "@/lib/local";
+import { Sheet, sheetPlate } from "./Sheet";
 
 interface Saved { fills: Fills; name: string }
 const storageKey = (p: PlateDetail) => `kh:${p.slug}:v${p.version}`;
@@ -23,26 +25,25 @@ export function Studio({ plate, inner, ageWidth, market, language }: { plate: Pl
   const [learn, setLearn] = useState(false);
   const [sure, setSure] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
-  const group = useRef<SVGGElement>(null);
   const colored = useRef(false);
   const wasDone = useRef(false);
 
   // Werk van dit apparaat terugzetten (alleen in deze browser, geen account nodig).
-  useEffect(() => { const s = load(plate); setFills(s.fills); setName(s.name); }, [plate]);
-  useEffect(() => { try { localStorage.setItem(storageKey(plate), JSON.stringify({ fills, name })); } catch { /* opslag vol of geblokkeerd */ } }, [plate, fills, name]);
-  useEffect(() => { track({ type: "plate_view", market, plate: plate.slug }); }, [market, plate.slug]);
-
-  // Kleuren op de vlakken van de plaat zetten. De plaat zelf is statische SVG; React raakt die niet aan.
+  // Pas opslaan na het laden: anders overschrijft de lege beginstand het bewaarde werk.
+  const [loaded, setLoaded] = useState<string | null>(null);
+  useEffect(() => { const s = load(plate); setFills(s.fills); setName(s.name); setLoaded(storageKey(plate)); }, [plate]);
   useEffect(() => {
-    group.current?.querySelectorAll<SVGElement>("[data-i]").forEach((el) => { el.style.fill = fills[Number(el.dataset.i)] ?? ""; });
-  }, [fills, inner]);
+    if (loaded !== storageKey(plate)) return;
+    try { localStorage.setItem(storageKey(plate), JSON.stringify({ fills, name })); } catch { /* opslag vol of geblokkeerd */ }
+  }, [plate, fills, name, loaded]);
+  useEffect(() => { track({ type: "plate_view", market, plate: plate.slug }); }, [market, plate.slug]);
 
   const palette = mode === "num" ? plate.colorByNumber.palette : FREE_PALETTE.map((hex, i) => ({ number: i + 1, code: hex, hex, name: hex }));
   const prog = useMemo(() => progress(plate.colorByNumber.labels, plate.colorByNumber.palette, fills), [plate, fills]);
 
   useEffect(() => {
     if (mode !== "num") return;
-    if (prog.done && !wasDone.current) { setToast(t.party); track({ type: "plate_completed", market, plate: plate.slug }); setTimeout(() => setToast(null), 2600); }
+    if (prog.done && !wasDone.current) { flash(t.party); track({ type: "plate_completed", market, plate: plate.slug }); }
     wasDone.current = prog.done;
   }, [prog.done, mode, t.party, market, plate.slug]);
 
@@ -51,20 +52,20 @@ export function Studio({ plate, inner, ageWidth, market, language }: { plate: Pl
     if (!colored.current) { colored.current = true; track({ type: "plate_colored", market, plate: plate.slug }); }
   }, [color, market, plate.slug]);
 
-  const onClick = (e: MouseEvent<SVGSVGElement>) => {
-    const el = (e.target as Element).closest<SVGElement>("[data-i]");
-    if (el?.dataset.i) apply(Number(el.dataset.i));
-  };
-
   const switchMode = (m: "free" | "num") => {
     setMode(m);
     wasDone.current = m === "num" && progress(plate.colorByNumber.labels, plate.colorByNumber.palette, fills).done;
     if (m === "num") setColor(plate.colorByNumber.palette[0]?.hex ?? FREE_PALETTE[0]!);
   };
 
-  const L = layout({ name, learn, word: plate.word, question: plate.countQuestion });
-  const hexByNumber = new Map(plate.colorByNumber.palette.map((p) => [p.number, p.hex.toLowerCase()]));
   const sw = strokeWidth(line, ageWidth);
+  const sheet = useMemo(() => sheetPlate(plate), [plate]);
+  const flash = (text: string) => { setToast(text); setTimeout(() => setToast(null), 2600); };
+  const toFridge = () => {
+    const d = new Date();
+    fridge.hang({ slug: plate.slug, version: plate.version, fills, name }, `${d.getDate()} ${t.months[d.getMonth()]!.slice(0, 3)}`);
+    flash(t.onFridge);
+  };
 
   return (
     <div className="wrap">
@@ -74,27 +75,7 @@ export function Studio({ plate, inner, ageWidth, market, language }: { plate: Pl
           <h1>{plate.name}</h1>
         </div>
         <div className="canvas">
-          <svg className="sheet" viewBox={`0 0 200 ${L.height}`} style={{ "--sw": sw } as CSSProperties} onClick={onClick} role="img" aria-label={plate.name}>
-            <g ref={group} dangerouslySetInnerHTML={{ __html: inner }} />
-            {mode === "num" && (
-              <g aria-hidden="true">
-                {plate.colorByNumber.labels.filter((l) => fills[l.region]?.toLowerCase() !== hexByNumber.get(l.number)).map((l) => (
-                  <text key={l.region} className="num" x={l.x} y={l.y} fontSize={l.size}>{l.number}</text>
-                ))}
-              </g>
-            )}
-            {L.nameY !== null && (
-              <text className="r nm" data-i={plate.regionCount} x={100} y={L.nameY + 28} textAnchor="middle" fontSize={L.nameSize}>{name}</text>
-            )}
-            {L.learnY !== null && plate.word && (
-              <g>
-                <path className="guide" d={`M14 ${L.learnY + 12} L186 ${L.learnY + 12} M14 ${L.learnY + 36} L186 ${L.learnY + 36}`} strokeDasharray="3 3" />
-                <path className="guide" d={`M14 ${L.learnY + 24} L186 ${L.learnY + 24}`} />
-                <text className="trace" x={100} y={L.learnY + 36} textAnchor="middle" fontSize={L.wordSize}>{plate.word}</text>
-                {L.questionY !== null && (<><text className="q" x={14} y={L.questionY + 14} fontSize={9}>{plate.countQuestion}</text><rect className="ans" x={160} y={L.questionY} width={26} height={20} rx={4} /></>)}
-              </g>
-            )}
-          </svg>
+          <Sheet plate={sheet} inner={inner} fills={fills} sw={sw} numbers={mode === "num"} name={name} learn={learn} onPick={apply} />
         </div>
         <aside className="tools">
           <div className="tool">
@@ -137,6 +118,7 @@ export function Studio({ plate, inner, ageWidth, market, language }: { plate: Pl
             <button type="button" className="btn" onClick={() => { if (sure) { setFills({}); setUndo([]); setSure(false); } else { setSure(true); setTimeout(() => setSure(false), 2500); } }}>{sure ? t.resetSure : t.reset}</button>
           </div>
           <div className="row">
+            <button type="button" className="btn" onClick={toFridge}>{t.toFridge}</button>
             <button type="button" className="btn primary" onClick={() => { track({ type: "print", market, plate: plate.slug }); window.print(); }}>{t.print}</button>
           </div>
         </aside>

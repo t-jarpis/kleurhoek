@@ -3,14 +3,25 @@ import type { CSSProperties } from "react";
 import type { PlateItem, Taxonomy } from "@/lib/types";
 import { labelFor } from "./labels";
 
-export function PlateCard({ plate, market, taxonomy, view = "alle", mini = false, yr }: { plate: PlateItem; market: string; taxonomy: Taxonomy; view?: string; mini?: boolean; yr: string }) {
+/**
+ * Een plaat in het raster. Normaal een link naar de kleurstudio; tijdens het kiezen voor een boekje
+ * een knop die de plaat aan- of uitzet.
+ */
+export function PlateCard({ plate, market, taxonomy, view = "alle", mini = false, yr, pick }: {
+  plate: PlateItem; market: string; taxonomy: Taxonomy; view?: string; mini?: boolean; yr: string;
+  pick?: { selected: boolean; onToggle: () => void };
+}) {
   const label = labelFor(plate, taxonomy, view);
   const age = taxonomy.ages.find((a) => a.slug === plate.age);
-  return (
-    <Link href={`/${market}/platen/${plate.slug}`} className="card" style={{ "--c": label.color } as CSSProperties}>
+  const body = (
+    <>
+      {pick && <span className="tick" aria-hidden="true">{pick.selected ? "✓" : ""}</span>}
       <div className="paper"><img src={plate.svg} alt="" loading={mini ? "eager" : "lazy"} width={200} height={200} /></div>
       <b>{plate.name}</b>
       <em><i />{label.text}<span className="yr">{age ? age.name.replace(/ jaar$/, "") : plate.age} {yr}</span></em>
-    </Link>
+    </>
   );
+  const style = { "--c": label.color } as CSSProperties;
+  if (pick) return <button type="button" className="card" style={style} aria-pressed={pick.selected} onClick={pick.onToggle}>{body}</button>;
+  return <Link href={`/${market}/platen/${plate.slug}`} className="card" style={style}>{body}</Link>;
 }

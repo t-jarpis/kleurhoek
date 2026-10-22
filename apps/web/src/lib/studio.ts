@@ -28,10 +28,39 @@ export function paint(fills: Fills, region: number, color: string): { next: Fill
 }
 
 /** Hoogte van het tekenvlak: de plaat plus tekst en leerblad als die aan staan. */
-export function layout(opts: { name: string; learn: boolean; word: string | null; question: string | null }) {
+export function layout(opts: { name: string; learn: boolean; word: string | null; question: string | null; legend?: number }) {
   let y = 200;
   const nameY = opts.name ? y : null; if (opts.name) y += 40;
   const learnY = opts.learn && opts.word ? y : null; if (learnY !== null) y += 46;
   const questionY = learnY !== null && opts.question ? y : null; if (questionY !== null) y += 28;
-  return { height: y, nameY, learnY, questionY, nameSize: Math.min(26, 320 / Math.max(opts.name.length, 4)), wordSize: opts.word ? Math.min(30, 330 / opts.word.length) : 0 };
+  const legendY = opts.legend ? y : null; if (legendY !== null) y += 32;
+  return {
+    height: y, nameY, learnY, questionY, legendY,
+    nameSize: Math.min(26, 320 / Math.max(opts.name.length, 4)),
+    wordSize: opts.word ? Math.min(30, 330 / opts.word.length) : 0,
+    legendStep: opts.legend ? Math.min(26, 184 / opts.legend) : 0,
+  };
+}
+
+/** Werk dat op de koelkast hangt: een momentopname van de kleuren, alleen op dit apparaat. */
+export interface FridgeItem { id: string; slug: string; version: number; fills: Fills; name: string; date: string }
+export const FRIDGE_MAX = 24;
+
+/** Nieuw werk komt vooraan; de oudste valt eraf als de koelkast vol is. */
+export function hang(list: FridgeItem[], item: FridgeItem): FridgeItem[] {
+  return [item, ...list].slice(0, FRIDGE_MAX);
+}
+
+export const BOOK_MAX = 30;
+const SLUG = /^[a-z0-9-]{1,64}$/;
+
+/** Platen voor het boekje uit de URL: alleen geldige namen, geen dubbele, hooguit 30. */
+export function parseBook(value: string | string[] | undefined): string[] {
+  const raw = Array.isArray(value) ? value.join(",") : value ?? "";
+  return [...new Set(raw.split(",").map((s) => s.trim()).filter((s) => SLUG.test(s)))].slice(0, BOOK_MAX);
+}
+
+/** Een plaat aan- of uitzetten in de keuze voor het boekje. */
+export function togglePick(list: string[], slug: string): string[] {
+  return list.includes(slug) ? list.filter((s) => s !== slug) : [...list, slug].slice(0, BOOK_MAX);
 }

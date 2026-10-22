@@ -1,4 +1,6 @@
 import { AccountButton } from "@/components/AccountButton";
+import { BookButton, PickBar } from "@/components/BookPicker";
+import { Fridge } from "@/components/Fridge";
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { api, NotFound } from "@/lib/api";
@@ -24,11 +26,13 @@ export default async function Home({ params }: { params: Promise<{ market: strin
     <div className="wrap">
       <header className="mast">
         <div><Logo market={market} /><p className="lede">{t.lede}</p></div>
-        <div className="row no-print"><Surprise market={market} slugs={plates.map((p) => p.slug)} label={t.surprise} /><AccountButton market={market} t={{ login: t.login, account: t.account, logout: t.logout }} /></div>
+        <div className="row no-print"><BookButton language={language} /><Surprise market={market} slugs={plates.map((p) => p.slug)} label={t.surprise} /><AccountButton market={market} t={{ login: t.login, account: t.account, logout: t.logout }} /></div>
       </header>
       <SeasonBand season={season} plates={plates} taxonomy={taxonomy} market={market} t={t} />
       <Suspense fallback={null}><Browse plates={plates} taxonomy={taxonomy} market={market} language={language} /></Suspense>
+      <Fridge market={market} plates={plates} language={language} />
       <p className="note">{t.note}</p>
+      <PickBar market={market} language={language} />
       <Track event={{ type: "page_view", market }} />
     </div>
   );
