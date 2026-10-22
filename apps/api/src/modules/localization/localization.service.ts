@@ -1,5 +1,5 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { and, eq, inArray } from "drizzle-orm";
+import { and, eq, inArray, sql } from "drizzle-orm";
 import { DB, type Database } from "../../db/database";
 import { withTenant } from "../../db/tenant";
 import { markets, translations, type EntityType } from "./localization.schema";
@@ -31,5 +31,12 @@ export class LocalizationService {
         .where(and(eq(translations.tenantId, tenantId), eq(translations.entityType, type), eq(translations.language, language),
           ...(keys ? [inArray(translations.entityKey, keys.length ? keys : [""])] : []))));
     return new Map(rows.map((r) => [r.key, r.fields]));
+  }
+
+  /** Vertaling opslaan of bijwerken (bijvoorbeeld de naam van een product uit het admin panel). */
+  async save(tenantId: string, type: EntityType, key: string, language: string, fields: Fields): Promise<void> {
+    await withTenant(this.db, tenantId, (tx) => tx.insert(translations)
+      .values({ tenantId, entityType: type, entityKey: key, language, fields, status: "reviewed" })
+      .onConflictDoUpdate({ target: [translations.tenantId, translations.entityType, translations.entityKey, translations.language], set: { fields, updatedAt: sql`now()` } }));
   }
 }

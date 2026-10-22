@@ -21,6 +21,9 @@ describe("kleurstudio", () => {
     expect(strokeWidth("auto", 3.4)).toBe(3.4);
     expect(strokeWidth("dun", 3.4)).toBe(1.7);
   });
+  it("begint onder een hogere knutselplaat", () => {
+    expect(layout({ name: "Sam", learn: false, word: null, question: null, height: 270 })).toMatchObject({ nameY: 270, height: 310 });
+  });
   it("maakt ruimte voor een kleurenlijst onderaan", () => {
     const l = layout({ name: "", learn: false, word: null, question: null, legend: 6 });
     expect(l).toMatchObject({ height: 232, legendY: 200 });

@@ -3,7 +3,11 @@ import { baseColumns } from "../../shared/columns";
 
 export const analyticsSchema = pgSchema("analytics");
 
-export const EVENT_TYPES = ["page_view", "plate_view", "plate_colored", "plate_completed", "pdf_download", "print", "signup", "login"] as const;
+export const EVENT_TYPES = [
+  "page_view", "plate_view", "plate_colored", "plate_completed", "pdf_download", "print", "signup", "login",
+  // Winkel: de lijst "Wat heb je nodig" is in beeld geweest, en iemand klikte door naar een product.
+  "materials_view", "product_click",
+] as const;
 export type EventType = (typeof EVENT_TYPES)[number];
 
 /** Ruwe events zonder persoonsgegevens. Bewaartermijn 90 dagen (zie ADR 0002). */
@@ -11,6 +15,7 @@ export const events = analyticsSchema.table("events", {
   ...baseColumns(),
   type: text("type", { enum: EVENT_TYPES }).notNull(),
   plateSlug: text("plate_slug"),
+  productSlug: text("product_slug"),
   market: text("market").notNull(),
   country: text("country"),
   device: text("device", { enum: ["mobile", "tablet", "desktop", "other"] }).notNull(),
@@ -31,5 +36,19 @@ export const dailyTotals = analyticsSchema.table("daily_totals", {
   downloads: integer("downloads").notNull().default(0),
   prints: integer("prints").notNull().default(0),
   completions: integer("completions").notNull().default(0),
+  materialsViews: integer("materials_views").notNull().default(0),
+  productClicks: integer("product_clicks").notNull().default(0),
   uniqueVisitors: integer("unique_visitors").notNull().default(0),
 }, (t) => [uniqueIndex("daily_totals_unique").on(t.tenantId, t.day, t.plateSlug, t.market, t.country)]);
+
+/** Doorkliks naar producten per dag, product, bronplaat, markt en land. Basis voor "zelf gaan leveren?". */
+export const dailyProductClicks = analyticsSchema.table("daily_product_clicks", {
+  ...baseColumns(),
+  day: date("day", { mode: "string" }).notNull(),
+  productSlug: text("product_slug").notNull(),
+  plateSlug: text("plate_slug").notNull(),
+  market: text("market").notNull(),
+  country: text("country").notNull(),
+  clicks: integer("clicks").notNull().default(0),
+  uniqueVisitors: integer("unique_visitors").notNull().default(0),
+}, (t) => [uniqueIndex("daily_product_clicks_unique").on(t.tenantId, t.day, t.productSlug, t.plateSlug, t.market, t.country)]);

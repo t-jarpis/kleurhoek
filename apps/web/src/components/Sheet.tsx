@@ -4,6 +4,8 @@ import { layout, type Fills, type Label } from "@/lib/studio";
 
 export interface SheetPlate {
   name: string;
+  /** Hoogte van de tekening; kleurplaten 200, knutselplaten vaak hoger. */
+  height?: number;
   regionCount: number;
   word: string | null;
   countQuestion: string | null;
@@ -25,7 +27,7 @@ export function Sheet({ plate, inner, fills = {}, sw, numbers = false, legend = 
     group.current?.querySelectorAll<SVGElement>("[data-i]").forEach((el) => { el.style.fill = fills[Number(el.dataset.i)] ?? ""; });
   }, [fills, inner]);
 
-  const L = layout({ name, learn, word: plate.word, question: plate.countQuestion, legend: legend ? plate.palette.length : 0 });
+  const L = layout({ name, learn, word: plate.word, question: plate.countQuestion, legend: legend ? plate.palette.length : 0, height: plate.height ?? 200 });
   const hexByNumber = new Map(plate.palette.map((p) => [p.number, p.hex.toLowerCase()]));
   const click = onPick ? (e: MouseEvent<SVGSVGElement>) => {
     const el = (e.target as Element).closest<SVGElement>("[data-i]");
@@ -69,6 +71,6 @@ export function Sheet({ plate, inner, fills = {}, sw, numbers = false, legend = 
 }
 
 /** Van PlateDetail naar wat een vel nodig heeft. */
-export function sheetPlate(p: { name: string; regionCount: number; word: string | null; countQuestion: string | null; colorByNumber: { labels: Label[]; palette: { number: number; hex: string }[] } }): SheetPlate {
-  return { name: p.name, regionCount: p.regionCount, word: p.word, countQuestion: p.countQuestion, labels: p.colorByNumber.labels, palette: p.colorByNumber.palette };
+export function sheetPlate(p: { name: string; height: number; regionCount: number; word: string | null; countQuestion: string | null; colorByNumber: { labels: Label[]; palette: { number: number; hex: string }[] } }): SheetPlate {
+  return { name: p.name, height: p.height, regionCount: p.regionCount, word: p.word, countQuestion: p.countQuestion, labels: p.colorByNumber.labels, palette: p.colorByNumber.palette };
 }

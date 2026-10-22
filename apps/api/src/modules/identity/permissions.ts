@@ -11,6 +11,8 @@ export const PERMISSIONS = {
   "identity.roles.assign": "Rollen toekennen aan beheerders",
   "catalog.manage": "Platen beheren",
   "availability.manage": "Beschikbaarheid per land beheren",
+  "shop.read": "Winkel en winkelcijfers bekijken",
+  "shop.manage": "Winkelkoppelingen en producten beheren",
 } as const;
 
 export type Permission = keyof typeof PERMISSIONS;
@@ -21,7 +23,7 @@ export interface BuiltInRole { slug: string; name: string; permissions: Permissi
 /** Ingebouwde rollen. Worden bij elke start bijgewerkt, zodat code en database niet uit elkaar lopen. */
 export const BUILT_IN_ROLES: BuiltInRole[] = [
   { slug: "platformbeheerder", name: "Platformbeheerder", permissions: ALL_PERMISSIONS },
-  { slug: "contentbeheerder", name: "Contentbeheerder", permissions: ["catalog.manage", "availability.manage", "analytics.read"] },
-  { slug: "analist", name: "Analist", permissions: ["analytics.read", "operations.ratelimit.read"] },
+  { slug: "contentbeheerder", name: "Contentbeheerder", permissions: ["catalog.manage", "availability.manage", "analytics.read", "shop.read", "shop.manage"] },
+  { slug: "analist", name: "Analist", permissions: ["analytics.read", "operations.ratelimit.read", "shop.read"] },
   { slug: "support", name: "Support", permissions: ["identity.users.read", "identity.users.block"] },
 ];

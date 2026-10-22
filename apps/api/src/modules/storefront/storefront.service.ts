@@ -4,8 +4,12 @@ import { todayIn } from "../../shared/dates";
 import { AvailabilityService } from "../availability/availability.service";
 import { CatalogService, type PlateSummary } from "../catalog/catalog.service";
 import { LocalizationService, type Market } from "../localization/localization.service";
+import { ShopService } from "../shop/shop.service";
 
-export interface PlateFilter { category?: string | undefined; age?: string | undefined; continent?: string | undefined; country?: string | undefined; holiday?: string | undefined }
+/** Knip-, vouw- en lijmlijnen van knutselplaten. Zelfde afspraken als in de CSS van de website. */
+export const CRAFT_STYLE = ".cut{fill:none;stroke:#1d1b22;stroke-width:1;stroke-dasharray:4 3}.fold{fill:none;stroke:#1d1b22;stroke-width:.8;stroke-dasharray:1 2.5}.glue{fill:#d5d9de;stroke:#9aa1a9;stroke-width:.6}.tip{font:600 6px Nunito,system-ui,sans-serif;fill:#4a5260}";
+
+export interface PlateFilter { kind?: string | undefined; category?: string | undefined; age?: string | undefined; continent?: string | undefined; country?: string | undefined; holiday?: string | undefined }
 
 /**
  * Leesmodel voor de website. Combineert de publieke interfaces van Catalogus, Lokalisatie en
@@ -19,6 +23,7 @@ export class StorefrontService {
     private readonly catalog: CatalogService,
     private readonly i18n: LocalizationService,
     private readonly availability: AvailabilityService,
+    private readonly shop: ShopService,
   ) {}
 
   private get tenant() { return this.env.TENANT_ID; }
@@ -39,6 +44,7 @@ export class StorefrontService {
   async listPlates(market: Market, filter: PlateFilter, now = new Date()) {
     const { plates, names } = await this.visible(market, now);
     const items = plates.filter((p) =>
+      (!filter.kind || p.kind === filter.kind || (filter.kind === "knutselen" && p.kind !== "kleurplaat")) &&
       (!filter.category || p.category === filter.category || (filter.category === "wereld" && p.continent) || (filter.category === "feest" && p.holiday)) &&
       (!filter.age || p.age === filter.age) &&
       (!filter.continent || p.continent === filter.continent) &&
@@ -47,7 +53,7 @@ export class StorefrontService {
     return items.map((p) => ({
       slug: p.slug, name: names.get(p.slug)!.name, category: p.category, age: p.age,
       world: p.continent ? { continent: p.continent, country: p.depictedCountry } : null,
-      holiday: p.holiday, svg: this.svgPath(p),
+      holiday: p.holiday, svg: this.svgPath(p), kind: p.kind,
     }));
   }
 
@@ -59,6 +65,11 @@ export class StorefrontService {
     const visible = await this.availability.visibleSlugs(this.tenant, [slug], market.country, todayIn(market.country, now));
     if (!visible.has(slug)) return null;
     const colorNames = await this.i18n.translate(this.tenant, "color", market.language, detail.colorByNumber.palette.map((c) => c.code));
+    const needs = await this.catalog.materialsOf(this.tenant, slug);
+    const [materialNames, offers] = await Promise.all([
+      this.i18n.translate(this.tenant, "material", market.language, needs.map((m) => m.slug)),
+      this.shop.forMaterials(market.code, market.language, needs.map((m) => m.slug)),
+    ]);
     return {
       slug, name: tr.name, word: tr.word ?? null, countQuestion: tr.countQuestion ?? null,
       category: detail.category, age: detail.age, holiday: detail.holiday,
@@ -69,7 +80,20 @@ export class StorefrontService {
         palette: detail.colorByNumber.palette.map((c, i) => ({ number: i + 1, code: c.code, hex: c.hex, name: colorNames.get(c.code)?.name ?? c.code })),
         labels: detail.colorByNumber.labels,
       },
+      kind: detail.kind, height: detail.height, minutes: detail.minutes, adultHelp: detail.adultHelp, paperGsm: detail.paperGsm,
+      steps: tr.steps ? tr.steps.split("\n").filter(Boolean) : [],
+      printNote: tr.printNote ?? null,
+      // Wat je nodig hebt, met (als er een is) een product om door te klikken. Voor ouders, zie ADR 0011.
+      materials: needs.filter((m) => materialNames.has(m.slug)).map((m) => ({
+        slug: m.slug, optional: m.optional, name: materialNames.get(m.slug)!.name, hint: materialNames.get(m.slug)!.hint ?? null,
+        product: offers.get(m.slug) ?? null,
+      })),
     };
+  }
+
+  /** Doorverwijzing naar een product; alleen voor producten die in deze markt getoond worden. */
+  productLink(market: Market, product: string, plate: string | undefined) {
+    return this.shop.link(market.code, product, plate ? `kleurhoek-${plate}` : "kleurhoek");
   }
 
   async taxonomy(market: Market) {
@@ -124,7 +148,7 @@ export class StorefrontService {
     ]);
     if (!raw || !detail) return null;
     const sw = taxonomy.ages.find((a) => a.slug === detail.age)?.strokeWidth ?? 2.4;
-    const style = `<style>.r{fill:#fff;stroke:#1d1b22;stroke-width:var(--sw,${sw});stroke-linejoin:round}.l{fill:none;stroke:#1d1b22;stroke-width:var(--sw,${sw});stroke-linecap:round;stroke-linejoin:round}.dot{fill:#1d1b22}</style>`;
+    const style = `<style>.r{fill:#fff;stroke:#1d1b22;stroke-width:var(--sw,${sw});stroke-linejoin:round}.l{fill:none;stroke:#1d1b22;stroke-width:var(--sw,${sw});stroke-linecap:round;stroke-linejoin:round}.dot{fill:#1d1b22}${CRAFT_STYLE}</style>`;
     return raw.replace(/^(<svg[^>]*>)/, `$1${style}`);
   }
 }

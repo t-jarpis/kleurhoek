@@ -1,10 +1,18 @@
 export interface PlateItem {
   slug: string; name: string; category: string; age: string;
   world: { continent: string; country: string | null } | null;
-  holiday: string | null; svg: string;
+  holiday: string | null; svg: string; kind: PlateKind;
+}
+export type PlateKind = "kleurplaat" | "knipplaat" | "bouwplaat" | "spel";
+export interface Material {
+  slug: string; name: string; hint: string | null; optional: boolean;
+  /** Een product om door te klikken (partnerlink), als dat er is. */
+  product: { slug: string; name: string; note: string | null; priceHint: string | null; partner: string } | null;
 }
 export interface PlateDetail extends Omit<PlateItem, "svg"> {
   word: string | null; countQuestion: string | null; version: number; svg: string; regionCount: number;
+  height: number; minutes: number | null; adultHelp: boolean; paperGsm: number | null;
+  steps: string[]; printNote: string | null; materials: Material[];
   colorByNumber: {
     codes: string;
     palette: { number: number; code: string; hex: string; name: string }[];

@@ -9,6 +9,6 @@ async function main() {
   const handle = connectPostgres(env.DATABASE_URL);
   const result = await seed(handle.db, env.TENANT_ID);
   await handle.close();
-  console.warn(result.plates ? `Catalogus gevuld: ${result.plates} platen` : "Catalogus bestond al; niets gedaan");
+  console.warn(result.plates ? `Catalogus bijgewerkt: ${result.plates} nieuwe platen` : "Catalogus is al bij; niets nieuws");
 }
 void main().catch((e) => { console.error(e); process.exit(1); });

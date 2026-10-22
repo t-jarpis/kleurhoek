@@ -28,8 +28,8 @@ export function paint(fills: Fills, region: number, color: string): { next: Fill
 }
 
 /** Hoogte van het tekenvlak: de plaat plus tekst en leerblad als die aan staan. */
-export function layout(opts: { name: string; learn: boolean; word: string | null; question: string | null; legend?: number }) {
-  let y = 200;
+export function layout(opts: { name: string; learn: boolean; word: string | null; question: string | null; legend?: number; height?: number }) {
+  let y = opts.height ?? 200;
   const nameY = opts.name ? y : null; if (opts.name) y += 40;
   const learnY = opts.learn && opts.word ? y : null; if (learnY !== null) y += 46;
   const questionY = learnY !== null && opts.question ? y : null; if (questionY !== null) y += 28;

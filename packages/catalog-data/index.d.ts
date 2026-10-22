@@ -1,15 +1,28 @@
 export type Translations<T> = Record<string, T>;
+/** Soort werkje. Kleurplaten zijn de basis; de rest is knutselwerk. */
+export type PlateKind = "kleurplaat" | "knipplaat" | "bouwplaat" | "spel";
+export const KINDS: PlateKind[];
+export interface PlateMaterial { slug: string; optional: boolean }
 export interface PlateSource {
   slug: string; order: number; category: string; age: string;
   world: { continent: string; country: string | null } | null;
   holiday: string | null; regionCount: number;
+  kind: PlateKind;
+  /** Hoogte van de tekening (viewBox 0 0 200 hoogte). Kleurplaten 200, knutselplaten vaak hoger (A4). */
+  height: number;
+  minutes: number | null;
+  /** Een volwassene moet helpen (schaar, mesje). */
+  adultHelp: boolean;
+  paperGsm: number | null;
+  materials: PlateMaterial[];
   colorByNumber: {
     codes: string;
     palette: { code: string; hex: string }[];
     labels: { region: number; number: number; x: number; y: number; size: number }[];
   };
-  i18n: Translations<{ name: string; word: string | null; countQuestion: string | null }>;
+  i18n: Translations<{ name: string; word: string | null; countQuestion: string | null; steps?: string[]; printNote?: string }>;
 }
+export interface MaterialSource extends Named {}
 export interface Named { slug: string; order: number; i18n: Translations<{ name: string; hint?: string }> }
 export interface CategorySource extends Named { color: string }
 export interface AgeSource extends Named { level: number; strokeWidth: number }
@@ -27,4 +40,5 @@ export function continents(): ContinentSource[];
 export function holidays(): HolidaySource[];
 export function seasons(): SeasonSource[];
 export function colors(): ColorSource[];
+export function materials(): MaterialSource[];
 export function plateSvg(slug: string): string;

@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { api, NotFound } from "@/lib/api";
 import { marketLanguage } from "@/lib/markets";
+import { ForParents } from "@/components/ForParents";
 import { Studio } from "@/components/Studio";
+import { messages } from "@/i18n/nl";
 
 export const revalidate = 300;
 
@@ -27,5 +29,11 @@ export default async function PlatePage({ params }: { params: Promise<{ market: 
   const { market, slug } = await params;
   const { plate, taxonomy, inner } = await load(market, slug);
   const ageWidth = taxonomy.ages.find((a) => a.slug === plate.age)?.strokeWidth ?? 2.4;
-  return <Studio plate={plate} inner={inner} ageWidth={ageWidth} market={market} language={marketLanguage(market)} />;
+  const language = marketLanguage(market);
+  return (
+    <>
+      <Studio plate={plate} inner={inner} ageWidth={ageWidth} market={market} language={language} />
+      <div className="wrap after-studio"><ForParents plate={plate} market={market} t={messages(language)} /></div>
+    </>
+  );
 }

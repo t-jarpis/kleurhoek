@@ -1,6 +1,6 @@
 "use client";
 
-export type TrackEvent = { type: "page_view" | "plate_view" | "plate_colored" | "plate_completed" | "pdf_download" | "print"; market: string; plate?: string };
+export type TrackEvent = { type: "page_view" | "plate_view" | "plate_colored" | "plate_completed" | "pdf_download" | "print" | "materials_view"; market: string; plate?: string };
 
 /** Stuurt een anonieme telling naar ons eigen domein. Geen cookies, geen scripts van derden. */
 export function track(e: TrackEvent) {

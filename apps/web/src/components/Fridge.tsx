@@ -3,15 +3,16 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState, type CSSProperties } from "react";
 import { messages } from "@/i18n/nl";
 import { fridge, useFridge } from "@/lib/local";
-import { svgInner } from "@/lib/svg";
+import { svgHeight, svgInner } from "@/lib/svg";
 import type { PlateItem } from "@/lib/types";
 import { Sheet } from "./Sheet";
 
 const MAGNETS = ["#e2483d", "#2f5bd3", "#f2c618", "#2fa45a", "#d0479b", "#ff8a3d"];
 const TILT = [-3, 2, -1.5, 3, -2, 1];
-const svgCache = new Map<string, Promise<string>>();
+type Loaded = { inner: string; height: number };
+const svgCache = new Map<string, Promise<Loaded>>();
 const loadInner = (url: string) => {
-  if (!svgCache.has(url)) svgCache.set(url, fetch(url).then((r) => (r.ok ? r.text() : "")).then(svgInner).catch(() => ""));
+  if (!svgCache.has(url)) svgCache.set(url, fetch(url).then((r) => (r.ok ? r.text() : "")).then((svg) => ({ inner: svgInner(svg), height: svgHeight(svg) })).catch(() => ({ inner: "", height: 200 })));
   return svgCache.get(url)!;
 };
 
@@ -20,7 +21,7 @@ export function Fridge({ market, plates, language }: { market: string; plates: P
   const t = messages(language);
   const items = useFridge();
   const router = useRouter();
-  const [inner, setInner] = useState<Record<string, string>>({});
+  const [inner, setInner] = useState<Record<string, Loaded>>({});
   const [sure, setSure] = useState<string | null>(null);
   const names = new Map(plates.map((p) => [p.slug, p.name]));
   const shown = items.filter((i) => names.has(i.slug));
@@ -47,7 +48,7 @@ export function Fridge({ market, plates, language }: { market: string; plates: P
             <div className="magw" key={item.id}>
               <button type="button" className="mag" style={{ "--rot": `${TILT[k % 6]}deg`, "--mc": MAGNETS[k % 6] } as CSSProperties}
                 aria-label={name} onClick={() => { fridge.resume(item); router.push(`/${market}/platen/${item.slug}`); }}>
-                {svg ? <Sheet plate={{ name, regionCount: -1, word: null, countQuestion: null, labels: [], palette: [] }} inner={svg} fills={item.fills} name={item.name} sw={2} /> : <span className="mag-empty" />}
+                {svg?.inner ? <Sheet plate={{ name, height: svg.height, regionCount: -1, word: null, countQuestion: null, labels: [], palette: [] }} inner={svg.inner} fills={item.fills} name={item.name} sw={2} /> : <span className="mag-empty" />}
               </button>
               <small>
                 <span>{name} · {item.date}</span>

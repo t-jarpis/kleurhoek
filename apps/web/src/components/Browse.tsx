@@ -6,7 +6,7 @@ import { messages } from "@/i18n/nl";
 import { PlateCard } from "./PlateCard";
 import { book, useBook } from "@/lib/local";
 
-type Key = "onderwerp" | "werelddeel" | "land" | "feestdag" | "leeftijd";
+type Key = "soort" | "onderwerp" | "werelddeel" | "land" | "feestdag" | "leeftijd";
 
 /** Filters en raster. De filterstand staat in de URL, zodat je hem kunt delen en de pagina zelf gecachet blijft. */
 export function Browse({ plates, taxonomy, market, language }: { plates: PlateItem[]; taxonomy: Taxonomy; market: string; language: string }) {
@@ -16,6 +16,7 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
   const params = useSearchParams();
   const picks = useBook();
   const f = {
+    kind: params.get("soort") ?? "alle",
     cat: params.get("onderwerp") ?? "alle", cont: params.get("werelddeel") ?? "alle", land: params.get("land") ?? "alle",
     hol: params.get("feestdag") ?? "alle", age: params.get("leeftijd") ?? "alle",
   };
@@ -27,7 +28,9 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
   };
 
   const inCat = (p: PlateItem, c: string) => c === "alle" || (c === "wereld" ? !!p.world : c === "feest" ? !!p.holiday : p.category === c);
-  const aged = plates.filter((p) => f.age === "alle" || p.age === f.age);
+  const ofKind = (p: PlateItem, k: string) => k === "alle" || (k === "knutselen" ? p.kind !== "kleurplaat" : p.kind === k);
+  const aged = plates.filter((p) => (f.age === "alle" || p.age === f.age) && ofKind(p, f.kind));
+  const crafts = plates.filter((p) => p.kind !== "kleurplaat").length;
   const visible = useMemo(() => aged.filter((p) => inCat(p, f.cat)
     && (f.cat !== "wereld" || f.cont === "alle" || p.world?.continent === f.cont)
     && (f.cat !== "wereld" || f.land === "alle" || p.world?.country === f.land)
@@ -46,6 +49,15 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
   return (
     <>
       <div className="filters">
+        {crafts > 0 && (
+          <div className="frow"><span className="flabel">{t.kind}</span>
+            <div className="seg" role="group" aria-label={t.kind}>
+              {([["alle", t.allKinds], ["kleurplaat", t.kindColoring], ["knutselen", t.kindCrafts]] as const).map(([k, label]) => (
+                <button key={k} type="button" aria-pressed={f.kind === k} onClick={() => set({ soort: k })}>{label}</button>
+              ))}
+            </div>
+          </div>
+        )}
         <div className="frow"><span className="flabel">{t.topic}</span>
           <nav className="chips" aria-label={t.topic}>
             {chip("onderwerp", "alle", t.all, "var(--fg)", aged.length, f.cat === "alle")}
@@ -93,7 +105,7 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
           <div className="empty"><b>{t.emptyTitle}</b><span>{t.emptyText}</span>
             <button type="button" className="btn" onClick={() => router.replace(pathname, { scroll: false })}>{t.showAll}</button></div>
         ) : visible.map((p) => (
-          <PlateCard key={p.slug} plate={p} market={market} taxonomy={taxonomy} view={f.cat} yr={t.yr}
+          <PlateCard key={p.slug} plate={p} market={market} taxonomy={taxonomy} view={f.cat} yr={t.yr} kindLabel={p.kind !== "kleurplaat" ? t.kindNames[p.kind] : undefined}
             {...(picks.picking ? { pick: { selected: picks.slugs.includes(p.slug), onToggle: () => book.toggle(p.slug) } } : {})} />
         ))}
       </main>

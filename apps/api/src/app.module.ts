@@ -4,10 +4,11 @@ import { AnalyticsModule } from "./modules/analytics/analytics.module";
 import { HealthController } from "./modules/health/health.controller";
 import { IdentityModule } from "./modules/identity/identity.module";
 import { OperationsModule } from "./modules/operations/operations.module";
+import { ShopModule } from "./modules/shop/shop.module";
 import { StorefrontModule } from "./modules/storefront/storefront.module";
 
 @Module({
-  imports: [DatabaseModule, IdentityModule, OperationsModule, StorefrontModule, AnalyticsModule],
+  imports: [DatabaseModule, IdentityModule, OperationsModule, ShopModule, StorefrontModule, AnalyticsModule],
   controllers: [HealthController],
 })
 export class AppModule {}

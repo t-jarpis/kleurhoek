@@ -33,6 +33,12 @@ export const nl = {
   bookInfo: (n: number) => `Voorblad en ${n} ${n === 1 ? "plaat" : "platen"}, elk op een eigen A4.`, printBook: "Boekje printen",
   remove: (name: string) => `${name} weghalen`, page: (n: number) => `Blad ${n}`, myBook: "Mijn kleurboek", of: "van",
   bookCount: (n: number) => `${n} kleurplaten · Kleurhoek`, bookEmpty: "Nog geen platen gekozen. Ga terug en tik op de platen die je wilt.",
+  kind: "Soort", allKinds: "Alles", kindColoring: "Kleurplaten", kindCrafts: "Knutselen",
+  kindNames: { kleurplaat: "Kleurplaat", knipplaat: "Knipplaat", bouwplaat: "Bouwplaat", spel: "Spel" } as Record<string, string>,
+  forParents: "Voor ouders", howToMake: "Zo maak je het", whatYouNeed: "Wat heb je nodig", optional: "mag ook",
+  aboutMinutes: (n: number) => `ongeveer ${n} minuten`, adultHelp: "met hulp van een volwassene", paper: (g: number) => `papier van ${g} gram`,
+  atPartner: (p: string) => `bij ${p}`,
+  partnerDisclosure: "Partnerlinks: als je via deze links iets koopt, krijgt Kleurhoek een kleine vergoeding van de winkel. Jij betaalt hetzelfde. Zo blijven de platen gratis.",
   deleteAccount: "Account verwijderen", deleteSure: "Zeker weten? Tik nog eens",
 } as const;
 

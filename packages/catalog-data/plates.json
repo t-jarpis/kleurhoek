@@ -9513,5 +9513,141 @@
         "countQuestion": null
       }
     }
+  },
+  {
+    "slug": "lampion-maken",
+    "order": 65,
+    "category": "feest",
+    "age": "6-9",
+    "world": null,
+    "holiday": "sintmaarten",
+    "kind": "bouwplaat",
+    "height": 270,
+    "minutes": 30,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      },
+      {
+        "slug": "led-lampionstokje",
+        "optional": true
+      }
+    ],
+    "regionCount": 9,
+    "colorByNumber": {
+      "codes": "orrpyorrr",
+      "palette": [
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 94,
+          "y": 52,
+          "size": 10
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 94,
+          "y": 23,
+          "size": 6
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 94,
+          "y": 117,
+          "size": 6
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 94,
+          "y": 148,
+          "size": 6
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 130,
+          "y": 232,
+          "size": 7
+        },
+        {
+          "region": 5,
+          "number": 1,
+          "x": 52,
+          "y": 206,
+          "size": 7
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 108,
+          "y": 193,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 140,
+          "y": 219,
+          "size": 4
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 160,
+          "y": 189,
+          "size": 3
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Lampion om te maken",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram). Gewoon printpapier kan ook.",
+        "steps": [
+          "Kleur de lampion, het handvat en de binnenkant in. Geel en oranje laten het licht mooi doorschijnen.",
+          "Knip de drie stroken uit langs de buitenste streepjeslijn.",
+          "Vouw de grote strook dubbel langs de stippellijn, met de tekening naar buiten.",
+          "Knip vanaf de vouw langs de korte streepjeslijnen. Stop bij de rand, niet doorknippen.",
+          "Vouw open, rol op tot een koker en plak het grijze randje vast.",
+          "Rol de binnenkant op, plak hem en schuif hem in de lampion.",
+          "Plak het handvat aan de bovenkant. Gebruik een ledlampje, nooit een echte kaars."
+        ]
+      }
+    }
   }
 ]

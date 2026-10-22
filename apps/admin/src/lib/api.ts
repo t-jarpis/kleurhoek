@@ -18,6 +18,26 @@ export interface AdminUser {
 export interface Role { slug: string; name: string; permissions: string[] }
 export interface Me { userId: string; subject: string; permissions: string[] }
 
+export interface Partner {
+  slug: string; name: string; enabled: boolean; linkTemplate: string; settings: Record<string, string>;
+  allowedHosts: string[]; updatedBy: string; updatedAt: string;
+}
+export interface Product {
+  slug: string; partner: string; url: string; ean: string | null; priceHint: string | null; enabled: boolean;
+  markets: string[]; name: string | null; note: string | null; materials: string[]; rank: number;
+}
+export interface ProductInput {
+  partner: string; url: string; ean?: string | null; priceHint?: string | null; enabled: boolean;
+  markets: string[]; name: string; note?: string | null; materials: string[]; rank?: number;
+}
+export interface ShopSummary {
+  from: string; to: string; previous: { from: string; to: string };
+  totals: { materialsViews: number; productClicks: number; clickRate: number };
+  products: { product: string; clicks: number; visitors: number; previousVisitors: number; growth: number | null; topPlates: string[] }[];
+  plates: { plate: string; materialsViews: number; productClicks: number; clickRate: number }[];
+  candidates: ShopSummary["products"];
+}
+
 export class ApiError extends Error {
   constructor(readonly status: number, message: string) { super(message); }
 }
@@ -48,6 +68,14 @@ export const adminApi = {
   },
   roles: () => call<{ roles: Role[]; permissions: Record<string, string> }>("/v1/admin/roles"),
   setRoles: (id: string, roles: string[]) => call<AdminUser>(`/v1/admin/users/${encodeURIComponent(id)}/roles`, { method: "PUT", body: JSON.stringify({ roles }) }),
+  partners: () => call<{ partners: Partner[] }>("/v1/admin/shop/partners").then((r) => r.partners),
+  createPartner: (body: { slug: string; name: string; linkTemplate: string; allowedHosts: string[] }) =>
+    call<{ slug: string }>("/v1/admin/shop/partners", { method: "POST", body: JSON.stringify(body) }),
+  updatePartner: (slug: string, body: { enabled?: boolean; linkTemplate?: string; settings?: Record<string, string> }) =>
+    call<Partner>(`/v1/admin/shop/partners/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
+  products: () => call<{ products: Product[]; materials: { slug: string; name: string }[]; partners: { slug: string; name: string; enabled: boolean }[] }>("/v1/admin/shop/products"),
+  saveProduct: (slug: string, body: ProductInput) => call<{ slug: string }>(`/v1/admin/shop/products/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
+  shopSummary: (from: string, to: string) => call<ShopSummary>(`/v1/admin/analytics/shop?from=${from}&to=${to}`),
   setStatus: (id: string, status: "active" | "blocked") => call<AdminUser>(`/v1/admin/users/${encodeURIComponent(id)}/status`, { method: "PUT", body: JSON.stringify({ status }) }),
 };
 

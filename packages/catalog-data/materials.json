@@ -1,0 +1,92 @@
+[
+  {
+    "slug": "kleurpotloden",
+    "order": 0,
+    "i18n": {
+      "nl": {
+        "name": "Kleurpotloden",
+        "hint": "Voor fijne vlakken en kleine handen"
+      }
+    }
+  },
+  {
+    "slug": "stiften",
+    "order": 1,
+    "i18n": {
+      "nl": {
+        "name": "Stiften",
+        "hint": "Felle kleuren, kies uitwasbare"
+      }
+    }
+  },
+  {
+    "slug": "waskrijtjes",
+    "order": 2,
+    "i18n": {
+      "nl": {
+        "name": "Waskrijtjes",
+        "hint": "Dik en stevig, fijn voor de kleinsten"
+      }
+    }
+  },
+  {
+    "slug": "kinderschaar",
+    "order": 3,
+    "i18n": {
+      "nl": {
+        "name": "Kinderschaar",
+        "hint": "Met ronde punt; laat jonge kinderen niet alleen knippen"
+      }
+    }
+  },
+  {
+    "slug": "lijmstift",
+    "order": 4,
+    "i18n": {
+      "nl": {
+        "name": "Lijmstift",
+        "hint": "Plakt papier zonder kliederen"
+      }
+    }
+  },
+  {
+    "slug": "plakband",
+    "order": 5,
+    "i18n": {
+      "nl": {
+        "name": "Plakband",
+        "hint": null
+      }
+    }
+  },
+  {
+    "slug": "stevig-papier",
+    "order": 6,
+    "i18n": {
+      "nl": {
+        "name": "Stevig papier (160 gram)",
+        "hint": "Voor bouwplaten en kaarten die moeten blijven staan"
+      }
+    }
+  },
+  {
+    "slug": "led-lampionstokje",
+    "order": 7,
+    "i18n": {
+      "nl": {
+        "name": "Ledlampionstokje",
+        "hint": "Veilig licht in je lampion"
+      }
+    }
+  },
+  {
+    "slug": "splitpennen",
+    "order": 8,
+    "i18n": {
+      "nl": {
+        "name": "Splitpennen",
+        "hint": "Voor beweegbare armen en benen"
+      }
+    }
+  }
+]

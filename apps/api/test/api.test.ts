@@ -26,10 +26,10 @@ describe("website-API", () => {
     expect(r.headers["cache-control"]).toBe("no-store");
   });
 
-  it("geeft alle 65 platen voor nl-NL, met cache-headers voor het CDN", async () => {
+  it("geeft alle platen voor nl-NL, met cache-headers voor het CDN", async () => {
     const r = await get("/v1/markets/nl-nl/plates");
     expect(r.statusCode).toBe(200);
-    expect(r.json().count).toBe(65);
+    expect(r.json().count).toBe(source.plates().length);
     expect(r.headers["cache-control"]).toContain("s-maxage");
     expect(r.json().items[0]).toMatchObject({ slug: "kat", name: "Kat op een kussen", svg: "/v1/assets/plates/kat/1.svg" });
   });
@@ -81,7 +81,7 @@ describe("website-API", () => {
   it("verbergt een plaat met een beschikbaarheidsregel voor een ander land", async () => {
     await withTenant(db, TENANT, (tx) => tx.insert(plateRules).values({ tenantId: TENANT, plateSlug: "kroon", mode: "only_in", countries: ["BE"] }));
     expect((await get("/v1/markets/nl-NL/plates/kroon")).statusCode).toBe(404);
-    expect((await get("/v1/markets/nl-NL/plates")).json().count).toBe(64);
+    expect((await get("/v1/markets/nl-NL/plates")).json().count).toBe(source.plates().length - 1);
     await withTenant(db, TENANT, (tx) => tx.delete(plateRules).where(eq(plateRules.plateSlug, "kroon")));
   });
 });

@@ -9,6 +9,7 @@ test("elke plaat is compleet en consistent", () => {
   const ages = new Set(data.ages().map((a) => a.slug));
   const conts = new Set(data.continents().map((c) => c.slug));
   const hols = new Set(data.holidays().map((h) => h.slug));
+  const mats = new Set(data.materials().map((m) => m.slug));
   const slugs = new Set();
   for (const p of plates) {
     assert.ok(!slugs.has(p.slug), `dubbele slug ${p.slug}`); slugs.add(p.slug);
@@ -25,6 +26,14 @@ test("elke plaat is compleet en consistent", () => {
     assert.equal(p.colorByNumber.labels.length, numbered, `${p.slug}: nummers`);
     assert.ok(p.i18n.nl && p.i18n.nl.name, `${p.slug}: Nederlandse naam`);
     assert.doesNotMatch(svg, /<script|on\w+=/i, `${p.slug}: SVG bevat script`);
+    assert.ok(data.KINDS.includes(p.kind), `${p.slug}: onbekende soort`);
+    assert.match(svg, new RegExp(`viewBox="0 0 200 ${p.height}"`), `${p.slug}: hoogte klopt niet met de SVG`);
+    for (const m of p.materials) assert.ok(mats.has(m.slug), `${p.slug}: onbekend materiaal ${m.slug}`);
+    if (p.kind !== "kleurplaat") {
+      assert.ok(p.i18n.nl.steps?.length, `${p.slug}: knutselwerk zonder stappen`);
+      assert.match(svg, /class="cut"/, `${p.slug}: knutselwerk zonder kniplijn`);
+    }
   }
-  assert.equal(plates.length, 65);
+  assert.equal(plates.length, 66);
+  assert.ok(plates.some((p) => p.kind !== "kleurplaat"), "minstens één knutselwerk");
 });

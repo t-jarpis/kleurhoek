@@ -50,6 +50,20 @@
       "when": 1792652585297,
       "tag": "0006_app_user_membership",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1792677650570,
+      "tag": "0007_werkjes_en_winkel",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1792677659021,
+      "tag": "0008_rls_werkjes_en_winkel",
+      "breakpoints": true
     }
   ]
 }

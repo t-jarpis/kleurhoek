@@ -6,6 +6,7 @@ import { StorefrontService } from "./storefront.service";
 
 const Slug = z.string().regex(/^[a-z0-9-]{1,64}$/);
 const Filter = z.object({
+  kind: z.enum(["kleurplaat", "knipplaat", "bouwplaat", "spel", "knutselen"]).optional(),
   category: Slug.optional(), age: z.string().regex(/^[0-9+-]{2,8}$/).optional(), continent: Slug.optional(),
   country: z.string().min(2).max(60).optional(), holiday: Slug.optional(),
 }).strict();
@@ -40,6 +41,17 @@ export class StorefrontController {
     if (!plate) throw new NotFoundException("Plaat niet gevonden");
     res.header("Cache-Control", PUBLIC_CACHE);
     return plate;
+  }
+
+  /** Voor de website-route /ga/...: het adres van de partnerlink. De website telt de klik en stuurt door. */
+  @Get("markets/:market/products/:product/link")
+  async productLink(@Param("market") code: string, @Param("product") product: string, @Query("plate") plate: string | undefined, @Res({ passthrough: true }) res: FastifyReply) {
+    if (!/^[a-z0-9-]{2,64}$/.test(product) || (plate !== undefined && !Slug.safeParse(plate).success)) throw new NotFoundException();
+    const market = await this.market(code);
+    const url = await this.store.productLink(market, product, plate);
+    if (!url) throw new NotFoundException("Product niet beschikbaar");
+    res.header("Cache-Control", "no-store");
+    return { url };
   }
 
   @Get("markets/:market/taxonomy")

@@ -45,3 +45,17 @@ form.roles label { display: inline-flex; gap: 6px; align-items: center; white-sp
 .center { max-width: 460px; margin: 15vh auto; padding: 0 16px; text-align: center; }
 a.button { display: inline-block; padding: 8px 16px; border-radius: 8px; background: var(--accent); color: #fff; font-weight: 800; text-decoration: none; }
 @media (max-width: 760px) { nav.side .who { margin-top: 0; padding-top: 0; border-top: 0; flex-direction: row; align-items: center; } }
+.stack { display: flex; flex-direction: column; gap: 14px; }
+.row-between { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.row-between h2 { margin: 0; }
+.field { display: flex; flex-direction: column; gap: 4px; border: 0; padding: 0; margin: 0; min-width: 0; }
+.field > span, .field legend { font-weight: 800; font-size: 13px; }
+.field small { color: var(--muted); }
+.field input, .field select { padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg); font: inherit; min-width: 0; }
+.field input.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
+.field input:read-only { color: var(--muted); }
+.check { display: inline-flex; gap: 8px; align-items: center; font-weight: 600; }
+.checks { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.grid-form { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 16px; align-items: start; }
+.grid-form .wide { grid-column: 1 / -1; }
+@media (max-width: 900px) { .grid-form { grid-template-columns: minmax(0, 1fr); } }

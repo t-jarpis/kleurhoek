@@ -14,6 +14,7 @@ export default async function PanelLayout({ children }: { children: React.ReactN
       <nav className="side" aria-label="Beheer">
         <b>Kleurhoek beheer</b>
         {can("analytics.read") && <Link href="/">Dashboard</Link>}
+        {can("shop.read") && <Link href="/winkel">Winkel</Link>}
         {can("identity.users.read") && <Link href="/gebruikers">Gebruikers</Link>}
         {can("operations.ratelimit.read") && <Link href="/rate-limits">Rate limits</Link>}
         <div className="who">
