@@ -1,3 +1,4 @@
+import { loadEnv } from "../src/config/env";
 import * as source from "@kleurhoek/catalog-data";
 import { and, eq } from "drizzle-orm";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
@@ -158,7 +159,6 @@ describe("rate limiting", () => {
 
 describe("configuratie", () => {
   it("weigert een dev-beheerderstoken in productie", async () => {
-    const { loadEnv } = await import("../src/config/env");
     expect(() => loadEnv({ NODE_ENV: "production", DATABASE_URL: "postgres://x@localhost/db", INGEST_KEY: "k".repeat(40), ADMIN_DEV_TOKEN: "t".repeat(40) })).toThrow(/niet toegestaan/);
     expect(() => loadEnv({ NODE_ENV: "production", INGEST_KEY: "k".repeat(40) })).toThrow(/DATABASE_URL/);
   });

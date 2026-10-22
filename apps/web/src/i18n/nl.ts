@@ -19,6 +19,11 @@ export const nl = {
   months: ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"],
   weekdays: ["zondag", "maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"],
   around: "rond",
+  login: "Inloggen", account: "Mijn account", logout: "Uitloggen", loading: "Even laden…",
+  accountError: "Je account kan nu niet geladen worden. Probeer het later opnieuw.",
+  name: "Naam", email: "E-mail", memberSince: "Lid sinds",
+  accountPrivacy: "We bewaren alleen je naam en e-mailadres. Inloggen gaat via je eigen Google-, Apple- of Microsoft-account of een e-mailcode; we kennen geen wachtwoord.",
+  deleteAccount: "Account verwijderen", deleteSure: "Zeker weten? Tik nog eens",
 } as const;
 
 export type Messages = typeof nl;

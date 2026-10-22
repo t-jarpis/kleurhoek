@@ -1,3 +1,4 @@
+import { AccountButton } from "@/components/AccountButton";
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { api, NotFound } from "@/lib/api";
@@ -23,7 +24,7 @@ export default async function Home({ params }: { params: Promise<{ market: strin
     <div className="wrap">
       <header className="mast">
         <div><Logo market={market} /><p className="lede">{t.lede}</p></div>
-        <div className="row no-print"><Surprise market={market} slugs={plates.map((p) => p.slug)} label={t.surprise} /></div>
+        <div className="row no-print"><Surprise market={market} slugs={plates.map((p) => p.slug)} label={t.surprise} /><AccountButton market={market} t={{ login: t.login, account: t.account, logout: t.logout }} /></div>
       </header>
       <SeasonBand season={season} plates={plates} taxonomy={taxonomy} market={market} t={t} />
       <Suspense fallback={null}><Browse plates={plates} taxonomy={taxonomy} market={market} language={language} /></Suspense>

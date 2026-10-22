@@ -1,4 +1,4 @@
-import { adminApi } from "@/lib/api";
+import { adminApi, describe } from "@/lib/api";
 import { saveRule, toggleRule } from "./actions";
 
 export const dynamic = "force-dynamic";
@@ -8,7 +8,7 @@ const KEY = { ip: "per bezoeker (IP, gehasht)", user: "per beheerder", client: "
 
 export default async function RateLimits() {
   let rules;
-  try { rules = await adminApi.rateLimits(); } catch (e) { return <div className="err"><h1>Geen verbinding met de API</h1><p>{(e as Error).message}</p></div>; }
+  try { rules = await adminApi.rateLimits(); } catch (e) { const d = describe(e); return <div className="err"><h1>{d.title}</h1><p>{d.text}</p></div>; }
   const today = new Date().toISOString().slice(0, 10);
   return (
     <>

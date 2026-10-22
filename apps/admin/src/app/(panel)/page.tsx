@@ -1,4 +1,4 @@
-import { adminApi } from "@/lib/api";
+import { adminApi, describe } from "@/lib/api";
 
 export const dynamic = "force-dynamic";
 
@@ -11,7 +11,8 @@ export default async function Dashboard() {
     const [summary, rules] = await Promise.all([adminApi.summary(iso(from), iso(to)), adminApi.rateLimits()]);
     data = { summary, rules };
   } catch (e) {
-    return <div className="err"><h1>Geen verbinding met de API</h1><p>{(e as Error).message}</p></div>;
+    const d = describe(e);
+    return <div className="err"><h1>{d.title}</h1><p>{d.text}</p></div>;
   }
   const { summary, rules } = data;
   const sum = (k: "pageViews" | "plateViews") => summary.byCountry.reduce((s, r) => s + r[k], 0);
