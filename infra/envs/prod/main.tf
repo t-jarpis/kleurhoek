@@ -57,6 +57,12 @@ variable "admin_bootstrap_subjects" {
   default = []
 }
 
+variable "redirect_zone_ids" {
+  type        = map(string)
+  default     = {}
+  description = "Extra domeinen die doorsturen naar www.kleurhoek.nl, met hun Cloudflare-zone-ID. Bijvoorbeeld { \"kleurhoek.be\" = \"...\", \"kleurhoek.com\" = \"...\" }."
+}
+
 variable "zitadel_login_cname" {
   type    = string
   default = null
@@ -101,6 +107,16 @@ module "site" {
       block_for  = 60
     },
   ]
+}
+
+# kleurhoek.be en kleurhoek.com sturen voorlopig door naar de Nederlandse site (pad blijft behouden).
+# Gaat een markt live met een eigen domein, dan krijgt dat domein een eigen site-configuratie (ADR 0013).
+module "redirect_domain" {
+  source   = "../../modules/redirect-domain"
+  for_each = var.redirect_zone_ids
+  zone_id  = each.value
+  domain   = each.key
+  target   = "https://www.kleurhoek.nl"
 }
 
 output "site" { value = module.site }

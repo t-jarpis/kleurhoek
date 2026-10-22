@@ -6,5 +6,6 @@ zitadel_admin_org_id     = "<organisatie-id van Org Beheer>"
 zitadel_idp_ids          = ["<google-idp-id>", "<apple-idp-id>", "<microsoft-idp-id>"]
 cloudflare_account_id    = "<account-id>"
 cloudflare_zone_id       = "<zone-id van kleurhoek.nl>"
+redirect_zone_ids        = { "kleurhoek.be" = "<zone-id>", "kleurhoek.com" = "<zone-id>" }
 admin_emails             = ["thijs@example.com"]
 admin_bootstrap_subjects = ["<jouw Zitadel-gebruikers-id>"]

@@ -7,6 +7,7 @@ Terraform voor twee omgevingen (`envs/dev`, `envs/prod`), plus `envs/local` dat 
 | `modules/zitadel` | Organisatie *Kleurhoek*, het project, de apps *Kleurhoek web* en *Kleurhoek admin* (JWT-access tokens), toegang voor Org Beheer |
 | `modules/azure` | Resourcegroep, VNet, PostgreSQL (alleen privé), Container Registry, Key Vault, managed identities, Container Apps (API intern, website en admin alleen via Cloudflare), jobs voor migraties en seed, deploy-identiteit voor GitHub (OIDC) |
 | `modules/cloudflare` | DNS, Origin CA-certificaat, TLS strict, rate limits aan de rand, Cloudflare Access voor het admin panel, kaal domein naar www |
+| `modules/redirect-domain` | Extra domeinen (`kleurhoek.be`, `kleurhoek.com`) die met pad en query doorsturen naar www.kleurhoek.nl (alleen prod) |
 
 Alles van Kleurhoek staat in eigen accounts en een eigen state, zodat de site los verkocht kan worden.
 
@@ -19,7 +20,7 @@ Alles van Kleurhoek staat in eigen accounts en een eigen state, zodat de site lo
    az role assignment create --role "Storage Blob Data Contributor" --assignee <jouw e-mail> --scope <id van het storage account>
    ```
    Geef bij `terraform init` de naam van het storage account mee: `-backend-config="storage_account_name=<naam>"`.
-2. **Cloudflare**: zone `kleurhoek.nl` toevoegen (nameservers bij de registrar aanpassen). Maak een API-token met alleen de rechten *Zone: DNS Edit, Zone Settings Edit, SSL and Certificates Edit, Zone WAF Edit* voor deze zone en *Account: Access: Apps and Policies Edit*. Zet hem als `CLOUDFLARE_API_TOKEN`.
+2. **Cloudflare**: de zones `kleurhoek.nl`, `kleurhoek.be` en `kleurhoek.com` toevoegen (gratis plan; nameservers bij Neostrada aanpassen naar die van Cloudflare). De domeinen staan geregistreerd bij Neostrada. Maak een API-token met alleen de rechten *Zone: DNS Edit, Zone Settings Edit, SSL and Certificates Edit, Zone WAF Edit* voor deze drie zones en *Account: Access: Apps and Policies Edit*. Zet hem als `CLOUDFLARE_API_TOKEN`. In prod vul je de zone-ID's van `.be` en `.com` in bij `redirect_zone_ids`: die sturen door naar www.kleurhoek.nl.
 3. **Zitadel Cloud**: instance in de EU-regio. Instance-instellingen (eenmalig, gedeeld met andere sites):
    - Identity providers Google, Apple en Microsoft toevoegen; noteer hun ID's (`zitadel_idp_ids`).
    - Login-instellingen: login v2, wachtwoorden uit, passkeys en e-mailcode aan.
