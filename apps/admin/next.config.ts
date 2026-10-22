@@ -1,3 +1,4 @@
+import path from "node:path";
 import type { NextConfig } from "next";
 
 const isDev = process.env.NODE_ENV === "development";
@@ -8,6 +9,9 @@ const csp = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // Container-image met alleen wat nodig is; de monorepo-root zodat gedeelde pakketten meekomen.
+  output: "standalone",
+  outputFileTracingRoot: path.join(__dirname, "../.."),
   async headers() {
     return [{ source: "/(.*)", headers: [
       { key: "Content-Security-Policy", value: csp },

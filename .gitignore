@@ -11,3 +11,11 @@ apps/*/dist/
 .next/
 next-env.d.ts
 *.tsbuildinfo
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+crash.log

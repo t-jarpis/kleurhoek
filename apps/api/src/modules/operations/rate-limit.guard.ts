@@ -9,8 +9,9 @@ export const RateLimit = (rule: string) => SetMetadata(RATE_LIMIT_RULE, rule);
 export const SkipRateLimit = () => SetMetadata(RATE_LIMIT_RULE, false);
 
 /**
- * Het IP-adres van de bezoeker. De origin accepteert alleen verkeer van Cloudflare (authenticated
- * origin pulls), dus CF-Connecting-IP is betrouwbaar. Zonder Cloudflare (lokaal) het socket-adres.
+ * Het IP-adres van de bezoeker. De API heeft geen publieke ingang: alleen website en admin roepen hem
+ * aan, en die geven CF-Connecting-IP van Cloudflare door. Daarom is die header hier betrouwbaar.
+ * Zonder header (lokaal, of server-side ophalen voor de cache) het socket-adres.
  */
 export function clientIp(req: FastifyRequest): string {
   const cf = req.headers["cf-connecting-ip"];

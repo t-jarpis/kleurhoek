@@ -1,7 +1,7 @@
+import path from "node:path";
 import type { NextConfig } from "next";
 
 const isDev = process.env.NODE_ENV === "development";
-const API_URL = process.env.API_URL ?? "http://localhost:3001";
 
 // Geen scripts van derden, geen externe fonts (zelf gehost), geen frames.
 const csp = [
@@ -20,6 +20,9 @@ const csp = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // Container-image met alleen wat nodig is; de monorepo-root zodat gedeelde pakketten meekomen.
+  output: "standalone",
+  outputFileTracingRoot: path.join(__dirname, "../.."),
   reactStrictMode: true,
   experimental: { sri: { algorithm: "sha256" } },
   async headers() {
@@ -34,10 +37,6 @@ const nextConfig: NextConfig = {
         { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
       ],
     }];
-  },
-  // Lokaal: SVG's via de website-origin. In productie routeert Cloudflare /v1/assets naar het CDN.
-  async rewrites() {
-    return [{ source: "/v1/assets/:path*", destination: `${API_URL}/v1/assets/:path*` }];
   },
 };
 

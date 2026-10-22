@@ -7,6 +7,8 @@ import { loadEnv } from "./config/env";
 async function main() {
   const env = loadEnv();
   const app = hardenApp(await NestFactory.create<NestFastifyApplication>(AppModule, fastifyAdapter(), { logger: ["error", "warn", "log"] }));
+  // Netjes stoppen bij een nieuwe versie: tellers wegschrijven en de database sluiten.
+  app.enableShutdownHooks();
   await app.listen({ port: env.PORT, host: "0.0.0.0" });
 }
 void main();

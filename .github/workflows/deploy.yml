@@ -1,0 +1,112 @@
+name: Deploy
+# main gaat automatisch naar dev. Productie: handmatig starten met environment=prod; de GitHub-omgeving
+# "prod" vraagt dan om goedkeuring. Inloggen bij Azure via OIDC: er staan geen Azure-geheimen in GitHub.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Omgeving
+        type: choice
+        options: [dev, prod]
+        default: dev
+
+permissions:
+  contents: read
+  packages: read
+  id-token: write
+
+concurrency:
+  group: deploy-${{ inputs.environment || 'dev' }}
+  cancel-in-progress: false
+
+env:
+  TARGET_ENV: ${{ inputs.environment || 'dev' }}
+  TAG: ${{ github.sha }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment || 'dev' }}
+    strategy:
+      matrix:
+        app: [api, web, admin]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - run: az acr login --name "${{ vars.ACR_NAME }}"
+      - uses: docker/setup-buildx-action@v3
+      - name: npmrc voor GitHub Packages
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.PLATFORM_PACKAGES_TOKEN || secrets.GITHUB_TOKEN }}" > "$RUNNER_TEMP/npmrc"
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          target: ${{ matrix.app }}
+          push: true
+          provenance: mode=max
+          sbom: true
+          tags: ${{ vars.ACR_NAME }}.azurecr.io/kleurhoek-${{ matrix.app }}:${{ env.TAG }}
+          build-args: NEXT_PUBLIC_MARKETS=${{ vars.MARKETS || 'nl-nl' }}
+          secret-files: npmrc=${{ runner.temp }}/npmrc
+          cache-from: type=gha,scope=${{ matrix.app }}
+          cache-to: type=gha,scope=${{ matrix.app }},mode=max
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment || 'dev' }}
+    env:
+      RG: ${{ vars.RESOURCE_GROUP }}
+      PREFIX: kh-${{ inputs.environment || 'dev' }}
+      REGISTRY: ${{ vars.ACR_NAME }}.azurecr.io
+    steps:
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Migraties (vóór de nieuwe versie)
+        run: |
+          set -euo pipefail
+          job="caj-$PREFIX-migrate"
+          az containerapp job update -g "$RG" -n "$job" --image "$REGISTRY/kleurhoek-api:$TAG" --output none
+          run=$(az containerapp job start -g "$RG" -n "$job" --query name -o tsv)
+          echo "Gestart: $run"
+          for i in $(seq 1 60); do
+            status=$(az containerapp job execution show -g "$RG" -n "$job" --job-execution-name "$run" --query properties.status -o tsv)
+            echo "Status: $status"
+            case "$status" in
+              Succeeded) exit 0 ;;
+              Failed|Stopped|Degraded) echo "::error::Migratie mislukt ($status)"; exit 1 ;;
+            esac
+            sleep 10
+          done
+          echo "::error::Migratie duurde te lang"; exit 1
+
+      - name: Seed-job bijwerken (draait alleen handmatig, eenmalig per omgeving)
+        run: az containerapp job update -g "$RG" -n "caj-$PREFIX-seed" --image "$REGISTRY/kleurhoek-api:$TAG" --output none
+
+      - name: Nieuwe versies uitrollen
+        run: |
+          set -euo pipefail
+          for app in api web admin; do
+            az containerapp update -g "$RG" -n "ca-$PREFIX-$app" --image "$REGISTRY/kleurhoek-$app:$TAG" --output none
+            echo "Uitgerold: $app"
+          done
+
+      - name: Rooktest
+        run: |
+          set -euo pipefail
+          for i in $(seq 1 30); do
+            if curl -fsS "${{ vars.SITE_URL }}/healthz" > /dev/null && curl -fsS -o /dev/null "${{ vars.SITE_URL }}/nl-nl"; then
+              echo "Website werkt"; exit 0
+            fi
+            sleep 10
+          done
+          echo "::error::Website reageert niet na de deploy"; exit 1

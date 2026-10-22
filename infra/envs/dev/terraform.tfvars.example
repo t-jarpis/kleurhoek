@@ -1,0 +1,10 @@
+# Kopieer naar terraform.tfvars (staat in .gitignore) en vul in.
+azure_subscription_id    = "00000000-0000-0000-0000-000000000000"
+zitadel_domain           = "kleurhoek-xxxxxx.zitadel.cloud"
+zitadel_key_file         = "~/.config/kleurhoek/zitadel-terraform.json"
+zitadel_admin_org_id     = "<organisatie-id van Org Beheer>"
+zitadel_idp_ids          = ["<google-idp-id>", "<apple-idp-id>", "<microsoft-idp-id>"]
+cloudflare_account_id    = "<account-id>"
+cloudflare_zone_id       = "<zone-id van kleurhoek.nl>"
+admin_emails             = ["thijs@example.com"]
+admin_bootstrap_subjects = ["<jouw Zitadel-gebruikers-id>"]

@@ -1,0 +1,60 @@
+# syntax=docker/dockerfile:1.7
+# Eén Dockerfile voor de drie apps: `--target api`, `--target web` of `--target admin`.
+# Bouwen vanaf de repo-root:
+#   docker build --target api --secret id=npmrc,src=$HOME/.npmrc -t kleurhoek-api .
+# De npmrc-secret bevat een token voor GitHub Packages (@t-jarpis/*) en komt niet in de image.
+
+ARG NODE_IMAGE=node:22.22-alpine
+
+FROM ${NODE_IMAGE} AS base
+ENV PNPM_HOME=/pnpm PATH=/pnpm:$PATH CI=1 NEXT_TELEMETRY_DISABLED=1 TURBO_TELEMETRY_DISABLED=1
+RUN corepack enable
+WORKDIR /repo
+
+# Afhankelijkheden ophalen op basis van alleen de lockfile: deze laag blijft gecachet zolang die niet verandert.
+FROM base AS deps
+COPY pnpm-lock.yaml pnpm-workspace.yaml package.json .npmrc ./
+RUN --mount=type=secret,id=npmrc,target=/root/.npmrc,required=false \
+    --mount=type=cache,id=pnpm,target=/pnpm/store \
+    pnpm fetch --frozen-lockfile
+
+FROM deps AS build
+ARG NEXT_PUBLIC_MARKETS=nl-nl
+ENV NEXT_PUBLIC_MARKETS=${NEXT_PUBLIC_MARKETS} NODE_ENV=production
+COPY . .
+RUN --mount=type=secret,id=npmrc,target=/root/.npmrc,required=false \
+    --mount=type=cache,id=pnpm,target=/pnpm/store \
+    pnpm install --frozen-lockfile --offline --prod=false
+RUN pnpm turbo run build --filter=@kleurhoek/api --filter=@kleurhoek/web --filter=@kleurhoek/admin
+# Alleen productie-afhankelijkheden van de API, zonder symlinks naar de workspace.
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
+    pnpm --filter @kleurhoek/api deploy --prod --legacy /out/api
+
+FROM ${NODE_IMAGE} AS runtime
+RUN apk add --no-cache tini && apk upgrade --no-cache
+ENV NODE_ENV=production
+WORKDIR /app
+ENTRYPOINT ["/sbin/tini", "--"]
+
+# API: ook gebruikt voor migraties (`node dist/db/migrate.js`) en de seed (`node dist/db/seed-cli.js`).
+FROM runtime AS api
+COPY --from=build --chown=node:node /out/api /app
+USER node
+EXPOSE 3001
+CMD ["node", "dist/main.js"]
+
+FROM runtime AS web
+ENV PORT=3000 HOSTNAME=0.0.0.0
+COPY --from=build --chown=node:node /repo/apps/web/.next/standalone /app
+COPY --from=build --chown=node:node /repo/apps/web/.next/static /app/apps/web/.next/static
+USER node
+EXPOSE 3000
+CMD ["node", "apps/web/server.js"]
+
+FROM runtime AS admin
+ENV PORT=3002 HOSTNAME=0.0.0.0
+COPY --from=build --chown=node:node /repo/apps/admin/.next/standalone /app
+COPY --from=build --chown=node:node /repo/apps/admin/.next/static /app/apps/admin/.next/static
+USER node
+EXPOSE 3002
+CMD ["node", "apps/admin/server.js"]
