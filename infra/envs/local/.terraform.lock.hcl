@@ -5,6 +5,7 @@ provider "registry.terraform.io/hashicorp/local" {
   version     = "2.9.1"
   constraints = "~> 2.9"
   hashes = [
+    "h1:2mPBju3/AHaofZfLTvCXqsma1/AGC/8uls0kOxE/irw=",
     "h1:OZGJN0LSSat5QIxZPxDXtVr4XpHb2oG7cVKJhSqBFIE=",
     "h1:bek0XHcE8X713/1PR+sMKZFwLnamznJdYbORghbFRn0=",
     "h1:qGLHCuYSus+uHNnoEL4SuJqOs5yrNOcB7gnuHoVqizo=",
@@ -30,6 +31,7 @@ provider "registry.terraform.io/zitadel/zitadel" {
   hashes = [
     "h1:YZZfNnipEYbhLIXTFZQJTZqBaORcoJuCvbloOcfS0fE=",
     "h1:ZWYOlZYfjUpo3J3OhaVhdNqhHGDeSwW7HTrLeJawc8c=",
+    "h1:fa8Zo+F39ZTvFU+tOKCflsegnPJo8WoUiDMAi6CzxVQ=",
     "h1:ycOtGg0yKjEXLEUsh4YyTV0qtHAI+q0hz3Btc3YVtZw=",
     "zh:059bd4b2458b6175c87daf8c41db39106115a5d832afd50e1f3dfcaa19d622cf",
     "zh:17644c3bdadda6589fc01d598bbb38ca41c61a9df43f97435f13be85e095f6ce",

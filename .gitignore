@@ -18,4 +18,7 @@ next-env.d.ts
 *.tfstate.*
 *.tfvars
 !*.tfvars.example
+# Opgeslagen Terraform-plannen bevatten geheimen
+infra/envs/*/plan
+*.tfplan
 crash.log
