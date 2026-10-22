@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "herfst",
+    "from": [
+      9,
+      22
+    ],
+    "to": [
+      11,
+      20
+    ],
+    "plates": [
+      "egel",
+      "paddenstoel",
+      "boom"
+    ],
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Herfst"
+      }
+    }
+  }
+]

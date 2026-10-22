@@ -1,0 +1,11 @@
+{
+  "name": "@kleurhoek/catalog-data",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Brondata van de catalogus: platen (SVG), categorieën, leeftijden, werelddelen, feestdagen.",
+  "type": "commonjs",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "files": ["*.json", "plates", "index.js", "index.d.ts"],
+  "scripts": { "test": "node --test test/*.test.js" }
+}

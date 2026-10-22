@@ -1,0 +1,128 @@
+[
+  {
+    "code": "r",
+    "hex": "#e2483d",
+    "i18n": {
+      "nl": {
+        "name": "rood"
+      }
+    }
+  },
+  {
+    "code": "o",
+    "hex": "#ff8a3d",
+    "i18n": {
+      "nl": {
+        "name": "oranje"
+      }
+    }
+  },
+  {
+    "code": "y",
+    "hex": "#f2c618",
+    "i18n": {
+      "nl": {
+        "name": "geel"
+      }
+    }
+  },
+  {
+    "code": "l",
+    "hex": "#9bd34a",
+    "i18n": {
+      "nl": {
+        "name": "lichtgroen"
+      }
+    }
+  },
+  {
+    "code": "g",
+    "hex": "#2fa45a",
+    "i18n": {
+      "nl": {
+        "name": "groen"
+      }
+    }
+  },
+  {
+    "code": "t",
+    "hex": "#3ec7c1",
+    "i18n": {
+      "nl": {
+        "name": "turquoise"
+      }
+    }
+  },
+  {
+    "code": "b",
+    "hex": "#4fa3f0",
+    "i18n": {
+      "nl": {
+        "name": "lichtblauw"
+      }
+    }
+  },
+  {
+    "code": "n",
+    "hex": "#2f5bd3",
+    "i18n": {
+      "nl": {
+        "name": "blauw"
+      }
+    }
+  },
+  {
+    "code": "p",
+    "hex": "#7b5bd6",
+    "i18n": {
+      "nl": {
+        "name": "paars"
+      }
+    }
+  },
+  {
+    "code": "m",
+    "hex": "#d0479b",
+    "i18n": {
+      "nl": {
+        "name": "roze"
+      }
+    }
+  },
+  {
+    "code": "k",
+    "hex": "#f59fc4",
+    "i18n": {
+      "nl": {
+        "name": "lichtroze"
+      }
+    }
+  },
+  {
+    "code": "w",
+    "hex": "#a0673d",
+    "i18n": {
+      "nl": {
+        "name": "bruin"
+      }
+    }
+  },
+  {
+    "code": "z",
+    "hex": "#7a7f87",
+    "i18n": {
+      "nl": {
+        "name": "grijs"
+      }
+    }
+  },
+  {
+    "code": "x",
+    "hex": "#222222",
+    "i18n": {
+      "nl": {
+        "name": "zwart"
+      }
+    }
+  }
+]

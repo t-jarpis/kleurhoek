@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "europa",
+    "order": 0,
+    "color": "#2f5bd3",
+    "i18n": {
+      "nl": {
+        "name": "Europa"
+      }
+    }
+  },
+  {
+    "slug": "afrika",
+    "order": 1,
+    "color": "#f2a516",
+    "i18n": {
+      "nl": {
+        "name": "Afrika"
+      }
+    }
+  },
+  {
+    "slug": "azie",
+    "order": 2,
+    "color": "#e2483d",
+    "i18n": {
+      "nl": {
+        "name": "Azië"
+      }
+    }
+  },
+  {
+    "slug": "noord-amerika",
+    "order": 3,
+    "color": "#2fa45a",
+    "i18n": {
+      "nl": {
+        "name": "Noord-Amerika"
+      }
+    }
+  },
+  {
+    "slug": "zuid-amerika",
+    "order": 4,
+    "color": "#13a3a0",
+    "i18n": {
+      "nl": {
+        "name": "Zuid-Amerika"
+      }
+    }
+  },
+  {
+    "slug": "oceanie",
+    "order": 5,
+    "color": "#7b5bd6",
+    "i18n": {
+      "nl": {
+        "name": "Oceanië"
+      }
+    }
+  },
+  {
+    "slug": "antarctica",
+    "order": 6,
+    "color": "#4fa3f0",
+    "i18n": {
+      "nl": {
+        "name": "Antarctica"
+      }
+    }
+  }
+]

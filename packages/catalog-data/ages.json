@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "2-4",
+    "order": 0,
+    "level": 1,
+    "strokeWidth": 3.4,
+    "i18n": {
+      "nl": {
+        "name": "2–4 jaar",
+        "hint": "Grote vlakken en dikke lijnen. Goed voor de eerste krijtjes."
+      }
+    }
+  },
+  {
+    "slug": "4-6",
+    "order": 1,
+    "level": 2,
+    "strokeWidth": 2.8,
+    "i18n": {
+      "nl": {
+        "name": "4–6 jaar",
+        "hint": "Meer vlakken, nog steeds ruim. Fijn voor kleuters."
+      }
+    }
+  },
+  {
+    "slug": "6-9",
+    "order": 2,
+    "level": 3,
+    "strokeWidth": 2.4,
+    "i18n": {
+      "nl": {
+        "name": "6–9 jaar",
+        "hint": "Kleinere details om netjes binnen de lijnen te blijven."
+      }
+    }
+  },
+  {
+    "slug": "9+",
+    "order": 3,
+    "level": 4,
+    "strokeWidth": 1.7,
+    "i18n": {
+      "nl": {
+        "name": "9+ jaar",
+        "hint": "Veel kleine vlakken en dunne lijnen. Ook leuk voor volwassenen."
+      }
+    }
+  }
+]

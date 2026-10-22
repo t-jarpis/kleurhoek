@@ -1,0 +1,503 @@
+[
+  {
+    "slug": "oudnieuw",
+    "order": 0,
+    "fixed": [
+      12,
+      31
+    ],
+    "dates": null,
+    "leadDays": 14,
+    "afterDays": 1,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Oud en nieuw"
+      }
+    }
+  },
+  {
+    "slug": "chinees",
+    "order": 1,
+    "fixed": null,
+    "dates": {
+      "2026": "2026-02-17",
+      "2027": "2027-02-06"
+    },
+    "leadDays": 14,
+    "afterDays": 3,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Chinees Nieuwjaar"
+      }
+    }
+  },
+  {
+    "slug": "valentijn",
+    "order": 2,
+    "fixed": [
+      2,
+      14
+    ],
+    "dates": null,
+    "leadDays": 10,
+    "afterDays": 0,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Valentijnsdag"
+      }
+    }
+  },
+  {
+    "slug": "carnaval",
+    "order": 3,
+    "fixed": null,
+    "dates": {
+      "2026": "2026-02-15",
+      "2027": "2027-02-07"
+    },
+    "leadDays": 21,
+    "afterDays": 2,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Carnaval"
+      }
+    }
+  },
+  {
+    "slug": "holi",
+    "order": 4,
+    "fixed": null,
+    "dates": {
+      "2026": "2026-03-04",
+      "2027": "2027-03-22"
+    },
+    "leadDays": 14,
+    "afterDays": 0,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Holi"
+      }
+    }
+  },
+  {
+    "slug": "suikerfeest",
+    "order": 5,
+    "fixed": null,
+    "dates": {
+      "2026": "2026-03-20",
+      "2027": "2027-03-10"
+    },
+    "leadDays": 30,
+    "afterDays": 2,
+    "approximate": true,
+    "label": null,
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Suikerfeest"
+      }
+    }
+  },
+  {
+    "slug": "pasen",
+    "order": 6,
+    "fixed": null,
+    "dates": {
+      "2026": "2026-04-05",
+      "2027": "2027-03-28"
+    },
+    "leadDays": 21,
+    "afterDays": 1,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Pasen"
+      }
+    }
+  },
+  {
+    "slug": "koningsdag",
+    "order": 7,
+    "fixed": [
+      4,
+      27
+    ],
+    "dates": null,
+    "leadDays": 21,
+    "afterDays": 0,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Koningsdag"
+      }
+    }
+  },
+  {
+    "slug": "bevrijding",
+    "order": 8,
+    "fixed": [
+      5,
+      5
+    ],
+    "dates": null,
+    "leadDays": 7,
+    "afterDays": 0,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Bevrijdingsdag"
+      }
+    }
+  },
+  {
+    "slug": "moederdag",
+    "order": 9,
+    "fixed": null,
+    "dates": {
+      "2026": "2026-05-10",
+      "2027": "2027-05-09"
+    },
+    "leadDays": 14,
+    "afterDays": 0,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Moederdag"
+      }
+    }
+  },
+  {
+    "slug": "hemelvaart",
+    "order": 10,
+    "fixed": null,
+    "dates": {
+      "2026": "2026-05-14",
+      "2027": "2027-05-06"
+    },
+    "leadDays": 7,
+    "afterDays": 0,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Hemelvaart"
+      }
+    }
+  },
+  {
+    "slug": "pinksteren",
+    "order": 11,
+    "fixed": null,
+    "dates": {
+      "2026": "2026-05-24",
+      "2027": "2027-05-16"
+    },
+    "leadDays": 7,
+    "afterDays": 1,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Pinksteren"
+      }
+    }
+  },
+  {
+    "slug": "offerfeest",
+    "order": 12,
+    "fixed": null,
+    "dates": {
+      "2026": "2026-05-27",
+      "2027": "2027-05-16"
+    },
+    "leadDays": 10,
+    "afterDays": 3,
+    "approximate": true,
+    "label": null,
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Offerfeest"
+      }
+    }
+  },
+  {
+    "slug": "vaderdag",
+    "order": 13,
+    "fixed": null,
+    "dates": {
+      "2026": "2026-06-21",
+      "2027": "2027-06-20"
+    },
+    "leadDays": 14,
+    "afterDays": 0,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Vaderdag"
+      }
+    }
+  },
+  {
+    "slug": "ketikoti",
+    "order": 14,
+    "fixed": [
+      7,
+      1
+    ],
+    "dates": null,
+    "leadDays": 10,
+    "afterDays": 0,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Keti Koti"
+      }
+    }
+  },
+  {
+    "slug": "school",
+    "order": 15,
+    "fixed": [
+      8,
+      31
+    ],
+    "dates": null,
+    "leadDays": 21,
+    "afterDays": 0,
+    "approximate": false,
+    "label": "eind augustus",
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Eerste schooldag"
+      }
+    }
+  },
+  {
+    "slug": "dierendag",
+    "order": 16,
+    "fixed": [
+      10,
+      4
+    ],
+    "dates": null,
+    "leadDays": 10,
+    "afterDays": 0,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Dierendag"
+      }
+    }
+  },
+  {
+    "slug": "halloween",
+    "order": 17,
+    "fixed": [
+      10,
+      31
+    ],
+    "dates": null,
+    "leadDays": 14,
+    "afterDays": 0,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Halloween"
+      }
+    }
+  },
+  {
+    "slug": "divali",
+    "order": 18,
+    "fixed": null,
+    "dates": {
+      "2026": "2026-11-08",
+      "2027": "2027-10-29"
+    },
+    "leadDays": 21,
+    "afterDays": 0,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Divali"
+      }
+    }
+  },
+  {
+    "slug": "sintmaarten",
+    "order": 19,
+    "fixed": [
+      11,
+      11
+    ],
+    "dates": null,
+    "leadDays": 18,
+    "afterDays": 0,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Sint-Maarten"
+      }
+    }
+  },
+  {
+    "slug": "sinterklaas",
+    "order": 20,
+    "fixed": [
+      12,
+      5
+    ],
+    "dates": null,
+    "leadDays": 24,
+    "afterDays": 0,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Sinterklaas"
+      }
+    }
+  },
+  {
+    "slug": "chanoeka",
+    "order": 21,
+    "fixed": null,
+    "dates": {
+      "2026": "2026-12-05",
+      "2027": "2027-12-25"
+    },
+    "leadDays": 10,
+    "afterDays": 7,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Chanoeka"
+      }
+    }
+  },
+  {
+    "slug": "kerst",
+    "order": 22,
+    "fixed": [
+      12,
+      25
+    ],
+    "dates": null,
+    "leadDays": 24,
+    "afterDays": 1,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Kerst"
+      }
+    }
+  },
+  {
+    "slug": "verjaardag",
+    "order": 23,
+    "fixed": null,
+    "dates": null,
+    "leadDays": 0,
+    "afterDays": 0,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "NL"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Verjaardag"
+      }
+    }
+  }
+]

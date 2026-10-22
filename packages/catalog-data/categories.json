@@ -1,0 +1,82 @@
+[
+  {
+    "slug": "dieren",
+    "order": 0,
+    "color": "#e2483d",
+    "i18n": {
+      "nl": {
+        "name": "Dieren"
+      }
+    }
+  },
+  {
+    "slug": "voertuigen",
+    "order": 1,
+    "color": "#2f5bd3",
+    "i18n": {
+      "nl": {
+        "name": "Voertuigen"
+      }
+    }
+  },
+  {
+    "slug": "natuur",
+    "order": 2,
+    "color": "#2fa45a",
+    "i18n": {
+      "nl": {
+        "name": "Natuur"
+      }
+    }
+  },
+  {
+    "slug": "eten",
+    "order": 3,
+    "color": "#f2a516",
+    "i18n": {
+      "nl": {
+        "name": "Lekker eten"
+      }
+    }
+  },
+  {
+    "slug": "ruimte",
+    "order": 4,
+    "color": "#5b4fc9",
+    "i18n": {
+      "nl": {
+        "name": "Ruimte"
+      }
+    }
+  },
+  {
+    "slug": "feest",
+    "order": 5,
+    "color": "#13a3a0",
+    "i18n": {
+      "nl": {
+        "name": "Feestdagen"
+      }
+    }
+  },
+  {
+    "slug": "wereld",
+    "order": 6,
+    "color": "#1d8fce",
+    "i18n": {
+      "nl": {
+        "name": "Wereld"
+      }
+    }
+  },
+  {
+    "slug": "patronen",
+    "order": 7,
+    "color": "#d0479b",
+    "i18n": {
+      "nl": {
+        "name": "Patronen"
+      }
+    }
+  }
+]
