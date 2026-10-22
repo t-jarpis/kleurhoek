@@ -309,3 +309,8 @@ resource "azurerm_container_app_custom_domain" "app" {
   container_app_environment_certificate_id = azurerm_container_app_environment_certificate.origin.id
   certificate_binding_type                 = "SniEnabled"
 }
+
+moved {
+  from = azurerm_container_app_environment_certificate.origin[0]
+  to   = azurerm_container_app_environment_certificate.origin
+}
