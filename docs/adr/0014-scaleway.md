@@ -21,7 +21,7 @@ Azure kon Kleurhoek niet hosten: West Europe neemt geen nieuwe klanten aan, Germ
   - is er een cacheregel die dat pad overslaat;
   - staat er een CAA-record voor letsencrypt.org.
 - **Managed PostgreSQL 16** zonder publiek endpoint (alleen het privénetwerk), versleuteld at rest. TLS met controle tegen de CA van de instance (`DATABASE_CA`).
-  - Dev: `DB-PLAY2-PICO`, de goedkoopste, zonder HA.
+  - Dev: `DB-DEV-S`, de goedkoopste, zonder HA (anders `DB-PLAY2-PICO`).
   - Prod: HA, met back-ups in een ander datacenter.
 - **Migraties bij het opstarten van de API** (`MIGRATE_ON_START`), achter een advisory lock, zodat parallelle instances na elkaar migreren. Serverless Jobs kunnen niet aan een privénetwerk, dus een aparte migratiejob kan de database niet bereiken. In dev vult de API ook de catalogus (`SEED_ON_START`, idempotent).
 - **Geheimen** als *secret environment variables* van de containers (versleuteld opgeslagen). Terraform maakt ze aan; ze staan dus ook in de state.
@@ -36,6 +36,13 @@ Azure kon Kleurhoek niet hosten: West Europe neemt geen nieuwe klanten aan, Germ
 - *API-sleutel in GitHub in plaats van OIDC*: kleinst mogelijke rechten, per omgeving en te roteren met `terraform apply -replace`.
 - *Koude start in dev*: na 15 minuten zonder verkeer schaalt dev naar nul; het eerste verzoek duurt dan enkele seconden.
 
-## Kosten (indicatie per maand)
-- **Dev**: database `DB-PLAY2-PICO` rond € 10. Containers vallen bij weinig verkeer grotendeels in het gratis tegoed (200.000 vCPU-s en 400.000 GB-s per maand). Registry en state samen enkele euro's.
-- **Prod**: een HA-database en altijd één warme instance van API en website, in de orde van € 80–150. Dat hangt af van de database-node en het verkeer.
+## Kosten (indicatie per maand, excl. btw)
+Bron: de prijslijsten van Scaleway (23-10-2026). Containers: € 0,00001 per vCPU-seconde en € 0,000002 per GB-seconde; elke maand zijn 200.000 vCPU-s en 400.000 GB-s gratis.
+- **Dev**: rond € 12–15.
+  - Database `DB-DEV-S`: € 11,39, plus € 0,10 per GB opslag.
+  - Containers schalen naar nul en blijven bij weinig verkeer binnen het gratis tegoed.
+  - Registry en state samen minder dan € 1.
+- **Prod**: rond € 170–200.
+  - Database `DB-PRO2-XXS` met HA: circa € 123 voor twee nodes.
+  - Altijd één warme instance van API en website: circa € 35–40.
+  - Daarbij komen Cloudflare Pro, e-mail en monitoring.

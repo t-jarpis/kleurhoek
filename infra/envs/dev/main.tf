@@ -106,9 +106,10 @@ module "site" {
   admin_bootstrap_subjects = var.admin_bootstrap_subjects
   edge_secret              = data.terraform_remote_state.zone.outputs.edge_secrets["dev"]
   apps_enabled             = var.apps_enabled
-  # Goedkoopste: gedeelde vCPU, geen HA, back-up dagelijks (7 dagen) in een ander datacenter.
+  # Goedkoopste node (circa € 11 per maand), geen HA, back-up dagelijks (7 dagen) in een ander datacenter.
+  # Niet beschikbaar in nl-ams? Dan DB-PLAY2-PICO (circa € 17). Controleer: scw rdb node-type list region=nl-ams.
   database = {
-    node_type      = "DB-PLAY2-PICO"
+    node_type      = "DB-DEV-S"
     engine         = "PostgreSQL-16"
     volume_gb      = 5
     ha             = false
