@@ -155,3 +155,11 @@ describe("rate limiting", () => {
     expect(rule.days.at(-1).blocked).toBeGreaterThanOrEqual(1);
   });
 });
+
+describe("configuratie", () => {
+  it("weigert een dev-beheerderstoken in productie", async () => {
+    const { loadEnv } = await import("../src/config/env");
+    expect(() => loadEnv({ NODE_ENV: "production", DATABASE_URL: "postgres://x@localhost/db", INGEST_KEY: "k".repeat(40), ADMIN_DEV_TOKEN: "t".repeat(40) })).toThrow(/niet toegestaan/);
+    expect(() => loadEnv({ NODE_ENV: "production", INGEST_KEY: "k".repeat(40) })).toThrow(/DATABASE_URL/);
+  });
+});

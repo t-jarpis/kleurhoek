@@ -15,6 +15,15 @@ export class DenyAllAuthenticator implements AdminAuthenticator {
   async authenticate(): Promise<AdminPrincipal | null> { return null; }
 }
 
+/** Alleen in development: één vaste token met alle rechten, om het admin panel lokaal te kunnen gebruiken. */
+export class DevTokenAuthenticator implements AdminAuthenticator {
+  constructor(private readonly token: string) {}
+  async authenticate(header: string | undefined): Promise<AdminPrincipal | null> {
+    if (header !== `Bearer ${this.token}`) return null;
+    return { subject: "dev-beheerder", permissions: ["operations.ratelimit.read", "operations.ratelimit.manage", "analytics.read"] };
+  }
+}
+
 export const PERMISSION = "permission";
 /** Vereiste permissie voor een admin-endpoint, bijvoorbeeld `operations.ratelimit.manage`. */
 export const RequirePermission = (permission: string) => SetMetadata(PERMISSION, permission);

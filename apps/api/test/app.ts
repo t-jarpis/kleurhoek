@@ -21,6 +21,7 @@ export async function createTestApp() {
   delete process.env.DATABASE_URL;
   process.env.TENANT_ID = TENANT;
   process.env.INGEST_KEY = INGEST_KEY;
+  process.env.AGGREGATE_INTERVAL_MS = "0";
   const moduleRef = await Test.createTestingModule({ imports: [AppModule] }).overrideProvider(ADMIN_AUTHENTICATOR).useValue(fakeAdmins).compile();
   const app = hardenApp(moduleRef.createNestApplication<NestFastifyApplication>(fastifyAdapter()));
   await app.init();

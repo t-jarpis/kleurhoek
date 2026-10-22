@@ -112,5 +112,19 @@ export class StorefrontService {
     };
   }
 
-  svg(slug: string, version: number) { return this.catalog.getSvg(this.tenant, slug, version); }
+  /**
+   * De SVG als losse afbeelding: met een eigen stijlblok, zodat hij ook in een <img> en via het CDN
+   * goed getoond wordt. De lijndikte past bij de leeftijd en is te overschrijven met de CSS-variabele --sw.
+   */
+  async svg(slug: string, version: number) {
+    const [raw, detail, taxonomy] = await Promise.all([
+      this.catalog.getSvg(this.tenant, slug, version),
+      this.catalog.getPublished(this.tenant, slug),
+      this.catalog.taxonomy(this.tenant),
+    ]);
+    if (!raw || !detail) return null;
+    const sw = taxonomy.ages.find((a) => a.slug === detail.age)?.strokeWidth ?? 2.4;
+    const style = `<style>.r{fill:#fff;stroke:#1d1b22;stroke-width:var(--sw,${sw});stroke-linejoin:round}.l{fill:none;stroke:#1d1b22;stroke-width:var(--sw,${sw});stroke-linecap:round;stroke-linejoin:round}.dot{fill:#1d1b22}</style>`;
+    return raw.replace(/^(<svg[^>]*>)/, `$1${style}`);
+  }
 }
