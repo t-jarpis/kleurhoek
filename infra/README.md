@@ -19,6 +19,10 @@ Alles van Kleurhoek staat in eigen accounts en een eigen state, zodat de site lo
    az storage container create -n tfstate --account-name <naam> --auth-mode login
    az role assignment create --role "Storage Blob Data Contributor" --assignee <jouw e-mail> --scope <id van het storage account>
    ```
+   Meld de diensten eenmalig aan bij de subscription (een nieuwe subscription kent ze nog niet):
+   ```sh
+   for ns in Microsoft.KeyVault Microsoft.App Microsoft.OperationalInsights Microsoft.ContainerRegistry Microsoft.DBforPostgreSQL Microsoft.Network Microsoft.ManagedIdentity Microsoft.Storage; do az provider register --namespace $ns; done
+   ```
    Geef bij `terraform init` de naam van het storage account mee: `-backend-config="storage_account_name=<naam>"`.
 2. **Cloudflare**: de zones `kleurhoek.nl`, `kleurhoek.be` en `kleurhoek.com` toevoegen (gratis plan; nameservers bij Neostrada aanpassen naar die van Cloudflare). De domeinen staan geregistreerd bij Neostrada. Maak een API-token met alleen de rechten *Zone: DNS Edit, Zone Settings Edit, SSL and Certificates Edit, Zone WAF Edit* voor deze drie zones en *Account: Access: Apps and Policies Edit*. Zet hem als `CLOUDFLARE_API_TOKEN`. In prod vul je de zone-ID's van `.be` en `.com` in bij `redirect_zone_ids`: die sturen door naar www.kleurhoek.nl.
 3. **Zitadel Cloud**: instance in de EU-regio. Op het gratis plan is er één instance; dev en prod delen die tot de lancering, elk met een eigen organisatie en eigen apps (Terraform zet "(dev)" achter de namen). Vóór de lancering met echte gebruikers: upgraden naar Pro en prod naar een eigen instance. Instance-instellingen (eenmalig, gedeeld met andere sites):
