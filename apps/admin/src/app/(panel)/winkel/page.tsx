@@ -45,6 +45,9 @@ export default async function Shop({ searchParams }: { searchParams: Promise<{ d
           {PERIODS.map((d) => <Link key={d} href={`/winkel?dagen=${d}`} aria-selected={d === days}>{d} dagen</Link>)}
         </div>
       </div>
+      {summary.totals.productClicks > 0 && (
+        <p className="note">Er lopen doorkliks naar winkels. Op de lijst: het merk Kleurhoek vastleggen bij het BOIP (Benelux, klassen 16, 41 en 35). Kijk eerst of er een SME Fund-voucher is. Zie het architectuurdocument, Open beslissingen.</p>
+      )}
       {live === 0 && <p className="note">Nog geen partner gekoppeld. Vul je site-ID in bij <Link href="/winkel/koppelingen">Koppelingen</Link>, dan verschijnen producten bij de platen.</p>}
       <div className="cards">
         <div className="stat"><span>Lijst "Wat heb je nodig" bekeken</span><b>{summary.totals.materialsViews.toLocaleString("nl-NL")}</b></div>
