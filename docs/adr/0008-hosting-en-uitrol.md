@@ -20,5 +20,8 @@
 - *Wachtwoord voor de database*: eenvoudig om mee te beginnen; staat in Key Vault en in de versleutelde state. Volgende stap is Entra-authenticatie met de managed identity van de API.
 - *Contributor op de resourcegroep voor de deploy-identity*: genoeg om revisies uit te rollen en jobs te starten. Kan later naar een eigen rol met alleen Container Apps-rechten.
 
+## Regio (22-10-2026)
+Germany West Central (Frankfurt). West Europe (Amsterdam) neemt op dit moment geen nieuwe klanten aan. Frankfurt heeft alle diensten met beschikbaarheidszones, en de latency naar Nederland is laag; Cloudflare staat er bovendien voor.
+
 ## Overwogen (22-10-2026)
 Europese alternatieven bekeken: Scaleway (goedkoper, Europees, eenvoudiger) en STACKIT (duurder en zwaarder voor deze omvang, geen serverless containers). De eigenaar blijft bij Azure: de infrastructuur staat er al, met managed identities en uitrollen vanuit GitHub zonder sleutels. Omdat de apps gewone containers zijn en de cloud in één Terraform-module zit, blijft overstappen later mogelijk.

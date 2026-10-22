@@ -12,10 +12,10 @@ Terraform voor twee omgevingen (`envs/dev`, `envs/prod`), plus `envs/local` dat 
 Alles van Kleurhoek staat in eigen accounts en een eigen state, zodat de site los verkocht kan worden.
 
 ## Eenmalig vooraf
-1. **Azure**: een eigen subscription voor Kleurhoek. Maak de state-opslag aan:
+1. **Azure**: een eigen subscription voor Kleurhoek. Regio: Germany West Central (Frankfurt); West Europe neemt sinds 2026 geen nieuwe klanten aan. Maak de state-opslag aan:
    ```sh
-   az group create -n rg-kh-tfstate -l westeurope
-   az storage account create -n <uniek, bv. khtfstate123> -g rg-kh-tfstate --sku Standard_ZRS --min-tls-version TLS1_2 --allow-blob-public-access false
+   az group create -n rg-kh-tfstate -l germanywestcentral
+   az storage account create -n <uniek, bv. khtfstate123> -g rg-kh-tfstate -l germanywestcentral --sku Standard_ZRS --min-tls-version TLS1_2 --allow-blob-public-access false
    az storage container create -n tfstate --account-name <naam> --auth-mode login
    az role assignment create --role "Storage Blob Data Contributor" --assignee <jouw e-mail> --scope <id van het storage account>
    ```
