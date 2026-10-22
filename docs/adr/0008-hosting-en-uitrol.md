@@ -21,7 +21,7 @@
 - *Contributor op de resourcegroep voor de deploy-identity*: genoeg om revisies uit te rollen en jobs te starten. Kan later naar een eigen rol met alleen Container Apps-rechten.
 
 ## Regio (22-10-2026)
-Germany West Central (Frankfurt). West Europe (Amsterdam) neemt op dit moment geen nieuwe klanten aan. Frankfurt heeft alle diensten met beschikbaarheidszones, en de latency naar Nederland is laag; Cloudflare staat er bovendien voor.
+Sweden Central. West Europe (Amsterdam) neemt op dit moment geen nieuwe klanten aan, en Germany West Central (Frankfurt) biedt een nieuwe subscription geen PostgreSQL Flexible Server aan. Sweden Central heeft alle diensten met beschikbaarheidszones, draait op duurzame energie en is de regio waar Microsoft nieuwe klanten heen stuurt. De extra latency naar Nederland (ca. 25 ms) valt weg achter de cache van Cloudflare. De Terraform-state staat in Frankfurt; dat maakt niet uit.
 
 ## Overwogen (22-10-2026)
 Europese alternatieven bekeken: Scaleway (goedkoper, Europees, eenvoudiger) en STACKIT (duurder en zwaarder voor deze omvang, geen serverless containers). De eigenaar blijft bij Azure: de infrastructuur staat er al, met managed identities en uitrollen vanuit GitHub zonder sleutels. Omdat de apps gewone containers zijn en de cloud in één Terraform-module zit, blijft overstappen later mogelijk.

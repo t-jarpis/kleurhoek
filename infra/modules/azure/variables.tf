@@ -9,7 +9,7 @@ variable "environment" {
 
 variable "location" {
   type    = string
-  default = "germanywestcentral"
+  default = "swedencentral"
 }
 
 variable "tenant_id" {
