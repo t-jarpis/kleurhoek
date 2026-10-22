@@ -21,8 +21,8 @@ importers:
         specifier: 5.3.0
         version: 5.3.0
       '@t-jarpis/auth':
-        specifier: file:../../../platform/packages/auth
-        version: file:../platform/packages/auth
+        specifier: file:../../vendor/t-jarpis-auth-0.3.0.tgz
+        version: file:vendor/t-jarpis-auth-0.3.0.tgz
       next:
         specifier: 16.4.2
         version: 16.4.2(@types/node@22.20.5)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -70,8 +70,8 @@ importers:
         specifier: ^11.2.7
         version: 11.2.7(@nestjs/common@11.2.7(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.2.7(@nestjs/common@11.2.7(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2))
       '@t-jarpis/auth':
-        specifier: file:../../../platform/packages/auth
-        version: file:../platform/packages/auth
+        specifier: file:../../vendor/t-jarpis-auth-0.3.0.tgz
+        version: file:vendor/t-jarpis-auth-0.3.0.tgz
       drizzle-orm:
         specifier: ^0.45.4
         version: 0.45.4(@electric-sql/pglite@0.5.11)(@types/pg@8.23.1)(pg@8.23.1)
@@ -128,8 +128,8 @@ importers:
         specifier: 5.3.0
         version: 5.3.0
       '@t-jarpis/auth':
-        specifier: file:../../../platform/packages/auth
-        version: file:../platform/packages/auth
+        specifier: file:../../vendor/t-jarpis-auth-0.3.0.tgz
+        version: file:vendor/t-jarpis-auth-0.3.0.tgz
       next:
         specifier: 16.4.2
         version: 16.4.2(@types/node@22.20.5)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -1341,8 +1341,9 @@ packages:
   '@swc/types@0.1.28':
     resolution: {integrity: sha512-V6Mnml8v09QALx6K0elJ7o9K/MkVDtW3t6L+7Ou/JcWtb3xwId2AH4FeOceySd2JaO87IMw4+6vSZxLm34LPbw==}
 
-  '@t-jarpis/auth@file:../platform/packages/auth':
-    resolution: {directory: ../platform/packages/auth, type: directory}
+  '@t-jarpis/auth@file:vendor/t-jarpis-auth-0.3.0.tgz':
+    resolution: {integrity: sha512-oRnE9m0PMq1rFUVINonGwIHpGXYr/IhatJMWAKRz/UZSM+XqBjj4MBflPU0EVJ7har+IS/sbkLyH4ASKFSTdoA==, tarball: file:vendor/t-jarpis-auth-0.3.0.tgz}
+    version: 0.3.0
 
   '@tokenizer/inflate@0.4.1':
     resolution: {integrity: sha512-2mAv+8pkG6GIZiF1kNg1jAjh27IDxEPKwdGul3snfztFerfPGI1LjDezZp3i7BElXompqEtPmoPx6c2wgtWsOA==}
@@ -3129,7 +3130,7 @@ snapshots:
     dependencies:
       '@swc/counter': 0.1.3
 
-  '@t-jarpis/auth@file:../platform/packages/auth':
+  '@t-jarpis/auth@file:vendor/t-jarpis-auth-0.3.0.tgz':
     dependencies:
       jose: 6.2.13
       openid-client: 6.8.8

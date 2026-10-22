@@ -1,0 +1,167 @@
+# Kleurhoek lokaal, compleet met een echte Zitadel: `docker compose up`.
+#   Website:      http://localhost:3000   (ouder@kleurhoek.localhost)
+#   Admin panel:  http://localhost:3002   (beheerder@kleurhoek.localhost)
+#   Zitadel:      http://localhost:8080/ui/console (zitadel-admin@zitadel.localhost)
+#   Wachtwoord van alle testaccounts: Kleurhoek-lokaal-1!   (alleen lokaal; productie heeft geen wachtwoorden)
+#
+# Alles draait in één netwerkruimte ("net"), zodat "localhost:8080" voor je browser en voor de
+# containers hetzelfde adres is. Dat moet, want de uitgever van de tokens moet voor beide gelijk zijn.
+# Alle poorten luisteren alleen op 127.0.0.1.
+
+name: kleurhoek
+
+x-node-app: &node-app
+  network_mode: service:net
+  restart: unless-stopped
+  volumes:
+    - bootstrap:/bootstrap:ro
+
+services:
+  net:
+    image: alpine:3.22
+    command: ["sleep", "infinity"]
+    init: true
+    ports:
+      - "127.0.0.1:3000:3000" # website
+      - "127.0.0.1:3002:3002" # admin panel
+      - "127.0.0.1:8080:8080" # Zitadel
+
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: kleurhoek
+    volumes:
+      - db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d kleurhoek"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+
+  zitadel:
+    image: ghcr.io/zitadel/zitadel:v4.19.5
+    network_mode: service:net
+    user: "0"
+    command: start-from-init --masterkey "LokaalMasterkeyVan32TekensLang!!" --tlsMode disabled
+    environment:
+      ZITADEL_EXTERNALDOMAIN: localhost
+      ZITADEL_EXTERNALPORT: 8080
+      ZITADEL_EXTERNALSECURE: "false"
+      # Ook voor de healthcheck (`zitadel ready`), die --tlsMode niet meekrijgt.
+      ZITADEL_TLS_ENABLED: "false"
+      ZITADEL_DATABASE_POSTGRES_HOST: db
+      ZITADEL_DATABASE_POSTGRES_PORT: 5432
+      ZITADEL_DATABASE_POSTGRES_DATABASE: zitadel
+      ZITADEL_DATABASE_POSTGRES_USER_USERNAME: zitadel
+      ZITADEL_DATABASE_POSTGRES_USER_PASSWORD: zitadel
+      ZITADEL_DATABASE_POSTGRES_USER_SSL_MODE: disable
+      ZITADEL_DATABASE_POSTGRES_ADMIN_USERNAME: postgres
+      ZITADEL_DATABASE_POSTGRES_ADMIN_PASSWORD: postgres
+      ZITADEL_DATABASE_POSTGRES_ADMIN_SSL_MODE: disable
+      ZITADEL_FIRSTINSTANCE_ORG_NAME: Zitadel
+      ZITADEL_FIRSTINSTANCE_ORG_HUMAN_USERNAME: zitadel-admin
+      ZITADEL_FIRSTINSTANCE_ORG_HUMAN_PASSWORD: Kleurhoek-lokaal-1!
+      ZITADEL_FIRSTINSTANCE_ORG_HUMAN_PASSWORDCHANGEREQUIRED: "false"
+      ZITADEL_FIRSTINSTANCE_ORG_MACHINE_MACHINE_USERNAME: terraform
+      ZITADEL_FIRSTINSTANCE_ORG_MACHINE_MACHINE_NAME: Terraform
+      ZITADEL_FIRSTINSTANCE_ORG_MACHINE_PAT_EXPIRATIONDATE: "2099-01-01T00:00:00Z"
+      ZITADEL_FIRSTINSTANCE_PATPATH: /zitadel-bootstrap/terraform.pat
+      ZITADEL_DEFAULTINSTANCE_DEFAULTLANGUAGE: nl
+      # De ingebouwde loginpagina; dan is er geen aparte login-container nodig.
+      ZITADEL_DEFAULTINSTANCE_FEATURES_LOGINV2_REQUIRED: "false"
+    volumes:
+      - zitadel-bootstrap:/zitadel-bootstrap
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "/app/zitadel", "ready"]
+      interval: 5s
+      timeout: 5s
+      retries: 60
+      start_period: 20s
+    restart: unless-stopped
+
+  # Organisaties, project, apps en testaccounts in Zitadel, met dezelfde Terraform-module als dev en prod.
+  zitadel-setup:
+    image: hashicorp/terraform:1.16
+    network_mode: service:net
+    entrypoint: ["/bin/sh", "/infra/envs/local/setup.sh"]
+    volumes:
+      - ./infra:/infra:ro
+      - zitadel-bootstrap:/zitadel-bootstrap:ro
+      - bootstrap:/bootstrap
+      - terraform:/state
+    depends_on:
+      zitadel:
+        condition: service_healthy
+
+  # Migraties en de catalogus (65 platen), voordat de API start.
+  migrate:
+    build: { context: ., target: api }
+    image: kleurhoek-api:local
+    network_mode: service:net
+    environment: &api-env
+      NODE_ENV: production
+      DATABASE_URL: postgres://postgres:postgres@db:5432/kleurhoek
+      INGEST_KEY: lokaal-ingest-sleutel-0123456789abcdef0123
+    command: ["sh", "-c", "set -a && . /bootstrap/api.env && set +a && node dist/db/migrate.js && node dist/db/seed-cli.js"]
+    volumes:
+      - bootstrap:/bootstrap:ro
+    depends_on:
+      db:
+        condition: service_healthy
+      zitadel-setup:
+        condition: service_completed_successfully
+
+  api:
+    <<: *node-app
+    build: { context: ., target: api }
+    image: kleurhoek-api:local
+    environment:
+      <<: *api-env
+      PORT: 3001
+    command: ["sh", "-c", "set -a && . /bootstrap/api.env && set +a && exec node dist/main.js"]
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3001/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+  web:
+    <<: *node-app
+    build: { context: ., target: web }
+    image: kleurhoek-web:local
+    environment:
+      API_URL: http://localhost:3001
+      INGEST_KEY: lokaal-ingest-sleutel-0123456789abcdef0123
+      ANALYTICS_SALT_SECRET: lokaal-zout
+      SESSION_SECRET: lokaal-sessiegeheim-website-0123456789abcdef
+      DEV_COUNTRY: NL
+    command: ["sh", "-c", "set -a && . /bootstrap/web.env && set +a && exec node apps/web/server.js"]
+    depends_on:
+      api:
+        condition: service_healthy
+
+  admin:
+    <<: *node-app
+    build: { context: ., target: admin }
+    image: kleurhoek-admin:local
+    environment:
+      API_URL: http://localhost:3001
+      SESSION_SECRET: lokaal-sessiegeheim-admin-0123456789abcdefgh
+    command: ["sh", "-c", "set -a && . /bootstrap/admin.env && set +a && exec node apps/admin/server.js"]
+    depends_on:
+      api:
+        condition: service_healthy
+
+volumes:
+  db:
+  zitadel-bootstrap:
+  bootstrap:
+  terraform:

@@ -1,5 +1,5 @@
 import "server-only";
-import { createBff, type Bff } from "@t-jarpis/auth";
+import { createBff, isLocalUrl, type Bff } from "@t-jarpis/auth";
 export { sameOrigin } from "./same-origin";
 
 /**
@@ -24,15 +24,16 @@ export function getBff(): Bff | null {
     postLogoutRedirectUri: `${site}/`,
     sessionSecret: e.SESSION_SECRET,
     cookieName: "kh_session",
-    insecureDevelopment: process.env.NODE_ENV !== "production" && site.startsWith("http://"),
+    // Alleen als alles op deze machine draait (docker compose, pnpm dev): http en cookies zonder Secure.
+    insecureDevelopment: isLocalUrl(site) && isLocalUrl(e.OIDC_ISSUER),
   });
   return bff;
 }
 
 export const noStore = { "cache-control": "private, no-store" };
 
-/** Zet een eventueel ververste sessiecookie op het antwoord. */
-export function withCookie(res: Response, setCookie: string | undefined): Response {
-  if (setCookie) res.headers.append("set-cookie", setCookie);
+/** Zet eventueel ververste sessiecookies op het antwoord (een sessie kan over meerdere cookies verdeeld zijn). */
+export function withCookie(res: Response, setCookies: string[] | undefined): Response {
+  for (const c of setCookies ?? []) res.headers.append("set-cookie", c);
   return res;
 }

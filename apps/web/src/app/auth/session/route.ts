@@ -7,7 +7,7 @@ import { getBff, noStore, withCookie } from "@/lib/auth";
 export async function GET(request: Request) {
   const bff = getBff();
   if (!bff) return Response.json({ enabled: false, user: null }, { headers: noStore });
-  const { session, setCookie } = await bff.session(request.headers.get("cookie"));
+  const { session, setCookies } = await bff.session(request.headers.get("cookie"));
   const user = session ? { name: session.name?.split(" ")[0] ?? null } : null;
-  return withCookie(Response.json({ enabled: true, user }, { headers: noStore }), setCookie);
+  return withCookie(Response.json({ enabled: true, user }, { headers: noStore }), setCookies);
 }

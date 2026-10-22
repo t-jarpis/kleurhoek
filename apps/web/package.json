@@ -12,7 +12,7 @@
   "dependencies": {
     "@fontsource/nunito": "5.3.0",
     "@fontsource/sniglet": "5.3.0",
-    "@t-jarpis/auth": "file:../../../platform/packages/auth",
+    "@t-jarpis/auth": "file:../../vendor/t-jarpis-auth-0.3.0.tgz",
     "next": "16.4.2",
     "react": "19.3.1",
     "react-dom": "19.3.1",

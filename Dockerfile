@@ -1,8 +1,7 @@
 # syntax=docker/dockerfile:1.7
 # Eén Dockerfile voor de drie apps: `--target api`, `--target web` of `--target admin`.
-# Bouwen vanaf de repo-root:
-#   docker build --target api --secret id=npmrc,src=$HOME/.npmrc -t kleurhoek-api .
-# De npmrc-secret bevat een token voor GitHub Packages (@t-jarpis/*) en komt niet in de image.
+# Bouwen vanaf de repo-root: docker build --target api -t kleurhoek-api .
+# Platformpakketten komen uit vendor/, dus er is geen token voor een registry nodig.
 
 ARG NODE_IMAGE=node:22.22-alpine
 
@@ -13,17 +12,16 @@ WORKDIR /repo
 
 # Afhankelijkheden ophalen op basis van alleen de lockfile: deze laag blijft gecachet zolang die niet verandert.
 FROM base AS deps
-COPY pnpm-lock.yaml pnpm-workspace.yaml package.json .npmrc ./
-RUN --mount=type=secret,id=npmrc,target=/root/.npmrc,required=false \
-    --mount=type=cache,id=pnpm,target=/pnpm/store \
+COPY pnpm-lock.yaml pnpm-workspace.yaml package.json ./
+COPY vendor ./vendor
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
     pnpm fetch --frozen-lockfile
 
 FROM deps AS build
 ARG NEXT_PUBLIC_MARKETS=nl-nl
 ENV NEXT_PUBLIC_MARKETS=${NEXT_PUBLIC_MARKETS} NODE_ENV=production
 COPY . .
-RUN --mount=type=secret,id=npmrc,target=/root/.npmrc,required=false \
-    --mount=type=cache,id=pnpm,target=/pnpm/store \
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
     pnpm install --frozen-lockfile --offline --prod=false
 RUN pnpm turbo run build --filter=@kleurhoek/api --filter=@kleurhoek/web --filter=@kleurhoek/admin
 # Alleen productie-afhankelijkheden van de API, zonder symlinks naar de workspace.

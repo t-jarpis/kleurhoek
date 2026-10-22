@@ -21,6 +21,11 @@ variable "admin_org_id" {
   type        = string
   description = "Organisatie-ID van Org Beheer (gedeeld, uit de platform-infra)."
 }
+variable "local_development" {
+  type        = bool
+  default     = false
+  description = "Alleen voor docker compose: http-redirects op localhost toestaan en geen MFA-vraag bij inloggen."
+}
 variable "idp_ids" {
   type        = list(string)
   default     = []
@@ -53,7 +58,7 @@ resource "zitadel_login_policy" "site" {
   default_redirect_uri          = var.site_url
   password_check_lifetime       = "240h0m0s"
   external_login_check_lifetime = "240h0m0s"
-  mfa_init_skip_lifetime        = "720h0m0s"
+  mfa_init_skip_lifetime        = var.local_development ? "0s" : "720h0m0s"
   second_factor_check_lifetime  = "24h0m0s"
   multi_factor_check_lifetime   = "24h0m0s"
 }
@@ -88,7 +93,7 @@ resource "zitadel_application_oidc" "web" {
   access_token_type           = "OIDC_TOKEN_TYPE_JWT"
   access_token_role_assertion = false
   id_token_userinfo_assertion = true
-  dev_mode                    = false
+  dev_mode                    = var.local_development
   clock_skew                  = "0s"
 }
 
@@ -105,7 +110,7 @@ resource "zitadel_application_oidc" "admin" {
   access_token_type           = "OIDC_TOKEN_TYPE_JWT"
   access_token_role_assertion = false
   id_token_userinfo_assertion = true
-  dev_mode                    = false
+  dev_mode                    = var.local_development
   clock_skew                  = "0s"
 }
 

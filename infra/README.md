@@ -1,6 +1,6 @@
 # Infrastructuur van Kleurhoek
 
-Terraform voor twee omgevingen (`envs/dev`, `envs/prod`). Beide gebruiken `modules/site`, dat drie delen samenvoegt:
+Terraform voor twee omgevingen (`envs/dev`, `envs/prod`), plus `envs/local` dat de Zitadel in `docker compose` inricht (zie de README in de root). Beide gebruiken `modules/site`, dat drie delen samenvoegt:
 
 | Module | Wat |
 | --- | --- |
@@ -38,9 +38,8 @@ De eerste keer draaien de apps een voorbeeldimage. Daarna:
 
 1. Zet in GitHub (repo › Settings › Environments) de omgevingen `dev` en `prod` aan, met voor `prod` een verplichte goedkeuring. Vul per omgeving deze **variables** in (geen geheimen; komen uit `terraform output site`):
    `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, `AZURE_SUBSCRIPTION_ID` (uit `github_deploy`), `ACR_NAME`, `RESOURCE_GROUP`, `SITE_URL`, `MARKETS` (bijv. `nl-nl`).
-2. Geef de repo leestoegang tot het pakket `@t-jarpis/auth` (pakket › Package settings › Manage Actions access › `t-jarpis/kleurhoek`). Lukt dat niet, zet dan een fine-grained token met *packages: read* als secret `PLATFORM_PACKAGES_TOKEN`.
-3. Push naar `main` of start *Deploy* handmatig. De workflow bouwt de images, draait de migraties als job, rolt de drie apps uit en doet een rooktest.
-4. Eenmalig per omgeving de catalogus vullen: `az containerapp job start -g <rg> -n caj-kh-<omgeving>-seed`.
+2. Push naar `main` of start *Deploy* handmatig. De workflow bouwt de images, draait de migraties als job, rolt de drie apps uit en doet een rooktest.
+3. Eenmalig per omgeving de catalogus vullen: `az containerapp job start -g <rg> -n caj-kh-<omgeving>-seed`.
 
 ## Keuzes
 - **API zonder publieke ingang.** Alleen website en admin roepen hem aan, binnen de Container Apps-omgeving (mutual TLS). SVG's lopen via de website en worden door Cloudflare gecachet.

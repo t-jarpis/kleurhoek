@@ -7,4 +7,6 @@
 - Alle platen zijn eigen tekeningen. Geen bekende figuren, merken of werk van anderen.
 - Privacy: geen tracking-cookies, geen persoonsgegevens in analytics, kinderen zonder account (ADR 0002).
 - Alles in deze repo moet overdraagbaar zijn bij verkoop (ADR 0004). Geen geheimen of `.env`-bestanden committen.
+- Platformpakketten staan als tarball in `vendor/` (ADR 0009); bijwerken met `scripts/platform-update.mjs`, nooit met de hand.
+- `docker compose up` moet altijd zonder handwerk een werkende omgeving geven, inclusief inloggen via de echte Zitadel. Raak je login, env-variabelen of Terraform aan, test dan ook compose.
 - Voor een commit: `pnpm check` groen.

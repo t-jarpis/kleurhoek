@@ -1,4 +1,4 @@
-import { createBff, type Bff } from "@t-jarpis/auth";
+import { createBff, isLocalUrl, type Bff } from "@t-jarpis/auth";
 
 /**
  * Inloggen voor beheerders via Zitadel. Alleen accounts uit de beheerorganisatie (met verplichte
@@ -23,7 +23,8 @@ export function getBff(): Bff | null {
     cookieName: "kh_admin",
     // Beheerders blijven korter ingelogd dan websitegebruikers: 12 uur.
     sessionMaxAgeSeconds: 12 * 60 * 60,
-    insecureDevelopment: process.env.NODE_ENV !== "production" && site.startsWith("http://"),
+    // Alleen als alles op deze machine draait (docker compose, pnpm dev): http en cookies zonder Secure.
+    insecureDevelopment: isLocalUrl(site) && isLocalUrl(e.OIDC_ISSUER),
   });
   return bff;
 }

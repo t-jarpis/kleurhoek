@@ -1,3 +1,4 @@
+import { isLocalUrl } from "@t-jarpis/auth";
 import { z } from "zod";
 
 const schema = z.object({
@@ -41,7 +42,8 @@ export function loadEnv(source: NodeJS.ProcessEnv = process.env): Env {
     for (const key of ["OIDC_ISSUER", "OIDC_AUDIENCE", "ADMIN_ORG_ID", "SITE_ORG_ID"] as const) {
       if (!env[key]) throw new Error(`${key} is verplicht in productie`);
     }
-    if (!env.OIDC_ISSUER?.startsWith("https://")) throw new Error("OIDC_ISSUER moet https zijn in productie");
+    // Http alleen als Zitadel op deze machine draait (docker compose).
+    if (!env.OIDC_ISSUER?.startsWith("https://") && !isLocalUrl(env.OIDC_ISSUER ?? "")) throw new Error("OIDC_ISSUER moet https zijn in productie");
   }
   return env;
 }
