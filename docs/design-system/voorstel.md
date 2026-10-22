@@ -1,6 +1,6 @@
 # Design system Kleurhoek – voorstel
 
-Status: voorstel, nog niets doorgevoerd · Datum: 2026-10-22 · Bronnen: `kleurhoek/apps/web`, `kleurhoek/apps/admin`, `kleurhoek/docs/adr`, `platform/packages`, screenshots `e2e/shots/1–8`.
+Status: voorstel, nog niets doorgevoerd. **Stijl gekozen op 22-10-2026: Studio** (zie ADR 0012 en het design system); de merk- en tokenwaarden hieronder zijn daardoor deels vervangen · Datum: 2026-10-22 · Bronnen: `kleurhoek/apps/web`, `kleurhoek/apps/admin`, `kleurhoek/docs/adr`, `platform/packages`, screenshots `e2e/shots/1–8`.
 
 **Leidend doel (van de eigenaar):** Kleurhoek moet echt een merk zijn, en tegelijk professioneel. Het moet werken voor jong en oud: voor een kleuter van vier, voor een ouder die snel iets wil printen, en voor een opa van 72 die het op een tablet opent.
 
