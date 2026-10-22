@@ -294,7 +294,6 @@ resource "azurerm_container_app_job" "task" {
 # ---------- Eigen domeinen (achter Cloudflare) ----------
 
 resource "azurerm_container_app_environment_certificate" "origin" {
-  count                        = length(var.domain_records) > 0 ? 1 : 0
   name                         = "cloudflare-origin"
   container_app_environment_id = azurerm_container_app_environment.main.id
   certificate_blob_base64      = base64encode("${var.origin_certificate.certificate_pem}${var.origin_certificate.private_key_pem}")
@@ -307,6 +306,6 @@ resource "azurerm_container_app_custom_domain" "app" {
   for_each                                 = var.domain_records
   name                                     = local.apps[each.key].host
   container_app_id                         = azurerm_container_app.app[each.key].id
-  container_app_environment_certificate_id = azurerm_container_app_environment_certificate.origin[0].id
+  container_app_environment_certificate_id = azurerm_container_app_environment_certificate.origin.id
   certificate_binding_type                 = "SniEnabled"
 }
