@@ -1,54 +1,83 @@
 # Infrastructuur van Kleurhoek
 
-Terraform voor twee omgevingen (`envs/dev`, `envs/prod`), plus `envs/local` dat de Zitadel in `docker compose` inricht (zie de README in de root). Beide gebruiken `modules/site`, dat drie delen samenvoegt:
+Kleurhoek draait bij **Scaleway in Amsterdam** (`nl-ams`), achter **Cloudflare**, met inloggen via **Zitadel Cloud** (ADR 0014). Terraform heeft drie configuraties, plus `envs/local` dat de Zitadel in `docker compose` inricht (zie de README in de root):
+
+| Configuratie | Wat |
+| --- | --- |
+| `envs/zone` | De zone kleurhoek.nl, gedeeld door dev en prod: TLS strict, CAA, redirects, cacheregel, rate limits en de geheime header per omgeving. Na de lancering ook `kleurhoek.be` en `kleurhoek.com` als doorstuur-domeinen. Eén keer vóór de omgevingen. |
+| `envs/dev`, `envs/prod` | Eén omgeving via `modules/site`. |
+
+`modules/site` bestaat uit drie modules:
 
 | Module | Wat |
 | --- | --- |
-| `modules/zitadel` | Organisatie *Kleurhoek*, het project, de apps *Kleurhoek web* en *Kleurhoek admin* (JWT-access tokens), toegang voor Org Beheer |
-| `modules/azure` | Resourcegroep, VNet, PostgreSQL (alleen privé), Container Registry, Key Vault, managed identities, Container Apps (API intern, website en admin alleen via Cloudflare), jobs voor migraties en seed, deploy-identiteit voor GitHub (OIDC) |
-| `modules/cloudflare` | DNS, Origin CA-certificaat, TLS strict, rate limits aan de rand, Cloudflare Access voor het admin panel, kaal domein naar www |
-| `modules/redirect-domain` | Extra domeinen (`kleurhoek.be`, `kleurhoek.com`) die met pad en query doorsturen naar www.kleurhoek.nl (alleen prod) |
+| `modules/zitadel` | Organisatie, project, apps *Kleurhoek web* en *Kleurhoek admin*, toegang voor Org Beheer. |
+| `modules/scaleway` | VPC met privénetwerk, PostgreSQL (alleen privé), Container Registry, Serverless Containers (API alleen privé, website en admin via Cloudflare) en de IAM-applicatie waarmee GitHub uitrolt. |
+| `modules/cloudflare` | DNS-records naar de containers en Cloudflare Access voor het admin panel. |
 
-Alles van Kleurhoek staat in eigen accounts en een eigen state, zodat de site los verkocht kan worden.
+Alles van Kleurhoek staat in eigen accounts (Scaleway-organisatie *Kleurhoek*, Cloudflare-zone, Zitadel-organisatie) en een eigen state, zodat de site los verkocht kan worden.
 
 ## Eenmalig vooraf
-1. **Azure**: een eigen subscription voor Kleurhoek. Regio: Sweden Central. West Europe neemt geen nieuwe klanten aan, en Germany West Central biedt nieuwe subscriptions geen PostgreSQL aan. De state-opslag staat wel in Frankfurt; dat maakt niet uit. Maak de state-opslag aan:
-   ```sh
-   az group create -n rg-kh-tfstate -l germanywestcentral
-   az storage account create -n <uniek, bv. khtfstate123> -g rg-kh-tfstate -l germanywestcentral --sku Standard_ZRS --min-tls-version TLS1_2 --allow-blob-public-access false
-   az storage container create -n tfstate --account-name <naam> --auth-mode login
-   az role assignment create --role "Storage Blob Data Contributor" --assignee <jouw e-mail> --scope <id van het storage account>
-   ```
-   Meld de diensten eenmalig aan bij de subscription (een nieuwe subscription kent ze nog niet):
-   ```sh
-   for ns in Microsoft.KeyVault Microsoft.App Microsoft.OperationalInsights Microsoft.ContainerRegistry Microsoft.DBforPostgreSQL Microsoft.Network Microsoft.ManagedIdentity Microsoft.Storage; do az provider register --namespace $ns; done
-   ```
-   Geef bij `terraform init` de naam van het storage account mee: `-backend-config="storage_account_name=<naam>"`.
-2. **Cloudflare**: de zones `kleurhoek.nl`, `kleurhoek.be` en `kleurhoek.com` toevoegen (gratis plan; nameservers bij Neostrada aanpassen naar die van Cloudflare). De domeinen staan geregistreerd bij Neostrada. Maak een API-token met alleen de rechten *Zone: DNS Edit, Zone Settings Edit, SSL and Certificates Edit, Zone WAF Edit* voor deze drie zones en *Account: Access: Apps and Policies Edit*. Zet hem als `CLOUDFLARE_API_TOKEN`. In prod vul je de zone-ID's van `.be` en `.com` in bij `redirect_zone_ids`: die sturen door naar www.kleurhoek.nl.
-3. **Zitadel Cloud**: instance in de EU-regio. Op het gratis plan is er één instance; dev en prod delen die tot de lancering, elk met een eigen organisatie en eigen apps (Terraform zet "(dev)" achter de namen). Vóór de lancering met echte gebruikers: upgraden naar Pro en prod naar een eigen instance. Instance-instellingen (eenmalig, gedeeld met andere sites):
-   - Identity providers Google, Apple en Microsoft toevoegen; noteer hun ID's (`zitadel_idp_ids`).
-   - Login-instellingen: login v2, wachtwoorden uit, passkeys en e-mailcode aan.
-   - Organisatie *Org Beheer* met verplichte passkeys; noteer het ID (`zitadel_admin_org_id`). Jij bent daar de eerste gebruiker; noteer je gebruikers-ID (`admin_bootstrap_subjects`).
-   - Een service user met de rol *IAM Owner* (of *Org Creator* plus *Org Owner* daarna) en een JSON-sleutel voor Terraform. Bewaar die buiten git.
-4. Kopieer `envs/<omgeving>/terraform.tfvars.example` naar `terraform.tfvars` en vul in.
+1. **Scaleway**: organisatie *Kleurhoek* met de projecten `kleurhoek-dev` en (later) `kleurhoek-prod`.
+   - Maak onder *IAM › API keys* een API-sleutel voor jezelf. Kies als *preferred project* `kleurhoek-dev`, en bij *Object Storage* ook `kleurhoek-dev`.
+   - Maak in `kleurhoek-dev` een bucket voor de state. Regio Amsterdam, privé, met versioning aan; de naam moet wereldwijd uniek zijn, bijvoorbeeld `kleurhoek-tfstate-<iets>`. De state van zone, dev en prod komt in deze ene bucket, elk met een eigen sleutel.
+   - Zet de sleutel in je shell. Bewaar hem in `~/.config/kleurhoek/scaleway.env`, niet in git en niet in iCloud:
+     ```sh
+     export SCW_ACCESS_KEY=… SCW_SECRET_KEY=…
+     export AWS_ACCESS_KEY_ID=$SCW_ACCESS_KEY AWS_SECRET_ACCESS_KEY=$SCW_SECRET_KEY   # voor de state-bucket
+     export CLOUDFLARE_API_TOKEN=…
+     ```
+2. **Cloudflare**: de zones `kleurhoek.nl`, `kleurhoek.be` en `kleurhoek.com` (gratis plan; nameservers bij Neostrada). API-token met *Zone: DNS Edit, Zone Settings Edit, SSL and Certificates Edit, Zone WAF Edit, Cache Rules Edit, Transform Rules Edit, Dynamic Redirect Edit* voor deze zones en *Account: Access: Apps and Policies Edit*.
+3. **Zitadel Cloud**: instance in de EU-regio. Op het gratis plan is er één instance; dev en prod delen die tot de lancering, elk met een eigen organisatie en apps.
+   - Identity providers Google, Apple en Microsoft (ID's in `zitadel_idp_ids`).
+   - Login v2, wachtwoorden uit, passkeys en e-mailcode aan.
+   - Organisatie *Org Beheer* met verplichte passkeys (`zitadel_admin_org_id`). Je eigen gebruikers-ID gaat in `admin_bootstrap_subjects`.
+   - Een service user met *IAM Owner* en een JSON-sleutel in `~/.config/kleurhoek/`.
+4. Kopieer per configuratie `terraform.tfvars.example` naar `terraform.tfvars` en vul in. De organisatie-ID staat in de Scaleway-console onder *Organization › Settings*, de project-ID onder *Project › Settings*.
 
-## Uitrollen
+## Eerste uitrol (dev)
+Containers kunnen pas bestaan als er images zijn, en images komen uit GitHub. Daarom gaat de eerste keer in twee stappen.
+
 ```sh
-cd infra/envs/dev
-terraform init -backend-config="storage_account_name=<naam>"
-terraform plan -out plan
-terraform apply plan
-```
-De eerste keer draaien de apps een voorbeeldimage. Daarna:
+# 1. De zone (één keer; daarna alleen bij wijzigingen)
+cd infra/envs/zone
+terraform init -backend-config="bucket=<state-bucket>"
+terraform apply
 
-1. Zet in GitHub (repo › Settings › Environments) de omgevingen `dev` en `prod` aan, met voor `prod` een verplichte goedkeuring. Vul per omgeving deze **variables** in (geen geheimen; komen uit `terraform output site`):
-   `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, `AZURE_SUBSCRIPTION_ID` (uit `github_deploy`), `ACR_NAME`, `RESOURCE_GROUP`, `SITE_URL`, `MARKETS` (bijv. `nl-nl`).
-2. Zet in GitHub (repo › Settings › Secrets and variables › Actions › Variables) de repository-variabele `DEPLOY_ENABLED` op `true`. Tot dan slaat de *Deploy*-workflow pushes naar `main` over. Push daarna naar `main` of start *Deploy* handmatig. De workflow bouwt de images, draait de migraties als job, rolt de drie apps uit en doet een rooktest.
-3. Eenmalig per omgeving de catalogus vullen: `az containerapp job start -g <rg> -n caj-kh-<omgeving>-seed`.
+# 2. Dev zonder containers: netwerk, database, registry, Zitadel, Access, deploy-sleutel
+cd ../dev
+terraform init -backend-config="bucket=<state-bucket>"
+terraform apply -var apps_enabled=false
+```
+
+3. **GitHub-omgeving `dev`** vullen vanuit de output. De sleutel gaat niet via je scherm.
+   ```sh
+   out=$(terraform output -json github)
+   for k in SCW_ACCESS_KEY SCW_PROJECT_ID SCW_REGION REGISTRY CONTAINER_IDS SITE_URL MARKETS; do
+     gh variable set "$k" -e dev -R t-jarpis/kleurhoek -b "$(jq -r ".variables.$k" <<<"$out")"
+   done
+   jq -r .secrets.SCW_SECRET_KEY <<<"$out" | gh secret set SCW_SECRET_KEY -e dev -R t-jarpis/kleurhoek
+   gh variable set DEPLOY_ENABLED -R t-jarpis/kleurhoek -b true
+   ```
+4. **Images bouwen**: `gh workflow run Deploy -R t-jarpis/kleurhoek -f environment=dev`. Zonder containers stopt de workflow na het pushen.
+5. **Containers en domeinen**: `terraform apply`. Daarna `CONTAINER_IDS` opnieuw zetten (de regel uit stap 3 voor die ene variabele). Vanaf nu rolt elke push naar `main` automatisch uit naar dev.
+
+De eerste start van de API maakt de tabellen aan en vult de catalogus. Het eigen domein krijgt binnen enkele minuten een certificaat; tot dan geeft Cloudflare een 526.
+
+## Daarna
+- **Uitrollen**: push naar `main` (dev), of start *Deploy* met `environment=prod` (vraagt goedkeuring). De workflow bouwt, pusht, zet de image per container (eerst de API, die migreert) en doet een rooktest.
+- **Infra wijzigen**: `terraform plan` en `terraform apply` in de betreffende map. Terraform kijkt niet naar de image van de containers; die beheert GitHub.
+- **Deploy-sleutel roteren**: `terraform apply -replace=module.site.module.scaleway.scaleway_iam_api_key.deploy`, daarna het secret opnieuw zetten (stap 3).
+
+## Productie
+Pas bij de lancering: project `kleurhoek-prod`, `envs/prod/terraform.tfvars`, dezelfde stappen 2 tot en met 5 met omgeving `prod` (in GitHub met verplichte goedkeuring). Daarna in `envs/zone`: `prod_live = true` en `apply`. Dan sturen het kale domein, `kleurhoek.be` en `kleurhoek.com` door naar www.
+
+Controleer vooraf de database-node: `scw rdb node-type list region=nl-ams`.
 
 ## Keuzes
-- **API zonder publieke ingang.** Alleen website en admin roepen hem aan, binnen de Container Apps-omgeving (mutual TLS). SVG's lopen via de website en worden door Cloudflare gecachet.
-- **Alleen Cloudflare mag de origin bereiken**: de ingang van website en admin accepteert alleen de IP-ranges van Cloudflare, met een Origin CA-certificaat en TLS strict.
-- **Geheimen in Key Vault**, gelezen door de managed identity van elke app. Terraform maakt ze aan (sessiesleutels, ingest-sleutel, databasewachtwoord, OIDC-client-secrets); ze staan dus ook in de state, die daarom alleen met Entra-login te lezen is.
-- **Database**: de API verbindt nu met de beheerdersrol en schakelt per transactie naar `app_user` (row-level security). Volgende stap: inloggen met de managed identity (Entra) in plaats van een wachtwoord.
-- **Productie bouwt opnieuw** vanaf dezelfde commit (lockfile vast). Later: images uit dev promoveren in plaats van opnieuw bouwen.
+- **API zonder publieke ingang.** Alleen website en admin roepen hem aan, via het privénetwerk. SVG's lopen via de website en worden door Cloudflare gecachet.
+- **Alleen via Cloudflare.** Cloudflare zet een geheime header per omgeving; website en admin weigeren verzoeken zonder (behalve `/healthz`). Daarmee kan niemand via de standaard-hostnaam van Scaleway om de WAF, de rate limits of Access heen.
+- **Certificaten** van Let's Encrypt via Scaleway (HTTP-01). Daarom staat *Always Use HTTPS* uit en doet een eigen regel de redirect, met een uitzondering voor `/.well-known/acme-challenge/`.
+- **Database alleen privé**, met TLS tegen de CA van de instance. De API verbindt met de beheerdersrol en schakelt per transactie naar `app_user` (row-level security).
+- **Migraties bij het opstarten van de API**, achter een advisory lock. Serverless Jobs kunnen niet aan een privénetwerk.
+- **Productie bouwt opnieuw** vanaf dezelfde commit (lockfile vast). Later: images uit dev promoveren.

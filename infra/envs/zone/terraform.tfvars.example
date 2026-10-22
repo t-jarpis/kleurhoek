@@ -1,0 +1,4 @@
+# Kopieer naar terraform.tfvars (staat in .gitignore) en vul in.
+cloudflare_zone_id = "<zone-id van kleurhoek.nl>"
+prod_live          = false
+redirect_zone_ids  = { "kleurhoek.be" = "<zone-id>", "kleurhoek.com" = "<zone-id>" }

@@ -19,16 +19,44 @@ const migrationsFolder = path.join(__dirname, "..", "..", "drizzle");
 export interface DatabaseHandle {
   db: Database;
   migrate(): Promise<void>;
+  /** Voert `fn` uit terwijl deze instance een databasebreed slot heeft (andere instances wachten). */
+  exclusive<T>(fn: () => Promise<T>): Promise<T>;
   close(): Promise<void>;
 }
 
+export interface PostgresOptions {
+  /**
+   * CA-certificaat (PEM) van de database. Gezet = TLS met controle van de certificaatketen tegen deze CA.
+   * De hostnaam wordt niet gecontroleerd: we verbinden via een privé-IP, en de CA hoort alleen bij
+   * deze ene database-instance.
+   */
+  ca?: string;
+}
+
+/** Vast getal voor pg_advisory_lock: migraties en seed bij het opstarten. */
+const STARTUP_LOCK = 4_242_001;
+
 /** Productie en staging: PostgreSQL via een connection pool. */
-export function connectPostgres(url: string): DatabaseHandle {
-  const pool = new Pool({ connectionString: url, max: 10, idleTimeoutMillis: 30_000 });
+export function connectPostgres(url: string, options: PostgresOptions = {}): DatabaseHandle {
+  const ssl = options.ca ? { ca: options.ca, checkServerIdentity: () => undefined } : undefined;
+  const pool = new Pool({ connectionString: url, ssl, max: 10, idleTimeoutMillis: 30_000 });
   const db = drizzlePg(pool, { schema });
   return {
     db: db as unknown as Database,
     migrate: () => migratePg(db, { migrationsFolder }),
+    async exclusive(fn) {
+      const client = await pool.connect();
+      try {
+        await client.query("select pg_advisory_lock($1)", [STARTUP_LOCK]);
+        try {
+          return await fn();
+        } finally {
+          await client.query("select pg_advisory_unlock($1)", [STARTUP_LOCK]);
+        }
+      } finally {
+        client.release();
+      }
+    },
     close: () => pool.end(),
   };
 }
@@ -40,6 +68,7 @@ export function connectInMemory(): DatabaseHandle {
   return {
     db: db as unknown as Database,
     migrate: () => migratePglite(db, { migrationsFolder }),
+    exclusive: (fn) => fn(),
     close: () => client.close(),
   };
 }

@@ -1,11 +1,19 @@
 import { isLocalUrl } from "@t-jarpis/auth";
 import { z } from "zod";
 
+const flag = z.enum(["true", "false", "1", "0", ""]).default("false").transform((v) => v === "true" || v === "1");
+
 const schema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
   PORT: z.coerce.number().int().positive().default(3001),
   /** Leeg = een PGlite-database in het geheugen met seed-data (alleen lokaal). */
   DATABASE_URL: z.string().url().optional(),
+  /** CA-certificaat (PEM) van de database; gezet = TLS met controle tegen deze CA. */
+  DATABASE_CA: z.string().optional(),
+  /** Migraties draaien bij het opstarten (Scaleway: er is geen aparte job in het privénetwerk). */
+  MIGRATE_ON_START: flag,
+  /** De catalogus vullen bij het opstarten (idempotent). Aan in dev, uit in productie. */
+  SEED_ON_START: flag,
   /** De tenant van deze site. Kleurhoek heeft er nu één. */
   TENANT_ID: z.string().uuid().default("0192f6a0-0000-7000-8000-000000000001"),
   /** Gedeelde sleutel waarmee de Cloudflare Worker events aanlevert. */

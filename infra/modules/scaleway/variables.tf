@@ -7,21 +7,10 @@ variable "environment" {
   }
 }
 
-variable "location" {
-  type    = string
-  default = "swedencentral"
-}
-
 variable "tenant_id" {
   type        = string
   description = "Tenant van Kleurhoek in de database (TENANT_ID van de API)."
   default     = "0192f6a0-0000-7000-8000-000000000001"
-}
-
-variable "github_repository" {
-  type        = string
-  default     = "t-jarpis/kleurhoek"
-  description = "Repo die via OIDC (zonder geheimen) mag deployen."
 }
 
 variable "hosts" {
@@ -62,22 +51,19 @@ variable "admin_bootstrap_subjects" {
   description = "Zitadel-ID's die bij hun eerste login platformbeheerder worden."
 }
 
-variable "postgres" {
+variable "database" {
   type = object({
-    sku_name          = string
-    storage_mb        = number
-    high_availability = bool
-    backup_days       = number
+    node_type      = string # bijvoorbeeld DB-PLAY2-PICO; zie `scw rdb node-type list`
+    engine         = string # bijvoorbeeld PostgreSQL-16; zie `scw rdb engine list`
+    volume_gb      = number
+    ha             = bool
+    backup_days    = number
+    backup_hours   = number
+    backup_same_dc = bool
   })
-  default = {
-    sku_name          = "B_Standard_B1ms"
-    storage_mb        = 32768
-    high_availability = false
-    backup_days       = 7
-  }
 }
 
-variable "replicas" {
+variable "scale" {
   type = object({
     api_min = number
     api_max = number
@@ -87,34 +73,25 @@ variable "replicas" {
   default = { api_min = 0, api_max = 3, web_min = 0, web_max = 3 }
 }
 
-variable "allowed_ingress_cidrs" {
-  type        = list(string)
-  description = "Alleen dit verkeer mag de apps bereiken: de IP-ranges van Cloudflare."
+variable "apps_enabled" {
+  type        = bool
+  default     = true
+  description = "False bij de allereerste apply: dan bestaan de images nog niet. Zie infra/README.md."
 }
 
-variable "origin_certificate" {
-  type = object({
-    certificate_pem = string
-    private_key_pem = string
-  })
-  default     = null
+variable "edge_secret" {
+  type        = string
   sensitive   = true
-  description = "Cloudflare Origin CA-certificaat voor de eigen domeinen. Leeg = nog geen eigen domeinen."
+  description = "Header-waarde die Cloudflare meestuurt; website en admin weigeren verzoeken zonder (alleen via Cloudflare)."
 }
 
 variable "domain_records" {
   type        = map(string)
   default     = {}
-  description = "Per app (web, admin) het ID van het asuid-TXT-record in Cloudflare. Pas als dat bestaat, wordt het domein gekoppeld."
-}
-
-variable "bootstrap_image" {
-  type        = string
-  default     = "mcr.microsoft.com/k8se/quickstart:latest"
-  description = "Image voor de allereerste aanmaak. Daarna zet de deploy-workflow de echte images."
+  description = "Per app (web, admin) het ID van het CNAME-record in Cloudflare. Pas als dat bestaat, wordt het domein gekoppeld."
 }
 
 variable "tags" {
-  type    = map(string)
-  default = {}
+  type    = list(string)
+  default = []
 }

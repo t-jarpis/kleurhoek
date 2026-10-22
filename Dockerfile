@@ -34,7 +34,7 @@ ENV NODE_ENV=production
 WORKDIR /app
 ENTRYPOINT ["/sbin/tini", "--"]
 
-# API: ook gebruikt voor migraties (`node dist/db/migrate.js`) en de seed (`node dist/db/seed-cli.js`).
+# API: migreert (en in dev: vult de catalogus) bij het opstarten; handmatig kan ook met `node dist/db/migrate.js` en `node dist/db/seed-cli.js`.
 FROM runtime AS api
 COPY --from=build --chown=node:node /out/api /app
 USER node

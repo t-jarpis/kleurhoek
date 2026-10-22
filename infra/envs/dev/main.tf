@@ -3,31 +3,36 @@
 terraform {
   required_version = ">= 1.10"
   required_providers {
-    azurerm    = { source = "hashicorp/azurerm", version = "~> 5.10" }
+    scaleway   = { source = "scaleway/scaleway", version = "~> 2.88" }
     cloudflare = { source = "cloudflare/cloudflare", version = "~> 5.28" }
     zitadel    = { source = "zitadel/zitadel", version = "~> 3.8" }
     random     = { source = "hashicorp/random", version = "~> 3.7" }
-    tls        = { source = "hashicorp/tls", version = "~> 4.1" }
   }
-  # State in een eigen storage account per site (verkoopbaar), met Entra-login in plaats van sleutels.
-  backend "azurerm" {
-    resource_group_name = "rg-kh-tfstate"
-    container_name      = "tfstate"
-    key                 = "kleurhoek-dev.tfstate"
-    use_azuread_auth    = true
+  # State in een privé bucket in Scaleway Object Storage (eigen account per site: verkoopbaar).
+  # Bucket: `-backend-config="bucket=<naam>"`. Sleutel: AWS_ACCESS_KEY_ID/AWS_SECRET_ACCESS_KEY = je Scaleway-API-sleutel.
+  backend "s3" {
+    key                         = "kleurhoek-dev.tfstate"
+    region                      = "nl-ams"
+    endpoints                   = { s3 = "https://s3.nl-ams.scw.cloud" }
+    use_path_style              = true
+    use_lockfile                = true
+    skip_credentials_validation = true
+    skip_region_validation      = true
+    skip_requesting_account_id  = true
+    skip_metadata_api_check     = true
+    skip_s3_checksum            = true
   }
 }
 
-provider "azurerm" {
-  features {
-    key_vault {
-      purge_soft_delete_on_destroy = false
-    }
-  }
-  subscription_id = var.azure_subscription_id
+# Sleutel via SCW_ACCESS_KEY en SCW_SECRET_KEY (zie infra/README.md).
+provider "scaleway" {
+  region          = "nl-ams"
+  zone            = "nl-ams-1"
+  organization_id = var.scaleway_organization_id
+  project_id      = var.scaleway_project_id
 }
 
-# API-token met alleen: Zone DNS, Zone Settings, SSL and Certificates, Zone WAF (rulesets) en Access.
+# API-token in CLOUDFLARE_API_TOKEN; rechten: zie infra/README.md.
 provider "cloudflare" {}
 
 # Service user in Zitadel met de rol Org Owner op de Kleurhoek-organisatie en Org Beheer (project grant).
@@ -38,7 +43,20 @@ provider "zitadel" {
   jwt_profile_file = var.zitadel_key_file
 }
 
-variable "azure_subscription_id" { type = string }
+variable "scaleway_organization_id" { type = string }
+variable "scaleway_project_id" {
+  type        = string
+  description = "ID van het project kleurhoek-dev."
+}
+variable "state_bucket" {
+  type        = string
+  description = "Dezelfde bucket als bij terraform init; hieruit komt de state van envs/zone."
+}
+variable "apps_enabled" {
+  type        = bool
+  default     = true
+  description = "Alleen bij de allereerste apply op false: dan bestaan de images nog niet."
+}
 variable "zitadel_domain" { type = string }
 variable "zitadel_key_file" {
   type        = string
@@ -57,6 +75,23 @@ variable "admin_bootstrap_subjects" {
   default = []
 }
 
+# Instellingen voor de hele zone (en de geheime header van deze omgeving) komen uit envs/zone.
+data "terraform_remote_state" "zone" {
+  backend = "s3"
+  config = {
+    bucket                      = var.state_bucket
+    key                         = "kleurhoek-zone.tfstate"
+    region                      = "nl-ams"
+    endpoints                   = { s3 = "https://s3.nl-ams.scw.cloud" }
+    use_path_style              = true
+    skip_credentials_validation = true
+    skip_region_validation      = true
+    skip_requesting_account_id  = true
+    skip_metadata_api_check     = true
+    skip_s3_checksum            = true
+  }
+}
+
 module "site" {
   source                   = "../../modules/site"
   environment              = "dev"
@@ -69,22 +104,27 @@ module "site" {
   zitadel_idp_ids          = var.zitadel_idp_ids
   admin_emails             = var.admin_emails
   admin_bootstrap_subjects = var.admin_bootstrap_subjects
-  postgres = {
-    sku_name          = "B_Standard_B1ms"
-    storage_mb        = 32768
-    high_availability = false
-    backup_days       = 7
+  edge_secret              = data.terraform_remote_state.zone.outputs.edge_secrets["dev"]
+  apps_enabled             = var.apps_enabled
+  # Goedkoopste: gedeelde vCPU, geen HA, back-up dagelijks (7 dagen) in een ander datacenter.
+  database = {
+    node_type      = "DB-PLAY2-PICO"
+    engine         = "PostgreSQL-16"
+    volume_gb      = 5
+    ha             = false
+    backup_days    = 7
+    backup_hours   = 24
+    backup_same_dc = false
   }
-  # Dev mag naar nul schalen: kost niets als niemand kijkt (eerste verzoek duurt dan een paar seconden).
-  replicas = { api_min = 0, api_max = 2, web_min = 0, web_max = 2 }
-  # Gratis plan: één regel, period 10 seconden.
-  edge_rate_limits = [{
-    name       = "inloggen-en-api"
-    expression = "(starts_with(http.request.uri.path, \"/auth/\") or starts_with(http.request.uri.path, \"/e\"))"
-    requests   = 30
-    period     = 10
-    block_for  = 10
-  }]
+  # Dev mag naar nul schalen: kost niets als niemand kijkt (eerste verzoek duurt dan enkele seconden).
+  scale = { api_min = 0, api_max = 2, web_min = 0, web_max = 2 }
 }
 
-output "site" { value = module.site }
+output "site_url" { value = module.site.site_url }
+output "admin_url" { value = module.site.admin_url }
+output "registry_endpoint" { value = module.site.registry_endpoint }
+output "container_ids" { value = module.site.container_ids }
+output "github" {
+  value     = module.site.github
+  sensitive = true
+}

@@ -1,6 +1,8 @@
 name: Deploy
 # main gaat automatisch naar dev. Productie: handmatig starten met environment=prod; de GitHub-omgeving
-# "prod" vraagt dan om goedkeuring. Inloggen bij Azure via OIDC: er staan geen Azure-geheimen in GitHub.
+# "prod" vraagt dan om goedkeuring. Scaleway kent geen inloggen via OIDC; de GitHub-omgeving heeft
+# daarom een API-sleutel van een eigen IAM-applicatie die alleen images mag pushen en containers mag
+# bijwerken binnen het project van die omgeving (Terraform maakt hem aan, zie infra/README.md).
 on:
   push:
     branches: [main]
@@ -14,7 +16,6 @@ on:
 
 permissions:
   contents: read
-  id-token: write
 
 concurrency:
   group: deploy-${{ inputs.environment || 'dev' }}
@@ -26,7 +27,7 @@ env:
 
 jobs:
   build:
-    # Automatisch uitrollen pas zodra Azure klaarstaat: zet dan de repository-variabele DEPLOY_ENABLED op true.
+    # Automatisch uitrollen pas zodra Scaleway klaarstaat: zet dan de repository-variabele DEPLOY_ENABLED op true.
     # Handmatig starten kan altijd.
     if: github.event_name == 'workflow_dispatch' || vars.DEPLOY_ENABLED == 'true'
     runs-on: ubuntu-latest
@@ -36,70 +37,70 @@ jobs:
         app: [api, web, admin]
     steps:
       - uses: actions/checkout@v4
-      - uses: azure/login@v2
-        with:
-          client-id: ${{ vars.AZURE_CLIENT_ID }}
-          tenant-id: ${{ vars.AZURE_TENANT_ID }}
-          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
-      - run: az acr login --name "${{ vars.ACR_NAME }}"
       - uses: docker/setup-buildx-action@v3
+      - name: Inloggen bij de registry
+        env:
+          SCW_SECRET_KEY: ${{ secrets.SCW_SECRET_KEY }}
+        run: echo "$SCW_SECRET_KEY" | docker login "${REGISTRY%%/*}" -u nologin --password-stdin
       - uses: docker/build-push-action@v6
         with:
           context: .
           target: ${{ matrix.app }}
+          platforms: linux/amd64
           push: true
-          provenance: mode=max
-          sbom: true
-          tags: ${{ vars.ACR_NAME }}.azurecr.io/kleurhoek-${{ matrix.app }}:${{ env.TAG }}
+          provenance: false
+          # :latest is wat Terraform gebruikt bij het (her)aanmaken van een container; :<commit> rolt uit.
+          tags: |
+            ${{ vars.REGISTRY }}/kleurhoek-${{ matrix.app }}:${{ env.TAG }}
+            ${{ vars.REGISTRY }}/kleurhoek-${{ matrix.app }}:latest
           build-args: NEXT_PUBLIC_MARKETS=${{ vars.MARKETS || 'nl-nl' }}
           cache-from: type=gha,scope=${{ matrix.app }}
           cache-to: type=gha,scope=${{ matrix.app }},mode=max
+    env:
+      REGISTRY: ${{ vars.REGISTRY }}
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment || 'dev' }}
     env:
-      RG: ${{ vars.RESOURCE_GROUP }}
-      PREFIX: kh-${{ inputs.environment || 'dev' }}
-      REGISTRY: ${{ vars.ACR_NAME }}.azurecr.io
+      SCW_SECRET_KEY: ${{ secrets.SCW_SECRET_KEY }}
+      API: https://api.scaleway.com/containers/v1/regions/${{ vars.SCW_REGION || 'nl-ams' }}/containers
+      REGISTRY: ${{ vars.REGISTRY }}
+      CONTAINER_IDS: ${{ vars.CONTAINER_IDS || '{}' }}
     steps:
-      - uses: azure/login@v2
-        with:
-          client-id: ${{ vars.AZURE_CLIENT_ID }}
-          tenant-id: ${{ vars.AZURE_TENANT_ID }}
-          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
-
-      - name: Migraties (vóór de nieuwe versie)
+      - name: Nieuwe versies uitrollen (eerst de API; die draait bij het opstarten de migraties)
+        id: rollout
         run: |
           set -euo pipefail
-          job="caj-$PREFIX-migrate"
-          az containerapp job update -g "$RG" -n "$job" --image "$REGISTRY/kleurhoek-api:$TAG" --output none
-          run=$(az containerapp job start -g "$RG" -n "$job" --query name -o tsv)
-          echo "Gestart: $run"
-          for i in $(seq 1 60); do
-            status=$(az containerapp job execution show -g "$RG" -n "$job" --job-execution-name "$run" --query properties.status -o tsv)
-            echo "Status: $status"
-            case "$status" in
-              Succeeded) exit 0 ;;
-              Failed|Stopped|Degraded) echo "::error::Migratie mislukt ($status)"; exit 1 ;;
-            esac
-            sleep 10
-          done
-          echo "::error::Migratie duurde te lang"; exit 1
-
-      - name: Seed-job bijwerken (draait alleen handmatig, eenmalig per omgeving)
-        run: az containerapp job update -g "$RG" -n "caj-$PREFIX-seed" --image "$REGISTRY/kleurhoek-api:$TAG" --output none
-
-      - name: Nieuwe versies uitrollen
-        run: |
-          set -euo pipefail
+          if [ "$(jq -r 'length' <<<"$CONTAINER_IDS")" = "0" ]; then
+            echo "::notice::Nog geen containers (eerste uitrol): images staan klaar als :latest. Draai nu terraform apply."
+            echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          scw() { curl -fsS -H "X-Auth-Token: $SCW_SECRET_KEY" -H "Content-Type: application/json" "$@"; }
+          wait_ready() {
+            for i in $(seq 1 60); do
+              status=$(scw "$API/$1" | jq -r .status)
+              echo "  $2: $status"
+              case "$status" in
+                ready) return 0 ;;
+                error) scw "$API/$1" | jq -r '.error_message // empty'; echo "::error::$2 kon niet starten"; return 1 ;;
+              esac
+              sleep 10
+            done
+            echo "::error::$2 werd niet op tijd klaar"; return 1
+          }
           for app in api web admin; do
-            az containerapp update -g "$RG" -n "ca-$PREFIX-$app" --image "$REGISTRY/kleurhoek-$app:$TAG" --output none
-            echo "Uitgerold: $app"
+            id=$(jq -r --arg a "$app" '.[$a] // empty' <<<"$CONTAINER_IDS")
+            [ -n "$id" ] || { echo "::warning::Geen container-ID voor $app"; continue; }
+            # Een image-wijziging rolt de container automatisch opnieuw uit.
+            scw -X PATCH "$API/$id" -d "{\"image\":\"$REGISTRY/kleurhoek-$app:$TAG\"}" > /dev/null
+            sleep 5
+            wait_ready "$id" "$app"
           done
 
       - name: Rooktest
+        if: steps.rollout.outputs.skip != 'true'
         run: |
           set -euo pipefail
           for i in $(seq 1 30); do

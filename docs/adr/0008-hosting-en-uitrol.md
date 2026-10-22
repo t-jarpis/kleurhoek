@@ -1,6 +1,8 @@
 # 0008 · Hosting en uitrol
 
-- Status: aangenomen
+> Vervangen door ADR 0014: Kleurhoek draait bij Scaleway. Wat hieronder over de Dockerfile, de interne API, Cloudflare, Zitadel en de GitHub-omgevingen staat, geldt nog; alles over Azure niet meer.
+
+- Status: vervangen door [0014](0014-scaleway.md) (23-10-2026)
 - Datum: 2026-10-22
 
 ## Besluit

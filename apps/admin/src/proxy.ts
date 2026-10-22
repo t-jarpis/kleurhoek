@@ -1,11 +1,20 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { getBff } from "./lib/auth";
+import { EDGE_HEADER, edgeAllowed } from "./lib/edge";
+
+/** Paden zonder sessie: inloggen, statische bestanden. */
+const PUBLIC = /^\/(auth\/|_next\/|favicon\.ico$)/;
 
 /**
  * Elke pagina van het admin panel vereist een geldige sessie. Hier wordt ook het access token
  * ververst, want alleen de proxy mag cookies zetten vóór de pagina rendert.
  */
 export async function proxy(request: NextRequest) {
+  // Eerst: alleen verkeer via Cloudflare (en daarmee Cloudflare Access).
+  if (!edgeAllowed(request.nextUrl.pathname, request.headers.get(EDGE_HEADER))) {
+    return new NextResponse("Niet toegestaan", { status: 403 });
+  }
+  if (PUBLIC.test(request.nextUrl.pathname)) return NextResponse.next();
   const bff = getBff();
   if (!bff) {
     if (process.env.NODE_ENV === "production") return new NextResponse("Inloggen is niet ingesteld", { status: 503 });
@@ -32,4 +41,5 @@ export async function proxy(request: NextRequest) {
   return res;
 }
 
-export const config = { matcher: ["/((?!auth/|_next/|healthz|favicon\\.ico).*)"] };
+// Alles behalve /healthz (health checks van Scaleway).
+export const config = { matcher: ["/((?!healthz).*)"] };

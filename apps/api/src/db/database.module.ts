@@ -13,7 +13,17 @@ const HANDLE = Symbol("DB_HANDLE");
       provide: HANDLE,
       inject: [ENV],
       useFactory: async (env: Env): Promise<DatabaseHandle> => {
-        if (env.DATABASE_URL) return connectPostgres(env.DATABASE_URL);
+        if (env.DATABASE_URL) {
+          const handle = connectPostgres(env.DATABASE_URL, { ca: env.DATABASE_CA });
+          if (env.MIGRATE_ON_START || env.SEED_ON_START) {
+            // Meerdere instances kunnen tegelijk starten; het slot laat ze na elkaar migreren.
+            await handle.exclusive(async () => {
+              if (env.MIGRATE_ON_START) await handle.migrate();
+              if (env.SEED_ON_START) await seed(handle.db, env.TENANT_ID);
+            });
+          }
+          return handle;
+        }
         // Lokaal zonder database: in het geheugen, gemigreerd en gevuld met de catalogus.
         const handle = connectInMemory();
         await handle.migrate();

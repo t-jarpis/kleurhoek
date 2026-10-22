@@ -1,9 +1,9 @@
-# Eén omgeving van Kleurhoek: Zitadel, Azure en Cloudflare samen. envs/dev en envs/prod roepen dit
+# Eén omgeving van Kleurhoek: Zitadel, Scaleway en Cloudflare samen. envs/dev en envs/prod roepen dit
 # aan met hun eigen waarden; zo lopen de omgevingen niet uit elkaar.
 
 terraform {
   required_providers {
-    azurerm    = { source = "hashicorp/azurerm", version = "~> 5.10" }
+    scaleway   = { source = "scaleway/scaleway", version = "~> 2.88" }
     cloudflare = { source = "cloudflare/cloudflare", version = "~> 5.28" }
     zitadel    = { source = "zitadel/zitadel", version = "~> 3.8" }
   }
@@ -12,10 +12,6 @@ terraform {
 variable "environment" { type = string }
 variable "domain" { type = string }
 variable "subdomains" { type = object({ site = string, admin = string }) }
-variable "apex_redirect" {
-  type    = bool
-  default = false
-}
 variable "cloudflare_account_id" { type = string }
 variable "cloudflare_zone_id" { type = string }
 variable "zitadel_issuer" {
@@ -27,35 +23,48 @@ variable "zitadel_idp_ids" {
   type    = list(string)
   default = []
 }
-variable "zitadel_login_cname" {
-  type    = string
-  default = null
-}
 variable "admin_emails" { type = list(string) }
 variable "admin_bootstrap_subjects" {
   type    = list(string)
   default = []
 }
-variable "postgres" {
+variable "database" {
   type = object({
-    sku_name          = string
-    storage_mb        = number
-    high_availability = bool
-    backup_days       = number
+    node_type      = string
+    engine         = string
+    volume_gb      = number
+    ha             = bool
+    backup_days    = number
+    backup_hours   = number
+    backup_same_dc = bool
   })
 }
-variable "replicas" {
+variable "scale" {
   type = object({ api_min = number, api_max = number, web_min = number, web_max = number })
 }
-variable "edge_rate_limits" {
-  type = list(object({ name = string, expression = string, requests = number, period = number, block_for = number }))
+variable "apps_enabled" {
+  type        = bool
+  default     = true
+  description = "False bij de allereerste apply (er zijn nog geen images). Zie infra/README.md."
+}
+variable "markets" {
+  type        = string
+  default     = "nl-nl"
+  description = "Markten die live staan, komma-gescheiden."
+}
+variable "edge_secret" {
+  type        = string
+  sensitive   = true
+  description = "Geheime header-waarde van deze omgeving, uit envs/zone."
 }
 
-data "cloudflare_ip_ranges" "cloudflare" {}
-
 locals {
-  site_url  = "https://${var.subdomains.site}.${var.domain}"
-  admin_url = "https://${var.subdomains.admin}.${var.domain}"
+  hosts = {
+    site  = "${var.subdomains.site}.${var.domain}"
+    admin = "${var.subdomains.admin}.${var.domain}"
+  }
+  site_url  = "https://${local.hosts.site}"
+  admin_url = "https://${local.hosts.admin}"
 }
 
 module "zitadel" {
@@ -67,13 +76,11 @@ module "zitadel" {
   idp_ids      = var.zitadel_idp_ids
 }
 
-module "azure" {
-  source      = "../azure"
+module "scaleway" {
+  source      = "../scaleway"
   environment = var.environment
-  hosts = {
-    site  = "${var.subdomains.site}.${var.domain}"
-    admin = "${var.subdomains.admin}.${var.domain}"
-  }
+  hosts       = local.hosts
+  markets     = var.markets
   oidc = {
     issuer          = var.zitadel_issuer
     project_id      = module.zitadel.project_id
@@ -87,32 +94,43 @@ module "azure" {
     admin = module.zitadel.admin_client_secret
   }
   admin_bootstrap_subjects = var.admin_bootstrap_subjects
-  postgres                 = var.postgres
-  replicas                 = var.replicas
-  allowed_ingress_cidrs    = data.cloudflare_ip_ranges.cloudflare.ipv4_cidrs
-  origin_certificate       = module.cloudflare.origin_certificate
+  database                 = var.database
+  scale                    = var.scale
+  apps_enabled             = var.apps_enabled
+  edge_secret              = var.edge_secret
   domain_records           = module.cloudflare.domain_records
 }
 
 module "cloudflare" {
-  source           = "../cloudflare"
-  account_id       = var.cloudflare_account_id
-  zone_id          = var.cloudflare_zone_id
-  domain           = var.domain
-  subdomains       = var.subdomains
-  apex_redirect    = var.apex_redirect
-  origin_fqdns     = module.azure.app_fqdns
-  verification_id  = module.azure.environment_verification_id
-  admin_emails     = var.admin_emails
-  login_cname      = var.zitadel_login_cname
-  edge_rate_limits = var.edge_rate_limits
+  source       = "../cloudflare"
+  account_id   = var.cloudflare_account_id
+  zone_id      = var.cloudflare_zone_id
+  domain       = var.domain
+  subdomains   = var.subdomains
+  origin_hosts = module.scaleway.public_hosts
+  admin_emails = var.admin_emails
 }
 
 output "site_url" { value = local.site_url }
 output "admin_url" { value = local.admin_url }
-output "resource_group_name" { value = module.azure.resource_group_name }
-output "acr_name" { value = module.azure.acr_name }
-output "acr_login_server" { value = module.azure.acr_login_server }
-output "app_names" { value = module.azure.app_names }
-output "job_names" { value = module.azure.job_names }
-output "github_deploy" { value = module.azure.github_deploy }
+output "registry_endpoint" { value = module.scaleway.registry_endpoint }
+output "container_ids" { value = module.scaleway.container_ids }
+
+# Alles wat de GitHub-omgeving nodig heeft. Gevoelig: lees met `terraform output -json github`.
+output "github" {
+  value = {
+    variables = {
+      SCW_ACCESS_KEY = module.scaleway.github_deploy.access_key
+      SCW_PROJECT_ID = module.scaleway.github_deploy.project_id
+      SCW_REGION     = "nl-ams"
+      REGISTRY       = module.scaleway.registry_endpoint
+      CONTAINER_IDS  = jsonencode(module.scaleway.container_ids)
+      SITE_URL       = local.site_url
+      MARKETS        = var.markets
+    }
+    secrets = {
+      SCW_SECRET_KEY = module.scaleway.github_deploy.secret_key
+    }
+  }
+  sensitive = true
+}

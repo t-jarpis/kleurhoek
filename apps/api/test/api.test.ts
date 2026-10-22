@@ -162,4 +162,10 @@ describe("configuratie", () => {
     expect(() => loadEnv({ NODE_ENV: "production", DATABASE_URL: "postgres://x@localhost/db", INGEST_KEY: "k".repeat(40), ADMIN_DEV_TOKEN: "t".repeat(40) })).toThrow(/niet toegestaan/);
     expect(() => loadEnv({ NODE_ENV: "production", INGEST_KEY: "k".repeat(40) })).toThrow(/DATABASE_URL/);
   });
+
+  it("leest de opstartvlaggen (migraties en seed bij het opstarten)", () => {
+    expect(loadEnv({}).MIGRATE_ON_START).toBe(false);
+    expect(loadEnv({ MIGRATE_ON_START: "true", SEED_ON_START: "false" })).toMatchObject({ MIGRATE_ON_START: true, SEED_ON_START: false });
+    expect(() => loadEnv({ MIGRATE_ON_START: "ja" })).toThrow();
+  });
 });
