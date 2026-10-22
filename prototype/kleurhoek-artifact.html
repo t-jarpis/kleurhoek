@@ -1,0 +1,1291 @@
+<title>Kleurhoek</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sniglet:wght@400;800&family=Nunito:wght@400;600;800&display=swap">
+<style>
+/* Layout: speelse prentenkast — scheurkalender met seizoensplaten, krijtjes-filters, raster van vellen papier, koelkastdeur met eigen werk */
+:root{
+  --bg:#eef2f4; --surface:#ffffff; --fg:#22222b; --muted:#5d6672; --line:#d5dde2;
+  --accent:#2f5bd3; --accent-ink:#ffffff; --sheet:#ffffff; --ink:#1d1b22;
+  --fridge:#e3e8ec; --fridge2:#cfd7dd; --cal:#e2483d; --ok:#23884a;
+  --f-display:"Sniglet","Comic Sans MS","Trebuchet MS",system-ui,sans-serif;
+  --f-body:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15181d; --surface:#1f232a; --fg:#eef0f3; --muted:#a3abb6; --line:#323842;
+  --accent:#7c9cff; --accent-ink:#0f1320; --sheet:#ffffff; --ink:#1d1b22;
+  --fridge:#2a3038; --fridge2:#232830; --cal:#f0675c; --ok:#5fd08a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15181d; --surface:#1f232a; --fg:#eef0f3; --muted:#a3abb6; --line:#323842;
+  --accent:#7c9cff; --accent-ink:#0f1320; --sheet:#ffffff; --ink:#1d1b22;
+  --fridge:#2a3038; --fridge2:#232830; --cal:#f0675c; --ok:#5fd08a; color-scheme:dark}
+
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.5}
+.wrap{max-width:1100px;margin:0 auto;padding-block:28px 120px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.mast{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:14px;min-width:0}
+.mascot{width:76px;flex:none}
+.mascot svg{display:block;width:100%;height:auto}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(2.2rem,7vw,3.6rem);line-height:1;margin:0;letter-spacing:-.01em}
+h1 span{display:inline-block}
+h1 span:nth-child(1){color:#e2483d}h1 span:nth-child(2){color:#f2a516}h1 span:nth-child(3){color:#2fa45a}
+h1 span:nth-child(4){color:var(--accent)}h1 span:nth-child(5){color:#9b4fd0}h1 span:nth-child(6){color:#e2483d}
+h1 span:nth-child(7){color:#f2a516}h1 span:nth-child(8){color:#2fa45a}h1 span:nth-child(9){color:var(--accent)}
+.lede{margin:8px 0 0;color:var(--muted);max-width:52ch}
+h2.sec{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:0}
+.btn{font:800 15px var(--f-body);border:2px solid var(--fg);background:var(--surface);color:var(--fg);border-radius:999px;padding:9px 16px;cursor:pointer}
+.btn:hover{background:var(--fg);color:var(--bg)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn:focus-visible,.chip:focus-visible,.card:focus-visible,.sw:focus-visible,.seg button:focus-visible,.mag:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+
+/* seizoen: scheurkalender */
+.season{margin-top:28px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px;align-items:center;background:var(--surface);border-radius:14px;padding:16px;border:2px solid var(--line)}
+.tear{width:92px;border-radius:8px;overflow:hidden;background:var(--sheet);color:#1d1b22;text-align:center;box-shadow:0 2px 0 var(--line),0 8px 18px -12px rgba(20,30,50,.5)}
+.tear .tm{display:block;background:var(--cal);color:#fff;font:800 12px var(--f-body);letter-spacing:.14em;text-transform:uppercase;padding:4px 0}
+.tear b{display:block;font:400 44px/1.05 var(--f-display);padding-top:4px}
+.tear .td{display:block;font-size:12px;color:#5d6672;padding-bottom:6px}
+.season-txt{display:flex;flex-direction:column;gap:10px;min-width:0}
+.eyebrow{margin:0;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:800}
+.season-txt h2{margin:0;font-family:var(--f-display);font-weight:400;font-size:1.7rem;line-height:1.1}
+.soon{margin:0;color:var(--muted);font-size:14px}
+.soon b{color:var(--fg)}
+.minis{display:flex;gap:14px;overflow-x:auto;padding:10px 10px 4px 4px}
+.minis .card{width:104px;flex:none}
+.minis .card b{font-size:14px}
+
+/* filters */
+.filters{display:flex;flex-direction:column;gap:14px;margin:28px 0 24px}
+[hidden]{display:none!important}
+.frow{display:flex;flex-wrap:wrap;align-items:flex-start;gap:10px}
+.frow .flabel{padding-top:9px}
+.flabel{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:800;min-width:84px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:flex;align-items:center;gap:8px;font:800 15px var(--f-body);color:var(--fg);background:var(--surface);
+  border:2px solid var(--line);border-radius:6px 999px 999px 6px;padding:7px 16px 7px 10px;cursor:pointer}
+.chip i{width:14px;height:14px;border-radius:3px;background:var(--c)}
+.chip small{color:var(--muted);font-weight:600}
+.chip[aria-pressed="true"]{border-color:var(--c);box-shadow:inset 6px 0 0 var(--c)}
+.chips.sm{gap:8px;flex:1;min-width:0}
+.chips.sm .chip{font-size:14px;padding:5px 12px 5px 8px}
+.frow>.chips{flex:1;min-width:0}
+.seg{display:inline-flex;flex-wrap:wrap;gap:2px;border:2px solid var(--line);border-radius:22px;background:var(--surface);padding:3px}
+.seg button{all:unset;cursor:pointer;font:800 14px var(--f-body);padding:6px 13px;border-radius:999px;color:var(--fg);display:flex;align-items:center;gap:6px}
+.seg button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.tools .seg button{font-size:13px;padding:6px 10px}
+.lv{display:inline-flex;gap:2px}
+.lv b{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.25}
+.lv b.on{opacity:1}
+.agehint{font-size:14px;color:var(--muted);margin:0}
+
+/* raster */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:22px}
+.card{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:8px;position:relative}
+.card .paper{background:var(--sheet);border-radius:4px;box-shadow:0 1px 0 var(--line),0 6px 16px -10px rgba(20,30,50,.45);padding:8px;transition:transform .15s}
+.card:hover .paper{transform:rotate(-1.5deg) translateY(-3px)}
+.card b{font-family:var(--f-display);font-weight:400;font-size:18px;line-height:1.2}
+.card em{font-style:normal;font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.card em i{width:9px;height:9px;border-radius:2px;background:var(--c);flex:none}
+.card em .yr{margin-left:auto;font-weight:800;color:var(--fg);background:var(--bg);border-radius:999px;padding:1px 8px;white-space:nowrap}
+.minis .card em{display:none}
+.card .tick{position:absolute;z-index:2;top:-8px;right:-8px;width:30px;height:30px;border-radius:50%;background:var(--surface);border:2px solid var(--line);display:none;place-items:center;font-weight:800;color:var(--accent-ink)}
+.picking .card .tick{display:grid}
+.card[aria-pressed="true"] .tick{background:var(--accent);border-color:var(--accent)}
+.card[aria-pressed="true"] .paper{outline:3px solid var(--accent);outline-offset:3px}
+.empty{grid-column:1/-1;border:2px dashed var(--line);border-radius:8px;padding:28px 20px;text-align:center;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:10px}
+.empty svg{width:110px}
+.empty b{font-family:var(--f-display);font-weight:400;font-size:22px;color:var(--fg)}
+svg.sheet{display:block;width:100%;height:auto}
+.sheet .r{fill:#fff;stroke:var(--ink);stroke-width:var(--sw,2.4);stroke-linejoin:round}
+.sheet .l{fill:none;stroke:var(--ink);stroke-width:var(--sw,2.4);stroke-linecap:round;stroke-linejoin:round}
+.sheet .dot{fill:var(--ink)}
+.sheet text.nm{font-family:var(--f-display);font-weight:800;stroke-width:calc(var(--sw,2.4)*.5)}
+.sheet .trace{font-family:var(--f-display);font-weight:800;fill:none;stroke:#8a9099;stroke-width:.9;stroke-dasharray:1.6 2.2}
+.sheet .guide{stroke:#c3c9cf;stroke-width:.7;fill:none}
+.sheet .q{font-family:var(--f-body);font-weight:800;fill:#1d1b22}
+.sheet .ans{fill:#fff;stroke:#1d1b22;stroke-width:1.2}
+.sheet .num{font-family:var(--f-body);font-weight:800;fill:#1d1b22;pointer-events:none;text-anchor:middle;dominant-baseline:central;paint-order:stroke;stroke:#fff;stroke-width:1.4}
+.sheet .lg{stroke:#1d1b22;stroke-width:1}
+.sheet .lgt{font-family:var(--f-body);font-weight:800;font-size:8px;fill:#1d1b22;text-anchor:middle}
+
+/* koelkast */
+.fridge-wrap{margin-top:48px;display:flex;flex-direction:column;gap:12px}
+.fridge-wrap p{margin:0;color:var(--muted);font-size:14px}
+.fridge{position:relative;background:linear-gradient(180deg,var(--fridge),var(--fridge2));border-radius:20px;padding:30px 54px 26px 22px;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:28px 18px;border:2px solid var(--line)}
+.fridge::after{content:"";position:absolute;right:18px;top:24px;bottom:24px;width:10px;border-radius:6px;background:var(--line)}
+.magw{position:relative;display:flex;flex-direction:column;gap:6px;min-width:0}
+.mag{all:unset;cursor:pointer;display:block;background:var(--sheet);padding:6px;border-radius:2px;box-shadow:0 6px 12px -8px rgba(0,0,0,.5);transform:rotate(var(--rot));position:relative}
+.mag::before{content:"";position:absolute;z-index:1;top:-7px;left:50%;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--mc);box-shadow:0 2px 3px rgba(0,0,0,.3)}
+.magw small{font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:6px;align-items:center;flex-wrap:wrap}
+.linkbtn{all:unset;cursor:pointer;font-weight:800;color:var(--fg);text-decoration:underline;text-underline-offset:2px}
+.linkbtn:focus-visible{outline:2px solid var(--accent)}
+
+.note{margin-top:48px;padding-top:16px;border-top:2px dashed var(--line);color:var(--muted);font-size:14px;max-width:70ch;display:flex;flex-direction:column;gap:6px}
+.note p{margin:0}
+.note b{color:var(--fg)}
+
+/* keuzebalk boekje */
+.pickbar{position:fixed;left:0;right:0;bottom:0;z-index:15;background:var(--surface);border-top:2px solid var(--line);
+  padding-top:12px;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px));
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.pickbar .in{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.pickbar b{font-family:var(--f-display);font-weight:400;font-size:20px}
+
+/* overlays */
+.studio{position:fixed;inset:0;z-index:20;background:var(--bg);overflow:auto;
+  padding-top:calc(14px + env(safe-area-inset-top,0px));padding-bottom:calc(24px + env(safe-area-inset-bottom,0px));
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.studio-in{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:24px;align-items:start}
+.top{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.top h2{font-family:var(--f-display);font-weight:400;font-size:clamp(1.5rem,5vw,2.2rem);margin:0}
+.canvas{background:var(--sheet);border-radius:6px;padding:12px;box-shadow:0 10px 30px -18px rgba(20,30,50,.6);width:100%;max-width:620px;justify-self:center;box-sizing:border-box}
+.canvas .r{cursor:pointer}
+.canvas .r:hover{stroke-width:calc(var(--sw,2.4) + 1px)}
+.tools{display:flex;flex-direction:column;gap:18px;min-width:0}
+.tool{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.tool>*{max-width:100%}
+.tools h3{margin:0;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.pal{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;width:100%}
+.sw{all:unset;cursor:pointer;aspect-ratio:1;border-radius:8px;background:var(--c);border:2px solid rgba(0,0,0,.18);position:relative;display:grid;place-items:center;font:800 15px var(--f-body);color:#1d1b22}
+.sw span{background:#fff;border-radius:999px;min-width:20px;padding:0 4px;line-height:20px;text-align:center}
+.sw[aria-pressed="true"]{box-shadow:0 0 0 3px var(--bg),0 0 0 6px var(--fg)}
+.sw.eraser{background:repeating-linear-gradient(45deg,#fff 0 5px,#e4e7ea 5px 10px)}
+.prog{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:800;width:100%}
+.bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ok);width:0;transition:width .3s}
+input[type="text"]{font:600 16px var(--f-body);color:var(--fg);background:var(--surface);border:2px solid var(--line);border-radius:10px;padding:9px 12px;width:100%;box-sizing:border-box}
+input[type="text"]:focus-visible{outline:none;border-color:var(--accent)}
+.chk{display:flex;gap:8px;align-items:flex-start;font-size:15px;cursor:pointer}
+.chk input{width:18px;height:18px;margin-top:2px;accent-color:var(--accent);flex:none}
+.hint{font-size:14px;color:var(--muted);margin:0}
+
+.book-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:280px minmax(0,1fr);gap:28px;align-items:start}
+.sheets{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:20px}
+.a4{background:var(--sheet);aspect-ratio:210/297;max-width:100%;border-radius:3px;box-shadow:0 8px 20px -14px rgba(20,30,50,.6);padding:10px 12px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:4px;color:#1d1b22;position:relative}
+.a4 h4{margin:0;font:400 13px var(--f-display);text-align:center}
+.a4 svg{flex:1;min-height:0;width:100%}
+.a4 .pg{font-size:10px;color:#6b7280}
+.a4 .x{position:absolute;top:6px;right:6px;width:26px;height:26px;border-radius:50%;border:2px solid #d5dde2;background:#fff;color:#1d1b22;font-weight:800;cursor:pointer;line-height:1}
+
+.toast{position:fixed;z-index:40;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);max-width:calc(100% - 32px);box-sizing:border-box;
+  background:var(--fg);color:var(--bg);border-radius:14px;padding:12px 18px;font-weight:800;box-shadow:0 12px 30px -12px rgba(0,0,0,.5)}
+.toast.party{background:#23884a;color:#fff;font-family:var(--f-display);font-weight:400;font-size:20px}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:39;overflow:hidden}
+.confetti i{position:absolute;top:-12px;width:10px;height:14px;border-radius:2px;animation:fall 1.8s ease-in forwards}
+@keyframes fall{to{transform:translateY(105vh) rotate(540deg)}}
+
+#printArea{display:none}
+#measure{position:fixed;left:-10000px;top:0;width:400px;visibility:hidden;pointer-events:none}
+
+@media (max-width:760px){
+  .studio-in,.book-in{grid-template-columns:minmax(0,1fr)}
+  .pal{grid-template-columns:repeat(8,1fr)}
+  .season{grid-template-columns:minmax(0,1fr)}
+  .tear{width:auto;display:flex;align-items:center;gap:10px;padding-right:12px;justify-self:start}
+  .tear .tm{padding:10px 12px}.tear b{font-size:28px;padding:0}.tear .td{padding:0}
+  .fridge{padding-right:40px}
+}
+@media (prefers-reduced-motion:reduce){.card .paper,.bar i{transition:none}.card:hover .paper{transform:none}.confetti{display:none}}
+@page{size:A4 portrait;margin:14mm}
+@media print{
+  html,body{background:#fff!important}
+  body>*:not(#printArea){display:none!important}
+  #printArea{display:block}
+  .pp{break-after:page;page-break-after:always;display:flex;flex-direction:column;align-items:center;gap:5mm;color:#000}
+  .pp:last-child{break-after:auto;page-break-after:auto}
+  .pp h2{margin:0;font:400 22pt var(--f-display)}
+  .pp svg{width:170mm;height:auto;max-height:230mm}
+  .pp p{margin:0;font:10pt var(--f-body);color:#555}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+
+<div class="wrap" id="home">
+  <header class="mast">
+    <div class="brand">
+      <div class="mascot" id="mascot" aria-hidden="true"></div>
+      <div>
+        <h1 aria-label="Kleurhoek"><span>K</span><span>l</span><span>e</span><span>u</span><span>r</span><span>h</span><span>o</span><span>e</span><span>k</span></h1>
+        <p class="lede">Zelf getekende kleurplaten om online in te kleuren of te printen. Met Oki de uil en Sjors de slak.</p>
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn" id="bookBtn" type="button">Maak een boekje</button>
+      <button class="btn" id="printAll" type="button" data-print data-pdf="Alles als PDF" hidden>Alles printen</button>
+      <button class="btn primary" id="lucky" type="button">Verras me</button>
+    </div>
+  </header>
+
+  <section class="season" id="season" aria-label="Seizoen"></section>
+
+  <div class="filters">
+    <div class="frow"><span class="flabel">Onderwerp</span><nav class="chips" id="chips" aria-label="Onderwerp"></nav></div>
+    <div class="frow" id="contRow" hidden><span class="flabel">Werelddeel</span><nav class="chips sm" id="conts" aria-label="Werelddeel"></nav></div>
+    <div class="frow" id="landRow" hidden><span class="flabel">Land</span><nav class="chips sm" id="lands" aria-label="Land"></nav></div>
+    <div class="frow" id="holRow" hidden><span class="flabel">Feestdag</span><nav class="chips sm" id="hols" aria-label="Feestdag"></nav></div>
+    <div class="frow"><span class="flabel">Leeftijd</span><div class="seg" id="ages" role="group" aria-label="Leeftijd"></div><p class="agehint" id="agehint"></p></div>
+  </div>
+  <main class="grid" id="grid"></main>
+
+  <section class="fridge-wrap" id="fridgeWrap" hidden>
+    <h2 class="sec">Mijn koelkast</h2>
+    <p>Platen die je hebt opgehangen. Ze blijven bewaard op dit apparaat. Tik op een plaat om verder te kleuren.</p>
+    <div class="fridge" id="fridge"></div>
+  </section>
+
+  <div class="note">
+    <p><b>Geen reclame, geen gedoe.</b> Alle platen zijn speciaal voor Kleurhoek getekend. Er staan geen bekende figuren, merken of tekeningen van anderen in, dus je kunt ze zonder zorgen gebruiken, printen en delen.</p>
+    <p>Elke plaat werkt op drie manieren: vrij inkleuren, kleur op nummer en als leerblad met een woord om over te trekken.</p>
+  </div>
+</div>
+
+<div class="pickbar" id="pickbar" hidden>
+  <div class="in">
+    <div><b id="pickCount">0 platen gekozen</b><p class="hint">Tik op platen om ze in je boekje te zetten.</p></div>
+    <div class="row">
+      <button class="btn" id="pickStop" type="button">Stoppen</button>
+      <button class="btn primary" id="pickGo" type="button">Bekijk boekje</button>
+    </div>
+  </div>
+</div>
+
+<section class="studio" id="studio" hidden aria-label="Inkleuren">
+  <div class="studio-in">
+    <div class="top">
+      <button class="btn" id="back" type="button">← Alle platen</button>
+      <h2 id="stTitle"></h2>
+    </div>
+    <div class="canvas" id="canvas"></div>
+    <aside class="tools">
+      <div class="tool">
+        <h3>Zo kleur je</h3>
+        <div class="seg" id="modeSeg" role="group" aria-label="Manier van kleuren">
+          <button type="button" data-mode="free">Vrij kleuren</button>
+          <button type="button" data-mode="num">Kleur op nummer</button>
+        </div>
+        <div class="prog" id="prog" hidden><span id="progTxt"></span><div class="bar"><i id="progBar"></i></div></div>
+      </div>
+      <div class="tool">
+        <h3 id="palTitle">Kleuren</h3>
+        <div class="pal" id="pal"></div>
+      </div>
+      <div class="tool">
+        <h3>Lijnen</h3>
+        <div class="seg" id="lineSeg" role="group" aria-label="Lijndikte">
+          <button type="button" data-line="auto">Passend</button>
+          <button type="button" data-line="dun">Dun</button>
+          <button type="button" data-line="normaal">Normaal</button>
+          <button type="button" data-line="dik">Dik</button>
+        </div>
+      </div>
+      <div class="tool">
+        <h3>Extra op de plaat</h3>
+        <label class="hint" for="nameIn">Tekst in bolle letters, die je ook kunt inkleuren</label>
+        <input type="text" id="nameIn" maxlength="26" placeholder="Bijv. Fijne verjaardag, Sam!" autocomplete="off">
+        <label class="chk"><input type="checkbox" id="learnIn"> <span>Leerblad: woord om over te trekken en een telvraag</span></label>
+      </div>
+      <div class="row">
+        <button class="btn" id="undo" type="button">Ongedaan maken</button>
+        <button class="btn" id="reset" type="button">Opnieuw</button>
+      </div>
+      <div class="row">
+        <button class="btn" id="toFridge" type="button">Op de koelkast</button>
+        <button class="btn primary" id="printOne" type="button" data-print data-pdf="Printen (PDF)" hidden>Printen</button>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="studio" id="book" hidden aria-label="Kleurboekje">
+  <div class="book-in">
+    <div class="top">
+      <button class="btn" id="bookBack" type="button">← Platen kiezen</button>
+      <h2>Jouw kleurboekje</h2>
+    </div>
+    <aside class="tools">
+      <div class="tool">
+        <h3>Voorblad</h3>
+        <label class="hint" for="bookName">Van wie is het boekje?</label>
+        <input type="text" id="bookName" maxlength="16" placeholder="Bijv. Sam" autocomplete="off">
+      </div>
+      <div class="tool">
+        <h3>Soort platen</h3>
+        <label class="chk"><input type="checkbox" id="bookNum"> <span>Kleur op nummer, met kleurenlijst onderaan</span></label>
+        <label class="chk"><input type="checkbox" id="bookLearn"> <span>Leerblad met woord en telvraag</span></label>
+      </div>
+      <p class="hint" id="bookInfo"></p>
+      <button class="btn primary" id="bookPrint" type="button" data-print data-pdf="Boekje als PDF" hidden>Boekje printen</button>
+    </aside>
+    <div class="sheets" id="sheets"></div>
+  </div>
+</section>
+
+<div id="printArea"></div>
+<div id="measure" aria-hidden="true"></div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+const CAN_PRINT=false;
+const FONT_S='data:font/woff2;base64,d09GMgABAAAAAGFgABAAAAAA/JQAAGEBAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG4wgHFgGYACESAg6CZMREQgKg7kgguBKC4M4AAE2AiQDhmgEIAWHPgeEAgyBEBtuzVUHYo8DhahuztmB2u0IVc/MDx0ZCDYOAJyV9eL/M46TMYR9oOrSV38sO2xQH0an6Sk0WgU30VUDjTcG+UjB+t44hwsPXu4sVjxh+AoXnNGLxIIkLikqjGijQR+tzCev0m/+BdLrcCq4myOR+c9O6ltcShvKfnEGto38SU7eAZpbd4tsNnIsqFgDg1EpElEGtChggZVgg4XVoCJGYWLF+1j5b8+ry1cyHgQOTaizLYNsPk6UD8hTX4cJ13bZOqx975Jfnv/+3nfd/bvYBwpyKX28UcYrUKVQKOKNw9G8QxWcOLcfoiIVuYBeztBc1tf2LYNRL19IIPmehZmxMxYosDAToE3b0O6WL9s8QcDvtbVDOj4+ZZjIg6x41u6CiZRUFDX2zPZpRSn2miEvYhCxE2KcG0Rh/94V9RU1XTVs9OjcnU10oN9Aqwj7/3SvM3PLE+aDcPvuPbVRHZyKHeGqlKojQ3bJKptFpmqajarykvIUjUawFpApILB5H0EQhHc5RM8c+bv3Ncti20KcEVnIDRCxXM4SSKgq515x3cq378LXd3sZB+AZHifJ8PHySDL85aANz0Kd3v1LMgQk2S7jFwC8ZZkyDHPSDp+nv+4zrKjXpFBSeJJu59ZDOdW7PaXvgXRK+Gy59bZXy889vgF2igPg974h2ZIcltgEcuaGqT2d5p1j/1w4kt/Oul+zK+3VvGOypFJhAQ8OQwXwed52A7FMn0B3+9kkwsC6Z3/1+paiEEEOVrxzuuj8czu1gf80l9n9Lbs+WQcsI1zBqCo3mZ1t8uaXaDYluLSHIAndCX32hAMmJ+X9/6rqr+9BLlQqlVo2509Jhsk9ZfqlzqWf/fHiAQ98AEUApGQIlBwKkh2aSqEo+UQkHR+CTSBVXHOOU3qnKMdfoVNp/9Lq+Kdettq2rOvflg+9+63eOwfC2kKrxm8QDdVgb16/9mqBQQELR6TDwkTITFxcIuMyUZkoILzbN5nd+yUUBgAVEKuoViKxPWurq6pdlayQgKpxWdasJpBiGV0bBAjR64/P9f29ah5ZA9pHKKFYlgWIETpufd3XXa4xq8pNE738b0IaxEhsQGDnGNN8MzuSjpUEB863goAecMdoPxoAAQCGgDNwc666FECBAQDgk6G8sVRpGAJ0saEAuQsA6Z+HAcllh2fAtvMLmgLwtwop5TQSnecbaWLqb0OWdBeWedgI6TidNVziKFFLQU3Oi/C1JiyoO1pNaSucHzHxd43TMOP1AGqkSdrRQdvhvII64ERxr4abX+1NgnVeRxPOS2atdPqE8EUKwlkM1oCDsbpNIPo34h+GQcUnIWNHTsGBkjsv3gpsMWAYhD8YJBBqBwkaEBiAaIDggkYADlEUJKEAZQ8uB0A5gsQJUM4gcQGMMkqn4obMHQweyqQRpfDhg8o3wAUC4HTg0QPOCLhgwEUBIQFwk6JoqTIg5YKvACglUawaU6FNg0AjhFqBMSOKMVMnrC6IzAbWHLDMhdg8YM2HxBJg9UFqPXC2ADQQZdtpD7wDkDkIO4eicocdRXAcRMMAXQLC5QMhrhqDShTPuyK4Dgj8CJDkUCQZBSSzimRQIdwplDVFBaswMpUIhSMRIXdigAEAhOfOxFPjmciBEDVg884Cz52QuO9LV8g9NU+rpYtzlXx+BcwiGB2NtQBsMMGi9mbaLSE28oCkMvsfqkZCTmNftSSi6hKLZJqK9HHAywOsB2FgyAOhfC/udnoAPdWmOTUMnBuUnrcgFq6qviUGbq7lZShMaUUBcbpD4CCMhXpX+f1rgEAFoInpicABkPd0AYA5/U+AnzR+AGAjDBwKAhBAM0ABAKzjY8vPKqsAHdGHDj3aPQKE6SYm0QyAfznqRc7FVwIlLSq4BSxu/1ZOBAah0d9DvZicyd3cn9JEHJFAJBHJRT4iEzLdSCgS+t8NyV5zdXQrVcQS8fry/qfA3xPw+/r32f8xwONzwOOZx5c/6rH20fNH5df/sAWSewoAH4hJ8GZ/mv4/ElB5lmuXYiGDXj0WsFgsXrVFNjthjh22KVJok40ytYmzQYMc5ZYKMgwFDQuHioaOgYuHT0BIwpETZy6UVNx58OTFRzirCCZ7lfEVIkqCVAVKVKkxzXT1GrWaab4l+qw3YKcDDjrksOPChLIx2ydfjH6jjjnlpCTnXDfitP3OuyLRBbfcFqBZt7Oi3XTDGXeMu2sZOIwtkGAQRC4jwSMg4mBiYSMTU5Cx40CuhT03ahpa3lyV0vPjL1ggI51LMkyWJt1UtepMkWuG2WbpME+nZHPtMWiX3Y7Y6iipLtmyrLRKjrJHbg13/5zz9edHqC/d13qM1V7fb5EGpfSzG0sk9OClSmm/ULqv0aiR+gU+HWcUxpkmQeHoP36ntKYrPcObBGxwueJLO3QZixvUsoCNJZh17lvwhirs0V7PaYsLIVktJVSU63lOS0HYAKUpPah4JmtcB1awRTEmETNLj9SoQd/UT4B52NAUpmEyL5pR/fJ/LGlLFavPMR9LOU1R09KTnsWBSwjSjATrS2KVnwzAQOaQxYqEuIIgRxYWnUUZj3aFQCtXuBHRdXl9KVr1rTGQaKvJclbOrTpHH6gJOhskkEs4Dc+iZ2za+hRjatSUOiOqRDHq9KEDicm79wdmXYce3tDhZ7ihWEoj/Jew8TJ1s+qcTe5U6qizaUE6Z5P2zmOr4mm6y/av3uqoNXgS9872hpixbbhomxocnVworXNzYh7YSBLhOoUJrb7CjbHEiYKeOW5OQSAzZbRridn767HRblmjiRUSgZN4UtIc5y02AqltVnSR220D0Oo6kQlnA6JEvV6HGvBn53GMQ1LQVxfzP+22gECESjO2VZN/T+ROskSdtuvjewHPaEGFsQwTWaZyzOSZKyApIttDsf+Hmv7XMwLRshL96DFkMGWx5LDlcRRwFfHsUQLa+jsl+ELIoph5eGY7w5pm+RqLUHTWNDakW7IoyajE6V0EBGyBzUeoZUlR3+NblpjUEw5ZPYETBnFk/NwTNfK6+B0DMeENJT0h0BT0JoSE4oYD0m8QP17/QZdajPixJRE8tpZhEa4LGR7VjNyct5zb9BN5ZBu7oCZAcA+ObYJfOomdWm7pniyInbT4i9FhmCOcm35suSSCRGlm8U4S6rkn13WuAV+PTYutonBADqUOtjaYNVPT9CT+Ev5kj/wSdpKl0N5DNUbVLoZufiSZRZcfZfphVUdw7pUelx4COaMI8vz4BppJnw9QbPfIO5UlUdZ4k8JcioDTGSuvPTXncwS3lSlUALHbUlSDUW/yTUbUJNjVZLkOitCnle3n1C8VKzcrrOlgSDfBotiY6zYKBW9YcHQivIgOXo3og3uPRSRRpNGGdspt3o2U91Idlbj1upiGd7gjHF2fvxmIq1l0/Ot7SrmLgrV5GvXU5JpF9KS48LDEcY2jS3HLWz8Rl8nU2WfiKqm+7zO8rXochlGyo+0IX5UFsqxu4goPCS1Nal7TR/Z0h/qZxq2SgaVCw97U65KY9HWZRIffeC6HKtx2GV0DZZd/+E6bt405wCOiTFV9FC9Pmrh/2gDmDM6w/+EpFxfEuwJpQ+GwWXXOifn4tLoMcmaYezpMDQA/lo4hiNkIxBLEHgD84wjiNgLxBPEHAO8EgoSNQCJB4gHAN4kgaSOQTJB8AAhIIUjZCKQSpB4AfNII0jYC6QS/Pi1JtNdw6x4UwzZGMj3A6KOYL+rCUpS16LkNUewXu3AU4yzGVYx75zzFeYvzFc+m/+k7Xct5Ndn39pO6gQsAAqtwSqj3fgzHb+jK5/7b/9i7j9bXvIRAuj4Hk0FKUILVZp0cmMG9kc7cgJijoDOFmAGbyhMMmltIMBNSMkDYYjJkpi2C7gYpGpbbwg3rpu7GodIFwc7Mvhhv1XBjgTBISQEa+SDVhkptJu3y6zxxh22lY+ycGzRS+txxCUYjHqkRmcttHT7c1Y61bJVdDLxB7u3R2hvWtMABBFgo9FDTDt9cwyKAQ1eV8J698oDn+GyYS8uCEXOm4tiVXsMfKxmbUyUBsfbJcBmlRgLD19cHB9SsPKiZGVGBZrDt4n3OQWakIg+VspSKbfkEiuh2mzsOpsYuOIZGL4jHFdtehynbsfGOGG6vZVjTv5MGIbBRZ+Ibt7fqotbOP9aa4q4Fou0IV0PEPIcTx3NBaLCUZObHdgp/zRBn2jvHTrmRjsvhzjBg14xw4t8RaDtFBxwoaWP/zxy9H5YW5ExozMs3Nok37XqVQUHnu2Yk6O9gPk67BvuUH1FDjLscnAtuCeAGCJ2gYABosVE+fMuCR+/wI5kxm1V6ya4iF8L/WT9xui4NXrCoh9DR10ZpOuqkGpqEXPmthGmpA3UQdk3iyZbtr3H1Dg8LIs4dwv0YQmh1xeTKtn8DZQFVIayJuDKgSRlFQSxvhhsjAmEYPoXSDQfTffgFEteI8Du/7YE+cGUylAestUmUm/8OotwCTInj7t0Oa4I0hIkoEjHdCIZQEIghN/EI/d+ZKJar8cOBU+RGzcLpNL3a5YXd/vaLuhazPOqc6a/780l1sWQNtNFWPScl6SZbLf4LVKjDkMPGJWJBTPmU36wdawZc7OIDvo+DlyiKkiAp/bA10hsnkKVQ3G11b1TI9lspaSCkWFg3l/jtod3Cd2OSXhi6JJSm5efvlkeiiIaFtTVMLzSdRz2lURI+u2XMQXkBWM7dqOWTNFJv+kSvfMv/QohlPqUTuUht38Sw31fdrOcr0nsDHvsox0Y51Z+WxrEYROt13tPpn5RCJVZG+LQvkRzobcCQW6mXpp/haXzeP3nybNwmJ5dhHNyvOPjdwOQZi8dJEBF547yIB67pvdxw3kHNOE1b+kPnzmZqgqRBhwnHeCLa18hF4oLtnOPbQ107xpypa+kNQxK71TM1IU64VpUnnMhyYyJoneAWjsjJsqgYlLnojcoL/zVkF8zAG71tzys36oCBsKSGKsZnDjrs0fdrkPRR9xbKN0NWyGdTbBVNE1uw9n1AIqN2TNB3gnDNTcgOEybQQwxVWSeS4TSWgHecsgBUFiTFA2CaR+0zjzX2/aFp2/2xTq6GtwP84L2mYbnDJWlorfbx9nX9gTK23o6hdVLxam+6JoL1soCY/0N2KT+fV9hPFZodFg6LPIvLtjJ/k0e82mdQinxBLA9VVMVk+PhcGgoKndt5BAKsgO3kHxR0ZYBKr95KnEsp1QpATP6fukwMe4gFo7oZ/zA+BZ39W1sALekBhCZ65cp6alui/EHbpwNjAfHM0yNWWV0c030p++BBoVdytjowWDTiBDjzF2+YfNMlhdyTb7B98dX0+yNu03i/Qq/0NyNgqdCgym5fu0SKrX2LNSmnHdehZHrE/UrBMED7LfWJ42Coy9cv4Mp6xfX4NuoMaFAtsplWSW7UqMqUFAAQRddVCPcrxIJYcbV5hTXtA38zxW8POk8tGRjiTI4eOe2YjMnpq2cMi6hvI2PqbYGQj7gu/clqIkpE+qy9Gru/TTvzJXfMaKZI6eiddV2L0EZrtQcciVR5f3Hs4ybolF4Q8nfyOYawTk4IAJhpR0AILfQzQYyX5gVfis55eG9ooO7A6CZ+PBDD7SM2D83ZVYT/5Me0rGSosjBh2kdFKkXTKgIy+ak65XMMVXdT+/PcOBrg+D7KISlJ4KEdErRXGV8w81GSZkrEpfzFTNs5Wmrp+zW4GylHcv+n2ygy9KYvpBa/7fWH+x1POq7ID4cI5MexlWDx/Qx0JiKT5YYtAMJhFM77mLDOz2sgdLT7esq47GKvA5NGI06kh21bMl/hx7C/xI36sSDJfAWAu0BO8rT1YcKL1KHZDKohK+7QM23NOnIW+6fIK4lovcz7dZ8KGDeEsKlJzYu/OWFdkSWRzK/z6i3LBvjUhF2pg2rfBsm2f7ug7JFd01M8askHoX/lncxfTfGbtY6GDEM6TXSJXEnVLVsn3i8BeQMRJ1beSpXb82jIGf51MTnpvdW9ci8qHwA2QgMmfthIEEKsmbdLTTt+8na9GT/w0rVqvOpSdGu8YEvXNv5xpFFn2jXWlcKteITdjmYjKPjVTKTSb3Hm/O22P66T0zOeZJomJFd6vnXQaOmLjaGhfCP3/DmPHs0YItsey9uMGnJwznGwK4EYJ9S7t3GfDhQ08BMKOM1vAlT9vJTT0n5/O04t5aXyk3+rMrWYT1wDtGikyViIijuDnSS9XFKe8VxL0iulp8duu6/783FxzdFoaR4fuXgFtN3WBRA72qjHRnkS8FXcNCFU/FYKqmGRCfcgatv0hpyPLyNIZ5pkH/LSx1gdpzqctQx8ouRYuhEAI1jV5hOp8pfaybsHg9Iahg4vBTwnCOQLq7eqbzLqoNoltBGwPeXSlOJb1hzXfVscW3X9itAUJ37AmAdVxRYEqSh8xVCljMiwopsy1Sdn/9Z+j9ttulMKRZRXb1TovZeWnBKiASXNzCXInsk8QIc2brf7OkpKbye464HH1FXhJOx/gQPKZbhBzwE7hzI00jWT7PFC6uHDFOM0/Ysjwf1YJ+tkqgnbuhjclRENBYHhJ0y2uk4OG90bptUZ7Bw2VHx5uduXaWw158xu4BvKBesMpwYIhsssVEDAbm5PL+Z4fvkT5tR93qENxmfhu1EZCW6kNB09i5tZrzs25VHc4VlirQ2leloVRf9UYa8iY4op3fOoG+gTafZgrp1EpNxPGz27TGeUXbcr9Wt8MzuL+UbuSMcxWUpAMjwYfrqeJoRL0rleEHTbLELozrVfMBYDw5Gx1wlpGmArDuAhVO8c8MAJ4Oi2wL602S8jbJLxraediGWNMrIAssWQaRm1Ymr4c5QwPhTwgDo4B0NO/RgdA1TEZxCebnzlYpLWU5YOluS15WjGuUbjTgwhEGZlHimTD2r/owuf9FxqxZ/BO2ymIqnt99yUD0lLd0r4i1w2vELELoLIsHu/cMNY5idoyLEqGuucxDKebQhLoYiNjLLqqAN+4lP0b34Z11vxrjOProbhIAdTlj/JFbNrTLQVuddHguTY4/1A/loCEtx4Sco8WNpDivs+VBZXZ+F3fWXnJ0odhImidOkOv6Zt67y4g4vf/ouYTcY6n3OytMI+l2UV9ySIcsKmVhmmKB55UdOYCoGQFO+NZgqY8GSuKIofwYVNhnaPmZ5FQ4yh0do7uICbVQEDvcAudNa7FYbdXCXVMIRRkOKlh3e+gWBcFi4TH6RQiEmCqqkCRsTeIYCCrBab2SXxUJiXTZlWvvoxADNl4YtcGl+qSc4cfh9wyTXIMmwYcmx/XRLKfBl4bc5KTO32uTlb5tunqvPLsT+Ha1/CsxOqcjtaYQgfsPGJaIsMPisMkYB19jPcJ4twSZaT/yEnigg74LN411ssHz/oE8SCmzrRPjZzAT+ju4s44q0vgxNwf9Vx3JG0TEIiVVnJ+NiPwYyNFiyIjWtox3ivibsV34FPXJCApprYKWECvpNCj4M8/UDgaw9+j1odBnYAoJ1AnzSkCiWDGZxTco5pf+4WNRc06GtCbvaKjS3lY2XzcxCBQDzSC2Fmkj9XhSF0bS8ANyKuQVj9PTWRamUZNp+/1MC/Dnwhd2mX71V7azZVOW6V0rWHgxvr70//FQMYRz2lOAdxGOAa0th7T1Y17SSqjbjBzSRuCtVU8752e5ZIb5wl8L5pY//sHeW3ofRJDdVAn4gubYVfU/LEWBdL3H1r4InPGnnYYPFwuVsqSHtBRPLa1qTS48uPCSoIPrWvnuMvdim7O16wZZQe5fANVDf+fpLuPvOpCj/MGBI+/lVfpuc6McoqdeZRvsOb0+0Qgtz2EWapG//ZhVGbaY/BkC3aR6RgwPJae/6R3OL3lmS5hACInWTrZMvAgszZG9wSACzIDQuqnnLwWJeNBDZVT6OQAeVT/HyhGdU8c898Zf07IYTNaHRtC33xLFbofyG9UiMtpmU36mAh95DMTw3VaWkq/Hx4GECYn7dYNIdb5sY0gQPuRobRNt1eQSu3bpqpRG1fpSidSaa7R2z1SGRN45JgHHGjOiIjHoRYVRvLzViQ7VMjnFQXkxdQ7KxF5YOWsqdmwITEk/klEav2OcoFOrzjc1XfKvxMMv0bRJFRrsW3cFuskW7IPAXqeLbflLmiLLxbToeaoWkrQUGewIZkaZWsYVF8gqttrq34+Be5BP5UDMgNZw2yrb82LgPGTXs2rsoKZrL6VIMOEoQcDZqrqeZ3h3A79sQ9E4zbxQzj/jBkwgMxStSuNoM2QxdAKLTSNGYtdsA7HRggEI5+yh0RvoKqlvxHN1hRuzxfZYDQ9xBu+y9Tkk8sH3Jo47SeAso3s7ItmGy1yQq8ywU8kkyqJOAn+3uiVKsMM9U8axjilO1lzaN8cRpyDjainKAUV7DlxZv0FVQsVznHvl6L8QcLXleN732xyxMpl+B6JcF1tGLERhNRIt3YNgDnOxXrMYSWBW2/vrqWGpDJ8evckPRPody5SA1zjWDSKC9bVIbJnsJz81kWh9LNZRn30sxg6XXLwdpAdYiezjRDRScihWy6EUwKoUgmImCoTA1D1iJYjEpiTmPpo3/f2Vs5wozH5Axr6xr8/Mw5OEfNYydQSpE2ntchIWvVt2pnK20S69o/gpFv0uAbkwp+StSf28GzDG14c9S/VWDqyJtfA6VL9QlhUMxpKsTO+b0epxSKyo4buaCP2gmI+nW5UuZhLpxpq78rnNdjmCe2p7HkIvm1v6qnKAfSEmLgMRwl6VZ86Qb74Bbw2+69FWY45hcCIHnCRndw75a7nCOlaenZrTdqcaMOkdwnT8Rcit5kl4TxE7+iV7mGF2KUjqWatBCzqpiU3gQ5RzFpC5euIilvoLzrElHUHkWKwlRbkhqK2ebwa4ibNfV3xmSlhWuw7ZX2fnAN1I0+CKczVK/qCOWCsID3iQkat7an9JVnM/J7ci28Y2lvj1Af/+QVGwswlfWOKHoRf+fPhKBQPrro6bRkO7x9s6YQ434k1Ioamv2MZ4m4AgiEc6KfOAt0qO4gfXX6dYu47NxRsk0WYbJHTqrsMdKcEqpoHLyAxW3l1amUTVUmx+l6bkeVdy/fdlra1ypDSqDd4vy3XxfaU5toepClm6g9G+8MprOhXNkc3e3+7qpaF9ehgoM7ySM1vhsl3WDZtu2BjjoaTVZPJP0QHZB6ETMeS7LilAnpjMhWctGn7StHnQ9qF9H+imO4bYNZl0C0htqo18rGm50pLK6M0D3IN11WfJ+VAaoPsIRPuhMlZ0m/RfKZzyGs/nhEvPhWaqJOtLCJFOLp0LzsdS3aVe2zL5TS6EDJhH9d5R7HJw3RvH1QWLYcRbm+p27STFFXGCPpTIrSiactpHYJNALi8SyuBcRnfL1EwQz4coaKgiLhnlnGlROt76ifTKET7X1jTQdLrx6fHzDhsnKNvACjIwCWoZCLBcb37lU6uUaCS7jblap22nXmOti35CUDC0RCg4TKC6p2UF17y1DZSie9wHViy/JXrg3Yxt4ZTH5voLeeFsrmr9/UWYtG313MFwDAU6czzZ5tkWzZ3NU3s4q/2RkM2LmVqtxuS8m798MuhNt7CAFIjtdRifpzW3a7vFCrxGzI0CVnLTVrqGLdSCQ1yCeu3zEthHYOREk8k5JXGygrurbDhG2a3/d+RUesNUxvNG2wTGTYFWa3qxxqfNPJWkuoP6PUaamRnmDaxkg2Osf1nPBsJ2s7booHnW6KB5yX2176/MQ+3g0pqpzAACdDQrlr3vUagCjv3oI7aHm/cNo+Gf+MXNb5uIa0g3NCaXZ490af5dQ0YSm3F6nt27OJEpZOwGwUgkSRmwbtMq8oji3hF+ORzvOfot+POSCql9CiohfCY4fMGkF4B1ZRZZL1c7f49avfY3SSpuEbTWE/G9/ptxQb0haQmMD006DJ9D10NsYjpapS248y3hTQQ8yfMX2svOSO7K5mwP2czD2UFc9io9bl3HpQzkeT14JDUzrVf1hWQGpxkd3AqmxBTQuY3uvXRsVyw4i3AnXQMuC8TZQ749HQzC4hfLCRAQspoGTcG/6DA5ZmrmPbqHprAgHkchDC9j4V5COZOwy7f2Oi9Tpkos5/FvOte8YCJjPdk3vIDnEodc2mXr6JpbYPzaqNcImSKjg1XM99Ld++3kgyiTbbGuWtpx4M8VO9Cpgkz8k1dxhO5XYc4iKGKUooh1advEsSKv560dqfqW++CE3jHHryUnm/NtKQY7izQwfKnlCEtWmmfb7KI5l/icojo6wYSgGkt7XjA6uydQlwGpqI/f2wqQk1QzrEn8FrIHbE2R4pHrRMs+kP+gLJoGI71YT1yoihVp5r6UJX6XspVk6l+ZVBCQ3VNJYEDgPoTvCtZZ6qtRRLC8zvl4QjkOHcYElaWcZKVA6hpiwajTRTs9N8O2wnYym/FnjVXdFbN/wME30iKpDUk27wampO8uGYZOec9jQi+0VaH42IGcWOMBspzfdb1+hK406c0n2ynVCD/KOu12FCl5Rb4ZHNu0k8sTu83WBJPJdMS67meP+3XafOf27Eo6yVa+WeJ5UVb9LLK6Uc1Xs2/7DolS1l7noRM488PIhissZLXH/yj+VrnLhPxiYV/Oe4b8IgSft/yOHhG0yJ/UJIZ6vKV55EgMEalsPDN0lEQUcd8rlgWBDhKfz8zz4Rw74QEzzlwg6q2jCl+PHalcXNkec6dg8vaxS+qFabR3T7q7x0HDLmsRhH9G5PA5Aw/77qbwqS452IbCHLvoYdRQHXdDx7MQ4bRtXraHT+DsuHd05I04nZ3EbWUsqTXisrgLgl+467Y27EswANqhC0XUdOz5wXlQKpkAwkPRDd6P1m5trh618nymfvofSw31nTsIwFXKarhZFSAUQr/fs6wO+9kjNKPI+aVqROdf3GwH9p4FAhImF6XpTXvyYntRkRAyfeqSWTsJTG0aYuOfUYdmiXCBgaTc/0bd33AGjzHAijCLpA5BIsTEx2cfLxKPoM4pwq+T6CBfFmEnd3OJVyHzmjh9QzEc/3w+7ZMt4t0TzBGg7omPpr0mloQyhr68Cf5Xs5ZUGX2xSqGi9kkBNyadhwlsCnDC0QG4EZIExz+DXOrTmAEFBeQHeEBw4OWPMiPgGyKlUUHinKE322YAmXtHrffk6A6cXm0lB5N8g5AfDpZ/SVQ744YqLv8aJYNIwe/g3O7QODQ5Vy2wy7gvwRllw7pgUglpTdefoOaSM05/STLxhwsvAOaKDCIaiXMxezIKt4AO92G6VpKaN029m8F+YrJYseOlhhgxJ8lJFsH/rHtYElGE/KfXqfEKrj2e7UvyQI7X+cKy82vSE/HxBdFWZkpmN/FupaRA8lAgM/3xxsY0KOSRcepEyB1GpxmX13zMaN8lUXwgQNxUJTaTSg0fm5GRLrEKNSjBbFH6yKM5nwLJWA36CBpgR0DWgVZ4FYEFfi8DW3ruYvnVt9ES4AD4zPw3bjeRcUmYGR6OjyW7TUSg+F44x9lcJtX3g4WWnQTfU/ApLmSEKIb5RwdVQuTyYReRCe5iRNsQ5GalbqCJqdV5QhOTODbEq2YJ8LNifu0BnWzewaKmdb4AY+J2HkGCjHLUt8qUt8NLUXijKl3cBX3p9ltrtiD6ImpQke7WIBNqHhZ1CA1Iw/AWMnJSn6EugxQTm6Hls6x9fheBljKrBnTsDe/ZV7NHexscx8UnEwMQT5FCeb4gdLiY2qAGNBPZE1hVzf6v7adAJ6yRKRGsvF2JlQI7t72aAFtIQpm42MyJE90sDqCkWVoOp6ooLWDNlS2pDIthTb0JqgqJ46jzPOQ641HIiFXSvPdAlPI5rUmzKh0MxNZjUxzTlcoqsHHWJxrHEd8juD0PqKSuTyEpGoWC4v3i/8vwMs6Tu5U0iLIJNjyCRvD34XIflZ35dsr1dTZ4danRrLVw4/+fx8fGmuwXXQ5U5dLi/3o5OF6eZyElwX83eWnbdohNQ4e0xG6s9JvdC4i8+yF+7isIeJ9tP4vNVMxio+v4jBOUL+hx1s/uIuTvge4auUqe3yoRctGIg0/pTxkFMYnf2q2O5XCXXV1Zcd7y+VDj++PRQdqs9ZIPGOHRdPv6BbPYvID8ibLwhZgQEfuw6FwReYkU17fxZqr5FrtG7YmPqWgeHyp9KaObxL5GwyCcOk+ZCIHpj3VF+M9f7Q/7zN6C1E7trx5ctpr2dvO2T2/KIEuMToNdoCTWBe/2nI5JtICXSA4hiPWtvCHHyd0q+WUgLW/ShaJU5YsikAd4WzFhchG2qa+sor+0s8mIurrbvjMuhqqF06fuPzk+GV5Y1ca2j3reuGdCrbc2CFd/+oiWwDB22c8t3IibeT/Tnu8ESdR2l4w2M7+jyyKgL3xcl/bEXXgaBC0IwJF68lp7NZxSv5QnT8mYpo7MmaI+cBQbL/xxkDVmjngt5TTP6ZBI5OaUaLEVtny5iVIR9q5gQDGTHYz3feqjpxeki3H9SCNkU9XS9ffFwNhLfrnDu0F6Mb0OF1wOqeSXye38J5wLUGf//b10nDxeMVdctyt+7bwMcrw40XlKzFEdQ4D7xwwvib9PqgEsdgV3w4c3j23aNS8b2XR8dCPVw4svFZQNP530vbp33bQsmuodCWujPAr1C/T1e1F1esW7KZ/6HdhLSzm5/RZ0eDQjEy6bqM+RJPtHkm4LK09vPA6WmOkRs+YM3eifK+J0XkWJVP9NtvC6OdpSKetuo6E4UEFdertFyRyCd6oS4D2AREoE59z6/hHWeXN3tW4fTgLHlgfYz0S+2IgRAB/RSM13hsXQFi7H8uiPU1gkxl70mG44OBX6FnGQVoDs+WIdLDLdCFkGnV7Qmz9xWLWF5p9liHlF7GMoYHf/vsBaGwf4PwhRWnJMH0VD+gxDZt80uwKknHdzV3zKjs/DSrCvl4f5GPAWoM2dNWTaTeThId1JcunCCSs6cGfhZHw3drIlHBSAvYIFRERMrLG1GruYLrpPxqcoBdmmpGh+A6vxk6fm4KQoaMB2YoPfIaZU0l/5awxJ8DjSPSqeTnEyHpaEBsc5w3LQ2niith4xc6FUakGawXyiPS7eY3so7xhJ9s7W0B7A+89qTG8CSCo+AHzYInpxrVvVH+q4tWh6PX8+W8taREO/4oIPEyRxSakJmDPylwUv97ZyZDBjNBi+A4MqWlXmC48GdzEDYCCCFd4+3iPD+nlogLplFvnB0anizPJiL9DuIiDMhZ59rzXIW4PZetT71i+KYcWdOKw2HAL4rYHQrlM6Gofbc129ZU7doZrAPbsGHYMLeo3V/FmdxNZnJU633CTRb8HXgulWcAn1iJA6c+paAoyHq5K1q3U2vc/ljWvcBKCVMgU8WeF5wv1sfuoMAQsX8Xdq20Vwe71g/67ODVZ05HoHf673jJGFQMbDs7l24GEq2vsQEViqNbr9j7EyYxDW//RH2WZ9QvrhL4RjFmXkXZVgb5/ExVeyhWVPoHa9aJQ4TUyz9tKA3OGn/qlYPL49Z/2GmkhLU2RNCVsvDmvSO/KapQeYokmKavQDpjktLO/QyD9EU/ZzVRwmGrImAhYYHqUuHGuLpBx+9j/62spyNjueviAvQQK7yAkAp0+LGLUZOpd/p+sOp75KK7JuBDEEolG1gOETgR18fZDGB16eCpNglqiePXMkjO1njhYk/sOOGXzDO63n8vscJSg7iFzuHtY2b7JLgphxeq9CMqQmCTwwUVmugvwnBZnEnU9jv7j23Rlq2KhxuJCDzKwN74bRBqi2ZD/ZJ5TOdU/iK4akP8ZyEk81cyTfyCG26ANy19iq6+Zjfu5A+jExwlPOskgAKAG692GSdR23FCoccPXFzAJN7NekUijkU1b5fQDNYIHKujgncSVXx05eg7suCogLAN7uoaHIbmyZtFWBI2S0nZcxc43ALqvZcZzMhlWeeMrHh4tdchv0P7Z2y0ORT1vmLYYHNzG5FnOia8ZvXpoRWxzOfH/kU4qIPhm3fsUkCsf3DVIQPrLrlnxSuIkWwu4Nlcw4gKKzwtXFipida7uUbK8qD+qXyT66/3UitssifZ7D6T1s0dVoxYjI/ZNuYVsEWNUfdH2Uxg739yH0iEYcR6cGMsQy9TFG1kJyC7zamflvle4Na16iDOZlJh8xgKmHb7NlepL9TFsIdrTt6DutDNhqfTu4JhVXHIp/2XQb6Y/6fVxPnv0Lv9/VXCONMsZqHnU69J0GJO0Wm6faXn5cxEzsM1bRdkmotovqZr3rA5grQUdsoM1WHuvNx4iE/E91Lh9VJcKKTaPrBl7aXCrULR3eV/e9dBip3d5MsqBAzjfNtBPS0Wlia6njf6pE9vFps7r94mmZA6oVjsNBev339mTrBZFrv+42jdU//Uihjqo8XX/1A5i/hqgP2tM+rBhrneTmBYMoRCgSSDYRjsQOCMkXf2kic077WkUGBObtNE2Hzqi7fhZJWDAVd1CNeY68q0EIIRFjFQxliPTz5KMN3xJbPNXQSRvCi+NY5ABFk16kRjJYJ0Nvi+h3ahGUSu24ybJDRfirX725E/UQcziBA2SaokzdUa6HLCxFN4pTiGmD3jHGK5oVPqXFFGmPFcP8o8RI+9LzKStyOVb1ai+sSy/6wfOOKgtSrnDIUe4zW8/uLJ2m47/lJxzUUvGeeaCMZkEPrVKZXHwFdjbL1of0IKy/SHUEWTqFMXV7vyo+ltj775XnwpkH2d7NzDkUa81/7Ju8bfXI2Aj050DMFuURid92qsBCNjwf5BH1nUI7cHCXsJb1awZC8YOnWIKgdhZE74oR91uRgFiHYJLVRn/a2r/nzqLjFiccMZ38iXAYsCoFmtWwLLVihEbyfYRz+GHAugazbYdfMld3S+ukrG7HH4PrDhrGh4QgOCd/uhpC/tgM+zeh66m67whUrow6MGRgr2ahRYTHkeb5xlpesmRRoQydm7hDaRztucLCyFubllgTHU+69XeZmIshO6j4DJSCv5BQEH1h4U8xZ/Ts1DghZ7dKzzsnu4Xb1TPePNqxdFRbD1yLjlHHEfUe8EWsM6r935NfjCqIepSet21z25MiB9G+CeaiMjMEO8Hwo/b8ZiQfJZUS4Nmx97OFeUDt+oWvEJgts2VOIi/WQJK4U4O29xE10+8yMvxwCNjjz5+ph0TxnmrJqkFr+92HdyaMGlRXsAwl/8cXHIHqWOIVP6Vv/d0/cJohB3WmBvQFIUhRZHIsbRKFFH/QkCAv4xmXwVT8IdmRt+5n82oa6ugBW349rphZNobCT5QQjPClg4K45vXIuOz9QyPrs9ePNn29DaJrwuu1VM1mb48NNGAhK1v+8gNj6KyPVc9wTcMjqYPCKsifx4Xx20c0fhv2jM9B3Nizce00x/q1DMZjkQhtmcXQIHVvHNP23LNdc8LxFQ8f8694FY9GA13RYBDCbPnuk3YGNs6Nq24ggQJ7/85BIlzyPu5xuG93LSlpvhSUtmEJ9tkUmOi1WH6OBkZ/cPhZ+HlxmPM5k7YcnrNjK8p+YMQqUkUDb8M9VJh4OaDe9YtsylX/L9eqPr28/w156n9f8qBiGTLlmJ3NHcaRQP+1kVcNgT1JjQd3ndLzYcqwNPy3e5YCdNfxzMBqEQNMZyYzuTtWvcG4UaZp0V0JmrFqBQCDicgKZYTy2jMy9/j6ULpSKYDo9tm/SCRmPveD4YQ/ZawYFAWAX/X834GAbGAk76OnBY5GAyI9EJFquqogEI8JgM2HWXD6GWY9DLUKhlaMzyv5uMhFPd2rFHWo7lVsq4/uvT4YNjrFB8yLUPtJtP3+cHsSzwUEzYA9hal8jEzlpkITvBbV0xN4QYBYu1B5aI2U1u8+u/dvU9KPB9DGpENOjTr+dVRfYVQmmRqJRTWhUz3n9YEqeFFl49Is1wqHNskzawizSuX/rPI0aRYatuIqh6xj9zBLBkYBR6CLE8TLP4XzQ9kjOxgYKcB/kMS4YVOA96b/QVkLOiGYyg1jYbyvGY93Rv/2MdNPK77BY/zGU0DH0J49ua9Z5M6zjmb0g87ogKa5/vIAYjOoss8N1g190AT31vdFsaE7PU3fB+MryhGzHNIOuSMUmZlVIRo5Zt8BOQqwwMRlBbZQkz6SJby2Dk91kLZC/Z9evJfkeGLZMpUimpUjZUPcoRn+kSef08CLWl0VmeTJoLWzay5UNOJldqB7WCKbka4Aoyg2ZHefBCTi5fs+57LDYFkgRP+IYsrCeQ59YzabQc+DUOju8CqWuGNENKoNGQKNWHclX+FbEC2mpfPxBbKS1XTPb37qZuMjwoMtK86SylDNGIXO9ZHNkh8lChRn3KJeeEODpyghVpnFoDv/0o2MGUJp7746s2Kr4ud+/AeV55QvQhDrMueRp3oA4WLFIPTldMMqMlNSsTdY54UW82+8DFijLbtsVKXJmilqFjbUe5sTgWh6MMNAlNXU5lHiXDh5DEDjLp5nMmE5rFYuQWg94H2IxKh80vRsKysXSWOGrzOIl054CBxPnixCStKZDF6z2EWZ3uQjRJJSqPIosMB8bJpDsHtEIUHjkydemR8lTryhn814GzZFeHfCm43Pj1ywe60+WhLvMwajpc6EtV87091qpcvfUevL7jE1H/+9JkTVxu4Xp5G3yJ1QK0KWLHBO3G2EoG095vvRpBkKHbfCxat8Bgf79AE2uQv2KLDxnYTKWnQ1OImgYDSVfRCLNibcLge3ezuU6k3xjrNPsPI2dEvBPs5nJFTLyvFldPuHTFnebx/Dlin1RvYdyUeLE4d0qcMFWqyztKJdTFLXKj/w0OiaKVTo7TRfYPJTitJ96NiFc3zZGpUjEdHVhnlqVs+OHsbi7o615Pt8+OliYeCkeHAmHwxYv6ejawHDZVjdwZKID0fIqo3DDppWAVSWtnTNwTo0UhHHglFSiUm+t5BOOgWeK5lChcUvONgSI1X6h7s5qqGN0btziA+zkmF/V4q+tBJX3CdQ9J8PV5XromuaD+StcFUl8hIFnhgaiMsIxcel+49fGTNoRja7qvHaSEkovEu7ni8aUZyn6KHal6muLJK4Rl/do3C1BLBb8tLAzh14cHaeJMGOReCThlCShvowoA1tLHh2wKOEboY73pbR8f7J3F9/M7xQYpJ9Vbr0xzPjgP6iQ27ohkqlwjmNtFRueYc2maDCI4S0E+FqM/ZRkzsnwhEpkT/fyHbyauEFKIPCs3NK9HsmdWmaa+mwGr0EH4S5axolonDmfE6J79CGY2Qy0YWUbFBjZfQ5inOKbAxS2CuXbMkPo1ACXSdv9bCLHJgpIlNqyFSlsaU3NZKRBxq/Tp9ejrojHUgKWTztwYg4iQ0CAwDpNysbzdDw7R5dmHw9lQ4PETcdz01QBlbUN+tTpT/UDhpDrHU3/oHeqVmqrs8coFr4Vn/ksLlDhAMknSOIf+gC/5u93jZC80XuxZsdvKGHF1/4jXcPhMD7/HXO5jZw8mw9P5v6n9PH1a85MC3fJiKbF10O4TkASpXSn7VW469acaw9PMk8H0+Nfo4b8RmPax7yELFVOz3w2fh4yWkI1wsU4HMWkEWdC5YGLy9aFO/UU4/tQJkpTr7102f2elqBAbRk3gvop2ABuK1jUT1i/wt9GQysw1/b9CkR8i3TuW7bmNwc2c+ntEhboRKWw+9f9nRHr7tlz0SbfC3usmXIiTqyhiw9JTS2mslUDkks2uBp8JTs0PByeyjsx/JYqJzBYKW26jDYXbjbJfT8SCXfdp2u3J9vuMbYjbz3ZappN19mF5LBks2+o0uuGRfShWDw0fulveWlC3na+myEPs8/BrVBjsfD8sUMMukjY4tjnUSTOOXC2EauMkh/vPGqu4paJSaZHQoQJxA90B91yGdby/uVqbtWB4dPVOGudjTzLXPZ6nw1mgQTtuugFaG66MXESY7Eg4bKdjBKGDyZAIQgzWqJ6s87eKLQlkmSyWecjw9R6oWFt0127Dotvxqh4LJMVh88/PIlTonT+Li++eHk+KacxzjkRk6ECZZl2f46bSrzf2oDF+q2TkHAaTztAYogteBFFZCS4m/nRvpxe4Pf6tY99f01vm7EdFwJfraeMPRcKHd6JufAWxGw/mnxpg2KxbzvcfAWKz3gjui2uz4k5czli4nPAJQ6L6QBzmC/Bzn9mFD3GZKjk7OxHiERa+2fAP/8O5Emv/qf8GUGHcNnk90yMg5ChGBofAiWbeyy1uboe/C+KnQ4OVkC3YbD9KacrXVdyr/8lDiHkQXZyDGXlt+x9xjmPXQu0eKCvW8Oz/EGrzR4xuTo7AdQn95dCi1gUXvbPl9Imri1tb00nUOAfVP5x2AehL/kDpd/cpWqePvbN3dawV4dBGK3bwOnjChNvnxqJD8b7v5rkF16hNj5w3Nz0AYbtBVkYY1I7I8/vb23tDyEamSmHv/qx1ncQmPwkdmPVi1t8o2bB+v9ukeX1QZ+rBu1qDNTjMju4dDamGxgiurLgX6f31BVvcAA1Wwjd45wtiLDIhw+X2y/PSlwzhrJtsy664RpZRyG2I/MgUl733arkOgWAxTJSZr9+hdZxCGgfHsTVeHojJhuBM04eXfg4KG4/WQLDKz+U32LmkxHMrsn72ciMR546V4O3hEQtYEENSKKmhCHZksLv1d3yVgPqpQHafNWnGvoTyf5JMYkQEPrUF/YLqYOfE0cyjIpDmy1neVpldqLXqkQWJkM2X/nwtVsbfxhhRk1A2FdF4eNvr6mTQwldpXBwdnUgCMz8Blq2WvwQiJuebcONT1OywGXf8m4OE8FwGhfqARwqxfg+bK2qL70UYtiMFrKRiWud+K06Jjfy5QOnw+8LjREwqdDUbYlTeGpQke4mfHWjafFiZXRN9WuRVqL3S0pS0/Oi+FbvMFvcwsG2T8Q3r2+Llz6m8kZLBD/QggmRxJdVl+r/TmiZwpMhskwY+8ky8iX4Vu/B6fr2ytlDjD8aYQ8glKbdKW3bP9XAsSlKFQB6PO0qzkiXXlQxT9KeufitEaaFlTL8JQxsiUYlMm1jPObHzjJW8F74Bx53E9Z1T+Ck5f5q7om/b6TYbxb+sXLOikBbqT6HfOWnzm/taaT1PaGhvJIx+dk+LlhA/dboGiqzJRkjgODjdQfU6Pml6NByMmR/BxXLxT9d9/tcTge06IOyxTxK5sT1ANO30utqZkuXq5A6SdFCOY3FokbQlASGziKL3jjilwFCl8MFg3Z7uQCnTPkX9TVaqfg34p0/1DB6D4D2j6de2jyIgQT6s2DlBW39GQVQh9KywA/uhFldS0LcEGcI0mtDdUQ6vJuqUOX/sEruhkDvEfKFR0ibH1c7ZB05HnFuJLsYwWtP+ryEmklkvu4Wx9jT1h6L+tfPYVtX/QRyYPMH1aRn90rs0wsQcXAY54LNRd+nqhH00fITRV86lWbGxbFgGulxyzdxxZkymgN36nnEErC2rIwuzc/LzS9OhPGE2n9FA//edxh2KOsnd2cB+TpWLeXQtZ/NFkZbSO54WjooW/DyTzH37LWSVhGIyYZOYuFhmtCxsh6LApRpbS/vRaCLbLWwCooiRYsviKiZ2WP1sPT600P7vzRcS7hpkY7OHaQE27ogVW0yQUA5fr/Ux3cXlYXd0+MDLcPHZFMoMUjy6jA2bBdvBgu6Az3JAlxHjq8mUGVhUGAuWCpsiS525fb5J6SLQOf9khpM9e16O6Hbp76t2MjhzUulV8AJ4ah5xktjW70B/21RmJs9ecUBkFLQipmKLj3NK0E6Qm6quICK6Ne8327QhpmBLZpPk8fwPnnjr1uxplVPnKhK02d6FHmnK8H/QehKF9by2BGO3C+PT9yttHsnM6qifZ00bCv3Cl1rXNhfbwR8uz8rYGPVr1Lxh78BIrxVlSyZEcq7i/P74TCh49hHP4eBTJYHw5f6bEpiDnlllp7i2b8zVlY0wxHhOGdTJ4egtpe0eV6MqnsrsqmZhYZmR3V238mNI4f5NEKR3ene+Z3SlSwq/ev9/qvKFbN5n0Yt/XIMHEKEbv2quYphVt6XBhEhY1Lp9SzQ1a+vbiU20Io87Nl4YKRoZhwQn47Kmi3F/78AXJ3XcLz+3EC+fIVmn9DB5J3fGkADirlr4uEvLm240QR8Xde44QXgpGPQXjUayTzw/OtJSu8mAsnI6E+RmXDgyihLcqeg8xMcNv/nNTgxeY8r6W/gCpQoTnI1Hm+s2uuNejXeEnt0IOHVtTJm0fMpcgJSZXO/aEOCNm5Y36+zw+jbHj8cuMpnOuvw/mcxO1NT9w9m7OmFwpkObGo4HUZ+wTs6TtNqkbw6XBDkTS0pTDij3LW/Kp7KByh46j/Of0q69LUGLvzffwbzvuWU4jMznvRLL78Siywuf3bydqq3CE5Xbh9mfhmed65kOS6Lo7uIaK/pSIXZb6ZgqIbJmJ7DinqzH7yrUjl+Lun9iWHz8N+qpL9/MjbQXS54XeH0+XRGNPNF+5IId6p+tFPrqDCPRrH7BERCbDGfqMixmMJ7y4QcSEXhjkuZFIGmeqtHTfZ7KxUvv7umphyaz5rALz4xVD3fA4Sx6jloNx1FQVGcXZaOHW3G4/KqFnM4ad8/G0XNzFJseRcGeRgpa9n5HY8zwSGrsWUGaOv/owR9/o0hKccye4ujlUJu+hRf4Ukk3SU5OKzCDyiBay+wXdJwxEplADxPpOavnLwomnIafxjkVsn27CqFJtkqU20dabRByG/LDRG8xGFp2Yc3munYMx+izF/vvP7NJey9CZYgwvmMAaOqAQ6VRWKyutnPBr40Ia/c6PfFD0xuKuWdDONfyuT4xcfi3+/XrezjOAury0fH63TCbfscVbzItVkqny9Uh2bKroUMnn9EGXp82BdOpKy6P0FW8oAUZZwKf74V5LXI33JVsXEP1hGOwvics6ZsihP/5euvxZWDaGZFhJY2y7Tuf+2Llxy/TQXQqOjgA++C+SKfzYKVCp8KMsw5KA4+gBY7GhleOuf2+jBCoDRuK/N8SpxIhe3lpPqvWPdVXFH+tn2fceXRJE7YFEm7CNFfN3tQo/fNB//HQgTF2GN4aLmJMXBscG4Qiz+i+nl7H2BgtFLnBjP2XC6P+PfxIh7CI0+YMZ1uFs0DfS86la45hnYqmmmim9nklpuGnm/tzUJjEwuS+k1dVD3o28Dhfan1U1XtWDHZ6EBmUs2q7o24HquNB0fFDDTMshbv+2x8SVueP3jJwY8j/n1OTbmPQ7Z2iRXdtYGSCLG65LiSsqXD03vR3wtVDnCdkOSOxZ30Y6v8dCsVuxkXwVKkflE9GG8/imfkEtXvo3I/k5i+ssg2ItJqV35zI71JoR3Q2MFt0zY77hlpC9NrSK1x6R1Mbb14EFSH0jVNIHRIL0XBH9c4+QtTxxTe/s+Ku1fTOC6XBDd1UaMbkCzfi8hCVYDUUKklq6IbSe5pKaoLQ88AWA4RFObTM1KhEmhZseLGiQP6i1F6nSOQbhcZqxIqPsQLHIMHwL1t7Rj/eig367nOT2/Viby85CudnsnOdg0ReCtTL3B1PuU99P5+bXN0pD5Pru8eqHZbNqnjkg4OPonzY5a3t/UIl3hw99MrehbfjVtjk6y4Cembf7d/TZy+/q/Ladj/4u637WvtSICK53I1EqtndKOviYXtRs4eUil7MPWX6cM3m7YU55YxuCbys2kNhXPalL/WVt2/q/29JJUvccIaXPJtP45zTWwZVby0Dz1YRx5KvKMJS4s6bYk0oLdz7RXa8K23fpoyP4sd0fakX7OD19Q7mQxEcYTMc1Ck9oK6doO62ytSyyDpPWupt+GgarQ1NlxKIQzTXYCse6+35e0yt/yCPlOGJg0+kMGP+czXDAOmxn0STQQk/s0Cm3G7FkChK5BIUgiFYQyJ0okgaAgsPh4iU089qUnJIGoOqo2OEcAQsaRPb+5QzT9hi1zX+ZYmo4Syw6+A+WqgpFJ++8NSC88KIjeEB1mOiKOU/YkAka8CFUahbj5jTQ1EkI5hMjVSGJr4efVfxofjrp64XbO3tYFYizMkpFmIhaaVa9xBFhcWWZu/llW5vtikqQkKoc73Kck0xyfkmtzLC3L/AgplBdqPSXxCY7kbLVJA09ldYzi7HotK1eCGZYzs5j8hMP65lfL0eH2l/+BaW87rlB3rO9vsymOwTaV1iBUIXTfzJZAq/QGdyCGoYbL2F+Pui1M0p9OH07XftYHafyOuCW1iVfzEuatgSNlkCaRzdkZI2xQhH924KwDu7CI2oiFILnE8cmf4Y4yrhqeDG+jhg+CJtp2i7HzbZSzW5OjJQdCKh392HxdH76HykJN4o2Row/ESkjoEuBH5u+E1HBjvGw77FwFyS85EWvFSgBdga15tQ5ZjXyxdmXD4Rl1Urvi94kxkHHOk/v8XKsA2cyj+4EQt+vRF156FQ9HA87fqXdcDbmx0dle1It9qyx/HYUjdTjFq9EI1J2JrbWed5HEanMWfQYLu3HhvYmoBBtKjV6iy3ARpRZrpo52w0w51IuonFUhMTM0mrzVQb9HtQNLLzIThB6RNhoqPW6xdFa7XFGKbM1H5johJ+L5juuuIJ1X26g+NkV8ru6epO5/9F7H/4mEEynyx7q82x0mq2qwyOLnEJ1hc6hoY7lFv0ssrQuCq11eAXr/A2cpM0PpKEwxF8F22EqJGf6OUlTGoMEQWsoAZdImEIg0SCv9S5x0X7zYU+HjqBxFwiEuJJHZTw2Jhwid+c87eC/lNFi/300jR/H0G6vynFzs8zURqgl6T6eArSAoMyHF5oQsQoZqijhhdCMjDlcekFGSpO6PXz/E32MVgEEtEWwON0KKwa1pQbIDtGh9aFd6CQFgxiUT5sL9PXmXrWRUxCwzB25EV2t9Ch9Q63FHd72gSom/Q3tT2v7IxceHwna3Pi4P9nkGiY/N0Uu7rllnzGZ/wiPA1pej5c02FBygTXYCBv4x8aIsfLPCI3QPnck6BYHrmoRJi9L6KTFIEf6VH0DvYehYXiGzX8n2F9ET3Tci5d0klPB2WgN//72BeRReQYRGaKyF6RIkssLpPK5UUyj8iU4CP1MQKRDPdDiKMRxHZrT03VUhDi+b/rqRLCZEQCxZywA6+4nBiE1uCjfz4GLpHBUyjZYOF0DoyzdXaziH/0KvTgV7I1QAs4s8dPIyRtOY2YVcEAFIszEZu4gsoJTgxCD+NzP4MacMam21KYIPMTDYO3aeke+DXjeKL7W38vR2ch6shLDk41DwIp+7iGRlpld8G/mxNIMw6OoGDqJIUs7chAhAgxmA5xX+3sScgdWZZURZlGZLWSyTU0gt+yzF89nQfu/LM3pqIHJeaZZjeIHH3tjRl5BId2lXsLE+QNLMqjTiGxu8nkNhopOWfp/Nq2Kjqa2MmkZShWUaUtbjCD2JdY0o5ibHyaSGV4KtUm9DMk+0dQnoD9o3vdY7DnwjQ24+ycPQTShtKtLPb18PtU4hsU3owkvPX05rIfBv4zx3iGNsWlmkxaGL6Khc+ePxXY9lUiSC1V8Ykv+n7SKXu+f4KhEf8hMNh9QUgIumvDIJQ+7bgrjPDJlw6FRD2Bc84/DHiZ5QrSflCnIhyZfhHq/Oxe+FDynNTFN6QT1TO6IVAoAo4Lm9jFYvTc8ccSoBB59q5Wt9cU8pKyip6XAHgTJ4p0iaLA4RD41V+e3nst2PcY4iss9g0OM7R0YGASnslvV8JVdxazQ/8OfcT2bfX+eWFVlNtGvQPmFBm5t5SRENuEEWgARrF6oFsNulfplYvZNEhsVgHqRW9vDzIhW4TgDoMGNFWrq9Vbc7HXXG2tNuodmDeQ921/T8RFCrrppJ896QIJcPM98KTANqaZGqTaVoEqWdoR3hjWmHciWyvgPaZJom+ZhRxBkVRiJ3KK4XGcwewDaQNR+4hkUYerz87KUmeju8GYswMDnrib8CCo/palpLmsrfdvBqy2Vll6vl9dD1/3lukyW47EZFQ4hiAXkKMlwBirVqypzLuyX3wXNLSMolHWc3uhZtgCLIJVK6mKpEs7ywj41N7umKZfokoLRmRYkrqcj0Bvs7GtBLcWqnIywkfwib/XX23A4bu6y3CbzQ6uOJwHyoxwDthw9AaimWXEV3n6mtxfhSKvB6kJI+mY1baRZfiH2NwVcmQqvj1OVzWFM3n2NrtToCvk0SPIcA9mzu6I2Z1jpVovq329jxU5EFvi8RYabh+MyONVDyV84ooptCEqCrIEAbe/ynGsjpLrVVlMjUBo7H7fftIFYo4myNAjsZGMHQIVlgjy0ku1tyYKMADX4O0o1FV5oU8Og4HLUGLmm770pAv0wA3mfhSDCPVjsqVxF2Jn9/go+0A1pTmEMPy8EleXsF4yAg3yDU0RINNeQgkuYjoRtZdyBUf/mKvG+Ga+s44Cx1ZlSepPFPAk2gGRtT9n6Ux5vvyqgnZljHYqmE2a1lBVEgvbxQzG3n+cssUicLTBFEdzat1c7Sljd9M1BYmjOEmh6/1PCC/rmZ13kv4mFUgS9bqZ4W0GwSULfAyfNbaFwEj9QsGCimXRYaIbT9gmpjmKQFS7moZBOr2ErhHL9zpF8NEyTaa9Ph1hLeu4vjfph0+6s01ypAIX4XdEVZ/3AowzT3msDpQ9cPbivdRZXS5QirhsFFmI6+oiQ0gJ0iZdTcTBgqmWH3TFlBE8Jh1Yw2px9cifJuKEw0dvAhmIRF+tmhOuFuqp5BWtfH6sAtWWXt/gYd4eXbegbnsFOB+XNteXdpd3O+1iPrEz5r08m90AO6/3Rs5jFh7OZ+Vn1jDzBVNhLrXbbI562lhSr7lGaIancuQ5uBZGw28w+GnuAp6sc4FMX3zua4dYSsNOqCo2kUQaK1TyymEJOQitbYggnhIfOFymlQ43DBHoSPZRPiBuVmeThp/FANxk74YaQSBLZHsrPpwe1Bzs21mqlK3larIgDcc4NFg06rLXarypC91i2y3eJBdcmPHcA+e7hrMTumNNd8SR+PZ2O1kexW7Hb4eWngOCS08UZdQh7hP6w3yYL3arrirSWARUlzntM314mk2yWHHctRlHLWJ8wLO1ejl5JFHeWtroID7fdhfBC71v6qLH+/C+uk8crc9gpn6+/f3bWB3H7yTuRA1gswwDr35u6Wn2WqtqkCVBGZaOJfHJfg4gGBfhlUfQH9gg2ED2S0M8QKc/ym+1FKDT7kgaVlGVEj4btU95miF8mOvh9qdOGpt8VHRJBtCn3cSm8zW05mC/ScGBEaAIxTzgn9DhU9aC3YjNRvVAEXqNdoCOFuV23S+WbbEttzEOJMEirOEwTsYtyic/lOSwIDRytzdSgBO3A3k+rOw98hRIFSrBNkzQU6Xdk3GQiLXZ/PCCwui/h4xwLqh7ZIHTKpMcFmw9ql41YjYLtpwT3WwGEjUqJA55cr8NUwnvUfWajJ8DEjzE4/tiPk0kdlw2dbUyZ3z+PuoLBzGThp75GczbZpFSBdIkKuXQ5JcRGjRC8Mk6jdGz4xv5pvFM5nnb/l+MgYGbi40qJLaCpkPA3SPUSVNrChPHcZY3r94R0xYXgD27ABfEJv8UKKiwX5OrruhodejaT82QTgIvVWMF5vWFC5AmM8RSG4YYn9sarNcBpOuxW7EhLLIDk5SV304xzwFj8dNnquL97rWLTQk93bwQ3nWduLQjwcCXqw06x/YwHHYaHEEO4fRgz2zwL93TNZkvFa+2boyhTC4ub0UsvTcTk1B91tNqp1VdrC2WS4FGsDgLBCBiNQ/T2gspFKyc3NhjoiALKqiA2jnWOEYmTAwmck09kTsEZc/SB7uF3pB3N1+h8o1CI01ONlWK+9ZLID37lnli57S80I54B7dFaFtSmhI5LhDFM6f0Q0wrhxM6zMsinaejDHaUEgKEJ3I+JR8hkATc4v7J9w9NgeTTcr22tbG8t7LXbdeW6kvVCpmKrlVlEFdaMK8r4CIGhzly7GcuFe/pruScgkOVbbhq3XkKEV8dzFjl/U1GzBYQBsoxhArai8N/ROcZd2HLXJYBnJ2Zoy+lRX2tZ3RaQNjyydyinyN6Ws2k5XLvSoV0JVMBia5J8SAbxc4R04mOrcBkhznL25QtIUg7QhAI2QHu0aijFgb2/f7A9SYyiHiKcxd8KXU5Q6n/k9FBLELTvKNlB3f34uOo9ujnREBdVGolh5+I2Myc1AMvNcpmahg48ajcTAdQOw2Ho9HB5kJI3yJdo0cCeKIwOIm7SxLKytIOKyKYJFJcOC6QHNc9NcXFOsKvqcp4q5QAKghBsEOq7h2B6iAqWhC8/pd4/vk7e9OaQPw/Z9aCjgW1J5s/P16s36zfFrqddoVKE9FNW3uuY86nwwp34Wl3al9M135nXwUZzCx89IcnXaOVzyTS1HMAO8uImEWjLBtk2FFH7mECedvu9zEqSpR5XWFWH7gpV2QQax2RGeNrr4b24ZZSHRvaN/qMVc0FposUCCoYQ5tbrmJ9RgRbHKbkhu2ij3OnXggbETAi0hikQ2UytVHVyRQLTXpqiNFDukRdzrBFALMKTbxqZkfDY661S9QUmmlEQwAn/IzLd1HYibfhY+lTUBC3gd3HllTWvpbUpv7IxEfamy5c9IbNd0bxb7ezFPPC04Tk5RblAhEUrCqzqK6ubjRBw8u8qHvL6bhjCklhOhENF48kCDFH+DHiNx0bOtJ3XIX526T9riQLLrqIVfZadUKAPK7lfEh1n1+iOYmDSpO8QVCFyvt0prxJjE6bewzokCeP8oyDctWVu2oXElnwT6RMJxrMzUx95s7dCB1oTMxSrmjx1DSsIyUkFC0q2BIQ2bKot+4ZP6dwKiJdh4BfFO1bWHocne0tqrqwAP3OTZGXIaq0bywfu3z5XIgox2sNpqdkoEHudMyZZQh+Dy2qbXnjLggxl+tMYUpwYO/Cr8uvKGV1SVuTdb7OTkE1iSChqM1wQhPTX16P3uwCXLAQw+cy6UgIgspBTX1MQ2m6gyXu2ZCig91hEgdpgIyQTrHgq7hj0QOLTeOdKt30gZkTTcJE3+MXDyVCV29XmsCekBwckJO8JU+2v1kd7rVrk7fyul05EeNYyoyLEEkZb0/LBZNSyHdHHfuymwDZsRMT1MtGJbMSe0HrZu4Zu36t0gkvQ/bZ1dssg2/sMGLtitsvp2Wmuo7lwO8QeZOFQ8CuYenn4pVKNfsiZrEmIDRkpgLqJFtTY1s2yxvH8+oo0QIUfeBsEQsQCoK9W6+AS+nc496V1AIiY5dPIuZnnu5+sVYptkotLhkviCG/KOtOvkuoES1QiGPErFc6VzqJIrJG0olb3OpuPCfmkzdVlG+AhL3QTgCNfbMEkzTs6uIA7izP60OdhcZ5koJdlV0A2sLQj6qiDimXv1lPjwvrdNlaZMw13nCVElhAJKS8nL1UBqwpHxYBilz0+Yw6ncQk8fjOLnmSc29k8vlXIIDK9FWC7Bk0cedw5NrhhvkOUa2cF+knmZSAfZhzvnfQNIZMfpltA6dOD253q/VmVZ81ZwuDz3YlleWpjkcloDjPW/2WltUdUZmwzxXDlmJQqOtcKlCnWm+L9pckh2DTG2QxT9JpOrmvCs9NRMxCfmiCab4DSE51ZBqJvA85x2f/z9NRbns04oeajVs45sOeWdRYQ+j0WBOrVFwXajyOZ5YxHScZDVto9d3vm2UAYdKWmZeDal8cdn3xWTCcULK0EdvYVQlVmB0W1e4RQLuKj0Csc6RON+ssQ4qHlWrhydINQlNDTFeVmCGEEgLUqylgre9syouw2S4zX5sGO50sn0odiSb5i7OgfSfM3F51EfldUeiNnRHwiMTkgUXAZvvMkIHIoTq07s9G0Scu9NlLHOmqx704ESI69OUs6aCpQSdnW3fKlnG08F/kmjoYG3eGdr3z1FYAEe06HLYDi2O6mU7Y25pob6oZaZrwnR3Uocn4rEdH4A5UlgAahudBbAyDyHTYupsp8ZFsTKFPTO05SHeG2EDA98QRNN/r8vXOQoCW3875SNNJTrTpKp6Hvk+YpErfTDOs5njwbi+YaRXrIxdw0xXAHz2UhWRjbmJ9RIJGs3SypspWZBUGL3ir2GL8z7yR85pNhsrGCPhXQfXG5vLwf/NT0280uM6/aOUUEt+PDoNgAbPbq+EUUD6hqib7ixXNOuLCjhzakNaTGhzyMoY4XLbbpHrrH1Zo7+inDb+7JIb2A8ahL2VJC5E/CrJClejpTIofW9AEBYi6Dh5yCO/L6JYSQd38QPyLckytHB0u9lp1qhTbrleLZT6eHHe20l1oXwmTnGu7OPQyPzsBUqBOaURVnB4Szw/o7YZEeHfbXJDQddW6OuwvqQUEkJnsF8F2KQ8vOGUBR236jzXd7JtThXlkXxgb7CekL3Sch3HePkuxqDOrNfZpCVOlw5ZQbIGlzIlHwXgpsHqfCSFe9AYR+JHnh6FwDvNNulNaOeEFdoHHi4l9sXv0sfIkP0hIjdJjBcKBrvE0oRKahiCZODsAtOyG9zfAaTm6GpwAgSuYxpKRAr4qS2wTxltMTne/6Kbm98lZWeiDfcbpcER8Sei5ptKbm5t5MAVlB/tYRf20yexLb0YVjHmejlt05mB17W7T0gA1Bb6L6EmR7XKLGc5WmQxpxKL3yoQxsXm2KwUBjymC4H4Ow2VWnUzAOAtfUx3HOXwDinNclLPnAH/AjpCwcQTkCYIeCm6Hrq0qkxF4D94R/wdFwRlmv66imHNrdz2GPmE0g1zUFICh3JVyMmLivT8RUlKwsLmQtywhDpy0BJp3yfV6lSXoBP+yaYwh3iK4iZthjdvw2F8bpdOgzoC3iAUHEElJ7n/wYNWmFEC3EOQurTZ7PQY14THu13AObaCLBa5RMxvspRIrZGgaskQiAhsnlRu48GuDQWTKDp7KvmZtluz1psizBE1yLIObywozQM/gs7Ax1HRejFrXcPNlrFvTqDAVgzUCN5UT58Q5SbRLUNwmTEN7BmioyGd5P2ZFhA9c2nwbzkzhpTY1M8FxpZ2wbT69iQ1tPGI1AbZrcmkbVIsaAHlRKo9AI/Rkp6sze25HaEUcBUipuEnO1jV0Kq2s/FcRYIJAR/SPE8Na7EtdgqgUAksZMMDD8xr5AwlwvS7sHmbNwoVlII+jmOiseCtzmhxx1XBn5iZaQJEMRRBXhxs4yQ7WCYG7DHHtMH1K2NEkvnbGAjb5aC8vttc76/VabBMgsc8MnRfHcHDfLOaZxQwONz0gKVA0jzj0vXZKxXwusVOkseDXqFHHfc6Fo8qedZND7QFuwbuBIQUCwnCqt+lsRATWwqr9GNnpzJhOon9zpACDiQyqFSnrYmMlJNmDA2jX6HqVtjjMVyVY1iGdus+g4sjsAskGcEHtpabapkSlzQ7aRppHY7GjcYxubq0cEjGtGo4Zt/0VuWC0Ajx5eXC3vo7zALNNPZXvmxSpjETgY2jwXVyN9EzXK0Hc2Vc3GW7UHTlw+1vX6LnO31J4E1aycnYgdO57F5W4Johs8PO3u+oB6Pu7UJcHmIc0XOb5md4s5ASjsdDhBSUWEZfdhrWjXSDPZ4VSrOUk9uicABlvN1YeYPG92+8xTR6Q6TTmM2/37hZLw61iQfxt2J2kECmQLyw2fKcIkKYOK8xlvtKuBt1dP/FNa6Akj8kCjbjJnZ03tevM2GSXrcZgu+ETtjwswkdS160bILi9kDoRnSJiWfoF6FqMwUqEw+4AgpXr0uY8rKRnmWebSLMxBWp8UURmtO4GKGFqkhQefAilm9U/hoPtFCNYlhhvbzKEL0aodfcioB+HXFYVRVq0HBzgR5x5GPr/06VulS7l2EEYjy8s49vYaaMqnuBcJjsEOzlDZPBKnEj4XNEsHxa+KIbyF9wWklTIq770Wsn6gG8iTTGxOnc6utElNNGiEfrRUJBvLTJKE6cNwunPg2TiV2jGnxMmngFKkKd2IWNp0SHDWcKdZqzswZPHCpUhnCRLfEf0GHL4hipGX7qjYZMSkb670FlThShpuDyHVGRsI5kpLWIb12oqm0jKtkA2NCBz5Gb8wjLs6lkkGjEhh7M+FUwhhce5yMoNNOrXJrrOcPvpvhDmgr+9IbOO5TYFnt7basUsni0FRGHraIAYfpUHToJqTkOuvaljEIgif5K/tYD7feNwf+N887xepUq5jBmTfmOUt8pFK5O6/ikOUEUJARNJN82PqmCgMmhHqCOE8DxmhDejdJ94LZfiA5FVdus9o5Lj8nV9ZJ5Q2B4aPQbaboYMTy6A2JgjPIv8QO1sDY70mbM+S+4zK1op8+ih+aHSnIXzcFjhOGxHcZKNvpVB9SndYN/98Z0iw+WhnkQ1yGqI3WZIW5b7oGEwmERpatvrPQoG8Bj4y/qQ/8QVQ5vxyV0hRwB/ncZhwIcs5gs8DGnXM1aQTOGxsE08uiCDTdcqzFk1HI6anvU5FMUKuwOomaYS9islkg07gLKhqsKp6u9S6Vtwn2MOS1We6tdXVvrz9lBn1YAVUtc8L5pge1YM/f42wPrUOh73l+zn+ZhBcgxYMxjGX0HKXUfklkxFR8ekIWMtChSlVuimqrJdljkh7jpqWD+7eV6LrOqyIPHCNHQtfQ7jLhTRTBuRiGSEoYOymeF5EMCEphFsAi2GQQmCdSwPelSvgzEU29B6PFTuZ9tJZ/RbPFM6u0oY99gigmkZ5AA20msWqmQFYFZDSP/X64RIBAETA3t7kMYC+F/+Q1VfNYI2djhcJBFo151/2u1Us7CADLCqnKQeED7ul99ycdTVj7LxWETaHziHk9ptjXsMJCJ7MifxtVkkbKUIiAX2wxJWeA6fTMiciIbEa+AT1IF3JQdCeNxUVJpKoDXOEZEMwm8YQL5rpyfG7sOzLaTa3kFRLScnUFKs4j5XgHZyZTtcOImbxPhtH7A6TCh08fSIimp4nAM6joLABcICsGFKuD9xfBahoJy5HI6A1ysrB2u5urtfEjWBpCz6Oeh8MokhNDCh3bEgbvieM58OazyA5xnwp/qUHjU98WCVESxH0A9Hdrj6uoiOrOi9eWMKe/FKKqetmlXE2fKY6D8PsPpcU99K6gKMRbhLxLmqJx5jEoBcNpm+b9ZlHi48R5GQmFQYvGpY+7ekyW6nY7GCScl2y3k8IsyDiVGXp8+IxmzSpdQNOHSEVD+XiIUhMqGCilKchxbv5ISdwAMoOzetmhZ/s9YEN8i9ne3NbpumyLP0WWRVkCgI33PhdPbmXym5FC9fi7kvLhnOeT8XOJCPRYmOOc6ednI7EPFfAhPYqjmEQiXk6qwSWHA/xm/3b3/df/329evB4kKj1rtfm/RfWMc/Mhg24naV9DsEY1GNwNYn5o7EMI4Me4aDOJzQMShhdKNv0yXH0i3pWcoETnfHNujOLGEa0Z+OLD+V03ZWFU8crhTSFMBCsaY7U8KnkmoQpBppUm3D97rsA6XmODmUKvIEwOKaKPmCYng23FlUDFbFl1URmJS4vm/N6sULZ3fOnFE/rTA/LTUxKykrNMTHW6PCr+mJTkAAAAHsm/2Rm0b0+3v2TQAA4HK/5PVFpYnt5K+6+/3k3lEAgHYwAcCV/gPzOuzA4gPC2S2G7sRR5Du0x+sbQn6JRq5i1wEcTc829mpN6fBbey4wOYRRKXaf0PpDvA0EXctJcbvPrtlEd4/gPAmfKkzlVL0hfrLwCvUqo/99fMLz9LzbSVYFaZfQOo3TX2GfcXLce47v0skFlTKEnN8mawgvafG4vcmjYmdyAvLX5qaT7gNhFYw5w7EbeG0h3Xv+gwCivBQGDgSngF8WmPBZ4kM+KMDPicM6CRfDbRb03lBsJu36ORSAWTD52kkLwe/dVrA/PZ+MI2PRnDvSjnN7TVqb77sVQVInwbYRk4qvR5n+KTx2g2InSXabonvsIgDKtaOtJY4iqJTmi0sZi9/aRbS7JPeUJCHl6cWGxamLpGWQKrf6jyIr+rB6AyR9496gKcX4J3ZgdZxmR8l3gkP/4i2dukJO3ebYTD7hQL8NESeqkB8Lctnq7MmHb/aYoHiMhXBITbwomhLZlcth20mq792GyeuDST96hbj7Q5klO5d2GMo7+FazZeOVTYfsWeFSjtso/tD9FVqRRDvyR0SNlKn5ZPnAHfwvmyTsMLJSBhV2coPt7BSyZMFmvdgYxxMAY2+oto3EO3gQ8V5z3rpXcyy/TS/Mr7tiuym2X+s9m8G6Q9hzV7q+dtJDeNQfyx4A7KMBAPxoSzTtIELraIegrLYdqt6PdhiJ8Xa4VvFEVKvdSHjnAJCvem8u58P1wCpZKhWorFagVMXihGU15plOjGARJkbpwjxhjjl3YTYlyStlMCx5sWzxUSshWOY4VERDSSUzXyJc5npCjWphvhWlqmGv9kAlb+4cJLgojuqlSqWpVao0CHZYpZMpmZrbRuooMV1KQrQ/URYs4xSmstiRIy84i6wxU4yxNUSJciOawQ2dH2BlQKls8VCQxe0t40OEGvahPoGXTSGQkxqVKTcVDKF8jnbM4gC0ozNRIF7RFhzC+eYOnSJcOjJbmRJlGQjWBbVKO5RDKWtUHYCnhqdwkJrGzYlXtAWXHfNk2mSqefPiSVcNlgSoLYZdPq6gzc/RRKItOKp18hKVCmwY6gT1p6LkGCfBulpPtXxFLUVXo/mDKg/WLmo2/6GyOu4Ll8FrBEK80b8Pjc/cPQAYAAIq03ZZdrAjd46CvRxnnXfBywYFHJ6cYfaLLrnsChdKrry8p91yaQy6akye63rspOX2dA3BtzLTDTflu8WbD5zUz2v+TLMVmatYr0LoZ1eYOQOeVAmzQGlM+JQBdGaxeJg5jo8oSFvIPQjptmDlLf7/YQWuPXYTeQVmvRAsTEdZdTISO+6EUCRhqtWqU8MmXAShSO8t9UEUnikQok01Xb1dpqHp0yBGBywcFDKCWBLrwI3Ya5/9DjgNI84D8QQ42ChGtUvwDsMddIkaNWvRxNBgIBxIkizFJG8ctkQqqq1kZpqwQb8Bx5wyW5eFDQGUyXa3IUEUMMdqa3z0yWdffJXqN1h4XFgYzFxTWYasKS1QqfQqRTBlaDRqd2huWsHpAy4OPQicjU7cBYLzkg6hABSQJRoEpaZBqLR8kGUWiZreJ0JU6CAiJjlx0I07aJ+Univqikv87+6tzEGIJ2M3FoJw3I1HHDE9NWk3zB5tji6+ADwK6bgLAZp2ycCOqMRBXUeihqCC3D4IA9Yq+FfCjQ6Cf9sHYXN3wQETAA==',FONT_N='data:font/woff2;base64,d09GMgABAAAAAECIABAAAAAAmYQAAEAkAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoE6G8ZcHIouBmA/U1RBVEQAhSoRCAqBtySBjhYLhEoAATYCJAOJEAQgBYU4B4wbDAcbk4EVbFxlho0DAx5ukyKKMjWrRiKEjQMgUJvN/v+aQMcYRxuAWpXhgkdkkNXZlKyVRW3rkupq6yqOlQQSJ2wfXch9vZ7wjCdXee3jV8YDF2XrSu45YI9u/GAMDASGQMFl8Dc8Jny37BntnoFtI3+Sk5eH/+Z675tks0UGB8C+tYQKUNah/6cWUFcBC0U4P89v88997xE+Ii1ABASjUGwwe5MpOsYCK2fUn4sIXWQaC5fpopqt/+Sf7+/5rX3uB/2TBhQk2kwU2A+CVwR55rEd6L8/4Le7584HiZsJMMqTxIMm8CZQTXvXdFXUzdUvlUkt4pwKGU5EiZJZnih81d70XRypf6rVTd0qhlW2lZADMxYBJoR3gwN4wxxc1wMqadtB8Y1+AHP8AX5u/bMOhB5j8d62F3vvLYttxCJhVGxEyUhRSSNRMOuswIrjvv4z0BP1jL42Ck8bswrgX0ldPpR8kRUkFYHW7nOHbLNmIs1MeEU2bOQFDS/i3fkIgXNtuQbaod3AChLZ9YjoiZU/OTXv8T9BD1gZWQuXEIe2NNnKlpc82/eSPFeyFRutuXI8M3JC6fy9qVq7j8s1AVkOe5DGlDNGjrHnSo7VyTMur5K7C11a7PuLDR9fAAlYBAFSBINsQlQioZDmBh8gfcuFbIWhbkSHkKq7DMKJdI48X4oOMV0ZQiyqK8qrymuaWMWiba4++P//+5Tf25lHgojFIh7+yc18ktnmjlzqbKWPLXZVvIJQUKov+1nxApIpFVdxFxmMMc6V9nn+Jzr1++IgbU2WzxWc6ugU5Uf9MYpQ5mYYMn1Pvv+0f9v6l21m6qmnKq6oiIgjqubaT/sxh6/Uv2vGNKVYAdmFrrlPk4DxBloAJ9Bh7HAhmOFGQAgoCvVDJwoMG6KDhAqFCZMISZYDMSqHVPoP0qIFMtxIGIvvcD/9gvsbFMCDhhiABwfZgoeTTiAIBowAmsFQ+BXgI4AisjcvgKCgyKDJrc2Bz/uRmgnCR3NNOQgvc10lCBGA3Au/cuu0/1dNJSinTAok32XPZhACF7JYah3ie7NWXbVGJT8xUXEhJAQ5QgNJx8QkU1VFUxAottbedDfBZIk/EGVApUwihiXAGSEB1YJqN5/S3YwG0wSQJSRgg6f6eYBsAIHaubwD5csX6FBtHExY+RchBBNqBIwEFVbYjAsXCaVoQCQC6wYrnU/mEK2AHiaE5MCb8HTdBlPDre4qr7g6p9wzneH6XvLFFr7wCx6f5jzP+cWTneiExyboBIb/3fd9Kjq+2bM92C25v6s7v5M7cpXrwPj2bNs2BO1Sq7ZkbZu1KRsX59fRRqzpNKtZ+Qo3ZMZlUv/pS1z0Qhc4n7nrlhLvHOnsxh8Tp8YB+41OWfrQK7ScrCfG7R4Gv9HlzgLpQYeA1NAuN7Yt8XWt8IOOiS1qXjOa1JgO1YLxNDS0UrVdFTin/AaVk76zPUH/qcUXmTb/vHPV3BS4ZEk2cSMxAv3zp198V5zTCx95BxB+XzIS38HQE8+Gt8GwbmIdYAyyA3ZsZzssWHvnttUJnzd9AMUNM0w/UOxFn5jo39yEDwAD9xf3JPxWs3DGQx5UPAT4QynHmiZMN1MmUySj2VYM1BaE7QAJ1y0/sEVbLDlKF/0AHJ1jADQsZ7nELGwlRjEcUJjEXjdzbaaYA3hDKvnskq+LcpVB9dx9PQCzFAZCSZAZDCFT/UCGMqQxYtR0OaYzXU1KTWC/9iuCyfJZKY9SHm7NCwiGFDAuEzTesIz5eKOZpajApwADoxjFFKZiwlR8Bei1UnMwza75PYYK0YLmCja0xJOl4rj6/fUcgCPv3Y+0AAcOCAhVBH6C+AT1KAXOv5oQhg7r8g0J6/AVATp92fwFHR+lLJoMvnrRCKt/Q9XvR5Y36vVLt9gF4Aoc4B4etVfm4Jwf8D1VPuo5Tu2+AbFVix6vVhDB/YcJ3LmJzv6QYUNp40Z7Rz7bk8REbQT0nitbhhXV0zABpu43hym+y07Hc0dZ89k4NJZaVOGJ9C6iS0ejfRck2O/v857Dto12UX0kWaHeUmPmc3dETuM34QRkEstHWRceGHyEr7MY2/j007mR8ILPXbLv0sAd1IpR2DDUH1kZPjigOPMe4R1JrNAdByvMVuDxzOSq4i1KOmE3PAxS+YYlOVSnBEQO420GSIbKtUVRzy2NcGqLfsx8Qt0LrWZgK7slbw1FTDr0+SusDx48Psxs2HxQ/EG+Zi0gN0tw/cs4uBUB6siNL3Yn4aF8+yQZqmG8d8EMy/h/hpzDw0xrmQTTvwPSZWUEwFKYT4b8BB4x2U8sJ1ca4ZQtBMDVWs1gbF085b0b9FhOY3HyLt/9EVcxYa2H07OGNxeGoyS7iWGVhcD+PtDCP4DEBhRrnAEi4Vdq8Tn5MNQGw2E7DqFWz8P8gRwyIsXAIAtruhlaLWepsNTEzbYbM6QZ6dapcqYZT/tFZuiNws/prVWT0UA7Q4VzqXMUdkotK06mBDyv8Zqdu4sVP7Mb0abdgYs257DwikWfCQhHRjPaYOFQ6lT0O7HFXOygH7akD5AD7C00WIcdYzrEJ9USCZJ60RQIcJ3yrBuCj1c7RnIDOJTzHRsRnhy6Dtz5vHY0VCjsuBSNlHLVZ9bRAK/WVNLSllHxt/7XszrkH7UJ33hIrPULhauexAq4wDOfWnSwY3EStVexOOOLopej8g7tM6lX1oOg+4M0hJLM15GJ2PWdDYuhefj3MwOn4KjeBnLKiE76iRe7HKxWOFF4sCYrHBJt/Jz+LkF9P1/s0Nn+eZMItkaHlAXzscFbs7F6o2UNL1+8nSb0R0oO/zGfDfXSv6EbbMWoDn4jlkTKPqr5KzgKvrNCj7DRPKAbj43fXDT6aM4tU3yqJvlPmyqyezbiZsLrOVjRSSKMQFOCUlmhGytx5rAOnyaiZ2GxwsrQ4FTKcaXJdxTWk/YK0Ivevs3rDG7u+j9hYafsUHLxepZmpZ0YuckIzlpdXBiww35azVaXkq3M+WzZYwvzYw6XAzwMaoZPxdUn6MVuRun8Mjx29Lih5BXpeog8vjp0n4t6h/1v4++eIf+Km38BLiCgoqeBfvjxMEfdzEvDU4fTNpgQ4Q55qVznC2cdyn4eYqAQk7EwWX7Jzif0g3uCETznfJvPeVRBcb4PPNqaKzdoemaiDZEn3YJxRl6sbBC6iquHPn92lh5nZe+Ig+ZxzSFLw2Utshz0O7S/J1sCy65lVKfSOSFPKZgEsh8v8BHc0McKHmVnbbBmUrJUFW7IpuawUrdRb3RDA7o9hDLSPpd6lx3JKQolfneSxVL7Qv8akiuVDpVdfukm/4YW3Cyi5rQjD7P0MPR8cnH+tLJO9q6XJCRRw29zPbeQOEmqZ8GarUV9T5HP4FYR7hfB3OWC0lcCR3qGesm1iHRUgOaKVjvgDKIsQo2QvMPEZxJkzT/bu5lJwdUQTOe1sYRNy5SeOx3MEhZLzwohhVY3Lv7a3sq/804tfNrLI7/XFls2akpo3Q3qqhr7Z/DCdbNbc3WNbZPqB9BJnn0C3nwJRFU6+MfYIxo+HWX2lhy/IJfPYxMCpiuG0A9SUGjDzHjyPitvngH/v0DnvbLKPnzU4rAZ2sMlNij+bST+B4tFe380xL4oQABM67nRfNTo+sYvlPS/SESEB0xiEMCkjH/9Q3BBEbCteN9wonmgWLOK1vsoGuxZopWtO+hbskgGXNjYaOrty6QD3s1TmU56WE2FAGvL3Z22Ns4f4gkTEgbMM0yYEUar12a5ZmusM9ZWB0zQodMcBx01z3EnLXLaDUvd8tAWX3yxB4J8RXmVMfgYsFzkrZ72Tp4M5gwSBx3Ak+UYVOB1Ez6+PHgCIr81hFiLigAp2ogxII2FtcVEIxtNgZVPzWrzXBjQXiY47l6weINgtQGIF+Zz5sKdx6MtcJKHU7LmSPOJ2GXRTgtgtpSUcBhYNtg+TsGNJzzhTWVjBru9/WRVZBDkIZpKUChEUGWd9rI72yw1TcQJz/REuCwKD54QPiY7ZAFi2QtLlhC50GPB845sjwhTqc4fWIDoWWK0lABdiVFqfX6BhNgCWAN4NfVpMfxcKuBvi+C6W8DYGkvANRBe3UF5ZR1o+AkSjINDDUzmA4BIO5ADBg4JYDJKOHMhPC/6EW94ZkDc+Nok75nxCKDHa7cqZ64zlS+6zIx37LNjx9pXt2+yxiJYs9ieAFR3HUTKUyK9TFkMsuXoz8ikTr1GTZqNMNJSK2y1zU57dTvquJNOOwPTXzKjmDHki/kg6mgPmbV4kFdsS67E669ri7DEocqIoIdMyAJDOhtPjocBYLJKABUw0rJ5A0gggQQSSCCBBBJIIIEEkpLXavMfoHRMgBMEp/xnqZ2D88IFFAUVqEAFKlCBClSgAhWoQAUqSQUakIEMZKACFahkFR7IQQ5ykIMc5CAHOchBDnKQg7wjuC/CCcApCxmpMKeS/eygiQUJZ6sRm6SmH9x6+NzvmTLC31NjZbh/6FNk2IDciwYEHIGCzsoeG02iAlVKM6wQYFAR505u/1leBw2PvIqhUF6f6WdlVQUUfv7LiwDTVVJkBsNVlVcOfQsxOTP2p76iBsJFKBMiTaSLViDILLBxcBWwaNEnrc8sZHvGzf9ZWU+b+tHiI9s0mura/HWWPzRxVhf884TzYUh+KmLAFsBrlM0nChcoXAatLBsZMIbY9aBDw7BHt4dUiJitUwibkMaKico0E9WIKJsMp3qOs08cvvD93p44Iy/hlH/pp+CX28Dap2kFoBIfcYut5TbLIZwrBJPU/MKu2tFHiPQGasBONMZU4MLEg3khFbAbkH2lD5GKUmgqmkRTYxNEmBVY2j0p2AXLhBbav6wYCTpRUhGasGV3zcTHKVMgp174opehmqZGjnie+PBbAQ890liQSDjINGQTZjiB7xPIFXl4ykTDquxJ5wlYpZ+BKlkCn+iX8uj1B8A/w/wjAl7fEwDfCKOllhnM7PqsZUYSaSzYwG4b6MhqtrPny5UnX4FCrbXR9hy57WcSaSSCkOuvVQMUbkcpPsOBiABR4rxJsZkORORAUXzEOePqxxhJGkOhf8pgLUXSIiZSXmwaKlAqp+eOfc4V00hEV5UPUQCf+U2/1aOhyYJnCMInhJMqgH09x8bMfCh39fT6I5LTZFBAOlMOYKk+89iEJAXbOz8EdgNLaF9g7SbDEdDnXnz9vxyU4/X8Al0BiE91A3olQfKXBO1qod9CB38X1yEAS/a2kIb3ZgGfjoUcSBdHF90IlwFIQAG049jAvkelNsAskSgAzamFGKEXJeRrv7o62Z3uDeEEboVPHJeRo0iFGo1pSuva04X+R8fGgrGY4uTe4C3L+NBaMVJf58aAFzh99KdenXp12+uYXpPvkRssApYBMsoKgP+r/9v+W/99AODfB6ustCXg3Z+pNpnPhOk1/MaDK4AApgFrPALEdZewvXFcdgH7GOdt48t70y5XtXviq+uuOeqYA17a5qCtOmy3w3tvvbNHD4TEwMIhZM3m3vNfVilHMgruPHnxpuYjQKAgwbRO6nTKZ92JCRMnXqJkffSVQa+/AUwGGmSIYqXKlKtUpU69Bo3+c9wDJ3y0yW6PPPPYcw/dTMQto1z0ySG3k3HXB2utS8IXN+xLzhqjXbLKSqvtRYUh0G+N70lMAlw8fGJ27ImwyTlzouRK5TUX/nxp+AnhoUKUcBFiRIoWK0G6FKnS5NzDu+8nGSyfWa5Ced4oUGuoajWalGjmpignFfwNgK9BwHkXnHbWOWcgKPfiAKIfQFoERE+g6wvo9QZQfgbOz8tieRsv4TbSw3IvIXKdlaeps/hQ47FkfnZQcFkoABDKoOYdnIXe/O2uAeeQL3YuqBbiGu30Am675+3cCXAgge5YREHtQOCQFWsWyPWuXgIRxhykVCLMO+8MPj9AGnyCfKLdZ+RJ/64FlYT4w+eDtNSYWd8ZLdfFdCKcVcAxJzSpcQNOmp20zWdnqmb7t+Vsyy0uzC5wgmCMeLzYnQgYEHtsd65nvX62OJHPz1T18RJWPRCaP2oHN6e9TLCDeoo3Mzv1fGtjSAtgTDOTERKV47OY5rS39TLAKvDYbJ5vbWVZMkAYug/jDt3yKomicW4bNTOpt25aKna449197R1RbOwCVJv62TwWJPOHDbxYtrUwzmQjD5PiiKzJRk/N1XbsJ+G+2DMLwNhwKxUBRJg8rv/nsB36G4bhFKOCtOQLbRdXcf8tDawiQQbYsZ4T5GvmC/nPQp8U/qXKinzHOL9QVQQE1PM7PY41Ph+OitcAv+rcyQ9cNBYB7K6EGFcf1wGNhX8jJKvnPKPKiURwWHlJdDfM/hEwDRRiKQ13MeV3pKA9YLvaPo7ewzG9ZiOxSsW0Hu2RiffXbrLQ6W5j8lzByJXuW477IFA+8jclWUtpXevFg76AMxP5GgkffI7KcmKRCmVUfVAIjtLgyh5aisMeAPQZ5Pl3cZGKlk6vhLCzf5KVaU/mf6jENwJ3QKWRucqvedtNJMjQdQT2ObC/eqGL2oRRuTncO4yKhtFuWyfOq8J0YhQv4I4JmCFmr6HOSFBW83Epky9Gm6YhIiFymyyNkMV6W6F193Gnzb5c98zaGJtctlks5p2EG7fKvF0v63sacBfX40wniFdrL7ak3OOonSlP9UcviloUwAvWJFzY3VbbwUpy7YG3PsF/7Jux2Z5qS4P/L53ONutSUygCBrXOkMLCN7YQwZHV0jhaSPy8bklBw2TgpnRWdW4u00oJ63+vjiUaoHgB51GCimA8VwQFtN9ef5YiHiyExzJ5OOxtDNfOMHGdpfWlBb0P+CneUX72c7QmcjdAz9znwM3RzFUIHtSteQ8DYIBEtgEfV90ZyFYwX8TftPzKTHpD8Sw8H3OkEZ1mqbogtRNeaOY1eeU6AGUmiMOV/+t6strBmmpKF2uGSbWdqTPgWWoeY4rBSQyI1KK24dXgbXcjswoELGe2SjNlW0lnclawYAssNMhckWZ5Dsg+U/2j1PB75xkQ53x9HFClS08S09LbaR6pWSlbbW8klx4hCc4ZmpogsdezCtbCDRzpqlWq56Ue84FmAUsPKNYvb5jZy+cnag03ET70NBSWyjoytDZqBw5w03cEceNfhn/ptXWJEgKvp1FJnMUtixa2ErfLulQ4B51XXYbz5EwNOe6eLWoi3QhCl3Nw3/wPsyePDSN4R80MgdQDqzb6VdFpWHqcE1yfAUJCgVW0gcpdLoGgukctnqkrMucLejwU8nYNb29CzxPKVA2/Jd8xbK8p0VFf1HfH8PgHNItnMFV4APkaXY0Uh7Ku/d5VSDBzmEHi6HMGFWNyV+ksPdFnO2K/Jn+TOLzAFiMSJaOzCysoxZ58I444bKZC0QqISS+K4BVXpH8N+e9fej2TC7SZamugsMjFKjIsqv/iCiqA/10RKteIv/qSjdiNPqiOj9WrFpBQDIfXu/F27R1ZB7F7OhueywvQD21BFPPcTa8hYaDWO/kAPStp5ThgyM9jxWMbK0IjyHnGMs/eVD8barVzRbAuK7SUamTy8BQIWswKOevMY5n2vUhSLWVEL5l4pQWNn0yER2/5vQvgVcMJLQkEOU00OX/bcbwobh49PG6hevJKgYDmNxImpxtppwzNO1UeeAZEqlOEVDBU09DKKj3AD94mhLiPRmzGeAO5GHdiYlp+q53mjn2qw+A+NFvFrnYtx3f6lcaqYIrwxhitoQSG+iG8jOgea7frCaXRohryilmVmUnn/SG07IDgRPRG+oyCTU+dEuJkC504DwdHj99cuSpQfmdndtAIUDC7XEkKS1qx0OzVqDHoaF4CE0j03xpaVr4DeoqOBJCuApOIqg0CzsbLwAyQaD+A44DlkbPoNcv5tJl7vFzdhWGAq0lwczcuQeuKHTtntsiR010db0ys+pGA6mgMC1fUTGdPE4FvYTUw6AYgoMQixi1cQBEYRiCUOUK3pQdCE6IQpytEcIErR1TiAkPSS4KLPzwiIOoxAw+toXkh87o9cf5gFoFBTOCwww1HH0gz14wxhJVnShuBLlZ3O4yuDzO3ZyxVM1rjUsV+yJBW4ItzQrsgRtJslyzVxpuUzKuCAPN+8VoJspjRzbt0pYbQRxgZXwwVhNjFLFuDyAib3o+qOovIaQgXUk4Vv1ON5cRjLXU9aALGmJQR7GG/ON0Q4mU2s50HrkDJVTY/RGjl6lnEkrwqEL5JInEMjQfTjAbRqyVjv5ALJGOxy6lcre5D0neDXa8hKaIQiJ36BGE7Vh+wCAAmM64MYDex1KVMforsxu0KjhcYYK9kniUmiJqTNMOwg+G5hOEmraVEhrhj9vNIsRzVQMIkcT9totD+LxKcbsrGf/i3TfQbLqf61gT8bn8HdMROz+8b3HvVyRxNkSKOAlXn8ZZ84Q00Uz/n9XWw4vWe08BSgaIkpK5FPBpoA+qt8nfLqRQiq54127DXpvpm98vn6NuUF5epaqxPDy7smea8oWlpG0u9Aamm2ZUpJb6z1eOovVLy2z1ycfbzCgFU1jcR9DVzIPCjGSY5iMYdLQ10etvBQAQDhJCjgmvXtC3Kt5ayO54hg8r0yBe0M9b1jgMJbqwbVcG8vAtopBdyrAx3A371mMXZCbgKF+nm5aYVZ/pA5vYFk5YiEaoBDgTcfsGMaEyr7ooXBTLgMcyamttCUMWaK6Giip9fdUi1yNHghMmj6jQd2qFOuScUgs7WSIuxer6Z+KyDGIrD9Zm/HVzy+Dmz7coLXk6UKTK0CRlJ56BIDdrjOkA9JmdInMabUbKkRx/7N2F6k8B1QBztNJvKpjbCfEnze6wT7ag2+uJwfTfqOiiUzcGybGMH9Se2ftuFREqf/6pnaWUNoevHmASUH+lzspMTwYPeKdUzqOy/vjgWjnxTX8NK8BOzSfR7BWjIOJJjjWogdfR6tsLQf9bPVPVg1nIB128aeb+YmZj9DeKp84jfH5mu4v4Pmx4S6CBwk9OAeZ8gouhGCq5eOP+N0MVtCcx0OklATMJ9JhdlGJRfIj1nPxjhu5y/GECpjiWBf6qjOa9RZvb4elb2a99Pn0g4MeiTm80/LT3cNO+6uGPF4FbapP4/A8b7tjaInfHZqj1Of7XU/0ZOFRQl3M7U7cgIEz7pzbCE66mRWVj5Ez3tYrSz+0kF8uo5eQtvPIcj0fjCDCZm/89bJGsyWv+O+YwJiSUJQ3p+4rWb7K9A6jNz4InHREM2KR8pow/kMz67AbuxOiLZvU7PqUxv6tQsN+MzK+W+ytPIUhk4kG4Ah9vv9S9QnAHviFIF6Y33aYDN1zuFuGgIksFmnFzKHtm8UriDhauUR+TyxBHX2lcqx1ltZThLEcrZn4QMoSNL1VyOMjqbtEKamIaCUIftSy5SuFwcelGT8/UgfQVcPvDXXHoeShNXLr/w1PaVrzXa1cRFeGmf1a1FK4lqTDXadauLQiloRmbOSNUhFu6ivOxdo5OHoRw9DBmVPwhVPvik3g1rchQRwX9X91ej8OiFPCmmTe9KmeJ2tZxRL+oZEi2XXNxH97kvGZyoybygQFuPccGxDEkjWLQ78Qs7rxyigS5ROLtF1pxnMVpLFItOzeULimHr8vDV0oUmZccZGfBa4zN740yno6iSXsJZHLtBdD5sdD5vI9nQZmhs7xBVRK7zSUuUVP2VVkP8wq9NUoTztQ3V7XPUzGDGThCxG8ReL5kPlQL5qlbAnvOoKWvROTRwYC6OpxoJ0UgOrgPPNDyBaU8YcbNvZ5urUuoWnL0oEgUuMgyLzdHaIp2LW8dt6uPIAAQmSRFhpd5LGE4yR2Y8vUcZLzSOcUy+q/M8vaHDkFL18S6Sdn1pUonVZJvDXX6sGP6QsXDpzA7+0+yjgaKsW3QaXUo7rBbR6lNLK64vILBCoxQ31RN9VB+kopH+6snXdNzbXWAOJXRHwEFXOoklMbTrSz1KMFGSA1WqVnXqY4UuBT9MQtB+nBe/ljlJ8l+EjhPJ9TXshUgUTAaayHpGWoi3tLACgN8/8M/d1rereV5zoUIcKQaMgSzBzDPffV52s9ndd/rJz9TZQVjqZeOMq+uuGmbcDfuMT5Bv0m+a6AOcxiDx3zWRJ5TgUfgbm/MNHpWpfi2Mhfs4nD4Y/RQz0E2pbgg75iRnbuiEafnL/+LnwHsEU1j/mr2BBS7LeHB/n3+VVC3SpusTnLl9Ea6QtDxn0aSqhl8aOmPHS6XjYjsbFxnGiEVjDIuAlWTDOm/O+mGZ8imFRR2qbKWfkTObWb2zddZlMwez+tSScrdLUuFTWxFL+O2VHVuK3he6aqFRblPP/47v25qlbCv2zpTmjxw/XJ8JtUJZ+obh9cOH90gVcvrYqZUDdg6QoX7AHvCqI9BKJ6fzeevlOXfIkB3vON/Y7O+cd1czYAPZutGbvW5olrKjpGiGKk9bS4eS7lXNqJrZzx0hdharpf6kEXWNtXhSqOfCUZ/0Kwh94aziPOc8BFWtF4cJgHl0chSp6k0ixP9w9UwOon3Sm64HZHWnpcJAU7nZHPr6ed0NjYLd5EgiLUrutEh9hQrbwH6WujEJGupn/QdH97MwuL0J6qAIIJourBqAYWyeIxTq/5msBpY4TycIXitJtPJehiAo7AZGgBl0TINZsQqMQz6534m59BOSjdmhCoFx0MW0Xzw/rbehda3rTGMswYitg3MduIF0wtBxXlE3tJ7r4KahMKM0NmsQr7AbXI9rgelk1UpfzoahmfIp+UUTVSk1K7w566sNFe35xRNul8nGDK24ylVfOtJryNSIKt1DS0cD2/cc//+WTEVbiW+WxEvhoGgKh9k5gLMlAifEvLq4gPG+Hl9IJjgSytQ31A9b9/UR8aaSr1smtNTUTGht2bzfuZocPzv2P7W6N3b2qoCKEDzeUhL3cyTbNoita24zEd+hBsyNu6fW9MbNBbbnfxz95bej7+Mbe9qQZrF0d8tb5uz5eTxIR/gt+uI6VepwgfBhdVjDPzAbRWd+Kd7zZAPsOUNWk9Nnht9RKu7EzwQsQcKckBT6nXwb55yqMR0l0XL3dYy9t3Y4vTiqoCRVKUhPMlbBCTG14HTjPdvU3B2AO5wn7HwAshcahtNLqcUFHiUvLUlfzQFCR5//0144kgNHwF/7q8OJhPd+IquBpqCkBjI5iWzwZG17keyc5JzERE9OTnZ9uxBEJS+rwjatIwaoDURmnf+svtHtg7D4w9e/aa5/vxCHQMI5N+4HdZAUiIw/clp3wu6NSHZvfCPa+eiIlM3i7Ol8RWx+vDoe5mn+PBuzqwhFio6sOmS35sihdKAhkFOSJriO239nCk0lbKZTsLFXuaFXmMPkDDMZ/2Dar+F6UwnMcBq2P1WlyyvMBYx0chQPg/OepPTIVSijkrnmPuKGQuhgIvII5kOPNA9LB5o5eWd63GXXZW4UhWEEXQC7/v2D2q5JvSgSVNxBgIdB2myBzCnRjh8HVmlS1KrHW+mscoJ9ZjWnUdwkh54W9QdZXHnl3QwWN7lMrChw3yR0GOYkiIr0kgPA06B4r0C+V5izXq0kRT4Q58BExxGiJhn4JaU6SNzfPRCvZLIwa5GoCNlRItFqstCLiE8/iJLOFKU8fSbwn0G58BppQIrJ6WQePFTG06MRBiyLws8YZWKaGKwyG1AVZPQZbq+NJ3JxvJLQk34C95PPQr54dQZzcZxmRGqqprEkrm44Er5L4Tba5Ehod/5cOgA+mdYSn9CYauQW2sylWCxsD4uMua1M/KAXTqdwrtwdgFlMiUbKSIP+oxC7zY+whgE/SVNJnGZ7PFUzAhdqMuTpvgQ/I3MIvIXUE5UTl7BtuuTThg5Hv3ePIyjEXf8kwmRSgzGh0m6NHVKnd4jtjEE72MnOBmvaPEsNdOPXUUZB/Hsoer9qY/bfp5Mdo16OM9Swnu4enUak8qx+bHisg1tvTxnCNzZgwe1c7TgN+nkhrpsNxJC5Y+MtDSmehIYGk1uTjcWZ4AJ9VAPdkPLlq6DlLEoojkgCPQ6ng3FtR41Wj0YkUrIowGY6UUlocdYzkPWUlbYfrq2prgx6Nb93TZor4lLmHTGG+NjXWeANtlObDBCHtGWR6dUybtIneldiMGT6GOsZ/KwwRG8pjdXUu3Uc79w0TGH0xTxboyf8OJ5D1I/pGDvGiIUfEMTH2pQYZ5sg3mgH2unExvTfF1biUxuMSWLC5+hdMvH0A/K6ykPKZyovJEM7jajh5fBrCLyGn8Pz4R7hSZw4KRTuI/B9D24UEHpw7dfu1Fy0DCe3Ei047idWWITZuWLtVwGHKOgaBT+jy1/Yf97aHBcMh4dof9wWsrWHTI5lYdMTl2yWVMz6OMibW1bWQ3XhhwUkO/By4MuTGGf8lHlzYOoAN6Gc8HPxHMK0OS5Tp9cnad6HZfgMRr1LzJXPgxPz3VQ8JUSfdaerNfDWlZOhnbe3+rVqmUaQqU1xaG2yFGNG/2SbRqTG4oVWawlmQFzX+xbT12EJLLMyKd6pmW4M26xINLkT2udbX1rbpR64Puroni5AyOSG+HjWr3SBxVKIGRyV2stwd4Xe5PLHxgxLjmpgqFLefRX4z2J4v7mSQI/Zaadd3TmGF4Oh7v6ZFF5qg+F/6D2/zuR0OKsiLqMTaO9S+Ul6X4JL5BC2Tc99WqNNoZU+ucVxZoM35mvIOdI/H3NW5Kl5RhrvcCJfh1bCtQ+SQ54L/poXY3DdBYw+w61NNsIPhpOlky3/YsrbbyqdbN2Uh7s66GC62TRg0g7gHIsqnVKpOUBUAm9JcUF4hj4MFjzkTbSGoqIaGnXh5GLKVUusVqlzlZEJkqRwlPEsNeSB7lsBUzKWFulvrKKYgqymGE9LDnAySJBLVepfmL3v+UBMKJNDp0clSlJoCVZl9P5r2/2RUXSIGxvvNC9Ez6dwdNucqeOjC7gKkwQ9iKqq24IpvmEuaoJbq1Ik+gSAO2kvkIhzrYeEll1K6CFbcCKH9BSzrPkTxyreJ6wWhS9ee5mCMF7rjp8E+oLi0yVkgf0uWYHjzeR9sYEnqlNeqB7YRAVZnuzGcwnr/YwMHWAVyO6+sCR/a0EiCjGONXsgo8WXGRzwcW37MtPFncCAQM7Ki7MKto8WwiDjp6E4fYSi9T6T+aBjmCKqjn8kl8Z6krRxpql7p5S980JrkLlJ270ahv7A4oTHLD8cO3d3EsxmQYo3NdM0NdMGKkDJdB1mil1xOAGWoQ0b0LRIlW7SKy5wuEsEFWyxLIzfs3hheSIKBV5p9kBGiS/zF3H3eky944QhtL8WbkVvCO6/0A2QdR1Coffrp6FPIt5DfQx0HQIuBUmSI28mflHHfeTP+sSUyYWScwlakMPmXKeL5eNF4i9xqSmupKYy8hu72Zs4ck5sZUaLxJQdG2v2rqcMdElJj8qk9frlXlSNA9RWBB3b2393uuuFmbJChAcKA6/hpfJ8BD6aJ/9FmxyQzN+EE5v4/E0Evglob/W/L5Bn8LJlCrEwkhKexYjaE04zMP5CwjQd+Ljqf4mtNLrSDL0VzJaKaWOiwvv3dQM/z1e7CaFNLhPa3LhM5saFNpm8XF9C6uLo+fwYDkcnEMQAHuTEjkPb62PXNmVkT2o/sCMWX9+YnT3OoGsYN0431BBh6A1tAFbJIjkwjFT0uGfnDa042PG9cEamZ3c0R4qE5MOP/18dAQNTVBhGy+YePLESt3PFs7Xso/3zHcub3xYcqARVqbVSndcsZKZq087v2usajoTDMCADEampY7SsIu0rp07NtYdz+Vn7OcJlMUYUYXMQVIzd62Txq9XITaUvd+aQQbVbhjDVnlqJPitWAFvnTGc5glMLnQkJBS0KYCEdn0rqbxN7MCqzvv/IwGUQ4udNIVAOhx2OEXqycjgQ5fBHDAl4kqpa5uk6SuWsyrGoK4okvYdh+Wk1aPp56f8U+DrLgKKIGY2AORHo8yPknHRUYS2P0VVYHQk1rUYgPsg3LtO8arhXOD21uEnhFuXSc/X3sltco2/PhjRuGV7sNIfNlVuSuNLYAoPGb3EY62riUkbCTyZjWNtTGH66AMMWPgF20dmG/McIXS5FI2A4Ah2HTIKhB/tCv/y7FBCRWa2yBJ9JyU92yk6AzzyDrLGx2cMlnuRhkrjsWAnmft7BsA3OKU00JfhaZZkt8d9lsm/x8d9ksu9xKmzQdEg4V6WaIBQOB16Ss/OUOOTxCqvHWOitNL9XbZwjf2yGebVE/yVBRsNPF6LYwicwfG0Dhm64DhwmUvPrhmrpaccf89J8NXVaevrJq7ycsKJb6Qr7NnZY4c00hf0wMESlYPzI1F+TpwlnD41cOqufJPAqJSJ/X2Q0olLQtzKAIYxnjKhPN3ymHJxC6wDD/jnpZl3qyp9tCoWlFo6DRJ6qMjMDxysV9GUMYD9BmkN3uddfCq3h5VKRH6Ipu0ARfSmNvpQOM9dRIo9zwgP+q5Hc+ilxpykUcaYZ1YKqlrD+S+XEUhcLwAdAV2nREyGIEXFtz/zLsyAW5xbnYnjkVBrYHhkeTbuavnoRf9jGSKCDwE0hs5Pm3zpPF/xCh0Ug9BGJCDjVlBAY8YyyTyo9Rp9Ko0+jt6dTQ2exiSMGoYxvTkKBcwNz8usq7MqyPI2RqRe4J11Y8+7d/QiJ0xAdWP5lF91gt8eISLOdK0+B+iDWNxAKY0FhwGScNrDxtzlMbLme7jR3GIGMyN8ndrDbLgOHiZQCS4yAt3mw7g2hyYtzuXPjNMQ9p9VmnSCm0JKcgnnpdB+GJdLpbnQvazCN/oHN/kCjDwYWEZNfjokX195//y1c4tDTAjNDVjP0DremmDT9YSHLKaj125VlXg33CRQOscIgqI8FfQewISSwNbOrsr4rJHCkZQPQRvCfk0Qfn3+BIC8CS6rvUEcgr/LfRrv4bD5xky/4SwkuPkgR4SXOhhFk70ii/zLqxT2Kt92irxDC2Z59EtE+Tz6KcGb0jTHr2rq8lp6YSriCTlsBclSeTcL+nN9v9/+lzWKyr/Qup9bPCmfNJfFfj67qaNHlrJ6aRxdZykXaJBUc3SR+FPMGl5bTbw4aedCt/dzwtS6ZkJ+ovc97GS/NoNGnMRgXnm85bbMG5xDoTWBm0yytZmb7YLpgIP8mQd7iCy6SxAWgbd8Qn/NBuYp0qSJVKZWmpSvV8gyJIk2lkKemy4CWYo//P6O3qO6H+R8YjA/z6wJSjfn3/cmetC28XAo/98cST0HO2/PIlLqAyA8p1R38bXZBgWkz30sReDebgIl0KMFNHxtgihz1czh9PzNdL/jbkB055ng4/QTTP5I5wfkbnVnko9bV0lpy9zMY9T5aM18ZOaornLYVtI8W/i3IptT0RND2g5VToQ7Xvo13qERaUy1jfMzJJEYNcawGapkVvcSVy62Pj1ZYkLuXWuEm886vLVeuyN9U3DnaeuUu3gvYB/Ofk2QfX3CBJC8CTZeYKBNEmReYKPjZAVA+jNoSleLbqD+OtT9S29Lq4cHZUtun+O5qU6nuz/pk+lzNDKHp+JkS3d5CVnNIY0JCaCOrKWWvccIvwLplx3+Z6L63Hmq6p+Y7QtFe0cQDxxNKYv6qT2LMU88AIncLLjwR7uJvQEonMugTS9AN/F0JdnuCC5IxGEcYYBRB2wZ3/goNhI52IltpBJV5WYAhg4CYLjCh08OkFtuKdF4CB4KXO+FtblgUWDIBdAm7H4t28bsiS4SOKI3oKg6s2y1WgR8hJTSP9d0y9TsrZnHM+4ZAZBcYvlE4qF+st+Zfjt1HUAXZzDxDt12Jmoi+qpEEncjbjgJccgZYsv3JmpGvfOAC0vOn8h//A/BPavDoY+7a94oPzsaeUYnekNPyKnnN/htAdmrejc2KGnnVL0+rg6f3OGo/yD+4G3+aARNm074Loraqj+EMB50RtVXwHLjfWbo2trEhflWp39Q5smVTQmXrTwWlmxtz5ONzrcZ4uzk/g+HKd8akeyvy3NoRxaZ4jVnVQx03ScVa7eHsQGODOaPpnCMMr77APWGqpbRuVV7uumE1GcsWZ1TG+aGtHvD5Qs+5sYrqWEzP8ihFHh7XybbL5W2AmkxpUMTlGjGhyfCSW7SUTBWqVamFovic8pxEHtv2RR++ZoO8R/ansfAZG76bUEBPxxyF/b25zVIpBxpoxdGzLX66JpEFvqA6c/r1tosWK6Zoj/0TkoVEdq9veln+qyoakQE+XeB2cJ6lXKcts1i0pUO01o9cG9ZPqwl3olvDHmoBTremkGKJ6TMlfuA/83BRzu6JtozjaROMb7sOq5SK9ND9mc2Y0ZhZI3GpvRQF46Y85pHrgYODsneX0Bk95gnGQV07e12fr5szWlGDIatW8vMAVtHCZrV+4Dbq898p7KL15XLwaVvxW73AUjJ5iq6sTDs5OblXs2eKdqnJ2nbxyTqPwTxUkpYhrjebKZKWXiwzDU9P96Rn/JQ6O88/smnIkJEj/ODMw9Rr4fe3BDL4FOWsGN0cJYXB8176db1h5/lRPue8XL1BjmDIGLfHoTMkxtoOIGMuvJ6DwNSlNnpG5uxIFdRkACxh7L8h6G92HPBFAPWx4qifd0SA6/5sOk5Ld8gT6yAGG44z6lk3WccopWtqmCHBzNGla6KOGStQLvbRBp0DobNQBHQNAq9Dto8YFzg8w9vNFzilEoHDzZfKnHyhQyIVOp18aRqyAkNWIq4GWwHiIl9FlK32X3H8qCMXg74CS7qUfqKP9L+kWsg+T4TS8pOpk54UXlBHslP+R/FkMsQPY1LAwkmfCq2KKrOMla41eUQP2vxQJBPqBxXKSpIjbzNvmY0BMcKrNM7d18DWmTyxUafHlASKMMDtUpKgJDkb7A/87UQPOlIYiXwBIzHFcRA+dFB2zt7jsOXxHLTj6nPI2fPYuexB0S4+n+Yuyj0YfvCA7FD2n047Ps9J/8PW+fLZLKzsExf/VIahDUE4N6gM0AwDKcyMzbZ+FexI36CY8dWzxmaD8dKmSTRK8BTaUHp+lLckOdZQWKV3DJrrYVJAJoXpmTRpEMgX9Zb/51+547PMaJKRrNKgenoR1VeYZNT7KnTWAEcmsz8wnkxsjktuCc2OS4g+EJ1mNeSGaYQu49lMjl2hOcnNqzc/UZjNELJ6Gos1+ZCYidVU7xKOjd5OpW6PnrWYog2YMKP6/I/6uKu6BgOfFAzQVJf+xArKBQEzZIUgC6T47cGBONrZaNppWtyhJqumol6fKS9h3Cv4OmS6v27NLLGGImt91Ha5kOiztMafn7OUEKRiAR7PGM8hYwRzC52+hTki/v3GbmZm01b8d6xIxmHQHizoRRf2flAxOAlx75fdpWUzN1PJDfENWtWakQ68illllYPJr1yqBJEUPAQuXmB/gJmKLpgrPgiB26G5C0Tb6hLbwAWLRTuAssfMH+oKeb0iwAY9pe0cgzJp0tixH9DHRwZ+a3u0KRac42Ev6sK5fZR/2j2gr20SlD8eLjRPzMznz7G/s9kvUsZ3Dvs5u+NDhfltZt42KVOq554slPFz6BjgVhCo0ug+MmUhvB07kndsdwlBmJ90E1dlaaDO7fBQM3Fllg7auI3bgh4LIr7owvYL2+HyBRY8AkSTwENg8XxQbD04v2hVqxQJxUvdnTZF4PV6A63nGHIzNics/MyvVxSdjccyruGMEvTW3vDws0fvIj/HImVPgUfjRIfAFWm7LMbx8rRDB6GzOqC2DffuWDVqowukNo9Xq6sEj1qwbM2ipM7lC8fA9C6ln6Tv7of8P7GeJxqjPE9mE3gzWZ6cyB0CCfov+I2Al54d8MMS3A14Q7pY9KrMLv/Qn9mBI/MQ3SvKLm4qtwqLM1T6nJKmMouwJF2tL6ZuuSdM+IFN3X9FZHqPTNW30FxuERWnQyOUrlNC3fxf8c29QvM7oMyF2TDMmgTV0uoHzeUFvLaevztnxUh+chvEGIkCp09hiSAzUTyxgQkaNlRFgMbj9HZqdDv9xeiJpnb6dwGWBIIP1NPSxg0vQwQk4RUYtxwnMrncLEDjWzipJ2OBW7TYMWvSoYdRQKDvkQG3LkziO/BiD/eWzCvAwoELdh76ujapIalh7evunXMiW64uh1jLrwKoci+TizP24MRaBs5lrsNNUBQIRUIgCoFcYG1URJRGOfj3zWww/f2dqKgTllRJRMQgrvs3kmxu4EtK1P8y9AgwS/Ui2ryxwwXqaeCH5npnsC4BVP2iWOL3Mn5YrrsmFp4vn5AERueGJrBvr8A333GA6IwXd7R497TzvXOWV/M9C4L5I5EXyull4OpxkXcAoKVMLIyuiP4kEVEraAF0XmqHt4Paq3/HzirWqBIeejHWi9o5ymC9HdEqYLXxU+aumPG0a2b3qBu9c1bMPHx621iCVuQFwLWuD6M+tn4ODRFGBrxow+2FxZtJ8gRT8z+cWf9XJT+kELiGDzGegP2oBcSjNkYPPO2tiO5pZIIrQ4MGUwMulZjXWVWswUFuT0hScldjkFjL5dvkAFUViLEU1tt+sxNmnatnYRC/Fbl99gyWxMSLzcSO0bQCtMkr1h96oYxe/Tuf6nrgXQO9Rc8jfCxtl7N6zbiNEQDeM7AvYuO43fNf9btIsS/iOTDw90G30HWzDkfkBWwCoU0B8XlHxq5DbyUbgA+xpZZgf2G/fol7dLsLEKRgt25PYr9+hf7PZRbgJfCu0OHfiEZ12h2uYr3cP0lI/yOtUnan2dwvrng1q18b7V5aBXzazJ8XNNPPLZ5jjZWV7hnsUdH6jS1CeWWeuzquS6uagvV2dH9xyDU9C4OOPfLiwxkxyx8lUdgKBa6mfh3pPahYRK2IZkiEVD8NoE0Og0wQe4JHig02mhHnMVpvI6384IXHs5ywYu7TnDLUHhWgTQ6+aHePOt87dyV2sNGHHnhjPTQssjf13+DB/MiAfsMH+AuTl0RHv4VU6zj06itZvKBaYKMn6zoIXWe5WNdY4HgFgMXSn1iC6ZknpMkS6+v127zT5r8zpmUdl6ZIra/WbYO/bVu6TPq1q0Yx+eQkBB5BkENI+mwB8NudbCboK4WXD3WluY/MnsXi8yai8PBGImADQEA9GKgZomQpmUqaklSyJY7I8FHRFJHls+O0yBmXgVKUTCVNIkXbcRkwT8lU0iSSyeREJTYxRcvO6aRkKmlKclx7ZzCOm/nIOetJyVTSJJIFhwg6AdiGBqY2i4EkuXnWwOh23YFBNKwx7q8QK38rLcqfyj/SXxZ/eomOLFmcI+VvpUX6KfYb95cJyt9Ki/KH9JMNikr0YEPicDqT8rfSovwp/Q1XCYQRlL+VFuknawxpZAAALDEQsT0wUdQNxpg8oU0g9vGZGkH1Dbu/X0jpaSC6eGm6NEOaKc2SZktzpLnSvLLW9XAx/alb0WRA3YzJAFy+WeM41pldimUBXGyNACA8L5oVMkCq4GBS4mn1Qnsa4nnpvHhBuiBe9l32QLwiXRGvqXB9DMw1Y50eFNe+X0b7fvs36Y8X5xYNsQDulymocAXM/P30afChYsBnzjT6D3x6HhR5BJEDtc8HAGb+A9rujx6tC9IOqcOt1Sd9uCIb0KyuyZ1/r4H0om4SYI2xEEgdjlZXat8bAu9j/qB1vNWGYWt9WownvmibJOu+9bYmSupwtrqgWwJ5A9GwlkDqCLdimnB/VCDNtlJbdmdRYrLfx0Y5Y3ndcEnS/j6gWJ3X/IaCLJpGVDmjFruh2rT7Uxd4e1/6lWP03jPVXqNOXJlb7xkhJ/4jyffEEPAgqpwRsPKugAWCGwTjqHJmbTcpyduYtpGwLRVWcG0hbcNznUV9BX3XPQRZW9JJ3BNZ1AnEBAWWtWSZMD87bGzoFNI6nV83IljFHkRWEYEASi0hIC/Tfd9tX9cVtErWXZIezHP/9Ii1QlxppIl+zUa3quSp1dtRWNjfSQIldN8LaBzc2ra6Ge7s7OD5k+S+bmAeqcqxYYiTnOqWjKH55ZZMmo7S0ge6p+S5vwPkrtFUhBBQXP+869KYDeaE/gvE8VcAL5/OrwPw5vU84N+bXtVFnQRQwQACdC5lblFUr6IvyPbTOPppQTOfEVQlz6v3q/0kzBY0ReWhQsJb3fu6gSSA1nqhC8yJucH7vsLbjp+sey/bge2GkXDKSZrPGt6iI0HjuTlXzwKLuFgtcODJHo3nNL2vvSSaLuomzHII8tmK6zQiLLZchHKWkrC3vFB6Tv4OJhdtD1CoCAAyxqLq0AhQKoLVz1rHBDWVa729L9k9mvJM3juFzeSNtrTm00woH7G30lB4TpsWB4GKzbUEbe+sNfnsz3u8dILp0mzgn4HYjhr1WMMrrlCPUM1zEsYB7YwBpfOg0lGdEUElel0OKgIDqEEJEggBL3ABmd+pFgTgDmKwBjZIJREIDhIhZzNOb90uRM9i9LTmd7YFQKNhT5p9SvCsoocJ6g65B4rNcAlTOqOTiCcHj1LeW+yIKat6gJANLe/HXm1PC4wYQZ7fq2U4+qnRTDGlyjtvoZwYNSwI9GtSE7hZTY9RBx3OATTzWt7OeBwnEcdDPdH5HLQYhdSPvIQ3qTRqckgDJcgZW4M9tDA1nGkGXCQNCyPQfuCI04EK5GyCvTAYHkIujIBASGPpCPJYDrFZIW6zZcAEr2CQFC3ZB8klERjevxz4/xUTkd84zCQP6a95ofZMVvWIpa+/HeRWSUkWtkIg+mFCUYq4riJ0SS1sg0OlFYAbFZuNkcA0G2PYodwYl+yOk/BvTCFyZGMqf9ME9moMG3Mp+G/Ew6eYDQE0YwNAEumk43elHBJYpkoFs0pJ6piVK5EnW4ESRYrVidOkTg2zaFXK5UtXr1KJOlVkvnAqX6tUfL8NVUtLTa1WnholhqpTy1utEuW8ValRRK2PeKmS+fuFvOJoNyhQI6Xi8VeS8eMtkA/NeLs66fpIF3fAy4P+o1ukXjmzmsQLycLrYlRh5WY1jP40fPjyJ5PZQEEOWauvMbNKqQJ5g2SU+rzSqmQPXsY1x8kiJd7O9XJ5yztd0aF6qFIpUaAwR3gKrKxW2VKLG8z2PuUdJD4t0Q/Qz5kwOCXXVnm2mUXFWT4Xr7kq6Cbvsty48+DpvAsuutTV4K3wVUjjsiuKXDPbdjv4ec9fJ4T3zB7XFbshhJZOqLfCwhEBsUqUKVeqUoUV4sSrkuCNREPVqFUtSbIUqW6q06AxCtRLiwrpXRhaTXzJzYZp8Z+Vhtupnw9dAn42J8uWY4RRRhupP6MBTN7pMDAaosMR3VnBUssIOlQknREmxSQdhp4CE7EQu9vQ/7Fpp70ixUp0oIvFN99DqqMy5SrAw0mlKng4HEhtRlhNYZVjJmKh4ovIGW4u7LJbNAamQYYIF+m4E/bYa5/9NtrkkMMoSE6sTDLBVFNMMzZX3RjslXEOooU747XlAdtHnxwgI+doLrM1ovKEHl56q9ZHXzX66W+AgQYZbIhadYYaZrgRRhpltDHGGme8CSaaZLIppppmun3sa4Z6Zogx3S333XbHg/p5w19jLUVqpo7OopwmKn8Bji87j9uuezbRttm/sr/PtZl6JsIJZqirkSt6iuTEoKPl2Mg8bIVFTUWgfQkfbfnLrS3fU0exJLdoZ/32OLDbK77Xx/uaGWdEbBa4mn/yB9faT/6M8EyPyGvLb0bgKAAEgtgI/INAhUAOAkGAfxAIPOYNaMNpCZ9CVLaf2k8hRpo1awQT7xiH2Gaxnn4mvz8DnCYN2/XvoLFd4yMOhBor+rdrHyQTgxpwjBInej0Csd1A78QMI33LMu3vU6Cn+tX+7fZpgWPdzfAyY91OTEcpxS7u1LJTB+ODeB+Ka1rqavxsUxVlYH3D9+0PJIwCLT3FT96JQNaEjMCZns3+FAHOUUI594hkeDAkJU6eAdZLjisVtLgOD/5wR4CJI1xWxz8/SyRZb8h5MBs594wRiZhzMnX4+JchqH9Ellzc9t1s9QKbv73t+k0HAAA=';
+
+/* ---------- tekenhulpjes ---------- */
+const P=d=>`<path class="r" d="${d}"/>`;
+const C=(x,y,r)=>`<circle class="r" cx="${x}" cy="${y}" r="${r}"/>`;
+const E=(x,y,rx,ry,t)=>`<ellipse class="r" cx="${x}" cy="${y}" rx="${rx}" ry="${ry}"${t?` transform="${t}"`:''}/>`;
+const R=(x,y,w,h,rx=0)=>`<rect class="r" x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}"/>`;
+const L=d=>`<path class="l" d="${d}"/>`;
+const D=(x,y,r)=>`<circle class="dot" cx="${x}" cy="${y}" r="${r}"/>`;
+function star(cx,cy,R1,r1,n=5){const p=[];for(let i=0;i<n*2;i++){const a=-Math.PI/2+i*Math.PI/n,rr=i%2?r1:R1;p.push((cx+rr*Math.cos(a)).toFixed(1)+' '+(cy+rr*Math.sin(a)).toFixed(1))}return P('M'+p.join(' L')+'Z')}
+function ring(n,dist,rx,ry,off=0){let s='';for(let i=0;i<n;i++)s+=E(100,100-dist,rx,ry,`rotate(${(360/n*i+off).toFixed(2)} 100 100)`);return s}
+const grass=(y=190)=>{let s='';for(let x=8;x<200;x+=22)s+=P(`M${x} ${y} L${x+5} ${y-16} L${x+10} ${y} Z`);return s};
+function spiky(cx,cy,rx,ry,n){const pts=[];for(let i=0;i<=2*n;i++){const a=Math.PI+Math.PI*i/(2*n),k=i%2?1:.8;pts.push((cx+rx*k*Math.cos(a)).toFixed(1)+' '+(cy+ry*k*Math.sin(a)).toFixed(1))}return P('M'+pts.join(' L')+` Q ${cx} ${cy+ry*.75} ${pts[0]} Z`)}
+const rep=(s,n)=>s.repeat(n);
+function blade(a,cx=100,cy=74){const r=Math.PI*a/180,c=Math.cos(r),s=Math.sin(r);const pt=(x,y)=>`${(cx+x*c-y*s).toFixed(1)} ${(cy+x*s+y*c).toFixed(1)}`;
+  return P(`M${pt(-9,-8)} L${pt(9,-8)} L${pt(9,-68)} L${pt(-9,-68)} Z`)+L(`M${pt(-9,-28)} L${pt(9,-28)} M${pt(-9,-48)} L${pt(9,-48)} M${pt(0,-8)} L${pt(0,-68)}`)}
+function maple(x,y,k=1){const q=[[0,-14],[4,-6],[10,-8],[8,0],[14,2],[6,6],[8,12],[0,8],[-8,12],[-6,6],[-14,2],[-8,0],[-10,-8],[-4,-6]];
+  return P('M'+q.map(([a,b])=>`${(x+a*k).toFixed(1)} ${(y+b*k).toFixed(1)}`).join(' L')+' Z')+L(`M${x} ${y+8*k} L${x} ${y+16*k}`)}
+const EYE=(x,y,r=3)=>`<circle cx="${x}" cy="${y}" r="${r}" fill="#fff" stroke="#1d1b22" stroke-width="1"/>`+D(x+.5,y+.3,(r*.5).toFixed(2));
+function tulip(x,y){return L(`M${x} ${y} L${x} ${y+14}`)+P(`M${x-7} ${y} L${x-7} ${y-12} L${x-3.5} ${y-7} L${x} ${y-14} L${x+3.5} ${y-7} L${x+7} ${y-12} L${x+7} ${y} Q${x} ${y+6} ${x-7} ${y} Z`)}
+function heart(x,y,k=1){const f=v=>(+v).toFixed(1);return P(`M${f(x)} ${f(y+10*k)} C ${f(x-18*k)} ${f(y-2*k)} ${f(x-10*k)} ${f(y-16*k)} ${f(x)} ${f(y-6*k)} C ${f(x+10*k)} ${f(y-16*k)} ${f(x+18*k)} ${f(y-2*k)} ${f(x)} ${f(y+10*k)} Z`)}
+const LINK=(x,y,rot)=>`<path class="r" fill-rule="evenodd" transform="rotate(${rot} ${x} ${y})" d="M${x-17} ${y} a17 10 0 1 0 34 0 a17 10 0 1 0 -34 0 Z M${x-9} ${y} a9 3.5 0 1 0 18 0 a9 3.5 0 1 0 -18 0 Z"/>`;
+const CLOUD=(x,y,k)=>`<path class="r" transform="translate(${x} ${y}) scale(${k})" d="M0 12 a12 12 0 0 1 20 -12 a16 16 0 0 1 30 4 a11 11 0 0 1 2 20 L4 24 a8 8 0 0 1 -4 -12 Z"/>`;
+const flameP=(x,y,k=1)=>P(`M${x} ${y} Q${x-12*k} ${y-14*k} ${x} ${y-32*k} Q${x+4*k} ${y-18*k} ${x+10*k} ${y-22*k} Q${x+14*k} ${y-8*k} ${x} ${y} Z`);
+function lantern(x,y,top){return L(`M${x} ${y-34} L${x} ${top}`)+R(x-12,y-34,24,8,2)+E(x,y,30,26)+
+  L(`M${x-14} ${y-24} Q${x-22} ${y} ${x-14} ${y+24} M${x} ${y-26} L${x} ${y+26} M${x+14} ${y-24} Q${x+22} ${y} ${x+14} ${y+24}`)+
+  R(x-10,y+24,20,7,2)+P(`M${x-4} ${y+31} L${x+4} ${y+31} L${x+7} ${y+56} L${x-7} ${y+56} Z`)}
+function diya(x,y){return P(`M${x-26} ${y} L${x+26} ${y} Q${x+20} ${y+22} ${x} ${y+22} Q${x-20} ${y+22} ${x-26} ${y} Z`)+E(x,y,26,5)+
+  P(`M${x} ${y-4} Q${x-9} ${y-14} ${x} ${y-32} Q${x+9} ${y-14} ${x} ${y-4} Z`)+P(`M${x} ${y-6} Q${x-4} ${y-12} ${x} ${y-20} Q${x+4} ${y-12} ${x} ${y-6} Z`)+
+  D(x-12,y+10,1.6)+D(x,y+13,1.6)+D(x+12,y+10,1.6)}
+function penguin(x,y,s){const f=v=>+(v).toFixed(1);
+  return E(f(x-20*s),f(y+2*s),f(6*s),f(18*s),`rotate(20 ${f(x-20*s)} ${f(y+2*s)})`)+E(f(x+20*s),f(y+2*s),f(6*s),f(18*s),`rotate(-20 ${f(x+20*s)} ${f(y+2*s)})`)+
+    E(f(x-9*s),f(y+34*s),f(9*s),f(4*s))+E(f(x+9*s),f(y+34*s),f(9*s),f(4*s))+E(x,y,f(20*s),f(34*s))+E(x,f(y+6*s),f(13*s),f(24*s))+C(x,f(y-32*s),f(15*s))+
+    P(`M${f(x-4*s)} ${f(y-30*s)} L${f(x+4*s)} ${f(y-30*s)} L${x} ${f(y-22*s)} Z`)+EYE(f(x-6*s),f(y-35*s),f(2.6*s))+EYE(f(x+6*s),f(y-35*s),f(2.6*s))}
+
+/* ---------- kleuren ---------- */
+const KEYS={r:'#e2483d',o:'#ff8a3d',y:'#f2c618',l:'#9bd34a',g:'#2fa45a',t:'#3ec7c1',b:'#4fa3f0',n:'#2f5bd3',p:'#7b5bd6',m:'#d0479b',k:'#f59fc4',w:'#a0673d',z:'#7a7f87',x:'#222222'};
+const KEYNAME={r:'rood',o:'oranje',y:'geel',l:'lichtgroen',g:'groen',t:'turquoise',b:'lichtblauw',n:'blauw',p:'paars',m:'roze',k:'lichtroze',w:'bruin',z:'grijs',x:'zwart'};
+const COLORS=Object.values(KEYS);
+const nameOfColor=c=>{const k=Object.keys(KEYS).find(k=>KEYS[k]===c);return k?KEYNAME[k]:c};
+const ERASER='#ffffff';
+
+/* ---------- categorieën en leeftijden ---------- */
+const CATS=[
+ {id:'dieren',name:'Dieren',c:'#e2483d'},
+ {id:'voertuigen',name:'Voertuigen',c:'#2f5bd3'},
+ {id:'natuur',name:'Natuur',c:'#2fa45a'},
+ {id:'eten',name:'Lekker eten',c:'#f2a516'},
+ {id:'ruimte',name:'Ruimte',c:'#5b4fc9'},
+ {id:'feest',name:'Feestdagen',c:'#13a3a0'},
+ {id:'wereld',name:'Wereld',c:'#1d8fce'},
+ {id:'patronen',name:'Patronen',c:'#d0479b'}
+];
+const CONTS=[
+ {id:'europa',name:'Europa',c:'#2f5bd3'},
+ {id:'afrika',name:'Afrika',c:'#f2a516'},
+ {id:'azie',name:'Azië',c:'#e2483d'},
+ {id:'noord-amerika',name:'Noord-Amerika',c:'#2fa45a'},
+ {id:'zuid-amerika',name:'Zuid-Amerika',c:'#13a3a0'},
+ {id:'oceanie',name:'Oceanië',c:'#7b5bd6'},
+ {id:'antarctica',name:'Antarctica',c:'#4fa3f0'}
+];
+const contOf=id=>CONTS.find(c=>c.id===id);
+const AGES=[
+ {id:'2-4',name:'2–4',lv:1,sw:3.4,hint:'Grote vlakken en dikke lijnen. Goed voor de eerste krijtjes.'},
+ {id:'4-6',name:'4–6',lv:2,sw:2.8,hint:'Meer vlakken, nog steeds ruim. Fijn voor kleuters.'},
+ {id:'6-9',name:'6–9',lv:3,sw:2.4,hint:'Kleinere details om netjes binnen de lijnen te blijven.'},
+ {id:'9+',name:'9+',lv:4,sw:1.7,hint:'Veel kleine vlakken en dunne lijnen. Ook leuk voor volwassenen.'}
+];
+const LINE_SW={dun:1.7,normaal:2.4,dik:3.4};
+
+/* ---------- feestdagen die in Nederland gevierd worden ---------- */
+/* vaste datum: fixed [maand,dag]; wisselende datum: per jaar ingevuld (elk jaar bijwerken); approx = hangt af van de maan */
+const HOLIDAYS=[
+ {id:'oudnieuw',name:'Oud en nieuw',fixed:[12,31],lead:14,after:1},
+ {id:'chinees',name:'Chinees Nieuwjaar',dates:{2026:'2026-02-17',2027:'2027-02-06'},lead:14,after:3},
+ {id:'valentijn',name:'Valentijnsdag',fixed:[2,14],lead:10},
+ {id:'carnaval',name:'Carnaval',dates:{2026:'2026-02-15',2027:'2027-02-07'},lead:21,after:2},
+ {id:'holi',name:'Holi',dates:{2026:'2026-03-04',2027:'2027-03-22'},lead:14},
+ {id:'suikerfeest',name:'Suikerfeest',dates:{2026:'2026-03-20',2027:'2027-03-10'},lead:30,after:2,approx:true},
+ {id:'pasen',name:'Pasen',dates:{2026:'2026-04-05',2027:'2027-03-28'},lead:21,after:1},
+ {id:'koningsdag',name:'Koningsdag',fixed:[4,27],lead:21},
+ {id:'bevrijding',name:'Bevrijdingsdag',fixed:[5,5],lead:7},
+ {id:'moederdag',name:'Moederdag',dates:{2026:'2026-05-10',2027:'2027-05-09'},lead:14},
+ {id:'hemelvaart',name:'Hemelvaart',dates:{2026:'2026-05-14',2027:'2027-05-06'},lead:7},
+ {id:'pinksteren',name:'Pinksteren',dates:{2026:'2026-05-24',2027:'2027-05-16'},lead:7,after:1},
+ {id:'offerfeest',name:'Offerfeest',dates:{2026:'2026-05-27',2027:'2027-05-16'},lead:10,after:3,approx:true},
+ {id:'vaderdag',name:'Vaderdag',dates:{2026:'2026-06-21',2027:'2027-06-20'},lead:14},
+ {id:'ketikoti',name:'Keti Koti',fixed:[7,1],lead:10},
+ {id:'school',name:'Eerste schooldag',fixed:[8,31],lead:21,label:'eind augustus'},
+ {id:'dierendag',name:'Dierendag',fixed:[10,4],lead:10},
+ {id:'halloween',name:'Halloween',fixed:[10,31],lead:14},
+ {id:'divali',name:'Divali',dates:{2026:'2026-11-08',2027:'2027-10-29'},lead:21},
+ {id:'sintmaarten',name:'Sint-Maarten',fixed:[11,11],lead:18},
+ {id:'sinterklaas',name:'Sinterklaas',fixed:[12,5],lead:24},
+ {id:'chanoeka',name:'Chanoeka',dates:{2026:'2026-12-05',2027:'2027-12-25'},lead:10,after:7},
+ {id:'kerst',name:'Kerst',fixed:[12,25],lead:24,after:1},
+ {id:'verjaardag',name:'Verjaardag'}
+];
+const holOf=id=>HOLIDAYS.find(h=>h.id===id);
+const SPANS=[{id:'herfst',name:'Herfst',from:[9,22],to:[11,20],pages:['egel','paddenstoel','boom']}];
+const MONTHS=['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
+function nextDate(h,now){
+  const day=864e5,y=now.getFullYear();
+  const at=yr=>h.fixed?new Date(yr,h.fixed[0]-1,h.fixed[1]):(h.dates&&h.dates[yr]?new Date(h.dates[yr]+'T00:00'):null);
+  for(const yr of [y,y+1]){const d=at(yr);if(d&&d.getTime()+((h.after||0)+1)*day>now)return d}
+  return null;
+}
+const dateLabel=(h,d)=>h.label||((h.approx?'rond ':'')+d.getDate()+' '+MONTHS[d.getMonth()]);
+
+/* ---------- platen (allemaal origineel) ---------- */
+/* nums: per vlak de kleur voor kleur-op-nummer, '-' = wit laten */
+const PAGES=[
+ {id:'kat',cat:'dieren',age:'4-6',name:'Kat op een kussen',word:'de kat',count:'Hoeveel snorharen tel je?',nums:'poooookkllkyy',draw:()=>
+   R(20,168,160,22,10)+
+   P('M140 172 Q188 165 178 122 Q172 106 160 114 Q170 142 134 152 Z')+
+   P('M58 178 Q48 110 100 104 Q152 110 142 178 Z')+
+   P('M62 64 L56 20 L90 44 Z')+P('M138 64 L144 20 L110 44 Z')+
+   C(100,72,40)+P('M66 54 L64 34 L80 46 Z')+P('M134 54 L136 34 L120 46 Z')+
+   E(84,68,7,9)+E(116,68,7,9)+D(85,70,3.5)+D(117,70,3.5)+
+   P('M94 82 L106 82 L100 89 Z')+L('M100 89 Q94 97 88 93 M100 89 Q106 97 112 93')+
+   L('M76 86 L50 82 M76 91 L52 95 M124 86 L150 82 M124 91 L148 95')+
+   E(80,176,14,8)+E(120,176,14,8)+L('M84 120 Q100 128 116 120 M80 140 Q100 150 120 140')},
+ {id:'vis',cat:'dieren',age:'2-4',name:'Vrolijke vis',word:'de vis',count:'Hoeveel belletjes zie je?',nums:'ggrror-bbb',draw:()=>
+   P('M20 192 Q8 160 22 136 Q34 160 32 192 Z')+P('M168 192 Q160 168 174 150 Q188 170 182 192 Z')+
+   P('M72 64 Q92 30 120 68 Z')+P('M136 100 L182 62 L172 100 L182 138 Z')+
+   P('M24 100 Q80 36 142 100 Q80 164 24 100 Z')+P('M82 132 Q96 152 110 128 Z')+
+   L('M70 74 Q78 100 70 126 M96 72 Q104 100 96 128')+
+   C(46,92,9)+D(48,92,4)+L('M30 108 Q38 114 46 110')+
+   C(160,40,8)+C(176,22,5)+C(146,22,4)},
+ {id:'uil',cat:'dieren',age:'4-6',name:'Oki op een tak',word:'de uil',count:'',nums:'wwwyooyy--ozoog',draw:()=>
+   P('M56 66 L50 30 L84 54 Z')+P('M144 66 L150 30 L116 54 Z')+
+   E(100,112,56,62)+E(100,128,34,40)+
+   P('M48 98 Q22 132 54 166 Q62 130 48 98 Z')+P('M152 98 Q178 132 146 166 Q138 130 152 98 Z')+
+   C(78,88,19)+C(122,88,19)+C(78,88,9)+C(122,88,9)+D(78,88,3.5)+D(122,88,3.5)+
+   P('M92 106 L108 106 L100 120 Z')+
+   L('M88 132 Q94 138 100 132 Q106 138 112 132 M84 148 Q92 154 100 148 Q108 154 116 148')+
+   R(8,166,184,16,8)+E(84,168,10,6)+E(116,168,10,6)+P('M170 166 Q182 150 194 154 Q186 166 170 166 Z')},
+ {id:'slak',cat:'dieren',age:'2-4',name:'Sjors in het gras',word:'de slak',count:'Hoeveel grassprieten zie je?',nums:'kktoyr-'+rep('g',9),draw:()=>
+   L('M44 122 L34 84 M56 120 L62 84')+C(34,82,6)+C(62,82,6)+
+   P('M22 170 Q24 124 50 118 Q70 120 70 150 L172 150 Q190 160 174 172 L30 172 Q20 172 22 170 Z')+
+   C(118,112,46)+C(118,112,30)+C(118,112,15)+
+   E(46,134,4,5)+L('M40 150 Q48 156 56 150')+grass(196)},
+ {id:'egel',cat:'dieren',age:'6-9',name:'Egel in de herfst',word:'de egel',count:'Hoeveel blaadjes vallen er?',nums:'orywwwyyx-roy',draw:()=>
+   E(30,40,7,13,'rotate(30 30 40)')+E(168,30,7,13,'rotate(-40 168 30)')+E(178,96,6,12,'rotate(20 178 96)')+
+   E(78,182,10,6)+E(146,182,10,6)+
+   spiky(110,150,74,64,11)+
+   E(76,120,8,10)+
+   P('M22 146 Q36 118 70 118 Q92 122 96 150 Q90 172 64 172 Q38 168 22 146 Z')+
+   C(22,146,6)+E(54,136,4,5)+D(55,137,2)+L('M40 156 Q50 162 60 158')+
+   C(118,80,10)+L('M118 70 L121 62')+
+   E(176,190,14,6)+E(30,190,12,5)},
+ {id:'auto',cat:'voertuigen',age:'2-4',name:'Rode auto',word:'de auto',count:'Hoeveel wielen zie je?',nums:'rbbyzxxzz',draw:()=>
+   L('M6 166 L194 166')+
+   P('M18 144 L22 108 Q28 96 44 96 L62 96 L82 64 L140 64 L160 96 L178 100 Q188 106 184 144 Z')+
+   P('M70 96 L86 72 L108 72 L108 96 Z')+P('M116 72 L136 72 L152 96 L116 96 Z')+
+   L('M112 98 L112 140 M96 112 L104 112 M120 112 L128 112')+
+   C(175,114,6)+R(14,124,12,8,3)+
+   C(60,144,21)+C(146,144,21)+C(60,144,9)+C(146,144,9)},
+ {id:'trein',cat:'voertuigen',age:'6-9',name:'Stoomtrein',word:'de trein',count:'Hoeveel wielen heeft de trein?',nums:'zzzxgrrnyrrr',draw:()=>
+   C(66,54,9)+C(82,36,12)+C(104,20,14)+
+   R(54,70,18,32,2)+R(38,100,88,42,6)+R(26,112,14,30,3)+
+   R(114,62,66,10,3)+R(120,72,54,70,2)+R(132,84,30,22,3)+
+   L('M54 100 L54 142 M74 100 L74 142')+
+   C(62,152,14)+C(98,152,14)+C(150,150,18)+D(62,152,3)+D(98,152,3)+D(150,150,4)+
+   L('M4 170 L196 170 M20 170 L20 178 M50 170 L50 178 M80 170 L80 178 M110 170 L110 178 M140 170 L140 178 M170 170 L170 178')},
+ {id:'boot',cat:'voertuigen',age:'4-6',name:'Zeilboot',word:'de boot',count:'Hoeveel rondjes zie je?',nums:'y-roknyyyb',draw:()=>
+   C(162,40,18)+P('M18 64 a12 12 0 0 1 20 -12 a16 16 0 0 1 30 4 a11 11 0 0 1 2 20 L22 76 a8 8 0 0 1 -4 -12 Z')+
+   L('M100 140 L100 36')+P('M100 36 L120 43 L100 50 Z')+
+   P('M104 46 L104 132 L152 132 Z')+P('M96 56 L96 132 L54 132 Z')+
+   P('M38 138 L162 138 L142 164 L58 164 Z')+C(76,150,5)+C(100,150,5)+C(124,150,5)+
+   P('M0 166 Q25 156 50 166 T100 166 T150 166 T200 166 L200 200 L0 200 Z')+
+   L('M20 184 Q30 178 40 184 M120 188 Q130 182 140 188')},
+ {id:'bloem',cat:'natuur',age:'4-6',name:'Grote bloem',word:'de bloem',count:'Hoeveel bloemblaadjes tel je?',nums:'gll'+rep('km',4)+'ybbn'+rep('g',9),draw:()=>
+   P('M97 110 L103 110 L103 192 L97 192 Z')+
+   P('M100 168 Q130 140 154 150 Q132 178 100 168 Z')+P('M100 148 Q70 120 46 130 Q68 160 100 148 Z')+
+   (()=>{let s='';for(let i=0;i<8;i++)s+=E(100,48,14,26,`rotate(${i*45} 100 74)`);return s})()+
+   C(100,74,18)+D(94,70,2)+D(106,70,2)+D(100,80,2)+
+   P('M160 40 Q170 26 180 40 Q170 52 160 40 Z')+P('M150 40 Q140 26 130 40 Q140 52 150 40 Z')+C(155,40,4)+grass(198)},
+ {id:'boom',cat:'natuur',age:'4-6',name:'Appelboom',word:'de boom',count:'Hoeveel appels zie je?',nums:'ywggggrrrrrr'+rep('l',9),draw:()=>
+   C(28,30,14)+
+   P('M86 192 L92 118 L108 118 L114 192 Z')+L('M100 140 L82 122 M100 150 L118 130')+
+   C(68,96,34)+C(132,96,34)+C(100,62,40)+C(100,108,32)+
+   C(76,84,7)+C(124,78,7)+C(98,56,7)+C(112,112,7)+C(84,116,7)+
+   C(140,186,7)+L('M140 179 L142 172')+grass(198)},
+ {id:'paddenstoel',cat:'natuur',age:'6-9',name:'Paddenstoelen',word:'de paddenstoel',count:'Hoeveel witte stippen tel je?',nums:'-r------xx-o'+rep('g',9),draw:()=>
+   P('M80 118 Q74 178 68 186 L132 186 Q126 178 120 118 Z')+
+   P('M28 124 Q34 44 100 38 Q166 44 172 124 Q100 140 28 124 Z')+
+   C(70,78,10)+C(104,62,12)+C(138,84,9)+C(98,104,8)+C(54,108,6)+C(146,112,6)+
+   E(90,150,5,7)+E(110,150,5,7)+L('M92 166 Q100 172 108 166')+
+   P('M160 186 L163 160 L171 160 L174 186 Z')+P('M150 162 Q167 132 184 162 Z')+grass(198)},
+ {id:'ijsje',cat:'eten',age:'2-4',name:'IJsje met kers',word:'het ijsje',count:'Hoeveel bolletjes ijs zie je?',nums:'okklr',draw:()=>
+   P('M68 112 L132 112 L100 192 Z')+L('M76 124 L120 160 M112 116 L82 146 M128 120 L94 164 M88 116 L126 140')+
+   C(100,98,32)+P('M70 108 Q72 124 80 120 Q86 130 92 122 Q100 132 108 122 Q116 132 122 120 Q128 124 130 108 Z')+
+   C(100,56,26)+L('M100 30 Q104 16 116 10')+C(100,26,9)+
+   L('M84 86 L88 90 M110 92 L114 88 M94 50 L98 46 M108 62 L112 64')},
+ {id:'taart',cat:'eten',hol:'verjaardag',age:'6-9',name:'Verjaardagstaart',word:'de taart',count:'Hoeveel kaarsjes zie je?',nums:'bkm--tlpooorytpo',draw:()=>
+   E(100,180,84,12)+R(34,128,132,48,6)+R(50,92,100,38,6)+
+   P('M50 104 Q58 116 66 104 Q74 116 82 104 Q90 116 98 104 Q106 116 114 104 Q122 116 130 104 Q138 116 150 104 L150 96 L50 96 Z')+
+   P('M34 140 Q44 152 54 140 Q64 152 74 140 Q84 152 94 140 Q104 152 114 140 Q124 152 134 140 Q144 152 166 140 L166 132 L34 132 Z')+
+   R(68,58,10,34,2)+R(95,52,10,40,2)+R(122,58,10,34,2)+
+   P('M73 56 Q66 46 73 36 Q80 46 73 56 Z')+P('M100 50 Q93 40 100 30 Q107 40 100 50 Z')+P('M127 56 Q120 46 127 36 Q134 46 127 56 Z')+
+   C(56,160,5)+C(80,162,5)+C(104,160,5)+C(128,162,5)+C(150,160,5)},
+ {id:'pizza',cat:'eten',world:['europa','Italië'],age:'4-6',name:'Pizzapunt',word:'de pizza',count:'Hoeveel plakjes salami tel je?',nums:'ywrrrrrll',draw:()=>
+   P('M100 188 L34 42 Q100 14 166 42 Z')+P('M34 42 Q100 14 166 42 L158 58 Q100 34 42 58 Z')+
+   C(84,76,12)+C(120,80,11)+C(100,112,12)+C(92,148,9)+C(118,128,7)+
+   E(70,104,6,4)+E(130,108,6,4)+L('M62 92 L58 112 M138 98 L142 118')+
+   L('M60 70 L66 74 M106 66 L110 62 M80 126 L76 130')},
+ {id:'raket',cat:'ruimte',age:'6-9',name:'Raket',word:'de raket',count:'Hoeveel sterren zie je?',nums:'yyypoyrrznbr',draw:()=>
+   star(30,40,14,6)+star(170,60,10,4)+star(40,150,9,4)+C(162,160,16)+L('M148 152 Q162 158 176 152')+
+   P('M84 158 Q100 200 116 158 Z')+P('M92 158 Q100 182 108 158 Z')+
+   P('M76 118 L50 166 L82 156 Z')+P('M124 118 L150 166 L118 156 Z')+
+   P('M100 14 Q142 60 126 160 L74 160 Q58 60 100 14 Z')+
+   L('M80 52 Q100 46 120 52 M76 140 L124 140')+
+   C(100,90,17)+C(100,90,10)+P('M96 118 L104 118 L104 160 L96 160 Z')},
+ {id:'planeet',cat:'ruimte',age:'4-6',name:'Planeet met ring',word:'de planeet',count:'Hoeveel sterren zie je?',nums:'yyyybkotogg',draw:()=>
+   star(28,30,12,5)+star(172,28,8,3.5)+star(30,170,9,4)+star(166,172,13,5)+C(48,64,4)+C(150,150,4)+
+   P('M18 118 Q100 52 182 82 L178 92 Q100 68 24 126 Z')+
+   C(100,100,48)+L('M58 80 Q100 92 142 80 M54 108 Q100 120 146 108')+
+   P('M18 118 Q100 168 182 82 L176 78 Q100 152 24 112 Z')+C(86,92,6)+C(116,120,8)},
+ {id:'maan',cat:'ruimte',age:'2-4',name:'Slapende maan',word:'de maan',count:'Hoeveel sterren zie je?',nums:'yoooyyyyyp',draw:()=>
+   P('M120 30 A70 70 0 1 0 120 170 A90 90 0 0 1 120 30 Z')+
+   C(78,62,5)+C(66,108,8)+C(78,142,6)+L('M70 90 Q76 96 82 90')+
+   star(150,52,14,6)+star(170,110,10,4)+star(140,160,12,5)+star(28,28,8,3.5)+star(30,180,9,4)+
+   C(176,176,10)+L('M168 172 Q176 176 184 172')},
+ {id:'lampion',cat:'feest',world:['europa','Nederland'],hol:'sintmaarten',age:'4-6',name:'Lampion',word:'de lampion',count:'Hoeveel sterren zie je?',nums:'noynryyyy',draw:()=>
+   L('M14 14 L100 50 M100 50 L100 58')+
+   R(80,58,40,10,3)+E(100,112,58,46)+star(100,112,22,10)+
+   L('M68 74 Q50 112 68 150 M132 74 Q150 112 132 150')+
+   R(80,156,40,10,3)+P('M96 166 L104 166 L108 188 L92 188 Z')+
+   P('M170 22 A18 18 0 1 0 170 58 A22 22 0 0 1 170 22 Z')+
+   star(36,76,8,3.5)+star(164,150,9,4)+star(30,170,7,3)},
+ {id:'schoen',cat:'feest',world:['europa','Nederland'],hol:'sinterklaas',age:'6-9',name:'Schoen zetten',word:'de schoen',count:'Hoeveel pepernoten zie je?',nums:'ggorwwbyyywww',draw:()=>
+   L('M8 186 L192 186')+
+   P('M66 46 Q54 18 64 8 Q74 26 72 46 Z')+P('M74 46 Q86 16 100 14 Q92 34 80 48 Z')+
+   P('M54 50 Q72 36 92 50 L74 124 Z')+L('M62 64 L74 66 M66 80 L78 82')+
+   P('M38 170 L42 94 Q44 82 58 82 L94 82 Q104 82 104 94 L106 120 Q150 120 172 140 Q186 154 182 170 Z')+
+   P('M34 170 L184 170 Q190 178 180 182 L40 182 Q30 180 34 170 Z')+
+   P('M152 128 Q180 142 182 170 L152 170 Q158 150 152 128 Z')+
+   L('M106 124 L114 116 M116 128 L124 120 M126 132 L134 124')+
+   R(134,40,44,34,3)+R(152,40,8,34)+P('M156 40 Q140 22 148 20 Q158 26 156 40 Z')+P('M156 40 Q172 22 164 20 Q154 26 156 40 Z')+
+   C(14,178,6)+C(26,178,6)+C(20,167,6)},
+ {id:'kerstboom',cat:'feest',hol:'kerst',age:'4-6',name:'Kerstboom',word:'de kerstboom',count:'Hoeveel kerstballen tel je?',nums:'wgggyrbybrkpyry',draw:()=>
+   R(88,160,24,24)+
+   P('M100 100 L166 164 L34 164 Z')+P('M100 62 L150 120 L50 120 Z')+P('M100 34 L136 80 L64 80 Z')+
+   star(100,24,16,7)+
+   L('M58 140 Q100 158 142 136 M70 104 Q100 116 128 98')+
+   C(68,150,7)+C(132,152,7)+C(100,140,7)+C(76,108,6)+C(124,104,6)+C(100,64,5)+
+   R(18,160,38,26,3)+R(33,160,8,26)+R(146,166,40,20,3)+R(162,166,8,20)},
+ {id:'kroon',cat:'feest',world:['europa','Nederland'],hol:'koningsdag',age:'6-9',name:'Koningsdag',word:'de kroon',count:'Hoeveel vlaggetjes zie je?',nums:'r-nr-nyoooorbrb',draw:()=>{
+   let s=L('M0 18 Q100 42 200 18');
+   for(let k=0;k<6;k++){const x=20+k*32,t=x/200,y=18+48*t*(1-t);s+=P(`M${x-12} ${(y-1).toFixed(1)} L${x+12} ${(y+1).toFixed(1)} L${x} ${(y+24).toFixed(1)} Z`)}
+   return s+P('M46 140 L40 76 L72 106 L100 64 L128 106 L160 76 L154 140 Z')+R(42,140,116,26,4)+
+     C(40,72,7)+C(100,60,8)+C(160,72,7)+
+     C(70,153,6)+E(100,153,9,7)+C(130,153,6)+P('M100 96 L110 110 L100 124 L90 110 Z')+
+     L('M30 186 L170 186')}},
+ {id:'mandje',cat:'feest',hol:'pasen',age:'4-6',name:'Paasmandje',word:'het mandje',count:'Hoeveel eieren zie je?',nums:'wkbywo'+rep('l',9),draw:()=>
+   P('M38 108 Q38 26 100 26 Q162 26 162 108 L150 108 Q150 38 100 38 Q50 38 50 108 Z')+
+   E(68,98,17,23,'rotate(-15 68 98)')+E(100,88,18,25)+E(132,98,17,23,'rotate(15 132 98)')+
+   L('M54 92 Q68 100 84 90 M86 80 L92 74 L98 80 L104 74 L110 80 L116 74 M120 96 Q132 104 146 94')+
+   P('M30 110 L170 110 L152 178 L48 178 Z')+R(24,102,152,14,7)+
+   L('M38 134 L162 134 M44 156 L156 156 M72 116 L76 178 M100 116 L100 178 M128 116 L124 178')+grass(198)},
+ {id:'rugzak',cat:'feest',hol:'school',age:'4-6',name:'Naar school',word:'de rugzak',count:'',nums:'nbnyyryowkp',draw:()=>
+   P('M80 40 Q100 12 120 40 L112 40 Q100 24 88 40 Z')+
+   P('M44 60 Q44 36 70 36 L130 36 Q156 36 156 60 L160 176 Q160 186 150 186 L50 186 Q40 186 40 176 Z')+
+   P('M44 60 Q44 36 70 36 L130 36 Q156 36 156 60 L157 96 Q100 114 43 96 Z')+
+   R(62,94,14,22,3)+R(124,94,14,22,3)+
+   R(60,124,80,50,10)+L('M68 136 L132 136')+star(100,156,12,5)+
+   R(170,92,16,72,2)+P('M170 164 L186 164 L178 186 Z')+R(170,80,16,12,3)+
+   R(6,138,30,48,3)+L('M12 150 L30 150 M12 158 L30 158')},
+ /* ---- feestdagen ---- */
+ {id:'oliebollen',cat:'feest',hol:'oudnieuw',age:'2-4',name:'Oliebollen en vuurwerk',word:'de oliebol',count:'Hoeveel oliebollen zie je?',nums:'rymwwwbn',draw:()=>
+   L('M50 50 L50 20 M50 50 L22 36 M50 50 L78 36 M150 40 L150 14 M150 40 L126 30 M150 40 L174 30')+
+   star(50,50,22,8,8)+star(150,40,18,6,8)+star(108,78,12,4,6)+D(20,70,2)+D(84,60,2)+D(176,70,2)+D(130,64,2)+
+   C(76,126,20)+C(120,124,22)+C(98,106,20)+
+   P('M40 136 L160 136 Q156 180 100 182 Q44 180 40 136 Z')+R(36,130,128,10,5)+L('M0 190 L200 190')},
+ {id:'chinees',cat:'feest',hol:'chinees',age:'4-6',name:'Lantaarns voor Nieuwjaar',word:'de lantaarn',count:'Hoeveel lantaarns zie je?',nums:'yryyyryyrrrkk',draw:()=>
+   L('M0 20 Q100 40 200 20')+lantern(60,80,28)+lantern(140,92,28)+
+   L('M24 120 L24 196')+R(18,130,12,18,2)+R(18,152,12,18,2)+R(18,174,12,18,2)+
+   star(172,170,13,7,5)+star(148,186,9,5,5)+D(172,170,2)+D(148,186,1.6)},
+ {id:'valentijn',cat:'feest',hol:'valentijn',age:'2-4',name:'Hartjesbrief',word:'het hartje',count:'Hoeveel hartjes zie je?',nums:'k-krrmkm',draw:()=>
+   R(36,90,128,86,4)+R(50,60,100,80,3)+L('M62 76 L138 76 M62 88 L138 88 M62 100 L120 100')+
+   P('M36 110 L100 150 L164 110 L164 176 L36 176 Z')+L('M36 176 L90 138 M164 176 L110 138')+
+   heart(100,148,1)+heart(40,40,1.3)+heart(160,40,1)+heart(100,26,.7)+heart(184,84,.7)},
+ {id:'masker',cat:'feest',hol:'carnaval',age:'4-6',name:'Carnavalsmasker',word:'het masker',count:'',nums:'ympr--yyrygbmo',draw:()=>
+   R(158,118,6,74,3)+E(150,50,8,22,'rotate(30 150 50)')+E(166,58,7,20,'rotate(55 166 58)')+
+   P('M30 90 Q30 64 60 66 Q90 68 100 82 Q110 68 140 66 Q170 64 170 90 Q170 124 132 124 Q110 124 100 106 Q90 124 68 124 Q30 124 30 90 Z')+
+   E(66,94,16,10)+E(134,94,16,10)+P('M100 84 L106 92 L100 100 L94 92 Z')+P('M140 108 L144 113 L140 118 L136 113 Z')+
+   C(30,30,4)+C(66,20,4)+C(104,34,4)+star(22,160,8,3)+star(64,182,7,3)+C(112,168,5)+
+   L('M10 120 Q20 110 30 120 T50 120 M70 150 Q80 140 90 150 T110 150')},
+ {id:'suikerfeest',cat:'feest',hol:'suikerfeest',age:'4-6',name:'Maan en lantaarn',word:'de maan',count:'Hoeveel dadels zie je?',nums:'yyynoynywwwbyy',draw:()=>
+   P('M84 30 A50 50 0 1 0 84 130 A62 62 0 0 1 84 30 Z')+star(92,52,10,4)+
+   L('M140 0 L140 39')+C(140,44,5)+P('M122 64 Q140 44 158 64 Z')+P('M118 64 L162 64 L168 120 L112 120 Z')+
+   P('M130 74 L150 74 L153 110 L127 110 Z')+L('M140 74 L140 110 M128 92 L152 92')+
+   P('M112 120 L168 120 L150 136 L130 136 Z')+C(140,140,4)+
+   E(44,166,10,6)+E(62,162,10,6)+E(80,166,10,6)+P('M20 170 L100 170 Q96 194 60 194 Q24 194 20 170 Z')+
+   star(176,168,8,3)+star(152,186,6,2.5)},
+ {id:'schaap',cat:'feest',hol:'offerfeest',age:'2-4',name:'Schaapje',word:'het schaap',count:'Hoeveel poten zie je?',nums:'yyxxxx-zz'+rep('l',9),draw:()=>
+   P('M168 18 A16 16 0 1 0 168 50 A20 20 0 0 1 168 18 Z')+star(130,30,7,3)+
+   R(68,134,9,44,3)+R(84,136,9,42,3)+R(110,136,9,42,3)+R(126,134,9,44,3)+
+   P('M50 110 Q46 90 64 88 Q70 74 86 80 Q96 68 110 78 Q126 70 134 84 Q152 84 150 104 Q160 118 146 128 Q144 144 126 140 Q114 152 98 144 Q84 152 72 142 Q52 144 54 128 Q40 120 50 110 Z')+
+   E(136,88,9,4,'rotate(-30 136 88)')+E(150,100,15,19,'rotate(20 150 100)')+D(150,96,2)+D(158,99,2)+L('M150 110 Q154 113 158 110')+grass(198)},
+ {id:'holi',cat:'feest',hol:'holi',age:'2-4',name:'Kleurenfeest Holi',word:'de kleuren',count:'Hoeveel schaaltjes zie je?',nums:'mybrwgwpw',draw:()=>
+   star(50,56,34,24,9)+star(150,52,30,20,8)+star(100,108,28,19,10)+
+   D(20,110,2.5)+D(180,108,2.5)+D(76,20,2)+D(124,20,2)+D(30,130,2)+D(170,130,2)+
+   P('M16 166 Q40 136 64 166 Z')+P('M10 164 L70 164 Q66 190 40 190 Q14 190 10 164 Z')+
+   P('M76 166 Q100 136 124 166 Z')+P('M70 164 L130 164 Q126 190 100 190 Q74 190 70 164 Z')+
+   P('M136 166 Q160 136 184 166 Z')+P('M130 164 L190 164 Q186 190 160 190 Q134 190 130 164 Z')},
+ {id:'bevrijding',cat:'feest',hol:'bevrijding',age:'4-6',name:'Vlag en vrijheidsvuur',word:'de vlag',count:'Hoeveel tulpen zie je?',nums:'zyr-nwyoro',draw:()=>
+   R(40,20,6,170,3)+C(43,17,5)+
+   [0,18,36].map(o=>P(`M46 ${26+o} Q90 ${14+o} 130 ${30+o} Q160 ${42+o} 180 ${30+o} L180 ${48+o} Q160 ${60+o} 130 ${48+o} Q90 ${32+o} 46 ${44+o} Z`)).join('')+
+   P('M130 190 L138 132 L150 132 L146 190 Z')+R(130,120,26,14,3)+P('M143 120 Q126 102 140 78 Q144 94 152 88 Q164 106 143 120 Z')+
+   tulip(76,176)+tulip(100,182)+L('M0 196 L200 196')},
+ {id:'moederdag',cat:'feest',hol:'moederdag',age:'4-6',name:'Bloemen voor mama',word:'de vaas',count:'Hoeveel bloemen zie je?',nums:'ggkyrymybryr',draw:()=>
+   L('M72 64 Q86 100 92 124 M110 48 L102 124 M140 78 Q118 104 110 124')+
+   E(82,100,6,14,'rotate(-30 82 100)')+E(124,104,6,14,'rotate(40 124 104)')+
+   star(72,62,18,10,6)+C(72,62,6)+star(110,46,18,10,6)+C(110,46,6)+star(142,78,16,9,6)+C(142,78,5)+
+   P('M70 190 Q56 150 76 120 L124 120 Q144 150 130 190 Z')+heart(100,154,1)+
+   R(146,140,46,52,3)+heart(169,166,.8)},
+ {id:'hemelvaart',cat:'feest',hol:'hemelvaart',age:'2-4',name:'Zon door de wolken',word:'de zon',count:'Hoeveel wolken zie je?',nums:'yobbbgl',draw:()=>
+   star(100,84,66,38,12)+C(100,84,28)+CLOUD(4,110,1.4)+CLOUD(104,118,1.5)+CLOUD(52,138,1.2)+
+   L('M20 40 Q26 34 32 40 Q38 34 44 40 M150 30 Q156 24 162 30 Q168 24 174 30')+
+   P('M0 182 Q60 160 120 182 L120 200 L0 200 Z')+P('M80 186 Q140 162 200 180 L200 200 L80 200 Z')},
+ {id:'duif',cat:'feest',hol:'pinksteren',age:'4-6',name:'Duif en vlammetjes',word:'de duif',count:'Hoeveel vlammetjes zie je?',nums:'-boroy',draw:()=>
+   P('M50 110 Q60 80 100 84 Q130 86 150 70 Q160 64 168 72 L158 80 Q152 100 130 112 Q110 124 80 122 L40 138 L48 118 Z')+
+   P('M80 100 Q90 50 140 30 Q130 70 120 100 Z')+L('M96 90 Q104 70 120 56 M106 96 Q114 80 128 70')+
+   P('M168 72 L180 76 L166 80 Z')+D(158,74,2)+
+   flameP(40,70)+flameP(66,46,.9)+flameP(170,140,1.1)+
+   L('M20 160 L40 150 M30 180 L52 170 M150 180 L170 186')},
+ {id:'das',cat:'feest',hol:'vaderdag',age:'4-6',name:'Overhemd met das',word:'de das',count:'Hoeveel stipjes heeft de das?',nums:'b--rryyyyn',draw:()=>
+   P('M30 200 L30 80 Q60 60 80 56 L120 56 Q140 60 170 80 L170 200 Z')+
+   P('M80 56 L100 84 L74 96 L66 66 Z')+P('M120 56 L100 84 L126 96 L134 66 Z')+
+   P('M92 82 L108 82 L104 96 L96 96 Z')+P('M96 96 L104 96 L114 160 L100 176 L86 160 Z')+
+   C(100,118,3.5)+C(95,140,3.5)+C(105,154,3.5)+
+   R(141,98,5,18,2)+R(130,110,28,26,3)+L('M60 120 L60 196 M40 90 L40 196')},
+ {id:'ketikoti',cat:'feest',hol:'ketikoti',age:'6-9',name:'Keti Koti',word:'de vrijheid',count:'Hoeveel schakels zie je?',nums:'ogzzzzrymy',draw:()=>
+   L('M100 120 L100 104 M70 132 L58 120 M130 132 L142 120 M54 156 L38 152 M146 156 L162 152')+
+   C(100,170,40)+P('M0 170 L200 170 L200 200 L0 200 Z')+
+   LINK(26,92,0)+LINK(56,92,90)+LINK(148,92,90)+LINK(176,92,0)+
+   L('M66 84 Q78 74 84 88 M66 100 Q76 110 82 98 M134 84 Q122 74 116 88 M134 100 Q124 110 118 98')+
+   star(30,182,14,8,5)+C(30,182,4)+star(170,184,12,7,5)+C(170,184,3.5)},
+ {id:'hond',cat:'feest',hol:'dierendag',age:'2-4',name:'Hond op Dierendag',word:'de hond',count:'',nums:'wwwwwxx-xryb-',draw:()=>
+   P('M128 160 Q160 150 160 120 Q166 150 132 172 Z')+P('M60 180 Q50 122 92 110 Q132 112 134 180 Z')+
+   E(76,182,14,8)+E(116,182,14,8)+C(100,84,30)+
+   E(70,90,10,22,'rotate(15 70 90)')+E(130,90,10,22,'rotate(-15 130 90)')+
+   E(100,98,14,10)+E(100,92,6,4)+D(88,78,3)+D(112,78,3)+L('M100 96 L100 104 M92 106 Q100 110 108 106')+
+   P('M76 110 Q100 122 124 110 L124 118 Q100 130 76 118 Z')+C(100,128,5)+
+   P('M150 180 L190 180 L184 196 L156 196 Z')+
+   P('M20 186 a5 5 0 1 1 6 -8 L44 178 a5 5 0 1 1 6 8 a5 5 0 1 1 -6 8 L26 194 a5 5 0 1 1 -6 -8 Z')},
+ {id:'divali',cat:'feest',hol:'divali',age:'4-6',name:'Lichtjes voor Divali',word:'het lichtje',count:'Hoeveel lampjes zie je?',nums:'y'+rep('rm',4)+'o'+rep('wroy',3),draw:()=>
+   C(100,60,40)+(()=>{let s='';for(let k=0;k<8;k++)s+=E(100,38,7,14,`rotate(${k*45} 100 60)`);return s})()+C(100,60,9)+
+   diya(50,170)+diya(100,150)+diya(150,170)},
+ {id:'pompoen',cat:'feest',hol:'halloween',age:'2-4',name:'Pompoen',word:'de pompoen',count:'',nums:'ypooogyyyyl',draw:()=>
+   C(160,40,22)+P('M24 40 Q34 30 44 40 Q50 34 54 40 Q58 34 64 40 Q74 30 84 40 Q68 44 64 52 Q54 46 44 52 Q40 44 24 40 Z')+
+   E(70,142,30,40)+E(130,142,30,40)+E(100,142,34,44)+
+   P('M94 100 Q96 86 108 82 L110 90 Q104 92 104 100 Z')+
+   P('M78 128 L92 128 L85 116 Z')+P('M108 128 L122 128 L115 116 Z')+P('M96 142 L104 142 L100 134 Z')+
+   P('M72 154 Q100 176 128 154 L120 158 L114 152 L106 160 L100 154 L94 160 L86 152 L80 158 Z')+
+   E(124,94,10,5,'rotate(-20 124 94)')},
+ {id:'chanoekia',cat:'feest',hol:'chanoeka',age:'9+',name:'Chanoekia',word:'de kaars',count:'Hoeveel kaarsjes tel je?',nums:'yyy'+'bbbbnbbbb'+rep('o',9),draw:()=>
+   P('M80 190 L120 190 L112 176 L88 176 Z')+R(96,112,8,64)+R(20,110,160,8,3)+
+   [28,46,64,82,100,118,136,154,172].map(x=>x===100?R(96,62,8,48,1):R(x-4,80,8,30,1)).join('')+
+   [28,46,64,82,100,118,136,154,172].map(x=>flameP(x,x===100?60:78,.55)).join('')}
+,
+ /* ---- wereld: per werelddeel één plaat, plus typische platen per land ---- */
+ {id:'kasteel',cat:'wereld',world:['europa',''],age:'4-6',name:'Kasteel',word:'het kasteel',count:'Hoeveel vlaggetjes zie je?',nums:'zzzzzzznnrywyyy'+rep('g',9),draw:()=>
+   R(30,70,36,110)+R(134,70,36,110)+R(60,100,80,80)+
+   R(60,90,12,12)+R(82,90,12,12)+R(106,90,12,12)+R(128,90,12,12)+
+   P('M26 70 L48 30 L70 70 Z')+P('M130 70 L152 30 L174 70 Z')+
+   L('M48 30 L48 12 M152 30 L152 12')+P('M48 12 L64 17 L48 22 Z')+P('M152 12 L168 17 L152 22 Z')+
+   P('M84 180 L84 148 Q100 128 116 148 L116 180 Z')+L('M100 136 L100 180')+
+   P('M42 98 Q48 88 54 98 L54 114 L42 114 Z')+P('M146 98 Q152 88 158 98 L158 114 L146 114 Z')+C(100,116,7)+
+   L('M66 132 L80 132 M120 132 L134 132 M36 142 L60 142 M140 152 L164 152 M70 160 L80 160')+grass(198)},
+ {id:'molen',cat:'wereld',world:['europa','Nederland'],age:'4-6',name:'Molen met tulpen',word:'de molen',count:'Hoeveel tulpen zie je?',nums:'lwggbrrrrzromy',draw:()=>
+   P('M0 172 Q100 160 200 172 L200 200 L0 200 Z')+
+   P('M78 172 L86 82 L114 82 L122 172 Z')+P('M80 84 Q100 56 120 84 Z')+
+   P('M92 172 L92 152 Q100 142 108 152 L108 172 Z')+C(100,114,7)+
+   blade(20)+blade(110)+blade(200)+blade(290)+C(100,74,6)+
+   tulip(22,182)+tulip(42,188)+tulip(158,188)+tulip(178,182)},
+ {id:'eiffel',cat:'wereld',world:['europa','Frankrijk'],age:'4-6',name:'Eiffeltoren',word:'de toren',count:'Hoeveel bomen zie je?',nums:'ywgwgwzzz',draw:()=>
+   C(160,40,16)+
+   R(16,172,8,22)+C(20,162,15)+R(176,172,8,22)+C(180,162,15)+
+   P('M40 192 Q78 150 88 96 L94 40 L106 40 L112 96 Q122 150 160 192 L132 192 Q100 140 68 192 Z')+
+   L('M86 108 L114 134 M114 108 L86 134 M92 56 L108 86 M108 56 L92 86')+
+   R(78,92,44,10,2)+R(60,140,80,10,2)+R(88,34,24,8,2)+L('M100 34 L100 12')+
+   L('M0 194 L200 194')},
+ {id:'pisa',cat:'wereld',world:['europa','Italië'],age:'6-9',name:'Toren van Pisa',word:'de scheve toren',count:'',nums:'lzykykro',draw:()=>
+   P('M0 186 Q100 176 200 186 L200 200 L0 200 Z')+
+   '<g transform="rotate(5 100 186)">'+R(64,150,72,36,2)+R(68,120,64,30)+R(68,90,64,30)+R(68,60,64,30)+R(76,34,48,26,2)+P('M80 34 Q100 16 120 34 Z')+
+   (()=>{let s='';[150,120,90,60].forEach(y0=>{const b=y0+(y0===150?36:30);for(const x of [74,90,106,122])s+=L(`M${x} ${b} L${x} ${y0+12} Q${x+5} ${y0+5} ${x+10} ${y0+12} L${x+10} ${b}`)});return s})()+
+   L('M88 58 L88 46 Q94 40 100 46 L100 58 M104 58 L104 46 Q110 40 116 46 L116 58')+'</g>'+
+   C(32,40,14)},
+ {id:'giraf',cat:'wereld',world:['afrika',''],age:'4-6',name:'Giraf op de savanne',word:'de giraf',count:'Hoeveel vlekken tel je?',nums:'ywgyyyyyyywwoooooo'+rep('l',9),draw:()=>
+   C(40,40,18)+P('M152 194 L156 106 L164 106 L168 194 Z')+E(160,98,38,12)+
+   R(62,140,8,48)+R(78,140,8,48)+R(104,140,8,48)+R(118,140,8,48)+
+   L('M56 132 Q46 146 50 160')+
+   E(94,136,40,22)+P('M110 128 L124 50 L138 54 L132 132 Z')+E(140,48,16,10,'rotate(20 140 48)')+
+   L('M132 40 L130 28 M140 38 L140 26')+C(130,27,3)+C(140,25,3)+D(145,46,2.2)+
+   C(78,128,6)+C(98,124,6)+C(114,146,5)+C(88,148,5)+C(127,92,4)+C(130,70,4)+grass(198)},
+ {id:'piramides',cat:'wereld',world:['afrika','Egypte'],age:'6-9',name:'Piramides en kameel',word:'de piramide',count:'Hoeveel piramides zie je?',nums:'ryyowwwwwwwwgggg',draw:()=>
+   C(160,36,18)+P('M18 168 L70 88 L122 168 Z')+P('M88 168 L140 70 L192 168 Z')+
+   L('M44 128 L96 128 M31 148 L109 148 M115 118 L165 118 M102 144 L178 144')+
+   P('M0 166 Q100 158 200 166 L200 200 L0 200 Z')+
+   R(48,158,5,28)+R(58,158,5,28)+R(80,158,5,28)+R(90,158,5,28)+
+   P('M42 164 Q42 142 56 142 Q62 126 70 140 Q78 126 86 140 Q98 142 98 162 Z')+
+   P('M94 152 L110 126 L118 130 L102 160 Z')+E(118,124,10,6)+D(121,122,1.5)+L('M44 150 Q34 156 36 166')+
+   P('M168 194 Q164 160 172 130 L177 130 Q173 160 178 194 Z')+
+   E(158,126,6,16,'rotate(-60 158 126)')+E(190,126,6,16,'rotate(60 190 126)')+E(164,116,5,14,'rotate(-25 164 116)')+E(184,116,5,14,'rotate(25 184 116)')},
+ {id:'olifant',cat:'wereld',world:['afrika','Kenia'],age:'2-4',name:'Olifant',word:'de olifant',count:'Hoeveel poten zie je?',nums:'yzzzzzzkz-'+rep('l',9),draw:()=>
+   C(30,34,14)+
+   R(64,128,18,52,5)+R(124,128,18,52,5)+E(104,120,54,40)+R(82,136,18,48,5)+R(140,136,18,48,5)+
+   L('M50 114 Q38 124 42 140')+
+   C(150,96,30)+P('M138 72 Q106 66 110 100 Q112 128 142 122 Z')+
+   P('M172 104 Q188 130 178 160 Q174 168 166 162 Q176 134 160 112 Z')+P('M164 118 Q170 134 184 132 Q172 126 168 112 Z')+D(160,88,3)+
+   L('M150 126 Q158 130 162 124')+grass(198)},
+ {id:'rijstveld',cat:'wereld',world:['azie',''],age:'6-9',name:'Rijstvelden in de bergen',word:'het rijstveld',count:'Hoeveel bergen zie je?',nums:'oz--lglwrby',draw:()=>
+   C(160,40,16)+P('M0 124 L50 50 L90 100 L130 40 L200 114 L200 200 L0 200 Z')+
+   P('M40 65 L50 50 L60 65 L55 61 L50 67 L45 61 Z')+P('M120 55 L130 40 L141 52 L135 50 L130 57 L125 51 Z')+
+   P('M0 130 Q100 110 200 130 L200 150 Q100 130 0 150 Z')+P('M0 150 Q100 130 200 150 L200 172 Q100 152 0 172 Z')+P('M0 172 Q100 152 200 172 L200 200 L0 200 Z')+
+   L('M20 140 L22 134 M24 140 L26 134 M60 134 L62 128 M64 134 L66 128 M30 162 L32 156 M34 162 L36 156 M170 186 L172 180 M174 186 L176 180 M110 188 L112 182 M114 188 L116 182')+
+   R(140,124,30,22)+P('M134 126 L155 110 L176 126 Z')+
+   P('M68 160 L84 160 L88 186 L64 186 Z')+P('M60 160 L76 146 L92 160 Z')+
+   L('M80 28 Q86 22 92 28 Q98 22 104 28')},
+ {id:'panda',cat:'wereld',world:['azie','China'],age:'2-4',name:'Panda met bamboe',word:'de panda',count:'Hoeveel bamboestokken zie je?',nums:'gglll-xxxxxx-xx--xl',draw:()=>
+   R(18,10,12,190)+R(170,0,12,200)+
+   L('M18 70 L30 70 M18 130 L30 130 M170 60 L182 60 M170 124 L182 124')+
+   E(40,46,5,14,'rotate(50 40 46)')+E(160,36,5,14,'rotate(-50 160 36)')+E(190,84,5,14,'rotate(40 190 84)')+
+   E(100,140,48,46)+E(70,180,18,12)+E(130,180,18,12)+
+   E(62,128,12,24,'rotate(20 62 128)')+E(138,128,12,24,'rotate(-20 138 128)')+
+   C(72,46,11)+C(128,46,11)+C(100,76,36)+
+   E(86,76,9,12,'rotate(25 86 76)')+E(114,76,9,12,'rotate(-25 114 76)')+C(87,77,3.5)+C(113,77,3.5)+D(87.5,77.5,1.6)+D(113.5,77.5,1.6)+
+   E(100,92,6,4)+L('M100 96 L100 100 M92 102 Q100 108 108 102')+
+   R(140,92,6,62,3)},
+ {id:'fuji',cat:'wereld',world:['azie','Japan'],age:'4-6',name:'Berg met kersenbloesem',word:'de berg',count:'Hoeveel bloesems zie je?',nums:'rn-bkkkkrrrr',draw:()=>
+   C(150,46,22)+P('M10 172 L80 72 Q100 62 120 72 L190 172 Z')+
+   P('M66 92 L80 72 Q100 62 120 72 L134 92 L120 86 L110 96 L100 86 L90 96 L80 86 Z')+
+   P('M0 172 L200 172 L200 200 L0 200 Z')+L('M20 184 Q30 180 40 184 M100 190 Q110 186 120 190 M150 182 Q160 178 170 182')+
+   L('M0 28 Q40 40 72 22 M34 34 Q38 48 52 56')+
+   C(20,32,6)+C(44,38,6)+C(68,24,6)+C(52,56,6)+D(20,32,1.5)+D(44,38,1.5)+D(68,24,1.5)+D(52,56,1.5)+
+   R(150,122,6,50)+R(178,122,6,50)+P('M140 114 Q167 106 194 114 L194 120 Q167 114 140 120 Z')+R(146,128,42,5)},
+ {id:'taj',cat:'wereld',world:['azie','India'],age:'6-9',name:'Taj Mahal',word:'het paleis',count:'',nums:'zkkykkkkyynb',draw:()=>
+   R(30,160,140,20)+R(56,104,88,56)+P('M68 104 Q66 60 100 44 Q134 60 132 104 Z')+L('M100 44 L100 32')+C(100,29,3.5)+
+   P('M56 104 Q56 88 66 84 Q76 88 76 104 Z')+P('M124 104 Q124 88 134 84 Q144 88 144 104 Z')+
+   R(16,72,10,88)+R(174,72,10,88)+P('M13 72 Q21 56 29 72 Z')+P('M171 72 Q179 56 187 72 Z')+
+   P('M86 160 L86 128 Q100 108 114 128 L114 160 Z')+
+   L('M62 152 L62 128 Q68 120 74 128 L74 152 M126 152 L126 128 Q132 120 138 128 L138 152 M16 100 L26 100 M16 128 L26 128 M174 100 L184 100 M174 128 L184 128')+
+   P('M70 180 L130 180 L142 200 L58 200 Z')},
+ {id:'beer',cat:'wereld',world:['noord-amerika',''],age:'4-6',name:'Beer bij de rivier',word:'de beer',count:'Hoeveel bomen zie je?',nums:'zggwwwwoxbrr',draw:()=>
+   P('M0 110 L40 60 L80 100 L120 50 L170 100 L200 80 L200 200 L0 200 Z')+
+   P('M30 70 L46 112 L14 112 Z')+P('M176 76 L192 118 L160 118 Z')+
+   C(126,80,7)+C(150,82,7)+
+   E(100,132,44,30)+C(140,100,22)+E(154,108,10,8)+E(161,104,4,3)+D(144,94,2.5)+
+   P('M0 150 Q60 140 100 156 T200 150 L200 200 L0 200 Z')+L('M20 170 Q30 166 40 170 M120 180 Q130 176 140 180 M160 166 Q170 162 180 166')+
+   P('M58 124 Q74 112 90 124 Q74 136 58 124 Z')+P('M58 124 L48 116 L48 132 Z')+D(82,122,1.6)},
+ {id:'eland',cat:'wereld',world:['noord-amerika','Canada'],age:'6-9',name:'Eland in de herfst',word:'de eland',count:'Hoeveel blaadjes zie je?',nums:'wwwwwyywror'+rep('g',9),draw:()=>
+   R(60,128,10,54,3)+R(78,128,10,54,3)+R(122,128,10,54,3)+R(140,128,10,54,3)+
+   P('M52 132 Q50 96 92 98 Q130 94 156 104 Q164 130 150 140 L60 142 Z')+
+   P('M150 78 Q132 60 124 40 L132 46 L134 34 L140 48 L146 36 L148 52 L156 46 Q156 66 156 78 Z')+
+   P('M162 78 Q170 58 186 46 L184 56 L194 52 L188 64 L198 64 L186 72 Q176 76 168 82 Z')+
+   P('M140 104 L150 80 Q164 74 176 92 L188 118 Q190 128 180 128 L168 120 L154 118 Z')+D(168,94,2.5)+
+   L('M52 116 Q44 120 46 128')+
+   maple(30,40)+maple(96,36,.8)+maple(28,150,.9)+grass(198)},
+ {id:'cactus',cat:'wereld',world:['noord-amerika','Mexico'],age:'2-4',name:'Cactus en sombrero',word:'de cactus',count:'Hoeveel cactussen zie je?',nums:'oygggkrrnl',draw:()=>
+   C(160,40,20)+L('M160 8 L160 14 M160 66 L160 72 M128 40 L134 40 M186 40 L192 40 M138 18 L142 22 M178 58 L182 62 M182 18 L178 22 M138 62 L142 58')+
+   P('M0 170 Q100 160 200 170 L200 200 L0 200 Z')+
+   P('M86 186 L86 70 Q86 54 100 54 Q114 54 114 70 L114 186 Z')+
+   P('M86 130 L66 130 Q56 130 56 120 L56 92 Q56 84 64 84 Q72 84 72 92 L72 116 L86 116 Z')+
+   P('M114 110 L134 110 Q144 110 144 100 L144 78 Q144 70 136 70 Q128 70 128 78 L128 96 L114 96 Z')+
+   L('M100 66 L100 180 M93 72 L93 180 M107 72 L107 180')+
+   star(100,52,11,5,6)+
+   E(40,182,28,8)+P('M26 180 Q28 156 40 154 Q52 156 54 180 Z')+R(28,170,24,5)+
+   P('M164 188 L164 150 Q170 140 176 150 L176 188 Z')},
+ {id:'vrijheid',cat:'wereld',world:['noord-amerika','Verenigde Staten'],age:'6-9',name:'Vrijheidsbeeld',word:'het beeld',count:'Hoeveel sterren zie je?',nums:'yybzzttyottt',draw:()=>
+   star(30,40,10,4)+star(170,90,8,3.5)+
+   P('M0 190 Q100 180 200 190 L200 200 L0 200 Z')+
+   R(70,150,60,40)+R(64,142,72,10)+
+   P('M78 142 Q76 100 88 80 L112 80 Q124 100 122 142 Z')+
+   L('M88 100 L92 140 M100 96 L100 140 M112 100 L108 140')+
+   P('M112 84 L124 40 L132 42 L120 88 Z')+R(124,28,10,14,2)+P('M129 28 Q118 16 128 4 Q132 14 138 10 Q140 22 129 28 Z')+
+   R(78,92,14,22,2)+
+   C(100,66,12)+P('M86 60 L80 44 L92 54 L94 38 L100 52 L106 38 L108 54 L120 44 L114 60 Z')+D(96,66,1.5)+D(104,66,1.5)},
+ {id:'luiaard',cat:'wereld',world:['zuid-amerika',''],age:'4-6',name:'Luiaard in het regenwoud',word:'de luiaard',count:'Hoeveel blaadjes aan de tak?',nums:'wggllwwwyxxxggm',draw:()=>
+   P('M0 40 Q100 56 200 36 L200 46 Q100 66 0 50 Z')+
+   E(30,60,6,14,'rotate(20 30 60)')+E(170,54,6,14,'rotate(-20 170 54)')+E(50,64,5,12,'rotate(-10 50 64)')+E(150,60,5,12,'rotate(10 150 60)')+
+   P('M72 52 L84 112 L94 108 L82 50 Z')+P('M128 50 L116 112 L106 108 L118 48 Z')+
+   L('M74 52 L72 44 M78 52 L78 44 M122 50 L124 42 M126 50 L128 42')+
+   E(100,126,32,38)+E(100,106,18,14)+
+   E(92,104,6,4,'rotate(-20 92 104)')+E(108,104,6,4,'rotate(20 108 104)')+EYE(92,104,1.8)+EYE(108,104,1.8)+
+   E(100,111,3,2)+L('M94 114 Q100 118 106 114')+
+   P('M10 200 Q20 150 50 160 Q40 180 10 200 Z')+P('M190 200 Q180 150 150 160 Q160 180 190 200 Z')+C(100,190,8)},
+ {id:'toekan',cat:'wereld',world:['zuid-amerika','Brazilië'],age:'4-6',name:'Toekan',word:'de toekan',count:'',nums:'ggwxxxyorbbbm',draw:()=>
+   P('M0 0 Q40 10 30 50 Q10 30 0 0 Z')+P('M200 0 Q160 20 176 60 Q196 30 200 0 Z')+
+   P('M10 160 Q100 150 190 166 L190 176 Q100 160 10 170 Z')+
+   P('M70 140 L56 182 L76 178 L84 144 Z')+
+   E(92,112,28,38,'rotate(15 92 112)')+C(106,74,20)+E(108,96,13,16)+
+   P('M120 64 Q170 56 180 80 Q160 92 122 86 Z')+P('M164 62 Q178 66 180 80 Q172 84 162 86 Z')+
+   C(108,70,6)+D(109,70,2.5)+
+   E(86,154,7,4)+E(102,155,7,4)+C(180,122,7)+D(180,122,2)},
+ {id:'lama',cat:'wereld',world:['zuid-amerika','Peru'],age:'2-4',name:'Lama in de bergen',word:'de lama',count:'Hoeveel poten zie je?',nums:'nywwwwwwwwwrw'+rep('g',9),draw:()=>
+   P('M0 120 L40 70 L80 110 L130 50 L200 120 L200 200 L0 200 Z')+C(170,36,14)+
+   R(66,130,10,50,3)+R(82,132,10,48,3)+R(116,132,10,48,3)+R(132,130,10,50,3)+
+   E(100,124,46,24)+R(126,62,18,70,8)+E(142,56,16,12)+
+   P('M130 48 L127 30 L137 44 Z')+P('M142 46 L145 28 L149 44 Z')+D(146,54,2.2)+
+   P('M76 104 L124 104 L120 132 L80 132 Z')+L('M80 116 L88 110 L96 116 L104 110 L112 116 L120 110')+
+   C(54,118,7)+grass(198)},
+ {id:'rif',cat:'wereld',world:['oceanie',''],age:'6-9',name:'Schildpad in het rif',word:'de schildpad',count:'Hoeveel visjes zie je?',nums:'ttbbyomgllllgyl',draw:()=>
+   C(160,40,5)+C(170,26,3)+
+   P('M20 60 Q34 50 48 60 Q34 70 20 60 Z')+P('M48 60 L56 54 L56 66 Z')+D(28,58,1.5)+
+   P('M0 180 Q50 170 100 180 T200 178 L200 200 L0 200 Z')+
+   P('M30 182 L30 140 Q30 130 36 130 Q42 130 42 140 L42 150 L50 120 Q54 112 58 120 L50 160 L56 182 Z')+
+   P('M150 182 Q140 150 150 130 Q160 150 156 160 Q170 140 176 150 Q170 170 168 182 Z')+
+   P('M80 182 Q70 150 84 130 Q74 150 90 182 Z')+
+   E(78,92,14,7,'rotate(-30 78 92)')+E(130,88,14,7,'rotate(30 130 88)')+E(82,124,12,6,'rotate(30 82 124)')+E(126,126,12,6,'rotate(-30 126 126)')+
+   E(104,108,32,24)+C(104,108,10)+L('M104 84 L104 98 M104 118 L104 132 M72 108 L94 108 M114 108 L136 108')+
+   C(144,100,10)+D(148,98,2)},
+ {id:'kangoeroe',cat:'wereld',world:['oceanie','Australië'],age:'4-6',name:'Kangoeroe met jong',word:'de kangoeroe',count:'Hoeveel kangoeroes zie je?',nums:'orwwwwokwwwwg',draw:()=>
+   C(40,40,18)+P('M0 176 Q100 166 200 176 L200 200 L0 200 Z')+
+   P('M64 160 Q24 168 10 188 Q40 188 74 170 Z')+E(104,182,26,7)+E(90,150,26,30)+
+   E(110,118,24,40,'rotate(15 110 118)')+C(126,136,9)+P('M108 138 Q122 164 138 134 Q122 144 108 138 Z')+D(123,133,1.4)+D(129,133,1.4)+
+   P('M124 104 L140 120 L136 124 L120 110 Z')+
+   E(116,48,5,12,'rotate(-20 116 48)')+E(127,46,5,12,'rotate(10 127 46)')+E(128,70,17,12,'rotate(-20 128 70)')+D(132,66,2.2)+D(143,74,2)+
+   E(172,162,20,14)},
+ {id:'kiwi',cat:'wereld',world:['oceanie','Nieuw-Zeeland'],age:'2-4',name:'Kiwi bij nacht',word:'de kiwi',count:'Hoeveel sterren zie je?',nums:'yyyglzoowwy',draw:()=>
+   P('M150 34 A16 16 0 1 0 150 66 A20 20 0 0 1 150 34 Z')+star(40,30,7,3)+star(100,22,6,2.6)+
+   P('M10 200 Q20 120 60 70 Q40 130 30 200 Z')+P('M190 200 Q180 120 140 70 Q160 130 170 200 Z')+
+   L('M22 160 L8 150 M26 130 L12 118 M34 108 L24 94 M178 160 L192 150 M174 130 L188 118 M166 108 L176 94')+
+   P('M0 182 Q100 174 200 182 L200 200 L0 200 Z')+
+   R(84,158,6,22,2)+R(104,158,6,22,2)+L('M80 182 L94 182 M100 182 L114 182')+
+   E(96,128,48,36)+C(140,106,16)+P('M152 110 Q178 136 190 168 Q174 144 148 118 Z')+D(145,102,2.5)+
+   L('M60 120 Q70 126 76 118 M80 140 Q90 146 96 138 M100 118 Q110 124 116 116 M66 146 Q74 150 80 144')},
+ {id:'pinguins',cat:'wereld',world:['antarctica',''],age:'2-4',name:'Pinguïns op het ijs',word:'de pinguïn',count:'Hoeveel pinguïns zie je?',nums:'tb'+rep('xxoox-xo',2)+'nn',draw:()=>
+   P('M0 120 L30 80 L60 110 L100 60 L150 110 L180 90 L200 110 L200 160 L0 160 Z')+
+   P('M0 150 L200 150 L200 200 L0 200 Z')+L('M20 172 L60 172 M120 186 L170 186')+
+   penguin(68,104,1.3)+penguin(140,118,.9)+
+   star(28,30,7,2.5,6)+star(176,36,6,2,6)},
+ {id:'mandala1',cat:'patronen',age:'9+',name:'Bloemenmandala',word:'',count:'',nums:'b'+rep('p',16)+'k'+rep('o',12)+'y'+rep('r',8)+'m',draw:()=>
+   C(100,100,94)+ring(16,74,9,18)+C(100,100,62)+ring(12,44,10,19,15)+C(100,100,28)+ring(8,17,6,11)+C(100,100,8)},
+ {id:'mandala2',cat:'patronen',age:'9+',name:'Sterrenmandala',word:'',count:'',nums:'n'+rep('b',24)+'lyk'+rep('m',12)+'or',draw:()=>
+   C(100,100,94)+ring(24,84,5,9)+C(100,100,74)+star(100,100,72,44,12)+C(100,100,42)+ring(12,28,7,13,15)+C(100,100,14)+star(100,100,12,6,6)},
+ {id:'quilt',cat:'patronen',age:'6-9',name:'Lappendeken',word:'',count:'',
+   nums:(()=>{let s='o';for(let i=0;i<4;i++)for(let j=0;j<4;j++){s+=(i+j)%2?'km':'bn';if(j%3===0)s+='y'}return s})(),
+   draw:()=>{
+   let s=R(14,14,172,172,4);
+   for(let i=0;i<4;i++)for(let j=0;j<4;j++){const x=20+i*40,y=20+j*40;
+     s+=(i+j)%2?P(`M${x} ${y} L${x+40} ${y} L${x} ${y+40} Z`)+P(`M${x+40} ${y} L${x+40} ${y+40} L${x} ${y+40} Z`)
+               :P(`M${x} ${y} L${x+40} ${y} L${x+40} ${y+40} Z`)+P(`M${x} ${y} L${x+40} ${y+40} L${x} ${y+40} Z`);
+     if((i*3+j)%3===0)s+=C(x+20,y+20,8);}
+   return s;}}
+];
+const byId=id=>PAGES.find(p=>p.id===id);
+const catOf=id=>CATS.find(c=>c.id===id);
+const ageOf=id=>AGES.find(a=>a.id===id);
+PAGES.forEach(p=>{const n=(p.draw().match(/class="r"/g)||[]).length;p.n=n;if(p.nums.length!==n)console.warn('nums mismatch',p.id,p.nums.length,n)});
+
+/* ---------- staat ---------- */
+const S={fills:{},names:{},learn:false,line:'auto',mode:'free',fridge:[],bookName:'',bookNum:false,bookLearn:false,cat:'alle',age:'alle',cont:'alle',land:'alle',hol:'alle',pick:[]};
+try{Object.assign(S,JSON.parse(localStorage.getItem('kh2')||'{}'))}catch(_){}
+let saveT;function save(){clearTimeout(saveT);saveT=setTimeout(()=>{try{localStorage.setItem('kh2',JSON.stringify(S))}catch(_){}},250)}
+let current=null,color=KEYS.r,undoStack=[],picking=false,wasDone=false;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const swFor=p=>S.line==='auto'?ageOf(p.age).sw:LINE_SW[S.line];
+const inCat=(p,c)=>c==='alle'||(c==='wereld'?!!p.world:c==='feest'?!!p.hol:p.cat===c);
+const matchCat=p=>{
+  if(!inCat(p,S.cat))return false;
+  if(S.cat==='wereld'){if(S.cont!=='alle'&&p.world[0]!==S.cont)return false;if(S.land!=='alle'&&p.world[1]!==S.land)return false}
+  if(S.cat==='feest'&&S.hol!=='alle'&&p.hol!==S.hol)return false;
+  return true};
+const matchAge=p=>S.age==='alle'||p.age===S.age;
+const visible=()=>PAGES.filter(p=>matchCat(p)&&matchAge(p));
+const legendKeys=p=>[...new Set(p.nums.replace(/-/g,''))];
+const autoFills=p=>{const f={};[...p.nums].forEach((k,i)=>{if(k!=='-')f[i]=KEYS[k]});return f};
+
+/* ---------- nummers plaatsen: zoek per vlak het ruimste zichtbare punt ---------- */
+const labelCache={};
+function computeLabels(p){
+  if(labelCache[p.id])return labelCache[p.id];
+  const host=$('measure');host.innerHTML=`<svg viewBox="0 0 200 200" width="400" height="400" xmlns="http://www.w3.org/2000/svg">${p.draw()}</svg>`;
+  const svg=host.firstElementChild,regs=[...svg.querySelectorAll('.r')];
+  const inv=regs.map(r=>r.getScreenCTM().inverse()),box=regs.map(r=>r.getBoundingClientRect());
+  const svgInv=svg.getScreenCTM().inverse(),scale=200/svg.getBoundingClientRect().width;
+  const pt=svg.createSVGPoint();
+  const dotsEl=[...svg.querySelectorAll('.dot')],dinv=dotsEl.map(d=>d.getScreenCTM().inverse());
+  const onDot=(x,y)=>dotsEl.some((d,k)=>{pt.x=x;pt.y=y;return d.isPointInFill(pt.matrixTransform(dinv[k]))});
+  const inside=(j,x,y)=>{pt.x=x;pt.y=y;return regs[j].isPointInFill(pt.matrixTransform(inv[j]))};
+  const keys=legendKeys(p),out=[];
+  regs.forEach((r,i)=>{
+    const key=p.nums[i];if(!key||key==='-')return;
+    const b=box[i],G=16,cells=[];
+    const later=[];for(let j=i+1;j<regs.length;j++){const o=box[j];if(o.right>b.left&&o.left<b.right&&o.bottom>b.top&&o.top<b.bottom)later.push(j)}
+    for(let gx=0;gx<G;gx++)for(let gy=0;gy<G;gy++){
+      const x=b.left+(gx+.5)*b.width/G,y=b.top+(gy+.5)*b.height/G;
+      cells.push({x,y,v:inside(i,x,y)&&!later.some(j=>inside(j,x,y))&&!onDot(x,y)});
+    }
+    const vis=cells.filter(c=>c.v),blk=cells.filter(c=>!c.v);
+    let best=null,bd=-1;
+    vis.forEach(c=>{let d=Math.min(c.x-b.left,b.right-c.x,c.y-b.top,b.bottom-c.y);
+      for(const o of blk){const e=Math.hypot(o.x-c.x,o.y-c.y);if(e<d)d=e}
+      if(d>bd){bd=d;best=c}});
+    if(!best){best={x:b.left+b.width/2,y:b.top+b.height/2};bd=4}
+    pt.x=best.x;pt.y=best.y;const q=pt.matrixTransform(svgInv);
+    out.push({i,key,num:keys.indexOf(key)+1,x:+q.x.toFixed(1),y:+q.y.toFixed(1),fs:+Math.max(4.5,Math.min(13,bd*scale*1.15)).toFixed(1)});
+  });
+  host.innerHTML='';
+  return labelCache[p.id]=out;
+}
+function labelsSVG(p,f){
+  f=f||{};
+  return `<g class="nums" aria-hidden="true">`+computeLabels(p).filter(l=>f[l.i]!==KEYS[l.key])
+    .map(l=>`<text class="num" x="${l.x}" y="${l.y}" font-size="${l.fs}">${l.num}</text>`).join('')+`</g>`;
+}
+
+/* ---------- plaat opbouwen ---------- */
+function svgFor(p,o={}){
+  const f=o.fills||{};let i=0;
+  const body=p.draw().replace(/class="r"/g,()=>{const k=i++;return `class="r" data-i="${k}"${f[k]?` style="fill:${f[k]}"`:''}`});
+  let y=200,extra='';
+  if(o.labels)extra+=labelsSVG(p,f);
+  if(o.name){const fs=Math.min(26,320/Math.max(o.name.length,4));
+    extra+=`<text class="r nm" data-i="${p.n}" x="100" y="${y+28}" text-anchor="middle" font-size="${fs.toFixed(1)}"${f[p.n]?` style="fill:${f[p.n]}"`:''}>${esc(o.name)}</text>`;y+=40}
+  if(o.learn&&p.word){const fs=Math.min(30,330/p.word.length);
+    extra+=`<path class="guide" d="M14 ${y+12} L186 ${y+12} M14 ${y+36} L186 ${y+36}" stroke-dasharray="3 3"/><path class="guide" d="M14 ${y+24} L186 ${y+24}"/>`+
+      `<text class="trace" x="100" y="${y+36}" text-anchor="middle" font-size="${fs.toFixed(1)}">${esc(p.word)}</text>`;y+=46;
+    if(p.count){extra+=`<text class="q" x="14" y="${y+14}" font-size="9">${esc(p.count)}</text><rect class="ans" x="160" y="${y}" width="26" height="20" rx="4"/>`;y+=28}}
+  if(o.legend){const ks=legendKeys(p),sp=Math.min(26,184/ks.length),x0=100-sp*(ks.length-1)/2;
+    extra+=ks.map((k,j)=>`<circle class="lg" cx="${(x0+j*sp).toFixed(1)}" cy="${y+10}" r="7" fill="${KEYS[k]}"/><text class="lgt" x="${(x0+j*sp).toFixed(1)}" y="${y+27}">${j+1}</text>`).join('');y+=32}
+  return `<svg class="sheet" viewBox="0 0 200 ${y}" style="--sw:${o.sw||swFor(p)}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(p.name)}">${body}${extra}</svg>`;
+}
+function coverSVG(name,count){
+  const uil=byId('uil'),slak=byId('slak');
+  const fs=name?Math.min(30,300/Math.max(name.length+4,6)):0;
+  return `<svg class="sheet" viewBox="0 0 200 270" style="--sw:2.4" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Voorblad">
+   <rect x="8" y="8" width="184" height="254" rx="12" fill="none" stroke="#1d1b22" stroke-width="2.4"/>
+   ${star(30,32,10,4)}${star(172,36,8,3.5)}${star(166,128,7,3)}
+   <text class="r nm" x="100" y="70" text-anchor="middle" font-size="21">Mijn kleurboek</text>
+   ${name?`<text class="r nm" x="100" y="108" text-anchor="middle" font-size="${fs.toFixed(1)}">van ${esc(name)}</text>`:''}
+   <g transform="translate(12 124) scale(.6)">${uil.draw()}</g>
+   <g transform="translate(98 150) scale(.48)">${slak.draw()}</g>
+   <text x="100" y="252" text-anchor="middle" font-family="KHN,Nunito,sans-serif" font-size="8" fill="#5d6672">${count} kleurplaten · Kleurhoek</text></svg>`;
+}
+
+/* ---------- home ---------- */
+function cardHTML(p,extraCls=''){
+  const c=catOf(p.cat),a=ageOf(p.age),on=S.pick.includes(p.id),lb=labelFor(p);
+  return `<button class="card ${extraCls}" type="button" data-id="${p.id}" style="--c:${lb.c}"${picking?` aria-pressed="${on}"`:''}><span class="tick" aria-hidden="true">${on?'✓':''}</span><div class="paper">${svgFor(p,{fills:S.fills[p.id]})}</div><b>${esc(p.name)}</b><em><i></i>${esc(lb.t)}<span class="yr">${a.name} jr</span></em></button>`;
+}
+function labelFor(p){
+  const c=catOf(p.cat);
+  if(p.world&&(p.cat==='wereld'||S.cat==='wereld')){const w=contOf(p.world[0]);return{t:p.world[1]||w.name,c:w.c}}
+  if(p.hol&&(p.cat==='feest'||S.cat==='feest'))return{t:holOf(p.hol).name,c:catOf('feest').c};
+  return{t:c.name,c:c.c};
+}
+function renderMascot(){$('mascot').innerHTML=svgFor(byId('uil'),{fills:autoFills(byId('uil')),sw:3})}
+function renderSeason(){
+  const now=new Date(),y=now.getFullYear(),day=864e5;
+  const W=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+  const spans=SPANS.filter(s=>{const a=new Date(y,s.from[0]-1,s.from[1]),b=new Date(y,s.to[0]-1,s.to[1],23,59);return a<=now&&now<=b});
+  const hs=HOLIDAYS.map(h=>({h,d:nextDate(h,now)})).filter(x=>x.d);
+  const act=hs.filter(({h,d})=>d-(h.lead||0)*day<=now).sort((a,b)=>a.d-b.d);
+  const soon=hs.filter(({h,d})=>d-(h.lead||0)*day>now&&d-now<=60*day).sort((a,b)=>a.d-b.d);
+  const el=$('season');
+  const names=[...spans.map(s=>s.name),...act.map(x=>x.h.name)];
+  if(!names.length&&!soon.length){el.hidden=true;return}
+  el.hidden=false;
+  const ids=[...new Set([...act.flatMap(x=>PAGES.filter(p=>p.hol===x.h.id).map(p=>p.id)),...spans.flatMap(s=>s.pages),...soon.flatMap(x=>PAGES.filter(p=>p.hol===x.h.id).map(p=>p.id))])].slice(0,10);
+  const list=names.length>1?names.slice(0,-1).join(', ')+' en '+names[names.length-1]:(names[0]||'Bijna feest');
+  el.innerHTML=`<div class="tear" aria-label="Vandaag"><span class="tm">${MONTHS[now.getMonth()].slice(0,3)}</span><b>${now.getDate()}</b><span class="td">${W[now.getDay()]}</span></div>
+   <div class="season-txt"><p class="eyebrow">Nu in het seizoen</p><h2>${list}</h2>
+   ${act.length?`<p class="soon">${act.map(x=>`<b>${x.h.name}</b> (${dateLabel(x.h,x.d)})`).join(' · ')}</p>`:''}
+   ${soon.length?`<p class="soon">Binnenkort: ${soon.map(x=>`<b>${x.h.name}</b> (${dateLabel(x.h,x.d)})`).join(' · ')}</p>`:''}
+   <div class="minis">${ids.map(id=>cardHTML(byId(id),'mini')).join('')}</div></div>`;
+}
+function renderChips(){
+  const all=[{id:'alle',name:'Alles',c:'var(--fg)'},...CATS];
+  $('chips').innerHTML=all.map(c=>{
+    const n=PAGES.filter(p=>matchAge(p)&&inCat(p,c.id)).length;
+    return `<button class="chip" type="button" data-cat="${c.id}" style="--c:${c.c}" aria-pressed="${c.id===S.cat}"><i></i>${c.name} <small>${n}</small></button>`}).join('');
+}
+function chipHTML(attr,id,name,c,n,on){return `<button class="chip" type="button" data-${attr}="${esc(id)}" style="--c:${c}" aria-pressed="${on}"><i></i>${esc(name)} <small>${n}</small></button>`}
+function renderSub(){
+  const world=S.cat==='wereld',feest=S.cat==='feest';
+  $('contRow').hidden=!world;$('landRow').hidden=true;$('holRow').hidden=!feest;
+  const aged=PAGES.filter(matchAge);
+  if(world){
+    const wp=aged.filter(p=>p.world);
+    $('conts').innerHTML=chipHTML('cont','alle','Hele wereld','var(--fg)',wp.length,S.cont==='alle')+
+      CONTS.map(c=>chipHTML('cont',c.id,c.name,c.c,wp.filter(p=>p.world[0]===c.id).length,S.cont===c.id)).join('');
+    const cont=contOf(S.cont);
+    if(cont){
+      const lands=[...new Set(PAGES.filter(p=>p.world&&p.world[0]===cont.id&&p.world[1]).map(p=>p.world[1]))].sort((a,b)=>a.localeCompare(b,'nl'));
+      if(lands.length){
+        const cp=wp.filter(p=>p.world[0]===cont.id);
+        $('landRow').hidden=false;
+        $('lands').innerHTML=chipHTML('land','alle','Heel '+cont.name,cont.c,cp.length,S.land==='alle')+
+          lands.map(l=>chipHTML('land',l,l,cont.c,cp.filter(p=>p.world[1]===l).length,S.land===l)).join('');
+      }
+    }
+  }
+  if(feest){
+    const fp=aged.filter(p=>p.hol),c=catOf('feest').c;
+    $('hols').innerHTML=chipHTML('hol','alle','Alle feestdagen','var(--fg)',fp.length,S.hol==='alle')+
+      HOLIDAYS.map(h=>chipHTML('hol',h.id,h.name,c,fp.filter(p=>p.hol===h.id).length,S.hol===h.id)).join('');
+  }
+}
+const dots=n=>`<span class="lv" aria-hidden="true">${[1,2,3,4].map(k=>`<b class="${k<=n?'on':''}"></b>`).join('')}</span>`;
+function renderAges(){
+  $('ages').innerHTML=[{id:'alle',name:'Alle leeftijden'},...AGES].map(a=>
+    `<button type="button" data-age="${a.id}" aria-pressed="${a.id===S.age}">${a.lv?dots(a.lv):''}${a.id==='alle'?a.name:a.name+' jaar'}</button>`).join('');
+  const a=ageOf(S.age);$('agehint').textContent=a?a.hint:'';
+}
+function renderGrid(){
+  const list=visible(),g=$('grid');
+  g.classList.toggle('picking',picking);$('season').classList.toggle('picking',picking);
+  if(!list.length){g.innerHTML=`<div class="empty">${svgFor(byId('slak'),{fills:autoFills(byId('slak'))})}<b>Sjors zoekt nog</b><span>Er zijn nog geen platen voor deze combinatie. Kies een ander onderwerp of een andere leeftijd.</span><button class="btn" type="button" id="clearF">Toon alle platen</button></div>`;return}
+  g.innerHTML=list.map(p=>cardHTML(p)).join('');
+}
+function renderFridge(){
+  const w=$('fridgeWrap');w.hidden=!S.fridge.length;if(!S.fridge.length)return;
+  const MC=['#e2483d','#2f5bd3','#f2c618','#2fa45a','#d0479b','#ff8a3d'];
+  $('fridge').innerHTML=S.fridge.map((it,k)=>{const p=byId(it.id);if(!p)return'';
+    return `<div class="magw"><button class="mag" type="button" data-k="${k}" style="--rot:${[-3,2,-1.5,3,-2,1][k%6]}deg;--mc:${MC[k%6]}" aria-label="${esc(p.name)} verder kleuren">${svgFor(p,{fills:it.fills,name:it.name,sw:2})}</button>
+     <small><span>${esc(p.name)} · ${it.date}</span><button class="linkbtn" type="button" data-del="${k}">Haal eraf</button></small></div>`}).join('');
+}
+function renderHome(){renderSeason();renderChips();renderSub();renderAges();renderGrid();renderFridge()}
+
+/* ---------- tekentafel ---------- */
+function renderPalette(){
+  const num=S.mode==='num';
+  $('palTitle').textContent=num?'Kleur bij elk nummer':'Kleuren';
+  const list=num?legendKeys(current).map((k,j)=>({c:KEYS[k],n:j+1,lab:`${j+1}: ${KEYNAME[k]}`})):COLORS.map(c=>({c,lab:nameOfColor(c)}));
+  if(num&&!list.some(x=>x.c===color)&&color!==ERASER)color=list[0].c;
+  $('pal').innerHTML=list.map(x=>`<button class="sw" type="button" style="--c:${x.c}" data-c="${x.c}" aria-label="${x.lab}" aria-pressed="${x.c===color}">${x.n?`<span>${x.n}</span>`:''}</button>`).join('')
+   +`<button class="sw eraser" type="button" data-c="${ERASER}" aria-label="Gum" aria-pressed="${color===ERASER}"></button>`;
+}
+function renderSegs(){
+  $('modeSeg').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.mode===S.mode));
+  $('lineSeg').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.line===S.line));
+}
+function isDone(){const L=computeLabels(current),f=S.fills[current.id]||{};return L.length>0&&L.every(l=>f[l.i]===KEYS[l.key])}
+function renderCanvas(){
+  $('canvas').innerHTML=svgFor(current,{fills:S.fills[current.id],name:S.names[current.id]||'',learn:S.learn,labels:S.mode==='num'});
+  updateProgress(false);
+}
+function refreshLabels(){
+  const svg=$('canvas').querySelector('svg'),old=svg.querySelector('.nums');
+  if(S.mode!=='num'){old?.remove();return}
+  const tmp=document.createElementNS('http://www.w3.org/2000/svg','g');
+  tmp.innerHTML=labelsSVG(current,S.fills[current.id]);
+  const g=tmp.firstElementChild;
+  old?old.replaceWith(g):svg.appendChild(g);
+}
+function updateProgress(celebrate=true){
+  const num=S.mode==='num';$('prog').hidden=!num;if(!num)return;
+  const L=computeLabels(current),f=S.fills[current.id]||{};
+  const ok=L.filter(l=>f[l.i]===KEYS[l.key]).length;
+  $('progTxt').textContent=ok===L.length?'Alles goed gekleurd!':`${ok} van ${L.length} vlakken goed`;
+  $('progBar').style.width=(L.length?ok/L.length*100:0)+'%';
+  const done=L.length>0&&ok===L.length;
+  if(done&&!wasDone&&celebrate)party();
+  wasDone=done;
+}
+function open(id,fills){
+  current=byId(id);undoStack=[];
+  if(fills)S.fills[id]={...fills};
+  $('stTitle').textContent=current.name;$('nameIn').value=S.names[id]||'';
+  renderSegs();renderPalette();
+  wasDone=S.mode==='num'&&isDone();
+  renderCanvas();
+  $('studio').hidden=false;document.body.style.overflow='hidden';$('back').focus();save();
+}
+function closeStudio(){
+  $('studio').hidden=true;document.body.style.overflow='';renderHome();
+  const card=document.querySelector(`#grid .card[data-id="${current.id}"]`);if(card)card.focus();
+}
+function paint(i,c){
+  const f=S.fills[current.id]||(S.fills[current.id]={});
+  if(c===ERASER||!c)delete f[i];else f[i]=c;
+  const r=$('canvas').querySelector(`[data-i="${i}"]`);if(r)r.style.fill=f[i]||'';
+  if(S.mode==='num'){refreshLabels();updateProgress()}
+  save();
+}
+
+/* ---------- feedback ---------- */
+let toastT;
+function toast(msg,cls=''){const t=$('toast');t.className='toast '+cls;t.textContent=msg;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>t.hidden=true,2600)}
+function party(){
+  toast('Helemaal goed! Oki is trots op je.','party');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const c=document.createElement('div');c.className='confetti';
+  c.innerHTML=Array.from({length:60},()=>`<i style="left:${(Math.random()*100).toFixed(1)}%;background:${COLORS[Math.floor(Math.random()*11)]};animation-delay:${(Math.random()*.6).toFixed(2)}s"></i>`).join('');
+  document.body.appendChild(c);setTimeout(()=>c.remove(),2600);
+}
+
+/* ---------- boekje ---------- */
+function setPicking(on){
+  picking=on;$('pickbar').hidden=!on;$('bookBtn').textContent=on?'Platen kiezen…':'Maak een boekje';
+  updatePickbar();renderSeason();renderGrid();
+}
+function updatePickbar(){const n=S.pick.length;$('pickCount').textContent=n===1?'1 plaat gekozen':`${n} platen gekozen`;$('pickGo').disabled=!n}
+function openBook(){
+  $('bookName').value=S.bookName;$('bookNum').checked=S.bookNum;$('bookLearn').checked=S.bookLearn;
+  renderBook();$('book').hidden=false;document.body.style.overflow='hidden';$('bookBack').focus();
+}
+function renderBook(){
+  const list=S.pick.map(byId).filter(Boolean);
+  $('bookInfo').textContent=`Voorblad en ${list.length} ${list.length===1?'plaat':'platen'}, elk op een eigen A4.`;
+  $('sheets').innerHTML=`<div class="a4">${coverSVG(S.bookName,list.length)}<span class="pg">Voorblad</span></div>`+
+    list.map((p,k)=>`<div class="a4"><button class="x" type="button" data-rm="${p.id}" aria-label="${esc(p.name)} weghalen">×</button><h4>${esc(p.name)}</h4>${svgFor(p,{learn:S.bookLearn,legend:S.bookNum,labels:S.bookNum})}<span class="pg">Blad ${k+1}</span></div>`).join('');
+}
+
+/* ---------- printen: printvenster op de losse site, anders een A4-PDF ---------- */
+const footTxt=p=>`Kleurhoek · ${p.world?(p.world[1]||contOf(p.world[0]).name):p.hol?holOf(p.hol).name:catOf(p.cat).name} · ${ageOf(p.age).name} jaar`;
+const slug=s=>s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'kleurplaat';
+function printCurrent(e){
+  const num=S.mode==='num';
+  outputSheets([{title:current.name,foot:footTxt(current),svg:svgFor(current,{fills:S.fills[current.id],name:S.names[current.id]||'',learn:S.learn,labels:num,legend:num})}],
+    slug(current.name)+(num?'-kleur-op-nummer':'')+'.pdf',e&&e.currentTarget);
+}
+function printList(list,o={},btn){
+  const specs=(o.cover?[{cover:true,svg:coverSVG(S.bookName,list.length)}]:[]).concat(
+    list.map(p=>({title:p.name,foot:footTxt(p),svg:svgFor(p,{learn:o.learn,legend:o.num,labels:o.num})})));
+  outputSheets(specs,(o.cover?'kleurboek'+(S.bookName?'-'+slug(S.bookName):''):'kleurplaten')+'.pdf',btn);
+}
+function outputSheets(specs,fname,btn){
+  if(CAN_PRINT){
+    $('printArea').innerHTML=specs.map(s=>s.cover?`<div class="pp">${s.svg}</div>`:`<div class="pp"><h2>${esc(s.title)}</h2>${s.svg}<p>${esc(s.foot)}</p></div>`).join('');
+    window.print();return;
+  }
+  makePdf(specs,fname,btn);
+}
+let jspdfP=null,fontsP=null;
+function loadJsPDF(){return jspdfP||(jspdfP=new Promise((res,rej)=>{
+  if(window.jspdf)return res(window.jspdf);
+  const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+  s.onload=()=>res(window.jspdf);s.onerror=()=>{jspdfP=null;rej(new Error('jspdf'))};document.head.appendChild(s)}))}
+function loadFonts(){return fontsP||(fontsP=(async()=>{
+  const a=new FontFace('KHS',`url(${FONT_S})`),b=new FontFace('KHN',`url(${FONT_N})`);
+  await Promise.all([a.load(),b.load()]);document.fonts.add(a);document.fonts.add(b)})())}
+function svgImage(svg,w,h){
+  const sw=+((svg.match(/--sw:([\d.]+)/)||[0,2.4])[1]);
+  const css=`@font-face{font-family:KHS;src:url(${FONT_S})}@font-face{font-family:KHN;src:url(${FONT_N})}`+
+   `.r{fill:#fff;stroke:#1d1b22;stroke-width:${sw};stroke-linejoin:round}.l{fill:none;stroke:#1d1b22;stroke-width:${sw};stroke-linecap:round;stroke-linejoin:round}.dot{fill:#1d1b22}`+
+   `text.nm{font-family:KHS;font-weight:800;stroke-width:${sw*.5}}.trace{font-family:KHS;font-weight:800;fill:none;stroke:#8a9099;stroke-width:.9;stroke-dasharray:1.6 2.2}`+
+   `.guide{stroke:#c3c9cf;stroke-width:.7;fill:none}.q{font-family:KHN;font-weight:800;fill:#1d1b22}.ans{fill:#fff;stroke:#1d1b22;stroke-width:1.2}`+
+   `.num{font-family:KHN;font-weight:800;fill:#1d1b22;text-anchor:middle;dominant-baseline:central;paint-order:stroke;stroke:#fff;stroke-width:1.4}`+
+   `.lg{stroke:#1d1b22;stroke-width:1}.lgt{font-family:KHN;font-weight:800;font-size:8px;fill:#1d1b22;text-anchor:middle}`;
+  const s=svg.replace(/<svg([^>]*)>/,(m,a)=>`<svg${a} width="${w}" height="${h}"><style>${css}</style>`);
+  return new Promise((res,rej)=>{const url=URL.createObjectURL(new Blob([s],{type:'image/svg+xml'}));const im=new Image();
+    im.onload=()=>{res(im);setTimeout(()=>URL.revokeObjectURL(url),2000)};im.onerror=()=>rej(new Error('svg'));im.src=url});
+}
+async function renderPdf(specs,onPage){
+  const [{jsPDF}]=await Promise.all([loadJsPDF(),loadFonts()]);
+  const doc=new jsPDF({unit:'mm',format:'a4',compress:true});
+  const DPI=150,px=mm=>Math.round(mm/25.4*DPI),W=px(210),H=px(297);
+  const cv=document.createElement('canvas');cv.width=W;cv.height=H;const ctx=cv.getContext('2d');
+  for(let k=0;k<specs.length;k++){
+    const s=specs[k];onPage&&onPage(k+1,specs.length);
+    ctx.fillStyle='#fff';ctx.fillRect(0,0,W,H);ctx.textAlign='center';
+    const vh=+(s.svg.match(/viewBox="0 0 200 ([\d.]+)"/)||[0,200])[1];
+    let top=px(14),maxH=px(269),maxW=px(182);
+    if(!s.cover){ctx.fillStyle='#1d1b22';ctx.font=`800 ${px(8)}px KHS, sans-serif`;ctx.textBaseline='top';ctx.fillText(s.title,W/2,top);top+=px(17);maxH=H-top-px(24)}
+    let w=maxW,h=w*vh/200;if(h>maxH){h=maxH;w=h*200/vh}
+    const im=await svgImage(s.svg,Math.round(w),Math.round(h));
+    ctx.drawImage(im,(W-w)/2,top,w,h);
+    if(!s.cover){ctx.fillStyle='#6b7280';ctx.font=`800 ${px(3.3)}px KHN, sans-serif`;ctx.textBaseline='bottom';ctx.fillText(s.foot,W/2,H-px(12))}
+    if(k)doc.addPage();
+    doc.addImage(cv.toDataURL('image/png'),'PNG',0,0,210,297,undefined,'FAST');
+    await new Promise(r=>setTimeout(r,0));
+  }
+  return doc.output('blob');
+}
+let busy=false;
+async function makePdf(specs,fname,btn){
+  if(busy)return;busy=true;
+  const label=btn?btn.textContent:'';if(btn){btn.disabled=true;btn.textContent='PDF maken…'}
+  try{
+    const blob=await renderPdf(specs,(i,n)=>{if(n>2&&btn)btn.textContent=`Blad ${i} van ${n}…`});
+    const dl=await downloadsP;
+    if(!dl){toast('Opslaan werkt niet in deze weergave.');return}
+    try{await dl.save({filename:fname,data:blob});toast('PDF opgeslagen. Open hem en print op A4.')}
+    catch(err){if(err&&err.code==='rate_limited')toast('Er staat al een vraag open om op te slaan.');else if(!err||err.code!=='declined')toast('Opslaan lukte niet. Probeer het later nog eens.')}
+  }catch(_){toast('De PDF kon niet worden gemaakt. Controleer je internetverbinding en probeer het opnieuw.')}
+  finally{busy=false;if(btn){btn.disabled=false;btn.textContent=label}}
+}
+const downloadsP=CAN_PRINT?Promise.resolve(null):new Promise(res=>{let n=0;(function t(){
+  if(window.claude&&window.claude.use)Promise.resolve(window.claude.use('downloads')).then(res,()=>res(null));
+  else if(++n>60)res(null);else setTimeout(t,150)})()});
+
+/* ---------- events ---------- */
+$('chips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;S.cat=b.dataset.cat;renderChips();renderSub();renderGrid();save()});
+$('conts').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;S.cont=b.dataset.cont;S.land='alle';renderSub();renderGrid();save()});
+$('lands').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;S.land=b.dataset.land;renderSub();renderGrid();save()});
+$('hols').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;S.hol=b.dataset.hol;renderSub();renderGrid();save()});
+$('ages').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;S.age=b.dataset.age;renderAges();renderChips();renderSub();renderGrid();save()});
+function cardClick(e){
+  if(e.target.closest('#clearF')){S.cat='alle';S.age='alle';S.cont='alle';S.land='alle';S.hol='alle';renderChips();renderSub();renderAges();renderGrid();save();return}
+  const b=e.target.closest('.card');if(!b)return;const id=b.dataset.id,where=e.currentTarget.id;
+  if(picking){const k=S.pick.indexOf(id);k<0?S.pick.push(id):S.pick.splice(k,1);updatePickbar();renderSeason();renderGrid();save();
+    const again=document.querySelector(`#${where} .card[data-id="${id}"]`);if(again)again.focus();return}
+  open(id);
+}
+$('grid').addEventListener('click',cardClick);$('season').addEventListener('click',cardClick);
+$('lucky').addEventListener('click',()=>{const l=visible().length?visible():PAGES;open(l[Math.floor(Math.random()*l.length)].id)});
+$('fridge').addEventListener('click',e=>{
+  const d=e.target.closest('[data-del]');
+  if(d){if(d.dataset.sure){S.fridge.splice(+d.dataset.del,1);save();renderFridge()}else{d.dataset.sure='1';d.textContent='Zeker?';setTimeout(()=>{if(d.isConnected){d.textContent='Haal eraf';delete d.dataset.sure}},2500)}return}
+  const m=e.target.closest('.mag');if(!m)return;const it=S.fridge[+m.dataset.k];S.names[it.id]=it.name||'';open(it.id,it.fills);
+});
+$('pal').addEventListener('click',e=>{const b=e.target.closest('.sw');if(!b)return;color=b.dataset.c;renderPalette()});
+$('canvas').addEventListener('click',e=>{
+  const r=e.target.closest('.r');if(!r)return;const i=r.dataset.i,f=S.fills[current.id]||{};
+  undoStack.push({i,prev:f[i]});paint(i,color);
+});
+$('undo').addEventListener('click',()=>{const u=undoStack.pop();if(u)paint(u.i,u.prev)});
+$('reset').addEventListener('click',()=>{
+  const b=$('reset');
+  if(b.dataset.sure){delete S.fills[current.id];undoStack=[];wasDone=false;renderCanvas();save();b.textContent='Opnieuw';delete b.dataset.sure}
+  else{b.dataset.sure='1';b.textContent='Zeker? Tik nog eens';setTimeout(()=>{b.textContent='Opnieuw';delete b.dataset.sure},2500)}
+});
+$('modeSeg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;S.mode=b.dataset.mode;renderSegs();renderPalette();
+  wasDone=S.mode==='num'&&isDone();renderCanvas();save()});
+$('lineSeg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;S.line=b.dataset.line;renderSegs();renderCanvas();save()});
+$('nameIn').addEventListener('input',e=>{S.names[current.id]=e.target.value;renderCanvas();save()});
+$('learnIn').addEventListener('change',e=>{S.learn=e.target.checked;renderCanvas();save()});
+$('toFridge').addEventListener('click',()=>{
+  const d=new Date(),M=['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'];
+  S.fridge.unshift({id:current.id,fills:{...(S.fills[current.id]||{})},name:S.names[current.id]||'',date:`${d.getDate()} ${M[d.getMonth()]}`});
+  S.fridge=S.fridge.slice(0,24);save();toast('Opgehangen op de koelkast');
+});
+$('back').addEventListener('click',closeStudio);
+$('printOne').addEventListener('click',printCurrent);
+$('printAll').addEventListener('click',e=>printList(visible().length?visible():PAGES,{},e.currentTarget));
+$('bookBtn').addEventListener('click',()=>setPicking(!picking));
+$('pickStop').addEventListener('click',()=>setPicking(false));
+$('pickGo').addEventListener('click',openBook);
+$('bookBack').addEventListener('click',()=>{$('book').hidden=true;document.body.style.overflow='';renderSeason();renderGrid()});
+$('bookName').addEventListener('input',e=>{S.bookName=e.target.value;renderBook();save()});
+$('bookNum').addEventListener('change',e=>{S.bookNum=e.target.checked;renderBook();save()});
+$('bookLearn').addEventListener('change',e=>{S.bookLearn=e.target.checked;renderBook();save()});
+$('sheets').addEventListener('click',e=>{const b=e.target.closest('[data-rm]');if(!b)return;S.pick=S.pick.filter(x=>x!==b.dataset.rm);updatePickbar();renderBook();save()});
+$('bookPrint').addEventListener('click',e=>printList(S.pick.map(byId).filter(Boolean),{cover:true,num:S.bookNum,learn:S.bookLearn},e.currentTarget));
+document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;
+  if(!$('book').hidden)$('bookBack').click();else if(!$('studio').hidden)closeStudio();else if(picking)setPicking(false)});
+
+/* ---------- start ---------- */
+if(!CATS.some(c=>c.id===S.cat))S.cat='alle';
+if(!ageOf(S.age))S.age='alle';
+if(S.cont!=='alle'&&!contOf(S.cont))S.cont='alle';
+if(typeof S.land!=='string')S.land='alle';
+if(S.hol!=='alle'&&!holOf(S.hol))S.hol='alle';
+if(!['free','num'].includes(S.mode))S.mode='free';
+if(!(S.line in LINE_SW)&&S.line!=='auto')S.line='auto';
+S.pick=S.pick.filter(byId);
+if(!S.names||typeof S.names!=='object')S.names={};
+$('learnIn').checked=S.learn;
+if(CAN_PRINT)document.querySelectorAll('[data-print]').forEach(b=>b.hidden=false);
+else downloadsP.then(d=>{if(d)document.querySelectorAll('[data-print]').forEach(b=>{b.textContent=b.dataset.pdf;b.hidden=false})});
+renderMascot();renderHome();
+</script>
