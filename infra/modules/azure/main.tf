@@ -107,8 +107,9 @@ resource "azurerm_postgresql_flexible_server" "main" {
   public_network_access_enabled = false
   administrator_login           = "kleurhoek_admin"
   administrator_password        = random_password.postgres.result
-  zone                          = "1"
-  tags                          = local.tags
+  # Alleen bij high availability een vaste zone; anders kiest Azure een zone met capaciteit.
+  zone = var.postgres.high_availability ? "1" : null
+  tags = local.tags
 
   dynamic "high_availability" {
     for_each = var.postgres.high_availability ? [1] : []
@@ -122,6 +123,10 @@ resource "azurerm_postgresql_flexible_server" "main" {
     day_of_week  = 0
     start_hour   = 3
     start_minute = 0
+  }
+
+  lifecycle {
+    ignore_changes = [zone, high_availability[0].standby_availability_zone]
   }
 
   depends_on = [azurerm_private_dns_zone_virtual_network_link.postgres]
