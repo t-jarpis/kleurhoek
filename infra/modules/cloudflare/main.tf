@@ -112,7 +112,7 @@ resource "tls_cert_request" "origin" {
 
 resource "cloudflare_origin_ca_certificate" "origin" {
   csr                = tls_cert_request.origin.cert_request_pem
-  hostnames          = [local.site_host, local.admin_host]
+  hostnames          = sort([local.site_host, local.admin_host]) # Cloudflare geeft ze gesorteerd terug
   request_type       = "origin-ecc"
   requested_validity = 5475
 }
