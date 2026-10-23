@@ -25,6 +25,10 @@ const describe = (e) => {
     log(JSON.stringify(r.rows[0]));
     const m = await pool.query("select count(*) as n from drizzle.__drizzle_migrations").catch((e) => ({ rows: [{ n: `geen tabel (${e.message})` }] }));
     log(`toegepaste migraties: ${m.rows[0].n}`);
+    const mem = await pool.query(`select r.rolname as role, g.rolname as grantor, m.admin_option, m.inherit_option, m.set_option
+      from pg_auth_members m join pg_roles r on r.oid = m.roleid join pg_roles g on g.oid = m.grantor
+      where m.member = (select oid from pg_roles where rolname = current_user)`).catch((e) => ({ rows: [`fout: ${e.message}`] }));
+    log(`lidmaatschappen: ${JSON.stringify(mem.rows)}`);
     await pool.end();
     const { connectPostgres } = require("./dist/db/database");
     const h = connectPostgres(process.env.DATABASE_URL, { ca });
