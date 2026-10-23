@@ -21,7 +21,7 @@ export function normalizeMarket(value: unknown): string | null {
   return typeof value === "string" && /^[a-z]{2}-[a-z]{2}$/i.test(value) ? `${value.slice(0, 2).toLowerCase()}-${value.slice(3).toUpperCase()}` : null;
 }
 
-export async function ingest(req: Request, event: { type: string; market: string; plate?: string | undefined; product?: string | undefined }) {
+export async function ingest(req: Request, event: { type: string; market: string; plate?: string | undefined; product?: string | undefined; page?: string | undefined }) {
   const ua = req.headers.get("user-agent") ?? "";
   const ip = req.headers.get("cf-connecting-ip") ?? req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "";
   const country = (req.headers.get("cf-ipcountry") ?? process.env.DEV_COUNTRY ?? "").toUpperCase();
@@ -31,6 +31,9 @@ export async function ingest(req: Request, event: { type: string; market: string
   const body = {
     type: event.type, market: event.market, device: device(ua), visitorHash,
     ...(event.plate ? { plate: event.plate } : {}), ...(event.product ? { product: event.product } : {}),
+    ...(event.page ? { page: event.page } : {}),
+    // Organisatie van de site (de proxy zet x-kh-org, ADR 0017).
+    ...(/^[a-z0-9-]{1,32}$/.test(req.headers.get("x-kh-org") ?? "") ? { org: req.headers.get("x-kh-org")! } : {}),
     ...(/^[A-Z]{2}$/.test(country) ? { country } : {}),
   };
   try {

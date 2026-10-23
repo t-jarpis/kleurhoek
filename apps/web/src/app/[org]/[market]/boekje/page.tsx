@@ -5,6 +5,7 @@ import { labelFor } from "@/components/labels";
 import { api, NotFound } from "@/lib/api";
 import { marketLanguage } from "@/lib/markets";
 import { parseBook } from "@/lib/studio";
+import { Track } from "@/components/Track";
 import { messages } from "@/i18n/nl";
 import { getOrg } from "@/lib/org";
 
@@ -39,5 +40,10 @@ export default async function BookPage({ params, searchParams }: { params: Promi
     Promise.all(slugs.map(load)),
     Promise.all(["uil", "slak"].map((s) => load(s).then((m) => m?.inner ?? null))),
   ]);
-  return <Booklet market={market} language={language} items={items.filter((i): i is BookPlate => i !== null)} mascots={mascots} title={t.book} />;
+  return (
+    <>
+      <Track event={{ type: "page_view", market, page: "boekje" }} />
+      <Booklet market={market} language={language} items={items.filter((i): i is BookPlate => i !== null)} mascots={mascots} title={t.book} />
+    </>
+  );
 }

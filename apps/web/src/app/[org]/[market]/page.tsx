@@ -36,7 +36,7 @@ export default async function Home({ params }: { params: Promise<{ org: string; 
       <Fridge market={market} plates={plates} language={language} />
       <p className="note">{t.note}</p>
       <PickBar market={market} language={language} />
-      <Track event={{ type: "page_view", market }} />
+      <Track event={{ type: "page_view", market, page: "home" }} />
     </div>
   );
 }

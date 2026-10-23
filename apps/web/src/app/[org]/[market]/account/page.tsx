@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Logo } from "@/components/Logo";
 import { AccountPanel } from "@/components/AccountPanel";
+import { Track } from "@/components/Track";
 import { marketLanguage } from "@/lib/markets";
 import { messages } from "@/i18n/nl";
 import { notFound } from "next/navigation";
@@ -15,6 +16,7 @@ export default async function AccountPage({ params }: { params: Promise<{ org: s
   const t = messages(marketLanguage(market));
   return (
     <div className="wrap narrow" data-mode="ouder">
+      <Track event={{ type: "page_view", market, page: "account" }} />
       <header className="mast"><Logo market={market} org={org} /><a className="btn" href={`/${market}`}>{t.back}</a></header>
       <h1 className="page-title">{t.account}</h1>
       <AccountPanel market={market} t={{

@@ -142,6 +142,11 @@
   --color-sponsored-bg: #fdf0d8;
   --color-celebrate: #f2c618;
   --color-overlay: rgba(24,24,27,0.45);
+  --chart-1: #2f5bd3;
+  --chart-2: #d97014;
+  --chart-3: #9b4fd0;
+  --chart-4: #1f8f5a;
+  --chart-grid: #ececea;
   --plate-ink: #1d1b22;
   --plate-glue-fill: #d5d9de;
   --plate-glue-stroke: #9aa1a9;
@@ -184,6 +189,11 @@
     --color-sponsored-bg: #2b2418;
     --color-celebrate: #f2c618;
     --color-overlay: rgba(0,0,0,0.6);
+    --chart-1: #6384f0;
+    --chart-2: #d47c14;
+    --chart-3: #ab72e0;
+    --chart-4: #33a867;
+    --chart-grid: #2a2a2e;
     --plate-ink: #1d1b22;
     --plate-glue-fill: #d5d9de;
     --plate-glue-stroke: #9aa1a9;
@@ -226,6 +236,11 @@
   --color-sponsored-bg: #2b2418;
   --color-celebrate: #f2c618;
   --color-overlay: rgba(0,0,0,0.6);
+  --chart-1: #6384f0;
+  --chart-2: #d47c14;
+  --chart-3: #ab72e0;
+  --chart-4: #33a867;
+  --chart-grid: #2a2a2e;
   --plate-ink: #1d1b22;
   --plate-glue-fill: #d5d9de;
   --plate-glue-stroke: #9aa1a9;

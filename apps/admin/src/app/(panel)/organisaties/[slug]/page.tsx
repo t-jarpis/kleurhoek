@@ -5,6 +5,7 @@ import { KIND_LABEL } from "../labels";
 import { removeLogo, saveGeneral, saveOffer } from "./actions";
 import { LogoUpload } from "./LogoUpload";
 import { BrandEditor } from "./BrandEditor";
+import { CopyButton } from "@/components/CopyButton";
 
 export const dynamic = "force-dynamic";
 
@@ -61,7 +62,7 @@ export default async function OrganizationPage({ params, searchParams }: {
                   </label>
                   <div className="field">
                     <span>Adres</span>
-                    {org.subdomain ? <p className="lead">Altijd bereikbaar op <code>{org.subdomain}</code>.</p> : <p className="lead">Subdomeinen zijn in deze omgeving niet ingesteld (ORG_HOST_PATTERN).</p>}
+                    {org.subdomain ? <p className="lead">Altijd bereikbaar op{" "}<span className="ui-copy"><a href={`https://${org.subdomain}`} target="_blank" rel="noopener noreferrer"><code id="org-adres">{org.subdomain}</code></a><CopyButton value={`https://${org.subdomain}`} label="Kopieer adres" targetId="org-adres" /></span></p> : <p className="lead">Subdomeinen zijn in deze omgeving niet ingesteld (ORG_HOST_PATTERN).</p>}
                   </div>
                   <label className="field"><span>Eigen domeinen</span>
                     <textarea name="hosts" defaultValue={org.hosts.join("\n")} rows={3} className="mono" spellCheck={false} placeholder="kleuren.deregenboog.nl" />

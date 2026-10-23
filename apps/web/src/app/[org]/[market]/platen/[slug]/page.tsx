@@ -4,6 +4,7 @@ import { api, NotFound } from "@/lib/api";
 import { marketLanguage } from "@/lib/markets";
 import { ForParents } from "@/components/ForParents";
 import { Studio } from "@/components/Studio";
+import { Track } from "@/components/Track";
 import { messages } from "@/i18n/nl";
 
 export const revalidate = 300;
@@ -32,6 +33,7 @@ export default async function PlatePage({ params }: { params: Promise<{ org: str
   const language = marketLanguage(market);
   return (
     <>
+      <Track event={{ type: "page_view", market, page: "plaat", plate: plate.slug }} />
       <Studio plate={plate} inner={inner} ageWidth={ageWidth} market={market} language={language} />
       <div className="wrap after-studio" data-mode="ouder"><ForParents plate={plate} market={market} t={messages(language)} /></div>
     </>
