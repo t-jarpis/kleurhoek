@@ -30,7 +30,8 @@ export default async function MarketLayout({ children, params }: { children: Rea
   const css = brandCss(org.brand.colors);
   return (
     <html lang={marketLanguage(market)} {...(org.brand.theme ? { "data-kh-theme": org.brand.theme } : {})} {...(org.brand.font ? { "data-kh-font": org.brand.font } : {})}>
-      <head>{css && <style id="kh-brand">{css}</style>}</head>
+      {/* Nooit een lege string in <head>: browsers gooien tekst daar weg, dan klopt de hydratie niet en verdwijnt de CSS. */}
+      <head>{css ? <style id="kh-brand">{css}</style> : null}</head>
       <body>{children}</body>
     </html>
   );

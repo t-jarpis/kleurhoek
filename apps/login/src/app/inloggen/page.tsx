@@ -29,7 +29,7 @@ function Shell({ org, children }: { org: Org | null; children: React.ReactNode }
   const logo = org ? logoSrc(org) : null;
   return (
     <div className="kh-login-page" {...(font ? { "data-kh-font": font } : {})}>
-      {org && <style>{brandCss(org.brand.colors)}</style>}
+      {org && brandCss(org.brand.colors) ? <style>{brandCss(org.brand.colors)}</style> : null}
       <main className="kh-login" aria-labelledby="titel">
         <span aria-label={org?.name ?? "Kleurhoek"} role="img"><Logo size={26} wordmark={org?.brand.wordmark ?? null} image={logo} /></span>
         {children}
