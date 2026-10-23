@@ -15,7 +15,10 @@ export async function GET(request: Request, { params }: { params: Promise<{ prod
   const plate = q.get("plaat") ?? undefined;
   if (!SLUG.test(product) || !market || (plate !== undefined && !/^[a-z0-9-]{1,64}$/.test(plate))) return new Response("Niet gevonden", { status: 404 });
 
-  const res = await fetch(`${API_URL}/v1/markets/${market}/products/${product}/link${plate ? `?plate=${plate}` : ""}`, { cache: "no-store", signal: AbortSignal.timeout(3000) }).catch(() => null);
+  // De organisatie (van de proxy) bepaalt of de winkel aan staat; zonder winkel geeft de API 404.
+  const org = request.headers.get("x-kh-org") ?? "kleurhoek";
+  const qs = new URLSearchParams({ org, ...(plate ? { plate } : {}) });
+  const res = await fetch(`${API_URL}/v1/markets/${market}/products/${product}/link?${qs}`, { cache: "no-store", signal: AbortSignal.timeout(3000) }).catch(() => null);
   if (!res?.ok) return new Response("Dit product is niet (meer) beschikbaar.", { status: 404, headers: { "cache-control": "no-store" } });
   const { url } = (await res.json()) as { url: string };
   if (!url.startsWith("https://")) return new Response(null, { status: 502 });

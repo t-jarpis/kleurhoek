@@ -8,9 +8,9 @@ import { messages } from "@/i18n/nl";
 
 export const revalidate = 300;
 
-async function load(market: string, slug: string) {
+async function load(org: string, market: string, slug: string) {
   try {
-    const [plate, taxonomy] = await Promise.all([api.plate(market, slug), api.taxonomy(market)]);
+    const [plate, taxonomy] = await Promise.all([api.plate(market, slug, org), api.taxonomy(market, org)]);
     const { inner } = await api.plateSvgInner(plate.svg);
     return { plate, taxonomy, inner };
   } catch (e) {
@@ -19,15 +19,15 @@ async function load(market: string, slug: string) {
   }
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ market: string; slug: string }> }): Promise<Metadata> {
-  const { market, slug } = await params;
-  const { plate } = await load(market, slug);
+export async function generateMetadata({ params }: { params: Promise<{ org: string; market: string; slug: string }> }): Promise<Metadata> {
+  const { org, market, slug } = await params;
+  const { plate } = await load(org, market, slug);
   return { title: plate.name, description: `Kleurplaat ${plate.name}: online inkleuren of printen.` };
 }
 
-export default async function PlatePage({ params }: { params: Promise<{ market: string; slug: string }> }) {
-  const { market, slug } = await params;
-  const { plate, taxonomy, inner } = await load(market, slug);
+export default async function PlatePage({ params }: { params: Promise<{ org: string; market: string; slug: string }> }) {
+  const { org, market, slug } = await params;
+  const { plate, taxonomy, inner } = await load(org, market, slug);
   const ageWidth = taxonomy.ages.find((a) => a.slug === plate.age)?.strokeWidth ?? 2.4;
   const language = marketLanguage(market);
   return (

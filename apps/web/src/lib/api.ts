@@ -13,11 +13,14 @@ async function get<T>(path: string, revalidate: number, tags: string[]): Promise
   return res.json() as Promise<T>;
 }
 
+/** Elke aanroep geldt voor een organisatie (?org=…): die bepaalt het aanbod en of de winkel aan staat. */
+const o = (org: string) => `org=${encodeURIComponent(org)}`;
+
 export const api = {
-  plates: (market: string) => get<{ count: number; items: PlateItem[] }>(`/v1/markets/${market}/plates`, 300, ["plates", `market:${market}`]).then((r) => r.items),
-  plate: (market: string, slug: string) => get<PlateDetail>(`/v1/markets/${market}/plates/${encodeURIComponent(slug)}`, 300, ["plates", `plate:${slug}`]),
-  taxonomy: (market: string) => get<Taxonomy>(`/v1/markets/${market}/taxonomy`, 3600, ["taxonomy", `market:${market}`]),
-  season: (market: string) => get<Season>(`/v1/markets/${market}/season`, 900, ["season", `market:${market}`]),
+  plates: (market: string, org: string) => get<{ count: number; items: PlateItem[] }>(`/v1/markets/${market}/plates?${o(org)}`, 300, ["plates", `market:${market}`, `org:${org}`]).then((r) => r.items),
+  plate: (market: string, slug: string, org: string) => get<PlateDetail>(`/v1/markets/${market}/plates/${encodeURIComponent(slug)}?${o(org)}`, 300, ["plates", `plate:${slug}`, `org:${org}`]),
+  taxonomy: (market: string, org: string) => get<Taxonomy>(`/v1/markets/${market}/taxonomy?${o(org)}`, 3600, ["taxonomy", `market:${market}`, `org:${org}`]),
+  season: (market: string, org: string) => get<Season>(`/v1/markets/${market}/season?${o(org)}`, 900, ["season", `market:${market}`, `org:${org}`]),
   /** De SVG zonder stijlblok, om inline in de pagina te tekenen (de CSS van de site stijlt hem). */
   async plateSvgInner(path: string): Promise<{ inner: string }> {
     const res = await fetch(`${API_URL}${path}`, { next: { revalidate: 31_536_000, tags: ["svg"] } });

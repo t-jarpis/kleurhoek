@@ -11,22 +11,25 @@ import { Logo } from "@/components/Logo";
 import { SeasonBand } from "@/components/SeasonBand";
 import { Surprise } from "@/components/Surprise";
 import { Track } from "@/components/Track";
+import { getOrg } from "@/lib/org";
 
 export const revalidate = 300;
 
-export default async function Home({ params }: { params: Promise<{ market: string }> }) {
-  const { market } = await params;
+export default async function Home({ params }: { params: Promise<{ org: string; market: string }> }) {
+  const { org: slug, market } = await params;
+  const org = await getOrg(slug);
+  if (!org) notFound();
   const language = marketLanguage(market);
   const t = messages(language);
-  const [plates, taxonomy, season] = await Promise.all([api.plates(market), api.taxonomy(market), api.season(market)]).catch((e) => {
+  const [plates, taxonomy, season] = await Promise.all([api.plates(market, slug), api.taxonomy(market, slug), api.season(market, slug)]).catch((e) => {
     if (e instanceof NotFound) notFound();
     throw e;
   });
   return (
     <div className="wrap" data-mode="kind">
       <header className="mast">
-        <div><Logo market={market} /><p className="lede">{t.lede}</p></div>
-        <div className="row no-print"><BookButton language={language} /><Surprise market={market} slugs={plates.map((p) => p.slug)} label={t.surprise} /><AccountButton market={market} t={{ login: t.login, account: t.account, logout: t.logout }} /></div>
+        <div><Logo market={market} org={org} /><p className="lede">{t.lede}</p></div>
+        <div className="row no-print"><BookButton language={language} /><Surprise market={market} slugs={plates.map((p) => p.slug)} label={t.surprise} />{org.features.accounts && <AccountButton market={market} t={{ login: t.login, account: t.account, logout: t.logout }} />}</div>
       </header>
       <SeasonBand season={season} plates={plates} taxonomy={taxonomy} market={market} t={t} />
       <Suspense fallback={null}><Browse plates={plates} taxonomy={taxonomy} market={market} language={language} /></Suspense>

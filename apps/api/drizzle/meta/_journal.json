@@ -78,6 +78,13 @@
       "when": 1792780100000,
       "tag": "0010_site_access",
       "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1792780200000,
+      "tag": "0011_organizations",
+      "breakpoints": true
     }
   ]
 }

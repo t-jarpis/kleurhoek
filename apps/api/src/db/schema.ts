@@ -6,3 +6,4 @@ export * from "../modules/analytics/analytics.schema";
 export * from "../modules/identity/identity.schema";
 export * from "../modules/operations/operations.schema";
 export * from "../modules/shop/shop.schema";
+export * from "../modules/organizations/organizations.schema";

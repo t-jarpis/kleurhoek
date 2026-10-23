@@ -14,6 +14,8 @@ const schema = z.object({
   MIGRATE_ON_START: flag,
   /** De catalogus vullen bij het opstarten (idempotent). Aan in dev, uit in productie. */
   SEED_ON_START: flag,
+  /** Subdomein per organisatie, met {slug}: "{slug}-dev.kleurhoek.nl" (dev) of "{slug}.kleurhoek.nl" (prod). Leeg = alleen vaste hosts. */
+  ORG_HOST_PATTERN: z.string().regex(/^\{slug\}[a-z0-9.-]+$/).optional(),
   /** De tenant van deze site. Kleurhoek heeft er nu één. */
   TENANT_ID: z.string().uuid().default("0192f6a0-0000-7000-8000-000000000001"),
   /** Gedeelde sleutel waarmee de Cloudflare Worker events aanlevert. */

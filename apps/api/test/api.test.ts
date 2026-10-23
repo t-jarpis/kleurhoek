@@ -73,7 +73,7 @@ describe("website-API", () => {
     expect(t.holidays[0]).toEqual({ slug: "oudnieuw", name: "Oud en nieuw" });
     const store = ctx.app.get(StorefrontService);
     const market = (await store.market("nl-NL"))!;
-    const s = await store.season(market, new Date("2026-10-22T10:00:00Z"));
+    const s = await store.season(market, undefined, new Date("2026-10-22T10:00:00Z"));
     expect(s.active.map((a) => a.slug)).toEqual(["herfst", "halloween", "divali"]);
     expect(s.soon.map((a) => a.slug)).toEqual(expect.arrayContaining(["sintmaarten", "sinterklaas", "chanoeka"]));
   });

@@ -4,7 +4,21 @@ import { todayIn } from "../../shared/dates";
 import { AvailabilityService } from "../availability/availability.service";
 import { CatalogService, type PlateSummary } from "../catalog/catalog.service";
 import { LocalizationService, type Market } from "../localization/localization.service";
+import type { OrgFeatures, OrgOffer } from "../organizations/organizations.schema";
 import { ShopService } from "../shop/shop.service";
+
+/** Wat een organisatie laat zien (ADR 0017). Zonder organisatie: alles, met winkel. */
+export interface View { offer: OrgOffer; features: OrgFeatures }
+export const FULL_VIEW: View = { offer: { markets: null, categories: null, ages: null, kinds: null }, features: { shop: true, accounts: true } };
+
+type Plateish = { category: string; age: string; kind: string };
+/** Valt een plaat binnen het aanbod van de organisatie? */
+export function inOffer(p: Plateish, offer: OrgOffer): boolean {
+  if (offer.categories && !offer.categories.includes(p.category)) return false;
+  if (offer.ages && !offer.ages.includes(p.age)) return false;
+  if (offer.kinds && !offer.kinds.includes(p.kind === "kleurplaat" ? "kleurplaat" : "knutselen")) return false;
+  return true;
+}
 
 /** Knip-, vouw- en lijmlijnen van knutselplaten. Zelfde afspraken als in de CSS van de website. */
 export const CRAFT_STYLE = ".cut{fill:none;stroke:#1d1b22;stroke-width:1;stroke-dasharray:4 3}.fold{fill:none;stroke:#1d1b22;stroke-width:.8;stroke-dasharray:1 2.5}.glue{fill:#d5d9de;stroke:#9aa1a9;stroke-width:.6}.tip{font:600 6px Nunito,system-ui,sans-serif;fill:#4a5260}";
@@ -33,16 +47,16 @@ export class StorefrontService {
   private svgPath(p: PlateSummary) { return `/v1/assets/plates/${p.slug}/${p.version}.svg`; }
 
   /** Gepubliceerde, vertaalde en zichtbare platen voor een markt, met de namen in de taal van de markt. */
-  private async visible(market: Market, now: Date) {
-    const all = await this.catalog.listPublished(this.tenant);
+  private async visible(market: Market, now: Date, view: View = FULL_VIEW) {
+    const all = (await this.catalog.listPublished(this.tenant)).filter((p) => inOffer(p, view.offer));
     const names = await this.i18n.translate(this.tenant, "plate", market.language, all.map((p) => p.slug));
     const translated = all.filter((p) => names.get(p.slug)?.name);
     const shown = await this.availability.visibleSlugs(this.tenant, translated.map((p) => p.slug), market.country, todayIn(market.country, now));
     return { plates: translated.filter((p) => shown.has(p.slug)), names };
   }
 
-  async listPlates(market: Market, filter: PlateFilter, now = new Date()) {
-    const { plates, names } = await this.visible(market, now);
+  async listPlates(market: Market, filter: PlateFilter, view: View = FULL_VIEW, now = new Date()) {
+    const { plates, names } = await this.visible(market, now, view);
     const items = plates.filter((p) =>
       (!filter.kind || p.kind === filter.kind || (filter.kind === "knutselen" && p.kind !== "kleurplaat")) &&
       (!filter.category || p.category === filter.category || (filter.category === "wereld" && p.continent) || (filter.category === "feest" && p.holiday)) &&
@@ -57,9 +71,9 @@ export class StorefrontService {
     }));
   }
 
-  async plate(market: Market, slug: string, now = new Date()) {
+  async plate(market: Market, slug: string, view: View = FULL_VIEW, now = new Date()) {
     const detail = await this.catalog.getPublished(this.tenant, slug);
-    if (!detail) return null;
+    if (!detail || !inOffer(detail, view.offer)) return null;
     const [tr] = [(await this.i18n.translate(this.tenant, "plate", market.language, [slug])).get(slug)];
     if (!tr?.name) return null;
     const visible = await this.availability.visibleSlugs(this.tenant, [slug], market.country, todayIn(market.country, now));
@@ -68,7 +82,7 @@ export class StorefrontService {
     const needs = await this.catalog.materialsOf(this.tenant, slug);
     const [materialNames, offers] = await Promise.all([
       this.i18n.translate(this.tenant, "material", market.language, needs.map((m) => m.slug)),
-      this.shop.forMaterials(market.code, market.language, needs.map((m) => m.slug)),
+      view.features.shop ? this.shop.forMaterials(market.code, market.language, needs.map((m) => m.slug)) : Promise.resolve(new Map()),
     ]);
     return {
       slug, name: tr.name, word: tr.word ?? null, countQuestion: tr.countQuestion ?? null,
@@ -92,11 +106,12 @@ export class StorefrontService {
   }
 
   /** Doorverwijzing naar een product; alleen voor producten die in deze markt getoond worden. */
-  productLink(market: Market, product: string, plate: string | undefined) {
+  async productLink(market: Market, product: string, plate: string | undefined, view: View = FULL_VIEW) {
+    if (!view.features.shop) return null;
     return this.shop.link(market.code, product, plate ? `kleurhoek-${plate}` : "kleurhoek");
   }
 
-  async taxonomy(market: Market) {
+  async taxonomy(market: Market, view: View = FULL_VIEW) {
     const t = await this.catalog.taxonomy(this.tenant);
     const [cat, age, cont, hol] = await Promise.all([
       this.i18n.translate(this.tenant, "category", market.language),
@@ -106,21 +121,21 @@ export class StorefrontService {
     ]);
     const holidays = await this.availability.holidaysFor(this.tenant, market.country);
     return {
-      categories: t.categories.filter((c) => cat.has(c.slug)).map((c) => ({ ...c, name: cat.get(c.slug)!.name })),
-      ages: t.ages.filter((a) => age.has(a.slug)).map((a) => ({ ...a, name: age.get(a.slug)!.name, hint: age.get(a.slug)!.hint ?? null })),
+      categories: t.categories.filter((c) => cat.has(c.slug) && (!view.offer.categories || view.offer.categories.includes(c.slug))).map((c) => ({ ...c, name: cat.get(c.slug)!.name })),
+      ages: t.ages.filter((a) => age.has(a.slug) && (!view.offer.ages || view.offer.ages.includes(a.slug))).map((a) => ({ ...a, name: age.get(a.slug)!.name, hint: age.get(a.slug)!.hint ?? null })),
       continents: t.continents.filter((c) => cont.has(c.slug)).map((c) => ({ ...c, name: cont.get(c.slug)!.name })),
       holidays: holidays.filter((h) => hol.has(h)).map((slug) => ({ slug, name: hol.get(slug)!.name })),
     };
   }
 
-  async season(market: Market, now = new Date()) {
+  async season(market: Market, orgView: View = FULL_VIEW, now = new Date()) {
     const today = todayIn(market.country, now);
     const view = await this.availability.season(this.tenant, market.country, today);
     const [hol, sea] = await Promise.all([
       this.i18n.translate(this.tenant, "holiday", market.language),
       this.i18n.translate(this.tenant, "season", market.language),
     ]);
-    const { plates } = await this.visible(market, now);
+    const { plates } = await this.visible(market, now, orgView);
     const bySlug = new Map(plates.map((p) => [p.slug, p]));
     const slugs = new Set<string>([
       ...view.active.flatMap((h) => plates.filter((p) => p.holiday === h.slug).map((p) => p.slug)),
