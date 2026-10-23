@@ -15,6 +15,8 @@ export interface AdminUser {
   id: string; kind: "member" | "admin"; status: "active" | "blocked"; displayName: string | null; email: string | null;
   locale: string | null; country: string | null; roles: string[]; createdAt: string; lastLoginAt: string | null;
 }
+export interface SiteAccessEntry { cidr: string; label: string; addedBy: string; addedAt: string }
+export interface SiteAccess { enabled: boolean; entries: SiteAccessEntry[]; updatedBy: string; updatedAt: string }
 export interface Role { slug: string; name: string; permissions: string[] }
 export interface Me { userId: string; subject: string; permissions: string[] }
 
@@ -76,6 +78,9 @@ export const adminApi = {
   products: () => call<{ products: Product[]; materials: { slug: string; name: string }[]; partners: { slug: string; name: string; enabled: boolean }[] }>("/v1/admin/shop/products"),
   saveProduct: (slug: string, body: ProductInput) => call<{ slug: string }>(`/v1/admin/shop/products/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
   shopSummary: (from: string, to: string) => call<ShopSummary>(`/v1/admin/analytics/shop?from=${from}&to=${to}`),
+  siteAccess: () => call<SiteAccess>("/v1/admin/site-access"),
+  updateSiteAccess: (body: { enabled?: boolean; entries?: { cidr: string; label: string }[] }) =>
+    call<SiteAccess>("/v1/admin/site-access", { method: "PUT", body: JSON.stringify(body) }),
   setStatus: (id: string, status: "active" | "blocked") => call<AdminUser>(`/v1/admin/users/${encodeURIComponent(id)}/status`, { method: "PUT", body: JSON.stringify({ status }) }),
 };
 

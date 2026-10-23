@@ -10,3 +10,4 @@ Het volledige architectuurdocument met diagrammen staat hier: https://claude.ai/
 - Scaleway Amsterdam (eigen organisatie, een project per omgeving), Cloudflare (eigen zone), PostgreSQL met een schema per domein en row-level security op `tenant_id`.
 - Analytics zonder cookies en zonder persoonsgegevens. Accounts alleen voor volwassenen (16+ in NL).
 - Kleurhoek is een verkoopbare eenheid: alle data, domeinen en registraties staan apart.
+- Website afschermen met een IP-lijst uit het admin panel, gehandhaafd door de website-proxy (ADR 0015).

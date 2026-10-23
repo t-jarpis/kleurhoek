@@ -71,6 +71,13 @@
       "when": 1792780000000,
       "tag": "0009_app_user_set_option",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1792780100000,
+      "tag": "0010_site_access",
+      "breakpoints": true
     }
   ]
 }
