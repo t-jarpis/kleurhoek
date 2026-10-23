@@ -27,7 +27,7 @@ Alles van Kleurhoek staat in eigen accounts (Scaleway-organisatie *Kleurhoek*, C
      export AWS_ACCESS_KEY_ID=$SCW_ACCESS_KEY AWS_SECRET_ACCESS_KEY=$SCW_SECRET_KEY   # voor de state-bucket
      export CLOUDFLARE_API_TOKEN=…
      ```
-2. **Cloudflare**: de zones `kleurhoek.nl`, `kleurhoek.be` en `kleurhoek.com` (gratis plan; nameservers bij Neostrada). API-token met *Zone: DNS Edit, Zone Settings Edit, SSL and Certificates Edit, Zone WAF Edit, Cache Rules Edit, Transform Rules Edit, Dynamic URL Redirects Edit* voor deze zones en *Account: Access: Apps and Policies Edit*.
+2. **Cloudflare**: de zones `kleurhoek.nl`, `kleurhoek.be` en `kleurhoek.com` (gratis plan; nameservers bij Neostrada). API-token met *Zone: DNS Edit, Zone Settings Edit, SSL and Certificates Edit, Zone WAF Edit, Cache Rules Edit, Transform Rules Edit, Single Redirect Edit* voor deze zones en *Account: Access: Apps and Policies Edit*.
 3. **Zitadel Cloud**: instance in de EU-regio. Op het gratis plan is er één instance; dev en prod delen die tot de lancering, elk met een eigen organisatie en apps.
    - Identity providers Google, Apple en Microsoft (ID's in `zitadel_idp_ids`).
    - Login v2, wachtwoorden uit, passkeys en e-mailcode aan.
