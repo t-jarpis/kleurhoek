@@ -62,6 +62,7 @@ jobs:
           set -euo pipefail
           scw() { curl -fsS -H "X-Auth-Token: $SCW_SECRET_KEY" -H "Content-Type: application/json" "$@"; }
           id=$(jq -r .api <<<"$CONTAINER_IDS")
+          for i in $(seq 1 40); do case "$(scw "$API/containers/$id" | jq -r .status)" in pending|updating|creating) sleep 10 ;; *) break ;; esac; done
           scw "$API/containers/$id" > before.json
           key=$(openssl rand -hex 16); echo "::add-mask::$key"
           body=$(jq -n --rawfile js .github/diagnose/api-startup.js --arg k "$key" --slurpfile c before.json '{
@@ -91,4 +92,5 @@ jobs:
           [ -f before.json ] || exit 0
           id=$(jq -r .api <<<"$CONTAINER_IDS")
           body=$(jq '{command: (.command // []), args: (.args // []), environment_variables, enable_default_public_endpoint: false}' before.json)
+          for i in $(seq 1 40); do case "$(curl -fsS -H "X-Auth-Token: $SCW_SECRET_KEY" "$API/containers/$id" | jq -r .status)" in pending|updating|creating) sleep 10 ;; *) break ;; esac; done
           curl -fsS -X PATCH -H "X-Auth-Token: $SCW_SECRET_KEY" -H "Content-Type: application/json" "$API/containers/$id" -d "$body" | jq '{status, public_endpoint, command}'
