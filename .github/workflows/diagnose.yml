@@ -17,6 +17,10 @@ on:
         description: "Logs van de afgelopen … uur"
         type: string
         default: "6"
+      grep:
+        description: "Alleen regels met deze tekst (regex); leeg = alle regels"
+        type: string
+        default: "error|warn|fout|mislukt|exception|denied|refused|timeout|unhandled|digest"
 
 permissions:
   contents: read
@@ -57,6 +61,7 @@ jobs:
       LOGS_URL: ${{ vars.LOGS_URL }}
       LOGS_TOKEN: ${{ secrets.LOGS_TOKEN }}
       HOURS: ${{ inputs.hours || '6' }}
+      GREP: ${{ inputs.grep }}
     steps:
       - name: Logs
         run: |
@@ -73,7 +78,7 @@ jobs:
             loki query_range --data-urlencode "query={resource_name=~\".*$app.*\"}" \
               --data-urlencode "start=$start" --data-urlencode "end=$end" --data-urlencode "limit=300" --data-urlencode "direction=backward" \
               | jq -r '[.data.result[].values[]] | sort_by(.[0]) | .[] | (.[0][0:10] | tonumber | strftime("%H:%M:%S")) + " " + .[1]' \
-              | grep -iE "error|warn|fout|mislukt|exception|denied|refused|timeout|unhandled|status(\\\"|=|: )5" | tail -80 || echo "(geen foutregels)"
+              | grep -iE "${GREP:-.}" | tail -150 || echo "(geen regels)"
           done
 
   api-startup:

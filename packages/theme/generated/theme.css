@@ -1,8 +1,13 @@
-/* Gegenereerd door packages/theme/scripts/build.mjs uit themes/studio met lettertype manrope. Niet met de hand wijzigen. */
+/* Gegenereerd door packages/theme/scripts/build.mjs. Niet met de hand wijzigen.
+   Standaard: thema studio, lettertype manrope. Per organisatie: data-kh-theme en data-kh-font op <html>. */
 @font-face { font-family: "Manrope"; src: url("../fonts/manrope/manrope-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: "Manrope"; src: url("../fonts/manrope/manrope-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
 @font-face { font-family: "Manrope"; src: url("../fonts/manrope/manrope-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
 @font-face { font-family: "Manrope"; src: url("../fonts/manrope/manrope-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Nunito"; src: url("../fonts/nunito/nunito-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Nunito"; src: url("../fonts/nunito/nunito-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Nunito"; src: url("../fonts/nunito/nunito-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Nunito"; src: url("../fonts/nunito/nunito-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
 :root {
   --krijt-rood: #e2483d;
   --krijt-rood-sterk: #d22b1f;
@@ -108,7 +113,6 @@
   --card-hover-transform: translateY(-2px);
   --button-primary-bg: var(--color-primary);
   --button-primary-fg: var(--color-text-on-primary);
-  --font-sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
   --color-bg: #f6f6f4;
   --color-bg-subtle: #f6f6f4;
@@ -234,3 +238,6 @@
   --shadow-overlay: 0 12px 28px -12px rgba(0,0,0,0.8);
   color-scheme: dark;
 }
+:root { --font-sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif; }
+:root[data-kh-font="manrope"] { --font-sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif; }
+:root[data-kh-font="nunito"] { --font-sans: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif; }

@@ -7,7 +7,8 @@
   "exports": {
     ".": "./src/index.ts",
     "./theme.css": "./generated/theme.css",
-    "./ui.css": "./src/ui.css"
+    "./ui.css": "./src/ui.css",
+    "./manifest.json": "./generated/manifest.json"
   },
   "scripts": {
     "build": "node scripts/build.mjs",

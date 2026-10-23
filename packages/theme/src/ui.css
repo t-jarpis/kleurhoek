@@ -159,3 +159,4 @@ body { margin: 0; background: var(--color-bg); color: var(--color-text); font: 4
 .kh-logo-mark i { border-radius: 3px; }
 .kh-logo-word { font: 800 30px/1 var(--font-display); letter-spacing: -0.03em; }
 .kh-logo-suffix { font: 700 15px/1 var(--font-sans); color: var(--color-text-muted); }
+.kh-logo-img { display: block; width: auto; max-width: 220px; object-fit: contain; }

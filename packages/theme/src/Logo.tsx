@@ -1,6 +1,6 @@
 import { activeTheme } from "../generated/theme";
 
-/** Beeldmerk van het actieve thema: blokjes in de krijtkleuren uit het thema. */
+/** Beeldmerk van het thema: blokjes in de krijtkleuren uit het thema. */
 export function LogoMark({ size = 30 }: { size?: number }) {
   return (
     <span className="kh-logo-mark" aria-hidden="true" style={{ width: size, height: size }}>
@@ -9,12 +9,17 @@ export function LogoMark({ size = 30 }: { size?: number }) {
   );
 }
 
-/** Logo: beeldmerk plus woordmerk. Toegankelijke naam "Kleurhoek"; de link geeft de app zelf. */
-export function Logo({ suffix, size = 30 }: { suffix?: string; size?: number }) {
+/**
+ * Logo. Standaard het beeldmerk van het thema plus het woordmerk. Een organisatie kan een eigen
+ * woordmerk (naam) of een eigen logo-afbeelding hebben (ADR 0017); die komt dan in de plaats.
+ * De link en de toegankelijke naam geeft de app zelf.
+ */
+export function Logo({ suffix, size = 30, wordmark, image }: { suffix?: string; size?: number; wordmark?: string | null; image?: string | null }) {
   return (
     <span className="kh-logo">
-      <LogoMark size={size} />
-      <span className="kh-logo-word" style={{ fontSize: size }}>{activeTheme.logo.word}</span>
+      {image
+        ? <img className="kh-logo-img" src={image} alt="" style={{ height: size * 1.4 }} />
+        : <><LogoMark size={size} /><span className="kh-logo-word" style={{ fontSize: size }}>{wordmark ?? activeTheme.logo.word}</span></>}
       {suffix && <span className="kh-logo-suffix">{suffix}</span>}
     </span>
   );
