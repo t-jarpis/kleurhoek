@@ -13,6 +13,17 @@ const describe = (e) => {
     .filter(Boolean).join(" | ");
 };
 (async () => {
+  // Uitgaand verkeer: kan de API Zitadel bereiken (nodig om tokens van beheerders te controleren)?
+  if (process.env.OIDC_ISSUER) {
+    const t0 = Date.now();
+    try {
+      const r = await fetch(`${process.env.OIDC_ISSUER}/.well-known/openid-configuration`, { signal: AbortSignal.timeout(10000) });
+      const j = await r.json();
+      log(`zitadel ${r.status} in ${Date.now() - t0} ms; jwks ${j.jwks_uri}`);
+      const k = await fetch(j.jwks_uri, { signal: AbortSignal.timeout(10000) });
+      log(`jwks ${k.status} in ${Date.now() - t0} ms`);
+    } catch (e) { log(`zitadel NIET bereikbaar na ${Date.now() - t0} ms: ${e.message}`); }
+  }
   try {
     log("verbinden");
     const pool = new Pool({ connectionString: process.env.DATABASE_URL, ssl: ca ? { ca, checkServerIdentity: () => undefined } : undefined, connectionTimeoutMillis: 10000, max: 2 });
