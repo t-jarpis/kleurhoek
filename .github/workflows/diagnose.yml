@@ -31,7 +31,7 @@ jobs:
           for app in api web admin; do
             id=$(jq -r --arg a "$app" '.[$a] // empty' <<<"$CONTAINER_IDS")
             echo "::group::$app ($id)"
-            [ -n "$id" ] && scw "$API/containers/$id" | jq '{name, status, error_message, image, min_scale, max_scale, cpu_limit, memory_limit_bytes, public_endpoint, private_endpoint, private_network_id, updated_at, ready_at, env_keys: (.environment_variables|keys), secret_keys: [.secret_environment_variables[]?.key]}'
+            [ -n "$id" ] && scw "$API/containers/$id" | jq '{name, status, error_message, image, min_scale, max_scale, cpu_limit, memory_limit_bytes, public_endpoint, private_endpoint, private_network_id, updated_at, ready_at, env_keys: (.environment_variables|keys)}'
             echo "::endgroup::"
           done
       - name: Website
