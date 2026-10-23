@@ -219,6 +219,23 @@ export class OrganizationsService implements OnModuleInit {
     return (await this.get(slug))!;
   }
 
+  /**
+   * Organisatie verwijderen (met haar logo). Kleurhoek zelf kan niet weg. Dagtotalen van analytics
+   * blijven staan onder de oude code; een nieuwe organisatie met dezelfde code telt daar dus bij op.
+   */
+  async remove(slug: string, actor: string): Promise<void> {
+    const org = await this.get(slug);
+    if (!org) throw new NotFoundException("Onbekende organisatie");
+    if (org.isDefault) throw new BadRequestException("Kleurhoek zelf kan niet worden verwijderd");
+    await withTenant(this.db, this.tenant, async (tx) => {
+      await tx.delete(organizationLogos).where(and(eq(organizationLogos.tenantId, this.tenant), eq(organizationLogos.organizationId, org.id)));
+      await tx.delete(organizations).where(and(eq(organizations.tenantId, this.tenant), eq(organizations.id, org.id)));
+      await this.audit.record(tx, this.tenant, { actor, action: "organizations.delete", subject: `organization:${slug}`, before: { name: org.name, kind: org.kind, hosts: org.hosts } });
+    });
+    this.cache = null;
+    this.log.log(`Organisatie ${slug} verwijderd door ${actor}`);
+  }
+
   async logo(slug: string): Promise<{ contentType: string; data: Buffer; version: string } | null> {
     const org = await this.get(slug);
     if (!org?.brand.logoVersion) return null;

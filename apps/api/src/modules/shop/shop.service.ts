@@ -28,6 +28,17 @@ export function buildLink(template: string, settings: Record<string, string>, pr
     return encodeURIComponent(v);
   });
   if (missing) return null;
+  // "{url}?tag=…" op een productlink die zelf al een vraagteken heeft (Amazon: ?th=1): de parameters van
+  // het sjabloon netjes toevoegen (of vervangen) in plaats van een tweede "?" achter de URL te plakken.
+  if (template.startsWith("{url}?")) {
+    try {
+      const u = new URL(productUrl);
+      for (const [k, v] of new URLSearchParams(out.slice(productUrl.length + 1))) u.searchParams.set(k, v);
+      return u.protocol === "https:" ? u.href : null;
+    } catch {
+      return null;
+    }
+  }
   try {
     const u = new URL(out);
     return u.protocol === "https:" ? u.href : null;

@@ -92,4 +92,13 @@ describe("organisaties (whitelabel)", () => {
     expect(list.fonts.map((f: { id: string }) => f.id)).toContain("nunito");
     expect(list.organizations.find((o: { slug: string }) => o.slug === "de-regenboog").subdomain).toBe("de-regenboog-dev.kleurhoek.nl");
   });
+  it("verwijdert een organisatie (niet Kleurhoek zelf), met audit", async () => {
+    await admin("POST", "/v1/admin/organizations", { slug: "weg-ermee", name: "Weg ermee", kind: "overig" });
+    expect((await admin("DELETE", "/v1/admin/organizations/weg-ermee", undefined, "Bearer analist")).statusCode).toBe(403);
+    expect((await admin("DELETE", "/v1/admin/organizations/kleurhoek")).statusCode).toBe(400);
+    expect((await admin("DELETE", "/v1/admin/organizations/weg-ermee")).statusCode).toBe(204);
+    expect((await admin("GET", "/v1/admin/organizations/weg-ermee")).statusCode).toBe(404);
+    expect((await resolve("weg-ermee-dev.kleurhoek.nl")).json().slug).toBe("kleurhoek");
+    expect((await admin("POST", "/v1/admin/organizations", { slug: "weg-ermee", name: "Weg ermee 2", kind: "school" })).statusCode).toBe(201);
+  });
 });

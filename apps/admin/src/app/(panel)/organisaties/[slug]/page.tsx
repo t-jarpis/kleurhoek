@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { adminApi, ApiError, describe } from "@/lib/api";
 import { KIND_LABEL } from "../labels";
-import { removeLogo, saveGeneral, saveOffer } from "./actions";
+import { deleteOrganization, removeLogo, saveGeneral, saveOffer } from "./actions";
 import { LogoUpload } from "./LogoUpload";
 import { BrandEditor } from "./BrandEditor";
 import { CopyButton } from "@/components/CopyButton";
@@ -75,6 +75,18 @@ export default async function OrganizationPage({ params, searchParams }: {
               {org.isDefault && <p className="lead">Dit is Kleurhoek zelf: alle adressen die niet bij een andere organisatie horen. Staat altijd aan.</p>}
               <div><button type="submit">Opslaan</button></div>
             </fieldset>
+          </form>
+        </section>
+      )}
+
+      {tab === "algemeen" && canManage && !org.isDefault && (
+        <section className="panel stack">
+          <h2>Organisatie verwijderen</h2>
+          <p className="lead">De site op {org.subdomain ?? "het subdomein"} verdwijnt meteen, met huisstijl, logo en aanbod. De code komt weer vrij. Bezoekcijfers blijven bewaard. Dit kan niet ongedaan worden gemaakt.</p>
+          <form action={deleteOrganization} className="grid-form">
+            <input type="hidden" name="slug" value={org.slug} />
+            <label className="field"><span>Typ <code>{org.slug}</code> om te bevestigen</span><input name="confirm" required autoComplete="off" autoCapitalize="none" spellCheck={false} className="mono" /></label>
+            <div><button type="submit" className="danger">Verwijderen</button></div>
           </form>
         </section>
       )}

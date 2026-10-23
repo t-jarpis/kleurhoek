@@ -81,6 +81,7 @@ async function call<T>(path: string, init: RequestInit = {}): Promise<T> {
     try { message = (JSON.parse(body) as { message?: string }).message ?? message; } catch { /* geen JSON */ }
     throw new ApiError(res.status, message);
   }
+  if (res.status === 204) return undefined as T;
   return res.json() as Promise<T>;
 }
 
@@ -118,6 +119,7 @@ export const adminApi = {
   updateOrganization: (slug: string, body: OrgInput) => call<Organization>(`/v1/admin/organizations/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
   setOrganizationLogo: (slug: string, contentType: string, data: string) =>
     call<Organization>(`/v1/admin/organizations/${encodeURIComponent(slug)}/logo`, { method: "PUT", body: JSON.stringify({ contentType, data }) }),
+  deleteOrganization: (slug: string) => call<void>(`/v1/admin/organizations/${encodeURIComponent(slug)}`, { method: "DELETE" }),
   removeOrganizationLogo: (slug: string) => call<Organization>(`/v1/admin/organizations/${encodeURIComponent(slug)}/logo`, { method: "DELETE" }),
   setStatus: (id: string, status: "active" | "blocked") => call<AdminUser>(`/v1/admin/users/${encodeURIComponent(id)}/status`, { method: "PUT", body: JSON.stringify({ status }) }),
 };

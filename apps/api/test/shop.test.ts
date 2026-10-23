@@ -31,6 +31,10 @@ describe("doorverwijzingen bouwen", () => {
   it("plakt bij Amazon de tag achter de productpagina", () => {
     expect(buildLink("{url}?tag={tag}", { tag: "kleurhoek-21" }, "https://www.amazon.de/dp/B000TEST01", "x")).toBe("https://www.amazon.de/dp/B000TEST01?tag=kleurhoek-21");
     expect(buildLink("{url}?tag={tag}", { tag: "" }, "https://www.amazon.de/dp/B000TEST01", "x")).toBeNull();
+    // Productlink met eigen parameters (bijv. variant ?th=1) of al een (andere) tag: één "?", onze tag.
+    expect(buildLink("{url}?tag={tag}", { tag: "kleurhoek-21" }, "https://www.amazon.nl/dp/B000TEST01?th=1&psc=1", "x")).toBe("https://www.amazon.nl/dp/B000TEST01?th=1&psc=1&tag=kleurhoek-21");
+    expect(buildLink("{url}?tag={tag}", { tag: "kleurhoek-21" }, "https://www.amazon.nl/dp/B000TEST01?tag=iemand-anders-21", "x")).toBe("https://www.amazon.nl/dp/B000TEST01?tag=kleurhoek-21");
+    expect(buildLink("{url}?tag={tag}", { tag: "kleurhoek-21" }, "javascript:alert(1)", "x")).toBeNull();
   });
   it("accepteert alleen https-producten op de domeinen van de partner", () => {
     expect(checkProductUrl(BOL_URL, ["www.bol.com"])).toBeNull();

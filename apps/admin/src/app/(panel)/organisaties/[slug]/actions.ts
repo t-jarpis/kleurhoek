@@ -70,6 +70,19 @@ export async function uploadLogo(formData: FormData) {
   await save(slug, "huisstijl", () => adminApi.setOrganizationLogo(slug, f.type, data), "Logo opgeslagen.");
 }
 
+/** Verwijderen pas als de code is overgetypt: geen ongelukjes. */
+export async function deleteOrganization(formData: FormData) {
+  const slug = slugOf(formData);
+  if (String(formData.get("confirm") ?? "").trim() !== slug) redirect(back(`/organisaties/${slug}?tab=algemeen`, "fout", `Typ ${slug} om te bevestigen.`));
+  try {
+    await adminApi.deleteOrganization(slug);
+  } catch (e) {
+    redirect(back(`/organisaties/${slug}?tab=algemeen`, "fout", e instanceof ApiError ? e.message : "Verwijderen mislukt"));
+  }
+  revalidatePath("/organisaties");
+  redirect(back("/organisaties", "melding", `Organisatie ${slug} verwijderd.`));
+}
+
 export async function removeLogo(formData: FormData) {
   const slug = slugOf(formData);
   await save(slug, "huisstijl", () => adminApi.removeOrganizationLogo(slug), "Logo verwijderd; de site gebruikt weer het woordmerk.");

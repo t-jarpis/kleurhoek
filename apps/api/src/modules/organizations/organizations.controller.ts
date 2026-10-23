@@ -1,5 +1,5 @@
 import { timingSafeEqual } from "node:crypto";
-import { BadRequestException, Body, Controller, Delete, Get, Headers, Inject, NotFoundException, Param, Post, Put, Query, Req, Res, UnauthorizedException, UseGuards } from "@nestjs/common";
+import { BadRequestException, Body, Controller, Delete, Get, Headers, HttpCode, Inject, NotFoundException, Param, Post, Put, Query, Req, Res, UnauthorizedException, UseGuards } from "@nestjs/common";
 import type { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
 import { ENV, type Env } from "../../config/env";
@@ -87,6 +87,14 @@ export class AdminOrganizationsController {
   @RequirePermission("organizations.manage")
   async update(@Param("slug") slug: string, @Body() body: unknown, @Req() req: FastifyRequest) {
     return this.orgs.update(slug, parse(Input, body), req.admin!.subject);
+  }
+
+  @Delete(":slug")
+  @RequirePermission("organizations.manage")
+  @HttpCode(204)
+  async remove(@Param("slug") slug: string, @Req() req: FastifyRequest) {
+    if (!SLUG.test(slug)) throw new NotFoundException("Onbekende organisatie");
+    await this.orgs.remove(slug, req.admin!.subject);
   }
 
   @Put(":slug/logo")
