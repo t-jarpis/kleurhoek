@@ -18,5 +18,10 @@ http.Server.prototype.emit = function (event, req, res) {
       });
     }
   }
+  // Verzoeken die Node al weigert vóór de app ze ziet (bijv. 431: headers/cookies te groot). Die
+  // geven anders een lege pagina zonder enige logregel.
+  if (event === "clientError" && req) {
+    process.stdout.write(`${JSON.stringify({ clientError: req.code || String(req.message).slice(0, 80), bytes: req.rawPacket ? req.rawPacket.length : undefined, limit: http.maxHeaderSize })}\n`);
+  }
   return emit.apply(this, arguments);
 };

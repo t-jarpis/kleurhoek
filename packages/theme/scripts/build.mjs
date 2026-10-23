@@ -55,13 +55,20 @@ ${forcedDark} {\n${vars(dark)}\n  color-scheme: dark;\n}`;
 const fontFaces = fonts.flatMap((f) => f.weights.map((w) =>
   `@font-face { font-family: "${f.family}"; src: url("../fonts/${f.id}/${f.file.replace("{weight}", w)}") format("woff2"); font-weight: ${w}; font-style: normal; font-display: swap; }`)).join("\n");
 
+// Variabelen die naar een kleur verwijzen (knoppen …) worden op :root uitgerekend. Binnen [data-kh-scope]
+// (een voorbeeld in beheer met eigen merkkleuren) rekent de browser ze opnieuw uit.
+const rescope = (tokens) => split(tokens).rest.filter(([, v]) => /var\(--color-/.test(v));
+const scoped = (sel, tokens) => { const r = rescope(tokens); return r.length ? `${sel} {\n${vars(r)}\n}` : ""; };
+
 const css = [
   `/* Gegenereerd door packages/theme/scripts/build.mjs. Niet met de hand wijzigen.\n   Standaard: thema ${theme.id}, lettertype ${defaultFont}. Per organisatie: data-kh-theme en data-kh-font op <html>. */`,
   fontFaces,
   block(":root", theme.tokens),
   `:root { --font-sans: ${fontStack(fonts.find((f) => f.id === defaultFont))}; }`,
   ...themes.filter((t) => t.id !== theme.id).map((t) => block(`:root[data-kh-theme="${t.id}"]`, t.tokens)),
-  ...fonts.map((f) => `:root[data-kh-font="${f.id}"] { --font-sans: ${fontStack(f)}; }`),
+  ...fonts.map((f) => `[data-kh-font="${f.id}"] { --font-sans: ${fontStack(f)}; }`),
+  scoped("[data-kh-scope]", theme.tokens),
+  ...themes.filter((t) => t.id !== theme.id).map((t) => scoped(`:root[data-kh-theme="${t.id}"] [data-kh-scope]`, t.tokens)),
   "",
 ].join("\n");
 

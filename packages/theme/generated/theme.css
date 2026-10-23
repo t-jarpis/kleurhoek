@@ -239,5 +239,11 @@
   color-scheme: dark;
 }
 :root { --font-sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif; }
-:root[data-kh-font="manrope"] { --font-sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif; }
-:root[data-kh-font="nunito"] { --font-sans: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif; }
+[data-kh-font="manrope"] { --font-sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif; }
+[data-kh-font="nunito"] { --font-sans: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif; }
+[data-kh-scope] {
+  --chip-selected-bg: var(--color-primary);
+  --chip-selected-fg: var(--color-text-on-primary);
+  --button-primary-bg: var(--color-primary);
+  --button-primary-fg: var(--color-text-on-primary);
+}

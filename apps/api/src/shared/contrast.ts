@@ -15,11 +15,11 @@ const onText = (hex: string) => Math.max(contrast(hex, "#ffffff"), contrast(hex,
 /** Foutmelding als de kleur niet voldoet, anders null. */
 export function primaryProblem(hex: string): string | null {
   const bg = Math.min(...LIGHT_BACKGROUNDS.map((b) => contrast(hex, b)));
-  if (bg < 3) return `Primaire kleur is te licht tegen de achtergrond (${bg.toFixed(1)}:1, minstens 3:1)`;
-  if (onText(hex) < 4.5) return `Tekst op de primaire kleur is slecht leesbaar (${onText(hex).toFixed(1)}:1, minstens 4,5:1)`;
+  if (bg < 3) return `Primaire kleur is te licht tegen de achtergrond (${bg.toFixed(1).replace(".", ",")}:1, minstens 3:1)`;
+  if (onText(hex) < 4.5) return `Tekst op de primaire kleur is slecht leesbaar (${onText(hex).toFixed(1).replace(".", ",")}:1, minstens 4,5:1)`;
   return null;
 }
 export function accentProblem(hex: string): string | null {
   const bg = Math.min(...LIGHT_BACKGROUNDS.map((b) => contrast(hex, b)));
-  return bg < 4.5 ? `Accentkleur (links) is slecht leesbaar (${bg.toFixed(1)}:1, minstens 4,5:1)` : null;
+  return bg < 4.5 ? `Accentkleur (links) is slecht leesbaar (${bg.toFixed(1).replace(".", ",")}:1, minstens 4,5:1)` : null;
 }
