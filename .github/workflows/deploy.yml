@@ -114,3 +114,12 @@ jobs:
             sleep 10
           done
           echo "::error::Website reageert niet na de deploy"; exit 1
+
+      - uses: actions/checkout@v4
+        if: steps.rollout.outputs.skip != 'true'
+      - name: Browsertest (opmaak geladen, geen JavaScript-fouten)
+        if: steps.rollout.outputs.skip != 'true'
+        run: |
+          set -euo pipefail
+          cd .github/diagnose && npm install --no-save --silent playwright-core@1.56.1
+          node browser-check.mjs "${{ vars.SITE_URL }}/nl-nl"
