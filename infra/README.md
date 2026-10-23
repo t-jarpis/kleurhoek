@@ -58,6 +58,13 @@ De eerste start van de API maakt de tabellen aan en vult de catalogus. Het eigen
 - **Infra wijzigen**: `scripts/infra.sh up dev` (of `prod`). Terraform kijkt niet naar de image van de containers; die beheert GitHub.
 - **Deploy-sleutel roteren**: `terraform apply -replace=module.site.module.scaleway.scaleway_iam_api_key.deploy`, daarna `scripts/infra.sh up dev`; dat zet het nieuwe secret in GitHub.
 
+## Problemen zoeken
+Workflow **Diagnose** (Actions › Diagnose › Run workflow, of `gh workflow run Diagnose -R t-jarpis/kleurhoek -f environment=dev`):
+- standaard: status en foutmelding van de drie containers, en de HTTP-status van de website;
+- met `deep`: draait de API even met `.github/diagnose/api-startup.js` (zelfde image en geheimen), dat de database controleert en migraties en seed uitvoert met de echte PostgreSQL-fout. Daarna wordt alles teruggezet.
+
+Zo zijn fouten te vinden zonder de Scaleway-console.
+
 ## Productie
 Pas bij de lancering: project `kleurhoek-prod`, `envs/prod/terraform.tfvars` invullen en `scripts/infra.sh up prod` (vraagt bij elke wijziging om bevestiging). Zet in GitHub voor de omgeving `prod` een verplichte goedkeuring. Daarna in `envs/zone`: `prod_live = true` en `apply`. Dan sturen het kale domein, `kleurhoek.be` en `kleurhoek.com` door naar www.
 
