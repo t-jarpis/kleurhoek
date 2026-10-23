@@ -9,6 +9,10 @@ on:
         type: choice
         options: [dev, prod]
         default: dev
+      deep:
+        description: "API tijdelijk vervangen door een diagnosescript (migraties met foutmelding); daarna teruggezet"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -39,3 +43,52 @@ jobs:
           for p in healthz nl-nl v1/assets/plates/test/1.svg; do
             printf '%-32s %s\n' "/$p" "$(curl -s -o /dev/null -w '%{http_code}' "$SITE_URL/$p")"
           done
+
+  api-startup:
+    # Alleen met deep=true. Vervangt even het startcommando van de API door .github/diagnose/api-startup.js
+    # (zelfde image, zelfde geheimen), zet tijdelijk de publieke ingang aan, leest het resultaat met een
+    # eenmalige sleutel en zet daarna alles terug.
+    if: inputs.deep
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    env:
+      SCW_SECRET_KEY: ${{ secrets.SCW_SECRET_KEY }}
+      API: https://api.scaleway.com/containers/v1/regions/${{ vars.SCW_REGION || 'nl-ams' }}
+      CONTAINER_IDS: ${{ vars.CONTAINER_IDS || '{}' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Diagnose
+        run: |
+          set -euo pipefail
+          scw() { curl -fsS -H "X-Auth-Token: $SCW_SECRET_KEY" -H "Content-Type: application/json" "$@"; }
+          id=$(jq -r .api <<<"$CONTAINER_IDS")
+          scw "$API/containers/$id" > before.json
+          key=$(openssl rand -hex 16); echo "::add-mask::$key"
+          body=$(jq -n --rawfile js .github/diagnose/api-startup.js --arg k "$key" --slurpfile c before.json '{
+            command: ["node", "-e", $js], args: [],
+            environment_variables: ($c[0].environment_variables + {DIAG_KEY: $k}),
+            enable_default_public_endpoint: true }')
+          scw -X PATCH "$API/containers/$id" -d "$body" | jq '{status, command: (.command|length)}'
+          ready=""
+          for i in $(seq 1 40); do
+            sleep 10
+            c=$(scw "$API/containers/$id"); st=$(jq -r .status <<<"$c"); echo "status: $st"
+            [ "$st" = ready ] && { ready=1; break; }
+            [ "$st" = error ] && { jq -r .error_message <<<"$c"; break; }
+          done
+          url=$(scw "$API/containers/$id" | jq -r .public_endpoint)
+          if [ -n "$ready" ] && [ -n "$url" ] && [ "$url" != null ]; then
+            for i in $(seq 1 30); do
+              out=$(curl -fsS "$url/diag?k=$key" || true)
+              echo "$out" | grep -q "klaar" && break; sleep 10
+            done
+            echo "------ resultaat ------"; echo "$out"
+          fi
+      - name: Terugzetten
+        if: always()
+        run: |
+          set -euo pipefail
+          [ -f before.json ] || exit 0
+          id=$(jq -r .api <<<"$CONTAINER_IDS")
+          body=$(jq '{command: (.command // []), args: (.args // []), environment_variables, enable_default_public_endpoint: false}' before.json)
+          curl -fsS -X PATCH -H "X-Auth-Token: $SCW_SECRET_KEY" -H "Content-Type: application/json" "$API/containers/$id" -d "$body" | jq '{status, public_endpoint, command}'
