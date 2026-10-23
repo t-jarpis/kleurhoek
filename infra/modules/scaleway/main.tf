@@ -130,6 +130,11 @@ resource "scaleway_iam_api_key" "deploy" {
   application_id     = scaleway_iam_application.deploy.id
   description        = "GitHub Actions (${var.environment})"
   default_project_id = data.scaleway_account_project.current.id
+  # De provider ziet hier steeds een verschil en zou de sleutel elke keer vervangen.
+  # Roteren gaat bewust met: terraform apply -replace=…scaleway_iam_api_key.deploy
+  lifecycle {
+    ignore_changes = [default_project_id, description, expires_at]
+  }
 }
 
 # ---------- Logs lezen vanuit GitHub (workflow Diagnose) ----------
