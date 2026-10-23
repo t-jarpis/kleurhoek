@@ -14,3 +14,4 @@ Het volledige architectuurdocument met diagrammen staat hier: https://claude.ai/
 - Website afschermen met een IP-lijst uit het admin panel, gehandhaafd door de website-proxy (ADR 0015).
 - Organisaties (scholen, opvang …) met eigen huisstijl, aanbod, functies en `{code}.kleurhoek.nl` via een Cloudflare Worker; in te stellen in het admin panel (ADR 0017).
 - Eigen inlogpagina op `login.kleurhoek.nl` (login v2 via de Session API van Zitadel): e-mailcode en passkeys, in de huisstijl van de organisatie (ADR 0018).
+- Releases: browsertest in CI vóór de uitrol, Deploy pas na groene CI, browsertest na de uitrol met automatisch terugdraaien; migraties altijd uitbreidend (ADR 0019).
