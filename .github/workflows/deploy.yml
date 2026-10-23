@@ -93,6 +93,10 @@ jobs:
           for app in api web admin; do
             id=$(jq -r --arg a "$app" '.[$a] // empty' <<<"$CONTAINER_IDS")
             [ -n "$id" ] || { echo "::warning::Geen container-ID voor $app"; continue; }
+            # Een container die nog bijwerkt weigert een wijziging (409): eerst wachten.
+            for i in $(seq 1 30); do
+              case "$(scw "$API/$id" | jq -r .status)" in pending|updating|creating|deleting) sleep 10 ;; *) break ;; esac
+            done
             # Een image-wijziging rolt de container automatisch opnieuw uit.
             scw -X PATCH "$API/$id" -d "{\"image\":\"$REGISTRY/kleurhoek-$app:$TAG\"}" > /dev/null
             sleep 5
