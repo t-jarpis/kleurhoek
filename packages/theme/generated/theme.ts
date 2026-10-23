@@ -2,6 +2,7 @@
 export const activeTheme = {
   "id": "studio",
   "name": "Studio",
+  "font": "Manrope",
   "logo": {
     "word": "kleurhoek",
     "blocks": [

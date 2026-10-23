@@ -12,6 +12,11 @@ const dir = join(root, "themes", name);
 if (!existsSync(dir)) throw new Error(`Thema '${name}' bestaat niet (themes/${name})`);
 const tokens = JSON.parse(readFileSync(join(dir, "tokens.json"), "utf8"));
 const theme = JSON.parse(readFileSync(join(dir, "theme.json"), "utf8"));
+// Lettertype: los te kiezen (fonts/<naam>), standaard dat van het thema.
+const fontName = process.env.KLEURHOEK_FONT || config.font || theme.font;
+const fontDir = join(root, "fonts", fontName);
+if (!existsSync(join(fontDir, "font.json"))) throw new Error(`Lettertype '${fontName}' bestaat niet (fonts/${fontName}/font.json)`);
+const font = JSON.parse(readFileSync(join(fontDir, "font.json"), "utf8"));
 
 const light = [], dark = [], rest = [];
 for (const t of tokens.color.tokens) {
@@ -25,13 +30,13 @@ for (const t of tokens.shadow.tokens) {
 for (const group of ["spacing", "radius", "modus", "borderWidth", "zIndex", "breakpoint", "duration", "container", "knoppen"]) {
   for (const t of tokens[group]?.tokens ?? []) rest.push([t.name, t.value]);
 }
-rest.push(["font-sans", tokens.type.families.sans], ["font-mono", tokens.type.families.mono]);
+rest.push(["font-sans", `"${font.family}", system-ui, -apple-system, "Segoe UI", sans-serif`], ["font-mono", tokens.type.families.mono]);
 
 const vars = (pairs, indent = "  ") => pairs.map(([k, v]) => `${indent}--${k}: ${v};`).join("\n");
-const fonts = (theme.fonts ?? []).map((f) =>
-  `@font-face { font-family: "${f.family}"; src: url("../themes/${name}/${f.file}") format("woff2"); font-weight: ${f.weight}; font-style: ${f.style ?? "normal"}; font-display: swap; }`).join("\n");
+const fonts = font.weights.map((w) =>
+  `@font-face { font-family: "${font.family}"; src: url("../fonts/${fontName}/${font.file.replace("{weight}", w)}") format("woff2"); font-weight: ${w}; font-style: normal; font-display: swap; }`).join("\n");
 
-const css = `/* Gegenereerd door packages/theme/scripts/build.mjs uit themes/${name}. Niet met de hand wijzigen. */
+const css = `/* Gegenereerd door packages/theme/scripts/build.mjs uit themes/${name} met lettertype ${fontName}. Niet met de hand wijzigen. */
 ${fonts}
 :root {
 ${vars(rest)}
@@ -50,7 +55,7 @@ ${vars(dark)}
 }
 `;
 const ts = `// Gegenereerd door packages/theme/scripts/build.mjs uit themes/${name}. Niet met de hand wijzigen.
-export const activeTheme = ${JSON.stringify({ id: name, name: theme.name, logo: theme.logo }, null, 2)} as const;
+export const activeTheme = ${JSON.stringify({ id: name, name: theme.name, font: font.family, logo: theme.logo }, null, 2)} as const;
 `;
 
 const out = { "generated/theme.css": css, "generated/theme.ts": ts };
@@ -60,5 +65,5 @@ if (process.argv.includes("--check")) {
   console.log(`Thema ${name}: generated/ is actueel`);
 } else {
   for (const [f, c] of Object.entries(out)) writeFileSync(join(root, f), c);
-  console.log(`Thema ${name} gegenereerd (${rest.length + light.length} variabelen)`);
+  console.log(`Thema ${name} met ${font.family} gegenereerd (${rest.length + light.length} variabelen)`);
 }

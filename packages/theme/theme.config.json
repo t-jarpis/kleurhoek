@@ -1,1 +1,4 @@
-{ "theme": "studio" }
+{
+  "theme": "studio",
+  "font": "manrope"
+}

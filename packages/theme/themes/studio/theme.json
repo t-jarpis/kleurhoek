@@ -1,28 +1,7 @@
 {
   "name": "Studio",
   "description": "Rustig en strak: Manrope, 1px randen, hoek 8px, inktzwarte knoppen; kleur alleen in logo, stippen en platen (ADR 0012).",
-  "fonts": [
-    {
-      "family": "Manrope",
-      "file": "fonts/manrope-latin-400-normal.woff2",
-      "weight": "400"
-    },
-    {
-      "family": "Manrope",
-      "file": "fonts/manrope-latin-600-normal.woff2",
-      "weight": "600"
-    },
-    {
-      "family": "Manrope",
-      "file": "fonts/manrope-latin-700-normal.woff2",
-      "weight": "700"
-    },
-    {
-      "family": "Manrope",
-      "file": "fonts/manrope-latin-800-normal.woff2",
-      "weight": "800"
-    }
-  ],
+  "font": "manrope",
   "logo": {
     "word": "kleurhoek",
     "blocks": [

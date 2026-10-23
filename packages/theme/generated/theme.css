@@ -1,8 +1,8 @@
-/* Gegenereerd door packages/theme/scripts/build.mjs uit themes/studio. Niet met de hand wijzigen. */
-@font-face { font-family: "Manrope"; src: url("../themes/studio/fonts/manrope-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: "Manrope"; src: url("../themes/studio/fonts/manrope-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
-@font-face { font-family: "Manrope"; src: url("../themes/studio/fonts/manrope-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
-@font-face { font-family: "Manrope"; src: url("../themes/studio/fonts/manrope-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+/* Gegenereerd door packages/theme/scripts/build.mjs uit themes/studio met lettertype manrope. Niet met de hand wijzigen. */
+@font-face { font-family: "Manrope"; src: url("../fonts/manrope/manrope-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Manrope"; src: url("../fonts/manrope/manrope-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Manrope"; src: url("../fonts/manrope/manrope-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Manrope"; src: url("../fonts/manrope/manrope-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
 :root {
   --krijt-rood: #e2483d;
   --krijt-rood-sterk: #d22b1f;
