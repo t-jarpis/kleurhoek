@@ -35,42 +35,31 @@ Alles van Kleurhoek staat in eigen accounts (Scaleway-organisatie *Kleurhoek*, C
    - Een service user met *IAM Owner* en een JSON-sleutel in `~/.config/kleurhoek/`.
 4. Kopieer per configuratie `terraform.tfvars.example` naar `terraform.tfvars` en vul in. De organisatie-ID staat in de Scaleway-console onder *Organization › Settings*, de project-ID onder *Project › Settings*.
 
-## Eerste uitrol (dev)
-Containers kunnen pas bestaan als er images zijn, en images komen uit GitHub. Daarom gaat de eerste keer in twee stappen.
-
+## Uitrollen: één commando
 ```sh
-# 1. De zone (één keer; daarna alleen bij wijzigingen)
-cd infra/envs/zone
-terraform init -backend-config="bucket=<state-bucket>"
-terraform apply
-
-# 2. Dev zonder containers: netwerk, database, registry, Zitadel, Access, deploy-sleutel
-cd ../dev
-terraform init -reconfigure -backend-config="bucket=<state-bucket>"   # -reconfigure: alleen na de overstap van Azure
-terraform apply -var apps_enabled=false
+scripts/infra.sh check      # alleen controleren; meldt alles wat ontbreekt in één lijst
+scripts/infra.sh up dev     # alles: zone, omgeving, GitHub, eerste images, containers, rooktest
 ```
+Het script:
+- installeert of werkt bij wat ontbreekt (terraform, gh, jq via Homebrew);
+- vraagt de Scaleway-sleutel en het Cloudflare-token één keer en bewaart ze in de macOS-sleutelhanger (dienst `kleurhoek`); `scripts/infra.sh reset-keys` vergeet ze weer;
+- controleert sleutels, project, zone, tfvars, Zitadel-sleutel en GitHub-login live, vóór er iets verandert;
+- maakt de state-bucket aan als die er niet is (versioning aan);
+- past Terraform toe zonder vragen zolang er niets verwijderd wordt, en stopt met uitleg bij een 403 (ontbrekend recht op het token);
+- vult de GitHub-omgeving, laat de eerste images bouwen en maakt daarna de containers aan;
+- wacht tot de site antwoordt.
 
-3. **GitHub-omgeving `dev`** vullen vanuit de output. De sleutel gaat niet via je scherm.
-   ```sh
-   out=$(terraform output -json github)
-   for k in SCW_ACCESS_KEY SCW_PROJECT_ID SCW_REGION REGISTRY CONTAINER_IDS SITE_URL MARKETS; do
-     gh variable set "$k" -e dev -R t-jarpis/kleurhoek -b "$(jq -r ".variables.$k" <<<"$out")"
-   done
-   jq -r .secrets.SCW_SECRET_KEY <<<"$out" | gh secret set SCW_SECRET_KEY -e dev -R t-jarpis/kleurhoek
-   gh variable set DEPLOY_ENABLED -R t-jarpis/kleurhoek -b true
-   ```
-4. **Images bouwen**: `gh workflow run Deploy -R t-jarpis/kleurhoek -f environment=dev`. Zonder containers stopt de workflow na het pushen.
-5. **Containers en domeinen**: `terraform apply`. Daarna `CONTAINER_IDS` opnieuw zetten (de regel uit stap 3 voor die ene variabele). Vanaf nu rolt elke push naar `main` automatisch uit naar dev.
+Opnieuw draaien is altijd veilig: het gaat verder waar het bleef. Wat je zelf moet doen (accounts, een API-sleutel en token aanmaken, `gh auth login`) staat hierboven onder *Eenmalig vooraf*; het script zegt precies wat er nog ontbreekt.
 
 De eerste start van de API maakt de tabellen aan en vult de catalogus. Het eigen domein krijgt binnen enkele minuten een certificaat; tot dan geeft Cloudflare een 526.
 
 ## Daarna
 - **Uitrollen**: push naar `main` (dev), of start *Deploy* met `environment=prod` (vraagt goedkeuring). De workflow bouwt, pusht, zet de image per container (eerst de API, die migreert) en doet een rooktest.
-- **Infra wijzigen**: `terraform plan` en `terraform apply` in de betreffende map. Terraform kijkt niet naar de image van de containers; die beheert GitHub.
-- **Deploy-sleutel roteren**: `terraform apply -replace=module.site.module.scaleway.scaleway_iam_api_key.deploy`, daarna het secret opnieuw zetten (stap 3).
+- **Infra wijzigen**: `scripts/infra.sh up dev` (of `prod`). Terraform kijkt niet naar de image van de containers; die beheert GitHub.
+- **Deploy-sleutel roteren**: `terraform apply -replace=module.site.module.scaleway.scaleway_iam_api_key.deploy`, daarna `scripts/infra.sh up dev`; dat zet het nieuwe secret in GitHub.
 
 ## Productie
-Pas bij de lancering: project `kleurhoek-prod`, `envs/prod/terraform.tfvars`, dezelfde stappen 2 tot en met 5 met omgeving `prod` (in GitHub met verplichte goedkeuring). Daarna in `envs/zone`: `prod_live = true` en `apply`. Dan sturen het kale domein, `kleurhoek.be` en `kleurhoek.com` door naar www.
+Pas bij de lancering: project `kleurhoek-prod`, `envs/prod/terraform.tfvars` invullen en `scripts/infra.sh up prod` (vraagt bij elke wijziging om bevestiging). Zet in GitHub voor de omgeving `prod` een verplichte goedkeuring. Daarna in `envs/zone`: `prod_live = true` en `apply`. Dan sturen het kale domein, `kleurhoek.be` en `kleurhoek.com` door naar www.
 
 Controleer vooraf de database-node: `scw rdb node-type list region=nl-ams`.
 
