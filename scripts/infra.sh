@@ -241,7 +241,9 @@ github_sync() { # github_sync <env>
   for k in $(jq -r '.variables | keys[]' <<<"$out"); do
     gh variable set "$k" --env "$env" -R "$REPO" -b "$(jq -r --arg k "$k" '.variables[$k]' <<<"$out")" >/dev/null || die "GitHub-variabele $k"
   done
-  jq -r .secrets.SCW_SECRET_KEY <<<"$out" | gh secret set SCW_SECRET_KEY --env "$env" -R "$REPO" >/dev/null || die "GitHub-secret"
+  for k in $(jq -r '.secrets | keys[]' <<<"$out"); do
+    jq -r --arg k "$k" '.secrets[$k]' <<<"$out" | gh secret set "$k" --env "$env" -R "$REPO" >/dev/null || die "GitHub-secret $k"
+  done
   # Oude secret op repo-niveau (eerste poging) opruimen; die zou prod en dev door elkaar halen.
   gh secret delete SCW_SECRET_KEY -R "$REPO" >/dev/null 2>&1 || true
   [ "$env" = dev ] && gh variable set DEPLOY_ENABLED -R "$REPO" -b true >/dev/null

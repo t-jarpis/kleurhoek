@@ -122,6 +122,7 @@ output "github" {
     variables = {
       SCW_ACCESS_KEY = module.scaleway.github_deploy.access_key
       SCW_PROJECT_ID = module.scaleway.github_deploy.project_id
+      LOGS_URL       = module.scaleway.github_deploy.logs_url
       SCW_REGION     = "nl-ams"
       REGISTRY       = module.scaleway.registry_endpoint
       CONTAINER_IDS  = jsonencode(module.scaleway.container_ids)
@@ -130,6 +131,7 @@ output "github" {
     }
     secrets = {
       SCW_SECRET_KEY = module.scaleway.github_deploy.secret_key
+      LOGS_TOKEN     = module.scaleway.github_deploy.logs_token
     }
   }
   sensitive = true

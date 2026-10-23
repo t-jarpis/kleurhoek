@@ -131,3 +131,24 @@ resource "scaleway_iam_api_key" "deploy" {
   description        = "GitHub Actions (${var.environment})"
   default_project_id = data.scaleway_account_project.current.id
 }
+
+# ---------- Logs lezen vanuit GitHub (workflow Diagnose) ----------
+# Scaleway bewaart de uitvoer van de containers in Cockpit. Met dit token (alleen lezen) kan de
+# Diagnose-workflow de logs ophalen, zodat fouten zonder de console te vinden zijn.
+
+data "scaleway_cockpit_source" "logs" {
+  project_id = data.scaleway_account_project.current.id
+  type       = "logs"
+  origin     = "scaleway"
+}
+
+resource "scaleway_cockpit_token" "diagnose" {
+  project_id = data.scaleway_account_project.current.id
+  name       = "${local.name}-github-diagnose"
+  scopes {
+    query_logs    = true
+    write_logs    = false
+    query_metrics = false
+    write_metrics = false
+  }
+}

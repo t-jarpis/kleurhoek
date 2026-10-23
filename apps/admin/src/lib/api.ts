@@ -45,7 +45,7 @@ export class ApiError extends Error {
 }
 
 async function call<T>(path: string, init: RequestInit = {}): Promise<T> {
-  const res = await fetch(`${API_URL}${path}`, { ...init, cache: "no-store", headers: { ...init.headers, authorization: `Bearer ${await adminToken()}`, "content-type": "application/json" } });
+  const res = await fetch(`${API_URL}${path}`, { ...init, cache: "no-store", signal: AbortSignal.timeout(15_000), headers: { ...init.headers, authorization: `Bearer ${await adminToken()}`, "content-type": "application/json" } });
   if (!res.ok) {
     const body = await res.text();
     let message = body.slice(0, 200);

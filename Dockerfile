@@ -42,7 +42,8 @@ EXPOSE 3001
 CMD ["node", "dist/main.js"]
 
 FROM runtime AS web
-ENV PORT=3000 HOSTNAME=0.0.0.0
+# Ruimere grens voor request-headers: sessiecookies (Zitadel-tokens) plus de cookie van Cloudflare Access.
+ENV PORT=3000 HOSTNAME=0.0.0.0 NODE_OPTIONS=--max-http-header-size=32768
 COPY --from=build --chown=node:node /repo/apps/web/.next/standalone /app
 COPY --from=build --chown=node:node /repo/apps/web/.next/static /app/apps/web/.next/static
 USER node
@@ -50,7 +51,7 @@ EXPOSE 3000
 CMD ["node", "apps/web/server.js"]
 
 FROM runtime AS admin
-ENV PORT=3002 HOSTNAME=0.0.0.0
+ENV PORT=3002 HOSTNAME=0.0.0.0 NODE_OPTIONS=--max-http-header-size=32768
 COPY --from=build --chown=node:node /repo/apps/admin/.next/standalone /app
 COPY --from=build --chown=node:node /repo/apps/admin/.next/static /app/apps/admin/.next/static
 USER node
