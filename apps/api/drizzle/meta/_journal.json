@@ -64,6 +64,13 @@
       "when": 1792677659021,
       "tag": "0008_rls_werkjes_en_winkel",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1792780000000,
+      "tag": "0009_app_user_set_option",
+      "breakpoints": true
     }
   ]
 }
