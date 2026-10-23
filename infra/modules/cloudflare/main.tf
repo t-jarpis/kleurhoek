@@ -69,10 +69,34 @@ resource "cloudflare_zero_trust_access_application" "admin" {
   }]
 }
 
+# Let's Encrypt controleert het admindomein via /.well-known/acme-challenge/. Zonder deze uitzondering
+# stuurt Access die controle naar het inlogscherm, krijgt Scaleway geen certificaat en kan Cloudflare de
+# admin niet bereiken (lege pagina na het inloggen). Alleen dit pad, voor iedereen; de rest blijft dicht.
+resource "cloudflare_zero_trust_access_policy" "acme" {
+  account_id = var.account_id
+  name       = "Certificaatcontrole (${var.subdomains.admin})"
+  decision   = "bypass"
+  include    = [{ everyone = {} }]
+}
+
+resource "cloudflare_zero_trust_access_application" "acme" {
+  account_id           = var.account_id
+  name                 = "Kleurhoek admin certificaat (${var.subdomains.admin})"
+  type                 = "self_hosted"
+  domain               = "${local.admin_host}/.well-known/acme-challenge/"
+  app_launcher_visible = false
+  policies = [{
+    id         = cloudflare_zero_trust_access_policy.acme.id
+    precedence = 1
+  }]
+}
+
 output "site_host" { value = local.site_host }
 output "admin_host" { value = local.admin_host }
 
 # Per app het ID van het CNAME-record: Scaleway koppelt het domein pas als dit bestaat.
 output "domain_records" {
   value = { for k, r in cloudflare_dns_record.app : k => r.id }
+  # Pas koppelen als de certificaatcontrole langs Access kan.
+  depends_on = [cloudflare_zero_trust_access_application.acme]
 }

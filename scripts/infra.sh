@@ -224,7 +224,8 @@ tf_apply() { # tf_apply <map> [extra args…]
   destroys="$(jq -r '.resource_changes[]? | select(.change.actions | index("delete")) | "      " + (.change.actions|join("/")) + "  " + .address' <<<"$summary")"
   if [ "$changes" = 0 ]; then ok "geen wijzigingen"; rm -f "$dir/tfplan"; return; fi
   ok "$changes wijziging(en)"
-  if [ -n "$destroys" ] || [ "$TARGET" = prod ]; then
+  # AUTO_OK=1: een vervanging die het script zelf kiest (bijv. een domein zonder certificaat), niet in prod.
+  if { [ -n "$destroys" ] && [ "${AUTO_OK:-}" != 1 ]; } || [ "$TARGET" = prod ]; then
     [ -n "$destroys" ] && { warn "dit plan verwijdert of vervangt:"; printf '%s\n' "$destroys"; }
     [ "$TARGET" = prod ] && warn "productie: bevestiging nodig"
     read -rp "  Doorgaan? (ja/nee) " a; [ "$a" = ja ] || die "afgebroken"
@@ -232,6 +233,32 @@ tf_apply() { # tf_apply <map> [extra args…]
   terraform -chdir="$dir" apply -input=false -compact-warnings tfplan \
     || die "terraform apply ($(basename "$dir")) mislukte; scrol omhoog voor de fout en draai het script daarna opnieuw"
   rm -f "$dir/tfplan"
+}
+
+# Scaleway haalt per eigen domein een certificaat (HTTP-01). Mislukt dat eenmaal (status error), dan
+# probeert Scaleway het niet opnieuw: het domein moet opnieuw worden aangemaakt. Dat doen we hier zelf.
+heal_domains() { # heal_domains <env>
+  local ids bad="" app id st i
+  ids="$(terraform -chdir="$INFRA/envs/$1" output -json container_ids 2>/dev/null || echo '{}')"
+  dom() { curl -s -H "X-Auth-Token: $SCW_SECRET_KEY" "https://api.scaleway.com/containers/v1/regions/$REGION/domains?container_id=$1" | jq -r '.domains[0].status // "geen"'; }
+  for app in web admin; do
+    id="$(jq -r --arg a "$app" '.[$a] // empty' <<<"$ids")"; [ -n "$id" ] || continue
+    st="$(dom "$id")"
+    case "$st" in
+      ready) ok "domein $app: certificaat in orde" ;;
+      error) warn "domein $app: geen certificaat (status error), wordt opnieuw aangemaakt"; bad="$bad $app" ;;
+      *) warn "domein $app: $st" ;;
+    esac
+  done
+  [ -n "$bad" ] || return 0
+  local args=()
+  for app in $bad; do args+=("-replace=module.site.module.scaleway.scaleway_container_domain.public[\"$app\"]"); done
+  AUTO_OK=1 tf_apply "$1" "${args[@]}"
+  for app in $bad; do
+    id="$(jq -r --arg a "$app" '.[$a] // empty' <<<"$ids")"
+    for i in $(seq 1 30); do st="$(dom "$id")"; [ "$st" = ready ] || [ "$st" = error ] && break; sleep 10; done
+    [ "$st" = ready ] && ok "domein $app: certificaat in orde" || problem "domein $app: nog steeds $st. Draai Diagnose voor de melding van Scaleway."
+  done
 }
 
 images_ready() { # zijn de drie images er al?
@@ -321,6 +348,8 @@ cmd_up() {
     tf_apply "$TARGET"
     github_sync "$TARGET"
   fi
+  step "Domeinen en certificaten"
+  heal_domains "$TARGET"
   smoke_test "$(terraform -chdir="$INFRA/envs/$TARGET" output -raw site_url)"
   echo; bold "Klaar: $(terraform -chdir="$INFRA/envs/$TARGET" output -raw site_url)"
 }
