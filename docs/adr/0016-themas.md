@@ -1,6 +1,6 @@
 # 0016 · Thema's: een andere stijl zonder herbouw
 
-- Status: aangenomen
+- Status: aangenomen; deels vervangen door 0017 (alle thema's in één CSS, keuze per organisatie)
 - Datum: 2026-10-23
 
 ## Aanleiding
