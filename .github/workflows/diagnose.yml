@@ -46,6 +46,26 @@ jobs:
             [ -n "$id" ] && scw "$API/containers/$id" | jq '{name, status, error_message, image, min_scale, max_scale, cpu_limit, memory_limit_bytes, public_endpoint, private_endpoint, private_network_id, updated_at, ready_at, env_keys: (.environment_variables|keys)}'
             echo "::endgroup::"
           done
+      - name: Domeinen
+        # Eigen domeinen per container (Scaleway koppelt ze en haalt een certificaat) en een rechtstreeks
+        # verzoek op de origin, buiten Cloudflare om. Zonder geheime header hoort daar 403 uit te komen:
+        # dan bereikt het domein de container. Een andere code of een time-out wijst op de koppeling.
+        run: |
+          set -uo pipefail
+          scw() { curl -sS -H "X-Auth-Token: $SCW_SECRET_KEY" "$@"; }
+          for app in web admin; do
+            id=$(jq -r --arg a "$app" '.[$a] // empty' <<<"$CONTAINER_IDS")
+            [ -n "$id" ] || continue
+            endpoint=$(scw "$API/containers/$id" | jq -r '.domain_name // (.public_endpoint | sub("^https://"; ""))')
+            ip=$(getent ahostsv4 "$endpoint" | awk 'NR==1{print $1}')
+            echo "::group::$app ($endpoint, $ip)"
+            scw "$API/domains?container_id=$id" | jq -c '.domains[] | {hostname, status, error_message, url}'
+            for host in $(scw "$API/domains?container_id=$id" | jq -r '.domains[].hostname'); do
+              printf '%-28s origin: %s\n' "$host" "$(curl -s -m 20 --resolve "$host:443:$ip" -o /dev/null -w '%{http_code} (tls %{ssl_verify_result})' "https://$host/healthz")"
+              printf '%-28s origin /: %s\n' "$host" "$(curl -s -m 20 --resolve "$host:443:$ip" -o /dev/null -w '%{http_code}' "https://$host/")"
+            done
+            echo "::endgroup::"
+          done
       - name: Website
         run: |
           for p in healthz nl-nl v1/assets/plates/test/1.svg; do
