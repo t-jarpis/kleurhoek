@@ -27,7 +27,7 @@ Alles van Kleurhoek staat in eigen accounts (Scaleway-organisatie *Kleurhoek*, C
      export AWS_ACCESS_KEY_ID=$SCW_ACCESS_KEY AWS_SECRET_ACCESS_KEY=$SCW_SECRET_KEY   # voor de state-bucket
      export CLOUDFLARE_API_TOKEN=…
      ```
-2. **Cloudflare**: de zones `kleurhoek.nl`, `kleurhoek.be` en `kleurhoek.com` (gratis plan; nameservers bij Neostrada). API-token met *Zone: DNS Edit, Zone Settings Edit, SSL and Certificates Edit, Zone WAF Edit, Cache Rules Edit, Transform Rules Edit, Single Redirect Edit* voor deze zones en *Account: Access: Apps and Policies Edit*.
+2. **Cloudflare**: de zones `kleurhoek.nl`, `kleurhoek.be` en `kleurhoek.com` (gratis plan; nameservers bij Neostrada). API-token met *Zone: DNS Edit, Zone Settings Edit, SSL and Certificates Edit, Zone WAF Edit, Cache Rules Edit, Transform Rules Edit, Single Redirect Edit, Workers Routes Edit* voor deze zones en *Account: Access: Apps and Policies Edit, Workers Scripts Edit*. `scripts/infra.sh check` controleert dit.
 3. **Zitadel Cloud**: instance in de EU-regio. Op het gratis plan is er één instance; dev en prod delen die tot de lancering, elk met een eigen organisatie en apps.
    - Identity providers Google, Apple en Microsoft (ID's in `zitadel_idp_ids`).
    - Login v2, wachtwoorden uit, passkeys en e-mailcode aan.
@@ -57,6 +57,10 @@ De eerste start van de API maakt de tabellen aan en vult de catalogus. Het eigen
 - **Uitrollen**: push naar `main` (dev), of start *Deploy* met `environment=prod` (vraagt goedkeuring). De workflow bouwt, pusht, zet de image per container (eerst de API, die migreert) en doet een rooktest.
 - **Infra wijzigen**: `scripts/infra.sh up dev` (of `prod`). Terraform kijkt niet naar de image van de containers; die beheert GitHub.
 - **Deploy-sleutel roteren**: `terraform apply -replace=module.site.module.scaleway.scaleway_iam_api_key.deploy`, daarna `scripts/infra.sh up dev`; dat zet het nieuwe secret in GitHub.
+
+## Organisaties en hun domeinen (ADR 0017)
+- **Subdomein: niets te doen.** Een organisatie die in het admin panel wordt aangemaakt, is meteen bereikbaar op `{code}.kleurhoek.nl` (prod) of `{code}-dev.kleurhoek.nl` (dev). Eén wildcard-record `*.kleurhoek.nl` wijst naar de Worker `kleurhoek-organisaties` (`modules/cloudflare-zone/org-worker.js`). Die stuurt door naar de website van de omgeving met de oorspronkelijke host, het IP-adres en het land, plus een eigen geheim (`ORG_WORKER_SECRET`). Zonder dat geheim negeert de website die headers. De vaste hosts (www, dev, admin, login …) slaan de Worker over. Universal SSL dekt `*.kleurhoek.nl`.
+- **Eigen domein van een school** (bijvoorbeeld `kleuren.deregenboog.nl`): vul het in bij de organisatie (Algemeen › Eigen domeinen). Een CNAME van een ander Cloudflare-account naar ons wordt door Cloudflare geweigerd (fout 1014), dus dit vraagt *Cloudflare for SaaS* (custom hostnames; de eerste 100 zijn gratis) met de Worker als fallback-origin. Dat staat nog niet in Terraform; tot dan is het subdomein de weg.
 
 ## Problemen zoeken
 Workflow **Diagnose** (Actions › Diagnose › Run workflow, of `gh workflow run Diagnose -R t-jarpis/kleurhoek -f environment=dev`):

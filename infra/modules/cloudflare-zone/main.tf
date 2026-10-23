@@ -11,13 +11,17 @@ terraform {
 }
 
 variable "zone_id" { type = string }
+variable "account_id" {
+  type        = string
+  description = "Cloudflare-account van de zone (voor de Worker van de organisatiedomeinen)."
+}
 variable "domain" {
   type        = string
   description = "Bijvoorbeeld kleurhoek.nl"
 }
 variable "environments" {
-  type        = map(object({ site = string, admin = string }))
-  description = "Subdomeinen per omgeving, bijvoorbeeld { dev = { site = \"dev\", admin = \"admin-dev\" } }."
+  type        = map(object({ site = string, admin = string, login = string }))
+  description = "Subdomeinen per omgeving, bijvoorbeeld { dev = { site = \"dev\", admin = \"admin-dev\", login = \"login-dev\" } }."
 }
 variable "apex_redirect" {
   type        = bool
@@ -46,6 +50,7 @@ locals {
   hosts = { for env, s in var.environments : env => [
     "${s.site}.${var.domain}",
     "${s.admin}.${var.domain}",
+    "${s.login}.${var.domain}",
   ] }
 }
 
@@ -77,6 +82,64 @@ resource "cloudflare_ruleset" "edge_header" {
       }
     }
   }]
+}
+
+# ---------- Organisatiedomeinen (ADR 0017) ----------
+# {code}.kleurhoek.nl (prod) en {code}-dev.kleurhoek.nl (dev) wijzen via één wildcard-record naar een
+# Worker. Die stuurt door naar de website van de omgeving, met de oorspronkelijke host erbij. Zo hoeft
+# een nieuwe school of opvang niets in Terraform: aanmaken in het admin panel is genoeg. Universal SSL
+# dekt *.kleurhoek.nl. De vaste hosts (dev, www, admin, login …) slaan de Worker over.
+
+resource "random_password" "worker" {
+  for_each = var.environments
+  length   = 48
+  special  = false
+}
+
+locals {
+  org_routes = [for env, s in var.environments : {
+    env    = env
+    suffix = env == "prod" ? ".${var.domain}" : "-${env}.${var.domain}"
+    origin = "${s.site}.${var.domain}"
+  }]
+  # Hosts die niet langs de Worker gaan: de vaste subdomeinen van alle omgevingen plus inloggen.
+  fixed_hosts = toset(flatten(values(local.hosts)))
+}
+
+resource "cloudflare_workers_script" "orgs" {
+  account_id         = var.account_id
+  script_name        = "kleurhoek-organisaties"
+  content            = file("${path.module}/org-worker.js")
+  main_module        = "org-worker.js"
+  compatibility_date = "2026-06-01"
+  bindings = concat(
+    [{ type = "plain_text", name = "ROUTES", text = jsonencode(local.org_routes) }],
+    [for env, p in random_password.worker : { type = "secret_text", name = "WORKER_SECRET_${upper(env)}", text = p.result }],
+    [for env, p in random_password.edge : { type = "secret_text", name = "EDGE_SECRET_${upper(env)}", text = p.result }],
+  )
+}
+
+resource "cloudflare_dns_record" "orgs" {
+  zone_id = var.zone_id
+  name    = "*"
+  type    = "AAAA"
+  content = "100::"
+  proxied = true
+  ttl     = 1
+  comment = "Organisatiedomeinen via de Worker kleurhoek-organisaties (Terraform)"
+}
+
+resource "cloudflare_workers_route" "orgs" {
+  zone_id = var.zone_id
+  pattern = "*.${var.domain}/*"
+  script  = cloudflare_workers_script.orgs.script_name
+}
+
+# Zonder script: op deze hosts draait de Worker niet.
+resource "cloudflare_workers_route" "fixed" {
+  for_each = local.fixed_hosts
+  zone_id  = var.zone_id
+  pattern  = "${each.value}/*"
 }
 
 # ---------- TLS ----------
@@ -218,6 +281,11 @@ resource "cloudflare_dns_record" "login" {
   proxied = false
   ttl     = 3600
   comment = "Zitadel Cloud (Terraform)"
+}
+
+output "worker_secrets" {
+  value     = { for env, p in random_password.worker : env => p.result }
+  sensitive = true
 }
 
 output "edge_secrets" {

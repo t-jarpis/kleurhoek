@@ -105,6 +105,8 @@ module "site" {
   admin_emails             = var.admin_emails
   admin_bootstrap_subjects = var.admin_bootstrap_subjects
   edge_secret              = data.terraform_remote_state.zone.outputs.edge_secrets["dev"]
+  org_worker_secret        = data.terraform_remote_state.zone.outputs.worker_secrets["dev"]
+  org_host_pattern         = "{slug}-dev.kleurhoek.nl"
   apps_enabled             = var.apps_enabled
   # Goedkoopste node (circa € 11 per maand), geen HA, back-up dagelijks (7 dagen) in een ander datacenter.
   # Niet beschikbaar in nl-ams? Dan DB-PLAY2-PICO (circa € 17). Controleer: scw rdb node-type list region=nl-ams.

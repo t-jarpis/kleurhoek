@@ -56,13 +56,19 @@ variable "edge_rate_limits" {
   }]
 }
 
-module "zone" {
-  source  = "../../modules/cloudflare-zone"
+# Het account van de zone (voor de Worker); zo hoeft het account-ID niet in de tfvars.
+data "cloudflare_zone" "main" {
   zone_id = var.cloudflare_zone_id
-  domain  = "kleurhoek.nl"
+}
+
+module "zone" {
+  source     = "../../modules/cloudflare-zone"
+  zone_id    = var.cloudflare_zone_id
+  account_id = data.cloudflare_zone.main.account.id
+  domain     = "kleurhoek.nl"
   environments = {
-    dev  = { site = "dev", admin = "admin-dev" }
-    prod = { site = "www", admin = "admin" }
+    dev  = { site = "dev", admin = "admin-dev", login = "login-dev" }
+    prod = { site = "www", admin = "admin", login = "login" }
   }
   apex_redirect    = var.prod_live
   login_cname      = var.zitadel_login_cname
@@ -77,6 +83,11 @@ module "redirect_domain" {
   zone_id  = each.value
   domain   = each.key
   target   = "https://www.kleurhoek.nl"
+}
+
+output "worker_secrets" {
+  value     = module.zone.worker_secrets
+  sensitive = true
 }
 
 output "edge_secrets" {

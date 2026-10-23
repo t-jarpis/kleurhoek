@@ -1,34 +1,41 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { EDGE_HEADER, edgeAllowed } from "./lib/edge";
+import { EDGE_HEADER, edgeAllowed, FORWARDED, fromWorker, WORKER_HEADER } from "./lib/edge";
 import { bestMarket, LIVE_MARKETS } from "./lib/markets";
 import { resolveOrg, SHARED_PATH } from "./lib/org-resolve";
 import { blockedPage, currentPolicy, ipAllowed } from "./lib/site-access";
-
-/** Header waarin de Cloudflare Worker de oorspronkelijke host van een organisatiedomein meegeeft (ADR 0017). */
-const ORIGINAL_HOST = "x-kh-host";
 
 export async function proxy(request: NextRequest) {
   const path = request.nextUrl.pathname;
   if (!edgeAllowed(path, request.headers.get(EDGE_HEADER))) {
     return new NextResponse("Niet toegestaan", { status: 403 });
   }
+  // Via de Worker van een organisatiedomein: host, IP en land van de bezoeker uit diens headers. Zonder
+  // geldig Worker-geheim worden die headers weggegooid, zodat niemand ze zelf kan meesturen.
+  const headers = new Headers(request.headers);
+  const worker = fromWorker(request.headers.get(WORKER_HEADER));
+  for (const h of [WORKER_HEADER, ...Object.values(FORWARDED)]) if (!worker || h === WORKER_HEADER) headers.delete(h);
+  if (worker) {
+    const ip = request.headers.get(FORWARDED.ip), country = request.headers.get(FORWARDED.country);
+    if (ip) headers.set("cf-connecting-ip", ip);
+    if (country) headers.set("cf-ipcountry", country);
+  }
+
   // Afgeschermde website: alleen IP-adressen uit de lijst in het admin panel (ADR 0015).
   // Nooit een lijst kunnen ophalen: in productie dicht (503), lokaal open.
   const policy = await currentPolicy();
   if (!policy && process.env.NODE_ENV === "production") return new NextResponse("Even niet bereikbaar", { status: 503, headers: { "retry-after": "30" } });
-  const ip = request.headers.get("cf-connecting-ip");
+  const ip = headers.get("cf-connecting-ip");
   if (policy && !ipAllowed(policy, ip)) return blockedPage(ip);
 
   // Welke organisatie: de host van het verzoek, of die van het organisatiedomein (via de Worker).
-  const host = request.headers.get(ORIGINAL_HOST) ?? request.headers.get("host") ?? "";
+  const host = headers.get(FORWARDED.host) ?? request.headers.get("host") ?? "";
   const org = await resolveOrg(host);
-  const headers = new Headers(request.headers);
   headers.set("x-kh-org", org.slug);
 
   // Op "/" kiezen we de beste markt: eerst het land (van Cloudflare), dan de taal van de browser.
   if (path === "/") {
     const markets = org.markets ? LIVE_MARKETS.filter((m) => org.markets!.includes(m)) : LIVE_MARKETS;
-    const market = bestMarket(request.headers.get("cf-ipcountry"), request.headers.get("accept-language"), markets);
+    const market = bestMarket(headers.get("cf-ipcountry"), request.headers.get("accept-language"), markets);
     return NextResponse.redirect(new URL(`/${market}`, request.url), 307);
   }
   if (SHARED_PATH.test(path)) return NextResponse.next({ request: { headers } });

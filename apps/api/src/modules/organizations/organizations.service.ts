@@ -162,7 +162,8 @@ export class OrganizationsService implements OnModuleInit {
   }
 
   async create(slug: string, input: OrgInput & { name: string; kind: OrgKind }, actor: string): Promise<Organization> {
-    if (!SLUG.test(slug) || RESERVED.has(slug)) throw new BadRequestException("Code: kleine letters, cijfers en streepjes (2–32), geen gereserveerd woord");
+    // Eindigt een code op -dev, dan zou {code}.kleurhoek.nl in productie bij de Worker als dev-adres gelden.
+    if (!SLUG.test(slug) || RESERVED.has(slug) || slug.endsWith("-dev")) throw new BadRequestException("Code: kleine letters, cijfers en streepjes (2–32), geen gereserveerd woord en niet eindigend op -dev");
     const all = await this.list(true);
     if (all.some((o) => o.slug === slug)) throw new ConflictException(`Er is al een organisatie met code ${slug}`);
     const base: Organization = {

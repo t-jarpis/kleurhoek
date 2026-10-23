@@ -34,6 +34,7 @@ locals {
         MIGRATE_ON_START         = "true"
         SEED_ON_START            = local.prod ? "false" : "true"
         DATABASE_CA              = scaleway_rdb_instance.main.certificate
+        ORG_HOST_PATTERN         = var.org_host_pattern
       }
       secret_env = {
         DATABASE_URL = local.database_url
@@ -64,6 +65,7 @@ locals {
         SESSION_SECRET        = random_password.secret["web-session-secret"].result
         OIDC_CLIENT_SECRET    = var.oidc_client_secrets.web
         EDGE_SECRET           = var.edge_secret
+        ORG_WORKER_SECRET     = var.org_worker_secret
       }
     }
     admin = {

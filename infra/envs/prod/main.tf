@@ -105,6 +105,8 @@ module "site" {
   admin_emails             = var.admin_emails
   admin_bootstrap_subjects = var.admin_bootstrap_subjects
   edge_secret              = data.terraform_remote_state.zone.outputs.edge_secrets["prod"]
+  org_worker_secret        = data.terraform_remote_state.zone.outputs.worker_secrets["prod"]
+  org_host_pattern         = "{slug}.kleurhoek.nl"
   apps_enabled             = var.apps_enabled
   database = {
     node_type      = "DB-PRO2-XXS"

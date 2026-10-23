@@ -158,6 +158,15 @@ check_config() { # check_config <env>
     local zone
     zone="$(curl -s -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" "https://api.cloudflare.com/client/v4/zones/$ZONE_ID" | jq -r '.result.name // empty')"
     [ "$zone" = kleurhoek.nl ] && ok "Cloudflare-zone kleurhoek.nl bereikbaar" || problem "Cloudflare-zone $ZONE_ID niet bereikbaar met dit token (zone toegevoegd aan het token?)"
+    # Organisatiedomeinen (ADR 0017) lopen via een Worker: daarvoor twee extra rechten op het token.
+    local acct cf_get
+    cf_get() { curl -s -o /dev/null -w '%{http_code}' -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" "https://api.cloudflare.com/client/v4/$1"; }
+    acct="$(curl -s -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" "https://api.cloudflare.com/client/v4/zones/$ZONE_ID" | jq -r '.result.account.id // empty')"
+    if [ -n "$acct" ] && [ "$(cf_get "accounts/$acct/workers/scripts")" = 200 ] && [ "$(cf_get "zones/$ZONE_ID/workers/routes")" = 200 ]; then
+      ok "Cloudflare-token mag Workers beheren"
+    else
+      problem "Cloudflare-token mist Workers-rechten. Voeg op dash.cloudflare.com › My Profile › API Tokens › (je token) › Edit toe:"$'\n'"      Account › Workers Scripts › Edit  én  Zone › Workers Routes › Edit"
+    fi
   fi
 }
 

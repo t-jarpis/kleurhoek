@@ -52,6 +52,15 @@ variable "markets" {
   default     = "nl-nl"
   description = "Markten die live staan, komma-gescheiden."
 }
+variable "org_host_pattern" {
+  type        = string
+  description = "Subdomein van een organisatie, met {slug} voor de code. Dev: {slug}-dev.kleurhoek.nl, prod: {slug}.kleurhoek.nl (ADR 0017)."
+}
+variable "org_worker_secret" {
+  type        = string
+  sensitive   = true
+  description = "Geheim van de Worker voor organisatiedomeinen (uit envs/zone); alleen dan vertrouwt de website de doorgegeven host en IP."
+}
 variable "edge_secret" {
   type        = string
   sensitive   = true
@@ -98,6 +107,8 @@ module "scaleway" {
   scale                    = var.scale
   apps_enabled             = var.apps_enabled
   edge_secret              = var.edge_secret
+  org_host_pattern         = var.org_host_pattern
+  org_worker_secret        = var.org_worker_secret
   domain_records           = module.cloudflare.domain_records
 }
 

@@ -31,6 +31,7 @@ describe("organisaties (whitelabel)", () => {
 
   it("maakt een school aan met eigen huisstijl, aanbod en zonder winkel", async () => {
     expect((await admin("POST", "/v1/admin/organizations", { slug: "admin", name: "Fout", kind: "school" })).statusCode).toBe(400);
+    expect((await admin("POST", "/v1/admin/organizations", { slug: "school-dev", name: "Fout", kind: "school" })).statusCode).toBe(400);
     expect((await admin("POST", "/v1/admin/organizations", { slug: "de-regenboog", name: "De Regenboog", kind: "school" }, "Bearer analist")).statusCode).toBe(403);
     const r = await admin("POST", "/v1/admin/organizations", {
       slug: "de-regenboog", name: "Basisschool De Regenboog", kind: "school",
