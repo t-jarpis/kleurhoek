@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { adminApi, describe } from "@/lib/api";
 import { ProductForm } from "./ProductForm";
+import { importSuggestions } from "../actions";
 import { ShopNav } from "../nav";
 
 export const metadata = { title: "Producten · Winkel" };
@@ -9,7 +10,7 @@ export default async function Products({ searchParams }: { searchParams: Promise
   const { melding, bewerk } = await searchParams;
   let data;
   try { data = await adminApi.products(); } catch (e) { const d = describe(e); return <div className="err"><h1>{d.title}</h1><p>{d.text}</p></div>; }
-  const { products, materials, partners } = data;
+  const { products, materials, partners, suggestions } = data;
   const editing = products.find((p) => p.slug === bewerk);
   const materialName = (s: string) => materials.find((m) => m.slug === s)?.name ?? s;
   const covered = new Set(products.filter((p) => p.enabled).flatMap((p) => p.materials));
@@ -28,6 +29,27 @@ export default async function Products({ searchParams }: { searchParams: Promise
           <p>{materials.filter((m) => !covered.has(m.slug)).map((m) => m.name).join(" · ")}</p>
         )}
       </section>
+      {suggestions.length > 0 && (
+        <section className="panel" aria-labelledby="suggest-title">
+          <h2 id="suggest-title">Voorgestelde producten</h2>
+          <div className="ui-suggest-head">
+            <p>Producten die bij je materialen passen. Ze komen meteen online; controleer na het toevoegen de prijs en of de partner aan staat.</p>
+            <form action={importSuggestions}>
+              {suggestions.map((s) => <input key={s.slug} type="hidden" name="slug" value={s.slug} />)}
+              <button className="ui-btn" data-variant="primary" type="submit">Alles toevoegen ({suggestions.length})</button>
+            </form>
+          </div>
+          <table><thead><tr><th>Product</th><th>Bij materiaal</th><th>Partner</th><th aria-label="Actie" /></tr></thead>
+            <tbody>{suggestions.map((s) => (
+              <tr key={s.slug}>
+                <td className="ui-suggest-item"><b>{s.name}</b><span>{s.note}</span></td>
+                <td>{s.materials.map(materialName).join(", ")}</td>
+                <td><a href={s.url} target="_blank" rel="noopener noreferrer">{partners.find((x) => x.slug === s.partner)?.name ?? s.partner}<span className="visually-hidden"> (opent in nieuw tabblad)</span></a></td>
+                <td className="ui-suggest-action"><form action={importSuggestions}><input type="hidden" name="slug" value={s.slug} /><button className="ui-btn" data-variant="secondary" type="submit">Toevoegen</button></form></td>
+              </tr>
+            ))}</tbody></table>
+        </section>
+      )}
       <section className="panel">
         <h2>{editing ? `Bewerken: ${editing.name ?? editing.slug}` : "Product toevoegen"}</h2>
         <ProductForm editing={editing} partners={partners} materials={materials} />

@@ -188,4 +188,18 @@ describe("winkel", () => {
     expect(await shop.link("de-DE", "lijm-de", "x")).toBe("https://www.amazon.de/dp/B000LIJM01?tag=kleurhoek-21");
     expect(await shop.link("nl-NL", "lijm-de", "x")).toBeNull();
   });
+  it("stelt producten voor en voegt ze met één verzoek toe", async () => {
+    const before = (await ctx.http.inject({ method: "GET", url: "/v1/admin/shop/products", headers: admin })).json();
+    const open = before.suggestions.map((s: { slug: string }) => s.slug);
+    expect(open).toContain("faber-castell-colour-grip-12");
+    expect(open).not.toContain("lijm-nl-best");
+    const res = await ctx.http.inject({ method: "POST", url: "/v1/admin/shop/products/suggestions", headers: admin, payload: { slugs: ["faber-castell-colour-grip-12", "bestaat-niet"] } });
+    expect(res.statusCode).toBe(201);
+    expect(res.json()).toEqual({ added: ["faber-castell-colour-grip-12"] });
+    const after = (await ctx.http.inject({ method: "GET", url: "/v1/admin/shop/products", headers: admin })).json();
+    expect(after.products.find((p: { slug: string }) => p.slug === "faber-castell-colour-grip-12")).toMatchObject({ partner: "amazon-nl", url: "https://www.amazon.nl/dp/B0007OECNU", materials: ["kleurpotloden"], enabled: true });
+    expect(after.suggestions.map((s: { slug: string }) => s.slug)).not.toContain("faber-castell-colour-grip-12");
+    // Nog een keer toevoegen doet niets.
+    expect((await ctx.http.inject({ method: "POST", url: "/v1/admin/shop/products/suggestions", headers: admin, payload: { slugs: ["faber-castell-colour-grip-12"] } })).json()).toEqual({ added: [] });
+  });
 });

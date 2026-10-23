@@ -7,6 +7,7 @@ import { AdminGuard, RequirePermission } from "../identity/admin.guard";
 import { LocalizationService } from "../localization/localization.service";
 import { RateLimit } from "../operations/rate-limit.guard";
 import { ShopError, ShopService } from "./shop.service";
+import { PRODUCT_SUGGESTIONS } from "./shop.suggestions";
 
 const Language = z.object({ language: z.string().regex(/^[a-z]{2}$/).default("nl") });
 const PartnerBody = z.object({
@@ -32,6 +33,7 @@ const ProductBody = z.object({
   materials: z.array(z.string().regex(/^[a-z0-9-]{1,64}$/)).max(20),
   rank: z.number().int().min(0).max(99).optional(),
 }).strict();
+const ImportBody = z.object({ slugs: z.array(z.string().regex(/^[a-z0-9-]{2,64}$/)).min(1).max(50) }).strict();
 
 function parse<T>(schema: z.ZodType<T>, value: unknown): T {
   const r = schema.safeParse(value);
@@ -81,7 +83,30 @@ export class AdminShopController {
       products,
       materials: materialSlugs.map((slug) => ({ slug, name: names.get(slug)?.name ?? slug })),
       partners: partners.map((p) => ({ slug: p.slug, name: p.name, enabled: p.enabled, allowedHosts: p.allowedHosts })),
+      suggestions: this.openSuggestions(products.map((p) => p.slug), materialSlugs, partners.map((p) => p.slug)),
     };
+  }
+
+  /** Voorstellen die nog niet zijn toegevoegd en waarvan partner en materialen bestaan. */
+  private openSuggestions(existing: string[], materials: string[], partners: string[]) {
+    const have = new Set(existing), known = new Set(materials), partnerSet = new Set(partners);
+    return PRODUCT_SUGGESTIONS.filter((s) => !have.has(s.slug) && partnerSet.has(s.partner) && s.materials.every((m) => known.has(m)));
+  }
+
+  /** Voorgestelde producten toevoegen (zichtbaar). Bestaande producten met dezelfde code blijven ongemoeid. */
+  @Post("products/suggestions")
+  @RequirePermission("shop.manage")
+  async importSuggestions(@Query() query: unknown, @Body() body: unknown, @Req() req: FastifyRequest) {
+    const { language } = parse(Language, query);
+    const { slugs } = parse(ImportBody, body);
+    const [products, materialSlugs, partners] = await Promise.all([this.shop.products(language), this.catalog.materials(this.env.TENANT_ID), this.shop.partners()]);
+    const open = this.openSuggestions(products.map((p) => p.slug), materialSlugs, partners.map((p) => p.slug));
+    const picked = open.filter((s) => slugs.includes(s.slug));
+    const added: string[] = [];
+    for (const s of picked) {
+      added.push(await this.shop.saveProduct(req.admin!.subject, language, { slug: s.slug, partner: s.partner, url: s.url, enabled: true, markets: s.markets, name: s.name, note: s.note, materials: s.materials }).catch(mapError));
+    }
+    return { added };
   }
 
   @Put("products/:slug")

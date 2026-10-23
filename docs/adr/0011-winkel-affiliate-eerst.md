@@ -18,3 +18,6 @@ De site moet spullen kunnen aanbieden (potloden, scharen, lijm) zonder inkoop, m
 - Producten zoeken en importeren uit productfeeds (bol, Daisycon) in plaats van met de hand invoeren.
 - Verkopen uit partnerrapportages importeren, zodat het admin panel ook omzet per product toont.
 - Zelf leveren (eigen pakket, fulfilmentpartner) als nieuw onderdeel van dit domein, met betalingen in het domein Betalingen.
+
+## Aanvulling (24-10-2026): voorgestelde producten
+Tot er een productfeed is, staat in `apps/api/src/modules/shop/shop.suggestions.ts` een korte, handmatig gekozen lijst met voorgestelde producten per materiaal (Amazon.nl). Het admin panel toont de voorstellen die nog niet zijn toegevoegd; "Toevoegen" of "Alles toevoegen" maakt er gewone producten van via dezelfde validatie als het formulier (`POST /v1/admin/shop/products/suggestions`). Er komt geen nieuwe tabel bij; de lijst is code en gaat mee bij overdracht.

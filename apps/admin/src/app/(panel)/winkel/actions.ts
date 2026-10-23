@@ -80,3 +80,12 @@ export async function saveProductForm(_prev: ProductFormState, formData: FormDat
   }
   done("/winkel/producten", "Product opgeslagen");
 }
+
+/** Voorgestelde producten overnemen: één (knop "Toevoegen") of alle (knop "Alles toevoegen"). */
+export async function importSuggestions(formData: FormData) {
+  const slugs = formData.getAll("slug").map(String).filter((s) => Slug.safeParse(s).success);
+  if (!slugs.length) done("/winkel/producten", "Geen product gekozen");
+  let added: string[];
+  try { added = (await adminApi.importSuggestions(slugs)).added; } catch (e) { if (e instanceof ApiError) done("/winkel/producten", e.message); throw e; }
+  done("/winkel/producten", added.length === 1 ? "1 product toegevoegd" : `${added.length} producten toegevoegd`);
+}

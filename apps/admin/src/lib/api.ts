@@ -28,6 +28,7 @@ export interface Product {
   slug: string; partner: string; url: string; ean: string | null; priceHint: string | null; enabled: boolean;
   markets: string[]; name: string | null; note: string | null; materials: string[]; rank: number;
 }
+export interface ProductSuggestion { slug: string; partner: string; url: string; name: string; note: string; materials: string[]; markets: string[] }
 export interface ProductInput {
   partner: string; url: string; ean?: string | null; priceHint?: string | null; enabled: boolean;
   markets: string[]; name: string; note?: string | null; materials: string[]; rank?: number;
@@ -107,7 +108,8 @@ export const adminApi = {
     call<{ slug: string }>("/v1/admin/shop/partners", { method: "POST", body: JSON.stringify(body) }),
   updatePartner: (slug: string, body: { enabled?: boolean; linkTemplate?: string; settings?: Record<string, string> }) =>
     call<Partner>(`/v1/admin/shop/partners/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
-  products: () => call<{ products: Product[]; materials: { slug: string; name: string }[]; partners: { slug: string; name: string; enabled: boolean; allowedHosts: string[] }[] }>("/v1/admin/shop/products"),
+  products: () => call<{ products: Product[]; materials: { slug: string; name: string }[]; partners: { slug: string; name: string; enabled: boolean; allowedHosts: string[] }[]; suggestions: ProductSuggestion[] }>("/v1/admin/shop/products"),
+  importSuggestions: (slugs: string[]) => call<{ added: string[] }>("/v1/admin/shop/products/suggestions", { method: "POST", body: JSON.stringify({ slugs }) }),
   saveProduct: (slug: string, body: ProductInput) => call<{ slug: string }>(`/v1/admin/shop/products/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
   shopSummary: (from: string, to: string) => call<ShopSummary>(`/v1/admin/analytics/shop?from=${from}&to=${to}`),
   siteAccess: () => call<SiteAccess>("/v1/admin/site-access"),
