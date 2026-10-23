@@ -1,0 +1,135 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { adminApi, ApiError, describe } from "@/lib/api";
+import { KIND_LABEL } from "../labels";
+import { removeLogo, saveGeneral, saveOffer } from "./actions";
+import { LogoUpload } from "./LogoUpload";
+import { BrandEditor } from "./BrandEditor";
+
+export const dynamic = "force-dynamic";
+
+const TABS = [["algemeen", "Algemeen"], ["huisstijl", "Huisstijl"], ["aanbod", "Aanbod"]] as const;
+type Tab = (typeof TABS)[number][0];
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  return { title: `Organisatie ${(await params).slug}` };
+}
+
+export default async function OrganizationPage({ params, searchParams }: {
+  params: Promise<{ slug: string }>; searchParams: Promise<{ tab?: string; melding?: string; fout?: string }>;
+}) {
+  const { slug } = await params;
+  const { tab: rawTab, melding, fout } = await searchParams;
+  const tab: Tab = TABS.some(([t]) => t === rawTab) ? (rawTab as Tab) : "algemeen";
+  const [me, data] = await Promise.all([adminApi.me().catch(() => null), adminApi.organization(slug).catch((e: unknown) => e)]);
+  if (data instanceof ApiError && data.status === 404) notFound();
+  if (data instanceof Error) { const d = describe(data); return <div className="err"><h1>{d.title}</h1><p>{d.text}</p></div>; }
+  const org = data as Awaited<ReturnType<typeof adminApi.organization>>;
+  const canManage = me?.permissions.includes("organizations.manage") ?? false;
+  const logo = org.brand.logoVersion ? `/merk/${org.slug}/${org.brand.logoVersion}` : null;
+  const all = <T,>(chosen: T[] | null, value: T) => chosen === null || chosen.includes(value);
+
+  return (
+    <>
+      <div className="stack">
+        <p className="lead"><Link href="/organisaties">Organisaties</Link></p>
+        <div className="row-between">
+          <h1>{org.name}</h1>
+          <span className={`pill ${org.active ? "on" : "off"}`}>{org.active ? "Actief" : "Uit"}</span>
+        </div>
+        <p className="lead">{KIND_LABEL[org.kind]} · code <code>{org.slug}</code> · laatst gewijzigd door {org.updatedBy}</p>
+        <nav className="tabs" aria-label="Onderdelen">
+          {TABS.map(([t, label]) => <Link key={t} href={`/organisaties/${org.slug}?tab=${t}`} aria-current={tab === t ? "page" : undefined}>{label}</Link>)}
+        </nav>
+      </div>
+      {melding && <p className="note" role="status">{melding}</p>}
+      {fout && <div className="err" role="alert"><p>{fout}</p></div>}
+
+      {tab === "algemeen" && (
+        <section className="panel stack">
+          <h2>Algemeen</h2>
+          <form action={saveGeneral} className="stack">
+            <input type="hidden" name="slug" value={org.slug} />
+            <fieldset disabled={!canManage} className="stack" style={{ border: 0, padding: 0, margin: 0 }}>
+              <label className="field"><span>Naam</span><input name="name" defaultValue={org.name} required minLength={2} maxLength={80} /><small>Staat in de titel van de site en in mails.</small></label>
+              {!org.isDefault && (
+                <>
+                  <label className="field"><span>Soort</span>
+                    <select name="kind" defaultValue={org.kind}>
+                      {(["school", "opvang", "vereniging", "bedrijf", "overig"] as const).map((k) => <option key={k} value={k}>{KIND_LABEL[k]}</option>)}
+                    </select>
+                  </label>
+                  <div className="field">
+                    <span>Adres</span>
+                    {org.subdomain ? <p className="lead">Altijd bereikbaar op <code>{org.subdomain}</code>.</p> : <p className="lead">Subdomeinen zijn in deze omgeving niet ingesteld (ORG_HOST_PATTERN).</p>}
+                  </div>
+                  <label className="field"><span>Eigen domeinen</span>
+                    <textarea name="hosts" defaultValue={org.hosts.join("\n")} rows={3} className="mono" spellCheck={false} placeholder="kleuren.deregenboog.nl" />
+                    <small>Eén per regel. Het domein moet ook in Cloudflare naar Kleurhoek wijzen (zie infra/README).</small>
+                  </label>
+                  <input type="hidden" name="active-field" value="1" />
+                  <label className="check"><input type="checkbox" name="active" defaultChecked={org.active} /> Actief: de site van deze organisatie is bereikbaar</label>
+                </>
+              )}
+              {org.isDefault && <p className="lead">Dit is Kleurhoek zelf: alle adressen die niet bij een andere organisatie horen. Staat altijd aan.</p>}
+              <div><button type="submit">Opslaan</button></div>
+            </fieldset>
+          </form>
+        </section>
+      )}
+
+      {tab === "huisstijl" && (
+        <>
+          <section className="panel stack">
+            <h2>Huisstijl</h2>
+            <BrandEditor org={org} themes={org.themes} fonts={org.fonts} logo={logo} canManage={canManage} />
+          </section>
+          <section className="panel stack">
+            <h2>Logo</h2>
+            <div className="ui-upload">
+              <div className="ui-upload-preview">{logo ? <img src={logo} alt={`Logo van ${org.name}`} /> : "Geen logo, het woordmerk wordt gebruikt"}</div>
+              <div className="ui-upload-body">
+                <span className="ui-hint">PNG, WebP, JPEG of SVG, maximaal 256 kB. Liefst liggend, met transparante achtergrond, zodat het op licht en donker werkt.</span>
+                {canManage && (
+                  <div className="ui-brandpreview-row">
+                    <LogoUpload slug={org.slug} />
+                    {logo && <form action={removeLogo}><input type="hidden" name="slug" value={org.slug} /><button type="submit" className="ghost">Verwijder</button></form>}
+                  </div>
+                )}
+              </div>
+            </div>
+          </section>
+        </>
+      )}
+
+      {tab === "aanbod" && (
+        <section className="panel stack">
+          <h2>Aanbod</h2>
+          <p className="lead">Wat deze organisatie laat zien. Alles aangevinkt betekent ook alles wat er later bij komt.</p>
+          <form action={saveOffer} className="stack">
+            <input type="hidden" name="slug" value={org.slug} />
+            <fieldset disabled={!canManage} className="stack" style={{ border: 0, padding: 0, margin: 0 }}>
+              <fieldset className="field"><legend>Onderwerpen</legend><div className="checks">
+                {org.options.categories.map((c) => <label key={c.slug} className="check"><input type="checkbox" name="categories" value={c.slug} defaultChecked={all(org.offer.categories, c.slug)} /> {c.name}</label>)}
+              </div></fieldset>
+              <fieldset className="field"><legend>Leeftijden</legend><div className="checks">
+                {org.options.ages.map((a) => <label key={a.slug} className="check"><input type="checkbox" name="ages" value={a.slug} defaultChecked={all(org.offer.ages, a.slug)} /> {a.name}</label>)}
+              </div></fieldset>
+              <fieldset className="field"><legend>Soort platen</legend><div className="checks">
+                {org.options.kinds.map((k) => <label key={k.slug} className="check"><input type="checkbox" name="kinds" value={k.slug} defaultChecked={all(org.offer.kinds, k.slug)} /> {k.name}</label>)}
+              </div></fieldset>
+              <fieldset className="field"><legend>Markten</legend><div className="checks">
+                {org.options.markets.map((m) => <label key={m} className="check"><input type="checkbox" name="markets" value={m} defaultChecked={all(org.offer.markets, m)} /> <code>{m}</code></label>)}
+              </div></fieldset>
+              <fieldset className="field"><legend>Functies</legend><div className="checks">
+                <label className="check"><input type="checkbox" name="shop" defaultChecked={org.features.shop} /> Webshop en partnerlinks</label>
+                <label className="check"><input type="checkbox" name="accounts" defaultChecked={org.features.accounts} /> Inloggen voor ouders</label>
+              </div><small>Zonder webshop verdwijnen materiaallinks en producten van de site van deze organisatie.</small></fieldset>
+              <div><button type="submit">Aanbod opslaan</button></div>
+            </fieldset>
+          </form>
+        </section>
+      )}
+    </>
+  );
+}

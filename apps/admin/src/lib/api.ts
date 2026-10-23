@@ -40,12 +40,29 @@ export interface ShopSummary {
   candidates: ShopSummary["products"];
 }
 
+export type OrgKind = "platform" | "school" | "opvang" | "vereniging" | "bedrijf" | "overig";
+export interface OrgBrand { theme: string | null; font: string | null; colors: { primary: string | null; accent: string | null }; wordmark: string | null; logoVersion: string | null }
+export interface OrgOffer { markets: string[] | null; categories: string[] | null; ages: string[] | null; kinds: ("kleurplaat" | "knutselen")[] | null }
+export interface Organization {
+  id: string; slug: string; name: string; kind: OrgKind; active: boolean; isDefault: boolean; hosts: string[];
+  brand: OrgBrand; offer: OrgOffer; features: { shop: boolean; accounts: boolean }; updatedBy: string; updatedAt: string; subdomain: string | null;
+}
+export interface OrgChoices {
+  themes: { id: string; name: string; description?: string; font: string }[]; fonts: { id: string; family: string }[]; kinds: OrgKind[];
+  options: { markets: string[]; categories: { slug: string; name: string }[]; ages: { slug: string; name: string }[]; kinds: { slug: "kleurplaat" | "knutselen"; name: string }[] };
+}
+export interface OrgInput {
+  name?: string; kind?: OrgKind; active?: boolean; hosts?: string[];
+  brand?: { theme?: string | null; font?: string | null; colors?: { primary?: string | null; accent?: string | null }; wordmark?: string | null };
+  offer?: Partial<OrgOffer>; features?: { shop?: boolean; accounts?: boolean };
+}
+
 export class ApiError extends Error {
   constructor(readonly status: number, message: string) { super(message); }
 }
 
 async function call<T>(path: string, init: RequestInit = {}): Promise<T> {
-  const res = await fetch(`${API_URL}${path}`, { ...init, cache: "no-store", signal: AbortSignal.timeout(15_000), headers: { ...init.headers, authorization: `Bearer ${await adminToken()}`, "content-type": "application/json" } });
+  const res = await fetch(`${API_URL}${path}`, { ...init, cache: "no-store", signal: AbortSignal.timeout(15_000), headers: { ...init.headers, authorization: `Bearer ${await adminToken()}`, ...(init.body ? { "content-type": "application/json" } : {}) } });
   if (!res.ok) {
     const body = await res.text();
     let message = body.slice(0, 200);
@@ -81,6 +98,13 @@ export const adminApi = {
   siteAccess: () => call<SiteAccess>("/v1/admin/site-access"),
   updateSiteAccess: (body: { enabled?: boolean; entries?: { cidr: string; label: string }[] }) =>
     call<SiteAccess>("/v1/admin/site-access", { method: "PUT", body: JSON.stringify(body) }),
+  organizations: () => call<{ organizations: Organization[] } & OrgChoices>("/v1/admin/organizations"),
+  organization: (slug: string) => call<Organization & OrgChoices>(`/v1/admin/organizations/${encodeURIComponent(slug)}`),
+  createOrganization: (body: { slug: string; name: string; kind: OrgKind }) => call<Organization>("/v1/admin/organizations", { method: "POST", body: JSON.stringify(body) }),
+  updateOrganization: (slug: string, body: OrgInput) => call<Organization>(`/v1/admin/organizations/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
+  setOrganizationLogo: (slug: string, contentType: string, data: string) =>
+    call<Organization>(`/v1/admin/organizations/${encodeURIComponent(slug)}/logo`, { method: "PUT", body: JSON.stringify({ contentType, data }) }),
+  removeOrganizationLogo: (slug: string) => call<Organization>(`/v1/admin/organizations/${encodeURIComponent(slug)}/logo`, { method: "DELETE" }),
   setStatus: (id: string, status: "active" | "blocked") => call<AdminUser>(`/v1/admin/users/${encodeURIComponent(id)}/status`, { method: "PUT", body: JSON.stringify({ status }) }),
 };
 

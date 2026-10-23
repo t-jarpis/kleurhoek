@@ -24,6 +24,13 @@ export class LocalizationService {
     return rows[0] ?? null;
   }
 
+  /** Codes van alle markten die live staan, in kleine letters (zoals in de URL). */
+  async liveMarkets(tenantId: string): Promise<string[]> {
+    const rows = await withTenant(this.db, tenantId, (tx) =>
+      tx.select({ code: markets.code }).from(markets).where(and(eq(markets.tenantId, tenantId), eq(markets.status, "live"))));
+    return rows.map((r) => r.code.toLowerCase()).sort();
+  }
+
   /** Vertalingen voor een soort ding in één taal. Sleutels zonder vertaling ontbreken in de map. */
   async translate(tenantId: string, type: EntityType, language: string, keys?: string[]): Promise<Map<string, Fields>> {
     const rows = await withTenant(this.db, tenantId, (tx) =>

@@ -5,6 +5,8 @@ import { z } from "zod";
 import { ENV, type Env } from "../../config/env";
 import { AdminGuard, RequirePermission } from "../identity/admin.guard";
 import { RateLimit } from "../operations/rate-limit.guard";
+import { ages, categories } from "@kleurhoek/catalog-data";
+import { LocalizationService } from "../localization/localization.service";
 import { ORG_KINDS } from "./organizations.schema";
 import { FONTS, LOGO_MAX_BYTES, OrganizationsService, SLUG, THEMES } from "./organizations.service";
 
@@ -40,13 +42,27 @@ const parse = <T>(schema: z.ZodType<T>, body: unknown): T => {
 @UseGuards(AdminGuard)
 @RateLimit("admin")
 export class AdminOrganizationsController {
-  constructor(private readonly orgs: OrganizationsService) {}
+  constructor(private readonly orgs: OrganizationsService, private readonly i18n: LocalizationService, @Inject(ENV) private readonly env: Env) {}
+
+  /** Keuzes voor het beheer: thema's, lettertypen, soorten en wat er in het aanbod kan. */
+  private async choices() {
+    const name = (i: Record<string, { name: string }>) => i.nl?.name ?? Object.values(i)[0]?.name ?? "";
+    return {
+      themes: THEMES, fonts: FONTS, kinds: ORG_KINDS,
+      options: {
+        markets: await this.i18n.liveMarkets(this.env.TENANT_ID),
+        categories: categories().sort((a, b) => a.order - b.order).map((c) => ({ slug: c.slug, name: name(c.i18n) })),
+        ages: ages().sort((a, b) => a.order - b.order).map((a) => ({ slug: a.slug, name: name(a.i18n) })),
+        kinds: [{ slug: "kleurplaat", name: "Kleurplaten" }, { slug: "knutselen", name: "Knutselplaten" }],
+      },
+    };
+  }
 
   @Get()
   @RequirePermission("organizations.read")
   async list() {
     const orgs = await this.orgs.list(true);
-    return { organizations: orgs.map((o) => ({ ...o, subdomain: o.isDefault ? null : this.orgs.subdomain(o.slug) })), themes: THEMES, fonts: FONTS, kinds: ORG_KINDS };
+    return { organizations: orgs.map((o) => ({ ...o, subdomain: o.isDefault ? null : this.orgs.subdomain(o.slug) })), ...(await this.choices()) };
   }
 
   @Get(":slug")
@@ -54,7 +70,7 @@ export class AdminOrganizationsController {
   async get(@Param("slug") slug: string) {
     const o = await this.orgs.get(slug);
     if (!o) throw new NotFoundException("Onbekende organisatie");
-    return { ...o, subdomain: o.isDefault ? null : this.orgs.subdomain(o.slug), themes: THEMES, fonts: FONTS, kinds: ORG_KINDS };
+    return { ...o, subdomain: o.isDefault ? null : this.orgs.subdomain(o.slug), ...(await this.choices()) };
   }
 
   @Post()

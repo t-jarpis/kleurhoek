@@ -19,6 +19,16 @@ describe("organisaties (whitelabel)", () => {
     expect((await ctx.http.inject({ method: "GET", url: "/v1/internal/organizations/resolve?host=x.nl" })).statusCode).toBe(401);
   });
 
+  it("geeft het beheer de keuzes: thema's, lettertypen en wat er in het aanbod kan", async () => {
+    const r = (await admin("GET", "/v1/admin/organizations")).json();
+    expect(r.fonts.map((f: { id: string }) => f.id)).toEqual(expect.arrayContaining(["manrope", "nunito"]));
+    expect(r.options.categories.length).toBeGreaterThan(3);
+    expect(r.options.categories[0]).toMatchObject({ slug: expect.any(String), name: expect.any(String) });
+    expect(r.options.kinds.map((k: { slug: string }) => k.slug)).toEqual(["kleurplaat", "knutselen"]);
+    expect(r.options.markets).toContain("nl-nl");
+    expect(r.organizations[0].offer).toHaveProperty("categories");
+  });
+
   it("maakt een school aan met eigen huisstijl, aanbod en zonder winkel", async () => {
     expect((await admin("POST", "/v1/admin/organizations", { slug: "admin", name: "Fout", kind: "school" })).statusCode).toBe(400);
     expect((await admin("POST", "/v1/admin/organizations", { slug: "de-regenboog", name: "De Regenboog", kind: "school" }, "Bearer analist")).statusCode).toBe(403);

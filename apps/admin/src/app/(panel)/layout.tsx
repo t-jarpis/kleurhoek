@@ -18,6 +18,7 @@ export default async function PanelLayout({ children }: { children: React.ReactN
         {can("shop.read") && <NavLink href="/winkel">Winkel</NavLink>}
         {can("identity.users.read") && <NavLink href="/gebruikers">Gebruikers</NavLink>}
         {can("operations.ratelimit.read") && <NavLink href="/rate-limits">Rate limits</NavLink>}
+        {can("organizations.read") && <NavLink href="/organisaties">Organisaties</NavLink>}
         {can("operations.access.read") && <NavLink href="/toegang">Toegang</NavLink>}
         <div className="who">
           <span>{who.name ?? who.email ?? "Beheerder"}</span>
