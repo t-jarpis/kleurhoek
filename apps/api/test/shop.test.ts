@@ -4,7 +4,7 @@ import { DB, type Database } from "../src/db/database";
 import { withTenant } from "../src/db/tenant";
 import { AnalyticsService, isCandidate } from "../src/modules/analytics/analytics.service";
 import { auditEvents } from "../src/modules/identity/identity.schema";
-import { buildLink, checkProductUrl, ShopService } from "../src/modules/shop/shop.service";
+import { buildLink, checkProductUrl, normalizeProductUrl, ShopService } from "../src/modules/shop/shop.service";
 import { createTestApp, INGEST_KEY, TENANT } from "./app";
 
 let ctx: Awaited<ReturnType<typeof createTestApp>>;
@@ -36,6 +36,16 @@ describe("doorverwijzingen bouwen", () => {
     expect(buildLink("{url}?tag={tag}", { tag: "kleurhoek-21" }, "https://www.amazon.nl/dp/B000TEST01?tag=iemand-anders-21", "x")).toBe("https://www.amazon.nl/dp/B000TEST01?tag=kleurhoek-21");
     expect(buildLink("{url}?tag={tag}", { tag: "kleurhoek-21" }, "javascript:alert(1)", "x")).toBeNull();
   });
+  it("maakt Amazon-links netjes, ook korte deellinks uit de app", async () => {
+    const follow = async (u: string) => (u === "https://amzn.eu/d/abc123" ? "https://www.amazon.nl/-/nl/Faber-Castell-kleurpotloden/dp/B00ABCDE12/ref=sr_1_3?keywords=x&th=1" : null);
+    expect(await normalizeProductUrl("https://amzn.eu/d/abc123", follow)).toBe("https://www.amazon.nl/dp/B00ABCDE12");
+    expect(await normalizeProductUrl("https://amazon.nl/dp/b00abcde12?tag=iemand-21", follow)).toBe("https://www.amazon.nl/dp/B00ABCDE12");
+    expect(await normalizeProductUrl("https://www.amazon.de/gp/product/B00ABCDE12/ref=x", follow)).toBe("https://www.amazon.de/dp/B00ABCDE12");
+    expect(await normalizeProductUrl("https://bol.com/nl/nl/p/schaar/123/", follow)).toBe("https://www.bol.com/nl/nl/p/schaar/123/");
+    expect(await normalizeProductUrl("https://amzn.eu/d/onbekend", follow)).toBe("https://amzn.eu/d/onbekend");
+    expect(await normalizeProductUrl("https://winkel.example/x?y=1", follow)).toBe("https://winkel.example/x?y=1");
+  });
+
   it("accepteert alleen https-producten op de domeinen van de partner", () => {
     expect(checkProductUrl(BOL_URL, ["www.bol.com"])).toBeNull();
     expect(checkProductUrl("https://evil.example/x", ["www.bol.com"])).toMatch(/hoort niet/);

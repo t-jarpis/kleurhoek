@@ -55,3 +55,28 @@ export async function saveProduct(formData: FormData) {
     rank: Math.min(99, Math.max(0, Number(formData.get("rank") ?? 0) || 0)),
   }), "Product opgeslagen");
 }
+
+export type ProductFormState = { error?: string; values?: Record<string, string | string[]> } | null;
+
+/** Product opslaan vanuit het formulier: bij een fout blijft alles staan wat iemand invulde. */
+export async function saveProductForm(_prev: ProductFormState, formData: FormData): Promise<ProductFormState> {
+  const values: Record<string, string | string[]> = {};
+  for (const k of ["slug", "name", "partner", "url", "priceHint", "ean", "note", "markets", "rank"]) values[k] = String(formData.get(k) ?? "");
+  values.material = formData.getAll("material").map(String);
+  values.enabled = formData.get("enabled") === "on" ? "on" : "";
+  const slug = Slug.safeParse(String(values.slug).trim());
+  if (!slug.success) return { error: "Gebruik voor de code kleine letters, cijfers en streepjes (minstens 2 tekens).", values };
+  const text = (k: string) => { const v = String(values[k] ?? "").trim(); return v || null; };
+  try {
+    await adminApi.saveProduct(slug.data, {
+      partner: String(values.partner), url: String(values.url).trim(), name: String(values.name).trim(),
+      note: text("note"), priceHint: text("priceHint"), ean: text("ean"), enabled: values.enabled === "on",
+      markets: String(values.markets || "nl-NL").split(",").map((m) => m.trim()).filter(Boolean),
+      materials: values.material as string[], rank: Math.min(99, Math.max(0, Number(values.rank) || 0)),
+    });
+  } catch (e) {
+    if (e instanceof ApiError) return { error: e.message, values };
+    throw e;
+  }
+  done("/winkel/producten", "Product opgeslagen");
+}

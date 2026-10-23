@@ -80,7 +80,7 @@ export class AdminShopController {
     return {
       products,
       materials: materialSlugs.map((slug) => ({ slug, name: names.get(slug)?.name ?? slug })),
-      partners: partners.map((p) => ({ slug: p.slug, name: p.name, enabled: p.enabled })),
+      partners: partners.map((p) => ({ slug: p.slug, name: p.name, enabled: p.enabled, allowedHosts: p.allowedHosts })),
     };
   }
 

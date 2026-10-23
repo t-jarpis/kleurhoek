@@ -68,6 +68,53 @@ export function checkProductUrl(url: string, allowedHosts: string[]): string | n
   }
 }
 
+/** Korte deellinks van Amazon (app, deelknop): die volgen we tot de echte productpagina. */
+const AMAZON_SHORT = new Set(["amzn.eu", "amzn.to", "a.co", "amzn.com"]);
+const AMAZON_HOST = /^(?:www\.)?(amazon\.(?:nl|de|fr|be|com\.be|es|it|co\.uk|com))$/;
+const ASIN = /\/(?:dp|gp\/product|gp\/aw\/d|d)\/([A-Z0-9]{10})(?:[/?]|$)/i;
+
+/**
+ * Productlink netjes maken vóór we hem opslaan: korte Amazon-links volgen, en Amazon terugbrengen tot
+ * https://www.amazon.<land>/dp/<ASIN> (zonder verwijzingen of tags van anderen); bol.com met www.
+ * `follow` haalt de doorverwijzing op (in tests nagebootst). Onbekende winkels blijven ongewijzigd.
+ */
+export async function normalizeProductUrl(raw: string, follow: (url: string) => Promise<string | null> = followRedirect): Promise<string> {
+  let url = raw.trim();
+  for (let i = 0; i < 4; i++) {
+    let host: string;
+    try { host = new URL(url).hostname.toLowerCase(); } catch { return raw.trim(); }
+    if (!AMAZON_SHORT.has(host)) break;
+    const next = await follow(url);
+    if (!next) return raw.trim();
+    url = next;
+  }
+  try {
+    const u = new URL(url);
+    const amazon = AMAZON_HOST.exec(u.hostname.toLowerCase());
+    if (amazon) {
+      const asin = ASIN.exec(u.pathname + "/")?.[1];
+      return asin ? `https://www.${amazon[1]}/dp/${asin.toUpperCase()}` : `https://www.${amazon[1]}${u.pathname}`;
+    }
+    if (u.hostname.toLowerCase() === "bol.com") u.hostname = "www.bol.com";
+    return u.href;
+  } catch {
+    return raw.trim();
+  }
+}
+
+/** Eén stap van een doorverwijzing (alleen https, korte time-out). */
+async function followRedirect(url: string): Promise<string | null> {
+  try {
+    const res = await fetch(url, { method: "GET", redirect: "manual", signal: AbortSignal.timeout(5000), headers: { "user-agent": "Mozilla/5.0 (Kleurhoek admin; productlink)" } });
+    const loc = res.headers.get("location");
+    if (!loc) return null;
+    const next = new URL(loc, url);
+    return next.protocol === "https:" ? next.href : null;
+  } catch {
+    return null;
+  }
+}
+
 export interface ProductView {
   slug: string; partner: string; url: string; ean: string | null; priceHint: string | null; enabled: boolean;
   markets: string[]; name: string | null; note: string | null; materials: string[]; rank: number;
@@ -160,11 +207,18 @@ export class ShopService {
     rank?: number | undefined;
   }) {
     if (!SLUG.test(input.slug)) throw new ShopError("invalid", "Gebruik kleine letters, cijfers en streepjes voor de code");
+    input = { ...input, url: await normalizeProductUrl(input.url) };
     const result = await withTenant(this.db, this.tenant, async (tx) => {
       const [partner] = await tx.select().from(partners).where(eq(partners.slug, input.partner)).limit(1);
       if (!partner) throw new ShopError("invalid", "Onbekende partner");
       const problem = checkProductUrl(input.url, partner.allowedHosts);
-      if (problem) throw new ShopError("invalid", problem);
+      if (problem) {
+        // Hoort de link bij een andere partner? Zeg dan welke.
+        const all = await tx.select({ name: partners.name, hosts: partners.allowedHosts }).from(partners);
+        const host = (() => { try { return new URL(input.url).hostname; } catch { return ""; } })();
+        const other = all.find((p) => p.hosts.includes(host));
+        throw new ShopError("invalid", other ? `Dit is een link van ${other.name}: kies die partner` : problem);
+      }
       const [before] = await tx.select().from(products).where(eq(products.slug, input.slug)).limit(1);
       const values = { partnerSlug: input.partner, url: input.url, ean: input.ean ?? null, priceHint: input.priceHint ?? null, enabled: input.enabled, markets: input.markets };
       if (before) await tx.update(products).set({ ...values, updatedAt: new Date() }).where(eq(products.slug, input.slug));

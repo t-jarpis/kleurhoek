@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { adminApi, describe } from "@/lib/api";
-import { saveProduct } from "../actions";
+import { ProductForm } from "./ProductForm";
 import { ShopNav } from "../nav";
 
 export const metadata = { title: "Producten · Winkel" };
@@ -30,24 +30,7 @@ export default async function Products({ searchParams }: { searchParams: Promise
       </section>
       <section className="panel">
         <h2>{editing ? `Bewerken: ${editing.name ?? editing.slug}` : "Product toevoegen"}</h2>
-        <form action={saveProduct} className="grid-form" key={editing?.slug ?? "nieuw"}>
-          <label className="field"><span>Code</span><input name="slug" required defaultValue={editing?.slug} readOnly={!!editing} placeholder="kinderschaar-rond" pattern="[a-z0-9\-]{2,64}" /><small>Kort en vast; komt in de link en in de cijfers.</small></label>
-          <label className="field"><span>Naam</span><input name="name" required defaultValue={editing?.name ?? ""} placeholder="Kinderschaar met ronde punt" /></label>
-          <label className="field"><span>Partner</span>
-            <select name="partner" defaultValue={editing?.partner ?? "bol"}>{partners.map((p) => <option key={p.slug} value={p.slug}>{p.name}{p.enabled ? "" : " (uit)"}</option>)}</select>
-          </label>
-          <label className="field wide"><span>Productpagina</span><input name="url" type="url" required defaultValue={editing?.url} placeholder="https://www.bol.com/nl/nl/p/..." /></label>
-          <label className="field"><span>Prijsindicatie</span><input name="priceHint" defaultValue={editing?.priceHint ?? ""} placeholder="ca. € 4" /></label>
-          <label className="field"><span>EAN</span><input name="ean" defaultValue={editing?.ean ?? ""} inputMode="numeric" pattern="\d{8,14}" /></label>
-          <label className="field wide"><span>Toelichting</span><input name="note" defaultValue={editing?.note ?? ""} placeholder="Met ronde punt, voor kleine handen" /></label>
-          <fieldset className="field wide"><legend>Bij materialen</legend>
-            <div className="checks">{materials.map((m) => <label key={m.slug} className="check"><input type="checkbox" name="material" value={m.slug} defaultChecked={editing?.materials.includes(m.slug)} /> {m.name}</label>)}</div>
-          </fieldset>
-          <label className="field"><span>Markten</span><input name="markets" defaultValue={(editing?.markets ?? ["nl-NL"]).join(", ")} /><small>Bijvoorbeeld nl-NL, nl-BE of de-DE. Per markt kies je zo de juiste winkel.</small></label>
-          <label className="field"><span>Voorkeur</span><input name="rank" type="number" min={0} max={99} defaultValue={editing?.rank ?? 0} /><small>Meer producten bij hetzelfde materiaal en dezelfde markt? Laagste getal wint.</small></label>
-          <label className="check"><input type="checkbox" name="enabled" defaultChecked={editing?.enabled ?? true} /> Tonen op de site</label>
-          <div className="wide"><button type="submit">Opslaan</button> {editing && <Link href="/winkel/producten" className="lead">Annuleren</Link>}</div>
-        </form>
+        <ProductForm editing={editing} partners={partners} materials={materials} />
       </section>
       <section className="panel">
         <h2>Alle producten</h2>
