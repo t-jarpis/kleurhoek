@@ -159,7 +159,8 @@ body { margin: 0; background: var(--color-bg); color: var(--color-text); font: 4
 .kh-logo-mark i { border-radius: 3px; }
 .kh-logo-word { font: 800 30px/1 var(--font-display); letter-spacing: -0.03em; }
 .kh-logo-suffix { font: 700 15px/1 var(--font-sans); color: var(--color-text-muted); }
-.kh-logo-img { display: block; width: auto; max-width: 220px; object-fit: contain; }
+/* Eigen logo van een organisatie: elke verhouding past, begrensd in hoogte en breedte (niet vast). */
+.kh-logo-img { display: block; width: auto; height: auto; object-fit: contain; }
 
 /* ---------- Huisstijl: ColorField, LogoUpload, BrandPreview (admin, ADR 0017) ---------- */
 .ui-colorfield-row { display: flex; gap: var(--space-2); align-items: center; }
@@ -174,7 +175,8 @@ body { margin: 0; background: var(--color-bg); color: var(--color-text); font: 4
 
 .ui-upload { display: flex; gap: var(--space-4); align-items: center; flex-wrap: wrap; }
 .ui-upload-preview { inline-size: 160px; block-size: 72px; display: grid; place-items: center; padding: var(--space-2); border: var(--border-thin) dashed var(--color-border-control); border-radius: var(--radius-md); background: var(--color-surface-sunken); color: var(--color-text-muted); font-size: 14px; }
-.ui-upload-preview img { max-inline-size: 100%; max-block-size: 100%; object-fit: contain; }
+.ui-upload-preview { display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.ui-upload-preview img { display: block; max-inline-size: 100%; max-block-size: 100%; inline-size: auto; block-size: auto; object-fit: contain; }
 .ui-upload-body { display: grid; gap: var(--space-2); justify-items: start; }
 .ui-upload input[type="file"] { position: absolute; inline-size: 1px; block-size: 1px; opacity: 0; overflow: hidden; }
 .ui-upload label.ui-btn:focus-within { outline: var(--focus-width) solid var(--color-focus); outline-offset: var(--focus-offset); }
@@ -202,7 +204,7 @@ body { margin: 0; background: var(--color-bg); color: var(--color-text); font: 4
 
 /* ---------- Grafieken: StatCard-trend, Chart, Legend, BarList (admin dashboard, ADR 0020) ---------- */
 /* Reekskleuren chart-1..4 in vaste volgorde; tekst nooit in de reekskleur; hulplijnen chart-grid, 1px. */
-.ui-stat-delta { display: inline-flex; gap: 4px; align-items: baseline; font-size: 13px; font-weight: 600; color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
+.ui-stat-delta { display: flex; flex-wrap: wrap; gap: 0 6px; align-items: baseline; font-size: 13px; font-weight: 600; color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
 .ui-stat-delta[data-dir="good"] { color: var(--color-success); }
 .ui-stat-delta[data-dir="bad"] { color: var(--color-danger); }
 .ui-stat-note { font-size: 12px; color: var(--color-text-muted); }

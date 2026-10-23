@@ -1,46 +1,114 @@
+import Link from "next/link";
+import { BarList } from "@/components/charts/BarList";
+import { num } from "@/components/charts/format";
+import { StatCard } from "@/components/charts/StatCard";
+import { TimeChart } from "@/components/charts/TimeChart";
 import { adminApi, describe } from "@/lib/api";
 
 export const dynamic = "force-dynamic";
+export const metadata = { title: "Dashboard" };
 
+const PERIODS = [["7", "7 dagen"], ["30", "30 dagen"], ["90", "90 dagen"], ["365", "12 maanden"]] as const;
+type Period = (typeof PERIODS)[number][0];
+const PERIOD_TEXT: Record<Period, string> = { "7": "vorige 7 dagen", "30": "vorige 30 dagen", "90": "vorige 90 dagen", "365": "vorige 12 maanden" };
+const PAGE_LABEL: Record<string, string> = { home: "Home", plaat: "Plaatpagina's", boekje: "Boekje", account: "Account" };
+const DEVICE_LABEL: Record<string, string> = { mobile: "Telefoon", tablet: "Tablet", desktop: "Computer", other: "Overig" };
 const iso = (d: Date) => d.toISOString().slice(0, 10);
+const countryName = (code: string) => { try { return code ? new Intl.DisplayNames(["nl"], { type: "region" }).of(code) ?? code : "Onbekend"; } catch { return code || "Onbekend"; } };
 
-export default async function Dashboard() {
-  const to = new Date(), from = new Date(Date.now() - 6 * 86_400_000);
-  let data;
+export default async function Dashboard({ searchParams }: { searchParams: Promise<{ periode?: string }> }) {
+  const raw = (await searchParams).periode;
+  const period: Period = PERIODS.some(([p]) => p === raw) ? (raw as Period) : "30";
+  const to = new Date(), from = new Date(Date.now() - (Number(period) - 1) * 86_400_000);
+  let o, accounts, rules, orgNames = new Map<string, string>();
   try {
-    const [summary, rules] = await Promise.all([adminApi.summary(iso(from), iso(to)), adminApi.rateLimits()]);
-    data = { summary, rules };
+    [o, accounts, rules] = await Promise.all([adminApi.overview(iso(from), iso(to)), adminApi.accountStats(iso(from), iso(to)), adminApi.rateLimits().catch(() => [])]);
+    orgNames = new Map((await adminApi.organizations().catch(() => ({ organizations: [] as { slug: string; name: string }[] }))).organizations.map((x) => [x.slug, x.name]));
   } catch (e) {
     const d = describe(e);
     return <div className="err"><h1>{d.title}</h1><p>{d.text}</p></div>;
   }
-  const { summary, rules } = data;
-  const sum = (k: "pageViews" | "plateViews") => summary.byCountry.reduce((s, r) => s + r[k], 0);
+  const vs = PERIOD_TEXT[period];
   const blocked = rules.reduce((s, r) => s + r.days.reduce((t, d) => t + d.blocked, 0), 0);
-  const downloads = summary.topPlates.reduce((s, r) => s + r.downloads + r.prints, 0);
+  const dates = o.series.map((p) => p.date);
+  const created = new Map(accounts.series.map((s) => [s.date, s.count]));
+  const pageTotal = o.pages.reduce((s, p) => s + p.views, 0);
+
   return (
     <>
-      <div><h1>Dashboard</h1><p className="lead">Laatste 7 dagen, {iso(from)} t/m {iso(to)}. Tellingen zonder cookies of persoonsgegevens.</p></div>
-      <div className="cards">
-        <div className="stat"><span>Paginaweergaven</span><b>{sum("pageViews").toLocaleString("nl-NL")}</b></div>
-        <div className="stat"><span>Platen bekeken</span><b>{sum("plateViews").toLocaleString("nl-NL")}</b></div>
-        <div className="stat"><span>Downloads en prints</span><b>{downloads.toLocaleString("nl-NL")}</b></div>
-        <div className="stat"><span>Geblokkeerde verzoeken</span><b className={blocked ? "bad" : ""}>{blocked.toLocaleString("nl-NL")}</b></div>
+      <div className="row-between dash-head">
+        <div><h1>Dashboard</h1><p className="lead">{o.from} t/m {o.to}, per {o.bucket === "week" ? "week" : "dag"}. Tellingen zonder cookies of persoonsgegevens; bijgewerkt elke 10 minuten.</p></div>
+        <nav className="tabs" aria-label="Periode">
+          {PERIODS.map(([p, label]) => <Link key={p} href={`/?periode=${p}`} aria-current={p === period ? "page" : undefined}>{label}</Link>)}
+        </nav>
       </div>
+
+      <div className="ui-stats dash-stats">
+        <StatCard label="Bezoekers" value={o.totals.visitors} before={o.previousTotals.visitors} period={vs} note="Unieke bezoekers per dag, opgeteld" />
+        <StatCard label="Paginaweergaven" value={o.totals.pageViews} before={o.previousTotals.pageViews} period={vs} />
+        <StatCard label="Downloads en prints" value={o.totals.downloads} before={o.previousTotals.downloads} period={vs} />
+        <StatCard label="Platen ingekleurd" value={o.totals.completions} before={o.previousTotals.completions} period={vs} />
+        <StatCard label="Nieuwe accounts" value={accounts.created} before={accounts.createdBefore} period={vs} note={`${num(accounts.total)} accounts in totaal`} />
+        <StatCard label="Terugkerende accounts" value={accounts.returning} period={vs} note={`${num(accounts.active)} accounts logden in deze periode in`} />
+      </div>
+
       <section className="panel">
-        <h2>Populairste platen</h2>
-        {summary.topPlates.length === 0 ? <p className="lead">Nog geen downloads of prints in deze periode.</p> : (
-          <table><thead><tr><th>Plaat</th><th className="num">Bekeken</th><th className="num">Downloads</th><th className="num">Prints</th><th className="num">Voltooid</th></tr></thead>
-            <tbody>{summary.topPlates.map((p) => <tr key={p.plate}><td>{p.plate}</td><td className="num">{p.views}</td><td className="num">{p.downloads}</td><td className="num">{p.prints}</td><td className="num">{p.completions}</td></tr>)}</tbody></table>
-        )}
+        <TimeChart title="Bezoekers en paginaweergaven" bucket={o.bucket} dates={dates} series={[
+          { key: "visitors", label: "Bezoekers", color: "var(--chart-1)", values: o.series.map((p) => p.visitors) },
+          { key: "pageViews", label: "Paginaweergaven", color: "var(--chart-2)", values: o.series.map((p) => p.pageViews) },
+        ]} />
       </section>
+
+      <div className="dash-grid">
+        <section className="panel">
+          <TimeChart title="Downloads en prints" kind="bar" bucket={o.bucket} dates={dates} series={[
+            { key: "downloads", label: "Downloads en prints", color: "var(--chart-3)", values: o.series.map((p) => p.downloads) },
+          ]} />
+        </section>
+        <section className="panel">
+          <TimeChart title="Nieuwe accounts" kind="bar" bucket={o.bucket} dates={dates} series={[
+            { key: "accounts", label: "Nieuwe accounts", color: "var(--chart-4)", values: dates.map((d) => created.get(d) ?? 0) },
+          ]} />
+        </section>
+      </div>
+
+      <div className="dash-grid">
+        <section className="panel stack">
+          <h2>Bekeken pagina&apos;s</h2>
+          <BarList total={pageTotal} items={o.pages.map((p) => ({ label: PAGE_LABEL[p.page] ?? p.page, value: p.views }))}
+            empty="Nog geen paginaweergaven. Pagina's worden geteld sinds 24 oktober 2026." />
+        </section>
+        <section className="panel stack">
+          <h2>Populairste platen</h2>
+          <BarList items={o.topPlates.filter((p) => p.views > 0).map((p) => ({ label: p.plate, value: p.views }))} empty="Nog geen platen bekeken in deze periode." />
+        </section>
+        <section className="panel stack">
+          <h2>Apparaten</h2>
+          <BarList items={o.devices.map((d) => ({ label: DEVICE_LABEL[d.device] ?? d.device, value: d.views }))} />
+        </section>
+        <section className="panel stack">
+          <h2>Landen</h2>
+          <BarList items={o.countries.map((c) => ({ label: countryName(c.country), value: c.pageViews + c.plateViews }))} />
+        </section>
+      </div>
+
+      {o.organizations.length > 1 && (
+        <section className="panel">
+          <h2>Per organisatie</h2>
+          <table>
+            <thead><tr><th>Organisatie</th><th className="num">Bezoekers</th><th className="num">Paginaweergaven</th></tr></thead>
+            <tbody>{o.organizations.map((x) => <tr key={x.org}><td>{orgNames.get(x.org) ?? x.org}</td><td className="num">{num(x.visitors)}</td><td className="num">{num(x.views)}</td></tr>)}</tbody>
+          </table>
+        </section>
+      )}
+
       <section className="panel">
-        <h2>Bezoekers per land</h2>
-        {summary.byCountry.length === 0 ? <p className="lead">Nog geen bezoeken in deze periode.</p> : (
-          <table><thead><tr><th>Land</th><th className="num">Paginaweergaven</th><th className="num">Platen bekeken</th></tr></thead>
-            <tbody>{summary.byCountry.map((c) => <tr key={c.country || "?"}><td>{c.country || "Onbekend"}</td><td className="num">{c.pageViews}</td><td className="num">{c.plateViews}</td></tr>)}</tbody></table>
+        <h2>Populairste platen in detail</h2>
+        {o.topPlates.length === 0 ? <p className="lead">Nog geen platen bekeken in deze periode.</p> : (
+          <table><thead><tr><th>Plaat</th><th className="num">Bekeken</th><th className="num">Downloads</th><th className="num">Prints</th><th className="num">Ingekleurd</th></tr></thead>
+            <tbody>{o.topPlates.map((p) => <tr key={p.plate}><td>{p.plate}</td><td className="num">{num(p.views)}</td><td className="num">{num(p.downloads)}</td><td className="num">{num(p.prints)}</td><td className="num">{num(p.completions)}</td></tr>)}</tbody></table>
         )}
-        <p className="lead">Dagtotalen worden elke 10 minuten bijgewerkt.</p>
+        <p className="lead">Terugkerende anonieme bezoekers tellen we niet: dat kan alleen door een browser te herkennen, en dat doen we niet (ADR 0002). Terugkerende accounts zijn accounts van vóór de periode die erin inlogden. Geblokkeerde verzoeken (rate limits): {num(blocked)}.</p>
       </section>
     </>
   );

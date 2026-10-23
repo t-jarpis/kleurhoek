@@ -94,3 +94,13 @@ form.roles label { display: inline-flex; gap: 6px; align-items: center; white-sp
 textarea { min-height: var(--control-h); padding: var(--space-2) var(--space-3); border: var(--control-border) solid var(--color-border-control); border-radius: var(--radius-control); background: var(--color-surface); color: var(--color-text); font: inherit; }
 textarea.mono { font-family: var(--font-mono); font-size: 14px; }
 @media (max-width: 900px) { .brand-editor { grid-template-columns: 1fr; } }
+
+/* Dashboard (ADR 0020): grafieken naast elkaar op brede schermen. */
+.dash-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: var(--space-4); }
+.ui-chart details summary { cursor: pointer; }
+.ui-chart details table { margin-top: var(--space-2); }
+.dash-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 700px) { .dash-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.tabs a { white-space: nowrap; }
+.dash-head { flex-wrap: wrap; gap: var(--space-3); align-items: flex-end; }
+.dash-head .tabs { max-width: 100%; overflow-x: auto; }

@@ -18,7 +18,8 @@ export function Logo({ suffix, size = 30, wordmark, image }: { suffix?: string; 
   return (
     <span className="kh-logo">
       {image
-        ? <img className="kh-logo-img" src={image} alt="" style={{ height: size * 1.4 }} />
+        // Liggend logo: breedte is de grens; vierkant of staand: hoogte. Zo oogt elke verhouding even groot.
+        ? <img className="kh-logo-img" src={image} alt="" style={{ maxHeight: Math.round(size * 2), maxWidth: Math.min(220, Math.round(size * 7)), minHeight: Math.round(size * 1.2) }} />
         : <><LogoMark size={size} /><span className="kh-logo-word" style={{ fontSize: size }}>{wordmark ?? activeTheme.logo.word}</span></>}
       {suffix && <span className="kh-logo-suffix">{suffix}</span>}
     </span>

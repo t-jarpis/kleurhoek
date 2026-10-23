@@ -58,6 +58,17 @@ export interface OrgInput {
   offer?: Partial<OrgOffer>; features?: { shop?: boolean; accounts?: boolean };
 }
 
+export interface OverviewTotals { visitors: number; pageViews: number; plateViews: number; downloads: number; completions: number }
+export interface Overview {
+  from: string; to: string; bucket: "day" | "week"; previous: { from: string; to: string };
+  totals: OverviewTotals; previousTotals: OverviewTotals;
+  series: { date: string; visitors: number; pageViews: number; plateViews: number; downloads: number }[];
+  pages: { page: string; views: number; visitors: number }[]; devices: { device: string; views: number }[];
+  organizations: { org: string; visitors: number; views: number }[];
+  topPlates: Summary["topPlates"]; countries: Summary["byCountry"];
+}
+export interface AccountStats { total: number; created: number; createdBefore: number; active: number; returning: number; series: { date: string; count: number }[] }
+
 export class ApiError extends Error {
   constructor(readonly status: number, message: string) { super(message); }
 }
@@ -78,6 +89,8 @@ export const adminApi = {
   rateLimits: () => call<{ rules: RateLimitRule[] }>("/v1/admin/rate-limits").then((r) => r.rules),
   updateRateLimit: (slug: string, body: { limit?: number; windowSeconds?: number; enabled?: boolean }) =>
     call(`/v1/admin/rate-limits/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
+  overview: (from: string, to: string) => call<Overview>(`/v1/admin/analytics/overview?from=${from}&to=${to}`),
+  accountStats: (from: string, to: string) => call<AccountStats>(`/v1/admin/users/stats?from=${from}&to=${to}`),
   summary: (from: string, to: string) => call<Summary>(`/v1/admin/analytics/summary?from=${from}&to=${to}`),
   users: (q: { kind?: string; q?: string; page?: number }) => {
     const p = new URLSearchParams();
