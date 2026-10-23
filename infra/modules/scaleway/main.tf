@@ -100,7 +100,7 @@ resource "scaleway_registry_namespace" "main" {
 # die staat daarom in een privé bucket met versleuteling en alleen jouw sleutel.
 
 resource "random_password" "secret" {
-  for_each = toset(["ingest-key", "analytics-salt", "web-session-secret", "admin-session-secret"])
+  for_each = toset(["ingest-key", "analytics-salt", "web-session-secret", "admin-session-secret", "login-secret"])
   length   = 48
   special  = false
 }

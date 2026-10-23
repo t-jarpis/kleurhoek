@@ -96,7 +96,7 @@ module "site" {
   source                   = "../../modules/site"
   environment              = "dev"
   domain                   = "kleurhoek.nl"
-  subdomains               = { site = "dev", admin = "admin-dev" }
+  subdomains               = { site = "dev", admin = "admin-dev", login = "login-dev" }
   cloudflare_account_id    = var.cloudflare_account_id
   cloudflare_zone_id       = var.cloudflare_zone_id
   zitadel_issuer           = "https://${var.zitadel_domain}"

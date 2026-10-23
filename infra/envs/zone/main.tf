@@ -49,7 +49,7 @@ variable "edge_rate_limits" {
   # Gratis plan: één regel, period 10 seconden. Op Pro: aparte regels per minuut (zie infra/README.md).
   default = [{
     name       = "inloggen-en-analytics"
-    expression = "(starts_with(http.request.uri.path, \"/auth/\") or http.request.uri.path eq \"/e\")"
+    expression = "(starts_with(http.request.uri.path, \"/auth/\") or http.request.uri.path eq \"/e\" or http.host in {\"login.kleurhoek.nl\" \"login-dev.kleurhoek.nl\"})"
     requests   = 30
     period     = 10
     block_for  = 10

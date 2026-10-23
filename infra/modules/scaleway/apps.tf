@@ -91,6 +91,29 @@ locals {
         EDGE_SECRET        = var.edge_secret
       }
     }
+    # Eigen inlogpagina (ADR 0018): praat met Zitadel (sessies, gebruikers) en de API (huisstijl).
+    login = {
+      port    = 3003
+      cpu     = 280
+      memory  = 512
+      min     = 0
+      max     = 2
+      health  = "/healthz"
+      public  = true
+      timeout = 60
+      env = {
+        NODE_ENV       = "production"
+        ZITADEL_URL    = var.oidc.issuer
+        SITE_ORG_ID    = var.oidc.site_org_id
+        PASSKEY_DOMAIN = var.passkey_domain
+      }
+      secret_env = {
+        LOGIN_SECRET        = random_password.secret["login-secret"].result
+        ZITADEL_LOGIN_TOKEN = var.zitadel_login_token
+        INGEST_KEY          = random_password.secret["ingest-key"].result
+        EDGE_SECRET         = var.edge_secret
+      }
+    }
   }
 }
 
@@ -179,5 +202,5 @@ resource "scaleway_container" "public" {
 resource "scaleway_container_domain" "public" {
   for_each     = { for k, id in var.domain_records : k => id if contains(keys(scaleway_container.public), k) }
   container_id = scaleway_container.public[each.key].id
-  hostname     = each.key == "web" ? var.hosts.site : var.hosts.admin
+  hostname     = { web = var.hosts.site, admin = var.hosts.admin, login = var.hosts.login }[each.key]
 }

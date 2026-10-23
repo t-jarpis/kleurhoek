@@ -26,6 +26,11 @@ variable "local_development" {
   default     = false
   description = "Alleen voor docker compose: http-redirects op localhost toestaan en geen MFA-vraag bij inloggen."
 }
+variable "login_base_uri" {
+  type        = string
+  default     = null
+  description = "Eigen inlogpagina voor de website (login v2), bijvoorbeeld https://login.kleurhoek.nl. Leeg = de inlogpagina van Zitadel."
+}
 variable "idp_ids" {
   type        = list(string)
   default     = []
@@ -81,15 +86,24 @@ resource "zitadel_project_grant" "beheer" {
 
 # JWT-access tokens: de API controleert ze zelf met de publieke sleutels (geen introspectie per verzoek).
 resource "zitadel_application_oidc" "web" {
-  org_id                      = zitadel_org.site.id
-  project_id                  = zitadel_project.kleurhoek.id
-  name                        = "Kleurhoek web"
-  app_type                    = "OIDC_APP_TYPE_WEB"
-  auth_method_type            = "OIDC_AUTH_METHOD_TYPE_BASIC"
-  grant_types                 = ["OIDC_GRANT_TYPE_AUTHORIZATION_CODE", "OIDC_GRANT_TYPE_REFRESH_TOKEN"]
-  response_types              = ["OIDC_RESPONSE_TYPE_CODE"]
-  redirect_uris               = ["${var.site_url}/auth/callback"]
-  post_logout_redirect_uris   = ["${var.site_url}/"]
+  org_id                    = zitadel_org.site.id
+  project_id                = zitadel_project.kleurhoek.id
+  name                      = "Kleurhoek web"
+  app_type                  = "OIDC_APP_TYPE_WEB"
+  auth_method_type          = "OIDC_AUTH_METHOD_TYPE_BASIC"
+  grant_types               = ["OIDC_GRANT_TYPE_AUTHORIZATION_CODE", "OIDC_GRANT_TYPE_REFRESH_TOKEN"]
+  response_types            = ["OIDC_RESPONSE_TYPE_CODE"]
+  redirect_uris             = ["${var.site_url}/auth/callback"]
+  post_logout_redirect_uris = ["${var.site_url}/"]
+
+  dynamic "login_version" {
+    for_each = var.login_base_uri == null ? [] : [1]
+    content {
+      login_v2 {
+        base_uri = var.login_base_uri
+      }
+    }
+  }
   access_token_type           = "OIDC_TOKEN_TYPE_JWT"
   access_token_role_assertion = false
   id_token_userinfo_assertion = true
@@ -112,6 +126,33 @@ resource "zitadel_application_oidc" "admin" {
   id_token_userinfo_assertion = true
   dev_mode                    = var.local_development
   clock_skew                  = "0s"
+}
+
+# ---------- Eigen inlogpagina (ADR 0018) ----------
+# Een service user met de instance-rol IAM_LOGIN_CLIENT: alleen die mag sessies aanmaken, codes sturen,
+# gebruikers registreren en een inlogpoging afronden. Het token gaat als geheim naar de container.
+resource "zitadel_machine_user" "login" {
+  org_id            = zitadel_org.site.id
+  user_name         = "kleurhoek-login${var.environment == "prod" ? "" : "-${var.environment}"}"
+  name              = "Kleurhoek inlogpagina${local.suffix}"
+  description       = "Eigen inlogpagina van Kleurhoek (login v2, ADR 0018)"
+  access_token_type = "ACCESS_TOKEN_TYPE_BEARER"
+}
+
+resource "zitadel_personal_access_token" "login" {
+  org_id          = zitadel_org.site.id
+  user_id         = zitadel_machine_user.login.id
+  expiration_date = "2030-01-01T00:00:00Z"
+}
+
+resource "zitadel_instance_member" "login" {
+  user_id = zitadel_machine_user.login.id
+  roles   = ["IAM_LOGIN_CLIENT"]
+}
+
+output "login_token" {
+  value     = zitadel_personal_access_token.login.token
+  sensitive = true
 }
 
 output "site_org_id" { value = zitadel_org.site.id }

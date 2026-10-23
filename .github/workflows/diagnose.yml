@@ -40,7 +40,7 @@ jobs:
           set -uo pipefail
           scw() { curl -sS -H "X-Auth-Token: $SCW_SECRET_KEY" "$@"; }
           echo "CONTAINER_IDS: $CONTAINER_IDS"
-          for app in api web admin; do
+          for app in api web admin login; do
             id=$(jq -r --arg a "$app" '.[$a] // empty' <<<"$CONTAINER_IDS")
             echo "::group::$app ($id)"
             [ -n "$id" ] && scw "$API/containers/$id" | jq '{name, status, error_message, image, min_scale, max_scale, cpu_limit, memory_limit_bytes, public_endpoint, private_endpoint, private_network_id, updated_at, ready_at, env_keys: (.environment_variables|keys)}'
@@ -53,7 +53,7 @@ jobs:
         run: |
           set -uo pipefail
           scw() { curl -sS -H "X-Auth-Token: $SCW_SECRET_KEY" "$@"; }
-          for app in web admin; do
+          for app in web admin login; do
             id=$(jq -r --arg a "$app" '.[$a] // empty' <<<"$CONTAINER_IDS")
             [ -n "$id" ] || continue
             endpoint=$(scw "$API/containers/$id" | jq -r '.domain_name // (.public_endpoint | sub("^https://"; ""))')
@@ -93,7 +93,7 @@ jobs:
           for l in resource_name resource_type; do
             echo "::group::$l"; loki "label/$l/values" --data-urlencode "start=$start" --data-urlencode "end=$end" | jq -c .data; echo "::endgroup::"
           done
-          for app in api web admin; do
+          for app in api web admin login; do
             echo "------ $app ------"
             loki query_range --data-urlencode "query={resource_name=~\".*$app.*\"}" \
               --data-urlencode "start=$start" --data-urlencode "end=$end" --data-urlencode "limit=300" --data-urlencode "direction=backward" \

@@ -11,7 +11,12 @@ terraform {
 
 variable "environment" { type = string }
 variable "domain" { type = string }
-variable "subdomains" { type = object({ site = string, admin = string }) }
+variable "subdomains" { type = object({ site = string, admin = string, login = string }) }
+variable "own_login" {
+  type        = bool
+  default     = true
+  description = "De website laat inloggen via de eigen inlogpagina (ADR 0018). False = terug naar de inlogpagina van Zitadel."
+}
 variable "cloudflare_account_id" { type = string }
 variable "cloudflare_zone_id" { type = string }
 variable "zitadel_issuer" {
@@ -71,6 +76,7 @@ locals {
   hosts = {
     site  = "${var.subdomains.site}.${var.domain}"
     admin = "${var.subdomains.admin}.${var.domain}"
+    login = "${var.subdomains.login}.${var.domain}"
   }
   site_url  = "https://${local.hosts.site}"
   admin_url = "https://${local.hosts.admin}"
@@ -83,6 +89,8 @@ module "zitadel" {
   admin_url    = local.admin_url
   admin_org_id = var.zitadel_admin_org_id
   idp_ids      = var.zitadel_idp_ids
+  # Website via de eigen inlogpagina; het admin panel blijft (voorlopig) op de inlogpagina van Zitadel.
+  login_base_uri = var.own_login ? "https://${local.hosts.login}" : null
 }
 
 module "scaleway" {
@@ -107,6 +115,8 @@ module "scaleway" {
   scale                    = var.scale
   apps_enabled             = var.apps_enabled
   edge_secret              = var.edge_secret
+  zitadel_login_token      = module.zitadel.login_token
+  passkey_domain           = var.domain
   org_host_pattern         = var.org_host_pattern
   org_worker_secret        = var.org_worker_secret
   domain_records           = module.cloudflare.domain_records

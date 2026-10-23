@@ -241,7 +241,7 @@ heal_domains() { # heal_domains <env>
   local ids bad="" app id st i
   ids="$(terraform -chdir="$INFRA/envs/$1" output -json container_ids 2>/dev/null || echo '{}')"
   dom() { curl -s -H "X-Auth-Token: $SCW_SECRET_KEY" "https://api.scaleway.com/containers/v1/regions/$REGION/domains?container_id=$1" | jq -r '.domains[0].status // "geen"'; }
-  for app in web admin; do
+  for app in web admin login; do
     id="$(jq -r --arg a "$app" '.[$a] // empty' <<<"$ids")"; [ -n "$id" ] || continue
     st="$(dom "$id")"
     case "$st" in
@@ -261,13 +261,13 @@ heal_domains() { # heal_domains <env>
   done
 }
 
-images_ready() { # zijn de drie images er al?
-  local n
-  n="$(curl -s -H "X-Auth-Token: $SCW_SECRET_KEY" \
+images_count() { # images_count <regex van namen>
+  curl -s -H "X-Auth-Token: $SCW_SECRET_KEY" \
     "https://api.scaleway.com/registry/v1/regions/$REGION/images?project_id=$PROJECT_ID&page_size=100" \
-    | jq '[.images[]? | select(.name | test("^kleurhoek-(api|web|admin)$"))] | length')"
-  [ "${n:-0}" -ge 3 ]
+    | jq --arg re "$1" '[.images[]? | select(.name | test($re))] | length'
 }
+images_ready() { [ "$(images_count '^kleurhoek-(api|web|admin|login)$')" -ge 4 ]; } # alle vier de images
+base_ready()   { [ "$(images_count '^kleurhoek-(api|web|admin)$')" -ge 3 ]; }       # bestaande omgeving zonder login-image
 
 github_sync() { # github_sync <env>
   local env="$1" out
@@ -337,6 +337,12 @@ cmd_up() {
   step "Omgeving $TARGET"
   tf_init "$TARGET"
   if images_ready; then
+    tf_apply "$TARGET"
+    github_sync "$TARGET"
+  elif base_ready; then
+    # Een nieuwe app (zoals de inlogpagina): eerst de images bouwen, de bestaande containers blijven staan.
+    warn "nog niet alle images: eerst bouwen, dan de nieuwe containers"
+    run_deploy "$TARGET"
     tf_apply "$TARGET"
     github_sync "$TARGET"
   else

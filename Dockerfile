@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.7
-# Eén Dockerfile voor de drie apps: `--target api`, `--target web` of `--target admin`.
+# Eén Dockerfile voor de vier apps: `--target api`, `web`, `admin` of `login`.
 # Bouwen vanaf de repo-root: docker build --target api -t kleurhoek-api .
 # Platformpakketten komen uit vendor/, dus er is geen token voor een registry nodig.
 
@@ -23,7 +23,7 @@ ENV NEXT_PUBLIC_MARKETS=${NEXT_PUBLIC_MARKETS} NODE_ENV=production
 COPY . .
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
     pnpm install --frozen-lockfile --offline --prod=false
-RUN pnpm turbo run build --filter=@kleurhoek/api --filter=@kleurhoek/web --filter=@kleurhoek/admin
+RUN pnpm turbo run build --filter=@kleurhoek/api --filter=@kleurhoek/web --filter=@kleurhoek/admin --filter=@kleurhoek/login
 # Alleen productie-afhankelijkheden van de API, zonder symlinks naar de workspace.
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
     pnpm --filter @kleurhoek/api deploy --prod --legacy /out/api
@@ -59,3 +59,13 @@ USER node
 EXPOSE 3002
 COPY --chown=node:node docker/request-log.cjs /app/request-log.cjs
 CMD ["node", "-r", "/app/request-log.cjs", "apps/admin/server.js"]
+
+# Eigen inlogpagina (ADR 0018).
+FROM runtime AS login
+ENV PORT=3003 HOSTNAME=0.0.0.0
+COPY --from=build --chown=node:node /repo/apps/login/.next/standalone /app
+COPY --from=build --chown=node:node /repo/apps/login/.next/static /app/apps/login/.next/static
+USER node
+EXPOSE 3003
+COPY --chown=node:node docker/request-log.cjs /app/request-log.cjs
+CMD ["node", "-r", "/app/request-log.cjs", "apps/login/server.js"]

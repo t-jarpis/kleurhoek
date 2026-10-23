@@ -17,6 +17,7 @@ variable "hosts" {
   type = object({
     site  = string
     admin = string
+    login = string
   })
   description = "Hostnamen, bijvoorbeeld www.kleurhoek.nl en admin.kleurhoek.nl. De API heeft geen publieke hostnaam."
 }
@@ -87,6 +88,16 @@ variable "org_worker_secret" {
   type        = string
   sensitive   = true
   description = "Geheim van de Worker voor organisatiedomeinen (uit envs/zone); alleen dan vertrouwt de website de doorgegeven host en IP."
+}
+
+variable "zitadel_login_token" {
+  type        = string
+  sensitive   = true
+  description = "Token van de service user van de inlogpagina (IAM_LOGIN_CLIENT)."
+}
+variable "passkey_domain" {
+  type        = string
+  description = "RP-ID voor passkeys: het hoofddomein (kleurhoek.nl), zodat een passkey op alle subdomeinen werkt."
 }
 
 variable "edge_secret" {

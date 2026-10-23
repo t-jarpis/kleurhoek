@@ -15,7 +15,7 @@ variable "domain" {
   description = "Bijvoorbeeld kleurhoek.nl"
 }
 variable "subdomains" {
-  type        = object({ site = string, admin = string })
+  type        = object({ site = string, admin = string, login = string })
   description = "Bijvoorbeeld { site = \"www\", admin = \"admin\" }; in dev { site = \"dev\", admin = \"admin-dev\" }."
 }
 variable "origin_hosts" {
@@ -30,7 +30,7 @@ variable "admin_emails" {
 locals {
   site_host  = "${var.subdomains.site}.${var.domain}"
   admin_host = "${var.subdomains.admin}.${var.domain}"
-  names      = { web = var.subdomains.site, admin = var.subdomains.admin }
+  names      = { web = var.subdomains.site, admin = var.subdomains.admin, login = var.subdomains.login }
 }
 
 # Proxied: bezoekers zien alleen Cloudflare. De origin weigert verzoeken zonder de geheime header.
