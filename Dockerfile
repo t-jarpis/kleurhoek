@@ -3,7 +3,7 @@
 # Bouwen vanaf de repo-root: docker build --target api -t kleurhoek-api .
 # Platformpakketten komen uit vendor/, dus er is geen token voor een registry nodig.
 
-ARG NODE_IMAGE=node:22.22-alpine
+ARG NODE_IMAGE=node:22.23.4-alpine
 
 FROM ${NODE_IMAGE} AS base
 ENV PNPM_HOME=/pnpm PATH=/pnpm:$PATH CI=1 NEXT_TELEMETRY_DISABLED=1 TURBO_TELEMETRY_DISABLED=1
