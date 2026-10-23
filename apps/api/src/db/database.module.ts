@@ -40,3 +40,16 @@ export class DatabaseModule implements OnApplicationShutdown {
   async onApplicationShutdown() { await this.handle.close(); }
 }
 export { HANDLE as DB_HANDLE };
+
+/** Eén regel met de echte PostgreSQL-fout (Drizzle verpakt die in `cause`). */
+export function describeDbError(e: unknown): string {
+  const err = e as { message?: string; cause?: { message?: string; code?: string; detail?: string; hint?: string } };
+  const pg = err?.cause ?? {};
+  const parts = [pg.message ?? err?.message ?? String(e)];
+  if (pg.code) parts.push(`code ${pg.code}`);
+  if (pg.detail) parts.push(`detail: ${pg.detail}`);
+  if (pg.hint) parts.push(`hint: ${pg.hint}`);
+  const query = /Failed query: ([\s\S]{0,160})/.exec(err?.message ?? "")?.[1]?.replace(/\s+/g, " ");
+  if (query) parts.push(`query: ${query}`);
+  return parts.join(" | ");
+}
