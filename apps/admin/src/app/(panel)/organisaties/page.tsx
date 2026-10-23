@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { adminApi, describe } from "@/lib/api";
-import { createOrganization } from "./actions";
 import { KIND_LABEL } from "./labels";
+import { NewOrgForm } from "./NewOrgForm";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Organisaties" };
@@ -10,7 +10,8 @@ export default async function Organizations({ searchParams }: { searchParams: Pr
   const { melding, fout } = await searchParams;
   const [me, data] = await Promise.all([adminApi.me().catch(() => null), adminApi.organizations().catch((e: unknown) => e)]);
   if (data instanceof Error) { const d = describe(data); return <div className="err"><h1>{d.title}</h1><p>{d.text}</p></div>; }
-  const { organizations } = data as Awaited<ReturnType<typeof adminApi.organizations>>;
+  const data2 = data as Awaited<ReturnType<typeof adminApi.organizations>>;
+  const { organizations } = data2;
   const canManage = me?.permissions.includes("organizations.manage") ?? false;
   return (
     <>
@@ -41,17 +42,7 @@ export default async function Organizations({ searchParams }: { searchParams: Pr
       {canManage && (
         <section className="panel stack">
           <h2>Nieuwe organisatie</h2>
-          <form action={createOrganization} className="grid-form">
-            <label className="field"><span>Naam</span><input name="name" required minLength={2} maxLength={80} placeholder="Basisschool De Regenboog" /></label>
-            <label className="field"><span>Code</span><input name="slug" required maxLength={32} pattern="[a-z0-9][a-z0-9\-]{0,30}[a-z0-9]" className="mono" placeholder="de-regenboog" aria-describedby="code-hint" /></label>
-            <label className="field"><span>Soort</span>
-              <select name="kind" defaultValue="school">
-                {(["school", "opvang", "vereniging", "bedrijf", "overig"] as const).map((k) => <option key={k} value={k}>{KIND_LABEL[k]}</option>)}
-              </select>
-            </label>
-            <small id="code-hint" className="lead wide">De code wordt het subdomein (bijvoorbeeld <code>de-regenboog.kleurhoek.nl</code>) en is later niet te wijzigen. Een nieuwe organisatie toont eerst alle platen, zonder webshop.</small>
-            <div><button type="submit">Aanmaken</button></div>
-          </form>
+          <NewOrgForm hostPattern={data2.hostPattern} reserved={data2.reserved} taken={organizations.map((o) => o.slug)} />
         </section>
       )}
     </>

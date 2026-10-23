@@ -3,7 +3,7 @@ import { and, desc, eq, gte, lt, lte, sql } from "drizzle-orm";
 import { z } from "zod";
 import { DB, type Database } from "../../db/database";
 import { withTenant } from "../../db/tenant";
-import { dailyProductClicks, dailyTotals, EVENT_TYPES, events } from "./analytics.schema";
+import { dailyPages, dailyProductClicks, dailyTotals, dailyVisitors, EVENT_TYPES, events } from "./analytics.schema";
 
 /** Eén event zoals de Cloudflare Worker het aanlevert: zonder IP-adres, land al ingevuld. */
 export const EventInput = z.object({
@@ -15,6 +15,9 @@ export const EventInput = z.object({
   device: z.enum(["mobile", "tablet", "desktop", "other"]),
   visitorHash: z.string().regex(/^[A-Za-z0-9_-]{16,64}$/).optional(),
   occurredAt: z.iso.datetime().optional(),
+  /** Soort pagina (home, plaat, boekje …), nooit een adres of zoekterm (ADR 0020). */
+  page: z.string().regex(/^[a-z][a-z0-9-]{1,31}$/).optional(),
+  org: z.string().regex(/^[a-z0-9](?:[a-z0-9-]{0,30}[a-z0-9])?$/).optional(),
 }).strict();
 export const EventBatch = z.array(EventInput).min(1).max(100);
 export type EventInput = z.infer<typeof EventInput>;
@@ -26,7 +29,7 @@ export class AnalyticsService {
   async record(tenantId: string, batch: EventInput[], now = new Date()): Promise<number> {
     await withTenant(this.db, tenantId, (tx) => tx.insert(events).values(batch.map((e) => ({
       tenantId, type: e.type, plateSlug: e.plate ?? null, productSlug: e.product ?? null, market: e.market, country: e.country ?? null,
-      device: e.device, visitorHash: e.visitorHash ?? null,
+      device: e.device, visitorHash: e.visitorHash ?? null, page: e.page ?? null, org: e.org ?? null,
       occurredAt: e.occurredAt ? new Date(e.occurredAt) : now,
     }))));
     return batch.length;
@@ -59,6 +62,83 @@ export class AnalyticsService {
         .groupBy(events.productSlug, sql`2`, events.market, sql`4`);
       await tx.delete(dailyProductClicks).where(and(eq(dailyProductClicks.tenantId, tenantId), eq(dailyProductClicks.day, day)));
       if (clicks.length) await tx.insert(dailyProductClicks).values(clicks.map((c) => ({ tenantId, day, productSlug: c.product, plateSlug: c.plate, market: c.market, country: c.country, clicks: c.clicks, uniqueVisitors: c.uniqueVisitors })));
+
+      // Pagina's (ADR 0020): weergaven en bezoekers per soort pagina, organisatie, markt en apparaat.
+      const inDay = and(eq(events.tenantId, tenantId), gte(events.occurredAt, start), lt(events.occurredAt, end));
+      const org = sql<string>`coalesce(${events.org}, '${sql.raw(DEFAULT_ORG)}')`;
+      const pages = await tx.select({
+        org, page: sql<string>`coalesce(${events.page}, 'home')`, market: events.market, device: events.device,
+        views: sql<number>`count(*)::int`, visitors: sql<number>`count(distinct ${events.visitorHash})::int`,
+      }).from(events).where(and(inDay, eq(events.type, "page_view"))).groupBy(sql`1`, sql`2`, events.market, events.device);
+      await tx.delete(dailyPages).where(and(eq(dailyPages.tenantId, tenantId), eq(dailyPages.day, day)));
+      if (pages.length) await tx.insert(dailyPages).values(pages.map((r) => ({ tenantId, day, ...r })));
+
+      // Unieke bezoekers per organisatie en voor de hele site ('*'), over alle soorten events.
+      const perOrg = await tx.select({ org, visitors: sql<number>`count(distinct ${events.visitorHash})::int` })
+        .from(events).where(inDay).groupBy(sql`1`);
+      const [all] = await tx.select({ visitors: sql<number>`count(distinct ${events.visitorHash})::int` }).from(events).where(inDay);
+      await tx.delete(dailyVisitors).where(and(eq(dailyVisitors.tenantId, tenantId), eq(dailyVisitors.day, day)));
+      const visitorRows = [...perOrg, ...(all && all.visitors ? [{ org: ALL_ORGS, visitors: all.visitors }] : [])].filter((r) => r.visitors > 0);
+      if (visitorRows.length) await tx.insert(dailyVisitors).values(visitorRows.map((r) => ({ tenantId, day, ...r })));
+    });
+  }
+
+  /** Ruwe events na 90 dagen weg; daarna bestaan alleen de dagtotalen nog (ADR 0002). */
+  async purgeRawEvents(tenantId: string, now = new Date()): Promise<void> {
+    const cutoff = new Date(now.getTime() - RAW_EVENT_DAYS * 86_400_000);
+    await withTenant(this.db, tenantId, (tx) => tx.delete(events).where(and(eq(events.tenantId, tenantId), lt(events.occurredAt, cutoff))));
+  }
+
+  /**
+   * Overzicht voor het dashboard (ADR 0020): reeksen per dag (tot 92 dagen) of per week, totalen met
+   * de vorige periode van gelijke lengte, en verdelingen over pagina's, platen, apparaten, landen en
+   * organisaties. Bezoekers zijn per dag uniek; over meerdere dagen is het een som ("bezoeken per dag").
+   */
+  async overview(tenantId: string, from: string, to: string) {
+    const days = Math.round((Date.parse(to) - Date.parse(from)) / 86_400_000) + 1;
+    const prevTo = shiftDay(from, -1), prevFrom = shiftDay(from, -days);
+    const bucket = days > 92 ? "week" : "day";
+    const { topPlates, byCountry } = await this.summary(tenantId, from, to);
+    const b = (col: unknown) => (bucket === "week" ? sql<string>`to_char(date_trunc('week', ${col}::date), 'YYYY-MM-DD')` : sql<string>`to_char(${col}::date, 'YYYY-MM-DD')`);
+    return withTenant(this.db, tenantId, async (tx) => {
+      const range = (a: string, z: string) => and(eq(dailyTotals.tenantId, tenantId), gte(dailyTotals.day, a), lte(dailyTotals.day, z));
+      const totals = (a: string, z: string) => tx.select({
+        pageViews: sql<number>`coalesce(sum(${dailyTotals.pageViews}), 0)::int`, plateViews: sql<number>`coalesce(sum(${dailyTotals.plateViews}), 0)::int`,
+        downloads: sql<number>`coalesce(sum(${dailyTotals.downloads} + ${dailyTotals.prints}), 0)::int`, completions: sql<number>`coalesce(sum(${dailyTotals.completions}), 0)::int`,
+      }).from(dailyTotals).where(range(a, z)).then((r) => r[0]!);
+      const visitors = (a: string, z: string) => tx.select({ visitors: sql<number>`coalesce(sum(${dailyVisitors.visitors}), 0)::int` })
+        .from(dailyVisitors).where(and(eq(dailyVisitors.tenantId, tenantId), eq(dailyVisitors.org, ALL_ORGS), gte(dailyVisitors.day, a), lte(dailyVisitors.day, z))).then((r) => r[0]!.visitors);
+      const pagesIn = and(eq(dailyPages.tenantId, tenantId), gte(dailyPages.day, from), lte(dailyPages.day, to));
+
+      const [current, previous, visitorsNow, visitorsBefore] = [await totals(from, to), await totals(prevFrom, prevTo), await visitors(from, to), await visitors(prevFrom, prevTo)];
+      const seriesTotals = await tx.select({
+        date: b(dailyTotals.day), pageViews: sql<number>`sum(${dailyTotals.pageViews})::int`, plateViews: sql<number>`sum(${dailyTotals.plateViews})::int`,
+        downloads: sql<number>`sum(${dailyTotals.downloads} + ${dailyTotals.prints})::int`,
+      }).from(dailyTotals).where(range(from, to)).groupBy(sql`1`);
+      const seriesVisitors = await tx.select({ date: b(dailyVisitors.day), visitors: sql<number>`sum(${dailyVisitors.visitors})::int` })
+        .from(dailyVisitors).where(and(eq(dailyVisitors.tenantId, tenantId), eq(dailyVisitors.org, ALL_ORGS), gte(dailyVisitors.day, from), lte(dailyVisitors.day, to))).groupBy(sql`1`);
+      const byDate = new Map(seriesTotals.map((r) => [r.date, r]));
+      const vByDate = new Map(seriesVisitors.map((r) => [r.date, r.visitors]));
+      const series = buckets(from, to, bucket).map((date) => ({
+        date, visitors: vByDate.get(date) ?? 0, pageViews: byDate.get(date)?.pageViews ?? 0,
+        plateViews: byDate.get(date)?.plateViews ?? 0, downloads: byDate.get(date)?.downloads ?? 0,
+      }));
+
+      const sum = (col: typeof dailyPages.views | typeof dailyPages.visitors) => sql<number>`sum(${col})::int`;
+      const pages = await tx.select({ page: dailyPages.page, views: sum(dailyPages.views), visitors: sum(dailyPages.visitors) })
+        .from(dailyPages).where(pagesIn).groupBy(dailyPages.page).orderBy(desc(sum(dailyPages.views)));
+      const devices = await tx.select({ device: dailyPages.device, views: sum(dailyPages.views) })
+        .from(dailyPages).where(pagesIn).groupBy(dailyPages.device).orderBy(desc(sum(dailyPages.views)));
+      const orgViews = await tx.select({ org: dailyPages.org, views: sum(dailyPages.views) }).from(dailyPages).where(pagesIn).groupBy(dailyPages.org);
+      const orgVisitors = await tx.select({ org: dailyVisitors.org, visitors: sql<number>`sum(${dailyVisitors.visitors})::int` })
+        .from(dailyVisitors).where(and(eq(dailyVisitors.tenantId, tenantId), gte(dailyVisitors.day, from), lte(dailyVisitors.day, to), sql`${dailyVisitors.org} <> ${ALL_ORGS}`)).groupBy(dailyVisitors.org);
+      const ov = new Map(orgViews.map((o) => [o.org, o.views]));
+      const organizations = orgVisitors.map((o) => ({ org: o.org, visitors: o.visitors, views: ov.get(o.org) ?? 0 })).sort((x, y) => y.visitors - x.visitors);
+      return {
+        from, to, bucket, previous: { from: prevFrom, to: prevTo },
+        totals: { visitors: visitorsNow, ...current }, previousTotals: { visitors: visitorsBefore, ...previous },
+        series, pages, devices, organizations, topPlates: topPlates.slice(0, 10), countries: byCountry.slice(0, 10),
+      };
     });
   }
 
@@ -120,6 +200,22 @@ export class AnalyticsService {
       };
     });
   }
+}
+
+export const RAW_EVENT_DAYS = 90;
+export const DEFAULT_ORG = "kleurhoek";
+/** Rij met de unieke bezoekers van de hele site (alle organisaties samen). */
+export const ALL_ORGS = "*";
+
+export const shiftDay = (day: string, n: number) => new Date(Date.parse(`${day}T00:00:00Z`) + n * 86_400_000).toISOString().slice(0, 10);
+
+/** Alle dagen of weken (maandag) in de periode, ook zonder data, zodat een grafiek geen gaten overslaat. */
+export function buckets(from: string, to: string, bucket: "day" | "week"): string[] {
+  const out: string[] = [];
+  let d = from;
+  if (bucket === "week") { const wd = (new Date(`${from}T00:00:00Z`).getUTCDay() + 6) % 7; d = shiftDay(from, -wd); }
+  for (; d <= to; d = shiftDay(d, bucket === "week" ? 7 : 1)) out.push(d);
+  return out;
 }
 
 /**

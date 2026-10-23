@@ -49,6 +49,7 @@ export interface Organization {
 }
 export interface OrgChoices {
   themes: { id: string; name: string; description?: string; font: string }[]; fonts: { id: string; family: string }[]; kinds: OrgKind[];
+  hostPattern: string | null; reserved: string[];
   options: { markets: string[]; categories: { slug: string; name: string }[]; ages: { slug: string; name: string }[]; kinds: { slug: "kleurplaat" | "knutselen"; name: string }[] };
 }
 export interface OrgInput {

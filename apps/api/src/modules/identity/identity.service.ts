@@ -96,6 +96,32 @@ export class IdentityService implements OnModuleInit {
     return [...new Set(rows.flatMap((r) => r.permissions as Permission[]))].sort();
   }
 
+  /**
+   * Accountcijfers voor het dashboard (ADR 0020), alleen tellingen van websitegebruikers (member):
+   * nieuw per dag of week, en wie in de periode inlogde. "Terugkerend" = inlog in de periode met een
+   * account van vóór de periode. Gebaseerd op de laatste inlog, dus exact voor een periode tot vandaag.
+   */
+  async accountStats(from: string, to: string, bucket: "day" | "week") {
+    const start = new Date(`${from}T00:00:00Z`), end = new Date(Date.parse(`${to}T00:00:00Z`) + 86_400_000);
+    const prevStart = new Date(start.getTime() - (end.getTime() - start.getTime()));
+    const t = this.env.TENANT_ID;
+    return withTenant(this.db, t, async (tx) => {
+      const member = and(eq(users.tenantId, t), eq(users.kind, "member"));
+      const n = (cond: ReturnType<typeof sql>) => tx.select({ n: count() }).from(users).where(and(member, cond)).then((r) => r[0]?.n ?? 0);
+      const trunc = bucket === "week" ? sql<string>`to_char(date_trunc('week', ${users.createdAt} at time zone 'UTC'), 'YYYY-MM-DD')` : sql<string>`to_char(${users.createdAt} at time zone 'UTC', 'YYYY-MM-DD')`;
+      const created = await tx.select({ date: trunc, count: sql<number>`count(*)::int` }).from(users)
+        .where(and(member, sql`${users.createdAt} >= ${start} and ${users.createdAt} < ${end}`)).groupBy(sql`1`).orderBy(sql`1`);
+      return {
+        total: await n(sql`${users.status} = 'active' and ${users.createdAt} < ${end}`),
+        created: created.reduce((s, r) => s + r.count, 0),
+        createdBefore: await n(sql`${users.createdAt} >= ${prevStart} and ${users.createdAt} < ${start}`),
+        active: await n(sql`${users.lastLoginAt} >= ${start} and ${users.lastLoginAt} < ${end}`),
+        returning: await n(sql`${users.lastLoginAt} >= ${start} and ${users.lastLoginAt} < ${end} and ${users.createdAt} < ${start}`),
+        series: created,
+      };
+    });
+  }
+
   async listRoles() {
     return withTenant(this.db, this.tenantId, (tx) => tx.select({ slug: roles.slug, name: roles.name, permissions: roles.permissions }).from(roles).orderBy(asc(roles.slug)));
   }

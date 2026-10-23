@@ -21,6 +21,10 @@ export const events = analyticsSchema.table("events", {
   device: text("device", { enum: ["mobile", "tablet", "desktop", "other"] }).notNull(),
   /** Hash met een dagelijks wisselend zout: niet over dagen heen te volgen. */
   visitorHash: text("visitor_hash"),
+  /** Soort pagina bij page_view (home, plaat, boekje, account …): geen adres, geen zoekterm (ADR 0020). */
+  page: text("page"),
+  /** Organisatie waarvan de site bekeken werd (ADR 0017); leeg bij oude events. */
+  org: text("org"),
   occurredAt: timestamp("occurred_at", { withTimezone: true }).notNull(),
 }, (t) => [index("events_tenant_time").on(t.tenantId, t.occurredAt)]);
 
@@ -52,3 +56,27 @@ export const dailyProductClicks = analyticsSchema.table("daily_product_clicks", 
   clicks: integer("clicks").notNull().default(0),
   uniqueVisitors: integer("unique_visitors").notNull().default(0),
 }, (t) => [uniqueIndex("daily_product_clicks_unique").on(t.tenantId, t.day, t.productSlug, t.plateSlug, t.market, t.country)]);
+
+/**
+ * Paginaweergaven per dag, organisatie, soort pagina, markt en apparaat (ADR 0020). Blijft na de 90 dagen
+ * van de ruwe events, zodat grafieken over langere tijd kunnen. Bezoekers = unieke bezoekers die dag
+ * (niet op te tellen over dagen: elke dag een nieuw zout).
+ */
+export const dailyPages = analyticsSchema.table("daily_pages", {
+  ...baseColumns(),
+  day: date("day", { mode: "string" }).notNull(),
+  org: text("org").notNull(),
+  page: text("page").notNull(),
+  market: text("market").notNull(),
+  device: text("device").notNull(),
+  views: integer("views").notNull().default(0),
+  visitors: integer("visitors").notNull().default(0),
+}, (t) => [uniqueIndex("daily_pages_unique").on(t.tenantId, t.day, t.org, t.page, t.market, t.device)]);
+
+/** Unieke bezoekers per dag en organisatie over de hele site (wel per dag, niet over dagen op te tellen). */
+export const dailyVisitors = analyticsSchema.table("daily_visitors", {
+  ...baseColumns(),
+  day: date("day", { mode: "string" }).notNull(),
+  org: text("org").notNull(),
+  visitors: integer("visitors").notNull().default(0),
+}, (t) => [uniqueIndex("daily_visitors_unique").on(t.tenantId, t.day, t.org)]);

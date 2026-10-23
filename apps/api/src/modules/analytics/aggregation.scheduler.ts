@@ -27,6 +27,7 @@ export class AggregationScheduler implements OnModuleInit, OnApplicationShutdown
     try {
       await this.analytics.aggregateDay(this.env.TENANT_ID, yesterday);
       await this.analytics.aggregateDay(this.env.TENANT_ID, today);
+      await this.analytics.purgeRawEvents(this.env.TENANT_ID, now);
     } catch (e) { this.log.error(`Aggregeren mislukt: ${e}`); }
   }
 }

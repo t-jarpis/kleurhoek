@@ -52,6 +52,16 @@ export class AdminUsersController {
     return { users, total, page: q.page, pageSize: q.pageSize };
   }
 
+  /** Accountcijfers (alleen tellingen) voor het dashboard (ADR 0020). */
+  @Get("users/stats")
+  @RequirePermission("analytics.read")
+  async stats(@Query() query: unknown) {
+    const q = parse(z.object({ from: z.iso.date(), to: z.iso.date() }), query);
+    if (q.from > q.to || Date.parse(q.to) - Date.parse(q.from) > 400 * 86_400_000) throw new BadRequestException("Ongeldige periode");
+    const days = Math.round((Date.parse(q.to) - Date.parse(q.from)) / 86_400_000) + 1;
+    return this.identity.accountStats(q.from, q.to, days > 92 ? "week" : "day");
+  }
+
   @Get("roles")
   @RequirePermission("identity.users.read")
   async roles() {

@@ -8,7 +8,7 @@ import { RateLimit } from "../operations/rate-limit.guard";
 import { ages, categories } from "@kleurhoek/catalog-data";
 import { LocalizationService } from "../localization/localization.service";
 import { ORG_KINDS } from "./organizations.schema";
-import { FONTS, LOGO_MAX_BYTES, OrganizationsService, SLUG, THEMES } from "./organizations.service";
+import { FONTS, LOGO_MAX_BYTES, OrganizationsService, RESERVED, SLUG, THEMES } from "./organizations.service";
 
 const Color = z.string().regex(/^#[0-9a-fA-F]{6}$/, "Kleur als #rrggbb").nullable().optional();
 const List = (item: z.ZodString) => z.array(item).max(50).nullable().optional();
@@ -49,6 +49,9 @@ export class AdminOrganizationsController {
     const name = (i: Record<string, { name: string }>) => i.nl?.name ?? Object.values(i)[0]?.name ?? "";
     return {
       themes: THEMES, fonts: FONTS, kinds: ORG_KINDS,
+      // Adresvorm van een subdomein in deze omgeving, voor de hint bij het aanmaken.
+      hostPattern: this.env.ORG_HOST_PATTERN ?? null,
+      reserved: [...RESERVED],
       options: {
         markets: await this.i18n.liveMarkets(this.env.TENANT_ID),
         categories: categories().sort((a, b) => a.order - b.order).map((c) => ({ slug: c.slug, name: name(c.i18n) })),

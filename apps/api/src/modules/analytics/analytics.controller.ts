@@ -44,6 +44,16 @@ export class AdminAnalyticsController {
     return this.analytics.summary(this.env.TENANT_ID, q.data.from, q.data.to, q.data.country);
   }
 
+  /** Dashboard: reeksen over de tijd, vergelijking met de vorige periode en verdelingen (ADR 0020). */
+  @Get("overview")
+  @RequirePermission("analytics.read")
+  async overview(@Query() query: unknown) {
+    const q = Range.safeParse(query);
+    if (!q.success || q.data.from > q.data.to) throw new BadRequestException("Geef from en to op als YYYY-MM-DD");
+    if (Date.parse(q.data.to) - Date.parse(q.data.from) > 400 * 86_400_000) throw new BadRequestException("Hooguit 400 dagen");
+    return this.analytics.overview(this.env.TENANT_ID, q.data.from, q.data.to);
+  }
+
   /** Winkel: doorkliks per product en plaat, en kandidaten om zelf te leveren. */
   @Get("shop")
   @RequirePermission("shop.read")
