@@ -23,7 +23,7 @@ export default async function Home({ params }: { params: Promise<{ market: strin
     throw e;
   });
   return (
-    <div className="wrap">
+    <div className="wrap" data-mode="kind">
       <header className="mast">
         <div><Logo market={market} /><p className="lede">{t.lede}</p></div>
         <div className="row no-print"><BookButton language={language} /><Surprise market={market} slugs={plates.map((p) => p.slug)} label={t.surprise} /><AccountButton market={market} t={{ login: t.login, account: t.account, logout: t.logout }} /></div>

@@ -12,6 +12,8 @@ const nextConfig: NextConfig = {
   // Container-image met alleen wat nodig is; de monorepo-root zodat gedeelde pakketten meekomen.
   output: "standalone",
   outputFileTracingRoot: path.join(__dirname, "../.."),
+  // Thema (tokens, fonts, logo) als bronpakket uit de monorepo.
+  transpilePackages: ["@kleurhoek/theme"],
   async headers() {
     return [{ source: "/(.*)", headers: [
       { key: "Content-Security-Policy", value: csp },

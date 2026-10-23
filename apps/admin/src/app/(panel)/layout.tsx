@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { Logo } from "@kleurhoek/theme";
+import { NavLink } from "@/components/NavLink";
 import { LogoutButton } from "@/components/LogoutButton";
 import { adminApi } from "@/lib/api";
 import { viewer } from "@/lib/session";
@@ -12,12 +13,12 @@ export default async function PanelLayout({ children }: { children: React.ReactN
   return (
     <div className="shell">
       <nav className="side" aria-label="Beheer">
-        <b>Kleurhoek beheer</b>
-        {can("analytics.read") && <Link href="/">Dashboard</Link>}
-        {can("shop.read") && <Link href="/winkel">Winkel</Link>}
-        {can("identity.users.read") && <Link href="/gebruikers">Gebruikers</Link>}
-        {can("operations.ratelimit.read") && <Link href="/rate-limits">Rate limits</Link>}
-        {can("operations.access.read") && <Link href="/toegang">Toegang</Link>}
+        <div className="brand"><Logo suffix="beheer" size={20} /></div>
+        {can("analytics.read") && <NavLink href="/">Dashboard</NavLink>}
+        {can("shop.read") && <NavLink href="/winkel">Winkel</NavLink>}
+        {can("identity.users.read") && <NavLink href="/gebruikers">Gebruikers</NavLink>}
+        {can("operations.ratelimit.read") && <NavLink href="/rate-limits">Rate limits</NavLink>}
+        {can("operations.access.read") && <NavLink href="/toegang">Toegang</NavLink>}
         <div className="who">
           <span>{who.name ?? who.email ?? "Beheerder"}</span>
           {who.dev ? <span className="pill off">lokaal</span> : <LogoutButton />}

@@ -1,6 +1,6 @@
 # 0012 · Design system: eerst vastleggen, dan bouwen
 
-- Status: voorgesteld (nog niet doorgevoerd in de code)
+- Status: aangenomen; stijl Studio doorgevoerd in website en admin op 23-10-2026 (zie ADR 0016)
 - Datum: 2026-10-22
 
 ## Context

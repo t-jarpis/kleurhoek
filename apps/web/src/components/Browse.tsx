@@ -60,14 +60,14 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
         )}
         <div className="frow"><span className="flabel">{t.topic}</span>
           <nav className="chips" aria-label={t.topic}>
-            {chip("onderwerp", "alle", t.all, "var(--fg)", aged.length, f.cat === "alle")}
+            {chip("onderwerp", "alle", t.all, "var(--color-text)", aged.length, f.cat === "alle")}
             {taxonomy.categories.map((c) => chip("onderwerp", c.slug, c.name, c.color, aged.filter((p) => inCat(p, c.slug)).length, f.cat === c.slug))}
           </nav>
         </div>
         {f.cat === "wereld" && (
           <div className="frow"><span className="flabel">{t.continent}</span>
             <nav className="chips sm" aria-label={t.continent}>
-              {chip("werelddeel", "alle", t.wholeWorld, "var(--fg)", aged.filter((p) => p.world).length, f.cont === "alle")}
+              {chip("werelddeel", "alle", t.wholeWorld, "var(--color-text)", aged.filter((p) => p.world).length, f.cont === "alle")}
               {taxonomy.continents.map((c) => chip("werelddeel", c.slug, c.name, c.color, aged.filter((p) => p.world?.continent === c.slug).length, f.cont === c.slug))}
             </nav>
           </div>
@@ -83,8 +83,8 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
         {f.cat === "feest" && (
           <div className="frow"><span className="flabel">{t.holiday}</span>
             <nav className="chips sm" aria-label={t.holiday}>
-              {chip("feestdag", "alle", t.allHolidays, "var(--fg)", aged.filter((p) => p.holiday).length, f.hol === "alle")}
-              {taxonomy.holidays.map((h) => chip("feestdag", h.slug, h.name, "#13a3a0", aged.filter((p) => p.holiday === h.slug).length, f.hol === h.slug))}
+              {chip("feestdag", "alle", t.allHolidays, "var(--color-text)", aged.filter((p) => p.holiday).length, f.hol === "alle")}
+              {taxonomy.holidays.map((h) => chip("feestdag", h.slug, h.name, "var(--krijt-teal)", aged.filter((p) => p.holiday === h.slug).length, f.hol === h.slug))}
             </nav>
           </div>
         )}

@@ -10,7 +10,7 @@ export default async function AccountPage({ params }: { params: Promise<{ market
   const { market } = await params;
   const t = messages(marketLanguage(market));
   return (
-    <div className="wrap narrow">
+    <div className="wrap narrow" data-mode="ouder">
       <header className="mast"><Logo market={market} /><a className="btn" href={`/${market}`}>{t.back}</a></header>
       <h1 className="page-title">{t.account}</h1>
       <AccountPanel market={market} t={{

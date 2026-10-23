@@ -41,9 +41,9 @@ export default async function Shop({ searchParams }: { searchParams: Promise<{ d
       </div>
       <div className="toolbar">
         <ShopNav active="overzicht" />
-        <div className="tabs" aria-label="Periode">
-          {PERIODS.map((d) => <Link key={d} href={`/winkel?dagen=${d}`} aria-selected={d === days}>{d} dagen</Link>)}
-        </div>
+        <nav className="tabs" aria-label="Periode">
+          {PERIODS.map((d) => <Link key={d} href={`/winkel?dagen=${d}`} aria-current={d === days ? "page" : undefined}>{d} dagen</Link>)}
+        </nav>
       </div>
       {summary.totals.productClicks > 0 && (
         <p className="note">Er lopen doorkliks naar winkels. Op de lijst: het merk Kleurhoek vastleggen bij het BOIP (Benelux, klassen 16, 41 en 35). Kijk eerst of er een SME Fund-voucher is. Zie het architectuurdocument, Open beslissingen.</p>

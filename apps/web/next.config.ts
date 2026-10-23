@@ -24,6 +24,8 @@ const nextConfig: NextConfig = {
   output: "standalone",
   outputFileTracingRoot: path.join(__dirname, "../.."),
   reactStrictMode: true,
+  // Thema (tokens, fonts, logo) als bronpakket uit de monorepo.
+  transpilePackages: ["@kleurhoek/theme"],
   experimental: { sri: { algorithm: "sha256" } },
   async headers() {
     return [{

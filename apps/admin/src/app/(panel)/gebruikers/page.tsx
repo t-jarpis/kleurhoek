@@ -36,10 +36,10 @@ export default async function Users({ searchParams }: { searchParams: Promise<Se
       </div>
       {s.melding && <p className="note" role="status">{s.melding}</p>}
       <div className="toolbar">
-        <div className="tabs" role="tablist">
-          <Link role="tab" aria-selected={kind === "admin"} href="/gebruikers?soort=admin">Beheerders</Link>
-          <Link role="tab" aria-selected={kind === "member"} href="/gebruikers?soort=member">Websitegebruikers</Link>
-        </div>
+        <nav className="tabs" aria-label="Soort gebruiker">
+          <Link aria-current={kind === "admin" ? "page" : undefined} href="/gebruikers?soort=admin">Beheerders</Link>
+          <Link aria-current={kind === "member" ? "page" : undefined} href="/gebruikers?soort=member">Websitegebruikers</Link>
+        </nav>
         <form className="inline" action="/gebruikers">
           <input type="hidden" name="soort" value={kind} />
           <input type="search" name="q" defaultValue={q} placeholder="Naam of e-mail" aria-label="Zoeken" />

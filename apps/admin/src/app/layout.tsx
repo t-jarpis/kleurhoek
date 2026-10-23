@@ -1,6 +1,5 @@
-import "@fontsource/nunito/400.css";
-import "@fontsource/nunito/600.css";
-import "@fontsource/nunito/800.css";
+import "@kleurhoek/theme/theme.css";
+import "@kleurhoek/theme/ui.css";
 import "./globals.css";
 import type { Metadata } from "next";
 
@@ -8,7 +7,7 @@ export const metadata: Metadata = { title: { default: "Kleurhoek beheer", templa
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="nl">
+    <html lang="nl" data-mode="beheer">
       <body>{children}</body>
     </html>
   );

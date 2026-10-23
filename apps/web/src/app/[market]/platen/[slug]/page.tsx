@@ -33,7 +33,7 @@ export default async function PlatePage({ params }: { params: Promise<{ market: 
   return (
     <>
       <Studio plate={plate} inner={inner} ageWidth={ageWidth} market={market} language={language} />
-      <div className="wrap after-studio"><ForParents plate={plate} market={market} t={messages(language)} /></div>
+      <div className="wrap after-studio" data-mode="ouder"><ForParents plate={plate} market={market} t={messages(language)} /></div>
     </>
   );
 }

@@ -68,7 +68,7 @@ export function Studio({ plate, inner, ageWidth, market, language }: { plate: Pl
   };
 
   return (
-    <div className="wrap">
+    <div className="wrap" data-mode="kind">
       <div className="studio">
         <div className="studio-top">
           <Link href={`/${market}`} className="btn">{t.back}</Link>

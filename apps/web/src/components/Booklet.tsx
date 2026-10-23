@@ -26,7 +26,7 @@ function Cover({ owner, count, mascots, t }: { owner: string; count: number; mas
   const [uil, slak] = mascots;
   return (
     <svg className="sheet" viewBox="0 0 200 270" style={{ "--sw": 2.4 } as React.CSSProperties} role="img" aria-label={t.cover}>
-      <rect x={8} y={8} width={184} height={254} rx={12} fill="none" stroke="#1d1b22" strokeWidth={2.4} />
+      <rect x={8} y={8} width={184} height={254} rx={12} fill="none" stroke="var(--plate-ink)" strokeWidth={2.4} />
       <path className="r" d={star(30, 32, 10, 4)} /><path className="r" d={star(172, 36, 8, 3.5)} /><path className="r" d={star(166, 128, 7, 3)} />
       <text className="r nm" x={100} y={70} textAnchor="middle" fontSize={21}>{t.myBook}</text>
       {owner && <text className="r nm" x={100} y={108} textAnchor="middle" fontSize={size}>{t.of} {owner}</text>}
@@ -35,7 +35,7 @@ function Cover({ owner, count, mascots, t }: { owner: string; count: number; mas
         {uil && <g transform="translate(12 116) scale(.6)" dangerouslySetInnerHTML={{ __html: uil }} />}
         {slak && <g transform="translate(98 142) scale(.48)" dangerouslySetInnerHTML={{ __html: slak }} />}
       </g>
-      <text x={100} y={254} textAnchor="middle" fontSize={8} fill="#5d6672" fontFamily="var(--f-body)">{t.bookCount(count)}</text>
+      <text x={100} y={254} textAnchor="middle" fontSize={8} fill="var(--plate-tip)" fontFamily="var(--font-sans)">{t.bookCount(count)}</text>
     </svg>
   );
 }
@@ -60,7 +60,7 @@ export function Booklet({ market, language, items, mascots, title }: { market: s
   };
 
   return (
-    <div className="wrap">
+    <div className="wrap" data-mode="ouder">
       <div className="book">
         <div className="studio-top no-print">
           <Link href={`/${market}`} className="btn" onClick={() => book.setPicking(true)}>{t.backToPicking}</Link>

@@ -1,6 +1,7 @@
 /** Pure logica van de kleurstudio, los van React zodat hij te testen is. */
 
-export const FREE_PALETTE = ["#e2483d", "#ff8a3d", "#f2c618", "#9bd34a", "#2fa45a", "#3ec7c1", "#4fa3f0", "#2f5bd3", "#7b5bd6", "#d0479b", "#f59fc4", "#a0673d", "#7a7f87", "#222222"];
+// Krijtkleuren om mee te kleuren: inhoud van de studio, geen stijl. Ze komen in de tekening terecht.
+export const FREE_PALETTE = [ /* theme-allow */ "#e2483d", "#ff8a3d", "#f2c618", "#9bd34a", "#2fa45a", "#3ec7c1", "#4fa3f0", "#2f5bd3", "#7b5bd6", "#d0479b", "#f59fc4", "#a0673d", "#7a7f87", "#222222"];
 export const ERASER = "eraser";
 export type Line = "auto" | "dun" | "normaal" | "dik";
 const LINE_SW: Record<Exclude<Line, "auto">, number> = { dun: 1.7, normaal: 2.4, dik: 3.4 };

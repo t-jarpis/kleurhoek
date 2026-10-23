@@ -7,7 +7,7 @@ import { svgHeight, svgInner } from "@/lib/svg";
 import type { PlateItem } from "@/lib/types";
 import { Sheet } from "./Sheet";
 
-const MAGNETS = ["#e2483d", "#2f5bd3", "#f2c618", "#2fa45a", "#d0479b", "#ff8a3d"];
+const MAGNETS = ["var(--krijt-rood)", "var(--krijt-blauw)", "var(--krijt-geel)", "var(--krijt-groen)", "var(--krijt-roze)", "var(--krijt-oranje)"];
 const TILT = [-3, 2, -1.5, 3, -2, 1];
 type Loaded = { inner: string; height: number };
 const svgCache = new Map<string, Promise<Loaded>>();

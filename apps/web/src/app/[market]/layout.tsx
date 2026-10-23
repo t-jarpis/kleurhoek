@@ -1,8 +1,5 @@
-import "@fontsource/nunito/400.css";
-import "@fontsource/nunito/600.css";
-import "@fontsource/nunito/800.css";
-import "@fontsource/sniglet/400.css";
-import "@fontsource/sniglet/800.css";
+import "@kleurhoek/theme/theme.css";
+import "@kleurhoek/theme/ui.css";
 import "../globals.css";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";

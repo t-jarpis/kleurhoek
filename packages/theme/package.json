@@ -1,0 +1,23 @@
+{
+  "name": "@kleurhoek/theme",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Thema's van Kleurhoek: tokens, fonts, logo en componentstijlen. Een andere stijl = een andere map in themes/ (ADR 0016).",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./theme.css": "./generated/theme.css",
+    "./ui.css": "./src/ui.css"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/build.mjs --check && node scripts/check-hex.mjs"
+  },
+  "peerDependencies": {
+    "react": ">=19"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "react": "19.3.1"
+  }
+}
