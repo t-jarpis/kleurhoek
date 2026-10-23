@@ -4,7 +4,10 @@ name: Deploy
 # daarom een API-sleutel van een eigen IAM-applicatie die alleen images mag pushen en containers mag
 # bijwerken binnen het project van die omgeving (Terraform maakt hem aan, zie infra/README.md).
 on:
-  push:
+  # Pas uitrollen als CI (inclusief de browsertest) op main groen is.
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
     branches: [main]
   workflow_dispatch:
     inputs:
@@ -23,13 +26,16 @@ concurrency:
 
 env:
   TARGET_ENV: ${{ inputs.environment || 'dev' }}
-  TAG: ${{ github.sha }}
+  # Bij een automatische uitrol: precies de commit die CI heeft goedgekeurd.
+  TAG: ${{ github.event.workflow_run.head_sha || github.sha }}
 
 jobs:
   build:
     # Automatisch uitrollen pas zodra Scaleway klaarstaat: zet dan de repository-variabele DEPLOY_ENABLED op true.
     # Handmatig starten kan altijd.
-    if: github.event_name == 'workflow_dispatch' || vars.DEPLOY_ENABLED == 'true'
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (vars.DEPLOY_ENABLED == 'true' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push')
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment || 'dev' }}
     strategy:
@@ -37,6 +43,8 @@ jobs:
         app: [api, web, admin, login]
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
       - uses: docker/setup-buildx-action@v3
       - name: Inloggen bij de registry
         env:
@@ -97,11 +105,14 @@ jobs:
             for i in $(seq 1 30); do
               case "$(scw "$API/$id" | jq -r .status)" in pending|updating|creating|deleting) sleep 10 ;; *) break ;; esac
             done
+            # Vorige versie bewaren: bij een mislukte test na de uitrol zetten we die terug.
+            echo "$app=$(scw "$API/$id" | jq -r .image)" >> "$GITHUB_OUTPUT.prev"
             # Een image-wijziging rolt de container automatisch opnieuw uit.
             scw -X PATCH "$API/$id" -d "{\"image\":\"$REGISTRY/kleurhoek-$app:$TAG\"}" > /dev/null
             sleep 5
             wait_ready "$id" "$app"
           done
+          echo "previous=$(jq -Rn '[inputs | split("=") | {(.[0]): (.[1:] | join("="))}] | add' < "$GITHUB_OUTPUT.prev" | jq -c .)" >> "$GITHUB_OUTPUT"
 
       - name: Rooktest
         if: steps.rollout.outputs.skip != 'true'
@@ -117,9 +128,30 @@ jobs:
 
       - uses: actions/checkout@v4
         if: steps.rollout.outputs.skip != 'true'
+        with:
+          ref: ${{ env.TAG }}
       - name: Browsertest (opmaak geladen, geen JavaScript-fouten)
         if: steps.rollout.outputs.skip != 'true'
         run: |
           set -euo pipefail
-          cd .github/diagnose && npm install --no-save --silent playwright-core@1.56.1
-          node browser-check.mjs "${{ vars.SITE_URL }}/nl-nl"
+          .github/diagnose/browser-check.sh "${{ vars.SITE_URL }}/nl-nl" "${{ vars.SITE_URL }}/nl-nl/boekje"
+
+      - name: Terugdraaien naar de vorige versie
+        # Rooktest of browsertest mislukt: de vorige images terug, dan blijft de omgeving bruikbaar.
+        # Let op: databasemigraties gaan niet terug; die zijn daarom altijd uitbreidend (ADR 0019).
+        if: failure() && steps.rollout.outputs.previous != ''
+        env:
+          PREVIOUS: ${{ steps.rollout.outputs.previous }}
+        run: |
+          set -euo pipefail
+          scw() { curl -fsS -H "X-Auth-Token: $SCW_SECRET_KEY" -H "Content-Type: application/json" "$@"; }
+          for app in login admin web api; do
+            id=$(jq -r --arg a "$app" '.[$a] // empty' <<<"$CONTAINER_IDS"); image=$(jq -r --arg a "$app" '.[$a] // empty' <<<"$PREVIOUS")
+            [ -n "$id" ] && [ -n "$image" ] || continue
+            for i in $(seq 1 30); do
+              case "$(scw "$API/$id" | jq -r .status)" in pending|updating|creating|deleting) sleep 10 ;; *) break ;; esac
+            done
+            echo "$app terug naar $image"
+            scw -X PATCH "$API/$id" -d "{\"image\":\"$image\"}" > /dev/null
+          done
+          echo "::error::Uitrol teruggedraaid: de nieuwe versie haalde de test niet. Zie de stappen hierboven."

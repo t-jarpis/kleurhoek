@@ -18,6 +18,33 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm check
 
+  e2e:
+    # Browsertest vóór de uitrol: API (met PostgreSQL), website en inlogpagina als productiebuild, Kleurhoek
+    # zelf en een testschool met eigen huisstijl. Faalt dit, dan start Deploy niet (die wacht op een groene CI).
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16.10-alpine
+        env:
+          POSTGRES_PASSWORD: e2e
+          POSTGRES_DB: kleurhoek
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm turbo run build --filter=@kleurhoek/api --filter=@kleurhoek/web --filter=@kleurhoek/login
+      - name: Browsertest
+        env:
+          DATABASE_URL: postgres://postgres:e2e@localhost:5432/kleurhoek
+        run: .github/e2e/run.sh
+
   terraform:
     runs-on: ubuntu-latest
     steps:
