@@ -67,12 +67,13 @@ export async function seed(db: Database, tenantId: string): Promise<{ plates: nu
           tenantId, slug: p.slug, categorySlug: p.category, ageSlug: p.age,
           continentSlug: p.world?.continent ?? null, depictedCountry: p.world?.country ?? null,
           holidaySlug: p.holiday, status: "published", sortOrder: p.order,
-          kind: p.kind, minutes: p.minutes, adultHelp: p.adultHelp, paperGsm: p.paperGsm,
+          kind: p.kind, minutes: p.minutes, adultHelp: p.adultHelp, paperGsm: p.paperGsm, difficulty: p.difficulty,
         }).returning({ id: plates.id });
         plateId = plate!.id;
         const [version] = await tx.insert(plateVersions).values({
           tenantId, plateId, version: 1, svg: source.plateSvg(p.slug), height: p.height,
           regionCount: p.regionCount, colorByNumber: p.colorByNumber, createdBy: "catalog-data",
+          pages: p.pages.map((page, i) => ({ role: page.role, height: page.height, svg: source.pageSvg(p.slug, i + 2) })),
         }).returning({ id: plateVersions.id });
         await tx.update(plates).set({ currentVersionId: version!.id }).where(inArray(plates.id, [plateId]));
         added++;

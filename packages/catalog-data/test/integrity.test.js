@@ -29,10 +29,18 @@ test("elke plaat is compleet en consistent", () => {
     assert.ok(data.KINDS.includes(p.kind), `${p.slug}: onbekende soort`);
     assert.match(svg, new RegExp(`viewBox="0 0 200 ${p.height}"`), `${p.slug}: hoogte klopt niet met de SVG`);
     for (const m of p.materials) assert.ok(mats.has(m.slug), `${p.slug}: onbekend materiaal ${m.slug}`);
-    if (p.kind !== "kleurplaat") {
-      assert.ok(p.i18n.nl.steps?.length, `${p.slug}: knutselwerk zonder stappen`);
-      assert.match(svg, /class="cut"/, `${p.slug}: knutselwerk zonder kniplijn`);
-    }
+    if (p.kind !== "kleurplaat") assert.ok(p.i18n.nl.steps?.length, `${p.slug}: ${p.kind} zonder stappen`);
+    // Knippen hoort bij deze soorten; vouwen bij vouwbladen (ADR 0027).
+    if (["knipplaat", "bouwplaat", "sjabloon", "kaart"].includes(p.kind)) assert.match(svg, /class="cut"/, `${p.slug}: ${p.kind} zonder kniplijn`);
+    if (p.kind === "vouwblad") assert.match(svg, /class="fold"/, `${p.slug}: vouwblad zonder vouwlijn`);
+    assert.ok(p.difficulty === null || [1, 2, 3].includes(p.difficulty), `${p.slug}: moeilijkheid 1, 2 of 3`);
+    if (p.kind === "werkblad" && /antwoord/i.test(p.i18n.nl.steps?.join(" ") ?? "")) assert.ok(p.pages.some((x) => x.role === "antwoorden"), `${p.slug}: werkblad noemt antwoorden maar heeft geen antwoordblad`);
+    assert.equal((p.i18n.nl.pageTitles ?? []).length, p.pages.length, `${p.slug}: titel per extra pagina`);
+    p.pages.forEach((page, i) => {
+      const extra = data.pageSvg(p.slug, i + 2);
+      assert.match(extra, new RegExp(`viewBox="0 0 200 ${page.height}"`), `${p.slug}: hoogte pagina ${i + 2}`);
+      assert.doesNotMatch(extra, /<script|on\w+=|href=/i, `${p.slug}: pagina ${i + 2} bevat script of link`);
+    });
   }
   assert.ok(plates.length >= 218, `${plates.length} platen`);
   assert.ok(plates.some((p) => p.kind !== "kleurplaat"), "minstens één knutselwerk");

@@ -22,3 +22,4 @@ Het volledige architectuurdocument met diagrammen staat hier: https://claude.ai/
 - Contact: formulier op de website, inbox met notities en status in het admin panel, kanalen (web nu, WhatsApp als volgende stap), gesprekken 12 maanden bewaard (ADR 0024).
 - Bronnengids: thema's met alleen links naar kleurplaten bij de makers zelf (nooit hun beeld), goedkeuring in het admin panel, dagelijkse controle die verdwenen bronnen offline haalt, producten per thema (ADR 0025).
 - Disclaimer en voettekst op elke pagina; nieuwe platen via `scripts/plates` (preview en ingest) (ADR 0026).
+- Meer soorten werkjes (vouwblad, werkblad, sjabloon, kaart, tekenles), moeilijkheid, extra pagina's met antwoordblad, leeftijd 12+, en een kwaliteitscontrole voor de hele catalogus (ADR 0027).

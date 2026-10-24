@@ -7,7 +7,7 @@ import { FULL_VIEW, StorefrontService, type View } from "./storefront.service";
 
 const Slug = z.string().regex(/^[a-z0-9-]{1,64}$/);
 const Filter = z.object({
-  kind: z.enum(["kleurplaat", "knipplaat", "bouwplaat", "spel", "knutselen"]).optional(),
+  kind: z.enum(["kleurplaat", "knipplaat", "bouwplaat", "spel", "vouwblad", "werkblad", "sjabloon", "kaart", "tekenles", "knutselen", "leren", "tekenen"]).optional(),
   category: Slug.optional(), age: z.string().regex(/^[0-9+-]{2,8}$/).optional(), continent: Slug.optional(),
   country: z.string().min(2).max(60).optional(), holiday: Slug.optional(),
   org: z.string().regex(SLUG).optional(),

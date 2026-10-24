@@ -39,6 +39,8 @@ export const PLATE_CSS = `
   svg .fold { fill: none; stroke: #1d1d1f; stroke-width: .8; stroke-dasharray: 1 2.5; }
   svg .glue { fill: #e9e6df; stroke: #9a948a; stroke-width: .6; }
   svg .tip { font: 600 6px system-ui, sans-serif; fill: #6b6760; }
+  svg .tx { font-family: system-ui, sans-serif; font-weight: 700; fill: #1d1d1f; }
+  svg .guide { stroke: #c9c4bb; stroke-width: .7; fill: none; }
   svg .num { font: 800 10px system-ui, sans-serif; fill: #1d1d1f; text-anchor: middle; dominant-baseline: central; paint-order: stroke; stroke: #fff; stroke-width: 1.4; }
 `;
 

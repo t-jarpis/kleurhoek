@@ -1,7 +1,7 @@
 "use client";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useMemo, type CSSProperties } from "react";
-import type { PlateItem, Taxonomy } from "@/lib/types";
+import { KIND_GROUP, type PlateItem, type Taxonomy } from "@/lib/types";
 import { messages } from "@/i18n/nl";
 import { PlateCard } from "./PlateCard";
 import { book, useBook } from "@/lib/local";
@@ -28,9 +28,12 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
   };
 
   const inCat = (p: PlateItem, c: string) => c === "alle" || (c === "wereld" ? !!p.world : c === "feest" ? !!p.holiday : p.category === c);
-  const ofKind = (p: PlateItem, k: string) => k === "alle" || (k === "knutselen" ? p.kind !== "kleurplaat" : p.kind === k);
+  const ofKind = (p: PlateItem, k: string) => k === "alle" || KIND_GROUP[p.kind] === k || p.kind === k;
   const aged = plates.filter((p) => (f.age === "alle" || p.age === f.age) && ofKind(p, f.kind));
   const crafts = plates.filter((p) => p.kind !== "kleurplaat").length;
+  const groups = new Set(plates.map((p) => KIND_GROUP[p.kind]));
+  const kindOptions = ([["alle", t.allKinds], ["kleurplaat", t.kindColoring], ["knutselen", t.kindCrafts], ["leren", t.kindLearn], ["tekenen", t.kindDrawing]] as const)
+    .filter(([k]) => k === "alle" || groups.has(k));
   const visible = useMemo(() => aged.filter((p) => inCat(p, f.cat)
     && (f.cat !== "wereld" || f.cont === "alle" || p.world?.continent === f.cont)
     && (f.cat !== "wereld" || f.land === "alle" || p.world?.country === f.land)
@@ -51,8 +54,8 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
       <div className="filters">
         {crafts > 0 && (
           <div className="frow"><span className="flabel">{t.kind}</span>
-            <div className="seg" role="group" aria-label={t.kind}>
-              {([["alle", t.allKinds], ["kleurplaat", t.kindColoring], ["knutselen", t.kindCrafts]] as const).map(([k, label]) => (
+            <div className="seg seg-scroll" role="group" aria-label={t.kind}>
+              {kindOptions.map(([k, label]) => (
                 <button key={k} type="button" aria-pressed={f.kind === k} onClick={() => set({ soort: k })}>{label}</button>
               ))}
             </div>
@@ -93,7 +96,7 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
             <button type="button" aria-pressed={f.age === "alle"} onClick={() => set({ leeftijd: "alle" })}>{t.allAges}</button>
             {taxonomy.ages.map((a) => (
               <button key={a.slug} type="button" aria-pressed={f.age === a.slug} onClick={() => set({ leeftijd: a.slug })}>
-                <span className="lv" aria-hidden="true">{[1, 2, 3, 4].map((k) => <b key={k} className={k <= a.level ? "on" : ""} />)}</span>{a.name}
+                <span className="lv" aria-hidden="true">{Array.from({ length: Math.max(4, ...taxonomy.ages.map((x) => x.level)) }, (_, i) => i + 1).map((k) => <b key={k} className={k <= a.level ? "on" : ""} />)}</span>{a.name}
               </button>
             ))}
           </div>

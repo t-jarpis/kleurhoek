@@ -3,7 +3,14 @@ export interface PlateItem {
   world: { continent: string; country: string | null } | null;
   holiday: string | null; svg: string; kind: PlateKind;
 }
-export type PlateKind = "kleurplaat" | "knipplaat" | "bouwplaat" | "spel";
+export type PlateKind = "kleurplaat" | "knipplaat" | "bouwplaat" | "spel" | "vouwblad" | "werkblad" | "sjabloon" | "kaart" | "tekenles";
+/** Groepen voor het filter Soort (ADR 0027); "kleurplaat" is ook de waarde in de URL voor kleurplaten. */
+export const KIND_GROUP: Record<PlateKind, "kleurplaat" | "knutselen" | "leren" | "tekenen"> = {
+  kleurplaat: "kleurplaat", knipplaat: "knutselen", bouwplaat: "knutselen", vouwblad: "knutselen", kaart: "knutselen",
+  spel: "leren", werkblad: "leren", tekenles: "tekenen", sjabloon: "tekenen",
+};
+/** Pagina 2, 3 …: extra vel of antwoordblad (ADR 0027). */
+export interface PlatePage { number: number; role: "antwoorden" | "extra"; title: string; height: number; svg: string }
 export interface Material {
   slug: string; name: string; hint: string | null; optional: boolean;
   /** Een product om door te klikken (partnerlink), als dat er is. */
@@ -11,7 +18,7 @@ export interface Material {
 }
 export interface PlateDetail extends Omit<PlateItem, "svg"> {
   word: string | null; countQuestion: string | null; version: number; svg: string; regionCount: number;
-  height: number; minutes: number | null; adultHelp: boolean; paperGsm: number | null;
+  height: number; minutes: number | null; adultHelp: boolean; paperGsm: number | null; difficulty: number | null; pages: PlatePage[];
   steps: string[]; printNote: string | null; materials: Material[];
   colorByNumber: {
     codes: string;

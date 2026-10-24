@@ -346,3 +346,16 @@ body { margin: 0; background: var(--color-bg); color: var(--color-text); font: 4
 .ui-count { display: inline-grid; place-items: center; min-inline-size: 20px; block-size: 20px; padding: 0 6px; margin-inline-start: auto; border-radius: var(--radius-full); background: var(--color-accent); color: var(--color-text-on-primary); font: 800 12px/1 var(--font-sans); }
 .kh-theme-products { margin-top: var(--space-8); }
 .kh-source .offer { align-items: flex-end; }
+
+/* Meer soorten werkjes (ADR 0027): moeilijkheid en extra pagina's in het ouderdeel. */
+.kh-difficulty { display: inline-flex; align-items: center; gap: var(--space-2); }
+.kh-difficulty i { display: inline-flex; gap: 3px; }
+.kh-difficulty i b { width: 8px; height: 8px; border-radius: 50%; background: var(--color-border-control); }
+.kh-difficulty i b[data-on] { background: var(--color-text); }
+.kh-pages { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--space-3); }
+.kh-page { display: grid; gap: var(--space-2); align-content: start; margin: 0; }
+.kh-page-paper { background: var(--color-paper); border: var(--border-thin) solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-2); }
+.kh-page-paper svg { display: block; width: 100%; height: auto; }
+.kh-page figcaption { font-weight: 700; font-size: 15px; }
+.kh-answers summary { cursor: pointer; font-weight: 700; }
+.kh-answers[open] summary { margin-bottom: var(--space-3); }

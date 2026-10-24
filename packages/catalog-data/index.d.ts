@@ -1,7 +1,11 @@
 export type Translations<T> = Record<string, T>;
 /** Soort werkje. Kleurplaten zijn de basis; de rest is knutselwerk. */
-export type PlateKind = "kleurplaat" | "knipplaat" | "bouwplaat" | "spel";
+export type PlateKind = "kleurplaat" | "knipplaat" | "bouwplaat" | "spel" | "vouwblad" | "werkblad" | "sjabloon" | "kaart" | "tekenles";
 export const KINDS: PlateKind[];
+export type KindGroup = "kleurplaten" | "knutselen" | "leren" | "tekenen";
+export const KIND_GROUPS: Record<PlateKind, KindGroup>;
+/** Extra pagina bij een plaat (pagina 2, 3 …): een antwoordblad of een extra vel (onderdelen, stappen). */
+export interface PageSource { role: "antwoorden" | "extra"; height: number }
 export interface PlateMaterial { slug: string; optional: boolean }
 export interface PlateSource {
   slug: string; order: number; category: string; age: string;
@@ -14,13 +18,17 @@ export interface PlateSource {
   /** Een volwassene moet helpen (schaar, mesje). */
   adultHelp: boolean;
   paperGsm: number | null;
+  /** 1 makkelijk, 2 gemiddeld, 3 uitdagend; null = niet aangegeven. */
+  difficulty: 1 | 2 | 3 | null;
+  /** Extra pagina's (bestanden plates/<slug>.p2.svg, .p3.svg …); titels in i18n.pageTitles. */
+  pages: PageSource[];
   materials: PlateMaterial[];
   colorByNumber: {
     codes: string;
     palette: { code: string; hex: string }[];
     labels: { region: number; number: number; x: number; y: number; size: number }[];
   };
-  i18n: Translations<{ name: string; word: string | null; countQuestion: string | null; steps?: string[]; printNote?: string }>;
+  i18n: Translations<{ name: string; word: string | null; countQuestion: string | null; steps?: string[]; printNote?: string; pageTitles?: string[] }>;
 }
 export interface MaterialSource extends Named {}
 export interface Named { slug: string; order: number; i18n: Translations<{ name: string; hint?: string }> }
@@ -42,3 +50,4 @@ export function seasons(): SeasonSource[];
 export function colors(): ColorSource[];
 export function materials(): MaterialSource[];
 export function plateSvg(slug: string): string;
+export function pageSvg(slug: string, n: number): string;

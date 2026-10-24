@@ -34,7 +34,12 @@ export const continents = catalogSchema.table("continents", {
 }, (t) => [uniqueIndex("continents_tenant_slug").on(t.tenantId, t.slug)]);
 
 /** Soort werkje. Kleurplaten zijn de basis; knip- en bouwplaten en spellen zijn knutselwerk (ADR 0010). */
-export const PLATE_KINDS = ["kleurplaat", "knipplaat", "bouwplaat", "spel"] as const;
+export const PLATE_KINDS = ["kleurplaat", "knipplaat", "bouwplaat", "spel", "vouwblad", "werkblad", "sjabloon", "kaart", "tekenles"] as const;
+/** Groepen voor het filter op de site (ADR 0027). */
+export const KIND_GROUPS = { kleurplaat: "kleurplaten", knipplaat: "knutselen", bouwplaat: "knutselen", vouwblad: "knutselen", kaart: "knutselen", spel: "leren", werkblad: "leren", tekenles: "tekenen", sjabloon: "tekenen" } as const;
+export type KindGroup = (typeof KIND_GROUPS)[keyof typeof KIND_GROUPS];
+/** Extra pagina bij een plaatversie: antwoordblad of extra vel (onderdelen, stappen). Titel in de vertaling (pageTitles). */
+export interface PlatePage { role: "antwoorden" | "extra"; height: number; svg: string }
 export type PlateKind = (typeof PLATE_KINDS)[number];
 
 export const plates = catalogSchema.table("plates", {
@@ -56,6 +61,8 @@ export const plates = catalogSchema.table("plates", {
   adultHelp: boolean("adult_help").notNull().default(false),
   /** Papieradvies in grammen per m², bijvoorbeeld 160 voor bouwplaten. */
   paperGsm: integer("paper_gsm"),
+  /** 1 makkelijk, 2 gemiddeld, 3 uitdagend (ADR 0027); los van de leeftijd. */
+  difficulty: integer("difficulty"),
 }, (t) => [uniqueIndex("plates_tenant_slug").on(t.tenantId, t.slug)]);
 
 /** Wat je nodig hebt om iets te maken: potloden, schaar, lijm. Namen staan in Lokalisatie. */
@@ -82,5 +89,7 @@ export const plateVersions = catalogSchema.table("plate_versions", {
   /** Hoogte van de tekening in de viewBox (breedte is altijd 200). */
   height: integer("height").notNull().default(200),
   colorByNumber: jsonb("color_by_number").$type<ColorByNumber>().notNull(),
+  /** Pagina 2, 3 … (ADR 0027). */
+  pages: jsonb("pages").$type<PlatePage[]>().notNull().default([]),
   createdBy: text("created_by").notNull(),
 }, (t) => [uniqueIndex("plate_versions_plate_version").on(t.plateId, t.version)]);

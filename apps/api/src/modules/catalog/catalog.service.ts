@@ -2,21 +2,24 @@ import { Inject, Injectable } from "@nestjs/common";
 import { and, asc, eq } from "drizzle-orm";
 import { DB, type Database } from "../../db/database";
 import { withTenant } from "../../db/tenant";
-import { ages, categories, continents, materials, plateMaterials, plates, plateVersions, type ColorByNumber, type PlateKind } from "./catalog.schema";
+import { ages, categories, continents, materials, plateMaterials, plates, plateVersions, type ColorByNumber, type PlateKind, type PlatePage } from "./catalog.schema";
 
 export interface PlateSummary {
   slug: string; category: string; age: string;
   continent: string | null; depictedCountry: string | null; holiday: string | null;
   sortOrder: number; version: number; regionCount: number;
-  kind: PlateKind; height: number; minutes: number | null; adultHelp: boolean; paperGsm: number | null;
+  kind: PlateKind; height: number; minutes: number | null; adultHelp: boolean; paperGsm: number | null; difficulty: number | null;
 }
 export interface PlateMaterialRef { slug: string; optional: boolean }
-export interface PlateDetail extends PlateSummary { svg: string; colorByNumber: ColorByNumber }
+export interface PlateDetail extends PlateSummary { svg: string; colorByNumber: ColorByNumber; pages: PlatePage[] }
 export interface Taxonomy {
   categories: { slug: string; color: string }[];
   ages: { slug: string; level: number; strokeWidth: number }[];
   continents: { slug: string; color: string }[];
 }
+
+export { KIND_GROUPS, type KindGroup } from "./catalog.schema";
+export type { PlateKind } from "./catalog.schema";
 
 /** Publieke interface van het domein Catalogus. Andere domeinen gebruiken alleen deze service. */
 @Injectable()
@@ -27,7 +30,7 @@ export class CatalogService {
     slug: plates.slug, category: plates.categorySlug, age: plates.ageSlug,
     continent: plates.continentSlug, depictedCountry: plates.depictedCountry, holiday: plates.holidaySlug,
     sortOrder: plates.sortOrder, version: plateVersions.version, regionCount: plateVersions.regionCount,
-    kind: plates.kind, height: plateVersions.height, minutes: plates.minutes, adultHelp: plates.adultHelp, paperGsm: plates.paperGsm,
+    kind: plates.kind, height: plateVersions.height, minutes: plates.minutes, adultHelp: plates.adultHelp, paperGsm: plates.paperGsm, difficulty: plates.difficulty,
   };
 
   listPublished(tenantId: string): Promise<PlateSummary[]> {
@@ -40,7 +43,7 @@ export class CatalogService {
 
   async getPublished(tenantId: string, slug: string): Promise<PlateDetail | null> {
     const rows = await withTenant(this.db, tenantId, (tx) =>
-      tx.select({ ...this.summary, svg: plateVersions.svg, colorByNumber: plateVersions.colorByNumber }).from(plates)
+      tx.select({ ...this.summary, svg: plateVersions.svg, colorByNumber: plateVersions.colorByNumber, pages: plateVersions.pages }).from(plates)
         .innerJoin(plateVersions, eq(plates.currentVersionId, plateVersions.id))
         .where(and(eq(plates.tenantId, tenantId), eq(plates.slug, slug), eq(plates.status, "published")))
         .limit(1));

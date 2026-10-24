@@ -46,5 +46,17 @@
         "hint": "Veel kleine vlakken en dunne lijnen. Ook leuk voor volwassenen."
       }
     }
+  },
+  {
+    "slug": "12+",
+    "order": 4,
+    "level": 5,
+    "strokeWidth": 1.6,
+    "i18n": {
+      "nl": {
+        "name": "12+ jaar",
+        "hint": "Fijne lijnen en veel detail. Voor tieners, volwassenen en gevorderde knutselaars."
+      }
+    }
   }
 ]

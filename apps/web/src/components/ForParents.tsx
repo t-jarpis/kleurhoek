@@ -1,5 +1,6 @@
 import type { Messages } from "@/i18n/nl";
 import type { PlateDetail } from "@/lib/types";
+import { ExtraPages } from "./ExtraPages";
 import { MaterialArt } from "./MaterialArt";
 import { SeenTracker } from "./SeenTracker";
 
@@ -13,21 +14,23 @@ export function ForParents({ plate, market, t }: { plate: PlateDetail; market: s
   const withProducts = plate.materials.filter((m) => m.product);
   const facts = [
     plate.minutes ? t.aboutMinutes(plate.minutes) : null,
+    plate.difficulty ? t.difficulty[plate.difficulty as 1 | 2 | 3] : null,
     plate.adultHelp ? t.adultHelp : null,
     plate.paperGsm ? t.paper(plate.paperGsm) : null,
   ].filter((f): f is string => !!f);
-  if (!craft && !plate.materials.length) return null;
+  if (!craft && !plate.materials.length && !plate.pages.length) return null;
   return (
     <section className="parents no-print" aria-labelledby="voor-ouders">
       <div className="parents-head">
         <p className="eyebrow">{t.forParents}</p>
-        <h2 id="voor-ouders">{craft ? t.howToMake : t.whatYouNeed}</h2>
-        {facts.length > 0 && <p className="facts-line">{facts.join(" · ")}</p>}
+        <h2 id="voor-ouders">{craft ? (plate.kind === "werkblad" || plate.kind === "spel" ? t.howItWorks : t.howToMake) : t.whatYouNeed}</h2>
+        {facts.length > 0 && <p className="facts-line">{facts.map((f, i) => <span key={f}>{i > 0 && <span aria-hidden="true"> · </span>}{plate.difficulty && f === t.difficulty[plate.difficulty as 1 | 2 | 3] ? <span className="kh-difficulty"><i aria-hidden="true">{[1, 2, 3].map((n) => <b key={n} data-on={n <= plate.difficulty! ? "" : undefined} />)}</i>{f}</span> : f}</span>)}</p>}
       </div>
       {craft && plate.steps.length > 0 && (
         <ol className="steps">{plate.steps.map((s, i) => <li key={i}>{s}</li>)}</ol>
       )}
       {plate.printNote && <p className="hint">{plate.printNote}</p>}
+      <ExtraPages pages={plate.pages} t={t} />
       {plate.materials.length > 0 && (
         <div className="needs">
           {craft && <h3>{t.whatYouNeed}</h3>}

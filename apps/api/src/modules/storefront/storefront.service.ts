@@ -2,7 +2,7 @@ import { Inject, Injectable } from "@nestjs/common";
 import { ENV, type Env } from "../../config/env";
 import { todayIn } from "../../shared/dates";
 import { AvailabilityService } from "../availability/availability.service";
-import { CatalogService, type PlateSummary } from "../catalog/catalog.service";
+import { CatalogService, KIND_GROUPS, type PlateKind, type PlateSummary } from "../catalog/catalog.service";
 import { LocalizationService, type Market } from "../localization/localization.service";
 import type { OrgFeatures, OrgOffer } from "../organizations/organizations.schema";
 import { ShopService } from "../shop/shop.service";
@@ -60,7 +60,7 @@ export class StorefrontService {
   async listPlates(market: Market, filter: PlateFilter, view: View = FULL_VIEW, now = new Date()) {
     const { plates, names } = await this.visible(market, now, view);
     const items = plates.filter((p) =>
-      (!filter.kind || p.kind === filter.kind || (filter.kind === "knutselen" && p.kind !== "kleurplaat")) &&
+      (!filter.kind || p.kind === filter.kind || KIND_GROUPS[p.kind as PlateKind] === filter.kind) &&
       (!filter.category || p.category === filter.category || (filter.category === "wereld" && p.continent) || (filter.category === "feest" && p.holiday)) &&
       (!filter.age || p.age === filter.age) &&
       (!filter.continent || p.continent === filter.continent) &&
@@ -97,6 +97,9 @@ export class StorefrontService {
         labels: detail.colorByNumber.labels,
       },
       kind: detail.kind, height: detail.height, minutes: detail.minutes, adultHelp: detail.adultHelp, paperGsm: detail.paperGsm,
+      difficulty: detail.difficulty,
+      // Extra pagina's (ADR 0027): antwoordblad of extra vel, met titel uit de vertaling.
+      pages: detail.pages.map((page, i) => ({ role: page.role, height: page.height, svg: page.svg, title: tr.pageTitles?.split("\n")[i] ?? `Pagina ${i + 2}`, number: i + 2 })),
       steps: tr.steps ? tr.steps.split("\n").filter(Boolean) : [],
       printNote: tr.printNote ?? null,
       // Wat je nodig hebt, met (als er een is) een product om door te klikken. Voor ouders, zie ADR 0011.

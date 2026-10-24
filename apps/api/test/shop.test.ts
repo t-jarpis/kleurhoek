@@ -72,9 +72,11 @@ describe("knutselwerk in de catalogus", () => {
   });
   it("filtert op soort", async () => {
     const r = await ctx.http.inject({ method: "GET", url: "/v1/markets/nl-NL/plates?kind=knutselen" });
-    const crafts = source.plates().filter((p) => p.kind !== "kleurplaat").map((p) => p.slug).sort();
+    const crafts = source.plates().filter((p) => source.KIND_GROUPS[p.kind] === "knutselen").map((p) => p.slug).sort();
     expect(r.json().items.map((i: { slug: string }) => i.slug).sort()).toEqual(crafts);
     expect(crafts).toContain("lampion-maken");
+    const learn = await ctx.http.inject({ method: "GET", url: "/v1/markets/nl-NL/plates?kind=leren" });
+    expect(learn.json().items.map((i: { slug: string }) => i.slug).sort()).toEqual(source.plates().filter((p) => ["spel", "werkblad"].includes(p.kind)).map((p) => p.slug).sort());
   });
   it("de seed is aanvullend en draait veilig opnieuw", async () => {
     const db = ctx.app.get<Database>(DB);
