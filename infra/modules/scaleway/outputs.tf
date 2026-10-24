@@ -29,11 +29,12 @@ output "database" {
 # Voor de GitHub-omgeving: SCW_ACCESS_KEY (variable) en SCW_SECRET_KEY (secret).
 output "github_deploy" {
   value = {
-    access_key = scaleway_iam_api_key.deploy.access_key
-    secret_key = scaleway_iam_api_key.deploy.secret_key
-    project_id = data.scaleway_account_project.current.id
-    logs_url   = data.scaleway_cockpit_source.logs.url
-    logs_token = scaleway_cockpit_token.diagnose.secret_key
+    access_key     = scaleway_iam_api_key.deploy.access_key
+    secret_key     = scaleway_iam_api_key.deploy.secret_key
+    project_id     = data.scaleway_account_project.current.id
+    logs_url       = data.scaleway_cockpit_source.logs.url
+    logs_token     = scaleway_cockpit_token.diagnose.secret_key
+    site_check_key = random_password.secret["site-check-key"].result # rooktest langs de IP-afscherming (ADR 0015)
   }
   sensitive = true
 }

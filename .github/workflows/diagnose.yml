@@ -31,6 +31,7 @@ jobs:
     environment: ${{ inputs.environment }}
     env:
       SCW_SECRET_KEY: ${{ secrets.SCW_SECRET_KEY }}
+      SITE_CHECK_KEY: ${{ secrets.SITE_CHECK_KEY }}
       API: https://api.scaleway.com/containers/v1/regions/${{ vars.SCW_REGION || 'nl-ams' }}
       CONTAINER_IDS: ${{ vars.CONTAINER_IDS || '{}' }}
       SITE_URL: ${{ vars.SITE_URL }}
@@ -69,7 +70,7 @@ jobs:
       - name: Website
         run: |
           for p in healthz nl-nl v1/assets/plates/test/1.svg; do
-            printf '%-32s %s\n' "/$p" "$(curl -s -o /dev/null -w '%{http_code}' "$SITE_URL/$p")"
+            printf '%-32s %s\n' "/$p" "$(curl -s -o /dev/null -w '%{http_code}' -H "x-kh-check: ${SITE_CHECK_KEY:-}" "$SITE_URL/$p")"
           done
 
   logs:

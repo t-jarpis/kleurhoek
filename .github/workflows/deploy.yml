@@ -46,6 +46,8 @@ jobs:
     environment: ${{ inputs.environment || 'dev' }}
     env:
       SCW_SECRET_KEY: ${{ secrets.SCW_SECRET_KEY }}
+      # Laat de rooktests langs de IP-afscherming van de website (ADR 0015).
+      SITE_CHECK_KEY: ${{ secrets.SITE_CHECK_KEY }}
       API: https://api.scaleway.com/containers/v1/regions/${{ vars.SCW_REGION || 'nl-ams' }}/containers
       REGISTRY: ${{ vars.REGISTRY }}
       CONTAINER_IDS: ${{ vars.CONTAINER_IDS || '{}' }}
@@ -129,19 +131,27 @@ jobs:
           echo "previous=$(jq -Rn '[inputs | split("=") | {(.[0]): (.[1:] | join("="))}] | add' < "$GITHUB_OUTPUT.prev" | jq -c .)" >> "$GITHUB_OUTPUT"
 
       - name: Rooktest
+        id: smoke
         if: steps.rollout.outputs.skip != 'true'
         run: |
           set -euo pipefail
           for i in $(seq 1 30); do
-            if curl -fsS "${{ vars.SITE_URL }}/healthz" > /dev/null && curl -fsS -o /dev/null "${{ vars.SITE_URL }}/nl-nl"; then
-              echo "Website werkt"; exit 0
+            if curl -fsS "${{ vars.SITE_URL }}/healthz" > /dev/null; then
+              code=$(curl -sS -o page.html -w '%{http_code}' -H "x-kh-check: ${SITE_CHECK_KEY}" "${{ vars.SITE_URL }}/nl-nl" || echo 000)
+              if [ "$code" = 200 ]; then echo "Website werkt"; exit 0; fi
+              # Afgeschermd en nog geen controlesleutel: de nieuwe versie antwoordt wel, alleen de pagina's
+              # kunnen we niet zien. Geen reden om terug te draaien; de browsertest slaan we over.
+              if [ "$code" = 403 ] && [ -z "${SITE_CHECK_KEY}" ] && grep -q "Deze omgeving is afgeschermd" page.html; then
+                echo "::warning::De website is afgeschermd met een IP-lijst en SITE_CHECK_KEY ontbreekt: alleen /healthz gecontroleerd. Draai scripts/infra.sh up om de sleutel in te stellen."
+                echo "blocked=true" >> "$GITHUB_OUTPUT"; exit 0
+              fi
             fi
             sleep 10
           done
           echo "::error::Website reageert niet na de deploy"; exit 1
 
       - name: Browsertest (opmaak geladen, geen JavaScript-fouten)
-        if: steps.rollout.outputs.skip != 'true'
+        if: steps.rollout.outputs.skip != 'true' && steps.smoke.outputs.blocked != 'true'
         run: |
           set -euo pipefail
           .github/diagnose/browser-check.sh "${{ vars.SITE_URL }}/nl-nl" "${{ vars.SITE_URL }}/nl-nl/boekje"

@@ -11,7 +11,9 @@ const browser = await chromium.launch({ executablePath: process.env.CHROME_PATH 
 let failed = false;
 for (const arg of process.argv.slice(2)) {
   const [url, host] = arg.split("|");
-  const context = await browser.newContext(host ? { extraHTTPHeaders: { "x-kh-host": host, "x-kh-worker": process.env.ORG_WORKER_SECRET ?? "" } } : {});
+  // SITE_CHECK_KEY: langs de IP-afscherming (ADR 0015).
+  const check = process.env.SITE_CHECK_KEY ? { "x-kh-check": process.env.SITE_CHECK_KEY } : {};
+  const context = await browser.newContext({ extraHTTPHeaders: host ? { ...check, "x-kh-host": host, "x-kh-worker": process.env.ORG_WORKER_SECRET ?? "" } : check });
   const page = await context.newPage();
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message.slice(0, 200)));

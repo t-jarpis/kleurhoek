@@ -153,6 +153,7 @@ output "github" {
     secrets = {
       SCW_SECRET_KEY = module.scaleway.github_deploy.secret_key
       LOGS_TOKEN     = module.scaleway.github_deploy.logs_token
+      SITE_CHECK_KEY = module.scaleway.github_deploy.site_check_key
     }
   }
   sensitive = true

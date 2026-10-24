@@ -2,7 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { EDGE_HEADER, edgeAllowed, FORWARDED, fromWorker, WORKER_HEADER } from "./lib/edge";
 import { bestMarket, LIVE_MARKETS } from "./lib/markets";
 import { resolveOrg, SHARED_PATH } from "./lib/org-resolve";
-import { blockedPage, currentPolicy, ipAllowed } from "./lib/site-access";
+import { blockedPage, CHECK_HEADER, checkKeyValid, currentPolicy, ipAllowed } from "./lib/site-access";
 
 export async function proxy(request: NextRequest) {
   const path = request.nextUrl.pathname;
@@ -25,7 +25,8 @@ export async function proxy(request: NextRequest) {
   const policy = await currentPolicy();
   if (!policy && process.env.NODE_ENV === "production") return new NextResponse("Even niet bereikbaar", { status: 503, headers: { "retry-after": "30" } });
   const ip = headers.get("cf-connecting-ip");
-  if (policy && !ipAllowed(policy, ip)) return blockedPage(ip);
+  if (policy && !ipAllowed(policy, ip) && !checkKeyValid(request.headers.get(CHECK_HEADER))) return blockedPage(ip);
+  headers.delete(CHECK_HEADER);
 
   // Welke organisatie: de host van het verzoek, of die van het organisatiedomein (via de Worker).
   const host = headers.get(FORWARDED.host) ?? request.headers.get("host") ?? "";

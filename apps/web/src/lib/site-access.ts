@@ -1,3 +1,4 @@
+import { timingSafeEqual } from "node:crypto";
 import { BlockList, isIP } from "node:net";
 
 /**
@@ -47,6 +48,18 @@ export async function currentPolicy(): Promise<Policy | null> {
     if (!cached) await inflight;
   }
   return cached?.policy ?? null;
+}
+
+/**
+ * De automatische rooktest na een deploy (GitHub Actions) draait vanaf wisselende IP-adressen. Met de
+ * geheime controlesleutel in `x-kh-check` mag hij toch langs de IP-lijst. Zonder sleutel (lokaal, of
+ * nog niet ingesteld) geeft dit altijd false.
+ */
+export const CHECK_HEADER = "x-kh-check";
+export function checkKeyValid(given: string | null, expected = process.env.SITE_CHECK_KEY ?? ""): boolean {
+  if (expected.length < 32 || !given) return false;
+  const a = Buffer.from(given), b = Buffer.from(expected);
+  return a.length === b.length && timingSafeEqual(a, b);
 }
 
 export function blockedPage(ip: string | null): Response {

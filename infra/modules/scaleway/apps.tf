@@ -64,6 +64,7 @@ locals {
         INGEST_KEY            = random_password.secret["ingest-key"].result
         ANALYTICS_SALT_SECRET = random_password.secret["analytics-salt"].result
         SESSION_SECRET        = random_password.secret["web-session-secret"].result
+        SITE_CHECK_KEY        = random_password.secret["site-check-key"].result
         OIDC_CLIENT_SECRET    = var.oidc_client_secrets.web
         EDGE_SECRET           = var.edge_secret
         ORG_WORKER_SECRET     = var.org_worker_secret

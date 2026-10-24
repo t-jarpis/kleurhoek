@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildPolicy, ipAllowed } from "./site-access";
+import { buildPolicy, checkKeyValid, ipAllowed } from "./site-access";
 
 describe("ipAllowed", () => {
   const p = buildPolicy(true, ["203.0.113.7/32", "198.51.100.0/24", "2001:db8:1::/64"]);
@@ -16,5 +16,19 @@ describe("ipAllowed", () => {
   it("weigert zonder of met ongeldig IP", () => {
     expect(ipAllowed(p, null)).toBe(false);
     expect(ipAllowed(p, "geen-ip")).toBe(false);
+  });
+});
+
+describe("checkKeyValid", () => {
+  const key = "k".repeat(48);
+  it("accepteert alleen precies de ingestelde sleutel", () => {
+    expect(checkKeyValid(key, key)).toBe(true);
+    expect(checkKeyValid(key.slice(1), key)).toBe(false);
+    expect(checkKeyValid("x".repeat(48), key)).toBe(false);
+    expect(checkKeyValid(null, key)).toBe(false);
+  });
+  it("staat dicht zonder (lange genoeg) ingestelde sleutel", () => {
+    expect(checkKeyValid("", "")).toBe(false);
+    expect(checkKeyValid("kort", "kort")).toBe(false);
   });
 });
