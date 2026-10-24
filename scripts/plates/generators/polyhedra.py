@@ -117,7 +117,7 @@ def draw(sh, verts, faces, codes, box, root=0, order=None, depth=0.18):
         sh.raw(f'<path class="glue" d="{d}Z"/>'); sh.line(d, "cut")
     for a, b in folds: sh.seg(*T(a), *T(b), "fold")
     for a, b in cuts: sh.seg(*T(a), *T(b), "cut")
-    return sc
+    return sc, [[T(p) for p in poly] for poly in polys]
 
 # ---------- modellen ----------
 def prism(n, r=1.0, h=1.5):

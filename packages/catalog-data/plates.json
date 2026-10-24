@@ -104052,5 +104052,430 @@
         ]
       }
     }
+  },
+  {
+    "slug": "bewegingsdobbelsteen",
+    "order": 614,
+    "category": "sport",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 25,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 10,
+    "colorByNumber": {
+      "codes": "golbymkkxx",
+      "palette": [
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 98.8,
+          "y": 165.3,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 98.8,
+          "y": 70.1,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 89.3,
+          "y": 224.9,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 146.4,
+          "y": 165.3,
+          "size": 13
+        },
+        {
+          "region": 4,
+          "number": 5,
+          "x": 98.8,
+          "y": 117.7,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 6,
+          "x": 53.6,
+          "y": 177.2,
+          "size": 13
+        },
+        {
+          "region": 6,
+          "number": 7,
+          "x": 96.1,
+          "y": 201.3,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 7,
+          "x": 103.7,
+          "y": 200.3,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 8,
+          "x": 46.6,
+          "y": 164.5,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 8,
+          "x": 55.1,
+          "y": 162.6,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bouwplaat: bewegingsdobbelsteen",
+        "printNote": "Op stevig papier (160 gram) rolt hij het best.",
+        "steps": [
+          "Kleur de vlakken in en knip de bouwplaat uit langs de doorgetrokken lijnen; de grijze flapjes blijven eraan.",
+          "Vouw alle stippellijnen en flapjes naar binnen.",
+          "Plak de flapjes één voor één vast tot er een dobbelsteen ontstaat. Het laatste vlak sluit je als een deksel.",
+          "Gooi de dobbelsteen en doe de opdracht die boven ligt.",
+          "Spelen jullie met meer kinderen? Om de beurt gooien; de rest doet mee!"
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "emotiedobbelsteen",
+    "order": 615,
+    "category": "leren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 25,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 6,
+    "colorByNumber": {
+      "codes": "ybrpto",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 98.8,
+          "y": 174.8,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 98.8,
+          "y": 79.6,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 91.7,
+          "y": 224.9,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 146.4,
+          "y": 165.3,
+          "size": 13
+        },
+        {
+          "region": 4,
+          "number": 5,
+          "x": 98.8,
+          "y": 127.2,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 6,
+          "x": 51.2,
+          "y": 165.3,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bouwplaat: emotiedobbelsteen",
+        "printNote": "Op stevig papier (160 gram) rolt hij het best.",
+        "steps": [
+          "Kleur de vlakken in en knip de bouwplaat uit langs de doorgetrokken lijnen; de grijze flapjes blijven eraan.",
+          "Vouw alle stippellijnen en flapjes naar binnen.",
+          "Plak de flapjes één voor één vast tot er een dobbelsteen ontstaat. Het laatste vlak sluit je als een deksel.",
+          "Gooi de dobbelsteen. Welk gevoel ligt boven?",
+          "Doe het gezicht na, of vertel wanneer jij je zo voelde. Er is geen fout antwoord."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "verhalendobbelsteen",
+    "order": 616,
+    "category": "leren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 25,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 17,
+    "colorByNumber": {
+      "codes": "------rywwgrboooy",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 6,
+          "number": 1,
+          "x": 99.2,
+          "y": 160,
+          "size": 6.8
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 93.3,
+          "y": 171.5,
+          "size": 5.7
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 99.8,
+          "y": 175.6,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 99.9,
+          "y": 80.8,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 4,
+          "x": 99.5,
+          "y": 67.7,
+          "size": 11.6
+        },
+        {
+          "region": 11,
+          "number": 1,
+          "x": 99.1,
+          "y": 220,
+          "size": 5.5
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 99.8,
+          "y": 212.5,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 6,
+          "x": 92.2,
+          "y": 223.9,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 6,
+          "x": 107.8,
+          "y": 223.9,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 6,
+          "x": 145.4,
+          "y": 166,
+          "size": 9.7
+        },
+        {
+          "region": 16,
+          "number": 2,
+          "x": 99.3,
+          "y": 118.1,
+          "size": 8.1
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bouwplaat: verhalendobbelsteen",
+        "printNote": "Op stevig papier (160 gram) rolt hij het best.",
+        "steps": [
+          "Kleur de vlakken in en knip de bouwplaat uit langs de doorgetrokken lijnen; de grijze flapjes blijven eraan.",
+          "Vouw alle stippellijnen en flapjes naar binnen.",
+          "Plak de flapjes één voor één vast tot er een dobbelsteen ontstaat. Het laatste vlak sluit je als een deksel.",
+          "Gooi de dobbelsteen en begin een verhaal met het plaatje dat boven ligt: 'Er was eens een sleutel …'",
+          "Gooi nog een keer en laat dat plaatje ook in je verhaal voorkomen. Zo gaat het verhaal steeds verder."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
   }
 ]
