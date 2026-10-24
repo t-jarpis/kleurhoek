@@ -103652,5 +103652,405 @@
         ]
       }
     }
+  },
+  {
+    "slug": "pixelkunst-auto",
+    "order": 606,
+    "category": "voertuigen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Pixelkunst: auto",
+        "steps": [
+          "Kijk onder het rooster welke kleur bij welk cijfer hoort.",
+          "Kleur elk vakje met een cijfer in die kleur. Werk rij voor rij, dan sla je niets over.",
+          "Wat verschijnt er? Op de tweede bladzijde zie je hoe het wordt."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Zo wordt het"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "pixelkunst-bloem",
+    "order": 607,
+    "category": "natuur",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Pixelkunst: bloem in de pot",
+        "steps": [
+          "Kijk onder het rooster welke kleur bij welk cijfer hoort.",
+          "Kleur elk vakje met een cijfer in die kleur. Werk rij voor rij, dan sla je niets over.",
+          "Wat verschijnt er? Op de tweede bladzijde zie je hoe het wordt."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Zo wordt het"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "pixelkunst-dino",
+    "order": 608,
+    "category": "dinos",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Pixelkunst: dino",
+        "steps": [
+          "Kijk onder het rooster welke kleur bij welk cijfer hoort.",
+          "Kleur elk vakje met een cijfer in die kleur. Werk rij voor rij, dan sla je niets over.",
+          "Wat verschijnt er? Op de tweede bladzijde zie je hoe het wordt."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Zo wordt het"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "pixelkunst-kerstboom",
+    "order": 609,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Pixelkunst: kerstboom",
+        "steps": [
+          "Kijk onder het rooster welke kleur bij welk cijfer hoort.",
+          "Kleur elk vakje met een cijfer in die kleur. Werk rij voor rij, dan sla je niets over.",
+          "Wat verschijnt er? Op de tweede bladzijde zie je hoe het wordt."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Zo wordt het"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "pixelkunst-landschap",
+    "order": 610,
+    "category": "natuur",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 30,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Pixelkunst: bergen en meer",
+        "steps": [
+          "Kijk onder het rooster welke kleur bij welk cijfer hoort.",
+          "Kleur elk vakje met een cijfer in die kleur. Werk rij voor rij, dan sla je niets over.",
+          "Wat verschijnt er? Op de tweede bladzijde zie je hoe het wordt."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Zo wordt het"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "pixelkunst-pompoen",
+    "order": 611,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Pixelkunst: pompoen",
+        "steps": [
+          "Kijk onder het rooster welke kleur bij welk cijfer hoort.",
+          "Kleur elk vakje met een cijfer in die kleur. Werk rij voor rij, dan sla je niets over.",
+          "Wat verschijnt er? Op de tweede bladzijde zie je hoe het wordt."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Zo wordt het"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "pixelkunst-robot",
+    "order": 612,
+    "category": "ruimte",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Pixelkunst: robot",
+        "steps": [
+          "Kijk onder het rooster welke kleur bij welk cijfer hoort.",
+          "Kleur elk vakje met een cijfer in die kleur. Werk rij voor rij, dan sla je niets over.",
+          "Wat verschijnt er? Op de tweede bladzijde zie je hoe het wordt."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Zo wordt het"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "pixelkunst-vlinder",
+    "order": 613,
+    "category": "natuur",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Pixelkunst: vlinder",
+        "steps": [
+          "Kijk onder het rooster welke kleur bij welk cijfer hoort.",
+          "Kleur elk vakje met een cijfer in die kleur. Werk rij voor rij, dan sla je niets over.",
+          "Wat verschijnt er? Op de tweede bladzijde zie je hoe het wordt."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Zo wordt het"
+        ]
+      }
+    }
   }
 ]
