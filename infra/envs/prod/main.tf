@@ -119,8 +119,9 @@ module "site" {
     backup_hours   = 24
     backup_same_dc = false
   }
-  # Altijd minstens één instance warm: geen koude start voor bezoekers.
-  scale = { api_min = 1, api_max = 6, web_min = 1, web_max = 10 }
+  # Naar nul zolang het rustig is (ADR 0021): na een stille periode wacht de eerste bezoeker enkele
+  # seconden. Elke dag verkeer? Zet api_min en web_min op 1 (circa € 30 per maand extra, geen wachttijd).
+  scale = { api_min = 0, api_max = 6, web_min = 0, web_max = 10 }
 }
 
 output "site_url" { value = module.site.site_url }

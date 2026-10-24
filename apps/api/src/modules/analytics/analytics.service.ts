@@ -83,6 +83,22 @@ export class AnalyticsService {
     });
   }
 
+  /**
+   * Dagen waarvan de dagtotalen achterlopen: er kwamen events bij na de laatste keer optellen, of er is
+   * nog niet opgeteld. Nodig omdat de API naar nul schaalt: na een stille periode wordt alles ingehaald.
+   */
+  async staleDays(tenantId: string): Promise<string[]> {
+    return withTenant(this.db, tenantId, async (tx) => {
+      const day = sql<string>`to_char(${events.occurredAt} at time zone 'UTC', 'YYYY-MM-DD')`;
+      const raw = await tx.select({ day, last: sql<Date>`max(${events.createdAt})` }).from(events).where(eq(events.tenantId, tenantId)).groupBy(sql`1`);
+      if (!raw.length) return [];
+      const done = new Map((await tx.select({ day: sql<string>`${dailyTotals.day}::text`, at: sql<Date>`max(${dailyTotals.createdAt})` })
+        .from(dailyTotals).where(and(eq(dailyTotals.tenantId, tenantId), gte(dailyTotals.day, raw.reduce((m, r) => (r.day < m ? r.day : m), raw[0]!.day))))
+        .groupBy(dailyTotals.day)).map((r) => [r.day, new Date(r.at).getTime()]));
+      return raw.filter((r) => !done.has(r.day) || new Date(r.last).getTime() >= done.get(r.day)!).map((r) => r.day).sort();
+    });
+  }
+
   /** Ruwe events na 90 dagen weg; daarna bestaan alleen de dagtotalen nog (ADR 0002). */
   async purgeRawEvents(tenantId: string, now = new Date()): Promise<void> {
     const cutoff = new Date(now.getTime() - RAW_EVENT_DAYS * 86_400_000);

@@ -75,7 +75,7 @@ Zo zijn fouten te vinden zonder de Scaleway-console.
 2. Zone, dan de omgeving (eerst de basis, dan de images via *Deploy*, dan de containers), GitHub-omgeving `prod` met jouw goedkeuring (als het GitHub-plan dat toestaat).
 3. Rooktest op www.kleurhoek.nl, daarna live: `prod_live = true` en de zone-ID's van `kleurhoek.be` en `kleurhoek.com` in `envs/zone/terraform.tfvars`, en de zone opnieuw toepassen. Het kale domein en de extra domeinen sturen dan door naar www.
 
-De database begint klein (DB-PLAY2-PICO, één node, back-up 35 dagen in een ander datacenter, ADR 0021). De catalogus komt bij elke start van de API uit `@kleurhoek/catalog-data` (aanvullend). Producten, partners en organisaties zet je in het admin panel van productie; dev en prod delen geen data.
+De database begint klein (DB-PLAY2-PICO, één node, back-up 35 dagen in een ander datacenter, ADR 0021). API en website schalen naar nul zolang het rustig is; met dagelijks verkeer `api_min`/`web_min` op 1 in `envs/prod/main.tf`. De catalogus komt bij elke start van de API uit `@kleurhoek/catalog-data` (aanvullend). Producten, partners en organisaties zet je in het admin panel van productie; dev en prod delen geen data.
 
 Controleer vooraf de database-node: `scw rdb node-type list region=nl-ams`.
 

@@ -16,5 +16,5 @@ Het volledige architectuurdocument met diagrammen staat hier: https://claude.ai/
 - Eigen inlogpagina op `login.kleurhoek.nl` (login v2 via de Session API van Zitadel): e-mailcode en passkeys, in de huisstijl van de organisatie (ADR 0018).
 - Releases: browsertest in CI vóór de uitrol, Deploy pas na groene CI, browsertest na de uitrol met automatisch terugdraaien; migraties altijd uitbreidend (ADR 0019).
 - Dashboard met grafieken over 7 dagen tot 12 maanden, paginasoort per weergave, accountcijfers (nieuw, actief, terugkerend) zonder extra persoonsgegevens (ADR 0020).
-- Productie op www.kleurhoek.nl (kale domein, .be en .com sturen door): kleine database met back-up in een ander datacenter, catalogus bij elke start, uitrollen naar prod met goedkeuring (ADR 0021).
+- Productie op www.kleurhoek.nl (kale domein, .be en .com sturen door): kleine database met back-up in een ander datacenter, API en website naar nul zolang het rustig is, catalogus bij elke start, uitrollen naar prod met goedkeuring (ADR 0021).
 - Doelen voor bezoeken, platen en doorkliks per maand, met grafiek en stand van deze maand in het admin panel (ADR 0022).

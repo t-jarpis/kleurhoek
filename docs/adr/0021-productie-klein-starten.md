@@ -8,7 +8,8 @@ Productie stond klaar met een zware database (DB-PRO2-XXS met HA, circa € 125 
 ## Besluit
 - Productie start met DB-PLAY2-PICO (één node, 10 GB, dagelijkse back-up 35 dagen in een ander datacenter), circa € 20 per maand. Groeien is één regel in `infra/envs/prod/main.tf` (`node_type`, eventueel `ha = true`).
 - De API draait ook in productie bij elke start de seed. Die is aanvullend: wat in het admin panel is aangepast blijft staan.
-- API en website houden in productie minstens één instance warm (geen koude start).
+- API en website schalen ook in productie naar nul zolang het rustig is (circa € 30 per maand minder). Na een stille periode wacht de eerste bezoeker enkele seconden. Met dagelijks verkeer gaan `api_min` en `web_min` naar 1.
+- Omdat de API dan soms niet draait, telt hij bij het opstarten en daarna elke 10 minuten alle dagen op die achterlopen (niet alleen vandaag en gisteren); er gaan geen bezoeken verloren.
 - `scripts/infra.sh up prod` maakt het Scaleway-project aan, zet alles op en zet daarna kleurhoek.nl, kleurhoek.be en kleurhoek.com live als doorstuur naar www.
 
 ## Gevolgen

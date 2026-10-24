@@ -1,4 +1,5 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { AggregationScheduler } from "../src/modules/analytics/aggregation.scheduler";
 import { AnalyticsService } from "../src/modules/analytics/analytics.service";
 import { addMonths, goalAt, GoalsService } from "../src/modules/analytics/goals.service";
 import { createTestApp, INGEST_KEY, TENANT } from "./app";
@@ -48,5 +49,17 @@ describe("doelen (ADR 0022)", () => {
     expect(saved.json()).toMatchObject({ start: "2026-11", custom: true });
     const g = (await call("GET", "analist")).json();
     expect(g.metrics.find((m: { metric: string }) => m.metric === "visits").milestones).toEqual(body.metrics.visits);
+  });
+  it("haalt na een periode op nul alle dagen in die nog niet zijn opgeteld (ADR 0021)", async () => {
+    const analytics = ctx.app.get(AnalyticsService);
+    const old = new Date(Date.now() - 5 * 86_400_000), day = old.toISOString().slice(0, 10);
+    await ctx.http.inject({ method: "POST", url: "/v1/internal/events", headers: { "x-ingest-key": INGEST_KEY }, payload: [
+      { type: "page_view", page: "home", market: "nl-NL", device: "mobile", visitorHash: "cccccccccccccccc", occurredAt: old.toISOString() },
+    ] });
+    expect(await analytics.staleDays(TENANT)).toContain(day);
+    await ctx.app.get(AggregationScheduler).run();
+    expect(await analytics.staleDays(TENANT)).not.toContain(day);
+    const o = (await ctx.http.inject({ method: "GET", url: `/v1/admin/analytics/overview?from=${day}&to=${day}`, headers: { authorization: "Bearer analist" } })).json();
+    expect(o.totals.visitors).toBe(1);
   });
 });
