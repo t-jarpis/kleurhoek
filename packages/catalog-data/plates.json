@@ -130850,5 +130850,9778 @@
         "countQuestion": null
       }
     }
+  },
+  {
+    "slug": "boodschappen-doen",
+    "order": 746,
+    "category": "eten",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 39,
+    "colorByNumber": {
+      "codes": "zwwgbryomzzzzzrrrrwbry-rxxnnxxoooo-o---",
+      "palette": [
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 15,
+          "y": 192.6,
+          "size": 7.6
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 5,
+          "y": 52.4,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 5,
+          "y": 98.4,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 14.8,
+          "y": 32.5,
+          "size": 5.5
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 28.8,
+          "y": 28.3,
+          "size": 5.5
+        },
+        {
+          "region": 5,
+          "number": 5,
+          "x": 42.8,
+          "y": 32.5,
+          "size": 5.5
+        },
+        {
+          "region": 6,
+          "number": 6,
+          "x": 68.6,
+          "y": 35,
+          "size": 9.8
+        },
+        {
+          "region": 7,
+          "number": 7,
+          "x": 88.6,
+          "y": 35,
+          "size": 9.8
+        },
+        {
+          "region": 8,
+          "number": 8,
+          "x": 108.6,
+          "y": 35,
+          "size": 9.8
+        },
+        {
+          "region": 9,
+          "number": 1,
+          "x": 126.2,
+          "y": 41.3,
+          "size": 6
+        },
+        {
+          "region": 10,
+          "number": 1,
+          "x": 140.2,
+          "y": 41.3,
+          "size": 6
+        },
+        {
+          "region": 11,
+          "number": 1,
+          "x": 154.2,
+          "y": 41.3,
+          "size": 6
+        },
+        {
+          "region": 12,
+          "number": 1,
+          "x": 168.2,
+          "y": 41.3,
+          "size": 6
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 182.2,
+          "y": 41.3,
+          "size": 6
+        },
+        {
+          "region": 14,
+          "number": 5,
+          "x": 9.7,
+          "y": 88.7,
+          "size": 6.5
+        },
+        {
+          "region": 15,
+          "number": 5,
+          "x": 21.7,
+          "y": 88.7,
+          "size": 6.5
+        },
+        {
+          "region": 16,
+          "number": 5,
+          "x": 33.7,
+          "y": 88.7,
+          "size": 6.5
+        },
+        {
+          "region": 17,
+          "number": 5,
+          "x": 43.3,
+          "y": 86.3,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 2,
+          "x": 117.9,
+          "y": 104,
+          "size": 6.9
+        },
+        {
+          "region": 19,
+          "number": 4,
+          "x": 147.5,
+          "y": 94.5,
+          "size": 10.9
+        },
+        {
+          "region": 20,
+          "number": 5,
+          "x": 164.9,
+          "y": 104.9,
+          "size": 6.4
+        },
+        {
+          "region": 21,
+          "number": 6,
+          "x": 179.2,
+          "y": 101.6,
+          "size": 4.7
+        },
+        {
+          "region": 23,
+          "number": 5,
+          "x": 86.7,
+          "y": 96.3,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 9,
+          "x": 111.7,
+          "y": 177.7,
+          "size": 6.5
+        },
+        {
+          "region": 25,
+          "number": 9,
+          "x": 171.7,
+          "y": 177.7,
+          "size": 6.5
+        },
+        {
+          "region": 26,
+          "number": 10,
+          "x": 48.1,
+          "y": 157.5,
+          "size": 6.2
+        },
+        {
+          "region": 27,
+          "number": 10,
+          "x": 63.3,
+          "y": 157.5,
+          "size": 6.2
+        },
+        {
+          "region": 28,
+          "number": 9,
+          "x": 44.4,
+          "y": 180.6,
+          "size": 4.7
+        },
+        {
+          "region": 29,
+          "number": 9,
+          "x": 65.4,
+          "y": 180.6,
+          "size": 4.7
+        },
+        {
+          "region": 30,
+          "number": 7,
+          "x": 71.9,
+          "y": 103.3,
+          "size": 5.2
+        },
+        {
+          "region": 31,
+          "number": 7,
+          "x": 39.4,
+          "y": 124,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 7,
+          "x": 55.2,
+          "y": 128.4,
+          "size": 13
+        },
+        {
+          "region": 33,
+          "number": 7,
+          "x": 74.3,
+          "y": 91.6,
+          "size": 5.2
+        },
+        {
+          "region": 35,
+          "number": 7,
+          "x": 51,
+          "y": 86.6,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Boodschappen doen",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "boomhut",
+    "order": 747,
+    "category": "natuur",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 42,
+    "colorByNumber": {
+      "codes": "lgwwobrrynnxxmmmxxxxxxxxxx-x--nnxxyyy-w--r",
+      "palette": [
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 25,
+          "y": 190.5,
+          "size": 10.9
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 51.4,
+          "y": 40.1,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 100.3,
+          "y": 166.6,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 47.3,
+          "y": 103.8,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 94.8,
+          "y": 91.9,
+          "size": 9.3
+        },
+        {
+          "region": 5,
+          "number": 5,
+          "x": 77.3,
+          "y": 78.6,
+          "size": 9.8
+        },
+        {
+          "region": 6,
+          "number": 6,
+          "x": 111.6,
+          "y": 79.7,
+          "size": 8.7
+        },
+        {
+          "region": 7,
+          "number": 6,
+          "x": 90.8,
+          "y": 53.3,
+          "size": 13
+        },
+        {
+          "region": 8,
+          "number": 7,
+          "x": 96.8,
+          "y": 24.3,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 8,
+          "x": 141.4,
+          "y": 88.8,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 8,
+          "x": 150.2,
+          "y": 88.8,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 9,
+          "x": 139.2,
+          "y": 102.1,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 9,
+          "x": 151.4,
+          "y": 102.1,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 10,
+          "x": 135.1,
+          "y": 71.6,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 10,
+          "x": 156.5,
+          "y": 62.6,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 10,
+          "x": 145.5,
+          "y": 71.9,
+          "size": 10.2
+        },
+        {
+          "region": 16,
+          "number": 9,
+          "x": 137.3,
+          "y": 58,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 9,
+          "x": 136,
+          "y": 53.6,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 9,
+          "x": 136.7,
+          "y": 49.3,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 9,
+          "x": 139.2,
+          "y": 46,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 9,
+          "x": 143,
+          "y": 43.8,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 9,
+          "x": 147.5,
+          "y": 43.2,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 9,
+          "x": 151.2,
+          "y": 44.8,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 9,
+          "x": 154.3,
+          "y": 47.8,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 9,
+          "x": 156,
+          "y": 52.1,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 9,
+          "x": 155.3,
+          "y": 57.2,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 9,
+          "x": 147.2,
+          "y": 47.7,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 8,
+          "x": 59.3,
+          "y": 173.7,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 8,
+          "x": 66.4,
+          "y": 170.6,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 9,
+          "x": 56.6,
+          "y": 179.6,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 9,
+          "x": 69.5,
+          "y": 171.1,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 7,
+          "x": 56.3,
+          "y": 144.9,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 7,
+          "x": 71.7,
+          "y": 145.2,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 7,
+          "x": 63.5,
+          "y": 156.3,
+          "size": 10.8
+        },
+        {
+          "region": 38,
+          "number": 3,
+          "x": 64.4,
+          "y": 137.1,
+          "size": 9.2
+        },
+        {
+          "region": 41,
+          "number": 6,
+          "x": 149.8,
+          "y": 120.7,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Spelen in de boomhut",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "bouwvakker",
+    "order": 748,
+    "category": "beroepen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 48,
+    "colorByNumber": {
+      "codes": "wy-orrrrrrrrrrrrrrrrrrrrrz-nnxxooow---yyywzzzrwz",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 15,
+          "y": 189.5,
+          "size": 10.9
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 173.3,
+          "y": 10.9,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 106.5,
+          "y": 79.8,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 104.5,
+          "y": 175.3,
+          "size": 4.9
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 124.5,
+          "y": 175.3,
+          "size": 4.9
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 144.5,
+          "y": 175.3,
+          "size": 4.9
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 164.5,
+          "y": 175.3,
+          "size": 4.9
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 114.5,
+          "y": 166.3,
+          "size": 4.9
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 134.5,
+          "y": 166.3,
+          "size": 4.9
+        },
+        {
+          "region": 10,
+          "number": 4,
+          "x": 154.5,
+          "y": 166.3,
+          "size": 4.9
+        },
+        {
+          "region": 11,
+          "number": 4,
+          "x": 174.5,
+          "y": 166.3,
+          "size": 4.9
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 104.5,
+          "y": 157.3,
+          "size": 4.9
+        },
+        {
+          "region": 13,
+          "number": 4,
+          "x": 124.5,
+          "y": 157.3,
+          "size": 4.9
+        },
+        {
+          "region": 14,
+          "number": 4,
+          "x": 144.5,
+          "y": 157.3,
+          "size": 4.9
+        },
+        {
+          "region": 15,
+          "number": 4,
+          "x": 164.5,
+          "y": 157.3,
+          "size": 4.9
+        },
+        {
+          "region": 16,
+          "number": 4,
+          "x": 114.5,
+          "y": 148.3,
+          "size": 4.9
+        },
+        {
+          "region": 17,
+          "number": 4,
+          "x": 134.5,
+          "y": 148.3,
+          "size": 4.9
+        },
+        {
+          "region": 18,
+          "number": 4,
+          "x": 154.5,
+          "y": 148.3,
+          "size": 4.9
+        },
+        {
+          "region": 19,
+          "number": 4,
+          "x": 174.5,
+          "y": 148.3,
+          "size": 4.9
+        },
+        {
+          "region": 20,
+          "number": 4,
+          "x": 104.5,
+          "y": 139.3,
+          "size": 4.9
+        },
+        {
+          "region": 21,
+          "number": 4,
+          "x": 124.5,
+          "y": 139.3,
+          "size": 4.9
+        },
+        {
+          "region": 22,
+          "number": 4,
+          "x": 144.5,
+          "y": 139.3,
+          "size": 4.9
+        },
+        {
+          "region": 23,
+          "number": 4,
+          "x": 114.5,
+          "y": 130.3,
+          "size": 4.9
+        },
+        {
+          "region": 24,
+          "number": 4,
+          "x": 134.5,
+          "y": 130.3,
+          "size": 4.9
+        },
+        {
+          "region": 25,
+          "number": 5,
+          "x": 28.8,
+          "y": 169.8,
+          "size": 11.7
+        },
+        {
+          "region": 27,
+          "number": 6,
+          "x": 57.7,
+          "y": 147.9,
+          "size": 6.6
+        },
+        {
+          "region": 28,
+          "number": 6,
+          "x": 73.7,
+          "y": 147.9,
+          "size": 6.6
+        },
+        {
+          "region": 29,
+          "number": 7,
+          "x": 53.8,
+          "y": 167.8,
+          "size": 4.9
+        },
+        {
+          "region": 30,
+          "number": 7,
+          "x": 75.8,
+          "y": 167.8,
+          "size": 4.9
+        },
+        {
+          "region": 31,
+          "number": 3,
+          "x": 85.7,
+          "y": 111.2,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 3,
+          "x": 45.5,
+          "y": 113.6,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 3,
+          "x": 60.1,
+          "y": 106.6,
+          "size": 12.1
+        },
+        {
+          "region": 34,
+          "number": 1,
+          "x": 85.2,
+          "y": 72.9,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 2,
+          "x": 62,
+          "y": 68.6,
+          "size": 9.3
+        },
+        {
+          "region": 39,
+          "number": 2,
+          "x": 49,
+          "y": 78.4,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 2,
+          "x": 51.5,
+          "y": 119.4,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 1,
+          "x": 52.5,
+          "y": 134.3,
+          "size": 4.5
+        },
+        {
+          "region": 42,
+          "number": 5,
+          "x": 56.8,
+          "y": 139.9,
+          "size": 4.5
+        },
+        {
+          "region": 43,
+          "number": 5,
+          "x": 66.8,
+          "y": 139.9,
+          "size": 4.5
+        },
+        {
+          "region": 44,
+          "number": 5,
+          "x": 76.8,
+          "y": 139.9,
+          "size": 4.5
+        },
+        {
+          "region": 45,
+          "number": 4,
+          "x": 35,
+          "y": 120.3,
+          "size": 4.9
+        },
+        {
+          "region": 46,
+          "number": 1,
+          "x": 93.7,
+          "y": 112.8,
+          "size": 4.5
+        },
+        {
+          "region": 47,
+          "number": 5,
+          "x": 102.3,
+          "y": 103.5,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bouwvakker",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "buschauffeur",
+    "order": 749,
+    "category": "beroepen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 45,
+    "colorByNumber": {
+      "codes": "zxxy-bnnn-w--x-z--zxxb---nnxxgggxxxrxxxr-x--r",
+      "palette": [
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 15,
+          "y": 189.5,
+          "size": 10.9
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 33.6,
+          "y": 176.9,
+          "size": 8.2
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 127.6,
+          "y": 176.9,
+          "size": 8.2
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 95.8,
+          "y": 130.4,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 109.1,
+          "y": 85.7,
+          "size": 13
+        },
+        {
+          "region": 6,
+          "number": 5,
+          "x": 54.3,
+          "y": 97.5,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 5,
+          "x": 86.3,
+          "y": 79.6,
+          "size": 5.7
+        },
+        {
+          "region": 8,
+          "number": 5,
+          "x": 72.2,
+          "y": 90.1,
+          "size": 11.3
+        },
+        {
+          "region": 10,
+          "number": 6,
+          "x": 68.1,
+          "y": 57.5,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 52.5,
+          "y": 102.3,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 1,
+          "x": 37.7,
+          "y": 107.8,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 1,
+          "x": 34.3,
+          "y": 155.7,
+          "size": 6.6
+        },
+        {
+          "region": 19,
+          "number": 2,
+          "x": 14.9,
+          "y": 57.5,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 2,
+          "x": 152.9,
+          "y": 57.5,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 4,
+          "x": 160.9,
+          "y": 43.8,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 5,
+          "x": 179,
+          "y": 159.7,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 5,
+          "x": 188.6,
+          "y": 159.7,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 2,
+          "x": 176.7,
+          "y": 174.3,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 2,
+          "x": 189.9,
+          "y": 174.3,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 7,
+          "x": 175.1,
+          "y": 135.7,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 7,
+          "x": 194.7,
+          "y": 135.9,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 7,
+          "x": 183.5,
+          "y": 146.4,
+          "size": 10.9
+        },
+        {
+          "region": 32,
+          "number": 2,
+          "x": 173.8,
+          "y": 124.5,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 2,
+          "x": 174.5,
+          "y": 128.4,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 2,
+          "x": 175.3,
+          "y": 132.1,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 8,
+          "x": 174.7,
+          "y": 138.8,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 2,
+          "x": 194.2,
+          "y": 124.5,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 2,
+          "x": 193.5,
+          "y": 128.4,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 2,
+          "x": 193.5,
+          "y": 132.9,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 8,
+          "x": 193.4,
+          "y": 137,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 2,
+          "x": 181.8,
+          "y": 114,
+          "size": 4.5
+        },
+        {
+          "region": 44,
+          "number": 8,
+          "x": 171.9,
+          "y": 132.3,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Buschauffeur",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "dierenarts",
+    "order": 750,
+    "category": "beroepen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 39,
+    "colorByNumber": {
+      "codes": "w-mmmmmbgzzzo-zzooo-wwo-xnnxx----x---zr",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 15,
+          "y": 192.6,
+          "size": 7.6
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 39.6,
+          "y": 39.7,
+          "size": 7.6
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 29.8,
+          "y": 27.8,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 35.8,
+          "y": 21.8,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 43.8,
+          "y": 21.8,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 49.8,
+          "y": 27.8,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 77.8,
+          "y": 21.9,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 90.3,
+          "y": 25.8,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 5,
+          "x": 22.7,
+          "y": 132.8,
+          "size": 5.5
+        },
+        {
+          "region": 10,
+          "number": 5,
+          "x": 24.9,
+          "y": 141.6,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 5,
+          "x": 118.8,
+          "y": 141.6,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 6,
+          "x": 45.8,
+          "y": 158.1,
+          "size": 8.9
+        },
+        {
+          "region": 14,
+          "number": 5,
+          "x": 57.5,
+          "y": 157.8,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 5,
+          "x": 82.4,
+          "y": 157.8,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 6,
+          "x": 74.9,
+          "y": 102.3,
+          "size": 8.2
+        },
+        {
+          "region": 17,
+          "number": 6,
+          "x": 67.8,
+          "y": 109.8,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 6,
+          "x": 83,
+          "y": 108.8,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 1,
+          "x": 54.9,
+          "y": 86.1,
+          "size": 7
+        },
+        {
+          "region": 21,
+          "number": 1,
+          "x": 97.1,
+          "y": 86.1,
+          "size": 7
+        },
+        {
+          "region": 22,
+          "number": 6,
+          "x": 75.2,
+          "y": 68.7,
+          "size": 8.8
+        },
+        {
+          "region": 24,
+          "number": 7,
+          "x": 75.8,
+          "y": 83.9,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 8,
+          "x": 141.7,
+          "y": 115.5,
+          "size": 6.6
+        },
+        {
+          "region": 26,
+          "number": 8,
+          "x": 157.7,
+          "y": 115.5,
+          "size": 6.6
+        },
+        {
+          "region": 27,
+          "number": 7,
+          "x": 137.8,
+          "y": 139.8,
+          "size": 4.9
+        },
+        {
+          "region": 28,
+          "number": 7,
+          "x": 159.8,
+          "y": 139.8,
+          "size": 4.9
+        },
+        {
+          "region": 33,
+          "number": 7,
+          "x": 144.8,
+          "y": 40.9,
+          "size": 4.6
+        },
+        {
+          "region": 37,
+          "number": 5,
+          "x": 95.8,
+          "y": 107.8,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 9,
+          "x": 175.8,
+          "y": 70.7,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Dierenarts",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "fietsen-op-de-dijk",
+    "order": 751,
+    "category": "wereld",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 59,
+    "colorByNumber": {
+      "codes": "y-gg-g-rzzlgyyyyyommmmmyxxxx-zzxxxx-zz-z-znnxxnnxrr--ywwrym",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 29.5,
+          "y": 21.5,
+          "size": 10.8
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 156.4,
+          "y": 87.9,
+          "size": 5.4
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 187.7,
+          "y": 93.1,
+          "size": 9.8
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 167.6,
+          "y": 56,
+          "size": 6.1
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 140.8,
+          "y": 95.9,
+          "size": 6.8
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 142.4,
+          "y": 85.8,
+          "size": 4.8
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 5,
+          "y": 105.8,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 5,
+          "x": 75,
+          "y": 129,
+          "size": 13
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 65,
+          "y": 173.8,
+          "size": 13
+        },
+        {
+          "region": 12,
+          "number": 1,
+          "x": 29.9,
+          "y": 181.6,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 34.2,
+          "y": 184.4,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 1,
+          "x": 32.8,
+          "y": 189.6,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 1,
+          "x": 27.5,
+          "y": 189.6,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 1,
+          "x": 25.8,
+          "y": 184.7,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 6,
+          "x": 29.9,
+          "y": 185.9,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 7,
+          "x": 149.9,
+          "y": 183.6,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 7,
+          "x": 154.2,
+          "y": 186.4,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 7,
+          "x": 152.8,
+          "y": 191.6,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 7,
+          "x": 147.5,
+          "y": 191.6,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 7,
+          "x": 145.8,
+          "y": 186.7,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 1,
+          "x": 149.9,
+          "y": 187.9,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 8,
+          "x": 28.3,
+          "y": 140.5,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 8,
+          "x": 33.9,
+          "y": 141.9,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 8,
+          "x": 42.7,
+          "y": 141.9,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 8,
+          "x": 47.5,
+          "y": 140.5,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 4,
+          "x": 53.2,
+          "y": 127.7,
+          "size": 4.6
+        },
+        {
+          "region": 30,
+          "number": 4,
+          "x": 48.6,
+          "y": 121.9,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 8,
+          "x": 166.9,
+          "y": 145.8,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 8,
+          "x": 172.2,
+          "y": 147.2,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 8,
+          "x": 180.4,
+          "y": 147.6,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 8,
+          "x": 184.9,
+          "y": 145.8,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 4,
+          "x": 161.8,
+          "y": 133.9,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 4,
+          "x": 164.9,
+          "y": 128.4,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 4,
+          "x": 77.9,
+          "y": 91.9,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 4,
+          "x": 121.9,
+          "y": 91.9,
+          "size": 4.5
+        },
+        {
+          "region": 42,
+          "number": 9,
+          "x": 105.2,
+          "y": 76,
+          "size": 4.5
+        },
+        {
+          "region": 43,
+          "number": 9,
+          "x": 95.3,
+          "y": 90,
+          "size": 4.5
+        },
+        {
+          "region": 44,
+          "number": 8,
+          "x": 95.3,
+          "y": 94.3,
+          "size": 4.5
+        },
+        {
+          "region": 45,
+          "number": 8,
+          "x": 92,
+          "y": 68,
+          "size": 4.5
+        },
+        {
+          "region": 46,
+          "number": 9,
+          "x": 98.5,
+          "y": 75.9,
+          "size": 4.6
+        },
+        {
+          "region": 47,
+          "number": 9,
+          "x": 103.6,
+          "y": 83,
+          "size": 5.3
+        },
+        {
+          "region": 48,
+          "number": 8,
+          "x": 102.1,
+          "y": 96.8,
+          "size": 4.5
+        },
+        {
+          "region": 49,
+          "number": 3,
+          "x": 93.1,
+          "y": 62.7,
+          "size": 9
+        },
+        {
+          "region": 50,
+          "number": 3,
+          "x": 103.4,
+          "y": 47.9,
+          "size": 4.5
+        },
+        {
+          "region": 53,
+          "number": 1,
+          "x": 103.4,
+          "y": 23.8,
+          "size": 5.6
+        },
+        {
+          "region": 54,
+          "number": 10,
+          "x": 94.1,
+          "y": 40.8,
+          "size": 4.5
+        },
+        {
+          "region": 55,
+          "number": 10,
+          "x": 126,
+          "y": 70.8,
+          "size": 5.5
+        },
+        {
+          "region": 56,
+          "number": 3,
+          "x": 123.8,
+          "y": 56,
+          "size": 4.5
+        },
+        {
+          "region": 57,
+          "number": 1,
+          "x": 128.9,
+          "y": 56,
+          "size": 4.5
+        },
+        {
+          "region": 58,
+          "number": 7,
+          "x": 133.9,
+          "y": 56,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Fietsen op de dijk",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "grachtenhuizen",
+    "order": 752,
+    "category": "wereld",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 50,
+    "colorByNumber": {
+      "codes": "-rrw------goow------gwwww------gbbw------gz--wbr-y",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 1,
+          "number": 1,
+          "x": 30.2,
+          "y": 74.2,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 23.3,
+          "y": 52,
+          "size": 7.9
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 28,
+          "y": 45.9,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 18,
+          "y": 111.5,
+          "size": 6.3
+        },
+        {
+          "region": 11,
+          "number": 4,
+          "x": 94,
+          "y": 105.2,
+          "size": 4.6
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 67.6,
+          "y": 39,
+          "size": 8.3
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 74.9,
+          "y": 37.9,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 3,
+          "x": 64.4,
+          "y": 112.5,
+          "size": 7
+        },
+        {
+          "region": 21,
+          "number": 2,
+          "x": 140.3,
+          "y": 116.9,
+          "size": 6.5
+        },
+        {
+          "region": 22,
+          "number": 2,
+          "x": 117.3,
+          "y": 56.2,
+          "size": 7.8
+        },
+        {
+          "region": 23,
+          "number": 2,
+          "x": 119.8,
+          "y": 37.2,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 2,
+          "x": 121.9,
+          "y": 49.9,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 3,
+          "x": 111.9,
+          "y": 111.5,
+          "size": 6.3
+        },
+        {
+          "region": 32,
+          "number": 5,
+          "x": 152,
+          "y": 88.5,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 5,
+          "x": 156.8,
+          "y": 60.1,
+          "size": 6.8
+        },
+        {
+          "region": 34,
+          "number": 2,
+          "x": 168.9,
+          "y": 41.9,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 3,
+          "x": 158.4,
+          "y": 112.5,
+          "size": 7
+        },
+        {
+          "region": 42,
+          "number": 6,
+          "x": 15,
+          "y": 134.6,
+          "size": 9.8
+        },
+        {
+          "region": 45,
+          "number": 2,
+          "x": 5,
+          "y": 148.8,
+          "size": 5.5
+        },
+        {
+          "region": 46,
+          "number": 5,
+          "x": 25,
+          "y": 175.9,
+          "size": 13
+        },
+        {
+          "region": 47,
+          "number": 1,
+          "x": 125.3,
+          "y": 174.6,
+          "size": 9.8
+        },
+        {
+          "region": 49,
+          "number": 7,
+          "x": 170.7,
+          "y": 152.9,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Grachtenhuizen",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "herfstwandeling",
+    "order": 753,
+    "category": "natuur",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 39,
+    "colorByNumber": {
+      "codes": "wworyoryoroyrbnnyyyo-o--gggg-rbbbbb-r-r",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 85,
+          "y": 187.6,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 165.5,
+          "y": 162.5,
+          "size": 10.2
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 168.8,
+          "y": 65.7,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 115.7,
+          "y": 30.4,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 133.6,
+          "y": 111.6,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 189.6,
+          "y": 120.3,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 27.7,
+          "y": 79.6,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 25.7,
+          "y": 140.4,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 138.7,
+          "y": 150.2,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 18.7,
+          "y": 186.3,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 59.6,
+          "y": 189.7,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 4,
+          "x": 178.7,
+          "y": 187.8,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 3,
+          "x": 150.9,
+          "y": 181.8,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 5,
+          "x": 118,
+          "y": 183.7,
+          "size": 6.6
+        },
+        {
+          "region": 14,
+          "number": 6,
+          "x": 69.8,
+          "y": 146.6,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 6,
+          "x": 85.3,
+          "y": 146.6,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 4,
+          "x": 84.3,
+          "y": 131.4,
+          "size": 13
+        },
+        {
+          "region": 17,
+          "number": 4,
+          "x": 64.3,
+          "y": 114.5,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 4,
+          "x": 67.7,
+          "y": 120.4,
+          "size": 5.9
+        },
+        {
+          "region": 19,
+          "number": 2,
+          "x": 69.8,
+          "y": 107.5,
+          "size": 8.7
+        },
+        {
+          "region": 21,
+          "number": 2,
+          "x": 76.3,
+          "y": 75.4,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 7,
+          "x": 73.7,
+          "y": 156.5,
+          "size": 6.6
+        },
+        {
+          "region": 25,
+          "number": 7,
+          "x": 87.7,
+          "y": 156.5,
+          "size": 6.6
+        },
+        {
+          "region": 26,
+          "number": 7,
+          "x": 70.8,
+          "y": 171.8,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 7,
+          "x": 88.8,
+          "y": 171.8,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 3,
+          "x": 85.6,
+          "y": 42.9,
+          "size": 12.8
+        },
+        {
+          "region": 30,
+          "number": 5,
+          "x": 29.8,
+          "y": 71.2,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 5,
+          "x": 147.9,
+          "y": 41.2,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 5,
+          "x": 19.9,
+          "y": 111.2,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 5,
+          "x": 139.9,
+          "y": 77.2,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 5,
+          "x": 35.8,
+          "y": 31.2,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 3,
+          "x": 23,
+          "y": 168.4,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 3,
+          "x": 37,
+          "y": 168.4,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Herfstwandeling met paraplu",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "juf-in-de-klas",
+    "order": 754,
+    "category": "beroepen",
+    "age": "6-9",
+    "world": null,
+    "holiday": "school",
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 40,
+    "colorByNumber": {
+      "codes": "wwgw--nnxxmmmpx-x--wwwbbb-o--owwwrrr-x--",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 15,
+          "y": 192.6,
+          "size": 7.6
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 21.9,
+          "y": 80.4,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 51,
+          "y": 47.5,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 1,
+          "x": 42.3,
+          "y": 87.9,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 159.4,
+          "y": 148.6,
+          "size": 7.1
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 172.6,
+          "y": 148.6,
+          "size": 7.1
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 155.8,
+          "y": 160.8,
+          "size": 4.9
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 173.8,
+          "y": 160.8,
+          "size": 4.9
+        },
+        {
+          "region": 10,
+          "number": 5,
+          "x": 145.3,
+          "y": 91.9,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 5,
+          "x": 185.4,
+          "y": 104,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 158.4,
+          "y": 110.9,
+          "size": 9.7
+        },
+        {
+          "region": 13,
+          "number": 6,
+          "x": 157.3,
+          "y": 131.4,
+          "size": 12
+        },
+        {
+          "region": 14,
+          "number": 4,
+          "x": 155.8,
+          "y": 95.5,
+          "size": 8.7
+        },
+        {
+          "region": 16,
+          "number": 4,
+          "x": 162.3,
+          "y": 63.4,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 1,
+          "x": 19.1,
+          "y": 153.8,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 1,
+          "x": 20.4,
+          "y": 161.5,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 1,
+          "x": 75.4,
+          "y": 161.5,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 7,
+          "x": 31.6,
+          "y": 103.8,
+          "size": 5.3
+        },
+        {
+          "region": 23,
+          "number": 7,
+          "x": 66,
+          "y": 146.1,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 7,
+          "x": 47.3,
+          "y": 154.9,
+          "size": 13
+        },
+        {
+          "region": 26,
+          "number": 8,
+          "x": 51.2,
+          "y": 116.3,
+          "size": 8.6
+        },
+        {
+          "region": 29,
+          "number": 8,
+          "x": 46.6,
+          "y": 129.4,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 1,
+          "x": 83.1,
+          "y": 154.2,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 1,
+          "x": 84.4,
+          "y": 161.5,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 1,
+          "x": 139.4,
+          "y": 161.5,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 9,
+          "x": 95,
+          "y": 144.3,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 9,
+          "x": 129,
+          "y": 144.3,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 9,
+          "x": 111.3,
+          "y": 149.5,
+          "size": 13
+        },
+        {
+          "region": 37,
+          "number": 4,
+          "x": 111.4,
+          "y": 121.4,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Juf in de klas",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "kamperen-in-de-tent",
+    "order": 755,
+    "category": "natuur",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 23,
+    "colorByNumber": {
+      "codes": "ngyyyyyywgggoo-yyp-wzry",
+      "palette": [
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 65,
+          "y": 45,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 175,
+          "y": 178.6,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 160,
+          "y": 24.8,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 23.8,
+          "y": 22.2,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 59.8,
+          "y": 39.8,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 109.8,
+          "y": 16.2,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 139.8,
+          "y": 49.8,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 91.8,
+          "y": 47.8,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 33.5,
+          "y": 158.6,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 25.6,
+          "y": 144.2,
+          "size": 12.6
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 30.2,
+          "y": 122,
+          "size": 12.6
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 33.1,
+          "y": 99.8,
+          "size": 11.9
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 136.6,
+          "y": 92.4,
+          "size": 13
+        },
+        {
+          "region": 13,
+          "number": 5,
+          "x": 97.8,
+          "y": 102.8,
+          "size": 13
+        },
+        {
+          "region": 15,
+          "number": 3,
+          "x": 84.1,
+          "y": 156.8,
+          "size": 5.1
+        },
+        {
+          "region": 16,
+          "number": 3,
+          "x": 115.9,
+          "y": 156.8,
+          "size": 5.1
+        },
+        {
+          "region": 17,
+          "number": 6,
+          "x": 96.9,
+          "y": 155.5,
+          "size": 9.8
+        },
+        {
+          "region": 19,
+          "number": 4,
+          "x": 96.8,
+          "y": 131.9,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 7,
+          "x": 67.3,
+          "y": 160.3,
+          "size": 4.7
+        },
+        {
+          "region": 21,
+          "number": 8,
+          "x": 31.1,
+          "y": 174.3,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 3,
+          "x": 37.1,
+          "y": 178.8,
+          "size": 5.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Kamperen in de tent",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "kapper",
+    "order": 756,
+    "category": "beroepen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 44,
+    "colorByNumber": {
+      "codes": "-bwmgozzt-----xxwwwwwwwwww-wxxxxpppx-x-----z",
+      "palette": [
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        }
+      ],
+      "labels": [
+        {
+          "region": 1,
+          "number": 1,
+          "x": 47.4,
+          "y": 37.7,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 153.4,
+          "y": 32.4,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 160.3,
+          "y": 18.4,
+          "size": 4.9
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 172.3,
+          "y": 14.5,
+          "size": 4.9
+        },
+        {
+          "region": 5,
+          "number": 5,
+          "x": 186.3,
+          "y": 20.5,
+          "size": 4.9
+        },
+        {
+          "region": 6,
+          "number": 6,
+          "x": 65.2,
+          "y": 183.8,
+          "size": 5.2
+        },
+        {
+          "region": 7,
+          "number": 6,
+          "x": 75.8,
+          "y": 170.2,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 7,
+          "x": 70.6,
+          "y": 105.8,
+          "size": 13
+        },
+        {
+          "region": 14,
+          "number": 8,
+          "x": 66.9,
+          "y": 163.8,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 8,
+          "x": 84.9,
+          "y": 163.8,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 2,
+          "x": 59.1,
+          "y": 80.1,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 2,
+          "x": 57.9,
+          "y": 72.7,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 2,
+          "x": 59.2,
+          "y": 64.8,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 2,
+          "x": 63.7,
+          "y": 58.3,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 2,
+          "x": 70.6,
+          "y": 54.2,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 2,
+          "x": 78.7,
+          "y": 53.7,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 2,
+          "x": 85.6,
+          "y": 56.7,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 2,
+          "x": 91.2,
+          "y": 62,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 2,
+          "x": 94.1,
+          "y": 69.3,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 2,
+          "x": 92.8,
+          "y": 79.2,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 2,
+          "x": 78.3,
+          "y": 61.9,
+          "size": 4.9
+        },
+        {
+          "region": 28,
+          "number": 8,
+          "x": 141.7,
+          "y": 121.5,
+          "size": 6.6
+        },
+        {
+          "region": 29,
+          "number": 8,
+          "x": 157.7,
+          "y": 121.5,
+          "size": 6.6
+        },
+        {
+          "region": 30,
+          "number": 8,
+          "x": 137.8,
+          "y": 145.8,
+          "size": 4.9
+        },
+        {
+          "region": 31,
+          "number": 8,
+          "x": 159.8,
+          "y": 145.8,
+          "size": 4.9
+        },
+        {
+          "region": 32,
+          "number": 9,
+          "x": 111.7,
+          "y": 65.4,
+          "size": 6.2
+        },
+        {
+          "region": 33,
+          "number": 9,
+          "x": 124.9,
+          "y": 84.6,
+          "size": 6.1
+        },
+        {
+          "region": 34,
+          "number": 9,
+          "x": 144.1,
+          "y": 82.4,
+          "size": 10.9
+        },
+        {
+          "region": 35,
+          "number": 8,
+          "x": 149.6,
+          "y": 37.8,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 8,
+          "x": 146.3,
+          "y": 45.4,
+          "size": 4.5
+        },
+        {
+          "region": 43,
+          "number": 6,
+          "x": 98.8,
+          "y": 87.2,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bij de kapper",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "klompen",
+    "order": 757,
+    "category": "wereld",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 27,
+    "colorByNumber": {
+      "codes": "lyrymggywrrrrryggywrrrrrygg",
+      "palette": [
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 155,
+          "y": 187.6,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 171.4,
+          "y": 25.5,
+          "size": 11.9
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 69.6,
+          "y": 62,
+          "size": 6.7
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 83.6,
+          "y": 54,
+          "size": 6.7
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 97.6,
+          "y": 68,
+          "size": 6.7
+        },
+        {
+          "region": 5,
+          "number": 5,
+          "x": 60.7,
+          "y": 79.1,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 5,
+          "x": 94.7,
+          "y": 85.8,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 108.1,
+          "y": 111.8,
+          "size": 13
+        },
+        {
+          "region": 8,
+          "number": 6,
+          "x": 77.8,
+          "y": 95.4,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 139.8,
+          "y": 103.5,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 145.3,
+          "y": 107.3,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 3,
+          "x": 143.4,
+          "y": 113.5,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 3,
+          "x": 136.6,
+          "y": 113.5,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 3,
+          "x": 134.7,
+          "y": 107.3,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 2,
+          "x": 139.9,
+          "y": 108.9,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 5,
+          "x": 127.7,
+          "y": 112.8,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 5,
+          "x": 151.7,
+          "y": 113.2,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 2,
+          "x": 74.1,
+          "y": 159.8,
+          "size": 13
+        },
+        {
+          "region": 18,
+          "number": 6,
+          "x": 43.8,
+          "y": 143.4,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 3,
+          "x": 105.8,
+          "y": 151.5,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 3,
+          "x": 111.3,
+          "y": 155.3,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 3,
+          "x": 109.4,
+          "y": 161.5,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 3,
+          "x": 102.6,
+          "y": 161.5,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 3,
+          "x": 100.7,
+          "y": 155.3,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 2,
+          "x": 105.9,
+          "y": 156.9,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 5,
+          "x": 93.7,
+          "y": 160.8,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 5,
+          "x": 117.7,
+          "y": 161.2,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Klompen met tulpen",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "lente-boomgaard",
+    "order": 758,
+    "category": "natuur",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 194,
+    "colorByNumber": {
+      "codes": "l-ywlkkkkkmkkkkkmkkkkkmkkkkkmkkkkkmkkkkkmkkkkkmkkkkkmwlkkkkkmkkkkkmkkkkkmkkkkkmkkkkkmkkkkkmkkkkkmkkkkkmkkkkkmkkkkkmwlkkkkkmkkkkkmkkkkkmkkkkkmkkkkkmkkkkkmkkkkkmkkkkkmkkkkkmxxxx-zzxxxx-zzwyxy--y--",
+      "palette": [
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 65,
+          "y": 174.4,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 176.5,
+          "y": 21.5,
+          "size": 10.4
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 99.8,
+          "y": 144.1,
+          "size": 5.2
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 117.8,
+          "y": 98.8,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 104.5,
+          "y": 106,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 107.7,
+          "y": 108.1,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 106.6,
+          "y": 112,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 102.5,
+          "y": 112,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 101.4,
+          "y": 108.3,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 5,
+          "x": 104.5,
+          "y": 109.2,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 4,
+          "x": 101.4,
+          "y": 78.1,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 103.7,
+          "y": 80.8,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 4,
+          "x": 102.4,
+          "y": 84.7,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 4,
+          "x": 97.4,
+          "y": 85.8,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 4,
+          "x": 97.7,
+          "y": 81.1,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 5,
+          "x": 101.3,
+          "y": 82.9,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 4,
+          "x": 108.5,
+          "y": 81.9,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 4,
+          "x": 112,
+          "y": 83.8,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 4,
+          "x": 110.9,
+          "y": 87.7,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 4,
+          "x": 106.8,
+          "y": 87.7,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 4,
+          "x": 105.7,
+          "y": 83.8,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 5,
+          "x": 108.7,
+          "y": 84.9,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 4,
+          "x": 85.7,
+          "y": 78.3,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 4,
+          "x": 88.9,
+          "y": 80.4,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 4,
+          "x": 87.8,
+          "y": 84.3,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 4,
+          "x": 83.7,
+          "y": 84.3,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 4,
+          "x": 82.6,
+          "y": 80.6,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 5,
+          "x": 85.7,
+          "y": 81.5,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 4,
+          "x": 92.2,
+          "y": 91.4,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 4,
+          "x": 95.4,
+          "y": 93.6,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 4,
+          "x": 94.3,
+          "y": 97.4,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 4,
+          "x": 90.2,
+          "y": 97.4,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 4,
+          "x": 89.1,
+          "y": 93.6,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 5,
+          "x": 92.2,
+          "y": 94.6,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 4,
+          "x": 90.4,
+          "y": 68.9,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 4,
+          "x": 93.7,
+          "y": 71,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 4,
+          "x": 92.6,
+          "y": 74.9,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 4,
+          "x": 88.5,
+          "y": 74.9,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 4,
+          "x": 87.4,
+          "y": 71,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 5,
+          "x": 90.4,
+          "y": 72.1,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 4,
+          "x": 96.9,
+          "y": 78.2,
+          "size": 4.5
+        },
+        {
+          "region": 42,
+          "number": 4,
+          "x": 100.2,
+          "y": 80.3,
+          "size": 4.5
+        },
+        {
+          "region": 43,
+          "number": 4,
+          "x": 99.1,
+          "y": 84.2,
+          "size": 4.5
+        },
+        {
+          "region": 44,
+          "number": 4,
+          "x": 95,
+          "y": 84.2,
+          "size": 4.5
+        },
+        {
+          "region": 45,
+          "number": 4,
+          "x": 93.9,
+          "y": 80.3,
+          "size": 4.5
+        },
+        {
+          "region": 46,
+          "number": 5,
+          "x": 96.9,
+          "y": 81.4,
+          "size": 4.5
+        },
+        {
+          "region": 47,
+          "number": 4,
+          "x": 110.6,
+          "y": 72.9,
+          "size": 4.5
+        },
+        {
+          "region": 48,
+          "number": 4,
+          "x": 113.9,
+          "y": 75.2,
+          "size": 4.5
+        },
+        {
+          "region": 49,
+          "number": 4,
+          "x": 112.8,
+          "y": 78.8,
+          "size": 4.5
+        },
+        {
+          "region": 50,
+          "number": 4,
+          "x": 108.8,
+          "y": 79,
+          "size": 4.5
+        },
+        {
+          "region": 51,
+          "number": 4,
+          "x": 107.6,
+          "y": 75,
+          "size": 4.5
+        },
+        {
+          "region": 52,
+          "number": 5,
+          "x": 110.6,
+          "y": 76.1,
+          "size": 4.5
+        },
+        {
+          "region": 53,
+          "number": 3,
+          "x": 39.8,
+          "y": 154.7,
+          "size": 5.2
+        },
+        {
+          "region": 54,
+          "number": 1,
+          "x": 61.9,
+          "y": 68.8,
+          "size": 13
+        },
+        {
+          "region": 55,
+          "number": 4,
+          "x": 27.8,
+          "y": 91.7,
+          "size": 4.5
+        },
+        {
+          "region": 56,
+          "number": 4,
+          "x": 30.8,
+          "y": 93.8,
+          "size": 4.5
+        },
+        {
+          "region": 57,
+          "number": 4,
+          "x": 29.9,
+          "y": 96.2,
+          "size": 4.5
+        },
+        {
+          "region": 58,
+          "number": 4,
+          "x": 25.6,
+          "y": 97.7,
+          "size": 4.5
+        },
+        {
+          "region": 59,
+          "number": 4,
+          "x": 24.5,
+          "y": 94,
+          "size": 4.5
+        },
+        {
+          "region": 60,
+          "number": 5,
+          "x": 27.6,
+          "y": 94.9,
+          "size": 4.5
+        },
+        {
+          "region": 61,
+          "number": 4,
+          "x": 39,
+          "y": 47.9,
+          "size": 4.5
+        },
+        {
+          "region": 62,
+          "number": 4,
+          "x": 42.4,
+          "y": 49.9,
+          "size": 4.5
+        },
+        {
+          "region": 63,
+          "number": 4,
+          "x": 41.3,
+          "y": 53.9,
+          "size": 4.5
+        },
+        {
+          "region": 64,
+          "number": 4,
+          "x": 37.2,
+          "y": 53.9,
+          "size": 4.5
+        },
+        {
+          "region": 65,
+          "number": 4,
+          "x": 36.1,
+          "y": 50.1,
+          "size": 4.5
+        },
+        {
+          "region": 66,
+          "number": 5,
+          "x": 39.2,
+          "y": 51.1,
+          "size": 4.5
+        },
+        {
+          "region": 67,
+          "number": 4,
+          "x": 29.9,
+          "y": 98.9,
+          "size": 4.5
+        },
+        {
+          "region": 68,
+          "number": 4,
+          "x": 33.1,
+          "y": 101,
+          "size": 4.5
+        },
+        {
+          "region": 69,
+          "number": 4,
+          "x": 32,
+          "y": 105,
+          "size": 4.5
+        },
+        {
+          "region": 70,
+          "number": 4,
+          "x": 28.1,
+          "y": 105,
+          "size": 4.5
+        },
+        {
+          "region": 71,
+          "number": 4,
+          "x": 26.8,
+          "y": 101.2,
+          "size": 4.5
+        },
+        {
+          "region": 72,
+          "number": 5,
+          "x": 29.9,
+          "y": 102.1,
+          "size": 4.5
+        },
+        {
+          "region": 73,
+          "number": 4,
+          "x": 47,
+          "y": 92.2,
+          "size": 4.5
+        },
+        {
+          "region": 74,
+          "number": 4,
+          "x": 50.3,
+          "y": 94.3,
+          "size": 4.5
+        },
+        {
+          "region": 75,
+          "number": 4,
+          "x": 49.2,
+          "y": 98.2,
+          "size": 4.5
+        },
+        {
+          "region": 76,
+          "number": 4,
+          "x": 45,
+          "y": 98.2,
+          "size": 4.5
+        },
+        {
+          "region": 77,
+          "number": 4,
+          "x": 44,
+          "y": 94.3,
+          "size": 4.5
+        },
+        {
+          "region": 78,
+          "number": 5,
+          "x": 47,
+          "y": 95.4,
+          "size": 4.5
+        },
+        {
+          "region": 79,
+          "number": 4,
+          "x": 42.1,
+          "y": 38.9,
+          "size": 4.5
+        },
+        {
+          "region": 80,
+          "number": 4,
+          "x": 45.4,
+          "y": 41,
+          "size": 4.5
+        },
+        {
+          "region": 81,
+          "number": 4,
+          "x": 44.3,
+          "y": 44.9,
+          "size": 4.5
+        },
+        {
+          "region": 82,
+          "number": 4,
+          "x": 40.1,
+          "y": 44.9,
+          "size": 4.5
+        },
+        {
+          "region": 83,
+          "number": 4,
+          "x": 39,
+          "y": 41.2,
+          "size": 4.5
+        },
+        {
+          "region": 84,
+          "number": 5,
+          "x": 42.1,
+          "y": 42.1,
+          "size": 4.5
+        },
+        {
+          "region": 85,
+          "number": 4,
+          "x": 54,
+          "y": 46.8,
+          "size": 4.5
+        },
+        {
+          "region": 86,
+          "number": 4,
+          "x": 57.3,
+          "y": 49.1,
+          "size": 4.5
+        },
+        {
+          "region": 87,
+          "number": 4,
+          "x": 56.2,
+          "y": 52.7,
+          "size": 4.5
+        },
+        {
+          "region": 88,
+          "number": 4,
+          "x": 52.2,
+          "y": 52.9,
+          "size": 4.5
+        },
+        {
+          "region": 89,
+          "number": 4,
+          "x": 51,
+          "y": 48.9,
+          "size": 4.5
+        },
+        {
+          "region": 90,
+          "number": 5,
+          "x": 54,
+          "y": 50,
+          "size": 4.5
+        },
+        {
+          "region": 91,
+          "number": 4,
+          "x": 11.9,
+          "y": 70.5,
+          "size": 4.5
+        },
+        {
+          "region": 92,
+          "number": 4,
+          "x": 15.2,
+          "y": 72.6,
+          "size": 4.5
+        },
+        {
+          "region": 93,
+          "number": 4,
+          "x": 14.1,
+          "y": 76.5,
+          "size": 4.5
+        },
+        {
+          "region": 94,
+          "number": 4,
+          "x": 10,
+          "y": 76.5,
+          "size": 4.5
+        },
+        {
+          "region": 95,
+          "number": 4,
+          "x": 8.9,
+          "y": 72.6,
+          "size": 4.5
+        },
+        {
+          "region": 96,
+          "number": 5,
+          "x": 11.9,
+          "y": 73.7,
+          "size": 4.5
+        },
+        {
+          "region": 97,
+          "number": 4,
+          "x": 25.1,
+          "y": 68.5,
+          "size": 4.5
+        },
+        {
+          "region": 98,
+          "number": 4,
+          "x": 28.3,
+          "y": 70.6,
+          "size": 4.5
+        },
+        {
+          "region": 99,
+          "number": 4,
+          "x": 27.3,
+          "y": 74.5,
+          "size": 4.5
+        },
+        {
+          "region": 100,
+          "number": 4,
+          "x": 23.1,
+          "y": 74.5,
+          "size": 4.5
+        },
+        {
+          "region": 101,
+          "number": 4,
+          "x": 22,
+          "y": 70.8,
+          "size": 4.5
+        },
+        {
+          "region": 102,
+          "number": 5,
+          "x": 25.1,
+          "y": 71.7,
+          "size": 4.5
+        },
+        {
+          "region": 103,
+          "number": 4,
+          "x": 38,
+          "y": 89.9,
+          "size": 4.5
+        },
+        {
+          "region": 104,
+          "number": 4,
+          "x": 41.2,
+          "y": 92.1,
+          "size": 4.5
+        },
+        {
+          "region": 105,
+          "number": 4,
+          "x": 40.1,
+          "y": 95.9,
+          "size": 4.5
+        },
+        {
+          "region": 106,
+          "number": 4,
+          "x": 36,
+          "y": 95.9,
+          "size": 4.5
+        },
+        {
+          "region": 107,
+          "number": 4,
+          "x": 34.9,
+          "y": 92.1,
+          "size": 4.5
+        },
+        {
+          "region": 108,
+          "number": 5,
+          "x": 38,
+          "y": 93.1,
+          "size": 4.5
+        },
+        {
+          "region": 109,
+          "number": 4,
+          "x": 52.6,
+          "y": 83.9,
+          "size": 4.5
+        },
+        {
+          "region": 110,
+          "number": 4,
+          "x": 55.8,
+          "y": 86,
+          "size": 4.5
+        },
+        {
+          "region": 111,
+          "number": 4,
+          "x": 54.8,
+          "y": 89.9,
+          "size": 4.5
+        },
+        {
+          "region": 112,
+          "number": 4,
+          "x": 50.6,
+          "y": 89.9,
+          "size": 4.5
+        },
+        {
+          "region": 113,
+          "number": 4,
+          "x": 49.5,
+          "y": 86.2,
+          "size": 4.5
+        },
+        {
+          "region": 114,
+          "number": 5,
+          "x": 52.6,
+          "y": 87.1,
+          "size": 4.5
+        },
+        {
+          "region": 115,
+          "number": 3,
+          "x": 161.8,
+          "y": 153.2,
+          "size": 5.2
+        },
+        {
+          "region": 116,
+          "number": 1,
+          "x": 171.4,
+          "y": 46.4,
+          "size": 13
+        },
+        {
+          "region": 117,
+          "number": 4,
+          "x": 142.6,
+          "y": 87.7,
+          "size": 4.5
+        },
+        {
+          "region": 118,
+          "number": 4,
+          "x": 145.3,
+          "y": 89.5,
+          "size": 4.5
+        },
+        {
+          "region": 119,
+          "number": 4,
+          "x": 144.6,
+          "y": 91.8,
+          "size": 4.5
+        },
+        {
+          "region": 120,
+          "number": 4,
+          "x": 140.4,
+          "y": 93.7,
+          "size": 4.5
+        },
+        {
+          "region": 121,
+          "number": 4,
+          "x": 139.4,
+          "y": 89.7,
+          "size": 4.5
+        },
+        {
+          "region": 122,
+          "number": 5,
+          "x": 142.4,
+          "y": 90.9,
+          "size": 4.5
+        },
+        {
+          "region": 123,
+          "number": 4,
+          "x": 142.8,
+          "y": 46.1,
+          "size": 4.5
+        },
+        {
+          "region": 124,
+          "number": 4,
+          "x": 146.1,
+          "y": 48.2,
+          "size": 4.5
+        },
+        {
+          "region": 125,
+          "number": 4,
+          "x": 144.2,
+          "y": 51.4,
+          "size": 4.5
+        },
+        {
+          "region": 126,
+          "number": 4,
+          "x": 140.8,
+          "y": 52,
+          "size": 4.5
+        },
+        {
+          "region": 127,
+          "number": 4,
+          "x": 139.7,
+          "y": 48.4,
+          "size": 4.5
+        },
+        {
+          "region": 128,
+          "number": 5,
+          "x": 142.8,
+          "y": 49.3,
+          "size": 4.5
+        },
+        {
+          "region": 129,
+          "number": 4,
+          "x": 147.8,
+          "y": 72.8,
+          "size": 4.5
+        },
+        {
+          "region": 130,
+          "number": 4,
+          "x": 151.1,
+          "y": 75.1,
+          "size": 4.5
+        },
+        {
+          "region": 131,
+          "number": 4,
+          "x": 150,
+          "y": 78.7,
+          "size": 4.5
+        },
+        {
+          "region": 132,
+          "number": 4,
+          "x": 146.1,
+          "y": 78.9,
+          "size": 4.5
+        },
+        {
+          "region": 133,
+          "number": 4,
+          "x": 144.8,
+          "y": 74.9,
+          "size": 4.5
+        },
+        {
+          "region": 134,
+          "number": 5,
+          "x": 147.8,
+          "y": 76,
+          "size": 4.5
+        },
+        {
+          "region": 135,
+          "number": 4,
+          "x": 160.5,
+          "y": 87.5,
+          "size": 4.5
+        },
+        {
+          "region": 136,
+          "number": 4,
+          "x": 163.7,
+          "y": 89.6,
+          "size": 4.5
+        },
+        {
+          "region": 137,
+          "number": 4,
+          "x": 162.7,
+          "y": 93.5,
+          "size": 4.5
+        },
+        {
+          "region": 138,
+          "number": 4,
+          "x": 158.5,
+          "y": 93.5,
+          "size": 4.5
+        },
+        {
+          "region": 139,
+          "number": 4,
+          "x": 157.4,
+          "y": 89.8,
+          "size": 4.5
+        },
+        {
+          "region": 140,
+          "number": 5,
+          "x": 160.5,
+          "y": 90.7,
+          "size": 4.5
+        },
+        {
+          "region": 141,
+          "number": 4,
+          "x": 155.1,
+          "y": 36.2,
+          "size": 4.5
+        },
+        {
+          "region": 142,
+          "number": 4,
+          "x": 158.4,
+          "y": 38.3,
+          "size": 4.5
+        },
+        {
+          "region": 143,
+          "number": 4,
+          "x": 157.3,
+          "y": 42.2,
+          "size": 4.5
+        },
+        {
+          "region": 144,
+          "number": 4,
+          "x": 153.2,
+          "y": 42.2,
+          "size": 4.5
+        },
+        {
+          "region": 145,
+          "number": 4,
+          "x": 152.1,
+          "y": 38.3,
+          "size": 4.5
+        },
+        {
+          "region": 146,
+          "number": 5,
+          "x": 155.1,
+          "y": 39.4,
+          "size": 4.5
+        },
+        {
+          "region": 147,
+          "number": 4,
+          "x": 147.2,
+          "y": 92,
+          "size": 4.5
+        },
+        {
+          "region": 148,
+          "number": 4,
+          "x": 150.5,
+          "y": 94.1,
+          "size": 4.5
+        },
+        {
+          "region": 149,
+          "number": 4,
+          "x": 149.4,
+          "y": 98,
+          "size": 4.5
+        },
+        {
+          "region": 150,
+          "number": 4,
+          "x": 145.3,
+          "y": 98,
+          "size": 4.5
+        },
+        {
+          "region": 151,
+          "number": 4,
+          "x": 144.2,
+          "y": 94.1,
+          "size": 4.5
+        },
+        {
+          "region": 152,
+          "number": 5,
+          "x": 147.2,
+          "y": 95.2,
+          "size": 4.5
+        },
+        {
+          "region": 153,
+          "number": 4,
+          "x": 182.3,
+          "y": 58.7,
+          "size": 4.5
+        },
+        {
+          "region": 154,
+          "number": 4,
+          "x": 185.5,
+          "y": 60.8,
+          "size": 4.5
+        },
+        {
+          "region": 155,
+          "number": 4,
+          "x": 184.5,
+          "y": 64.7,
+          "size": 4.5
+        },
+        {
+          "region": 156,
+          "number": 4,
+          "x": 180.3,
+          "y": 64.7,
+          "size": 4.5
+        },
+        {
+          "region": 157,
+          "number": 4,
+          "x": 179.2,
+          "y": 61,
+          "size": 4.5
+        },
+        {
+          "region": 158,
+          "number": 5,
+          "x": 182.3,
+          "y": 61.9,
+          "size": 4.5
+        },
+        {
+          "region": 159,
+          "number": 4,
+          "x": 146.6,
+          "y": 51.7,
+          "size": 4.5
+        },
+        {
+          "region": 160,
+          "number": 4,
+          "x": 149.8,
+          "y": 53.8,
+          "size": 4.5
+        },
+        {
+          "region": 161,
+          "number": 4,
+          "x": 148.7,
+          "y": 57.7,
+          "size": 4.5
+        },
+        {
+          "region": 162,
+          "number": 4,
+          "x": 144.6,
+          "y": 57.7,
+          "size": 4.5
+        },
+        {
+          "region": 163,
+          "number": 4,
+          "x": 143.5,
+          "y": 54,
+          "size": 4.5
+        },
+        {
+          "region": 164,
+          "number": 5,
+          "x": 146.6,
+          "y": 54.9,
+          "size": 4.5
+        },
+        {
+          "region": 165,
+          "number": 4,
+          "x": 164.1,
+          "y": 76.2,
+          "size": 4.5
+        },
+        {
+          "region": 166,
+          "number": 4,
+          "x": 167.4,
+          "y": 78.3,
+          "size": 4.5
+        },
+        {
+          "region": 167,
+          "number": 4,
+          "x": 166.3,
+          "y": 82.2,
+          "size": 4.5
+        },
+        {
+          "region": 168,
+          "number": 4,
+          "x": 162.2,
+          "y": 82.2,
+          "size": 4.5
+        },
+        {
+          "region": 169,
+          "number": 4,
+          "x": 161.1,
+          "y": 78.3,
+          "size": 4.5
+        },
+        {
+          "region": 170,
+          "number": 5,
+          "x": 164.1,
+          "y": 79.4,
+          "size": 4.5
+        },
+        {
+          "region": 171,
+          "number": 6,
+          "x": 98.7,
+          "y": 180.4,
+          "size": 4.5
+        },
+        {
+          "region": 172,
+          "number": 6,
+          "x": 106.4,
+          "y": 182.4,
+          "size": 4.5
+        },
+        {
+          "region": 173,
+          "number": 6,
+          "x": 118.5,
+          "y": 183.1,
+          "size": 4.5
+        },
+        {
+          "region": 174,
+          "number": 6,
+          "x": 125.1,
+          "y": 180.4,
+          "size": 4.5
+        },
+        {
+          "region": 176,
+          "number": 7,
+          "x": 132.8,
+          "y": 162.9,
+          "size": 6.3
+        },
+        {
+          "region": 177,
+          "number": 7,
+          "x": 126.6,
+          "y": 154.9,
+          "size": 4.5
+        },
+        {
+          "region": 178,
+          "number": 6,
+          "x": 141.5,
+          "y": 191.2,
+          "size": 4.5
+        },
+        {
+          "region": 179,
+          "number": 6,
+          "x": 146.4,
+          "y": 192.4,
+          "size": 4.5
+        },
+        {
+          "region": 180,
+          "number": 6,
+          "x": 154.1,
+          "y": 192.4,
+          "size": 4.5
+        },
+        {
+          "region": 181,
+          "number": 6,
+          "x": 158.3,
+          "y": 191.2,
+          "size": 4.5
+        },
+        {
+          "region": 183,
+          "number": 7,
+          "x": 136.7,
+          "y": 180,
+          "size": 4.5
+        },
+        {
+          "region": 184,
+          "number": 7,
+          "x": 139.7,
+          "y": 174.9,
+          "size": 4.5
+        },
+        {
+          "region": 185,
+          "number": 3,
+          "x": 7,
+          "y": 184.9,
+          "size": 4.5
+        },
+        {
+          "region": 186,
+          "number": 2,
+          "x": 23.2,
+          "y": 160.8,
+          "size": 13
+        },
+        {
+          "region": 187,
+          "number": 6,
+          "x": 23.8,
+          "y": 178.2,
+          "size": 4.5
+        },
+        {
+          "region": 188,
+          "number": 2,
+          "x": 55.8,
+          "y": 150.4,
+          "size": 4.5
+        },
+        {
+          "region": 191,
+          "number": 2,
+          "x": 69.8,
+          "y": 140.4,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Lente in de boomgaard",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "paddenstoelhuisje",
+    "order": 759,
+    "category": "sprookjes",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 43,
+    "colorByNumber": {
+      "codes": "ly-wyz--r-------zzxxgxg-y--kr-opppppyyyyyyo",
+      "palette": [
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 15,
+          "y": 189.6,
+          "size": 11.4
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 29.5,
+          "y": 23.5,
+          "size": 10.8
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 99.4,
+          "y": 163.9,
+          "size": 11.7
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 99.6,
+          "y": 125.6,
+          "size": 9.8
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 137.7,
+          "y": 32,
+          "size": 6.6
+        },
+        {
+          "region": 8,
+          "number": 5,
+          "x": 103.6,
+          "y": 77.2,
+          "size": 13
+        },
+        {
+          "region": 16,
+          "number": 4,
+          "x": 99.1,
+          "y": 189.9,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 4,
+          "x": 91.1,
+          "y": 195.9,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 6,
+          "x": 150.9,
+          "y": 181.8,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 6,
+          "x": 166.9,
+          "y": 181.8,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 7,
+          "x": 168.1,
+          "y": 156.1,
+          "size": 8.3
+        },
+        {
+          "region": 21,
+          "number": 6,
+          "x": 149.5,
+          "y": 164.4,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 7,
+          "x": 143.7,
+          "y": 156.9,
+          "size": 5
+        },
+        {
+          "region": 24,
+          "number": 2,
+          "x": 139.7,
+          "y": 179.7,
+          "size": 6.6
+        },
+        {
+          "region": 27,
+          "number": 8,
+          "x": 159.9,
+          "y": 135.9,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 5,
+          "x": 161.3,
+          "y": 115.2,
+          "size": 12.5
+        },
+        {
+          "region": 30,
+          "number": 9,
+          "x": 31.6,
+          "y": 171.6,
+          "size": 8.7
+        },
+        {
+          "region": 31,
+          "number": 10,
+          "x": 185.9,
+          "y": 167.6,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 10,
+          "x": 190.2,
+          "y": 170.4,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 10,
+          "x": 188.8,
+          "y": 175.6,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 10,
+          "x": 183.5,
+          "y": 175.6,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 10,
+          "x": 181.8,
+          "y": 170.7,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 2,
+          "x": 185.9,
+          "y": 171.9,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 2,
+          "x": 59.9,
+          "y": 171.6,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 2,
+          "x": 64.2,
+          "y": 174.4,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 2,
+          "x": 62.8,
+          "y": 179.6,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 2,
+          "x": 57.5,
+          "y": 179.6,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 2,
+          "x": 55.8,
+          "y": 174.7,
+          "size": 4.5
+        },
+        {
+          "region": 42,
+          "number": 9,
+          "x": 59.9,
+          "y": 175.9,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Kabouterhuisje in een paddenstoel",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "picknick",
+    "order": 760,
+    "category": "eten",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 57,
+    "colorByNumber": {
+      "codes": "ly-wgpppwwwrwwwr-w--rrr-x--y-r-r-r-r-r-r-r-r-r-r-w-yrgo-y",
+      "palette": [
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 175,
+          "y": 125.6,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 175.4,
+          "y": 23.5,
+          "size": 11.9
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 31.7,
+          "y": 77.6,
+          "size": 6.6
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 30,
+          "y": 45.4,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 5,
+          "x": 44,
+          "y": 121.8,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 5,
+          "x": 78.4,
+          "y": 109.8,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 5,
+          "x": 61.2,
+          "y": 121.7,
+          "size": 13
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 46.6,
+          "y": 92.7,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 47.4,
+          "y": 98.6,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 47.4,
+          "y": 105.3,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 6,
+          "x": 47.5,
+          "y": 112.6,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 3,
+          "x": 77.3,
+          "y": 92.7,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 3,
+          "x": 76.2,
+          "y": 98.6,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 3,
+          "x": 76.2,
+          "y": 105.3,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 6,
+          "x": 76.3,
+          "y": 112.6,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 3,
+          "x": 60,
+          "y": 77,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 6,
+          "x": 126.7,
+          "y": 110,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 6,
+          "x": 157.7,
+          "y": 124.6,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 6,
+          "x": 139.2,
+          "y": 121.5,
+          "size": 13
+        },
+        {
+          "region": 24,
+          "number": 7,
+          "x": 135.5,
+          "y": 84.2,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 2,
+          "x": 92.8,
+          "y": 108,
+          "size": 5.2
+        },
+        {
+          "region": 29,
+          "number": 6,
+          "x": 119.1,
+          "y": 106.5,
+          "size": 5
+        },
+        {
+          "region": 31,
+          "number": 6,
+          "x": 36.5,
+          "y": 148.9,
+          "size": 10.2
+        },
+        {
+          "region": 33,
+          "number": 6,
+          "x": 18.2,
+          "y": 186.2,
+          "size": 10.2
+        },
+        {
+          "region": 35,
+          "number": 6,
+          "x": 66.6,
+          "y": 165.7,
+          "size": 7.4
+        },
+        {
+          "region": 37,
+          "number": 6,
+          "x": 81,
+          "y": 147,
+          "size": 6.2
+        },
+        {
+          "region": 39,
+          "number": 6,
+          "x": 78.4,
+          "y": 186.2,
+          "size": 10.2
+        },
+        {
+          "region": 41,
+          "number": 6,
+          "x": 121.1,
+          "y": 170.3,
+          "size": 8
+        },
+        {
+          "region": 43,
+          "number": 6,
+          "x": 134.2,
+          "y": 148.9,
+          "size": 10.2
+        },
+        {
+          "region": 45,
+          "number": 6,
+          "x": 140.4,
+          "y": 187.1,
+          "size": 10.2
+        },
+        {
+          "region": 47,
+          "number": 6,
+          "x": 162,
+          "y": 165.7,
+          "size": 8
+        },
+        {
+          "region": 49,
+          "number": 3,
+          "x": 98.4,
+          "y": 161.4,
+          "size": 13
+        },
+        {
+          "region": 51,
+          "number": 2,
+          "x": 55.3,
+          "y": 172.3,
+          "size": 4.5
+        },
+        {
+          "region": 52,
+          "number": 6,
+          "x": 145.7,
+          "y": 173.7,
+          "size": 6.5
+        },
+        {
+          "region": 53,
+          "number": 4,
+          "x": 157.7,
+          "y": 177.7,
+          "size": 6.5
+        },
+        {
+          "region": 54,
+          "number": 8,
+          "x": 172.8,
+          "y": 152.9,
+          "size": 5.5
+        },
+        {
+          "region": 56,
+          "number": 2,
+          "x": 183.5,
+          "y": 66.7,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Picknick in het gras",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "polder-met-koeien",
+    "order": 761,
+    "category": "boerderij",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 50,
+    "colorByNumber": {
+      "codes": "--lrz-gg-zbx-x-x-x-x-xxk-k-yx-x-x-x-x-xxk-k-yww--o",
+      "palette": [
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 2,
+          "number": 1,
+          "x": 165,
+          "y": 159.5,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 163.3,
+          "y": 85.2,
+          "size": 7.8
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 154.1,
+          "y": 70.3,
+          "size": 8.4
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 186.4,
+          "y": 81.4,
+          "size": 12.2
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 124.3,
+          "y": 83.5,
+          "size": 9.6
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 34.9,
+          "y": 61.9,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 5,
+          "x": 128.3,
+          "y": 186.5,
+          "size": 13
+        },
+        {
+          "region": 11,
+          "number": 6,
+          "x": 12.5,
+          "y": 167.3,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 6,
+          "x": 25.7,
+          "y": 181.7,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 6,
+          "x": 34.7,
+          "y": 181.7,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 6,
+          "x": 65.3,
+          "y": 181.7,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 6,
+          "x": 74.3,
+          "y": 181.7,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 6,
+          "x": 30.8,
+          "y": 149.1,
+          "size": 9.3
+        },
+        {
+          "region": 22,
+          "number": 6,
+          "x": 60.5,
+          "y": 153.6,
+          "size": 8.4
+        },
+        {
+          "region": 23,
+          "number": 7,
+          "x": 47.5,
+          "y": 170.4,
+          "size": 4.9
+        },
+        {
+          "region": 25,
+          "number": 7,
+          "x": 94.8,
+          "y": 153.4,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 8,
+          "x": 83.3,
+          "y": 131.2,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 6,
+          "x": 137.2,
+          "y": 121.7,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 6,
+          "x": 143.9,
+          "y": 128.8,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 6,
+          "x": 148.4,
+          "y": 128.8,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 6,
+          "x": 163.7,
+          "y": 128.8,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 6,
+          "x": 168.2,
+          "y": 128.8,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 6,
+          "x": 146.4,
+          "y": 112.6,
+          "size": 4.6
+        },
+        {
+          "region": 39,
+          "number": 6,
+          "x": 161.2,
+          "y": 114.8,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 7,
+          "x": 154.8,
+          "y": 123.2,
+          "size": 4.5
+        },
+        {
+          "region": 42,
+          "number": 7,
+          "x": 178.4,
+          "y": 114.7,
+          "size": 4.5
+        },
+        {
+          "region": 44,
+          "number": 8,
+          "x": 172.5,
+          "y": 104.3,
+          "size": 4.5
+        },
+        {
+          "region": 45,
+          "number": 9,
+          "x": 167.9,
+          "y": 135.8,
+          "size": 4.5
+        },
+        {
+          "region": 46,
+          "number": 9,
+          "x": 195.9,
+          "y": 135.8,
+          "size": 4.5
+        },
+        {
+          "region": 49,
+          "number": 10,
+          "x": 128.9,
+          "y": 145.9,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Koeien in de polder",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "reus-wolkenkasteel",
+    "order": 762,
+    "category": "sprookjes",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 52,
+    "colorByNumber": {
+      "codes": "lggggnnxxrrr-y--gggoooooooooo-o--o--ryb-ryb----w---y",
+      "palette": [
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 12.3,
+          "y": 190.7,
+          "size": 10.7
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 30.5,
+          "y": 184.5,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 51.4,
+          "y": 155.9,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 29.6,
+          "y": 132.8,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 52,
+          "y": 116,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 36.2,
+          "y": 183.2,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 44.9,
+          "y": 183.4,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 34.2,
+          "y": 191.2,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 46.8,
+          "y": 187.2,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 5,
+          "x": 33.7,
+          "y": 162.6,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 5,
+          "x": 46.6,
+          "y": 161.8,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 5,
+          "x": 39.6,
+          "y": 170.5,
+          "size": 7.8
+        },
+        {
+          "region": 13,
+          "number": 6,
+          "x": 39.7,
+          "y": 156,
+          "size": 6.8
+        },
+        {
+          "region": 16,
+          "number": 2,
+          "x": 120.8,
+          "y": 78.5,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 2,
+          "x": 177.6,
+          "y": 64.6,
+          "size": 7.4
+        },
+        {
+          "region": 18,
+          "number": 2,
+          "x": 165.9,
+          "y": 96,
+          "size": 12.9
+        },
+        {
+          "region": 19,
+          "number": 7,
+          "x": 121.2,
+          "y": 52.3,
+          "size": 5.9
+        },
+        {
+          "region": 20,
+          "number": 7,
+          "x": 119.2,
+          "y": 39.6,
+          "size": 6.3
+        },
+        {
+          "region": 21,
+          "number": 7,
+          "x": 121.4,
+          "y": 26.2,
+          "size": 6.5
+        },
+        {
+          "region": 22,
+          "number": 7,
+          "x": 129,
+          "y": 15.3,
+          "size": 6.3
+        },
+        {
+          "region": 23,
+          "number": 7,
+          "x": 140.7,
+          "y": 8.3,
+          "size": 6.3
+        },
+        {
+          "region": 24,
+          "number": 7,
+          "x": 154.6,
+          "y": 7.4,
+          "size": 6.3
+        },
+        {
+          "region": 25,
+          "number": 7,
+          "x": 166.2,
+          "y": 12.5,
+          "size": 6.3
+        },
+        {
+          "region": 26,
+          "number": 7,
+          "x": 175.7,
+          "y": 21.6,
+          "size": 6.3
+        },
+        {
+          "region": 27,
+          "number": 7,
+          "x": 179.8,
+          "y": 35,
+          "size": 5.9
+        },
+        {
+          "region": 28,
+          "number": 7,
+          "x": 179.6,
+          "y": 48.6,
+          "size": 6.5
+        },
+        {
+          "region": 30,
+          "number": 7,
+          "x": 153.8,
+          "y": 21.3,
+          "size": 8.3
+        },
+        {
+          "region": 33,
+          "number": 7,
+          "x": 148.8,
+          "y": 76.9,
+          "size": 13
+        },
+        {
+          "region": 36,
+          "number": 5,
+          "x": 60.4,
+          "y": 68.8,
+          "size": 7.9
+        },
+        {
+          "region": 37,
+          "number": 6,
+          "x": 63.3,
+          "y": 46.8,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 8,
+          "x": 60.8,
+          "y": 90.1,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 5,
+          "x": 108.4,
+          "y": 68.8,
+          "size": 7.9
+        },
+        {
+          "region": 41,
+          "number": 6,
+          "x": 111.3,
+          "y": 46.8,
+          "size": 4.5
+        },
+        {
+          "region": 42,
+          "number": 8,
+          "x": 108.8,
+          "y": 90.1,
+          "size": 4.5
+        },
+        {
+          "region": 47,
+          "number": 9,
+          "x": 79.2,
+          "y": 106.3,
+          "size": 4.5
+        },
+        {
+          "region": 51,
+          "number": 6,
+          "x": 23.5,
+          "y": 27.5,
+          "size": 10.8
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Reus bij het kasteel in de wolken",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "robotvriendje",
+    "order": 763,
+    "category": "sprookjes",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 45,
+    "colorByNumber": {
+      "codes": "ly-zzxxzzb-rygrzb-zzrznnxxyyywwwrwwwr-w--zrmm",
+      "palette": [
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 25,
+          "y": 190.5,
+          "size": 10.9
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 27.5,
+          "y": 25.5,
+          "size": 11.9
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 126.8,
+          "y": 156.8,
+          "size": 5.5
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 150.8,
+          "y": 156.8,
+          "size": 5.5
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 120.5,
+          "y": 179.8,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 146.5,
+          "y": 179.8,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 105.3,
+          "y": 119,
+          "size": 5.5
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 172.3,
+          "y": 98.7,
+          "size": 5.6
+        },
+        {
+          "region": 9,
+          "number": 5,
+          "x": 117.3,
+          "y": 104.8,
+          "size": 7.8
+        },
+        {
+          "region": 11,
+          "number": 6,
+          "x": 138.7,
+          "y": 121,
+          "size": 5.3
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 123.8,
+          "y": 141.8,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 7,
+          "x": 138.8,
+          "y": 141.8,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 6,
+          "x": 153.8,
+          "y": 141.8,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 3,
+          "x": 135.9,
+          "y": 93.8,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 5,
+          "x": 120.3,
+          "y": 58.7,
+          "size": 5.2
+        },
+        {
+          "region": 18,
+          "number": 3,
+          "x": 110.8,
+          "y": 67.3,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 3,
+          "x": 166.9,
+          "y": 67.3,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 6,
+          "x": 138.8,
+          "y": 35.8,
+          "size": 5.4
+        },
+        {
+          "region": 21,
+          "number": 3,
+          "x": 183.8,
+          "y": 83.8,
+          "size": 5.4
+        },
+        {
+          "region": 22,
+          "number": 8,
+          "x": 57.7,
+          "y": 155.5,
+          "size": 6.6
+        },
+        {
+          "region": 23,
+          "number": 8,
+          "x": 73.7,
+          "y": 155.5,
+          "size": 6.6
+        },
+        {
+          "region": 24,
+          "number": 4,
+          "x": 53.8,
+          "y": 179.8,
+          "size": 4.9
+        },
+        {
+          "region": 25,
+          "number": 4,
+          "x": 75.8,
+          "y": 179.8,
+          "size": 4.9
+        },
+        {
+          "region": 26,
+          "number": 2,
+          "x": 86.4,
+          "y": 125.5,
+          "size": 6.1
+        },
+        {
+          "region": 27,
+          "number": 2,
+          "x": 43.9,
+          "y": 97.8,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 2,
+          "x": 65.2,
+          "y": 129.1,
+          "size": 13
+        },
+        {
+          "region": 29,
+          "number": 9,
+          "x": 48.9,
+          "y": 96.8,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 9,
+          "x": 49.8,
+          "y": 103.4,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 9,
+          "x": 49.8,
+          "y": 110.8,
+          "size": 4.6
+        },
+        {
+          "region": 32,
+          "number": 6,
+          "x": 49.9,
+          "y": 118.9,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 9,
+          "x": 83.1,
+          "y": 96.8,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 9,
+          "x": 81.8,
+          "y": 103.4,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 9,
+          "x": 81.8,
+          "y": 110.8,
+          "size": 4.6
+        },
+        {
+          "region": 36,
+          "number": 6,
+          "x": 81.9,
+          "y": 118.9,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 9,
+          "x": 62.3,
+          "y": 79.4,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 3,
+          "x": 99.8,
+          "y": 127.8,
+          "size": 4.9
+        },
+        {
+          "region": 42,
+          "number": 6,
+          "x": 31.5,
+          "y": 169.4,
+          "size": 11.9
+        },
+        {
+          "region": 43,
+          "number": 10,
+          "x": 99.7,
+          "y": 60.9,
+          "size": 4.7
+        },
+        {
+          "region": 44,
+          "number": 10,
+          "x": 87.8,
+          "y": 44.5,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Mijn robotvriendje",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "sleetje-trekken",
+    "order": 764,
+    "category": "natuur",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 46,
+    "colorByNumber": {
+      "codes": "-wg-g-g-wg-g-g-wg-g-g--zzxxnnn-rrr--ggwww-wwwo",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 1,
+          "number": 1,
+          "x": 29.8,
+          "y": 131,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 24.3,
+          "y": 120,
+          "size": 8.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 27.4,
+          "y": 105,
+          "size": 8.5
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 29.4,
+          "y": 90,
+          "size": 8
+        },
+        {
+          "region": 8,
+          "number": 1,
+          "x": 171.9,
+          "y": 123,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 168.2,
+          "y": 111.1,
+          "size": 9.4
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 169.1,
+          "y": 94.5,
+          "size": 9.4
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 171.3,
+          "y": 77.8,
+          "size": 8.9
+        },
+        {
+          "region": 15,
+          "number": 1,
+          "x": 119.8,
+          "y": 135,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 2,
+          "x": 115.8,
+          "y": 126.1,
+          "size": 6.3
+        },
+        {
+          "region": 18,
+          "number": 2,
+          "x": 118.1,
+          "y": 115,
+          "size": 6.3
+        },
+        {
+          "region": 20,
+          "number": 2,
+          "x": 119.6,
+          "y": 103.9,
+          "size": 6
+        },
+        {
+          "region": 23,
+          "number": 3,
+          "x": 51.7,
+          "y": 159.5,
+          "size": 6.6
+        },
+        {
+          "region": 24,
+          "number": 3,
+          "x": 67.7,
+          "y": 159.5,
+          "size": 6.6
+        },
+        {
+          "region": 25,
+          "number": 4,
+          "x": 47.8,
+          "y": 183.8,
+          "size": 4.9
+        },
+        {
+          "region": 26,
+          "number": 4,
+          "x": 69.8,
+          "y": 183.8,
+          "size": 4.9
+        },
+        {
+          "region": 27,
+          "number": 5,
+          "x": 40.5,
+          "y": 124.9,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 5,
+          "x": 78.9,
+          "y": 121.3,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 5,
+          "x": 57.5,
+          "y": 139.4,
+          "size": 13
+        },
+        {
+          "region": 31,
+          "number": 6,
+          "x": 39.8,
+          "y": 131.8,
+          "size": 4.9
+        },
+        {
+          "region": 32,
+          "number": 6,
+          "x": 81.8,
+          "y": 127.8,
+          "size": 4.9
+        },
+        {
+          "region": 33,
+          "number": 6,
+          "x": 52.8,
+          "y": 83.6,
+          "size": 7.2
+        },
+        {
+          "region": 36,
+          "number": 2,
+          "x": 67.3,
+          "y": 117.2,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 2,
+          "x": 52.2,
+          "y": 110.3,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 1,
+          "x": 145.4,
+          "y": 109.9,
+          "size": 4.6
+        },
+        {
+          "region": 39,
+          "number": 1,
+          "x": 136.8,
+          "y": 106.8,
+          "size": 4.9
+        },
+        {
+          "region": 40,
+          "number": 1,
+          "x": 154.8,
+          "y": 106.8,
+          "size": 4.9
+        },
+        {
+          "region": 42,
+          "number": 1,
+          "x": 145.3,
+          "y": 136.2,
+          "size": 11.6
+        },
+        {
+          "region": 43,
+          "number": 1,
+          "x": 131.8,
+          "y": 141.8,
+          "size": 4.9
+        },
+        {
+          "region": 44,
+          "number": 1,
+          "x": 159.8,
+          "y": 141.8,
+          "size": 4.9
+        },
+        {
+          "region": 45,
+          "number": 7,
+          "x": 117.3,
+          "y": 153.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Sleetje trekken in de sneeuw",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "sneeuwballen-gooien",
+    "order": 765,
+    "category": "natuur",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 54,
+    "colorByNumber": {
+      "codes": "-wg-g-g-----------nnxxbbb-rrr--yy-ppxxooo-ggg--mm-----",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        }
+      ],
+      "labels": [
+        {
+          "region": 1,
+          "number": 1,
+          "x": 99.8,
+          "y": 145,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 92.6,
+          "y": 131.7,
+          "size": 11
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 96.6,
+          "y": 112.2,
+          "size": 11
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 99.2,
+          "y": 92.8,
+          "size": 10.4
+        },
+        {
+          "region": 18,
+          "number": 3,
+          "x": 43.7,
+          "y": 155.5,
+          "size": 6.6
+        },
+        {
+          "region": 19,
+          "number": 3,
+          "x": 59.7,
+          "y": 155.5,
+          "size": 6.6
+        },
+        {
+          "region": 20,
+          "number": 4,
+          "x": 39.8,
+          "y": 179.8,
+          "size": 4.9
+        },
+        {
+          "region": 21,
+          "number": 4,
+          "x": 61.8,
+          "y": 179.8,
+          "size": 4.9
+        },
+        {
+          "region": 22,
+          "number": 5,
+          "x": 34,
+          "y": 114.1,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 5,
+          "x": 67.5,
+          "y": 103.5,
+          "size": 6.2
+        },
+        {
+          "region": 24,
+          "number": 5,
+          "x": 49.5,
+          "y": 135.4,
+          "size": 13
+        },
+        {
+          "region": 26,
+          "number": 6,
+          "x": 30.2,
+          "y": 119.8,
+          "size": 4.9
+        },
+        {
+          "region": 27,
+          "number": 6,
+          "x": 76.9,
+          "y": 67.1,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 6,
+          "x": 44.8,
+          "y": 79.6,
+          "size": 7.2
+        },
+        {
+          "region": 31,
+          "number": 7,
+          "x": 59.3,
+          "y": 113.2,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 7,
+          "x": 44.2,
+          "y": 106.3,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 8,
+          "x": 144.5,
+          "y": 155.6,
+          "size": 5.9
+        },
+        {
+          "region": 35,
+          "number": 8,
+          "x": 158.9,
+          "y": 155.6,
+          "size": 5.9
+        },
+        {
+          "region": 36,
+          "number": 4,
+          "x": 141,
+          "y": 177.4,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 4,
+          "x": 160.8,
+          "y": 177.4,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 9,
+          "x": 136.8,
+          "y": 105.5,
+          "size": 4.9
+        },
+        {
+          "region": 39,
+          "number": 9,
+          "x": 166.6,
+          "y": 108.4,
+          "size": 5.4
+        },
+        {
+          "region": 40,
+          "number": 9,
+          "x": 149.7,
+          "y": 137.4,
+          "size": 13
+        },
+        {
+          "region": 42,
+          "number": 2,
+          "x": 133.8,
+          "y": 89.8,
+          "size": 4.5
+        },
+        {
+          "region": 43,
+          "number": 2,
+          "x": 171.8,
+          "y": 87.8,
+          "size": 4.5
+        },
+        {
+          "region": 44,
+          "number": 2,
+          "x": 145.5,
+          "y": 87.2,
+          "size": 6.5
+        },
+        {
+          "region": 47,
+          "number": 10,
+          "x": 159,
+          "y": 118.4,
+          "size": 4.5
+        },
+        {
+          "region": 48,
+          "number": 10,
+          "x": 145,
+          "y": 111.3,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Sneeuwballen gooien",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "tandenpoetsen",
+    "order": 766,
+    "category": "thuis",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 24,
+    "colorByNumber": {
+      "codes": "bttt-w--yy-b----z--gp-r-",
+      "palette": [
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 162.7,
+          "y": 42.3,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 101.1,
+          "y": 66.3,
+          "size": 5.9
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 63.4,
+          "y": 95.2,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 87.1,
+          "y": 83.6,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 77.7,
+          "y": 35.9,
+          "size": 5.6
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 71.8,
+          "y": 91.8,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 95.8,
+          "y": 97.8,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 1,
+          "x": 87.6,
+          "y": 58.2,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 5,
+          "x": 49,
+          "y": 98.6,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 6,
+          "x": 157.6,
+          "y": 98.6,
+          "size": 8.7
+        },
+        {
+          "region": 20,
+          "number": 7,
+          "x": 152.3,
+          "y": 71.5,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 8,
+          "x": 174.9,
+          "y": 103.3,
+          "size": 4.9
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tandenpoetsen",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "tekenen-aan-tafel",
+    "order": 767,
+    "category": "thuis",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 42,
+    "colorByNumber": {
+      "codes": "w-yr-mmmmmyzzyyyxxxrxxxr-xwwww-yr--bgporbg",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 15,
+          "y": 192.6,
+          "size": 7.6
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 27.8,
+          "y": 25.8,
+          "size": 5.4
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 41.6,
+          "y": 37.2,
+          "size": 7.8
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 164.8,
+          "y": 26.5,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 170.3,
+          "y": 30.3,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 168.4,
+          "y": 36.5,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 161.6,
+          "y": 36.5,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 159.7,
+          "y": 30.3,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 164.9,
+          "y": 31.9,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 5,
+          "x": 33.3,
+          "y": 14.9,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 162.3,
+          "y": 18.9,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 100.8,
+          "y": 99.3,
+          "size": 13
+        },
+        {
+          "region": 14,
+          "number": 2,
+          "x": 82.2,
+          "y": 103.3,
+          "size": 5.8
+        },
+        {
+          "region": 15,
+          "number": 2,
+          "x": 115.2,
+          "y": 90.1,
+          "size": 5.9
+        },
+        {
+          "region": 16,
+          "number": 6,
+          "x": 83,
+          "y": 60.8,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 6,
+          "x": 83.8,
+          "y": 67.4,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 6,
+          "x": 83.8,
+          "y": 74.8,
+          "size": 4.6
+        },
+        {
+          "region": 19,
+          "number": 3,
+          "x": 83.9,
+          "y": 82.9,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 6,
+          "x": 117.1,
+          "y": 60.8,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 6,
+          "x": 115.8,
+          "y": 67.4,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 6,
+          "x": 115.8,
+          "y": 74.8,
+          "size": 4.6
+        },
+        {
+          "region": 23,
+          "number": 3,
+          "x": 115.9,
+          "y": 82.9,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 6,
+          "x": 96.3,
+          "y": 43.4,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 1,
+          "x": 58.6,
+          "y": 121.3,
+          "size": 10.8
+        },
+        {
+          "region": 27,
+          "number": 1,
+          "x": 12.6,
+          "y": 137.8,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 1,
+          "x": 19.8,
+          "y": 147.5,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 1,
+          "x": 179.8,
+          "y": 147.5,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 2,
+          "x": 79.6,
+          "y": 122.1,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 3,
+          "x": 124.2,
+          "y": 116.8,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 7,
+          "x": 30.9,
+          "y": 125.4,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 8,
+          "x": 41,
+          "y": 130.5,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 9,
+          "x": 154.2,
+          "y": 123.4,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 10,
+          "x": 159.6,
+          "y": 108.4,
+          "size": 8.3
+        },
+        {
+          "region": 39,
+          "number": 3,
+          "x": 154.6,
+          "y": 91.4,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 7,
+          "x": 159.9,
+          "y": 90.1,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 8,
+          "x": 164.2,
+          "y": 98.6,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenen aan tafel",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "verstoppertje",
+    "order": 768,
+    "category": "thuis",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 45,
+    "colorByNumber": {
+      "codes": "lwgnnxxrrry-y--xxxxxxxxxx-xg--oommmmmyyyyyyop",
+      "palette": [
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 45,
+          "y": 188.4,
+          "size": 11.5
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 30.5,
+          "y": 89.9,
+          "size": 12
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 35,
+          "y": 47.7,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 63.7,
+          "y": 163.5,
+          "size": 6.6
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 79.7,
+          "y": 163.5,
+          "size": 6.6
+        },
+        {
+          "region": 5,
+          "number": 5,
+          "x": 59.8,
+          "y": 187.8,
+          "size": 4.9
+        },
+        {
+          "region": 6,
+          "number": 5,
+          "x": 81.8,
+          "y": 187.8,
+          "size": 4.9
+        },
+        {
+          "region": 7,
+          "number": 6,
+          "x": 71.2,
+          "y": 139.1,
+          "size": 13
+        },
+        {
+          "region": 8,
+          "number": 6,
+          "x": 61.2,
+          "y": 116,
+          "size": 6.1
+        },
+        {
+          "region": 9,
+          "number": 6,
+          "x": 82.8,
+          "y": 116,
+          "size": 6.1
+        },
+        {
+          "region": 10,
+          "number": 7,
+          "x": 92,
+          "y": 95.3,
+          "size": 5.7
+        },
+        {
+          "region": 12,
+          "number": 7,
+          "x": 66.8,
+          "y": 88.9,
+          "size": 4.6
+        },
+        {
+          "region": 15,
+          "number": 5,
+          "x": 137.7,
+          "y": 120.1,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 5,
+          "x": 135.9,
+          "y": 113.3,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 5,
+          "x": 137.2,
+          "y": 104.8,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 5,
+          "x": 141.7,
+          "y": 98.3,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 5,
+          "x": 148.6,
+          "y": 94.2,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 5,
+          "x": 156.7,
+          "y": 93.7,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 5,
+          "x": 163.6,
+          "y": 96.7,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 5,
+          "x": 169.2,
+          "y": 102,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 5,
+          "x": 172.1,
+          "y": 109.3,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 5,
+          "x": 171.4,
+          "y": 118,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 5,
+          "x": 156.3,
+          "y": 101.9,
+          "size": 4.9
+        },
+        {
+          "region": 27,
+          "number": 3,
+          "x": 149.8,
+          "y": 155.8,
+          "size": 13
+        },
+        {
+          "region": 30,
+          "number": 8,
+          "x": 180.8,
+          "y": 181.8,
+          "size": 4.9
+        },
+        {
+          "region": 31,
+          "number": 8,
+          "x": 191.7,
+          "y": 179.8,
+          "size": 4.9
+        },
+        {
+          "region": 32,
+          "number": 9,
+          "x": 111.8,
+          "y": 170.5,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 9,
+          "x": 117.3,
+          "y": 174.3,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 9,
+          "x": 115.4,
+          "y": 180.5,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 9,
+          "x": 108.9,
+          "y": 179.8,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 9,
+          "x": 106.7,
+          "y": 174.3,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 7,
+          "x": 111.9,
+          "y": 175.9,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 7,
+          "x": 103.9,
+          "y": 181.6,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 7,
+          "x": 108.2,
+          "y": 184.4,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 7,
+          "x": 106.8,
+          "y": 189.6,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 7,
+          "x": 101.5,
+          "y": 189.6,
+          "size": 4.5
+        },
+        {
+          "region": 42,
+          "number": 7,
+          "x": 99.8,
+          "y": 184.7,
+          "size": 4.5
+        },
+        {
+          "region": 43,
+          "number": 8,
+          "x": 103.9,
+          "y": 185.9,
+          "size": 4.5
+        },
+        {
+          "region": 44,
+          "number": 10,
+          "x": 136.4,
+          "y": 24,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Verstoppertje spelen",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "vliegend-tapijt",
+    "order": 769,
+    "category": "sprookjes",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 39,
+    "colorByNumber": {
+      "codes": "nyyyyyyy---rytttgoooxxxxxxxxxx-x--pzzzz",
+      "palette": [
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 45,
+          "y": 45,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 154.4,
+          "y": 26.3,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 23.8,
+          "y": 20.2,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 69.8,
+          "y": 13.8,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 119.8,
+          "y": 30.2,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 29.8,
+          "y": 69.8,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 185.8,
+          "y": 79.8,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 98.2,
+          "y": 59.5,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 3,
+          "x": 36.2,
+          "y": 143.9,
+          "size": 8.9
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 44.7,
+          "y": 136.3,
+          "size": 9.3
+        },
+        {
+          "region": 13,
+          "number": 4,
+          "x": 103.6,
+          "y": 135.5,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 4,
+          "x": 68.4,
+          "y": 134.3,
+          "size": 4.7
+        },
+        {
+          "region": 15,
+          "number": 4,
+          "x": 144.4,
+          "y": 133.7,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 5,
+          "x": 66.9,
+          "y": 91.7,
+          "size": 7.2
+        },
+        {
+          "region": 17,
+          "number": 6,
+          "x": 90.4,
+          "y": 91.5,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 6,
+          "x": 124.4,
+          "y": 113.5,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 6,
+          "x": 103.7,
+          "y": 105.1,
+          "size": 13
+        },
+        {
+          "region": 20,
+          "number": 7,
+          "x": 90.5,
+          "y": 85.2,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 7,
+          "x": 89.4,
+          "y": 78.9,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 7,
+          "x": 90.5,
+          "y": 71.7,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 7,
+          "x": 94.6,
+          "y": 65.7,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 7,
+          "x": 101,
+          "y": 61.5,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 7,
+          "x": 108.5,
+          "y": 61,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 7,
+          "x": 114.8,
+          "y": 63.7,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 7,
+          "x": 119.9,
+          "y": 68.6,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 7,
+          "x": 122.6,
+          "y": 75.4,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 7,
+          "x": 121.4,
+          "y": 85,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 7,
+          "x": 109.4,
+          "y": 68.5,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 8,
+          "x": 96.9,
+          "y": 124.9,
+          "size": 8.2
+        },
+        {
+          "region": 35,
+          "number": 9,
+          "x": 158.7,
+          "y": 112.3,
+          "size": 11.7
+        },
+        {
+          "region": 36,
+          "number": 9,
+          "x": 159.6,
+          "y": 98.1,
+          "size": 5.6
+        },
+        {
+          "region": 37,
+          "number": 9,
+          "x": 154.6,
+          "y": 86.3,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 9,
+          "x": 165.4,
+          "y": 86.3,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Vliegend tapijt",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "voorlezen",
+    "order": 770,
+    "category": "thuis",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 48,
+    "colorByNumber": {
+      "codes": "wy-rrgggw-wyyyxxxxxxxxxx-xrrrwwnxnxbxbx--b----yy",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 15,
+          "y": 192.6,
+          "size": 7.6
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 83.5,
+          "y": 40,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 99.7,
+          "y": 28.9,
+          "size": 4.7
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 35.5,
+          "y": 88,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 65.2,
+          "y": 99.3,
+          "size": 12.7
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 50.1,
+          "y": 93.4,
+          "size": 6
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 79.5,
+          "y": 88,
+          "size": 5.8
+        },
+        {
+          "region": 8,
+          "number": 1,
+          "x": 55.8,
+          "y": 75.5,
+          "size": 8.7
+        },
+        {
+          "region": 10,
+          "number": 1,
+          "x": 62.3,
+          "y": 43.4,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 132.6,
+          "y": 101.2,
+          "size": 10.4
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 122.4,
+          "y": 89.8,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 142.9,
+          "y": 91.8,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 5,
+          "x": 120.7,
+          "y": 77,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 5,
+          "x": 119,
+          "y": 71.3,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 5,
+          "x": 119.9,
+          "y": 65.6,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 5,
+          "x": 123.2,
+          "y": 61,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 5,
+          "x": 128.1,
+          "y": 58,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 5,
+          "x": 134,
+          "y": 57.7,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 5,
+          "x": 138.9,
+          "y": 59.8,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 5,
+          "x": 142.9,
+          "y": 63.7,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 5,
+          "x": 145,
+          "y": 68.9,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 5,
+          "x": 144.1,
+          "y": 75.9,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 5,
+          "x": 134.7,
+          "y": 63.5,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 3,
+          "x": 41.5,
+          "y": 124.3,
+          "size": 13
+        },
+        {
+          "region": 27,
+          "number": 3,
+          "x": 16.4,
+          "y": 111.8,
+          "size": 13
+        },
+        {
+          "region": 28,
+          "number": 3,
+          "x": 182.4,
+          "y": 111.8,
+          "size": 13
+        },
+        {
+          "region": 29,
+          "number": 1,
+          "x": 15.8,
+          "y": 170.1,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 1,
+          "x": 183.8,
+          "y": 170.1,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 6,
+          "x": 57.7,
+          "y": 136.9,
+          "size": 6
+        },
+        {
+          "region": 32,
+          "number": 5,
+          "x": 53.8,
+          "y": 178.8,
+          "size": 4.9
+        },
+        {
+          "region": 33,
+          "number": 6,
+          "x": 73.7,
+          "y": 136.9,
+          "size": 6
+        },
+        {
+          "region": 34,
+          "number": 5,
+          "x": 75.8,
+          "y": 178.8,
+          "size": 4.9
+        },
+        {
+          "region": 35,
+          "number": 7,
+          "x": 125.8,
+          "y": 135.9,
+          "size": 4.6
+        },
+        {
+          "region": 36,
+          "number": 5,
+          "x": 123.1,
+          "y": 161.8,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 7,
+          "x": 137.8,
+          "y": 135.9,
+          "size": 4.6
+        },
+        {
+          "region": 38,
+          "number": 5,
+          "x": 139.1,
+          "y": 161.8,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 7,
+          "x": 79.6,
+          "y": 118.5,
+          "size": 4.5
+        },
+        {
+          "region": 46,
+          "number": 2,
+          "x": 159.7,
+          "y": 29.7,
+          "size": 6.5
+        },
+        {
+          "region": 47,
+          "number": 2,
+          "x": 29.7,
+          "y": 29.7,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Voorlezen op de bank",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "vuilnisman",
+    "order": 771,
+    "category": "beroepen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 33,
+    "colorByNumber": {
+      "codes": "zogxzzyroxzggxnnxooxxooo-ggooyyyy",
+      "palette": [
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 25,
+          "y": 188.4,
+          "size": 12
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 162.4,
+          "y": 23.8,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 170.3,
+          "y": 64.3,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 168.5,
+          "y": 115.9,
+          "size": 13
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 152.9,
+          "y": 131.3,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 1,
+          "x": 188.9,
+          "y": 131.3,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 5,
+          "x": 138.8,
+          "y": 157.7,
+          "size": 6.6
+        },
+        {
+          "region": 7,
+          "number": 6,
+          "x": 137.8,
+          "y": 43.8,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 137.8,
+          "y": 63.8,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 172.6,
+          "y": 170.6,
+          "size": 5
+        },
+        {
+          "region": 10,
+          "number": 1,
+          "x": 177.8,
+          "y": 175.8,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 3,
+          "x": 112.3,
+          "y": 139.6,
+          "size": 13
+        },
+        {
+          "region": 12,
+          "number": 3,
+          "x": 98.8,
+          "y": 121.3,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 4,
+          "x": 103.7,
+          "y": 173.7,
+          "size": 6.5
+        },
+        {
+          "region": 14,
+          "number": 7,
+          "x": 22.3,
+          "y": 146.3,
+          "size": 13
+        },
+        {
+          "region": 15,
+          "number": 7,
+          "x": 9.5,
+          "y": 129.3,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 4,
+          "x": 12.8,
+          "y": 177.8,
+          "size": 5.4
+        },
+        {
+          "region": 17,
+          "number": 2,
+          "x": 55.7,
+          "y": 143.5,
+          "size": 6.6
+        },
+        {
+          "region": 18,
+          "number": 2,
+          "x": 71.7,
+          "y": 143.5,
+          "size": 6.6
+        },
+        {
+          "region": 19,
+          "number": 4,
+          "x": 51.8,
+          "y": 167.8,
+          "size": 4.9
+        },
+        {
+          "region": 20,
+          "number": 4,
+          "x": 73.8,
+          "y": 167.8,
+          "size": 4.9
+        },
+        {
+          "region": 21,
+          "number": 2,
+          "x": 85.5,
+          "y": 108,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 2,
+          "x": 40.4,
+          "y": 117.6,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 2,
+          "x": 58,
+          "y": 106.6,
+          "size": 12.1
+        },
+        {
+          "region": 25,
+          "number": 3,
+          "x": 91.8,
+          "y": 111.8,
+          "size": 4.9
+        },
+        {
+          "region": 26,
+          "number": 3,
+          "x": 41.8,
+          "y": 121.8,
+          "size": 4.9
+        },
+        {
+          "region": 27,
+          "number": 2,
+          "x": 59.1,
+          "y": 69.4,
+          "size": 8.5
+        },
+        {
+          "region": 28,
+          "number": 2,
+          "x": 66.8,
+          "y": 76.9,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 5,
+          "x": 51.3,
+          "y": 117.8,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 5,
+          "x": 49.5,
+          "y": 126.9,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 5,
+          "x": 52.1,
+          "y": 152.9,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 5,
+          "x": 68.1,
+          "y": 152.9,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Vuilnisman",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "zandkasteel-bouwen",
+    "order": 772,
+    "category": "zee",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 35,
+    "colorByNumber": {
+      "codes": "yb-rynnxxggg-w--rwwwwwwwxr--kor-ooo",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 29.5,
+          "y": 23.5,
+          "size": 11.9
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 25,
+          "y": 86.9,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 151.4,
+          "y": 66.8,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 25,
+          "y": 130.4,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 112,
+          "y": 141,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 128,
+          "y": 141,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 5,
+          "x": 109,
+          "y": 160,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 5,
+          "x": 131,
+          "y": 160,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 6,
+          "x": 99.9,
+          "y": 74.4,
+          "size": 6
+        },
+        {
+          "region": 10,
+          "number": 6,
+          "x": 138.9,
+          "y": 94.1,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 6,
+          "x": 119.2,
+          "y": 104.8,
+          "size": 13
+        },
+        {
+          "region": 13,
+          "number": 7,
+          "x": 114.8,
+          "y": 60.9,
+          "size": 4.6
+        },
+        {
+          "region": 16,
+          "number": 3,
+          "x": 163.2,
+          "y": 52.8,
+          "size": 7.3
+        },
+        {
+          "region": 17,
+          "number": 7,
+          "x": 129.8,
+          "y": 147.6,
+          "size": 13
+        },
+        {
+          "region": 18,
+          "number": 7,
+          "x": 79.2,
+          "y": 169.6,
+          "size": 13
+        },
+        {
+          "region": 19,
+          "number": 7,
+          "x": 159.2,
+          "y": 145.1,
+          "size": 13
+        },
+        {
+          "region": 20,
+          "number": 7,
+          "x": 99.4,
+          "y": 127.3,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 7,
+          "x": 113.4,
+          "y": 127.3,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 7,
+          "x": 127.4,
+          "y": 127.3,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 7,
+          "x": 141.4,
+          "y": 127.3,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 5,
+          "x": 119.5,
+          "y": 170.2,
+          "size": 10.9
+        },
+        {
+          "region": 25,
+          "number": 3,
+          "x": 83.8,
+          "y": 88.3,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 8,
+          "x": 107.8,
+          "y": 147.4,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 9,
+          "x": 79.8,
+          "y": 150.2,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 3,
+          "x": 33.3,
+          "y": 170.7,
+          "size": 13
+        },
+        {
+          "region": 32,
+          "number": 9,
+          "x": 181.6,
+          "y": 188.1,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 9,
+          "x": 171.9,
+          "y": 173.9,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 9,
+          "x": 191.9,
+          "y": 173.9,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Een zandkasteel bouwen",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "zeemonster",
+    "order": 773,
+    "category": "sprookjes",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 31,
+    "colorByNumber": {
+      "codes": "y-ppppggyy--lllgpppgpppgb-wr-oy",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 173.5,
+          "y": 23.5,
+          "size": 10.8
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 44.1,
+          "y": 75.8,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 42.9,
+          "y": 89.8,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 41.7,
+          "y": 103.8,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 41.1,
+          "y": 117.8,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 59.5,
+          "y": 80.8,
+          "size": 11.4
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 69.9,
+          "y": 58.7,
+          "size": 13
+        },
+        {
+          "region": 8,
+          "number": 1,
+          "x": 54.3,
+          "y": 29.5,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 1,
+          "x": 81.8,
+          "y": 28.8,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 55.8,
+          "y": 91.9,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 4,
+          "x": 63.8,
+          "y": 107.9,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 4,
+          "x": 57.8,
+          "y": 119.9,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 3,
+          "x": 109.1,
+          "y": 117.9,
+          "size": 13
+        },
+        {
+          "region": 16,
+          "number": 2,
+          "x": 100.8,
+          "y": 106.8,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 2,
+          "x": 109.8,
+          "y": 98.8,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 2,
+          "x": 118.8,
+          "y": 106.8,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 3,
+          "x": 154.3,
+          "y": 122.1,
+          "size": 7.6
+        },
+        {
+          "region": 20,
+          "number": 2,
+          "x": 147.3,
+          "y": 114.1,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 2,
+          "x": 154.8,
+          "y": 108.3,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 2,
+          "x": 162.3,
+          "y": 114.1,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 3,
+          "x": 187.4,
+          "y": 114.9,
+          "size": 7.5
+        },
+        {
+          "region": 24,
+          "number": 5,
+          "x": 85,
+          "y": 162.2,
+          "size": 13
+        },
+        {
+          "region": 26,
+          "number": 6,
+          "x": 143.8,
+          "y": 133,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 7,
+          "x": 155.8,
+          "y": 146.2,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 8,
+          "x": 131.5,
+          "y": 158.6,
+          "size": 9.8
+        },
+        {
+          "region": 30,
+          "number": 1,
+          "x": 40.6,
+          "y": 167.7,
+          "size": 6.3
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Lief zeemonster",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "zomer-aan-het-strand",
+    "order": 774,
+    "category": "zee",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 25,
+    "colorByNumber": {
+      "codes": "yb-o---xytrrr-r-r-yr-n-zo",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 26.6,
+          "y": 24.6,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 155,
+          "y": 87.8,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 162.3,
+          "y": 67.8,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 118.8,
+          "y": 81.9,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 1,
+          "x": 35,
+          "y": 131.9,
+          "size": 13
+        },
+        {
+          "region": 9,
+          "number": 5,
+          "x": 76.4,
+          "y": 173.3,
+          "size": 13
+        },
+        {
+          "region": 10,
+          "number": 6,
+          "x": 38.8,
+          "y": 175.8,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 6,
+          "x": 52.8,
+          "y": 177.8,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 6,
+          "x": 43.5,
+          "y": 79.3,
+          "size": 6.9
+        },
+        {
+          "region": 14,
+          "number": 6,
+          "x": 77.5,
+          "y": 76.3,
+          "size": 8
+        },
+        {
+          "region": 16,
+          "number": 6,
+          "x": 69.8,
+          "y": 53.8,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 1,
+          "x": 152.1,
+          "y": 168.8,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 6,
+          "x": 159.6,
+          "y": 168.8,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 7,
+          "x": 149.4,
+          "y": 136.6,
+          "size": 10.8
+        },
+        {
+          "region": 23,
+          "number": 8,
+          "x": 152.4,
+          "y": 117.9,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 3,
+          "x": 185.7,
+          "y": 135.7,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Zomer aan het strand",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "zwembad-springen",
+    "order": 775,
+    "category": "sport",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 21,
+    "colorByNumber": {
+      "codes": "y-b-z-------o--n-xr--",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 171.4,
+          "y": 23.5,
+          "size": 11.9
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 55,
+          "y": 134,
+          "size": 13
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 8.6,
+          "y": 92,
+          "size": 9.8
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 102.2,
+          "y": 9.3,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 5,
+          "x": 97.5,
+          "y": 63.2,
+          "size": 7.9
+        },
+        {
+          "region": 17,
+          "number": 6,
+          "x": 158.5,
+          "y": 124.2,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 7,
+          "x": 142,
+          "y": 141.6,
+          "size": 5.9
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "In het zwembad springen",
+        "word": null,
+        "countQuestion": null
+      }
+    }
   }
 ]

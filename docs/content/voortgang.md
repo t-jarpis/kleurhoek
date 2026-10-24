@@ -2,11 +2,11 @@
 
 Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027.
 
-**Totaal: 746** van 5.000. Problemen: 0, waarschuwingen: 18.
+**Totaal: 776** van 5.000. Problemen: 0, waarschuwingen: 18.
 
 | Groep | Nu | Doel |
 |---|---:|---:|
-| Kleurplaten | 347 | 2000 |
+| Kleurplaten | 377 | 2000 |
 | Knip-, plak- en knutselbladen | 84 | 750 |
 | Vouw- en bouwplaten | 53 | 500 |
 | Teken- en schilderactiviteiten | 68 | 400 |
@@ -18,7 +18,7 @@ Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027
 
 | | Aantal |
 |---|---:|
-| kleurplaat | 347 |
+| kleurplaat | 377 |
 | werkblad | 141 |
 | knipplaat | 84 |
 | tekenles | 60 |
@@ -35,28 +35,28 @@ Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027
 | dieren | 113 |
 | feest | 81 |
 | leren | 76 |
-| natuur | 57 |
+| natuur | 63 |
 | voertuigen | 52 |
 | vormen | 49 |
-| thuis | 39 |
-| zee | 37 |
-| eten | 36 |
+| thuis | 43 |
+| zee | 39 |
+| eten | 38 |
 | ruimte | 33 |
+| sprookjes | 32 |
+| wereld | 31 |
 | patronen | 31 |
-| wereld | 28 |
-| sprookjes | 27 |
-| boerderij | 24 |
-| sport | 22 |
+| beroepen | 26 |
+| boerderij | 25 |
+| sport | 23 |
 | dinos | 21 |
-| beroepen | 20 |
 
 ### Per leeftijd
 
 | | Aantal |
 |---|---:|
-| 4-6 | 316 |
-| 6-9 | 227 |
-| 2-4 | 107 |
+| 4-6 | 332 |
+| 6-9 | 236 |
+| 2-4 | 112 |
 | 9+ | 63 |
 | 12+ | 33 |
 
