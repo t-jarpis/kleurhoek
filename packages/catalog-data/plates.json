@@ -61673,5 +61673,3666 @@
         "countQuestion": null
       }
     }
+  },
+  {
+    "slug": "ananas",
+    "order": 334,
+    "category": "eten",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 20,
+    "colorByNumber": {
+      "codes": "lglglglyoooooooooooo",
+      "palette": [
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 70.8,
+          "y": 53.1,
+          "size": 4.5
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 81.5,
+          "y": 48,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 90.2,
+          "y": 43,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 99.7,
+          "y": 38.8,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 107.3,
+          "y": 50,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 113.6,
+          "y": 53.7,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 1,
+          "x": 116.2,
+          "y": 60.6,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 89,
+          "y": 171.5,
+          "size": 13
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 79.6,
+          "y": 95.6,
+          "size": 6.5
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 99.6,
+          "y": 95.6,
+          "size": 6.5
+        },
+        {
+          "region": 10,
+          "number": 4,
+          "x": 119.6,
+          "y": 95.6,
+          "size": 6.5
+        },
+        {
+          "region": 11,
+          "number": 4,
+          "x": 79.6,
+          "y": 115.6,
+          "size": 6.5
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 99.6,
+          "y": 115.6,
+          "size": 6.5
+        },
+        {
+          "region": 13,
+          "number": 4,
+          "x": 119.6,
+          "y": 115.6,
+          "size": 6.5
+        },
+        {
+          "region": 14,
+          "number": 4,
+          "x": 79.6,
+          "y": 135.6,
+          "size": 5.9
+        },
+        {
+          "region": 15,
+          "number": 4,
+          "x": 99.6,
+          "y": 135.6,
+          "size": 5.9
+        },
+        {
+          "region": 16,
+          "number": 4,
+          "x": 120.4,
+          "y": 135.6,
+          "size": 6.5
+        },
+        {
+          "region": 17,
+          "number": 4,
+          "x": 79.6,
+          "y": 155.6,
+          "size": 5.9
+        },
+        {
+          "region": 18,
+          "number": 4,
+          "x": 99.6,
+          "y": 155.6,
+          "size": 5.9
+        },
+        {
+          "region": 19,
+          "number": 4,
+          "x": 120.4,
+          "y": 155.6,
+          "size": 6.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Ananas",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "badeend",
+    "order": 335,
+    "category": "thuis",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 8,
+    "colorByNumber": {
+      "codes": "byyoy---",
+      "palette": [
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 35,
+          "y": 166.8,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 121.6,
+          "y": 122.4,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 117.5,
+          "y": 80.5,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 154.4,
+          "y": 78.1,
+          "size": 8.4
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 79,
+          "y": 117.6,
+          "size": 7.8
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Badeend",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "bever",
+    "order": 336,
+    "category": "dieren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 16,
+    "colorByNumber": {
+      "codes": "bwowowowwwwwx-ww",
+      "palette": [
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 25,
+          "y": 180.9,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 149.6,
+          "y": 156.6,
+          "size": 7.6
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 137.8,
+          "y": 156.8,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 154.9,
+          "y": 140.6,
+          "size": 7.6
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 143.8,
+          "y": 140.8,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 161,
+          "y": 124.6,
+          "size": 7.6
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 149.8,
+          "y": 124.8,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 28,
+          "y": 148.9,
+          "size": 12.2
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 54.5,
+          "y": 147.1,
+          "size": 13
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 73.7,
+          "y": 88.5,
+          "size": 12
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 67.7,
+          "y": 61.7,
+          "size": 7.6
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 107.7,
+          "y": 61.7,
+          "size": 7.6
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 87.7,
+          "y": 87.8,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 2,
+          "x": 69.4,
+          "y": 129.6,
+          "size": 8.7
+        },
+        {
+          "region": 15,
+          "number": 2,
+          "x": 107.4,
+          "y": 129.6,
+          "size": 8.7
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bever bij de dam",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "camper",
+    "order": 337,
+    "category": "voertuigen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 12,
+    "colorByNumber": {
+      "codes": "l-tbobxzxzzy",
+      "palette": [
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 25,
+          "y": 190.5,
+          "size": 10.9
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 28.9,
+          "y": 129.5,
+          "size": 10.9
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 43.5,
+          "y": 91.3,
+          "size": 13
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 87.4,
+          "y": 89.7,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 156.8,
+          "y": 91.7,
+          "size": 13
+        },
+        {
+          "region": 6,
+          "number": 5,
+          "x": 43.7,
+          "y": 150.3,
+          "size": 5.1
+        },
+        {
+          "region": 7,
+          "number": 6,
+          "x": 49.8,
+          "y": 157.8,
+          "size": 5.4
+        },
+        {
+          "region": 8,
+          "number": 5,
+          "x": 140.9,
+          "y": 154.5,
+          "size": 5.1
+        },
+        {
+          "region": 9,
+          "number": 6,
+          "x": 149.8,
+          "y": 157.8,
+          "size": 5.4
+        },
+        {
+          "region": 10,
+          "number": 6,
+          "x": 46,
+          "y": 57.7,
+          "size": 6.6
+        },
+        {
+          "region": 11,
+          "number": 7,
+          "x": 30.6,
+          "y": 30.6,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Camper op vakantie",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "citroen",
+    "order": 338,
+    "category": "eten",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 14,
+    "colorByNumber": {
+      "codes": "yyygy-yyyyyyyy",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 90.3,
+          "y": 97.8,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 25.7,
+          "y": 99.8,
+          "size": 5.5
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 175.7,
+          "y": 99.8,
+          "size": 5.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 125,
+          "y": 41.8,
+          "size": 11.2
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 47.1,
+          "y": 147.1,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 1,
+          "x": 76.4,
+          "y": 169.2,
+          "size": 5.1
+        },
+        {
+          "region": 7,
+          "number": 1,
+          "x": 69.2,
+          "y": 176.4,
+          "size": 5.1
+        },
+        {
+          "region": 8,
+          "number": 1,
+          "x": 58.8,
+          "y": 176.4,
+          "size": 5.1
+        },
+        {
+          "region": 9,
+          "number": 1,
+          "x": 51.6,
+          "y": 169.2,
+          "size": 5.1
+        },
+        {
+          "region": 10,
+          "number": 1,
+          "x": 51.6,
+          "y": 158.8,
+          "size": 5.1
+        },
+        {
+          "region": 11,
+          "number": 1,
+          "x": 58.8,
+          "y": 151.6,
+          "size": 5.1
+        },
+        {
+          "region": 12,
+          "number": 1,
+          "x": 69.2,
+          "y": 151.6,
+          "size": 5.1
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 76.4,
+          "y": 158.8,
+          "size": 5.1
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Citroen en schijfje",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "druiven",
+    "order": 339,
+    "category": "eten",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 15,
+    "colorByNumber": {
+      "codes": "gpppppppppppppw",
+      "palette": [
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 136.5,
+          "y": 34.9,
+          "size": 9.8
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 83.4,
+          "y": 53.4,
+          "size": 12.4
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 105.4,
+          "y": 53.4,
+          "size": 12.4
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 127.4,
+          "y": 53.4,
+          "size": 13
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 73.4,
+          "y": 75.4,
+          "size": 12.4
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 95.4,
+          "y": 75.4,
+          "size": 12.4
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 117.4,
+          "y": 75.4,
+          "size": 12.4
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 139.4,
+          "y": 75.4,
+          "size": 13
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 83.4,
+          "y": 97.4,
+          "size": 12.4
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 105.4,
+          "y": 97.4,
+          "size": 12.4
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 127.4,
+          "y": 97.4,
+          "size": 13
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 93.4,
+          "y": 119.4,
+          "size": 12.4
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 115.4,
+          "y": 119.4,
+          "size": 13
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 103.4,
+          "y": 141.4,
+          "size": 13
+        },
+        {
+          "region": 14,
+          "number": 3,
+          "x": 72,
+          "y": 173.6,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tros druiven",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "flamingo",
+    "order": 340,
+    "category": "dieren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 7,
+    "colorByNumber": {
+      "codes": "bkkmkkx",
+      "palette": [
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 35,
+          "y": 183.9,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 97.9,
+          "y": 125.8,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 81.5,
+          "y": 109.7,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 99.3,
+          "y": 98.8,
+          "size": 6.6
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 55.8,
+          "y": 102.4,
+          "size": 7.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 113.3,
+          "y": 37.1,
+          "size": 7.5
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 129.9,
+          "y": 30.4,
+          "size": 4.9
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Flamingo op één poot",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "hamburger",
+    "order": 341,
+    "category": "eten",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 14,
+    "colorByNumber": {
+      "codes": "oyyyyyylwyrowr",
+      "palette": [
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 79,
+          "y": 81,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 69.6,
+          "y": 73.9,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 91.6,
+          "y": 65.9,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 115.6,
+          "y": 69.9,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 133.6,
+          "y": 81.9,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 81.6,
+          "y": 85.9,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 107.6,
+          "y": 83.9,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 43.9,
+          "y": 102.9,
+          "size": 7
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 49,
+          "y": 114.8,
+          "size": 7.8
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 52,
+          "y": 125.1,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 5,
+          "x": 47.3,
+          "y": 132.8,
+          "size": 5.5
+        },
+        {
+          "region": 11,
+          "number": 1,
+          "x": 79,
+          "y": 147.1,
+          "size": 8.2
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 99.9,
+          "y": 30.5,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 5,
+          "x": 106.5,
+          "y": 33.7,
+          "size": 5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Hamburger met vlaggetje",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "ijsbeer",
+    "order": 342,
+    "category": "dieren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 11,
+    "colorByNumber": {
+      "codes": "b-----x--yy",
+      "palette": [
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 35,
+          "y": 172.8,
+          "size": 13
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 49.8,
+          "y": 103.8,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 119.6,
+          "y": 27.6,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 159.8,
+          "y": 44.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "IJsbeer op het ijs",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "kameel",
+    "order": 343,
+    "category": "dieren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 9,
+    "colorByNumber": {
+      "codes": "ywwwwwwwo",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 35,
+          "y": 182.2,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 106.3,
+          "y": 107,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 159.2,
+          "y": 64.7,
+          "size": 10.2
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 153.3,
+          "y": 53.4,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 62.3,
+          "y": 133.3,
+          "size": 4.9
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 78.3,
+          "y": 133.3,
+          "size": 4.9
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 116.3,
+          "y": 133.3,
+          "size": 4.9
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 132.3,
+          "y": 133.3,
+          "size": 4.9
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 35.3,
+          "y": 35.3,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Kameel in de woestijn",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "kampvuur",
+    "order": 344,
+    "category": "natuur",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 14,
+    "colorByNumber": {
+      "codes": "nyyyyy-goywwzz",
+      "palette": [
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 55,
+          "y": 55,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 29.7,
+          "y": 29.7,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 79.7,
+          "y": 19.7,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 149.7,
+          "y": 39.7,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 179.7,
+          "y": 15.7,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 109.7,
+          "y": 49.7,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 95,
+          "y": 183,
+          "size": 13
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 101.6,
+          "y": 92.8,
+          "size": 13
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 99.5,
+          "y": 132.1,
+          "size": 13
+        },
+        {
+          "region": 10,
+          "number": 5,
+          "x": 70.9,
+          "y": 165.2,
+          "size": 8.3
+        },
+        {
+          "region": 11,
+          "number": 5,
+          "x": 84.7,
+          "y": 152.5,
+          "size": 8.3
+        },
+        {
+          "region": 12,
+          "number": 6,
+          "x": 39.6,
+          "y": 167.6,
+          "size": 8.7
+        },
+        {
+          "region": 13,
+          "number": 6,
+          "x": 163.6,
+          "y": 167.6,
+          "size": 8.7
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Kampvuur onder de sterren",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "koala",
+    "order": 345,
+    "category": "dieren",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 13,
+    "colorByNumber": {
+      "codes": "wzzzzkkxzzggg",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 151.4,
+          "y": 15,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 92,
+          "y": 151.1,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 94.3,
+          "y": 63.3,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 52.1,
+          "y": 52.1,
+          "size": 5.9
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 118.3,
+          "y": 68.3,
+          "size": 5.9
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 62.4,
+          "y": 62.4,
+          "size": 9.8
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 129.6,
+          "y": 62.4,
+          "size": 9.8
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 95.6,
+          "y": 91.4,
+          "size": 9.8
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 137.9,
+          "y": 124.4,
+          "size": 9.8
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 137.9,
+          "y": 149.6,
+          "size": 9.8
+        },
+        {
+          "region": 10,
+          "number": 5,
+          "x": 180.8,
+          "y": 27.3,
+          "size": 6.6
+        },
+        {
+          "region": 11,
+          "number": 5,
+          "x": 182.4,
+          "y": 96.7,
+          "size": 6.6
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 180.8,
+          "y": 167.3,
+          "size": 6.6
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Koala in een boom",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "kraanwagen",
+    "order": 346,
+    "category": "voertuigen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 12,
+    "colorByNumber": {
+      "codes": "zyybxzxzxzor",
+      "palette": [
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 25,
+          "y": 191.4,
+          "size": 9.8
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 79,
+          "y": 154.3,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 147.9,
+          "y": 120.3,
+          "size": 9.3
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 132.6,
+          "y": 124.6,
+          "size": 7.6
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 65.8,
+          "y": 164.9,
+          "size": 4.7
+        },
+        {
+          "region": 5,
+          "number": 1,
+          "x": 59.8,
+          "y": 171.8,
+          "size": 5.4
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 94.2,
+          "y": 164.9,
+          "size": 4.7
+        },
+        {
+          "region": 7,
+          "number": 1,
+          "x": 99.8,
+          "y": 171.8,
+          "size": 5.4
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 132.9,
+          "y": 166.1,
+          "size": 4.7
+        },
+        {
+          "region": 9,
+          "number": 1,
+          "x": 139.8,
+          "y": 171.8,
+          "size": 5.4
+        },
+        {
+          "region": 10,
+          "number": 5,
+          "x": 72.3,
+          "y": 131.8,
+          "size": 8.5
+        },
+        {
+          "region": 11,
+          "number": 6,
+          "x": 152,
+          "y": 97.7,
+          "size": 6.6
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Kraanwagen",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "lamp",
+    "order": 347,
+    "category": "thuis",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 5,
+    "colorByNumber": {
+      "codes": "wyzzr",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 32,
+          "y": 176.6,
+          "size": 7.6
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 92.5,
+          "y": 68.5,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 99.8,
+          "y": 106.3,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 89.5,
+          "y": 160.5,
+          "size": 10.9
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 154.3,
+          "y": 154.3,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Leeslamp",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "mol",
+    "order": 348,
+    "category": "dieren",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 13,
+    "colorByNumber": {
+      "codes": "wwzkkkzzzzzy-",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 115,
+          "y": 150,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 73,
+          "y": 102.8,
+          "size": 7.7
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 83.5,
+          "y": 111.1,
+          "size": 10
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 99.6,
+          "y": 103.7,
+          "size": 6.6
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 65.8,
+          "y": 116.4,
+          "size": 6.9
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 134.2,
+          "y": 116.4,
+          "size": 6.9
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 29.7,
+          "y": 149.8,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 89.7,
+          "y": 169.8,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 149.7,
+          "y": 159.8,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 179.7,
+          "y": 139.8,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 49.7,
+          "y": 185.8,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 4,
+          "x": 30.7,
+          "y": 39.3,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Mol uit de molshoop",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "neushoorn",
+    "order": 349,
+    "category": "dieren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 11,
+    "colorByNumber": {
+      "codes": "lzzz--zzzzy",
+      "palette": [
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 25,
+          "y": 189.6,
+          "size": 12
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 128.1,
+          "y": 121.1,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 68.3,
+          "y": 88.4,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 38.8,
+          "y": 114.1,
+          "size": 13
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 79.6,
+          "y": 148.1,
+          "size": 8.7
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 103.6,
+          "y": 148.1,
+          "size": 8.7
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 147.6,
+          "y": 148.1,
+          "size": 8.7
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 167.6,
+          "y": 148.1,
+          "size": 8.7
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 167.2,
+          "y": 33.2,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Neushoorn",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "ooievaar",
+    "order": 350,
+    "category": "dieren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 8,
+    "colorByNumber": {
+      "codes": "l-xx-rry",
+      "palette": [
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 15,
+          "y": 189.5,
+          "size": 10.9
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 125,
+          "y": 91.8,
+          "size": 9.9
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 63.2,
+          "y": 103.2,
+          "size": 6.9
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 84,
+          "y": 43.8,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 95.4,
+          "y": 109.8,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 167.3,
+          "y": 39.3,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Ooievaar",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "pauw",
+    "order": 351,
+    "category": "dieren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 24,
+    "colorByNumber": {
+      "codes": "gntngntngntngntngnnnyttt",
+      "palette": [
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 55.2,
+          "y": 125.3,
+          "size": 8.8
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 33.9,
+          "y": 115.8,
+          "size": 6.5
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 59.2,
+          "y": 110.2,
+          "size": 9.3
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 44.2,
+          "y": 97.1,
+          "size": 6.5
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 69.8,
+          "y": 98,
+          "size": 9
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 59.5,
+          "y": 82.4,
+          "size": 6.5
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 84.2,
+          "y": 88.3,
+          "size": 7.6
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 78.7,
+          "y": 72.9,
+          "size": 6.5
+        },
+        {
+          "region": 8,
+          "number": 1,
+          "x": 99.6,
+          "y": 79.3,
+          "size": 4.9
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 97.3,
+          "y": 66.7,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 115.8,
+          "y": 88.3,
+          "size": 7.6
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 120.7,
+          "y": 72.9,
+          "size": 6.5
+        },
+        {
+          "region": 12,
+          "number": 1,
+          "x": 126.3,
+          "y": 100.7,
+          "size": 9.2
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 139.9,
+          "y": 82.4,
+          "size": 6.5
+        },
+        {
+          "region": 14,
+          "number": 3,
+          "x": 140.8,
+          "y": 108.1,
+          "size": 9.3
+        },
+        {
+          "region": 15,
+          "number": 2,
+          "x": 155.2,
+          "y": 97.1,
+          "size": 6.5
+        },
+        {
+          "region": 16,
+          "number": 1,
+          "x": 144.8,
+          "y": 124,
+          "size": 10.2
+        },
+        {
+          "region": 17,
+          "number": 2,
+          "x": 165.5,
+          "y": 115.8,
+          "size": 6.5
+        },
+        {
+          "region": 18,
+          "number": 2,
+          "x": 99.2,
+          "y": 145.4,
+          "size": 13
+        },
+        {
+          "region": 19,
+          "number": 2,
+          "x": 95.8,
+          "y": 97.8,
+          "size": 8.7
+        },
+        {
+          "region": 20,
+          "number": 4,
+          "x": 112.3,
+          "y": 98.8,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 3,
+          "x": 93.9,
+          "y": 69.9,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 3,
+          "x": 99.9,
+          "y": 69.9,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 3,
+          "x": 105.9,
+          "y": 69.9,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Pauw met open staart",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "peer",
+    "order": 352,
+    "category": "eten",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 3,
+    "colorByNumber": {
+      "codes": "lg-",
+      "palette": [
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 112,
+          "y": 125.1,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 121.1,
+          "y": 24.8,
+          "size": 7.1
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Peer",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "regenwolk",
+    "order": 353,
+    "category": "natuur",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 9,
+    "colorByNumber": {
+      "codes": "zbbbbbbby",
+      "palette": [
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 84,
+          "y": 85.2,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 59.7,
+          "y": 142.1,
+          "size": 6.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 89.7,
+          "y": 152.1,
+          "size": 6.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 119.7,
+          "y": 142.1,
+          "size": 6.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 149.7,
+          "y": 156.1,
+          "size": 6.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 75.7,
+          "y": 178.1,
+          "size": 6.5
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 135.7,
+          "y": 184.1,
+          "size": 6.5
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 105.7,
+          "y": 182.1,
+          "size": 6.5
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 155.3,
+          "y": 41.5,
+          "size": 9.9
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Vrolijke regenwolk",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "spin",
+    "order": 354,
+    "category": "dieren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 4,
+    "colorByNumber": {
+      "codes": "xx--",
+      "palette": [
+        {
+          "code": "x",
+          "hex": "#222222"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 97.3,
+          "y": 132.7,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 99.4,
+          "y": 114.1,
+          "size": 5.7
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Spin in haar web",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "sushi",
+    "order": 355,
+    "category": "eten",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 12,
+    "colorByNumber": {
+      "codes": "wx-ox-lx-o-o",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 37,
+          "y": 139,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 31.3,
+          "y": 96.7,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 49.7,
+          "y": 99.7,
+          "size": 7.6
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 81.3,
+          "y": 96.7,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 99.7,
+          "y": 99.7,
+          "size": 7.6
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 131.3,
+          "y": 96.7,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 149.6,
+          "y": 99.7,
+          "size": 7.6
+        },
+        {
+          "region": 11,
+          "number": 3,
+          "x": 67,
+          "y": 49.5,
+          "size": 8
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Sushi met stokjes",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "tram",
+    "order": 356,
+    "category": "voertuigen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 12,
+    "colorByNumber": {
+      "codes": "r-bbbbyyxxzz",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 64,
+          "y": 103.3,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 47.2,
+          "y": 70.2,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 87.2,
+          "y": 70.2,
+          "size": 13
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 127.2,
+          "y": 70.2,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 160.4,
+          "y": 64.5,
+          "size": 12
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 159.8,
+          "y": 131.8,
+          "size": 5.4
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 39.8,
+          "y": 131.8,
+          "size": 5.4
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 49.5,
+          "y": 157.5,
+          "size": 10.8
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 149.5,
+          "y": 157.5,
+          "size": 10.8
+        },
+        {
+          "region": 10,
+          "number": 5,
+          "x": 5,
+          "y": 170.9,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 5,
+          "x": 5,
+          "y": 184.9,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tram",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "vleermuis",
+    "order": 357,
+    "category": "dieren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 14,
+    "colorByNumber": {
+      "codes": "nyxppp----yyyy",
+      "palette": [
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 45,
+          "y": 155,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 148.6,
+          "y": 48.6,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 64,
+          "y": 99.6,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 91.2,
+          "y": 107.2,
+          "size": 5.8
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 91.8,
+          "y": 86.8,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 108.2,
+          "y": 86.8,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 29.7,
+          "y": 29.7,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 59.7,
+          "y": 159.7,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 169.7,
+          "y": 159.7,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 39.7,
+          "y": 179.7,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Vleermuis bij volle maan",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "vuilniswagen",
+    "order": 358,
+    "category": "voertuigen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 15,
+    "colorByNumber": {
+      "codes": "zgyblllxzxzxzzz",
+      "palette": [
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 25,
+          "y": 191.4,
+          "size": 9.8
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 123.3,
+          "y": 93.5,
+          "size": 10
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 145.8,
+          "y": 141.8,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 155.8,
+          "y": 121.5,
+          "size": 10.9
+        },
+        {
+          "region": 4,
+          "number": 5,
+          "x": 36.3,
+          "y": 110.3,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 5,
+          "x": 68.3,
+          "y": 110.3,
+          "size": 13
+        },
+        {
+          "region": 6,
+          "number": 5,
+          "x": 100.3,
+          "y": 110.3,
+          "size": 13
+        },
+        {
+          "region": 7,
+          "number": 6,
+          "x": 37.7,
+          "y": 156.3,
+          "size": 5.1
+        },
+        {
+          "region": 8,
+          "number": 1,
+          "x": 43.8,
+          "y": 163.8,
+          "size": 5.4
+        },
+        {
+          "region": 9,
+          "number": 6,
+          "x": 85.7,
+          "y": 156.3,
+          "size": 5.1
+        },
+        {
+          "region": 10,
+          "number": 1,
+          "x": 91.8,
+          "y": 163.8,
+          "size": 5.4
+        },
+        {
+          "region": 11,
+          "number": 6,
+          "x": 150.9,
+          "y": 160.5,
+          "size": 5.1
+        },
+        {
+          "region": 12,
+          "number": 1,
+          "x": 159.8,
+          "y": 163.8,
+          "size": 5.4
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 158.6,
+          "y": 79.3,
+          "size": 9.8
+        },
+        {
+          "region": 14,
+          "number": 1,
+          "x": 150.6,
+          "y": 66.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Vuilniswagen",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "vulkaan",
+    "order": 359,
+    "category": "natuur",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 11,
+    "colorByNumber": {
+      "codes": "wwroozzzzoo",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 15,
+          "y": 191.6,
+          "size": 8.7
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 72,
+          "y": 152.6,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 97,
+          "y": 76.6,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 92.9,
+          "y": 100.6,
+          "size": 7
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 107.1,
+          "y": 100.4,
+          "size": 7.4
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 89.4,
+          "y": 45.4,
+          "size": 13
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 109.3,
+          "y": 29.3,
+          "size": 13
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 127.5,
+          "y": 49.5,
+          "size": 10.8
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 77.6,
+          "y": 23.6,
+          "size": 8.7
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 59.8,
+          "y": 39.8,
+          "size": 5.4
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 147.8,
+          "y": 29.8,
+          "size": 5.4
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Vulkaan",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "waterval",
+    "order": 360,
+    "category": "natuur",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 13,
+    "colorByNumber": {
+      "codes": "zzbn-----oggg",
+      "palette": [
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 33.3,
+          "y": 38.5,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 163.3,
+          "y": 38.5,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 98.5,
+          "y": 31.5,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 35,
+          "y": 168.5,
+          "size": 13
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 147.9,
+          "y": 175.5,
+          "size": 9.6
+        },
+        {
+          "region": 10,
+          "number": 5,
+          "x": 26.4,
+          "y": 111.5,
+          "size": 9.8
+        },
+        {
+          "region": 11,
+          "number": 5,
+          "x": 46.4,
+          "y": 91.5,
+          "size": 9.8
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 176.4,
+          "y": 101.5,
+          "size": 9.8
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Waterval",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "zeehond",
+    "order": 361,
+    "category": "zee",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 8,
+    "colorByNumber": {
+      "codes": "nzzzxzzr",
+      "palette": [
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 25,
+          "y": 178.6,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 184.3,
+          "y": 147,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 102.4,
+          "y": 127.3,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 72.1,
+          "y": 101.3,
+          "size": 10.7
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 57.8,
+          "y": 103.8,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 157.3,
+          "y": 139.3,
+          "size": 7.7
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 82.9,
+          "y": 150.4,
+          "size": 4.8
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 64.7,
+          "y": 64.7,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Zeehond met een bal",
+        "word": null,
+        "countQuestion": null
+      }
+    }
   }
 ]
