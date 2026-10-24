@@ -85480,5 +85480,4456 @@
         "countQuestion": null
       }
     }
+  },
+  {
+    "slug": "bingo-kleuren-en-vormen",
+    "order": 473,
+    "category": "vormen",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "spel",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "extra",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "kleurpotloden"
+      }
+    ],
+    "regionCount": 36,
+    "colorByNumber": {
+      "codes": "gbgrgrybrrbbbgrygrbgryrbyrgbgrgyyrrg",
+      "palette": [
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 28.3,
+          "y": 41.7,
+          "size": 7.4
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 54.6,
+          "y": 43.7,
+          "size": 5.2
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 81.6,
+          "y": 41.6,
+          "size": 8.7
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 27.6,
+          "y": 68.5,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 54.6,
+          "y": 68.5,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 81.7,
+          "y": 68.7,
+          "size": 7.4
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 27.6,
+          "y": 95.6,
+          "size": 8.7
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 54.7,
+          "y": 96.9,
+          "size": 5.2
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 81.6,
+          "y": 95.6,
+          "size": 8.7
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 117.6,
+          "y": 41.5,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 144.7,
+          "y": 42.9,
+          "size": 5.2
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 171.6,
+          "y": 43.7,
+          "size": 5.2
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 117.6,
+          "y": 68.6,
+          "size": 8.7
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 144.7,
+          "y": 68.7,
+          "size": 7.4
+        },
+        {
+          "region": 14,
+          "number": 3,
+          "x": 171.7,
+          "y": 69.9,
+          "size": 5.2
+        },
+        {
+          "region": 15,
+          "number": 4,
+          "x": 118.3,
+          "y": 95.6,
+          "size": 5.7
+        },
+        {
+          "region": 16,
+          "number": 1,
+          "x": 144.6,
+          "y": 97.7,
+          "size": 5.2
+        },
+        {
+          "region": 17,
+          "number": 3,
+          "x": 171.6,
+          "y": 97.7,
+          "size": 5.2
+        },
+        {
+          "region": 18,
+          "number": 2,
+          "x": 28.3,
+          "y": 135.7,
+          "size": 7.4
+        },
+        {
+          "region": 19,
+          "number": 1,
+          "x": 54.6,
+          "y": 135.6,
+          "size": 8.7
+        },
+        {
+          "region": 20,
+          "number": 3,
+          "x": 81.6,
+          "y": 137.7,
+          "size": 5.2
+        },
+        {
+          "region": 21,
+          "number": 4,
+          "x": 28.3,
+          "y": 162.7,
+          "size": 7.4
+        },
+        {
+          "region": 22,
+          "number": 3,
+          "x": 54.6,
+          "y": 162.6,
+          "size": 8.7
+        },
+        {
+          "region": 23,
+          "number": 2,
+          "x": 81.7,
+          "y": 162.6,
+          "size": 5.2
+        },
+        {
+          "region": 24,
+          "number": 4,
+          "x": 27.7,
+          "y": 190.9,
+          "size": 5.2
+        },
+        {
+          "region": 25,
+          "number": 3,
+          "x": 54.7,
+          "y": 189.6,
+          "size": 5.2
+        },
+        {
+          "region": 26,
+          "number": 1,
+          "x": 81.7,
+          "y": 189.6,
+          "size": 5.2
+        },
+        {
+          "region": 27,
+          "number": 2,
+          "x": 117.6,
+          "y": 137.7,
+          "size": 5.2
+        },
+        {
+          "region": 28,
+          "number": 1,
+          "x": 144.7,
+          "y": 135.6,
+          "size": 5.2
+        },
+        {
+          "region": 29,
+          "number": 3,
+          "x": 171.7,
+          "y": 135.6,
+          "size": 5.2
+        },
+        {
+          "region": 30,
+          "number": 1,
+          "x": 117.6,
+          "y": 164.7,
+          "size": 5.2
+        },
+        {
+          "region": 31,
+          "number": 4,
+          "x": 144.6,
+          "y": 162.6,
+          "size": 8.7
+        },
+        {
+          "region": 32,
+          "number": 4,
+          "x": 171.6,
+          "y": 164.7,
+          "size": 5.2
+        },
+        {
+          "region": 33,
+          "number": 3,
+          "x": 117.6,
+          "y": 189.5,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 3,
+          "x": 144.7,
+          "y": 190.9,
+          "size": 5.2
+        },
+        {
+          "region": 35,
+          "number": 1,
+          "x": 171.7,
+          "y": 189.7,
+          "size": 7.4
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bingo met kleuren en vormen",
+        "steps": [
+          "Kleur de vormen in de kleur die de spelleider kiest, of print in kleur. Op de trekkaartjes staat bij elke vorm de kleur.",
+          "Knip de vier bingokaarten en de trekkaartjes uit.",
+          "De spelleider trekt een kaartje en zegt bijvoorbeeld: een rode ster. Wie hem heeft, legt er een knoopje of muntje op.",
+          "Drie op een rij? Roep bingo! Een volle kaart is de grote bingo."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Trekkaartjes"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "dobbelrace",
+    "order": 474,
+    "category": "vormen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "spel",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      }
+    ],
+    "regionCount": 50,
+    "colorByNumber": {
+      "codes": "g----l-----k----y-----k----l-----b----k--rrrbbyygg",
+      "palette": [
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 26.5,
+          "y": 50.5,
+          "size": 12
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 146.4,
+          "y": 50.5,
+          "size": 12
+        },
+        {
+          "region": 11,
+          "number": 3,
+          "x": 74.4,
+          "y": 79.3,
+          "size": 12
+        },
+        {
+          "region": 16,
+          "number": 4,
+          "x": 74.4,
+          "y": 108,
+          "size": 12
+        },
+        {
+          "region": 22,
+          "number": 3,
+          "x": 146.4,
+          "y": 136.8,
+          "size": 12
+        },
+        {
+          "region": 27,
+          "number": 2,
+          "x": 26.5,
+          "y": 136.8,
+          "size": 12
+        },
+        {
+          "region": 33,
+          "number": 5,
+          "x": 146.4,
+          "y": 165.6,
+          "size": 12
+        },
+        {
+          "region": 38,
+          "number": 3,
+          "x": 98.4,
+          "y": 194.4,
+          "size": 12
+        },
+        {
+          "region": 41,
+          "number": 6,
+          "x": 26.5,
+          "y": 194.4,
+          "size": 12
+        },
+        {
+          "region": 42,
+          "number": 6,
+          "x": 59,
+          "y": 261,
+          "size": 6.4
+        },
+        {
+          "region": 43,
+          "number": 6,
+          "x": 60.2,
+          "y": 251.8,
+          "size": 4.5
+        },
+        {
+          "region": 44,
+          "number": 5,
+          "x": 84.9,
+          "y": 261,
+          "size": 6.4
+        },
+        {
+          "region": 45,
+          "number": 5,
+          "x": 85.8,
+          "y": 251.8,
+          "size": 4.5
+        },
+        {
+          "region": 46,
+          "number": 4,
+          "x": 110.9,
+          "y": 261,
+          "size": 6.4
+        },
+        {
+          "region": 47,
+          "number": 4,
+          "x": 111.8,
+          "y": 251.8,
+          "size": 4.5
+        },
+        {
+          "region": 48,
+          "number": 1,
+          "x": 136.9,
+          "y": 261,
+          "size": 6.4
+        },
+        {
+          "region": 49,
+          "number": 1,
+          "x": 137.8,
+          "y": 251.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Dobbelrace: bordspel om te printen",
+        "printNote": "Je hebt ook een dobbelsteen nodig.",
+        "steps": [
+          "Kleur het bord in. Iedereen zet zijn pion op start (vakje 1).",
+          "Gooi om de beurt en loop zoveel vakjes verder als je gooit.",
+          "Kom je op een vakje met tekst? Doe wat er staat.",
+          "Wie als eerste op de finish komt, wint. Je hoeft niet precies te gooien."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "domino-stenen",
+    "order": 475,
+    "category": "leren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "spel",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 28,
+    "colorByNumber": {
+      "codes": "----------------------------",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Domino om zelf te knippen",
+        "printNote": "Op stevig papier (of op karton geplakt) gaan de stenen langer mee.",
+        "steps": [
+          "Knip de 28 dominostenen uit.",
+          "Leg ze omgekeerd op tafel en husselen maar. Iedereen pakt er 7 (met z'n tweeën) of 5 (met meer spelers).",
+          "Wie de dubbele zes heeft, begint. Om de beurt leg je een steen aan: het aantal stippen moet hetzelfde zijn als waar je tegenaan legt.",
+          "Kun je niet? Pak een steen van de stapel of sla een beurt over. Wie het eerst al zijn stenen kwijt is, wint."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "kamertje-verhuren",
+    "order": 476,
+    "category": "vormen",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "spel",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Kamertje verhuren (stippenspel)",
+        "steps": [
+          "Speel met z'n tweeën, elk met een eigen kleur potlood.",
+          "Om de beurt trek je één streepje tussen twee stippen die naast of onder elkaar liggen (niet schuin).",
+          "Maak je met jouw streepje een hokje dicht? Dan schrijf je je letter erin en mag je nog een keer.",
+          "Zijn alle stippen verbonden? Tel de hokjes: wie de meeste heeft, wint."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "tangram",
+    "order": 477,
+    "category": "vormen",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "spel",
+    "height": 280,
+    "minutes": 25,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "extra",
+        "height": 280
+      },
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 7,
+    "colorByNumber": {
+      "codes": "rbygopt",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 96.2,
+          "y": 72.3,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 56.3,
+          "y": 112.2,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 151.3,
+          "y": 171.1,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 98.1,
+          "y": 152.1,
+          "size": 13
+        },
+        {
+          "region": 4,
+          "number": 5,
+          "x": 60.1,
+          "y": 175.9,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 6,
+          "x": 121.8,
+          "y": 117.9,
+          "size": 13
+        },
+        {
+          "region": 6,
+          "number": 7,
+          "x": 156.1,
+          "y": 88.4,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tangram: knip en leg figuren",
+        "steps": [
+          "Kleur de zeven stukjes elk in een eigen kleur en knip ze uit langs de lijnen.",
+          "Leg eerst het vierkant weer in elkaar, net als op het vel.",
+          "Probeer daarna de vis en de zeilboot van de tweede bladzijde. Gebruik altijd alle zeven stukjes, zonder ze over elkaar te leggen.",
+          "Lukt het niet? Op de laatste bladzijde zie je een oplossing. Verzin daarna zelf een figuur!"
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Leg deze figuren na",
+          "Zo kan het"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "cadeaulabels-winter",
+    "order": 478,
+    "category": "feest",
+    "age": "6-9",
+    "world": null,
+    "holiday": "kerst",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "touw"
+      }
+    ],
+    "regionCount": 11,
+    "colorByNumber": {
+      "codes": "rr-bn-yrygw",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 55.7,
+          "y": 53.8,
+          "size": 7.6
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 46.6,
+          "y": 58.4,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 53.3,
+          "y": 138.6,
+          "size": 7.4
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 47,
+          "y": 147.9,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 142.6,
+          "y": 129.5,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 1,
+          "x": 143.5,
+          "y": 140.5,
+          "size": 10.8
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 55.4,
+          "y": 222.4,
+          "size": 5.6
+        },
+        {
+          "region": 9,
+          "number": 5,
+          "x": 144.5,
+          "y": 219.6,
+          "size": 4.6
+        },
+        {
+          "region": 10,
+          "number": 6,
+          "x": 143.9,
+          "y": 231.1,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Ronde cadeaulabels met winterplaatjes",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt.",
+        "steps": [
+          "Kleur de plaatjes en schrijf op voor wie het cadeau is en van wie.",
+          "Knip de rondjes uit langs de streepjeslijn.",
+          "Prik een gaatje in het kleine rondje (vraag een volwassene om hulp) en bind het label met touw of lint aan het cadeau."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "chanoekakaart-draaitol",
+    "order": 479,
+    "category": "feest",
+    "age": "6-9",
+    "world": null,
+    "holiday": "chanoeka",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 10,
+    "colorByNumber": {
+      "codes": "znbyywryyy",
+      "palette": [
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 99.8,
+          "y": 182.3,
+          "size": 5.5
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 96.7,
+          "y": 209.1,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 98.9,
+          "y": 238,
+          "size": 10.3
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 43.5,
+          "y": 234.4,
+          "size": 11.9
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 60.4,
+          "y": 246.6,
+          "size": 9.8
+        },
+        {
+          "region": 5,
+          "number": 5,
+          "x": 141,
+          "y": 240.8,
+          "size": 8
+        },
+        {
+          "region": 6,
+          "number": 6,
+          "x": 150.9,
+          "y": 234.8,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 39.7,
+          "y": 190.7,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 159.7,
+          "y": 192.7,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 137.7,
+          "y": 180.7,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Chanoekakaart met draaitol",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin een wens voor de acht feestdagen."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "dierendagkaart-hond-en-kat",
+    "order": 480,
+    "category": "dieren",
+    "age": "4-6",
+    "world": null,
+    "holiday": "dierendag",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 12,
+    "colorByNumber": {
+      "codes": "wwo-xzzzkr-b",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 44,
+          "y": 223.8,
+          "size": 5.5
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 88,
+          "y": 223.8,
+          "size": 5.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 65,
+          "y": 202,
+          "size": 8.3
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 65.8,
+          "y": 217.9,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 121.3,
+          "y": 193.5,
+          "size": 4.6
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 146.8,
+          "y": 193.5,
+          "size": 4.6
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 133.1,
+          "y": 202.6,
+          "size": 9.3
+        },
+        {
+          "region": 8,
+          "number": 5,
+          "x": 133.9,
+          "y": 218.3,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 6,
+          "x": 99.7,
+          "y": 190,
+          "size": 5.3
+        },
+        {
+          "region": 11,
+          "number": 7,
+          "x": 129.8,
+          "y": 249.3,
+          "size": 5.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Dierendagkaart met hond en kat",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Geef de kaart aan iemand met een huisdier, of hang hem op bij het hok of de mand van jouw dier."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "divalikaart-lichtjes",
+    "order": 481,
+    "category": "feest",
+    "age": "6-9",
+    "world": null,
+    "holiday": "divali",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 22,
+    "colorByNumber": {
+      "codes": "mpmpmpmpyoyoryooyoyyyy",
+      "palette": [
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 114.5,
+          "y": 196.7,
+          "size": 5.2
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 110.1,
+          "y": 205.9,
+          "size": 5.9
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 100.9,
+          "y": 210.3,
+          "size": 5.9
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 91.1,
+          "y": 207.1,
+          "size": 5.9
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 86.7,
+          "y": 197.9,
+          "size": 5.9
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 89.9,
+          "y": 188.1,
+          "size": 5.9
+        },
+        {
+          "region": 6,
+          "number": 1,
+          "x": 99.1,
+          "y": 183.7,
+          "size": 5.9
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 108.9,
+          "y": 187.5,
+          "size": 6.5
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 99.7,
+          "y": 196.6,
+          "size": 7.6
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 43.3,
+          "y": 248,
+          "size": 10.3
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 45.8,
+          "y": 226.9,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 4,
+          "x": 45.9,
+          "y": 233,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 97.3,
+          "y": 248,
+          "size": 10.3
+        },
+        {
+          "region": 13,
+          "number": 3,
+          "x": 99.8,
+          "y": 226.9,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 4,
+          "x": 99.9,
+          "y": 233,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 4,
+          "x": 151.3,
+          "y": 248,
+          "size": 10.3
+        },
+        {
+          "region": 16,
+          "number": 3,
+          "x": 153.8,
+          "y": 226.9,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 4,
+          "x": 153.9,
+          "y": 233,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 3,
+          "x": 29.8,
+          "y": 187.2,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 3,
+          "x": 169.8,
+          "y": 187.2,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 3,
+          "x": 33.8,
+          "y": 217.2,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 3,
+          "x": 165.8,
+          "y": 217.2,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Divalikaart met lichtjes",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin een wens vol licht."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "halloweenkaart-spookjes",
+    "order": 482,
+    "category": "feest",
+    "age": "6-9",
+    "world": null,
+    "holiday": "halloween",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 12,
+    "colorByNumber": {
+      "codes": "yx-xxx-xxxog",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 158.4,
+          "y": 194.2,
+          "size": 9.2
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 139.2,
+          "y": 182.5,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 68.6,
+          "y": 211.6,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 83,
+          "y": 211.6,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 75.8,
+          "y": 225.9,
+          "size": 4.7
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 118.8,
+          "y": 223.7,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 129,
+          "y": 223.7,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 123.8,
+          "y": 233.9,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 39.2,
+          "y": 240.4,
+          "size": 13
+        },
+        {
+          "region": 11,
+          "number": 4,
+          "x": 39.9,
+          "y": 224.9,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Halloweenkaart met spookjes",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin een griezelig (of grappig) berichtje."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "kerstkaart-sneeuwpop",
+    "order": 483,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": "kerst",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 13,
+    "colorByNumber": {
+      "codes": "b--xxroggryyn",
+      "palette": [
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 71.3,
+          "y": 253.8,
+          "size": 6
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 84.9,
+          "y": 188.9,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 93.2,
+          "y": 176.9,
+          "size": 5.6
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 90,
+          "y": 183.9,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 97.6,
+          "y": 204.1,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 5,
+          "x": 91.1,
+          "y": 217.6,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 5,
+          "x": 103.8,
+          "y": 222.1,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 141.4,
+          "y": 234.5,
+          "size": 5.5
+        },
+        {
+          "region": 10,
+          "number": 6,
+          "x": 147.9,
+          "y": 231.5,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 6,
+          "x": 141.5,
+          "y": 225.5,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 7,
+          "x": 168,
+          "y": 242.7,
+          "size": 6.6
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Kerstkaart met sneeuwpop",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin een kerstwens voor iemand die je lief vindt."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "keti-koti-kaart",
+    "order": 484,
+    "category": "wereld",
+    "age": "9+",
+    "world": null,
+    "holiday": "ketikoti",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 25,
+    "colorByNumber": {
+      "codes": "yz-zz-zz-zz-zrrrrryrrrrry",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 93.5,
+          "y": 242.6,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 88.3,
+          "y": 194.7,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 59.5,
+          "y": 194.9,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 54.3,
+          "y": 194.7,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 21.5,
+          "y": 194.9,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 111.8,
+          "y": 194.7,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 129.5,
+          "y": 194.9,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 145.8,
+          "y": 194.7,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 163.5,
+          "y": 194.9,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 3,
+          "x": 29.8,
+          "y": 230.4,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 3,
+          "x": 36.3,
+          "y": 234.9,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 3,
+          "x": 34.1,
+          "y": 242.1,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 3,
+          "x": 26.3,
+          "y": 242.5,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 3,
+          "x": 23.7,
+          "y": 234.9,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 1,
+          "x": 29.8,
+          "y": 236.8,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 3,
+          "x": 169.8,
+          "y": 230.4,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 3,
+          "x": 176.3,
+          "y": 234.9,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 3,
+          "x": 174.1,
+          "y": 242.1,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 3,
+          "x": 166.3,
+          "y": 242.5,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 3,
+          "x": 163.7,
+          "y": 234.9,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 1,
+          "x": 169.8,
+          "y": 236.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Keti Kotikaart: gebroken ketenen",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Op 1 juli vieren we Keti Koti: het einde van de slavernij in Suriname en op de Antillen.",
+          "Schrijf binnenin wat vrijheid voor jou betekent."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "koningsdagkaart-kroon",
+    "order": 485,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": "koningsdag",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 16,
+    "colorByNumber": {
+      "codes": "or-nor-oyyyyrbgr",
+      "palette": [
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 31.6,
+          "y": 180.4,
+          "size": 5.2
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 53.6,
+          "y": 184.3,
+          "size": 5.2
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 97.6,
+          "y": 187.6,
+          "size": 5.2
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 119.6,
+          "y": 186.9,
+          "size": 5.2
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 141.6,
+          "y": 184.8,
+          "size": 5.2
+        },
+        {
+          "region": 7,
+          "number": 1,
+          "x": 79.2,
+          "y": 234,
+          "size": 9.9
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 73,
+          "y": 248.7,
+          "size": 6.6
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 67.8,
+          "y": 210.8,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 4,
+          "x": 99.8,
+          "y": 202.8,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 4,
+          "x": 131.8,
+          "y": 210.8,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 79.8,
+          "y": 248.8,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 5,
+          "x": 99.8,
+          "y": 248.8,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 6,
+          "x": 119.8,
+          "y": 248.8,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 2,
+          "x": 99.6,
+          "y": 233.1,
+          "size": 6
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Koningsdagkaart met kroon en vlaggetjes",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Kleur de kroon oranje, en de vlaggetjes rood, wit, blauw en oranje.",
+          "Schrijf binnenin wat jij op Koningsdag gaat doen."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "letterslinger-hoera",
+    "order": 486,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": "verjaardag",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 25,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "touw"
+      }
+    ],
+    "regionCount": 18,
+    "colorByNumber": {
+      "codes": "o-yy-yt-ym-yl-yb-y",
+      "palette": [
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 25.1,
+          "y": 113.6,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 39.8,
+          "y": 116.2,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 85.2,
+          "y": 113.6,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 99.8,
+          "y": 116.2,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 145.1,
+          "y": 113.6,
+          "size": 13
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 159.8,
+          "y": 116.2,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 25.1,
+          "y": 233.6,
+          "size": 13
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 39.8,
+          "y": 236.2,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 85.2,
+          "y": 233.6,
+          "size": 13
+        },
+        {
+          "region": 14,
+          "number": 2,
+          "x": 99.8,
+          "y": 236.2,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 6,
+          "x": 145.1,
+          "y": 233.6,
+          "size": 13
+        },
+        {
+          "region": 17,
+          "number": 2,
+          "x": 159.8,
+          "y": 236.2,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Letterslinger: HOERA!",
+        "steps": [
+          "Kleur de vlaggen in, en de letters in een kleur die goed opvalt.",
+          "Knip de vlaggen uit langs de streepjeslijn.",
+          "Leg ze op volgorde: H, O, E, R, A en het uitroepteken.",
+          "Leg een touw langs de stippellijnen, smeer lijm op de grijze randjes en vouw ze over het touw.",
+          "Hang de slinger op bij het feest."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "maak-af-feestje",
+    "order": 487,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden"
+      }
+    ],
+    "regionCount": 15,
+    "colorByNumber": {
+      "codes": "-----r---------",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 5,
+          "number": 1,
+          "x": 51.1,
+          "y": 131.9,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Maak de tekening af: feestje",
+        "steps": [
+          "Lees de opdracht boven elk vak, of laat hem voorlezen.",
+          "Teken erbij wat er nog mist. Er is geen goed of fout: verzin het zelf!",
+          "Kleur daarna alles in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "maak-af-natuur",
+    "order": 488,
+    "category": "natuur",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden"
+      }
+    ],
+    "regionCount": 10,
+    "colorByNumber": {
+      "codes": "---ywxwwwy",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        }
+      ],
+      "labels": [
+        {
+          "region": 3,
+          "number": 1,
+          "x": 137.5,
+          "y": 128.6,
+          "size": 7.6
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 55.5,
+          "y": 208.8,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 54.7,
+          "y": 229.6,
+          "size": 7.6
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 136.3,
+          "y": 207.1,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 136.3,
+          "y": 229.1,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 136.3,
+          "y": 251.1,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 1,
+          "x": 173.6,
+          "y": 179.6,
+          "size": 7.6
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Maak de tekening af: in de natuur",
+        "steps": [
+          "Lees de opdracht boven elk vak, of laat hem voorlezen.",
+          "Teken erbij wat er nog mist. Er is geen goed of fout: verzin het zelf!",
+          "Kleur daarna alles in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "moederdagkaart-bloemenhart",
+    "order": 489,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": "moederdag",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 26,
+    "colorByNumber": {
+      "codes": "krrrrrypppppyoooooygggrrrr",
+      "palette": [
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 97.8,
+          "y": 240.3,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 79.7,
+          "y": 188.7,
+          "size": 4.7
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 87.9,
+          "y": 194.4,
+          "size": 4.9
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 85.2,
+          "y": 203.4,
+          "size": 5.1
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 75.3,
+          "y": 203.9,
+          "size": 5.1
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 72.1,
+          "y": 194.4,
+          "size": 5.1
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 79.8,
+          "y": 196.8,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 119.7,
+          "y": 188.7,
+          "size": 4.7
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 127.9,
+          "y": 194.4,
+          "size": 4.9
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 125.2,
+          "y": 203.4,
+          "size": 5.1
+        },
+        {
+          "region": 10,
+          "number": 4,
+          "x": 115.3,
+          "y": 203.9,
+          "size": 5.1
+        },
+        {
+          "region": 11,
+          "number": 4,
+          "x": 112.1,
+          "y": 194.4,
+          "size": 5.1
+        },
+        {
+          "region": 12,
+          "number": 3,
+          "x": 119.8,
+          "y": 196.8,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 5,
+          "x": 99.7,
+          "y": 212.7,
+          "size": 4.7
+        },
+        {
+          "region": 14,
+          "number": 5,
+          "x": 107.4,
+          "y": 217.9,
+          "size": 4.8
+        },
+        {
+          "region": 15,
+          "number": 5,
+          "x": 105.2,
+          "y": 227.4,
+          "size": 5.1
+        },
+        {
+          "region": 16,
+          "number": 5,
+          "x": 95.3,
+          "y": 227.9,
+          "size": 5.1
+        },
+        {
+          "region": 17,
+          "number": 5,
+          "x": 92.6,
+          "y": 217.9,
+          "size": 4.8
+        },
+        {
+          "region": 18,
+          "number": 3,
+          "x": 99.8,
+          "y": 220.8,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 6,
+          "x": 99.6,
+          "y": 201.3,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 6,
+          "x": 83.6,
+          "y": 218.7,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 6,
+          "x": 115.6,
+          "y": 219.3,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 2,
+          "x": 35.7,
+          "y": 189.9,
+          "size": 4.7
+        },
+        {
+          "region": 23,
+          "number": 2,
+          "x": 163.7,
+          "y": 189.9,
+          "size": 4.7
+        },
+        {
+          "region": 24,
+          "number": 2,
+          "x": 39.7,
+          "y": 245.9,
+          "size": 4.7
+        },
+        {
+          "region": 25,
+          "number": 2,
+          "x": 159.7,
+          "y": 245.9,
+          "size": 4.7
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Moederdagkaart: hart vol bloemen",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin waarom jouw mama (of iemand anders die voor je zorgt) zo lief is."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "sint-maartenkaart-lampion",
+    "order": 490,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": "sintmaarten",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 10,
+    "colorByNumber": {
+      "codes": "yyyyyzoyoz",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 35.3,
+          "y": 188.1,
+          "size": 4.5
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 79.8,
+          "y": 183.2,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 27.8,
+          "y": 221.2,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 1,
+          "x": 175.8,
+          "y": 187.2,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 65.8,
+          "y": 207.2,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 137,
+          "y": 197.9,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 126.5,
+          "y": 215.8,
+          "size": 6
+        },
+        {
+          "region": 7,
+          "number": 1,
+          "x": 136.3,
+          "y": 217.9,
+          "size": 6
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 145.8,
+          "y": 215.8,
+          "size": 5.5
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 137,
+          "y": 242.9,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Sint-Maartenkaart met lampion",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin voor wie de kaart is, of welk liedje jij zingt."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "sjablonen-boerderijdieren",
+    "order": 491,
+    "category": "boerderij",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "sjabloon",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "stevig-papier"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "verf",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Sjablonen: boerderijdieren",
+        "printNote": "Print op stevig papier (160 gram) of plak het vel op karton: dan gaat het sjabloon langer mee.",
+        "steps": [
+          "Knip de kaartjes los langs de buitenste streepjeslijn.",
+          "Vouw een kaartje voorzichtig dubbel door het midden van de vorm en knip de vorm eruit; een volwassene kan ook een hobbymesje gebruiken.",
+          "Leg het sjabloon op een vel papier en trek met potlood langs de binnenrand, of dep er verf in met een sponsje.",
+          "Til het sjabloon recht omhoog op, schuif het een stukje op en maak een patroon."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "sjablonen-dinos",
+    "order": 492,
+    "category": "dinos",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "sjabloon",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "stevig-papier"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "verf",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Sjablonen: dino's",
+        "printNote": "Print op stevig papier (160 gram) of plak het vel op karton: dan gaat het sjabloon langer mee.",
+        "steps": [
+          "Knip de kaartjes los langs de buitenste streepjeslijn.",
+          "Vouw een kaartje voorzichtig dubbel door het midden van de vorm en knip de vorm eruit; een volwassene kan ook een hobbymesje gebruiken.",
+          "Leg het sjabloon op een vel papier en trek met potlood langs de binnenrand, of dep er verf in met een sponsje.",
+          "Til het sjabloon recht omhoog op, schuif het een stukje op en maak een patroon."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "sjablonen-feest",
+    "order": 493,
+    "category": "feest",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "sjabloon",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "stevig-papier"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "verf",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Sjablonen: feest",
+        "printNote": "Print op stevig papier (160 gram) of plak het vel op karton: dan gaat het sjabloon langer mee.",
+        "steps": [
+          "Knip de kaartjes los langs de buitenste streepjeslijn.",
+          "Vouw een kaartje voorzichtig dubbel door het midden van de vorm en knip de vorm eruit; een volwassene kan ook een hobbymesje gebruiken.",
+          "Leg het sjabloon op een vel papier en trek met potlood langs de binnenrand, of dep er verf in met een sponsje.",
+          "Til het sjabloon recht omhoog op, schuif het een stukje op en maak een patroon."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "suikerfeestkaart-maan-lantaarns",
+    "order": 494,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": "suikerfeest",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 14,
+    "colorByNumber": {
+      "codes": "yyttytppypyyyy",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 41.2,
+          "y": 209,
+          "size": 7.2
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 95.6,
+          "y": 194.6,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 135.6,
+          "y": 199.6,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 125.5,
+          "y": 216.6,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 135.6,
+          "y": 218.4,
+          "size": 8.7
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 135.7,
+          "y": 238,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 165.7,
+          "y": 192.4,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 159.2,
+          "y": 200.4,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 1,
+          "x": 165.7,
+          "y": 206.6,
+          "size": 6.5
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 165.8,
+          "y": 221.3,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 1,
+          "x": 29.8,
+          "y": 183.2,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 1,
+          "x": 117.8,
+          "y": 243.2,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 1,
+          "x": 175.8,
+          "y": 241.2,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 33.8,
+          "y": 253.2,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Suikerfeestkaart met maan en lantaarns",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin een lieve wens voor het feest."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "teken-de-andere-helft",
+    "order": 495,
+    "category": "leren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "extra",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Teken de andere helft: kat, lieveheersbeestje, raket en pompoen",
+        "steps": [
+          "Kijk goed naar de halve tekening links van de stippellijn.",
+          "Teken rechts precies hetzelfde, maar dan gespiegeld. Wat links naar links wijst, wijst rechts naar rechts.",
+          "Begin met de grote lijnen en teken daarna de kleine dingen, zoals ogen en stippen.",
+          "Klaar? Kleur de tekeningen in. Op de tweede bladzijde zie je hoe ze heel worden."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Zo zien ze er heel uit"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "tekenles-dinosaurus",
+    "order": 496,
+    "category": "dinos",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenles: een dinosaurus met lange nek",
+        "steps": [
+          "Teken een groot ovaal lijf.",
+          "Een lange nek omhoog met een klein hoofd.",
+          "Een lange staart naar links.",
+          "Vier dikke poten (je ziet er twee).",
+          "Een oog, een lachje en vlekken.",
+          "De grond en een palmboom.",
+          "Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.",
+          "Klaar? Trek de lijnen mooi over en kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "tekenles-egel",
+    "order": 497,
+    "category": "dieren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenles: een egel",
+        "steps": [
+          "Teken een grote boog: de rug.",
+          "Een spits snuitje rechts en een rechte buik.",
+          "Zigzag stekels over de hele rug.",
+          "Een oogje en een rond neusje.",
+          "Twee korte pootjes.",
+          "Een appel op de stekels en de grond.",
+          "Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.",
+          "Klaar? Trek de lijnen mooi over en kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "tekenles-kasteel",
+    "order": 498,
+    "category": "sprookjes",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenles: een kasteel",
+        "steps": [
+          "Teken een grote rechthoek: de muur.",
+          "Twee hoge torens links en rechts.",
+          "Puntdaken op de torens.",
+          "Kantelen bovenop de muur.",
+          "Een poort en raampjes.",
+          "Vlaggetjes op de torens en de grond.",
+          "Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.",
+          "Klaar? Trek de lijnen mooi over en kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "tekenles-paard",
+    "order": 499,
+    "category": "boerderij",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenles: een paard",
+        "steps": [
+          "Teken een liggend ovaal: het lijf.",
+          "Een lange hals schuin omhoog en een hoofd met een lange neus.",
+          "Vier lange benen met een plat stukje onderaan.",
+          "Manen in de nek en een golvende staart.",
+          "Een oog, een puntig oor en een neusgat.",
+          "De grond met een paar sprietjes gras.",
+          "Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.",
+          "Klaar? Trek de lijnen mooi over en kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "tekenles-pinguin",
+    "order": 500,
+    "category": "dieren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenles: een pinguïn",
+        "steps": [
+          "Teken een groot eivormig lijf.",
+          "Een witte buik in het midden.",
+          "Twee vleugels aan de zijkant.",
+          "Twee ogen en een snavel.",
+          "Twee platte voeten.",
+          "Een ijsschots en sneeuwvlokjes.",
+          "Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.",
+          "Klaar? Trek de lijnen mooi over en kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "tekenles-robot",
+    "order": 501,
+    "category": "ruimte",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenles: een robot",
+        "steps": [
+          "Teken een vierkant lijf.",
+          "Een hoofd erop met een korte nek.",
+          "Een antenne en twee ronde ogen.",
+          "Een mond en een paneel met knopjes.",
+          "Armen met grijpers: een omlaag, een omhoog.",
+          "Benen met voeten.",
+          "Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.",
+          "Klaar? Trek de lijnen mooi over en kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "tekenles-vrachtwagen",
+    "order": 502,
+    "category": "voertuigen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenles: een vrachtwagen",
+        "steps": [
+          "Teken een grote rechthoek: de laadbak.",
+          "Een cabine rechts met een schuine voorkant.",
+          "Twee grote wielen.",
+          "Een raam in de cabine.",
+          "Doppen op de wielen, een lamp en een handvat.",
+          "De weg met strepen.",
+          "Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.",
+          "Klaar? Trek de lijnen mooi over en kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "tekenles-zeilboot",
+    "order": 503,
+    "category": "voertuigen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenles: een zeilboot",
+        "steps": [
+          "Teken de romp: een brede vorm die onderaan smaller wordt.",
+          "Een lange mast recht omhoog.",
+          "Een groot zeil rechts van de mast.",
+          "Een kleiner zeil links.",
+          "Een vlaggetje bovenin en ronde raampjes.",
+          "Golven en een zon.",
+          "Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.",
+          "Klaar? Trek de lijnen mooi over en kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "verhuiskaart-nieuw-huis",
+    "order": 504,
+    "category": "thuis",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 11,
+    "colorByNumber": {
+      "codes": "rrywbbwwwog",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 128.2,
+          "y": 185.1,
+          "size": 4.5
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 108.3,
+          "y": 191.1,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 108.6,
+          "y": 214.3,
+          "size": 12.9
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 108.8,
+          "y": 234.1,
+          "size": 7.5
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 93.7,
+          "y": 216.7,
+          "size": 6.6
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 125.7,
+          "y": 216.7,
+          "size": 6.6
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 37.3,
+          "y": 241.4,
+          "size": 12
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 42.2,
+          "y": 220.5,
+          "size": 10.9
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 65.6,
+          "y": 242.6,
+          "size": 8.7
+        },
+        {
+          "region": 9,
+          "number": 5,
+          "x": 166.6,
+          "y": 245.6,
+          "size": 7.6
+        },
+        {
+          "region": 10,
+          "number": 6,
+          "x": 166.4,
+          "y": 226.4,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Verhuiskaart: nieuw huis",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin jullie nieuwe adres en wanneer jullie verhuizen."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "welkom-thuis-kaart",
+    "order": 505,
+    "category": "thuis",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 14,
+    "colorByNumber": {
+      "codes": "w--ryorrbbyyll",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 79.6,
+          "y": 184.3,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 99.7,
+          "y": 199,
+          "size": 5.3
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 113.9,
+          "y": 226.9,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 72.8,
+          "y": 252.1,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 39.5,
+          "y": 192.4,
+          "size": 10.9
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 39.8,
+          "y": 206.7,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 5,
+          "x": 159.5,
+          "y": 192.4,
+          "size": 10.9
+        },
+        {
+          "region": 9,
+          "number": 5,
+          "x": 159.9,
+          "y": 206.7,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 53.5,
+          "y": 212.4,
+          "size": 10.9
+        },
+        {
+          "region": 11,
+          "number": 3,
+          "x": 53.8,
+          "y": 226.7,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 6,
+          "x": 147.5,
+          "y": 216.4,
+          "size": 10.9
+        },
+        {
+          "region": 13,
+          "number": 6,
+          "x": 147.9,
+          "y": 230.7,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Kaart: welkom thuis!",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Leg de kaart klaar voor iemand die thuiskomt: van vakantie, uit het ziekenhuis of van een lange reis."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "placemat-eet-smakelijk",
+    "order": 506,
+    "category": "eten",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 81,
+    "colorByNumber": {
+      "codes": "rgyygrrgyygrrgyygrrgyygrrgyygrrgyygrrgyygrrgyrggryyrggryyrggryyrggryyrb-zztbrgorg",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 185.8,
+          "y": 17.8,
+          "size": 4.5
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 13.8,
+          "y": 17.8,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 185.8,
+          "y": 29.4,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 13.8,
+          "y": 29.4,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 185.8,
+          "y": 41,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 1,
+          "x": 13.8,
+          "y": 41,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 1,
+          "x": 185.8,
+          "y": 52.6,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 13.8,
+          "y": 52.6,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 185.8,
+          "y": 64.2,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 13.8,
+          "y": 64.2,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 185.8,
+          "y": 75.8,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 1,
+          "x": 13.8,
+          "y": 75.8,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 1,
+          "x": 185.8,
+          "y": 87.4,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 13.8,
+          "y": 87.4,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 3,
+          "x": 185.8,
+          "y": 99,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 3,
+          "x": 13.8,
+          "y": 99,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 2,
+          "x": 185.8,
+          "y": 110.6,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 1,
+          "x": 13.8,
+          "y": 110.6,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 1,
+          "x": 185.8,
+          "y": 122.2,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 2,
+          "x": 13.8,
+          "y": 122.2,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 3,
+          "x": 185.8,
+          "y": 133.8,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 3,
+          "x": 13.8,
+          "y": 133.8,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 2,
+          "x": 185.8,
+          "y": 145.4,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 1,
+          "x": 13.8,
+          "y": 145.4,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 1,
+          "x": 185.8,
+          "y": 157,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 2,
+          "x": 13.8,
+          "y": 157,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 3,
+          "x": 185.8,
+          "y": 168.6,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 3,
+          "x": 13.8,
+          "y": 168.6,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 2,
+          "x": 185.8,
+          "y": 180.2,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 1,
+          "x": 13.8,
+          "y": 180.2,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 1,
+          "x": 185.8,
+          "y": 191.8,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 2,
+          "x": 13.8,
+          "y": 191.8,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 3,
+          "x": 185.8,
+          "y": 203.4,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 3,
+          "x": 13.8,
+          "y": 203.4,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 2,
+          "x": 185.8,
+          "y": 215,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 1,
+          "x": 13.8,
+          "y": 215,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 1,
+          "x": 185.8,
+          "y": 226.6,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 2,
+          "x": 13.8,
+          "y": 226.6,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 3,
+          "x": 185.8,
+          "y": 238.2,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 3,
+          "x": 13.8,
+          "y": 238.2,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 2,
+          "x": 185.8,
+          "y": 249.8,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 1,
+          "x": 13.8,
+          "y": 249.8,
+          "size": 4.5
+        },
+        {
+          "region": 42,
+          "number": 1,
+          "x": 185.8,
+          "y": 261.4,
+          "size": 4.5
+        },
+        {
+          "region": 43,
+          "number": 2,
+          "x": 13.8,
+          "y": 261.4,
+          "size": 4.5
+        },
+        {
+          "region": 44,
+          "number": 3,
+          "x": 173.8,
+          "y": 13.8,
+          "size": 4.5
+        },
+        {
+          "region": 45,
+          "number": 1,
+          "x": 173.8,
+          "y": 265.8,
+          "size": 4.5
+        },
+        {
+          "region": 46,
+          "number": 2,
+          "x": 161.5,
+          "y": 13.8,
+          "size": 4.5
+        },
+        {
+          "region": 47,
+          "number": 2,
+          "x": 161.5,
+          "y": 265.8,
+          "size": 4.5
+        },
+        {
+          "region": 48,
+          "number": 1,
+          "x": 149.2,
+          "y": 14.2,
+          "size": 4.5
+        },
+        {
+          "region": 49,
+          "number": 3,
+          "x": 149.2,
+          "y": 265.8,
+          "size": 4.5
+        },
+        {
+          "region": 50,
+          "number": 3,
+          "x": 136.9,
+          "y": 14.2,
+          "size": 4.5
+        },
+        {
+          "region": 51,
+          "number": 1,
+          "x": 136.9,
+          "y": 265.8,
+          "size": 4.5
+        },
+        {
+          "region": 52,
+          "number": 2,
+          "x": 124.6,
+          "y": 14.2,
+          "size": 4.5
+        },
+        {
+          "region": 53,
+          "number": 2,
+          "x": 124.6,
+          "y": 265.8,
+          "size": 4.5
+        },
+        {
+          "region": 54,
+          "number": 1,
+          "x": 112.3,
+          "y": 14.2,
+          "size": 4.5
+        },
+        {
+          "region": 55,
+          "number": 3,
+          "x": 112.3,
+          "y": 265.8,
+          "size": 4.5
+        },
+        {
+          "region": 56,
+          "number": 3,
+          "x": 100,
+          "y": 14.2,
+          "size": 4.5
+        },
+        {
+          "region": 57,
+          "number": 1,
+          "x": 100,
+          "y": 265.8,
+          "size": 4.5
+        },
+        {
+          "region": 58,
+          "number": 2,
+          "x": 87.7,
+          "y": 14.2,
+          "size": 4.5
+        },
+        {
+          "region": 59,
+          "number": 2,
+          "x": 87.7,
+          "y": 265.8,
+          "size": 4.5
+        },
+        {
+          "region": 60,
+          "number": 1,
+          "x": 75.4,
+          "y": 14.2,
+          "size": 4.5
+        },
+        {
+          "region": 61,
+          "number": 3,
+          "x": 75.4,
+          "y": 265.8,
+          "size": 4.5
+        },
+        {
+          "region": 62,
+          "number": 3,
+          "x": 63.1,
+          "y": 13.8,
+          "size": 4.5
+        },
+        {
+          "region": 63,
+          "number": 1,
+          "x": 63.1,
+          "y": 265.8,
+          "size": 4.5
+        },
+        {
+          "region": 64,
+          "number": 2,
+          "x": 50.8,
+          "y": 13.8,
+          "size": 4.5
+        },
+        {
+          "region": 65,
+          "number": 2,
+          "x": 50.8,
+          "y": 265.8,
+          "size": 4.5
+        },
+        {
+          "region": 66,
+          "number": 1,
+          "x": 38.5,
+          "y": 13.8,
+          "size": 4.5
+        },
+        {
+          "region": 67,
+          "number": 3,
+          "x": 38.5,
+          "y": 265.8,
+          "size": 4.5
+        },
+        {
+          "region": 68,
+          "number": 3,
+          "x": 26.2,
+          "y": 13.8,
+          "size": 4.5
+        },
+        {
+          "region": 69,
+          "number": 1,
+          "x": 26.2,
+          "y": 265.8,
+          "size": 4.5
+        },
+        {
+          "region": 70,
+          "number": 4,
+          "x": 45.5,
+          "y": 132.5,
+          "size": 8.6
+        },
+        {
+          "region": 72,
+          "number": 5,
+          "x": 106.3,
+          "y": 71.6,
+          "size": 5.4
+        },
+        {
+          "region": 73,
+          "number": 5,
+          "x": 97.8,
+          "y": 214.3,
+          "size": 6.1
+        },
+        {
+          "region": 74,
+          "number": 6,
+          "x": 146.3,
+          "y": 233.1,
+          "size": 7.2
+        },
+        {
+          "region": 75,
+          "number": 4,
+          "x": 155.8,
+          "y": 232.5,
+          "size": 4.5
+        },
+        {
+          "region": 76,
+          "number": 1,
+          "x": 155.2,
+          "y": 33.8,
+          "size": 12.6
+        },
+        {
+          "region": 77,
+          "number": 2,
+          "x": 172.6,
+          "y": 43.7,
+          "size": 4.5
+        },
+        {
+          "region": 78,
+          "number": 7,
+          "x": 47.7,
+          "y": 43.2,
+          "size": 7.6
+        },
+        {
+          "region": 79,
+          "number": 1,
+          "x": 35.7,
+          "y": 239.5,
+          "size": 5.4
+        },
+        {
+          "region": 80,
+          "number": 2,
+          "x": 48.4,
+          "y": 238,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Placemat om te kleuren: eet smakelijk!",
+        "printNote": "Print liggend. Wil je hem vaker gebruiken? Schuif hem in een insteekhoes of laat hem plastificeren.",
+        "steps": [
+          "Schrijf je naam op de placemat.",
+          "Kleur het bord, het bestek, de beker en het fruit in.",
+          "Maak de rand vrolijk met de rondjes in drie kleuren.",
+          "Leg de placemat op tafel: zet je bord op het bord en je bestek op het bestek!"
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
   }
 ]
