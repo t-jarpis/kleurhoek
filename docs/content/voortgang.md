@@ -2,11 +2,11 @@
 
 Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027.
 
-**Totaal: 690** van 5.000. Problemen: 0, waarschuwingen: 12.
+**Totaal: 746** van 5.000. Problemen: 0, waarschuwingen: 18.
 
 | Groep | Nu | Doel |
 |---|---:|---:|
-| Kleurplaten | 291 | 2000 |
+| Kleurplaten | 347 | 2000 |
 | Knip-, plak- en knutselbladen | 84 | 750 |
 | Vouw- en bouwplaten | 53 | 500 |
 | Teken- en schilderactiviteiten | 68 | 400 |
@@ -18,7 +18,7 @@ Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027
 
 | | Aantal |
 |---|---:|
-| kleurplaat | 291 |
+| kleurplaat | 347 |
 | werkblad | 141 |
 | knipplaat | 84 |
 | tekenles | 60 |
@@ -32,32 +32,32 @@ Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027
 
 | | Aantal |
 |---|---:|
-| dieren | 95 |
+| dieren | 113 |
 | feest | 81 |
 | leren | 76 |
+| natuur | 57 |
 | voertuigen | 52 |
-| natuur | 51 |
 | vormen | 49 |
 | thuis | 39 |
+| zee | 37 |
 | eten | 36 |
-| zee | 34 |
+| ruimte | 33 |
 | patronen | 31 |
 | wereld | 28 |
 | sprookjes | 27 |
-| ruimte | 23 |
-| boerderij | 23 |
-| sport | 17 |
-| beroepen | 15 |
-| dinos | 13 |
+| boerderij | 24 |
+| sport | 22 |
+| dinos | 21 |
+| beroepen | 20 |
 
 ### Per leeftijd
 
 | | Aantal |
 |---|---:|
-| 4-6 | 293 |
-| 6-9 | 204 |
-| 2-4 | 101 |
-| 9+ | 59 |
+| 4-6 | 316 |
+| 6-9 | 227 |
+| 2-4 | 107 |
+| 9+ | 63 |
 | 12+ | 33 |
 
 ### Waarschuwingen
@@ -74,3 +74,9 @@ Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027
 - bloemenveld: pagina 1: 2 onderdelen (deels) buiten het vel
 - vrijmarkt: pagina 1: 1 onderdelen (deels) buiten het vel
 - sorteren-vliegt-zwemt-loopt: pagina 1: 1 piepkleine vlakken
+- reiger: pagina 1: 1 onderdelen (deels) buiten het vel
+- wombat: pagina 1: 1 onderdelen (deels) buiten het vel
+- dino-familie: pagina 1: 3 onderdelen (deels) buiten het vel
+- raketlancering: pagina 1: 1 onderdelen (deels) buiten het vel
+- velociraptor: pagina 1: 4 onderdelen (deels) buiten het vel
+- wielrenner: pagina 1: 1 onderdelen (deels) buiten het vel
