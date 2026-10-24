@@ -105032,5 +105032,131 @@
         "countQuestion": null
       }
     }
+  },
+  {
+    "slug": "ronde-doolhof-makkelijk",
+    "order": 620,
+    "category": "vormen",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 1,
+    "colorByNumber": {
+      "codes": "y",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 99.6,
+          "y": 149.6,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Doolhof: rond, naar het midden",
+        "steps": [
+          "Zoek de opening in de buitenste ring, bovenaan.",
+          "Volg de gangen naar binnen zonder door een muur te gaan, tot je bij de ster in het midden bent.",
+          "Vast? Ga terug naar de laatste splitsing en probeer een andere gang. Het antwoord staat op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "ronde-doolhof-moeilijk",
+    "order": 621,
+    "category": "vormen",
+    "age": "12+",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 25,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 1,
+    "colorByNumber": {
+      "codes": "y",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 99.6,
+          "y": 149.6,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Doolhof: rond en pittig",
+        "steps": [
+          "Zoek de opening in de buitenste ring, bovenaan.",
+          "Volg de gangen naar binnen zonder door een muur te gaan, tot je bij de ster in het midden bent.",
+          "Vast? Ga terug naar de laatste splitsing en probeer een andere gang. Het antwoord staat op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
   }
 ]
