@@ -38,7 +38,7 @@ describe("website-API", () => {
     const expected = source.plates().filter((p) => p.age === "2-4").length;
     expect((await get("/v1/markets/nl-NL/plates?age=2-4")).json().count).toBe(expected);
     const nl = (await get("/v1/markets/nl-NL/plates?category=wereld&continent=europa&country=Nederland")).json();
-    expect(nl.items.map((p: { slug: string }) => p.slug).sort()).toEqual(["kroon", "lampion", "molen", "schoen"]);
+    expect(nl.items.map((p: { slug: string }) => p.slug).sort()).toEqual(["kroon", "lampion", "molen", "molen-bouwplaat", "schoen"]);
     expect((await get("/v1/markets/nl-NL/plates?holiday=divali")).json().items.map((p: { slug: string }) => p.slug)).toEqual(["divali"]);
   });
 

@@ -1,3 +1,4 @@
+import * as source from "@kleurhoek/catalog-data";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { seed } from "../src/db/seed";
 import { DB, type Database } from "../src/db/database";
@@ -71,7 +72,9 @@ describe("knutselwerk in de catalogus", () => {
   });
   it("filtert op soort", async () => {
     const r = await ctx.http.inject({ method: "GET", url: "/v1/markets/nl-NL/plates?kind=knutselen" });
-    expect(r.json().items.map((i: { slug: string }) => i.slug)).toEqual(["lampion-maken"]);
+    const crafts = source.plates().filter((p) => p.kind !== "kleurplaat").map((p) => p.slug).sort();
+    expect(r.json().items.map((i: { slug: string }) => i.slug).sort()).toEqual(crafts);
+    expect(crafts).toContain("lampion-maken");
   });
   it("de seed is aanvullend en draait veilig opnieuw", async () => {
     const db = ctx.app.get<Database>(DB);

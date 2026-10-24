@@ -34093,5 +34093,6310 @@
         ]
       }
     }
+  },
+  {
+    "slug": "achtvlak",
+    "order": 193,
+    "category": "vormen",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 35,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 48,
+    "colorByNumber": {
+      "codes": "nyrpppbyrpppbyrpppbyrpppnyrpppnyrpppnyrpppbyrppp",
+      "palette": [
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 106.5,
+          "y": 149.8,
+          "size": 8.5
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 80.7,
+          "y": 141.8,
+          "size": 6.6
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 87.7,
+          "y": 136.7,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 85.2,
+          "y": 105.4,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 62,
+          "y": 154.9,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 116.5,
+          "y": 150.2,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 5,
+          "x": 69.7,
+          "y": 173.5,
+          "size": 8.5
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 99.2,
+          "y": 174.8,
+          "size": 7.4
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 91.1,
+          "y": 179.6,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 117.5,
+          "y": 161.2,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 4,
+          "x": 63,
+          "y": 166,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 4,
+          "x": 94.4,
+          "y": 210.8,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 56.8,
+          "y": 139.7,
+          "size": 8.5
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 40.2,
+          "y": 114.3,
+          "size": 7.1
+        },
+        {
+          "region": 14,
+          "number": 3,
+          "x": 48.8,
+          "y": 118.7,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 4,
+          "x": 20.6,
+          "y": 105.4,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 4,
+          "x": 52,
+          "y": 150.2,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 4,
+          "x": 75.1,
+          "y": 100.7,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 5,
+          "x": 101,
+          "y": 106.5,
+          "size": 8.5
+        },
+        {
+          "region": 19,
+          "number": 2,
+          "x": 113.8,
+          "y": 107.8,
+          "size": 7.2
+        },
+        {
+          "region": 20,
+          "number": 3,
+          "x": 122.9,
+          "y": 112,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 4,
+          "x": 125.6,
+          "y": 143.8,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 4,
+          "x": 148.7,
+          "y": 94.2,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 4,
+          "x": 94.2,
+          "y": 99,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 1,
+          "x": 38.5,
+          "y": 220.1,
+          "size": 8.5
+        },
+        {
+          "region": 25,
+          "number": 2,
+          "x": 64.2,
+          "y": 208.7,
+          "size": 7.4
+        },
+        {
+          "region": 26,
+          "number": 3,
+          "x": 56.5,
+          "y": 204.4,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 4,
+          "x": 85.3,
+          "y": 217.1,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 4,
+          "x": 53.9,
+          "y": 172.4,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 4,
+          "x": 30.8,
+          "y": 221.9,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 1,
+          "x": 108.4,
+          "y": 206.9,
+          "size": 8.5
+        },
+        {
+          "region": 31,
+          "number": 2,
+          "x": 139.7,
+          "y": 202.3,
+          "size": 7.2
+        },
+        {
+          "region": 32,
+          "number": 3,
+          "x": 130.8,
+          "y": 197.9,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 4,
+          "x": 104.4,
+          "y": 215.5,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 4,
+          "x": 158.9,
+          "y": 210.7,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 4,
+          "x": 127.5,
+          "y": 165.9,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 1,
+          "x": 141.4,
+          "y": 76.1,
+          "size": 8.5
+        },
+        {
+          "region": 37,
+          "number": 2,
+          "x": 128.6,
+          "y": 74.8,
+          "size": 7.2
+        },
+        {
+          "region": 38,
+          "number": 3,
+          "x": 119.6,
+          "y": 69.2,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 4,
+          "x": 93.3,
+          "y": 88,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 4,
+          "x": 147.8,
+          "y": 83.2,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 4,
+          "x": 116.4,
+          "y": 38.4,
+          "size": 4.5
+        },
+        {
+          "region": 42,
+          "number": 5,
+          "x": 132.2,
+          "y": 39.5,
+          "size": 8.5
+        },
+        {
+          "region": 43,
+          "number": 2,
+          "x": 145.1,
+          "y": 40.8,
+          "size": 6.2
+        },
+        {
+          "region": 44,
+          "number": 3,
+          "x": 153.7,
+          "y": 45.3,
+          "size": 4.5
+        },
+        {
+          "region": 45,
+          "number": 4,
+          "x": 125.5,
+          "y": 32,
+          "size": 4.5
+        },
+        {
+          "region": 46,
+          "number": 4,
+          "x": 156.8,
+          "y": 76.8,
+          "size": 4.5
+        },
+        {
+          "region": 47,
+          "number": 4,
+          "x": 180,
+          "y": 27.3,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Achtvlak",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur alle acht driehoeken in.",
+          "Knip het achtvlak uit langs de streepjeslijn.",
+          "Vouw langs alle stippellijnen.",
+          "Plak de grijze randjes één voor één aan de binnenkant vast.",
+          "Druk de laatste randjes goed aan: je achtvlak is klaar."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "balk",
+    "order": 194,
+    "category": "vormen",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 25,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 29,
+    "colorByNumber": {
+      "codes": "zb---nrylzbryyyyzzbyzbyznyrrr",
+      "palette": [
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 79.8,
+          "y": 105,
+          "size": 7.6
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 99.1,
+          "y": 72.8,
+          "size": 5.6
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 97.6,
+          "y": 108.7,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 91.8,
+          "y": 114.3,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 5,
+          "x": 101.8,
+          "y": 114.3,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 6,
+          "x": 110.4,
+          "y": 113.1,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 1,
+          "x": 82.4,
+          "y": 39.7,
+          "size": 9.8
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 95.1,
+          "y": 36.5,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 4,
+          "x": 99.8,
+          "y": 40.3,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 80.9,
+          "y": 30.4,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 5,
+          "x": 118.9,
+          "y": 30.4,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 5,
+          "x": 80.9,
+          "y": 50.4,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 5,
+          "x": 118.9,
+          "y": 50.4,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 1,
+          "x": 90.6,
+          "y": 149.6,
+          "size": 13
+        },
+        {
+          "region": 17,
+          "number": 1,
+          "x": 55.2,
+          "y": 74.6,
+          "size": 13
+        },
+        {
+          "region": 18,
+          "number": 2,
+          "x": 55.7,
+          "y": 93.3,
+          "size": 6.6
+        },
+        {
+          "region": 19,
+          "number": 5,
+          "x": 55.7,
+          "y": 119.2,
+          "size": 6.5
+        },
+        {
+          "region": 20,
+          "number": 1,
+          "x": 143.1,
+          "y": 74.6,
+          "size": 13
+        },
+        {
+          "region": 21,
+          "number": 2,
+          "x": 143.7,
+          "y": 93.3,
+          "size": 6.6
+        },
+        {
+          "region": 22,
+          "number": 5,
+          "x": 143.7,
+          "y": 119.2,
+          "size": 6.5
+        },
+        {
+          "region": 23,
+          "number": 1,
+          "x": 79.8,
+          "y": 177,
+          "size": 7.8
+        },
+        {
+          "region": 24,
+          "number": 3,
+          "x": 92.3,
+          "y": 200.5,
+          "size": 10
+        },
+        {
+          "region": 25,
+          "number": 5,
+          "x": 98.8,
+          "y": 210.3,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 4,
+          "x": 110.8,
+          "y": 181.4,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 4,
+          "x": 99.8,
+          "y": 181.4,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 4,
+          "x": 88.8,
+          "y": 181.4,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Balk-robot",
+        "word": "robot",
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur de robot in.",
+          "Knip de balk uit langs de streepjeslijn.",
+          "Vouw langs alle stippellijnen.",
+          "Plak de grijze randjes aan de binnenkant vast.",
+          "Zet je robot-balk rechtop: klaar!"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "bouwplaat-auto",
+    "order": 195,
+    "category": "voertuigen",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 30,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 30,
+    "colorByNumber": {
+      "codes": "zrbbrbbryyzrrr-rrbrbrrxzxzxzxz",
+      "palette": [
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 71.1,
+          "y": 121,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 90.3,
+          "y": 87.8,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 79.1,
+          "y": 72.2,
+          "size": 6
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 99.8,
+          "y": 72.2,
+          "size": 6
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 90.3,
+          "y": 156.3,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 79.1,
+          "y": 171.2,
+          "size": 6
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 99.8,
+          "y": 171.2,
+          "size": 6
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 149.6,
+          "y": 113,
+          "size": 4.7
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 155.2,
+          "y": 109,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 155.2,
+          "y": 134.6,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 1,
+          "x": 154.7,
+          "y": 119.6,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 35,
+          "y": 115,
+          "size": 6.3
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 37.3,
+          "y": 136.2,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 37.3,
+          "y": 107.4,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 2,
+          "x": 90.7,
+          "y": 41,
+          "size": 13
+        },
+        {
+          "region": 16,
+          "number": 2,
+          "x": 110.2,
+          "y": 27,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 3,
+          "x": 117.7,
+          "y": 36.4,
+          "size": 8.8
+        },
+        {
+          "region": 18,
+          "number": 2,
+          "x": 58.7,
+          "y": 27,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 3,
+          "x": 65.6,
+          "y": 35.2,
+          "size": 7.5
+        },
+        {
+          "region": 20,
+          "number": 2,
+          "x": 140.3,
+          "y": 37,
+          "size": 13
+        },
+        {
+          "region": 21,
+          "number": 2,
+          "x": 48.8,
+          "y": 31,
+          "size": 7.8
+        },
+        {
+          "region": 22,
+          "number": 5,
+          "x": 57.5,
+          "y": 192.5,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 1,
+          "x": 61.8,
+          "y": 193.8,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 5,
+          "x": 81.5,
+          "y": 192.5,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 1,
+          "x": 85.8,
+          "y": 193.8,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 5,
+          "x": 105.5,
+          "y": 192.5,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 1,
+          "x": 109.8,
+          "y": 193.8,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 5,
+          "x": 129.5,
+          "y": 192.5,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 1,
+          "x": 133.8,
+          "y": 193.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Auto om te bouwen",
+        "word": "auto",
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur de auto en de wieltjes in.",
+          "Knip de bouwplaat en de wieltjes uit langs de streepjeslijn.",
+          "Vouw langs alle stippellijnen.",
+          "Plak de grijze randjes aan de binnenkant vast.",
+          "Plak de wieltjes op de zijkanten, half onder de rand."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "bouwplaat-brandweerauto",
+    "order": 196,
+    "category": "voertuigen",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 35,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 33,
+    "colorByNumber": {
+      "codes": "zrzzzbrzzzbryyzrzrrnrrbrzxzxzxzxz",
+      "palette": [
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 63.2,
+          "y": 121,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 133.9,
+          "y": 89.7,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 58,
+          "y": 85.5,
+          "size": 10.9
+        },
+        {
+          "region": 3,
+          "number": 1,
+          "x": 82,
+          "y": 85.5,
+          "size": 10.9
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 106,
+          "y": 85.5,
+          "size": 10.9
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 144.4,
+          "y": 73.7,
+          "size": 6.6
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 133.9,
+          "y": 154.4,
+          "size": 13
+        },
+        {
+          "region": 7,
+          "number": 1,
+          "x": 58,
+          "y": 157.5,
+          "size": 10.9
+        },
+        {
+          "region": 8,
+          "number": 1,
+          "x": 82,
+          "y": 157.5,
+          "size": 10.9
+        },
+        {
+          "region": 9,
+          "number": 1,
+          "x": 106,
+          "y": 157.5,
+          "size": 10.9
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 144.4,
+          "y": 169.7,
+          "size": 6.6
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 164,
+          "y": 107,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 170.3,
+          "y": 108.6,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 4,
+          "x": 170.3,
+          "y": 135,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 1,
+          "x": 170.3,
+          "y": 120.2,
+          "size": 5.5
+        },
+        {
+          "region": 15,
+          "number": 2,
+          "x": 19.3,
+          "y": 109,
+          "size": 7.7
+        },
+        {
+          "region": 16,
+          "number": 1,
+          "x": 26.1,
+          "y": 128.2,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 2,
+          "x": 27.3,
+          "y": 121.8,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 2,
+          "x": 136.6,
+          "y": 31,
+          "size": 8
+        },
+        {
+          "region": 19,
+          "number": 5,
+          "x": 140.8,
+          "y": 43.1,
+          "size": 5.5
+        },
+        {
+          "region": 20,
+          "number": 2,
+          "x": 124.3,
+          "y": 29,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 2,
+          "x": 155.9,
+          "y": 27,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 3,
+          "x": 162.8,
+          "y": 34.8,
+          "size": 8
+        },
+        {
+          "region": 23,
+          "number": 2,
+          "x": 41,
+          "y": 29,
+          "size": 4.6
+        },
+        {
+          "region": 24,
+          "number": 1,
+          "x": 51.8,
+          "y": 43.4,
+          "size": 12.2
+        },
+        {
+          "region": 25,
+          "number": 6,
+          "x": 57.5,
+          "y": 191.5,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 1,
+          "x": 61.8,
+          "y": 192.8,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 6,
+          "x": 81.5,
+          "y": 191.5,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 1,
+          "x": 85.8,
+          "y": 192.8,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 6,
+          "x": 105.5,
+          "y": 191.5,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 1,
+          "x": 109.8,
+          "y": 192.8,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 6,
+          "x": 129.5,
+          "y": 191.5,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 1,
+          "x": 133.8,
+          "y": 192.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Brandweerauto om te bouwen",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur de brandweerauto en de wieltjes in.",
+          "Knip de bouwplaat en de wieltjes uit langs de streepjeslijn.",
+          "Vouw langs alle stippellijnen.",
+          "Plak de grijze randjes aan de binnenkant vast.",
+          "Plak de wieltjes op de zijkanten, half onder de rand."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "bouwplaat-bus",
+    "order": 197,
+    "category": "voertuigen",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 30,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 32,
+    "colorByNumber": {
+      "codes": "zobbbbyobbbbyobyyobrrooxxzxzxzxz",
+      "palette": [
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 66,
+          "y": 106.9,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 136,
+          "y": 66,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 58.9,
+          "y": 62.5,
+          "size": 6.8
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 77.8,
+          "y": 62.5,
+          "size": 6.8
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 96.7,
+          "y": 62.5,
+          "size": 6.8
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 115.6,
+          "y": 62.5,
+          "size": 6.8
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 53,
+          "y": 77.5,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 136,
+          "y": 149.6,
+          "size": 13
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 58.9,
+          "y": 152.4,
+          "size": 6.8
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 77.8,
+          "y": 152.4,
+          "size": 6.8
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 96.7,
+          "y": 152.4,
+          "size": 6.8
+        },
+        {
+          "region": 11,
+          "number": 3,
+          "x": 115.6,
+          "y": 152.4,
+          "size": 6.8
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 53,
+          "y": 137.8,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 161.8,
+          "y": 105.2,
+          "size": 7
+        },
+        {
+          "region": 14,
+          "number": 3,
+          "x": 175.1,
+          "y": 101.4,
+          "size": 8.4
+        },
+        {
+          "region": 15,
+          "number": 4,
+          "x": 161.5,
+          "y": 96.7,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 4,
+          "x": 161.5,
+          "y": 118.5,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 2,
+          "x": 36.2,
+          "y": 106.9,
+          "size": 11.8
+        },
+        {
+          "region": 18,
+          "number": 3,
+          "x": 18.1,
+          "y": 102,
+          "size": 7.5
+        },
+        {
+          "region": 19,
+          "number": 5,
+          "x": 35.5,
+          "y": 119.6,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 5,
+          "x": 35.5,
+          "y": 95.7,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 2,
+          "x": 64.9,
+          "y": 33.2,
+          "size": 13
+        },
+        {
+          "region": 22,
+          "number": 2,
+          "x": 151.6,
+          "y": 19.6,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 6,
+          "x": 153.9,
+          "y": 26.3,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 6,
+          "x": 63.8,
+          "y": 181.5,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 1,
+          "x": 65,
+          "y": 185.4,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 6,
+          "x": 83.2,
+          "y": 184.3,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 1,
+          "x": 87,
+          "y": 185.4,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 6,
+          "x": 105.2,
+          "y": 184.3,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 1,
+          "x": 109,
+          "y": 185.4,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 6,
+          "x": 127.1,
+          "y": 184.3,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 1,
+          "x": 131,
+          "y": 185.4,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bus om te bouwen",
+        "word": "bus",
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur de bus en de wieltjes in.",
+          "Knip de bouwplaat en de wieltjes uit langs de streepjeslijn.",
+          "Vouw langs alle stippellijnen.",
+          "Plak de grijze randjes aan de binnenkant vast.",
+          "Plak de wieltjes op de zijkanten, half onder de rand."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "bouwplaat-locomotief",
+    "order": 198,
+    "category": "voertuigen",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 45,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 43,
+    "colorByNumber": {
+      "codes": "zgbyyyyxgbyyyyxrzzgbgggbbrzyrxrxzxzxzxzxzxz",
+      "palette": [
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 80.5,
+          "y": 124.2,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 96.6,
+          "y": 85.5,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 78.1,
+          "y": 71.4,
+          "size": 8.7
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 67.8,
+          "y": 102,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 110.3,
+          "y": 77.2,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 130.2,
+          "y": 77.2,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 150.1,
+          "y": 77.2,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 5,
+          "x": 102.3,
+          "y": 100.4,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 96.6,
+          "y": 161.4,
+          "size": 13
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 78.1,
+          "y": 174.8,
+          "size": 8.7
+        },
+        {
+          "region": 10,
+          "number": 4,
+          "x": 67.8,
+          "y": 144.7,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 4,
+          "x": 110.3,
+          "y": 156.8,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 130.2,
+          "y": 156.8,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 4,
+          "x": 150.1,
+          "y": 156.8,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 5,
+          "x": 102.3,
+          "y": 146.2,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 6,
+          "x": 174.3,
+          "y": 124.2,
+          "size": 5.6
+        },
+        {
+          "region": 16,
+          "number": 1,
+          "x": 175.9,
+          "y": 113.7,
+          "size": 4.6
+        },
+        {
+          "region": 17,
+          "number": 1,
+          "x": 175.9,
+          "y": 132.8,
+          "size": 4.6
+        },
+        {
+          "region": 18,
+          "number": 2,
+          "x": 47.5,
+          "y": 121.1,
+          "size": 13
+        },
+        {
+          "region": 19,
+          "number": 3,
+          "x": 25.5,
+          "y": 121.8,
+          "size": 10.7
+        },
+        {
+          "region": 20,
+          "number": 2,
+          "x": 76.9,
+          "y": 39.1,
+          "size": 13
+        },
+        {
+          "region": 21,
+          "number": 2,
+          "x": 115,
+          "y": 188.3,
+          "size": 13
+        },
+        {
+          "region": 22,
+          "number": 2,
+          "x": 111.4,
+          "y": 39.1,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 3,
+          "x": 105,
+          "y": 46.8,
+          "size": 4.9
+        },
+        {
+          "region": 24,
+          "number": 3,
+          "x": 105,
+          "y": 31.5,
+          "size": 4.9
+        },
+        {
+          "region": 25,
+          "number": 6,
+          "x": 165.6,
+          "y": 177.2,
+          "size": 4.6
+        },
+        {
+          "region": 26,
+          "number": 1,
+          "x": 167.3,
+          "y": 185.3,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 4,
+          "x": 171,
+          "y": 189,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 6,
+          "x": 184.8,
+          "y": 177.2,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 5,
+          "x": 157.6,
+          "y": 39.1,
+          "size": 7.3
+        },
+        {
+          "region": 30,
+          "number": 6,
+          "x": 152.5,
+          "y": 31.4,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 5,
+          "x": 30.6,
+          "y": 231.8,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 1,
+          "x": 35.6,
+          "y": 233.2,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 5,
+          "x": 59.6,
+          "y": 229.4,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 1,
+          "x": 63.5,
+          "y": 233.2,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 5,
+          "x": 86.3,
+          "y": 231.8,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 1,
+          "x": 91.3,
+          "y": 233.2,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 5,
+          "x": 115.4,
+          "y": 229.4,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 1,
+          "x": 119.2,
+          "y": 233.2,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 5,
+          "x": 140.6,
+          "y": 233.2,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 1,
+          "x": 144,
+          "y": 234.1,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 5,
+          "x": 161.3,
+          "y": 231.6,
+          "size": 4.5
+        },
+        {
+          "region": 42,
+          "number": 1,
+          "x": 163.9,
+          "y": 234.1,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Locomotief om te bouwen",
+        "word": "trein",
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur de locomotief, de schoorsteen en de wielen in.",
+          "Knip alle delen uit langs de streepjeslijn.",
+          "Vouw de locomotief langs de stippellijnen en plak de grijze randjes vast.",
+          "Rol de schoorsteen tot een kokertje, vouw de lipjes naar buiten en plak hem op de ketel.",
+          "Plak de grote wielen achter en de kleine wielen voor op de zijkanten."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "bouwplaat-vrachtwagen",
+    "order": 199,
+    "category": "voertuigen",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 35,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 35,
+    "colorByNumber": {
+      "codes": "zrgybzrgybzryyzrggggrrbxzxzxzxzxzxz",
+      "palette": [
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 72,
+          "y": 125.6,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 146.2,
+          "y": 95,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 61.4,
+          "y": 72.6,
+          "size": 4.7
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 72.5,
+          "y": 84.4,
+          "size": 11.6
+        },
+        {
+          "region": 4,
+          "number": 5,
+          "x": 151.8,
+          "y": 80.3,
+          "size": 5.8
+        },
+        {
+          "region": 5,
+          "number": 1,
+          "x": 149.7,
+          "y": 91.6,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 146.2,
+          "y": 158.1,
+          "size": 13
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 61.4,
+          "y": 155.8,
+          "size": 4.7
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 72.5,
+          "y": 167.6,
+          "size": 11.6
+        },
+        {
+          "region": 9,
+          "number": 5,
+          "x": 151.8,
+          "y": 172.2,
+          "size": 5.8
+        },
+        {
+          "region": 10,
+          "number": 1,
+          "x": 149.7,
+          "y": 161.4,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 169.6,
+          "y": 112,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 175.6,
+          "y": 113.6,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 4,
+          "x": 175.6,
+          "y": 139.1,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 1,
+          "x": 175.6,
+          "y": 124.8,
+          "size": 5.3
+        },
+        {
+          "region": 15,
+          "number": 2,
+          "x": 48.7,
+          "y": 125.6,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 3,
+          "x": 19.5,
+          "y": 135.1,
+          "size": 8.5
+        },
+        {
+          "region": 17,
+          "number": 3,
+          "x": 19.5,
+          "y": 117.3,
+          "size": 8.5
+        },
+        {
+          "region": 18,
+          "number": 3,
+          "x": 70.7,
+          "y": 42.4,
+          "size": 13
+        },
+        {
+          "region": 19,
+          "number": 3,
+          "x": 139.8,
+          "y": 28.8,
+          "size": 5.3
+        },
+        {
+          "region": 20,
+          "number": 2,
+          "x": 156.8,
+          "y": 36.6,
+          "size": 13
+        },
+        {
+          "region": 21,
+          "number": 2,
+          "x": 172.1,
+          "y": 26.9,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 5,
+          "x": 178,
+          "y": 34.4,
+          "size": 6.9
+        },
+        {
+          "region": 23,
+          "number": 6,
+          "x": 36.3,
+          "y": 207.1,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 1,
+          "x": 39.9,
+          "y": 209.8,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 6,
+          "x": 59.7,
+          "y": 207.1,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 1,
+          "x": 63.3,
+          "y": 209.8,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 6,
+          "x": 83,
+          "y": 207.1,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 1,
+          "x": 86.6,
+          "y": 209.8,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 6,
+          "x": 106.3,
+          "y": 207.1,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 1,
+          "x": 110,
+          "y": 209.8,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 6,
+          "x": 129.7,
+          "y": 207.1,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 1,
+          "x": 132.4,
+          "y": 210.7,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 6,
+          "x": 153,
+          "y": 207.1,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 1,
+          "x": 155.8,
+          "y": 210.7,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Vrachtwagen om te bouwen",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur de vrachtwagen en de wieltjes in.",
+          "Knip de bouwplaat en de wieltjes uit langs de streepjeslijn.",
+          "Vouw langs alle stippellijnen.",
+          "Plak de grijze randjes aan de binnenkant vast.",
+          "Plak de wieltjes op de zijkanten, half onder de rand."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "cadeaudoosje",
+    "order": 200,
+    "category": "feest",
+    "age": "6-9",
+    "world": null,
+    "holiday": "verjaardag",
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 30,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 33,
+    "colorByNumber": {
+      "codes": "bnrylnrylnrylnrylnrrooooonrnrnrnr",
+      "palette": [
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 98.8,
+          "y": 80.8,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 89.2,
+          "y": 49.9,
+          "size": 8.3
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 99.8,
+          "y": 28.3,
+          "size": 5.5
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 86.7,
+          "y": 39.7,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 5,
+          "x": 112.8,
+          "y": 39.8,
+          "size": 5.4
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 110.8,
+          "y": 114.1,
+          "size": 8.3
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 99.8,
+          "y": 112.3,
+          "size": 5.5
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 112.6,
+          "y": 124.3,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 5,
+          "x": 86.8,
+          "y": 123.8,
+          "size": 5.4
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 67.9,
+          "y": 92.8,
+          "size": 8.3
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 46.3,
+          "y": 81.8,
+          "size": 5.5
+        },
+        {
+          "region": 11,
+          "number": 4,
+          "x": 57.7,
+          "y": 94.6,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 57.8,
+          "y": 68.8,
+          "size": 5.4
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 132.1,
+          "y": 71.2,
+          "size": 8.3
+        },
+        {
+          "region": 14,
+          "number": 3,
+          "x": 130.3,
+          "y": 81.8,
+          "size": 5.5
+        },
+        {
+          "region": 15,
+          "number": 4,
+          "x": 142.3,
+          "y": 68.7,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 5,
+          "x": 141.8,
+          "y": 94.8,
+          "size": 5.4
+        },
+        {
+          "region": 17,
+          "number": 2,
+          "x": 83.4,
+          "y": 214,
+          "size": 9.3
+        },
+        {
+          "region": 18,
+          "number": 3,
+          "x": 99.8,
+          "y": 180.9,
+          "size": 5.5
+        },
+        {
+          "region": 19,
+          "number": 3,
+          "x": 78.3,
+          "y": 199.3,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 6,
+          "x": 94.8,
+          "y": 214.9,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 6,
+          "x": 105.2,
+          "y": 214.9,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 6,
+          "x": 88.9,
+          "y": 194.9,
+          "size": 7.9
+        },
+        {
+          "region": 23,
+          "number": 6,
+          "x": 111.1,
+          "y": 194.9,
+          "size": 7.9
+        },
+        {
+          "region": 24,
+          "number": 6,
+          "x": 99.8,
+          "y": 199.8,
+          "size": 4.6
+        },
+        {
+          "region": 25,
+          "number": 2,
+          "x": 80.9,
+          "y": 231.7,
+          "size": 7.1
+        },
+        {
+          "region": 26,
+          "number": 3,
+          "x": 99.8,
+          "y": 230.4,
+          "size": 5.5
+        },
+        {
+          "region": 27,
+          "number": 2,
+          "x": 80.9,
+          "y": 167.7,
+          "size": 7.1
+        },
+        {
+          "region": 28,
+          "number": 3,
+          "x": 99.8,
+          "y": 166.4,
+          "size": 5.5
+        },
+        {
+          "region": 29,
+          "number": 2,
+          "x": 67.7,
+          "y": 180.9,
+          "size": 7.1
+        },
+        {
+          "region": 30,
+          "number": 3,
+          "x": 66.4,
+          "y": 199.8,
+          "size": 5.5
+        },
+        {
+          "region": 31,
+          "number": 2,
+          "x": 131.7,
+          "y": 180.9,
+          "size": 7.1
+        },
+        {
+          "region": 32,
+          "number": 3,
+          "x": 130.4,
+          "y": 199.8,
+          "size": 5.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Cadeaudoosje",
+        "word": "cadeau",
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur het doosje en het deksel in.",
+          "Knip beide delen uit langs de streepjeslijn.",
+          "Vouw de zijkanten omhoog langs de stippellijnen.",
+          "Plak de grijze randjes aan de binnenkant vast.",
+          "Stop er een kleine verrassing in en zet het deksel erop."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "dobbelsteen",
+    "order": 201,
+    "category": "vormen",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 25,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 27,
+    "colorByNumber": {
+      "codes": "yxbxxbxxxxxkxxxkxxxxyxxxxxx",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 87.8,
+          "y": 92.3,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 99.8,
+          "y": 104.3,
+          "size": 5.4
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 90.6,
+          "y": 60,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 86.8,
+          "y": 37.3,
+          "size": 5.4
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 112.8,
+          "y": 63.3,
+          "size": 5.4
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 98.7,
+          "y": 140.9,
+          "size": 9.8
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 86.8,
+          "y": 145.3,
+          "size": 5.4
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 112.8,
+          "y": 145.3,
+          "size": 5.4
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 86.8,
+          "y": 171.3,
+          "size": 5.4
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 112.8,
+          "y": 171.3,
+          "size": 5.4
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 99.8,
+          "y": 158.3,
+          "size": 5.4
+        },
+        {
+          "region": 11,
+          "number": 4,
+          "x": 33.8,
+          "y": 116.7,
+          "size": 13
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 32.8,
+          "y": 91.3,
+          "size": 5.4
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 45.8,
+          "y": 104.3,
+          "size": 5.4
+        },
+        {
+          "region": 14,
+          "number": 2,
+          "x": 58.8,
+          "y": 117.3,
+          "size": 5.4
+        },
+        {
+          "region": 15,
+          "number": 4,
+          "x": 152.6,
+          "y": 103.2,
+          "size": 13
+        },
+        {
+          "region": 16,
+          "number": 2,
+          "x": 140.8,
+          "y": 91.3,
+          "size": 5.4
+        },
+        {
+          "region": 17,
+          "number": 2,
+          "x": 166.8,
+          "y": 91.3,
+          "size": 5.4
+        },
+        {
+          "region": 18,
+          "number": 2,
+          "x": 140.8,
+          "y": 117.3,
+          "size": 5.4
+        },
+        {
+          "region": 19,
+          "number": 2,
+          "x": 166.8,
+          "y": 117.3,
+          "size": 5.4
+        },
+        {
+          "region": 20,
+          "number": 1,
+          "x": 98.7,
+          "y": 205.8,
+          "size": 11.2
+        },
+        {
+          "region": 21,
+          "number": 2,
+          "x": 112.8,
+          "y": 225.3,
+          "size": 5.4
+        },
+        {
+          "region": 22,
+          "number": 2,
+          "x": 86.8,
+          "y": 225.3,
+          "size": 5.4
+        },
+        {
+          "region": 23,
+          "number": 2,
+          "x": 112.8,
+          "y": 212.3,
+          "size": 5.4
+        },
+        {
+          "region": 24,
+          "number": 2,
+          "x": 86.8,
+          "y": 212.3,
+          "size": 5.4
+        },
+        {
+          "region": 25,
+          "number": 2,
+          "x": 112.8,
+          "y": 199.3,
+          "size": 5.4
+        },
+        {
+          "region": 26,
+          "number": 2,
+          "x": 86.8,
+          "y": 199.3,
+          "size": 5.4
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Dobbelsteen",
+        "word": null,
+        "countQuestion": "Hoeveel ogen heeft de dobbelsteen samen?",
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur de vlakken en de ogen in.",
+          "Knip de dobbelsteen uit langs de streepjeslijn.",
+          "Vouw langs alle stippellijnen.",
+          "Plak de grijze randjes aan de binnenkant vast.",
+          "Gooi maar! De ogen aan de overkant zijn samen altijd 7."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "driehoek-prisma",
+    "order": 202,
+    "category": "vormen",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 19,
+    "colorByNumber": {
+      "codes": "brynlkynlrbnlryoyoy",
+      "palette": [
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 89.8,
+          "y": 87.5,
+          "size": 12.9
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 103,
+          "y": 94.2,
+          "size": 6.5
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 103.1,
+          "y": 115.6,
+          "size": 9.8
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 103.1,
+          "y": 139.6,
+          "size": 9.3
+        },
+        {
+          "region": 4,
+          "number": 5,
+          "x": 103,
+          "y": 163.4,
+          "size": 7.8
+        },
+        {
+          "region": 5,
+          "number": 6,
+          "x": 142.3,
+          "y": 152.3,
+          "size": 13
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 153.1,
+          "y": 91.6,
+          "size": 9.8
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 153.1,
+          "y": 115.6,
+          "size": 9.3
+        },
+        {
+          "region": 8,
+          "number": 5,
+          "x": 153,
+          "y": 139.4,
+          "size": 7.8
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 153,
+          "y": 166.1,
+          "size": 6.5
+        },
+        {
+          "region": 10,
+          "number": 1,
+          "x": 42.3,
+          "y": 130.7,
+          "size": 13
+        },
+        {
+          "region": 11,
+          "number": 4,
+          "x": 53.1,
+          "y": 91.6,
+          "size": 9.3
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 53,
+          "y": 115.4,
+          "size": 7.8
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 53,
+          "y": 142.1,
+          "size": 6.5
+        },
+        {
+          "region": 14,
+          "number": 3,
+          "x": 54,
+          "y": 163.6,
+          "size": 9.8
+        },
+        {
+          "region": 15,
+          "number": 7,
+          "x": 89.8,
+          "y": 189.6,
+          "size": 7.6
+        },
+        {
+          "region": 16,
+          "number": 3,
+          "x": 102.9,
+          "y": 196.8,
+          "size": 5.6
+        },
+        {
+          "region": 17,
+          "number": 7,
+          "x": 89.8,
+          "y": 66.4,
+          "size": 7.6
+        },
+        {
+          "region": 18,
+          "number": 3,
+          "x": 102.9,
+          "y": 60,
+          "size": 5.6
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Driehoekig prisma",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur de drie rechthoeken en de twee driehoeken in.",
+          "Knip het prisma uit langs de streepjeslijn.",
+          "Vouw langs alle stippellijnen.",
+          "Plak eerst de lange zijkant dicht.",
+          "Plak daarna de twee driehoeken vast."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "huisje",
+    "order": 203,
+    "category": "thuis",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 30,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 21,
+    "colorByNumber": {
+      "codes": "zybbwwybbwwyrbbbybbrr",
+      "palette": [
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 101.8,
+          "y": 127.2,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 130.2,
+          "y": 175.8,
+          "size": 7.6
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 135.5,
+          "y": 160.7,
+          "size": 7.5
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 116.7,
+          "y": 173.9,
+          "size": 7.5
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 128.3,
+          "y": 155.2,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 113.9,
+          "y": 164.7,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 50,
+          "y": 94.4,
+          "size": 7.6
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 63.6,
+          "y": 97.2,
+          "size": 7.5
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 82.4,
+          "y": 83.1,
+          "size": 7.5
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 71.7,
+          "y": 102.7,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 4,
+          "x": 86.1,
+          "y": 93.1,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 155,
+          "y": 101,
+          "size": 13
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 131.9,
+          "y": 105.9,
+          "size": 6.3
+        },
+        {
+          "region": 13,
+          "number": 3,
+          "x": 127.1,
+          "y": 91.1,
+          "size": 5.4
+        },
+        {
+          "region": 14,
+          "number": 3,
+          "x": 144.3,
+          "y": 115.7,
+          "size": 5.4
+        },
+        {
+          "region": 15,
+          "number": 3,
+          "x": 162.1,
+          "y": 85.1,
+          "size": 5.4
+        },
+        {
+          "region": 16,
+          "number": 2,
+          "x": 41.7,
+          "y": 156.9,
+          "size": 13
+        },
+        {
+          "region": 17,
+          "number": 3,
+          "x": 61.1,
+          "y": 155.5,
+          "size": 6.5
+        },
+        {
+          "region": 18,
+          "number": 3,
+          "x": 37.5,
+          "y": 172.3,
+          "size": 5.4
+        },
+        {
+          "region": 19,
+          "number": 5,
+          "x": 138,
+          "y": 199.2,
+          "size": 13
+        },
+        {
+          "region": 20,
+          "number": 5,
+          "x": 45.9,
+          "y": 67.6,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Huisje",
+        "word": "huis",
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur het huisje in: de deur, de ramen en het dak.",
+          "Knip het huisje uit langs de streepjeslijn.",
+          "Vouw langs alle stippellijnen.",
+          "Plak eerst de muren aan de voor- en achtergevel.",
+          "Plak als laatste het dak dicht."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "kasteeltoren",
+    "order": 204,
+    "category": "sprookjes",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 30,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 28,
+    "colorByNumber": {
+      "codes": "kwymmkyxmmmkynymmmkyxmmmwwny",
+      "palette": [
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 34.5,
+          "y": 107.1,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 33,
+          "y": 163.7,
+          "size": 8.6
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 33.2,
+          "y": 70.8,
+          "size": 6.6
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 18,
+          "y": 90.4,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 45,
+          "y": 132.4,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 1,
+          "x": 72.3,
+          "y": 42.3,
+          "size": 13
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 75.2,
+          "y": 62.8,
+          "size": 6.6
+        },
+        {
+          "region": 7,
+          "number": 5,
+          "x": 75.4,
+          "y": 104.4,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 60,
+          "y": 90.4,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 87,
+          "y": 132.4,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 4,
+          "x": 60,
+          "y": 154.4,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 1,
+          "x": 114.3,
+          "y": 115.2,
+          "size": 13
+        },
+        {
+          "region": 12,
+          "number": 3,
+          "x": 117.2,
+          "y": 92.8,
+          "size": 6.6
+        },
+        {
+          "region": 13,
+          "number": 6,
+          "x": 110.9,
+          "y": 55.5,
+          "size": 6.2
+        },
+        {
+          "region": 14,
+          "number": 3,
+          "x": 117.3,
+          "y": 61.5,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 4,
+          "x": 102,
+          "y": 90.4,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 4,
+          "x": 129,
+          "y": 132.4,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 4,
+          "x": 102,
+          "y": 154.4,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 1,
+          "x": 156.4,
+          "y": 42.3,
+          "size": 13
+        },
+        {
+          "region": 19,
+          "number": 3,
+          "x": 159.2,
+          "y": 62.8,
+          "size": 6.6
+        },
+        {
+          "region": 20,
+          "number": 5,
+          "x": 159.4,
+          "y": 104.4,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 4,
+          "x": 144,
+          "y": 90.4,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 4,
+          "x": 171,
+          "y": 132.4,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 4,
+          "x": 144,
+          "y": 154.4,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 2,
+          "x": 32.5,
+          "y": 203.9,
+          "size": 13
+        },
+        {
+          "region": 25,
+          "number": 2,
+          "x": 87.1,
+          "y": 195.8,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 6,
+          "x": 105.8,
+          "y": 202.1,
+          "size": 4.7
+        },
+        {
+          "region": 27,
+          "number": 3,
+          "x": 98.2,
+          "y": 201.7,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Kasteeltoren",
+        "word": "toren",
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur de toren, de deur, de ramen en het vlaggetje in.",
+          "Knip de toren en het vlaggetje uit langs de streepjeslijn.",
+          "Vouw de vier muren en de vloer langs de stippellijnen.",
+          "Plak de lange grijze rand achter de eerste muur: zo wordt de toren vierkant.",
+          "Plak de vloer vast en zet het vlaggetje met een beetje lijm binnen in de toren."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "kubus",
+    "order": 205,
+    "category": "vormen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 17,
+    "colorByNumber": {
+      "codes": "kybybylrlokrrrrry",
+      "palette": [
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 82.4,
+          "y": 86.9,
+          "size": 10.9
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 99.2,
+          "y": 110.4,
+          "size": 11.4
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 85.2,
+          "y": 35.7,
+          "size": 12.4
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 99.1,
+          "y": 50.6,
+          "size": 10.1
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 112.2,
+          "y": 154.4,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 97.2,
+          "y": 164.4,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 31.2,
+          "y": 89.7,
+          "size": 11.2
+        },
+        {
+          "region": 7,
+          "number": 5,
+          "x": 45.3,
+          "y": 108.2,
+          "size": 11
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 139.1,
+          "y": 89.7,
+          "size": 13
+        },
+        {
+          "region": 9,
+          "number": 6,
+          "x": 153.1,
+          "y": 109.1,
+          "size": 11.7
+        },
+        {
+          "region": 10,
+          "number": 1,
+          "x": 82.4,
+          "y": 230.1,
+          "size": 9.8
+        },
+        {
+          "region": 11,
+          "number": 5,
+          "x": 99.6,
+          "y": 225.3,
+          "size": 6.2
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 88.5,
+          "y": 217.7,
+          "size": 6.5
+        },
+        {
+          "region": 13,
+          "number": 5,
+          "x": 92.1,
+          "y": 202.4,
+          "size": 6.5
+        },
+        {
+          "region": 14,
+          "number": 5,
+          "x": 105.4,
+          "y": 201.6,
+          "size": 6.3
+        },
+        {
+          "region": 15,
+          "number": 5,
+          "x": 111.5,
+          "y": 216.9,
+          "size": 6.5
+        },
+        {
+          "region": 16,
+          "number": 2,
+          "x": 99.7,
+          "y": 212.2,
+          "size": 7.4
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Kubus",
+        "word": "kubus",
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur alle vlakken in.",
+          "Knip de bouwplaat uit langs de streepjeslijn.",
+          "Vouw langs alle stippellijnen.",
+          "Smeer lijm op de grijze randjes.",
+          "Plak de randjes aan de binnenkant vast tot het figuur dicht is."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "molen-bouwplaat",
+    "order": 206,
+    "category": "wereld",
+    "age": "6-9",
+    "world": {
+      "continent": "europa",
+      "country": "Nederland"
+    },
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 40,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "splitpennen"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 27,
+    "colorByNumber": {
+      "codes": "zwgywgbwbbwbbzwrrrrwyyrwyyr",
+      "palette": [
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 99,
+          "y": 86.5,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 95,
+          "y": 41,
+          "size": 12.5
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 99.7,
+          "y": 57.7,
+          "size": 7.6
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 97.5,
+          "y": 23.5,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 91,
+          "y": 129,
+          "size": 9.6
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 99.7,
+          "y": 114.7,
+          "size": 7.6
+        },
+        {
+          "region": 6,
+          "number": 5,
+          "x": 98.8,
+          "y": 140,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 71.2,
+          "y": 78.5,
+          "size": 9.9
+        },
+        {
+          "region": 8,
+          "number": 5,
+          "x": 62.3,
+          "y": 87.3,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 5,
+          "x": 47.1,
+          "y": 87.3,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 128.8,
+          "y": 78.5,
+          "size": 9.9
+        },
+        {
+          "region": 11,
+          "number": 5,
+          "x": 137.4,
+          "y": 86.3,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 152.5,
+          "y": 86.3,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 92.8,
+          "y": 163.9,
+          "size": 5.4
+        },
+        {
+          "region": 14,
+          "number": 2,
+          "x": 99.7,
+          "y": 170.7,
+          "size": 6.5
+        },
+        {
+          "region": 15,
+          "number": 6,
+          "x": 155.3,
+          "y": 158.3,
+          "size": 7.4
+        },
+        {
+          "region": 16,
+          "number": 6,
+          "x": 167.8,
+          "y": 150.4,
+          "size": 7.9
+        },
+        {
+          "region": 17,
+          "number": 6,
+          "x": 164.4,
+          "y": 137.8,
+          "size": 7.9
+        },
+        {
+          "region": 18,
+          "number": 6,
+          "x": 150.7,
+          "y": 135.6,
+          "size": 7.7
+        },
+        {
+          "region": 19,
+          "number": 2,
+          "x": 39.2,
+          "y": 206.6,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 4,
+          "x": 47.3,
+          "y": 209.3,
+          "size": 4.9
+        },
+        {
+          "region": 21,
+          "number": 4,
+          "x": 115.3,
+          "y": 209.3,
+          "size": 4.9
+        },
+        {
+          "region": 22,
+          "number": 6,
+          "x": 98.2,
+          "y": 207.7,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 2,
+          "x": 39.2,
+          "y": 227.6,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 4,
+          "x": 47.3,
+          "y": 230.3,
+          "size": 4.9
+        },
+        {
+          "region": 25,
+          "number": 4,
+          "x": 115.3,
+          "y": 230.3,
+          "size": 4.9
+        },
+        {
+          "region": 26,
+          "number": 6,
+          "x": 98.2,
+          "y": 228.7,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Molen met draaiende wieken",
+        "word": "molen",
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur de molen, de kap en de wieken in.",
+          "Knip alle delen uit langs de streepjeslijn.",
+          "Vouw de molen langs de stippellijnen en plak de grijze randjes vast.",
+          "Vouw de kap en plak hem met de lipjes op de bovenkant van de molen.",
+          "Leg de twee wieken kruislings op elkaar. Laat een volwassene met een splitpen een gaatje prikken door de wieken en de stip op de voorkant.",
+          "Buig de pootjes van de splitpen binnenin open: nu draaien de wieken!"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "pennenbakje",
+    "order": 207,
+    "category": "thuis",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 25,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 22,
+    "colorByNumber": {
+      "codes": "kggmmmmmylgggkrrrknyyy",
+      "palette": [
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 64.6,
+          "y": 61.5,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 66.1,
+          "y": 120.8,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 83.7,
+          "y": 112.3,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 74.2,
+          "y": 75.4,
+          "size": 5.6
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 84.1,
+          "y": 82.2,
+          "size": 5.7
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 80.8,
+          "y": 94.3,
+          "size": 5.8
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 68.2,
+          "y": 94.3,
+          "size": 5.8
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 64.9,
+          "y": 82.2,
+          "size": 5.7
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 74.2,
+          "y": 85.7,
+          "size": 6
+        },
+        {
+          "region": 9,
+          "number": 5,
+          "x": 20.6,
+          "y": 130.5,
+          "size": 13
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 14,
+          "y": 68.3,
+          "size": 4.9
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 14,
+          "y": 92.3,
+          "size": 4.9
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 14,
+          "y": 116.3,
+          "size": 4.9
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 108.6,
+          "y": 84.5,
+          "size": 11.7
+        },
+        {
+          "region": 14,
+          "number": 6,
+          "x": 118.1,
+          "y": 71.4,
+          "size": 5.8
+        },
+        {
+          "region": 15,
+          "number": 6,
+          "x": 118.1,
+          "y": 97.4,
+          "size": 5.8
+        },
+        {
+          "region": 16,
+          "number": 6,
+          "x": 118.1,
+          "y": 123.4,
+          "size": 5.8
+        },
+        {
+          "region": 17,
+          "number": 1,
+          "x": 73.4,
+          "y": 162.9,
+          "size": 13
+        },
+        {
+          "region": 18,
+          "number": 7,
+          "x": 152.6,
+          "y": 112.1,
+          "size": 11.4
+        },
+        {
+          "region": 19,
+          "number": 4,
+          "x": 162,
+          "y": 69.4,
+          "size": 5.8
+        },
+        {
+          "region": 20,
+          "number": 4,
+          "x": 162,
+          "y": 95.4,
+          "size": 5.8
+        },
+        {
+          "region": 21,
+          "number": 4,
+          "x": 162,
+          "y": 121.4,
+          "size": 5.8
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Pennenbakje",
+        "word": "pen",
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur de vier kanten van het pennenbakje in.",
+          "Knip het bakje uit langs de streepjeslijn.",
+          "Vouw langs alle stippellijnen.",
+          "Plak de zijkant dicht met het lange grijze randje.",
+          "Plak de bodem vast en zet je pennen erin."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "pinguin-koker",
+    "order": 208,
+    "category": "dieren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 13,
+    "colorByNumber": {
+      "codes": "n---ommrroonn",
+      "palette": [
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 41.8,
+          "y": 70.6,
+          "size": 13
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 96.7,
+          "y": 82.5,
+          "size": 4.7
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 74.8,
+          "y": 83.8,
+          "size": 4.9
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 118.8,
+          "y": 83.8,
+          "size": 4.9
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 24.8,
+          "y": 105.7,
+          "size": 6.6
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 150.6,
+          "y": 130.4,
+          "size": 9.1
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 82.6,
+          "y": 183.1,
+          "size": 8.2
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 108.6,
+          "y": 183.1,
+          "size": 8.2
+        },
+        {
+          "region": 11,
+          "number": 1,
+          "x": 40.7,
+          "y": 217.5,
+          "size": 8.7
+        },
+        {
+          "region": 12,
+          "number": 1,
+          "x": 139.3,
+          "y": 217.5,
+          "size": 8.7
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Pinguïn van een koker",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur de pinguïn, zijn sjaal en de vleugels in.",
+          "Knip de pinguïn en de twee vleugels uit langs de streepjeslijn.",
+          "Rol de pinguïn tot een koker en plak de grijze rand vast.",
+          "Vouw de voetjes naar voren, dan blijft hij staan.",
+          "Plak aan elke kant een vleugel."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "piramide",
+    "order": 209,
+    "category": "vormen",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 19,
+    "colorByNumber": {
+      "codes": "nyoyorwyornyornyorn",
+      "palette": [
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 80.5,
+          "y": 108.5,
+          "size": 12.1
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 89,
+          "y": 121,
+          "size": 4.6
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 99.6,
+          "y": 127.6,
+          "size": 9.8
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 89.5,
+          "y": 84.5,
+          "size": 12.4
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 99.6,
+          "y": 48.1,
+          "size": 5
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 88.6,
+          "y": 69.3,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 5,
+          "x": 99.8,
+          "y": 93.5,
+          "size": 5.2
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 143.5,
+          "y": 117.5,
+          "size": 13
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 179.9,
+          "y": 127.6,
+          "size": 5
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 158.3,
+          "y": 116.6,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 1,
+          "x": 133.4,
+          "y": 127.8,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 89.5,
+          "y": 171.5,
+          "size": 13
+        },
+        {
+          "region": 12,
+          "number": 3,
+          "x": 99.6,
+          "y": 207.9,
+          "size": 5
+        },
+        {
+          "region": 13,
+          "number": 4,
+          "x": 88.6,
+          "y": 186.3,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 1,
+          "x": 99.8,
+          "y": 161.4,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 2,
+          "x": 56.5,
+          "y": 117.5,
+          "size": 13
+        },
+        {
+          "region": 16,
+          "number": 3,
+          "x": 20.1,
+          "y": 127.6,
+          "size": 5
+        },
+        {
+          "region": 17,
+          "number": 4,
+          "x": 41.3,
+          "y": 116.6,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 1,
+          "x": 66.3,
+          "y": 127.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Piramide",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur de vier driehoeken en het grondvlak in.",
+          "Knip de piramide uit langs de streepjeslijn.",
+          "Vouw de driehoeken langs de stippellijnen omhoog.",
+          "Plak de grijze randjes aan de binnenkant vast tot de punt dicht is."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "puntzak",
+    "order": 210,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 15,
+    "colorByNumber": {
+      "codes": "oybyryrprbypyyy",
+      "palette": [
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 53.8,
+          "y": 122.6,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 101.1,
+          "y": 151.6,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 45.6,
+          "y": 55.6,
+          "size": 8.7
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 85.5,
+          "y": 49.4,
+          "size": 5.8
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 127.6,
+          "y": 55.5,
+          "size": 5.8
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 41.5,
+          "y": 97.4,
+          "size": 5.8
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 81.6,
+          "y": 93.4,
+          "size": 5.8
+        },
+        {
+          "region": 7,
+          "number": 5,
+          "x": 119.6,
+          "y": 89.6,
+          "size": 8.7
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 43.6,
+          "y": 139.4,
+          "size": 5.8
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 81.6,
+          "y": 129.6,
+          "size": 8.7
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 111.5,
+          "y": 119.4,
+          "size": 5.8
+        },
+        {
+          "region": 11,
+          "number": 5,
+          "x": 40.5,
+          "y": 218.6,
+          "size": 7.6
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 47.8,
+          "y": 218.8,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 99.8,
+          "y": 218.8,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 2,
+          "x": 151.8,
+          "y": 218.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Puntzak voor snoepjes",
+        "word": "snoep",
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur de puntzak en het hengsel in.",
+          "Knip de puntzak en het hengsel uit langs de streepjeslijn.",
+          "Rol de puntzak tot een kegel met de punt onderaan.",
+          "Plak de grijze rand aan de binnenkant vast.",
+          "Plak het hengsel aan twee kanten binnenin vast en doe er iets lekkers in."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "raket-bouwplaat",
+    "order": 211,
+    "category": "ruimte",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 35,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 19,
+    "colorByNumber": {
+      "codes": "nyyzbzbyyryyyryryry",
+      "palette": [
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 49,
+          "y": 91,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 25,
+          "y": 38.3,
+          "size": 4.9
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 25,
+          "y": 114.3,
+          "size": 4.9
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 69.9,
+          "y": 68.1,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 75.7,
+          "y": 61.7,
+          "size": 7.6
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 71.6,
+          "y": 81.6,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 75.8,
+          "y": 85.8,
+          "size": 5.4
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 33.7,
+          "y": 71.7,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 117.7,
+          "y": 71.7,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 5,
+          "x": 97.9,
+          "y": 165.6,
+          "size": 13
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 114.8,
+          "y": 177.8,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 99.8,
+          "y": 181.8,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 84.8,
+          "y": 177.8,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 5,
+          "x": 45.8,
+          "y": 213,
+          "size": 5.5
+        },
+        {
+          "region": 14,
+          "number": 2,
+          "x": 52.7,
+          "y": 226.4,
+          "size": 6
+        },
+        {
+          "region": 15,
+          "number": 5,
+          "x": 97.8,
+          "y": 213,
+          "size": 5.5
+        },
+        {
+          "region": 16,
+          "number": 2,
+          "x": 104.7,
+          "y": 226.4,
+          "size": 6
+        },
+        {
+          "region": 17,
+          "number": 5,
+          "x": 149.9,
+          "y": 213,
+          "size": 5.5
+        },
+        {
+          "region": 18,
+          "number": 2,
+          "x": 156.6,
+          "y": 226.4,
+          "size": 6
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Raket om te bouwen",
+        "word": "raket",
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur de koker, de punt en de vinnen in.",
+          "Knip alle delen uit langs de streepjeslijn.",
+          "Rol de koker en plak de lange grijze rand vast.",
+          "Vouw de lipjes bovenaan naar binnen.",
+          "Rol de punt tot een kegel, plak hem dicht en plak hem op de lipjes.",
+          "Vouw de grijze randjes van de vinnen om en plak ze onderaan rond de raket."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "staande-kerstboom",
+    "order": 212,
+    "category": "feest",
+    "age": "6-9",
+    "world": null,
+    "holiday": "kerst",
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 19,
+    "colorByNumber": {
+      "codes": "gwyrnyprnygwnrpynrp",
+      "palette": [
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 49.8,
+          "y": 187.8,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 51.7,
+          "y": 219.6,
+          "size": 5.8
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 51.3,
+          "y": 29.2,
+          "size": 7
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 41.8,
+          "y": 89.3,
+          "size": 5.2
+        },
+        {
+          "region": 4,
+          "number": 5,
+          "x": 61.8,
+          "y": 105.1,
+          "size": 5.2
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 63.4,
+          "y": 144.7,
+          "size": 5.2
+        },
+        {
+          "region": 6,
+          "number": 6,
+          "x": 41.8,
+          "y": 154.6,
+          "size": 5.2
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 67.2,
+          "y": 202.2,
+          "size": 5.2
+        },
+        {
+          "region": 8,
+          "number": 5,
+          "x": 35,
+          "y": 206.1,
+          "size": 5.2
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 41.8,
+          "y": 119,
+          "size": 5.2
+        },
+        {
+          "region": 10,
+          "number": 1,
+          "x": 145.8,
+          "y": 183.6,
+          "size": 13
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 147.7,
+          "y": 219.6,
+          "size": 5.8
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 157.8,
+          "y": 89.3,
+          "size": 5.2
+        },
+        {
+          "region": 13,
+          "number": 4,
+          "x": 137.8,
+          "y": 105.1,
+          "size": 5.2
+        },
+        {
+          "region": 14,
+          "number": 6,
+          "x": 136.2,
+          "y": 144.7,
+          "size": 5.2
+        },
+        {
+          "region": 15,
+          "number": 3,
+          "x": 157.8,
+          "y": 154.6,
+          "size": 5.2
+        },
+        {
+          "region": 16,
+          "number": 5,
+          "x": 132.4,
+          "y": 202.2,
+          "size": 5.2
+        },
+        {
+          "region": 17,
+          "number": 4,
+          "x": 164.6,
+          "y": 206.1,
+          "size": 5.2
+        },
+        {
+          "region": 18,
+          "number": 6,
+          "x": 157.8,
+          "y": 119,
+          "size": 5.2
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Staande kerstboom",
+        "word": "boom",
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur beide kerstbomen in.",
+          "Knip de twee bomen uit langs de buitenste streepjeslijn.",
+          "Knip daarna de spleetjes in langs de streepjeslijn in het midden: bij de ene boom van onder, bij de andere van boven.",
+          "Schuif de bomen met de spleetjes in elkaar: nu staat je kerstboom!"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "tent",
+    "order": 213,
+    "category": "sport",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 23,
+    "colorByNumber": {
+      "codes": "goyrrrryyoyrrrryyonyyob",
+      "palette": [
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 102.7,
+          "y": 126.3,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 141.3,
+          "y": 186.8,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 104.1,
+          "y": 191.4,
+          "size": 7.6
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 148.6,
+          "y": 148.2,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 132.9,
+          "y": 159.3,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 117.1,
+          "y": 170.3,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 101.4,
+          "y": 181.3,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 158.1,
+          "y": 184.2,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 131.9,
+          "y": 202.5,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 28.1,
+          "y": 76,
+          "size": 13
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 45.4,
+          "y": 99.6,
+          "size": 7.6
+        },
+        {
+          "region": 11,
+          "number": 4,
+          "x": 51.4,
+          "y": 109.6,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 67.1,
+          "y": 98.6,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 4,
+          "x": 82.9,
+          "y": 87.6,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 4,
+          "x": 98.6,
+          "y": 76.6,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 3,
+          "x": 41.2,
+          "y": 73.7,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 3,
+          "x": 67.4,
+          "y": 55.3,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 2,
+          "x": 151.7,
+          "y": 116.2,
+          "size": 10
+        },
+        {
+          "region": 18,
+          "number": 5,
+          "x": 138.5,
+          "y": 102.6,
+          "size": 8.7
+        },
+        {
+          "region": 19,
+          "number": 3,
+          "x": 129,
+          "y": 95.5,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 3,
+          "x": 141.8,
+          "y": 112.5,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 2,
+          "x": 48.3,
+          "y": 147.6,
+          "size": 12.9
+        },
+        {
+          "region": 22,
+          "number": 6,
+          "x": 48.9,
+          "y": 164.1,
+          "size": 7.6
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tentje",
+        "word": "tent",
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur het tentje in.",
+          "Knip de tent uit langs de streepjeslijn.",
+          "Vouw langs alle stippellijnen.",
+          "Zet de twee schuine tentdoeken tegen elkaar en plak de voor- en achterkant vast.",
+          "Klaar om te kamperen!"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "twaalfvlak",
+    "order": 214,
+    "category": "vormen",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 45,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 36,
+    "colorByNumber": {
+      "codes": "borkorlorkorloryoryorlorboryorborkor",
+      "palette": [
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 54.6,
+          "y": 77.3,
+          "size": 7.3
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 70.7,
+          "y": 79.2,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 65.8,
+          "y": 84,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 80.8,
+          "y": 132.5,
+          "size": 7.3
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 78.2,
+          "y": 123.9,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 82.7,
+          "y": 118.7,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 5,
+          "x": 115.6,
+          "y": 85.7,
+          "size": 7.3
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 98,
+          "y": 75.7,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 104.1,
+          "y": 78.6,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 59.4,
+          "y": 48.5,
+          "size": 7.3
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 68,
+          "y": 51.1,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 3,
+          "x": 72.5,
+          "y": 45.9,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 41,
+          "y": 54.9,
+          "size": 7.3
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 25.6,
+          "y": 62.9,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 3,
+          "x": 31.7,
+          "y": 65.8,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 6,
+          "x": 49.5,
+          "y": 117.9,
+          "size": 7.3
+        },
+        {
+          "region": 16,
+          "number": 2,
+          "x": 31.9,
+          "y": 107.9,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 3,
+          "x": 38,
+          "y": 110.8,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 6,
+          "x": 105.7,
+          "y": 130.2,
+          "size": 7.3
+        },
+        {
+          "region": 19,
+          "number": 2,
+          "x": 121.8,
+          "y": 132.1,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 3,
+          "x": 116.9,
+          "y": 136.9,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 5,
+          "x": 120.7,
+          "y": 174.2,
+          "size": 7.3
+        },
+        {
+          "region": 22,
+          "number": 2,
+          "x": 127.7,
+          "y": 168.7,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 3,
+          "x": 133.8,
+          "y": 171.6,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 1,
+          "x": 150.5,
+          "y": 138.1,
+          "size": 7.3
+        },
+        {
+          "region": 25,
+          "number": 2,
+          "x": 168.1,
+          "y": 148.1,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 3,
+          "x": 161.6,
+          "y": 144.8,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 6,
+          "x": 156.8,
+          "y": 183.1,
+          "size": 7.3
+        },
+        {
+          "region": 28,
+          "number": 2,
+          "x": 174.4,
+          "y": 193.1,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 3,
+          "x": 167.9,
+          "y": 189.8,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 1,
+          "x": 84.4,
+          "y": 170.3,
+          "size": 7.3
+        },
+        {
+          "region": 31,
+          "number": 2,
+          "x": 102,
+          "y": 180.3,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 3,
+          "x": 95.5,
+          "y": 177,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 4,
+          "x": 115.9,
+          "y": 203,
+          "size": 7.3
+        },
+        {
+          "region": 34,
+          "number": 2,
+          "x": 133.6,
+          "y": 213,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 3,
+          "x": 127.1,
+          "y": 209.7,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Twaalfvlak",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur alle twaalf vijfhoeken in.",
+          "Knip het twaalfvlak precies uit langs de streepjeslijn.",
+          "Vouw langs alle stippellijnen; vouw extra scherp met een liniaal.",
+          "Plak eerst de ene 'bloem' van zes vijfhoeken tot een kommetje, daarna de andere.",
+          "Plak de twee helften op elkaar."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "uil-koker",
+    "order": 215,
+    "category": "dieren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 14,
+    "colorByNumber": {
+      "codes": "oywggyy--rwwrr",
+      "palette": [
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 41.8,
+          "y": 88,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 95.7,
+          "y": 148,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 24.8,
+          "y": 191.3,
+          "size": 4.9
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 36,
+          "y": 180.6,
+          "size": 4.7
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 154.8,
+          "y": 177.2,
+          "size": 4.7
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 74.3,
+          "y": 74.3,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 104.3,
+          "y": 74.3,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 5,
+          "x": 96.8,
+          "y": 95.3,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 55.3,
+          "y": 136.9,
+          "size": 7.5
+        },
+        {
+          "region": 11,
+          "number": 3,
+          "x": 136.8,
+          "y": 130.1,
+          "size": 7.5
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 86.7,
+          "y": 190.8,
+          "size": 5.5
+        },
+        {
+          "region": 13,
+          "number": 5,
+          "x": 106.7,
+          "y": 190.8,
+          "size": 5.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Uil van een koker",
+        "word": "uil",
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur de uil in.",
+          "Knip de uil uit langs de streepjeslijn.",
+          "Rol het papier tot een koker; het gezicht zit aan de voorkant.",
+          "Plak de grijze rand aan de binnenkant van de andere kant vast.",
+          "Duw de oortjes een beetje naar voren."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "vogelhuisje",
+    "order": 216,
+    "category": "natuur",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 30,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 33,
+    "colorByNumber": {
+      "codes": "wlbbonlbbonlxwrrrlrrowowowrowowow",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 98.4,
+          "y": 127.3,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 145.5,
+          "y": 177,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 118.7,
+          "y": 169.1,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 122.7,
+          "y": 174.8,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 117.5,
+          "y": 180.7,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 5,
+          "x": 127.3,
+          "y": 164.9,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 68.5,
+          "y": 70.1,
+          "size": 13
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 69.2,
+          "y": 97.9,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 64.9,
+          "y": 90.4,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 57.3,
+          "y": 94.7,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 5,
+          "x": 75.2,
+          "y": 91.5,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 126.9,
+          "y": 108.6,
+          "size": 13
+        },
+        {
+          "region": 12,
+          "number": 6,
+          "x": 154.4,
+          "y": 90.1,
+          "size": 9.8
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 140,
+          "y": 98.7,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 7,
+          "x": 169.6,
+          "y": 79.9,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 7,
+          "x": 120.4,
+          "y": 97.2,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 7,
+          "x": 136.5,
+          "y": 120.1,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 2,
+          "x": 69.1,
+          "y": 152.8,
+          "size": 13
+        },
+        {
+          "region": 18,
+          "number": 7,
+          "x": 50.2,
+          "y": 163.8,
+          "size": 6.3
+        },
+        {
+          "region": 19,
+          "number": 7,
+          "x": 142.7,
+          "y": 201.6,
+          "size": 6.2
+        },
+        {
+          "region": 20,
+          "number": 4,
+          "x": 169.8,
+          "y": 204.3,
+          "size": 6.1
+        },
+        {
+          "region": 21,
+          "number": 1,
+          "x": 158.3,
+          "y": 212.3,
+          "size": 6.1
+        },
+        {
+          "region": 22,
+          "number": 4,
+          "x": 146.8,
+          "y": 220.3,
+          "size": 6.1
+        },
+        {
+          "region": 23,
+          "number": 1,
+          "x": 163.5,
+          "y": 195.2,
+          "size": 6.1
+        },
+        {
+          "region": 24,
+          "number": 4,
+          "x": 152,
+          "y": 203.3,
+          "size": 6.1
+        },
+        {
+          "region": 25,
+          "number": 1,
+          "x": 140.5,
+          "y": 211.3,
+          "size": 6.1
+        },
+        {
+          "region": 26,
+          "number": 7,
+          "x": 45.8,
+          "y": 64.4,
+          "size": 6.2
+        },
+        {
+          "region": 27,
+          "number": 4,
+          "x": 30.2,
+          "y": 53.6,
+          "size": 6.1
+        },
+        {
+          "region": 28,
+          "number": 1,
+          "x": 41.7,
+          "y": 45.6,
+          "size": 6.1
+        },
+        {
+          "region": 29,
+          "number": 4,
+          "x": 53.2,
+          "y": 37.6,
+          "size": 6.1
+        },
+        {
+          "region": 30,
+          "number": 1,
+          "x": 36.5,
+          "y": 62.6,
+          "size": 6.1
+        },
+        {
+          "region": 31,
+          "number": 4,
+          "x": 48,
+          "y": 54.6,
+          "size": 6.1
+        },
+        {
+          "region": 32,
+          "number": 1,
+          "x": 59.5,
+          "y": 46.6,
+          "size": 6.1
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Vogelhuisje",
+        "word": "vogel",
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur het vogelhuisje en de vogeltjes in.",
+          "Knip het huisje uit langs de streepjeslijn.",
+          "Vouw langs alle stippellijnen.",
+          "Plak de muren aan de voor- en achterkant vast.",
+          "Plak als laatste het dak dicht."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "vouwbootje",
+    "order": 217,
+    "category": "zee",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      }
+    ],
+    "regionCount": 12,
+    "colorByNumber": {
+      "codes": "brytwyyyyyyo",
+      "palette": [
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 68.3,
+          "y": 93.1,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 75.9,
+          "y": 62.3,
+          "size": 5.5
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 99.6,
+          "y": 45.1,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 77.4,
+          "y": 156.5,
+          "size": 13
+        },
+        {
+          "region": 4,
+          "number": 5,
+          "x": 95.6,
+          "y": 129.2,
+          "size": 11.2
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 55.8,
+          "y": 127.8,
+          "size": 4.6
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 77.8,
+          "y": 127.8,
+          "size": 4.6
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 99.8,
+          "y": 127.8,
+          "size": 4.6
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 121.8,
+          "y": 127.8,
+          "size": 4.6
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 143.8,
+          "y": 127.8,
+          "size": 4.6
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 92.2,
+          "y": 167.8,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 6,
+          "x": 99.7,
+          "y": 171.7,
+          "size": 6
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Vouwbootje",
+        "word": "boot",
+        "countQuestion": null,
+        "printNote": "Print op ware grootte, het liefst op stevig papier (160 gram).",
+        "steps": [
+          "Kleur het zeil (boven) en de romp met de raampjes (onder) in.",
+          "Knip het vierkant uit langs de streepjeslijn.",
+          "Vouw het vierkant dubbel langs de lange stippellijn: de onderste helft gaat naar achteren, het zeil blijft voor.",
+          "Vouw de onderrand langs de korte stippellijn naar voren omhoog: nu zie je de romp met de raampjes.",
+          "Zet het bootje neer of laat het varen in je fantasie!"
+        ]
+      }
+    }
   }
 ]
