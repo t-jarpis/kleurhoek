@@ -76,7 +76,7 @@ export function Studio({ plate, inner, ageWidth, market, language }: { plate: Pl
           <Link href={`/${market}`} className="btn">{t.back}</Link>
           <h1>{plate.name}</h1>
         </div>
-        <div className="canvas" data-print={hasColor ? printWhat : "leeg"}>
+        <div className="canvas" data-print={hasColor ? printWhat : "kleur"}>
           <Sheet className="sheet sheet-live" plate={sheet} inner={inner} fills={fills} sw={sw} numbers={mode === "num"} name={name} learn={learn} onPick={apply} />
           {/* Leeg printen: dezelfde plaat zonder kleuren; het werk op het scherm blijft staan. */}
           {hasColor && printWhat === "leeg" && (
