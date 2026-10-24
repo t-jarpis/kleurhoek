@@ -116533,5 +116533,256 @@
         "countQuestion": null
       }
     }
+  },
+  {
+    "slug": "isometrisch-tekenen-stippenraster",
+    "order": 675,
+    "category": "patronen",
+    "age": "12+",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 30,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 3,
+    "colorByNumber": {
+      "codes": "ybn",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 39.1,
+          "y": 55.6,
+          "size": 8
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 30.4,
+          "y": 63.8,
+          "size": 4.8
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 44.2,
+          "y": 72.2,
+          "size": 4.8
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Isometrisch tekenen op een stippenraster",
+        "steps": [
+          "Kijk naar het voorbeeldblok: de bovenkant is een ruit, de zijkanten zijn schuine rechthoeken.",
+          "Teken met een liniaal zelf een blok door stippen te verbinden: alleen rechte lijnen omhoog of schuin langs de stippen.",
+          "Zet blokken naast en op elkaar: een trap, een toren of je eigen naam in blokken.",
+          "Kleur alle bovenkanten licht, alle linkerkanten middel en alle rechterkanten donker. Dan springt het eruit."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "tekenles-licht-en-schaduw-bol",
+    "order": 676,
+    "category": "vormen",
+    "age": "12+",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenles: licht en schaduw op een bol",
+        "steps": [
+          "Teken een cirkel, het liefst met iets ronds als hulp.",
+          "Kies waar het licht vandaan komt, bijvoorbeeld linksboven: teken een klein zonnetje.",
+          "Laat aan de lichtkant een glimplek wit.",
+          "Arceer de kant van de bol die van het licht af zit: hoe verder weg, hoe donkerder.",
+          "Teken de schaduw op de grond, aan de andere kant dan het licht.",
+          "Maak de overgang zacht met dunne lijntjes of uitvegen met je vinger.",
+          "Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.",
+          "Klaar? Trek de lijnen mooi over en kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "tekenles-perspectief-straat",
+    "order": 677,
+    "category": "patronen",
+    "age": "12+",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenles: een straat in perspectief",
+        "steps": [
+          "Trek een horizon (een rechte lijn) en zet een stip in het midden: het verdwijnpunt.",
+          "Teken twee lijnen vanaf het verdwijnpunt naar de hoeken onderaan: dat is de straat.",
+          "Teken links en rechts een staande lijn en verbind de bovenkant met het verdwijnpunt: de gevels.",
+          "Maak de huizen af met een dak en zijkant.",
+          "Ramen worden kleiner naarmate ze verder weg zijn: hun schuine lijnen lopen ook naar het verdwijnpunt.",
+          "Een middenstreep op de weg: de streepjes worden kleiner in de verte.",
+          "Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.",
+          "Klaar? Trek de lijnen mooi over en kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "vergroten-met-raster-uil",
+    "order": 678,
+    "category": "vormen",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 25,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Vergroten met een raster: uil",
+        "steps": [
+          "Kijk in het kleine raster naar één hokje, bijvoorbeeld B3: welke lijnen lopen erdoor?",
+          "Zoek hetzelfde hokje in het grote raster en teken daar dezelfde lijnen, alleen groter.",
+          "Werk zo hokje voor hokje. Klaar? Gum de hulplijnen niet: ze horen erbij. Kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "vergroten-met-raster-zeilboot",
+    "order": 679,
+    "category": "vormen",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 25,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Vergroten met een raster: zeilboot",
+        "steps": [
+          "Kijk in het kleine raster naar één hokje, bijvoorbeeld B3: welke lijnen lopen erdoor?",
+          "Zoek hetzelfde hokje in het grote raster en teken daar dezelfde lijnen, alleen groter.",
+          "Werk zo hokje voor hokje. Klaar? Gum de hulplijnen niet: ze horen erbij. Kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
   }
 ]
