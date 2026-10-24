@@ -55151,5 +55151,2103 @@
         "countQuestion": null
       }
     }
+  },
+  {
+    "slug": "beterschapskaart-zon",
+    "order": 287,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 3,
+    "colorByNumber": {
+      "codes": "ykk",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 98.6,
+          "y": 228.4,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 83.8,
+          "y": 218.8,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 115.8,
+          "y": 218.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Beterschapskaart met zonnetje",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin een lief berichtje en breng de kaart langs."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "boekenleggers-dieren",
+    "order": 288,
+    "category": "dieren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 28,
+    "colorByNumber": {
+      "codes": "oookowyyooobbttyyppyywwwwwww",
+      "palette": [
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 24.7,
+          "y": 45.5,
+          "size": 4.5
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 43.3,
+          "y": 45.5,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 25.8,
+          "y": 65.8,
+          "size": 6.9
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 33.9,
+          "y": 65.9,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 33.3,
+          "y": 95.4,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 77.2,
+          "y": 94.5,
+          "size": 13
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 67.4,
+          "y": 67.7,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 81.4,
+          "y": 67.7,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 1,
+          "x": 77.8,
+          "y": 79.9,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 1,
+          "x": 121.1,
+          "y": 53.8,
+          "size": 5.3
+        },
+        {
+          "region": 10,
+          "number": 1,
+          "x": 134.4,
+          "y": 53.7,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 5,
+          "x": 121.1,
+          "y": 93.8,
+          "size": 5.3
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 134.4,
+          "y": 93.7,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 6,
+          "x": 121.1,
+          "y": 133.8,
+          "size": 5.3
+        },
+        {
+          "region": 14,
+          "number": 6,
+          "x": 134.4,
+          "y": 133.7,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 4,
+          "x": 121.1,
+          "y": 173.8,
+          "size": 5.3
+        },
+        {
+          "region": 16,
+          "number": 4,
+          "x": 134.4,
+          "y": 173.7,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 7,
+          "x": 121.1,
+          "y": 213.8,
+          "size": 5.3
+        },
+        {
+          "region": 18,
+          "number": 7,
+          "x": 134.4,
+          "y": 213.7,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 4,
+          "x": 165.7,
+          "y": 86.8,
+          "size": 6.6
+        },
+        {
+          "region": 20,
+          "number": 4,
+          "x": 163.8,
+          "y": 63.3,
+          "size": 7.8
+        },
+        {
+          "region": 21,
+          "number": 3,
+          "x": 167.8,
+          "y": 93.8,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 3,
+          "x": 163.8,
+          "y": 115.8,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 3,
+          "x": 167.8,
+          "y": 137.8,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 3,
+          "x": 163.8,
+          "y": 159.8,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 3,
+          "x": 167.8,
+          "y": 181.8,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 3,
+          "x": 163.8,
+          "y": 203.8,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 3,
+          "x": 167.8,
+          "y": 225.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Boekenleggers met dieren",
+        "steps": [
+          "Kleur de kat, de uil, de vissen en de giraf.",
+          "Knip de vier boekenleggers uit langs de streepjeslijn.",
+          "Leg ze in je leesboek. Leuk om ook cadeau te geven!"
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "deurhanger-kom-binnen",
+    "order": 289,
+    "category": "thuis",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stevig-papier"
+      }
+    ],
+    "regionCount": 10,
+    "colorByNumber": {
+      "codes": "gyyyyryyyy",
+      "palette": [
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 40,
+          "y": 122.3,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 33.7,
+          "y": 165.7,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 48.7,
+          "y": 177.7,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 63.7,
+          "y": 165.7,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 78.7,
+          "y": 177.7,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 125.9,
+          "y": 122.3,
+          "size": 13
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 119.7,
+          "y": 165.7,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 134.7,
+          "y": 177.7,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 149.7,
+          "y": 165.7,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 164.7,
+          "y": 177.7,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Deurhanger: kom binnen of niet storen",
+        "printNote": "Op stevig papier (160 gram) blijft hij mooi hangen.",
+        "steps": [
+          "Kleur beide deurhangers in en schrijf je naam erop.",
+          "Knip ze uit langs de streepjeslijn, ook het rondje bovenin en het sneetje eronder.",
+          "Plak ze met de achterkanten op elkaar: één kant Kom binnen, andere kant Niet storen.",
+          "Schuif het rondje over de deurklink en draai hem om wanneer je wilt."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "knipoefenen-golven",
+    "order": 290,
+    "category": "vormen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kinderschaar"
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Knippen oefenen: golven",
+        "steps": [
+          "Houd de schaar met je duim boven en je vingers onder.",
+          "Knip langzaam over de streepjeslijn, van links naar rechts. Draai het papier, niet de schaar.",
+          "Gaat het goed? Probeer de volgende lijn een beetje sneller."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "knipoefenen-rechte-lijnen",
+    "order": 291,
+    "category": "vormen",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kinderschaar"
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Knippen oefenen: rechte lijnen",
+        "steps": [
+          "Houd de schaar met je duim boven en je vingers onder.",
+          "Knip langzaam over de streepjeslijn, van links naar rechts. Draai het papier, niet de schaar.",
+          "Gaat het goed? Probeer de volgende lijn een beetje sneller."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "knipoefenen-spiraal",
+    "order": 292,
+    "category": "vormen",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "materials": [
+      {
+        "slug": "kinderschaar"
+      }
+    ],
+    "regionCount": 1,
+    "colorByNumber": {
+      "codes": "y",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 99.6,
+          "y": 147.6,
+          "size": 8.7
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Knippen oefenen: spiraal-slang",
+        "steps": [
+          "Houd de schaar met je duim boven en je vingers onder.",
+          "Knip langzaam over de streepjeslijn, van links naar rechts. Draai het papier, niet de schaar.",
+          "Gaat het goed? Probeer de volgende lijn een beetje sneller."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "knipoefenen-trapjes",
+    "order": 293,
+    "category": "vormen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kinderschaar"
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Knippen oefenen: trapjes",
+        "steps": [
+          "Houd de schaar met je duim boven en je vingers onder.",
+          "Knip langzaam over de streepjeslijn, van links naar rechts. Draai het papier, niet de schaar.",
+          "Gaat het goed? Probeer de volgende lijn een beetje sneller."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "knipoefenen-zigzag",
+    "order": 294,
+    "category": "vormen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kinderschaar"
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Knippen oefenen: zigzag",
+        "steps": [
+          "Houd de schaar met je duim boven en je vingers onder.",
+          "Knip langzaam over de streepjeslijn, van links naar rechts. Draai het papier, niet de schaar.",
+          "Gaat het goed? Probeer de volgende lijn een beetje sneller."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "knippuzzel-raket",
+    "order": 295,
+    "category": "ruimte",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift",
+        "optional": true
+      }
+    ],
+    "regionCount": 12,
+    "colorByNumber": {
+      "codes": "nyyyyyprbooy",
+      "palette": [
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 144,
+          "y": 171,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 39.7,
+          "y": 57.7,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 159.7,
+          "y": 65.7,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 33.7,
+          "y": 151.7,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 149.7,
+          "y": 205.7,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 97.7,
+          "y": 49.7,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 147.1,
+          "y": 116.9,
+          "size": 13
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 81.2,
+          "y": 151.5,
+          "size": 13
+        },
+        {
+          "region": 8,
+          "number": 5,
+          "x": 81.6,
+          "y": 127.6,
+          "size": 8.7
+        },
+        {
+          "region": 9,
+          "number": 6,
+          "x": 60.2,
+          "y": 181.3,
+          "size": 6.5
+        },
+        {
+          "region": 10,
+          "number": 6,
+          "x": 103.8,
+          "y": 181.3,
+          "size": 6.5
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 81.5,
+          "y": 194.1,
+          "size": 9.3
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Knippuzzel: raket in de ruimte",
+        "steps": [
+          "Kleur de tekening helemaal in.",
+          "Knip de rand en daarna de stroken los langs de streepjeslijnen (de nummers onderaan blijven aan de stroken vast als je onder de tekening doorknipt).",
+          "Hussel de stroken door elkaar en leg de tekening weer in elkaar. Kijk op de nummers als het lastig is.",
+          "Wil je hem bewaren? Plak de stroken in de goede volgorde op een vel papier."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "knippuzzel-vis",
+    "order": 296,
+    "category": "zee",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift",
+        "optional": true
+      }
+    ],
+    "regionCount": 10,
+    "colorByNumber": {
+      "codes": "boy-tttygg",
+      "palette": [
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 128,
+          "y": 81,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 97.5,
+          "y": 144.5,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 158,
+          "y": 144.7,
+          "size": 12.8
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 41.7,
+          "y": 95.7,
+          "size": 6.5
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 49.8,
+          "y": 75.8,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 55.8,
+          "y": 59.8,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 40,
+          "y": 222.2,
+          "size": 13
+        },
+        {
+          "region": 8,
+          "number": 5,
+          "x": 150.5,
+          "y": 195.9,
+          "size": 6.2
+        },
+        {
+          "region": 9,
+          "number": 5,
+          "x": 168.5,
+          "y": 195.9,
+          "size": 6.2
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Knippuzzel: vis in de zee",
+        "steps": [
+          "Kleur de tekening helemaal in.",
+          "Knip de rand en daarna de stroken los langs de streepjeslijnen (de nummers onderaan blijven aan de stroken vast als je onder de tekening doorknipt).",
+          "Hussel de stroken door elkaar en leg de tekening weer in elkaar. Kijk op de nummers als het lastig is.",
+          "Wil je hem bewaren? Plak de stroken in de goede volgorde op een vel papier."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "naamlabels-schoolspullen",
+    "order": 297,
+    "category": "thuis",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "plakband",
+        "optional": true
+      }
+    ],
+    "regionCount": 16,
+    "colorByNumber": {
+      "codes": "ywnyrbrgoommmmmy",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 27.2,
+          "y": 50.8,
+          "size": 4.5
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 35.2,
+          "y": 59.8,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 116.7,
+          "y": 53.6,
+          "size": 8.7
+        },
+        {
+          "region": 3,
+          "number": 1,
+          "x": 30.5,
+          "y": 109.5,
+          "size": 5.3
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 117.6,
+          "y": 111.2,
+          "size": 6.7
+        },
+        {
+          "region": 5,
+          "number": 5,
+          "x": 29.5,
+          "y": 165.6,
+          "size": 9.8
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 117.6,
+          "y": 167.4,
+          "size": 9.2
+        },
+        {
+          "region": 7,
+          "number": 6,
+          "x": 121.8,
+          "y": 156.9,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 7,
+          "x": 28.9,
+          "y": 221.8,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 7,
+          "x": 38.9,
+          "y": 221.8,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 8,
+          "x": 124.5,
+          "y": 221.8,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 8,
+          "x": 120.6,
+          "y": 227.4,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 8,
+          "x": 113.4,
+          "y": 225.9,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 8,
+          "x": 113,
+          "y": 219.3,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 8,
+          "x": 119.7,
+          "y": 216.1,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 1,
+          "x": 117.8,
+          "y": 221.9,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Naamlabels voor je schoolspullen",
+        "steps": [
+          "Kleur de plaatjes en schrijf je naam op de lijn.",
+          "Knip de labels uit langs de streepjeslijn.",
+          "Plak ze op je etui, schriften of bakjes (met plakband eroverheen blijven ze mooi)."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "paaskaart-eieren",
+    "order": 298,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": "pasen",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 4,
+    "colorByNumber": {
+      "codes": "kybl",
+      "palette": [
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 61.2,
+          "y": 217.9,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 99.2,
+          "y": 225.9,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 137.2,
+          "y": 217.9,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 75.5,
+          "y": 249.3,
+          "size": 6.6
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Paaskaart met eieren",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin een paaswens."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "spiegeltekenen-kasteel",
+    "order": 299,
+    "category": "sprookjes",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Spiegeltekenen: kasteel",
+        "steps": [
+          "De stippellijn in het midden is een spiegel.",
+          "Kijk naar een hoekpunt links en tel hoeveel hokjes het van de spiegel af ligt. Zet aan de rechterkant een stipje even ver van de spiegel.",
+          "Verbind de stipjes. Klaar? Kleur de tekening in en kijk op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Zo ziet hij er heel uit"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "spiegeltekenen-robot",
+    "order": 300,
+    "category": "ruimte",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Spiegeltekenen: robot",
+        "steps": [
+          "De stippellijn in het midden is een spiegel.",
+          "Kijk naar een hoekpunt links en tel hoeveel hokjes het van de spiegel af ligt. Zet aan de rechterkant een stipje even ver van de spiegel.",
+          "Verbind de stipjes. Klaar? Kleur de tekening in en kijk op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Zo ziet hij er heel uit"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "spiegeltekenen-vlinder",
+    "order": 301,
+    "category": "natuur",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Spiegeltekenen: vlinder",
+        "steps": [
+          "De stippellijn in het midden is een spiegel.",
+          "Kijk naar een hoekpunt links en tel hoeveel hokjes het van de spiegel af ligt. Zet aan de rechterkant een stipje even ver van de spiegel.",
+          "Verbind de stipjes. Klaar? Kleur de tekening in en kijk op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Zo ziet hij er heel uit"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "tekenles-auto",
+    "order": 302,
+    "category": "voertuigen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenles: een auto",
+        "steps": [
+          "Teken een lange rechthoek.",
+          "Een dak erop met schuine kanten.",
+          "Twee wielen.",
+          "Twee raampjes.",
+          "Lampen voor en achter en een deur.",
+          "De weg.",
+          "Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.",
+          "Klaar? Trek de lijnen mooi over en kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "tekenles-hond",
+    "order": 303,
+    "category": "dieren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenles: een hond",
+        "steps": [
+          "Teken een ovaal hoofd.",
+          "Twee lange flaporen opzij.",
+          "Ogen, een neus en een mond.",
+          "Een liggend lijf onder het hoofd.",
+          "Vier pootjes en een kwispelstaart.",
+          "Een halsband met een penning.",
+          "Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.",
+          "Klaar? Trek de lijnen mooi over en kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "tekenles-huis",
+    "order": 304,
+    "category": "thuis",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenles: een huis",
+        "steps": [
+          "Teken een rechthoek.",
+          "Een puntdak erop.",
+          "Een deur met een knop.",
+          "Twee ramen met een kruis.",
+          "Een schoorsteen.",
+          "Rook en de grond.",
+          "Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.",
+          "Klaar? Trek de lijnen mooi over en kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "tekenles-schildpad",
+    "order": 305,
+    "category": "dieren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenles: een schildpad",
+        "steps": [
+          "Teken een halve cirkel als schild.",
+          "Een kopje met een oog.",
+          "Pootjes en een klein staartje.",
+          "Lijnen kruislings over het schild.",
+          "Nog meer lijntjes: het patroon.",
+          "De grond waar hij over loopt.",
+          "Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.",
+          "Klaar? Trek de lijnen mooi over en kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "uitnodiging-kinderfeestje",
+    "order": 306,
+    "category": "feest",
+    "age": "6-9",
+    "world": null,
+    "holiday": "verjaardag",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 3,
+    "colorByNumber": {
+      "codes": "rby",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 25.6,
+          "y": 160.8,
+          "size": 7.8
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 173.6,
+          "y": 160.8,
+          "size": 7.8
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 43.9,
+          "y": 252.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Uitnodiging voor een kinderfeestje",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Vul in voor wie het feestje is, wanneer en waar.",
+          "Maak er een paar en geef ze aan je vriendjes en vriendinnetjes."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "vaderdagkaart-stropdas",
+    "order": 307,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": "vaderdag",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 3,
+    "colorByNumber": {
+      "codes": "brr",
+      "palette": [
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 78,
+          "y": 207.8,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 98.9,
+          "y": 198.8,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 99.6,
+          "y": 238.6,
+          "size": 8.3
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Vaderdagkaart met stropdas",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin waarom jouw papa (of opa) de liefste is."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "valentijnskaart-hartjes",
+    "order": 308,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": "valentijn",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 5,
+    "colorByNumber": {
+      "codes": "rkmmk",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 98.7,
+          "y": 216.9,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 51.4,
+          "y": 194.7,
+          "size": 9.3
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 149.3,
+          "y": 199,
+          "size": 10.7
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 60.5,
+          "y": 242.3,
+          "size": 7.3
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 145.5,
+          "y": 244.5,
+          "size": 8
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Valentijnskaart met hartjes",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin voor wie je kaart is (of houd het geheim)."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "vingerpoppetjes-dieren",
+    "order": 309,
+    "category": "dieren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 25,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      }
+    ],
+    "regionCount": 31,
+    "colorByNumber": {
+      "codes": "-ooox-wwwx-wwwyyo-ggg-wwwx-zzzk",
+      "palette": [
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        }
+      ],
+      "labels": [
+        {
+          "region": 1,
+          "number": 1,
+          "x": 25.3,
+          "y": 53.5,
+          "size": 4.8
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 50.8,
+          "y": 53.5,
+          "size": 4.8
+        },
+        {
+          "region": 3,
+          "number": 1,
+          "x": 37,
+          "y": 63,
+          "size": 9.8
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 37.8,
+          "y": 78.9,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 79.3,
+          "y": 66.2,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 120.8,
+          "y": 66.2,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 99,
+          "y": 63,
+          "size": 9.8
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 99.8,
+          "y": 78.9,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 3,
+          "x": 147.1,
+          "y": 55.2,
+          "size": 4.6
+        },
+        {
+          "region": 12,
+          "number": 3,
+          "x": 176.9,
+          "y": 55.2,
+          "size": 4.6
+        },
+        {
+          "region": 13,
+          "number": 3,
+          "x": 155,
+          "y": 85,
+          "size": 8.3
+        },
+        {
+          "region": 14,
+          "number": 4,
+          "x": 149.8,
+          "y": 69.4,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 4,
+          "x": 165.8,
+          "y": 69.4,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 1,
+          "x": 161.9,
+          "y": 80.6,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 5,
+          "x": 27,
+          "y": 163.4,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 5,
+          "x": 47,
+          "y": 163.4,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 5,
+          "x": 37,
+          "y": 187,
+          "size": 13
+        },
+        {
+          "region": 22,
+          "number": 3,
+          "x": 83,
+          "y": 168,
+          "size": 5.9
+        },
+        {
+          "region": 23,
+          "number": 3,
+          "x": 117,
+          "y": 168,
+          "size": 5.9
+        },
+        {
+          "region": 24,
+          "number": 3,
+          "x": 99,
+          "y": 175,
+          "size": 9.8
+        },
+        {
+          "region": 25,
+          "number": 2,
+          "x": 99.8,
+          "y": 190.9,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 6,
+          "x": 145,
+          "y": 168,
+          "size": 5.9
+        },
+        {
+          "region": 28,
+          "number": 6,
+          "x": 179,
+          "y": 168,
+          "size": 5.9
+        },
+        {
+          "region": 29,
+          "number": 6,
+          "x": 161,
+          "y": 175,
+          "size": 9.8
+        },
+        {
+          "region": 30,
+          "number": 7,
+          "x": 161.8,
+          "y": 190.9,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Vingerpoppetjes: zes dieren",
+        "steps": [
+          "Kleur de dierenkopjes in.",
+          "Knip elk kopje uit samen met de strook eronder (knip niet tussen kopje en strook door).",
+          "Leg de strook om je vinger en plak het grijze stukje vast, zodat er een ringetje ontstaat.",
+          "Steek het poppetje op je vinger en speel een toneelstukje!"
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
   }
 ]
