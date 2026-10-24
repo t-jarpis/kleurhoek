@@ -1,0 +1,42 @@
+{
+ "category": "boerderij",
+ "age": "6-9",
+ "kind": "bouwplaat",
+ "difficulty": 2,
+ "minutes": 35,
+ "paperGsm": 160,
+ "adultHelp": true,
+ "holiday": null,
+ "materials": [
+  {
+   "slug": "kleurpotloden"
+  },
+  {
+   "slug": "kinderschaar"
+  },
+  {
+   "slug": "lijmstift"
+  },
+  {
+   "slug": "stevig-papier",
+   "optional": true
+  }
+ ],
+ "i18n": {
+  "nl": {
+   "name": "Bouwplaat: rode schuur",
+   "printNote": "Op stevig papier (160 gram) wordt hij het mooist.",
+   "steps": [
+    "Kleur alle vlakken en tekeningen. Knip de bouwplaat uit langs de doorgetrokken lijnen; de grijze flapjes blijven eraan.",
+    "Vouw alle stippellijnen naar binnen, ook de flapjes: de tekening blijft aan de buitenkant. Met een liniaal en een lege balpen eerst krassen vouwt het strakker.",
+    "De kant met de grote deuren is de voorkant. Het dak heeft vier schuine vlakken: vouw ze een voor een.",
+    "Plak de flapjes één voor één vast aan de binnenkant van de rand ernaast. Het laatste vlak sluit je als een deksel: druk het even aan tot de lijm droog is."
+   ],
+   "word": null,
+   "countQuestion": null
+  }
+ },
+ "world": null,
+ "height": 280,
+ "codes": "-rrrrzzzzbbb-ww-y-bb-bbb"
+}

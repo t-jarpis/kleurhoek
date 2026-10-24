@@ -1,0 +1,43 @@
+{
+ "category": "dieren",
+ "age": "4-6",
+ "kind": "bouwplaat",
+ "difficulty": 1,
+ "minutes": 25,
+ "paperGsm": 160,
+ "adultHelp": true,
+ "holiday": null,
+ "materials": [
+  {
+   "slug": "kleurpotloden"
+  },
+  {
+   "slug": "kinderschaar"
+  },
+  {
+   "slug": "lijmstift"
+  },
+  {
+   "slug": "stevig-papier",
+   "optional": true
+  }
+ ],
+ "i18n": {
+  "nl": {
+   "name": "Bouwplaat: kikkerdoosje",
+   "printNote": "Op stevig papier (160 gram) wordt hij het mooist.",
+   "steps": [
+    "Kleur alle vlakken en tekeningen. Knip de bouwplaat uit langs de doorgetrokken lijnen; de grijze flapjes blijven eraan.",
+    "Vouw alle stippellijnen naar binnen, ook de flapjes: de tekening blijft aan de buitenkant. Met een liniaal en een lege balpen eerst krassen vouwt het strakker.",
+    "Kijk eerst waar het gezicht zit: dat is de voorkant. Het vlak zonder tekening is de onderkant.",
+    "De bolle ogen zitten op het bovenvlak, aan de kant van de mond.",
+    "Plak de flapjes één voor één vast aan de binnenkant van de rand ernaast. Het laatste vlak sluit je als een deksel: druk het even aan tot de lijm droog is."
+   ],
+   "word": null,
+   "countQuestion": null
+  }
+ },
+ "world": null,
+ "height": 280,
+ "codes": "ll-lllglllmmllllllllg-xg-xggggggggglll"
+}

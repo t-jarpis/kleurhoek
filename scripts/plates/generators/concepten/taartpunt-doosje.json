@@ -1,0 +1,43 @@
+{
+ "category": "eten",
+ "age": "6-9",
+ "kind": "bouwplaat",
+ "difficulty": 2,
+ "minutes": 25,
+ "paperGsm": 160,
+ "adultHelp": true,
+ "holiday": "verjaardag",
+ "materials": [
+  {
+   "slug": "kleurpotloden"
+  },
+  {
+   "slug": "kinderschaar"
+  },
+  {
+   "slug": "lijmstift"
+  },
+  {
+   "slug": "stevig-papier",
+   "optional": true
+  }
+ ],
+ "i18n": {
+  "nl": {
+   "name": "Bouwplaat: taartpunt",
+   "printNote": "Op stevig papier (160 gram) wordt hij het mooist.",
+   "steps": [
+    "Kleur alle vlakken en tekeningen. Knip de bouwplaat uit langs de doorgetrokken lijnen; de grijze flapjes blijven eraan.",
+    "Vouw alle stippellijnen naar binnen, ook de flapjes: de tekening blijft aan de buitenkant. Met een liniaal en een lege balpen eerst krassen vouwt het strakker.",
+    "Het vlak met de aardbei is de bovenkant; de brede kant met de toefjes room is de achterkant van de punt.",
+    "Maak er een paar en leg ze in een kring: een hele taart!",
+    "Plak de flapjes één voor één vast aan de binnenkant van de rand ernaast. Het laatste vlak sluit je als een deksel: druk het even aan tot de lijm droog is."
+   ],
+   "word": null,
+   "countQuestion": null
+  }
+ },
+ "world": null,
+ "height": 280,
+ "codes": "yy-kykyrykykyrykyrgmmmkyryky-----"
+}
