@@ -123,6 +123,10 @@ export interface Theme {
   slug: string; status: "draft" | "published"; name: string | null; description: string | null; makerName: string; makerUrl: string;
   productSlugs: string[]; sortOrder: number; updatedBy: string; updatedAt: string; counts: { total: number; live: number; attention: number };
 }
+/** Vindbaarheid (ADR 0035). */
+export interface SeoSettings { googleVerification: string | null; bingVerification: string | null; home: Record<string, { title: string | null; description: string | null }> }
+export interface SeoOverview { settings: SeoSettings; markets: { market: string; language: string; plates: number; themes: number }[]; indexableHost: string }
+
 export interface SourceInput { title?: string; description?: string | null; basis?: "link" | "license"; licenseNote?: string | null; licenseDate?: string | null }
 
 export class ApiError extends Error {
@@ -174,6 +178,8 @@ export const adminApi = {
   saveProduct: (slug: string, body: ProductInput) => call<{ slug: string }>(`/v1/admin/shop/products/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
   salesPreview: (body: { partner: string; csv: string; fileName?: string; mapping?: SalesMapping }) => call<SalesPreview>("/v1/admin/shop/sales/preview", { method: "POST", body: JSON.stringify(body) }),
   salesImport: (body: { partner: string; csv: string; fileName: string; mapping: SalesMapping }) => call<{ importId: string; from: string; to: string; rows: number }>("/v1/admin/shop/sales/import", { method: "POST", body: JSON.stringify(body) }),
+  seo: () => call<SeoOverview>("/v1/admin/seo"),
+  saveSeo: (body: SeoSettings) => call<SeoSettings>("/v1/admin/seo", { method: "PUT", body: JSON.stringify(body) }),
   salesReport: (from: string, to: string) => call<SalesReport>(`/v1/admin/shop/sales?from=${from}&to=${to}`),
   shopSummary: (from: string, to: string) => call<ShopSummary>(`/v1/admin/analytics/shop?from=${from}&to=${to}`),
   siteAccess: () => call<SiteAccess>("/v1/admin/site-access"),

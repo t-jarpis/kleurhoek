@@ -8,7 +8,7 @@ import { DB, type Database } from "../../db/database";
 import { withTenant } from "../../db/tenant";
 import { accentProblem, HEX, primaryProblem } from "../../shared/contrast";
 import { AuditService } from "../identity/audit.service";
-import { organizationLogos, organizations, type OrgBrand, type OrgFeatures, type OrgKind, type OrgOffer } from "./organizations.schema";
+import { organizationLogos, organizations, type OrgBrand, type OrgFeatures, type OrgKind, type OrgOffer, type OrgSeo } from "./organizations.schema";
 
 /** Thema's en lettertypen die @kleurhoek/theme levert (generated/manifest.json). */
 const manifest = JSON.parse(readFileSync(createRequire(__filename).resolve("@kleurhoek/theme/manifest.json"), "utf8")) as {
@@ -30,12 +30,15 @@ const allOffer = (): OrgOffer => ({ markets: null, categories: null, ages: null,
 
 export interface Organization {
   id: string; slug: string; name: string; kind: OrgKind; active: boolean; isDefault: boolean; hosts: string[];
-  brand: OrgBrand; offer: OrgOffer; features: OrgFeatures; updatedBy: string; updatedAt: string;
+  brand: OrgBrand; offer: OrgOffer; features: OrgFeatures; seo: OrgSeo; updatedBy: string; updatedAt: string;
 }
+export const emptySeo = (): OrgSeo => ({ googleVerification: null, bingVerification: null, home: {} });
 /** Wat de website, het admin panel en de inlogpagina van een organisatie mogen weten. */
 export interface PublicOrganization {
   slug: string; name: string; kind: OrgKind; isDefault: boolean; brand: OrgBrand; offer: OrgOffer; features: OrgFeatures;
   logo: string | null;
+  /** Alleen bij Kleurhoek zelf; organisaties worden niet geïndexeerd (ADR 0035). */
+  seo: OrgSeo | null;
 }
 
 export interface OrgInput {
@@ -72,6 +75,7 @@ export class OrganizationsService implements OnModuleInit {
       id: r.id, slug: r.slug, name: r.name, kind: r.kind, active: r.active, isDefault: r.isDefault, hosts: r.hosts,
       brand: { ...emptyBrand(), ...r.brand, colors: { ...emptyBrand().colors, ...r.brand.colors } },
       offer: { ...allOffer(), ...r.offer }, features: { ...({ shop: true, accounts: true } as OrgFeatures), ...r.features },
+      seo: { ...emptySeo(), ...(r.seo ?? {}) },
       updatedBy: r.updatedBy, updatedAt: r.updatedAt.toISOString(),
     };
   }
@@ -117,7 +121,7 @@ export class OrganizationsService implements OnModuleInit {
   }
 
   toPublic(o: Organization): PublicOrganization {
-    return { slug: o.slug, name: o.name, kind: o.kind, isDefault: o.isDefault, brand: o.brand, offer: o.offer, features: o.features, logo: o.brand.logoVersion ? `/v1/organizations/${o.slug}/logo/${o.brand.logoVersion}` : null };
+    return { slug: o.slug, name: o.name, kind: o.kind, isDefault: o.isDefault, brand: o.brand, offer: o.offer, features: o.features, logo: o.brand.logoVersion ? `/v1/organizations/${o.slug}/logo/${o.brand.logoVersion}` : null, seo: o.isDefault ? o.seo : null };
   }
 
   private validate(input: OrgInput, current: Organization | null, all: Organization[]) {
@@ -168,7 +172,7 @@ export class OrganizationsService implements OnModuleInit {
     if (all.some((o) => o.slug === slug)) throw new ConflictException(`Er is al een organisatie met code ${slug}`);
     const base: Organization = {
       id: "", slug, name: input.name, kind: input.kind, active: true, isDefault: false, hosts: [], brand: emptyBrand(), offer: allOffer(),
-      features: { shop: input.kind === "platform", accounts: false }, updatedBy: actor, updatedAt: "",
+      features: { shop: input.kind === "platform", accounts: false }, seo: emptySeo(), updatedBy: actor, updatedAt: "",
     };
     this.validate(input, null, all);
     const next = this.merge(base, input);
@@ -194,6 +198,26 @@ export class OrganizationsService implements OnModuleInit {
     });
     this.cache = null;
     return (await this.get(slug))!;
+  }
+
+  /** Vindbaarheid van Kleurhoek zelf (ADR 0035). Verificatiecodes zijn de "content"-waarde uit de meta-tag. */
+  async saveSeo(seo: OrgSeo, actor: string): Promise<OrgSeo> {
+    const problems: string[] = [];
+    const TOKEN = /^[A-Za-z0-9_-]{10,100}$/;
+    for (const [k, v] of [["Google", seo.googleVerification], ["Bing", seo.bingVerification]] as const) if (v && !TOKEN.test(v)) problems.push(`${k}-code: alleen letters, cijfers, - en _ (10 tot 100 tekens)`);
+    for (const [market, h] of Object.entries(seo.home)) {
+      if (!/^[a-z]{2}-[A-Z]{2}$/.test(market)) problems.push(`Onbekende markt: ${market}`);
+      if (h.title && h.title.length > 70) problems.push(`${market}: titel hooguit 70 tekens`);
+      if (h.description && h.description.length > 170) problems.push(`${market}: beschrijving hooguit 170 tekens`);
+    }
+    if (problems.length) throw new BadRequestException(problems.join("; "));
+    const org = await this.defaultOrg();
+    await withTenant(this.db, this.tenant, async (tx) => {
+      await tx.update(organizations).set({ seo, updatedBy: actor, updatedAt: new Date() }).where(and(eq(organizations.tenantId, this.tenant), eq(organizations.id, org.id)));
+      await this.audit.record(tx, this.tenant, { actor, action: "seo.update", subject: `organization:${org.slug}`, before: org.seo, after: seo });
+    });
+    this.cache = null;
+    return seo;
   }
 
   async setLogo(slug: string, contentType: string, data: Buffer | null, actor: string): Promise<Organization> {

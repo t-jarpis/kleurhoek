@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { LIVE_MARKETS, marketLanguage } from "@/lib/markets";
 import { getOrg } from "@/lib/org";
 import { messages } from "@/i18n/nl";
+import { hreflang, indexable, SITE } from "@/lib/seo";
 
 type Params = Promise<{ org: string; market: string }>;
 
@@ -14,10 +15,17 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const { org: slug, market } = await params;
   const org = await getOrg(slug);
   const name = org && !org.isDefault ? org.name : "Kleurhoek";
+  const seo = indexable(org) ? org!.seo : null;
   return {
     title: { default: name, template: `%s · ${name}` },
     description: messages(marketLanguage(market)).lede,
-    ...(org && !org.isDefault ? { robots: { index: false } } : {}),
+    // Alleen Kleurhoek zelf op het productiedomein in zoekmachines (ADR 0035).
+    robots: indexable(org) ? { index: true, follow: true } : { index: false, follow: false },
+    ...(indexable(org) ? { metadataBase: new URL(SITE), openGraph: { siteName: "Kleurhoek", type: "website", locale: hreflang(market).replace("-", "_") } } : {}),
+    ...(seo?.googleVerification || seo?.bingVerification ? { verification: {
+      ...(seo.googleVerification ? { google: seo.googleVerification } : {}),
+      ...(seo.bingVerification ? { other: { "msvalidate.01": seo.bingVerification } } : {}),
+    } } : {}),
   };
 }
 

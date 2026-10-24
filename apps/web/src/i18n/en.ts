@@ -82,6 +82,7 @@ export const en: Messages = {
   orgName: "Name of the organisation", orgKind: "Type of organisation",
   orgKinds: { school: "School", opvang: "Nursery or after-school club", vereniging: "Club or society", bedrijf: "Business", overig: "Other" } as Record<string, string>,
   orgCode: "Preferred address", orgCodeHint: "Becomes {host}. Lower-case letters, numbers and hyphens.", orgCodeExample: "your-name", and: "and",
+  metaPlate: (name: string, kind: string) => `${kind} ${name}: colour in online or print on A4 for free.`,
   orgChildren: "Number of children", orgChildrenHint: "An estimate is fine", orgSite: "Organisation's website",
   orgMessage: "What would you like?", orgMessagePlaceholder: "For example: for ages 4 to 8, with our logo, without crafts.",
   orgSend: "Send request", optionalField: "optional",

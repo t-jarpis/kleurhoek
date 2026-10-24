@@ -48,6 +48,9 @@ export class StorefrontService {
 
   market(code: string): Promise<Market | null> { return this.i18n.liveMarket(this.tenant, code); }
 
+  /** Codes van alle markten die live staan (kleine letters, zoals in de URL). */
+  liveMarkets(): Promise<string[]> { return this.i18n.liveMarkets(this.tenant); }
+
   /**
    * Adres van de SVG. In een andere taal dan de brontaal staat de taal erin plus een korte hash van de
    * vertaalde teksten: een verbeterde vertaling geeft een nieuw adres, dus het CDN mag elk adres voor altijd bewaren.

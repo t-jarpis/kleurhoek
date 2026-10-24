@@ -402,3 +402,13 @@ a.ui-chip { text-decoration: none; }
 .ui-matrix td a { color: var(--color-text); }
 .ui-matrix td small { display: block; color: var(--color-text-muted); }
 .ui-matrix td[data-empty] { color: var(--color-danger); font-weight: 700; }
+/* ---------- SnippetPreview: zo ziet de pagina eruit in een zoekmachine (beheer, ADR 0035) ---------- */
+.ui-snippet { max-inline-size: 600px; padding: var(--space-3) var(--space-4); border: var(--border-thin) solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); font-family: var(--font-sans); }
+.ui-snippet-url { margin: 0; font-size: 13px; color: var(--color-text-muted); overflow-wrap: anywhere; }
+.ui-snippet-title { margin: 2px 0 4px; font-size: 19px; font-weight: 500; line-height: 1.3; color: var(--color-primary); }
+.ui-snippet-desc { margin: 0; font-size: 14px; line-height: 1.5; color: var(--color-text); }
+.ui-snippet-title, .ui-snippet-desc { display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }
+.ui-snippet-title { -webkit-line-clamp: 1; }
+.ui-snippet-desc { -webkit-line-clamp: 2; }
+.ui-snippet-count { display: block; margin-block-start: var(--space-1); font-size: 13px; color: var(--color-text-muted); }
+.ui-snippet-count[data-over] { color: var(--color-danger); font-weight: 700; }

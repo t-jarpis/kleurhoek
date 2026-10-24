@@ -82,6 +82,7 @@ export const it: Messages = {
   orgName: "Nome dell'organizzazione", orgKind: "Tipo di organizzazione",
   orgKinds: { school: "Scuola", opvang: "Asilo nido o doposcuola", vereniging: "Associazione", bedrijf: "Azienda", overig: "Altro" } as Record<string, string>,
   orgCode: "Indirizzo desiderato", orgCodeHint: "Diventerà {host}. Lettere minuscole, numeri e trattini.", orgCodeExample: "tuo-nome", and: "e",
+  metaPlate: (name: string, kind: string) => `${kind} ${name}: da colorare online o stampare in A4 gratis.`,
   orgChildren: "Numero di bambini", orgChildrenHint: "Basta una stima", orgSite: "Sito web dell'organizzazione",
   orgMessage: "Cosa vi piacerebbe?", orgMessagePlaceholder: "Per esempio: per la scuola dell'infanzia e le prime classi, con il nostro logo, senza lavoretti.",
   orgSend: "Invia la richiesta", optionalField: "facoltativo",

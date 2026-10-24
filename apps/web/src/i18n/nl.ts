@@ -87,6 +87,7 @@ export const nl = {
   orgName: "Naam van de organisatie", orgKind: "Soort organisatie",
   orgKinds: { school: "School", opvang: "Kinderopvang of bso", vereniging: "Vereniging", bedrijf: "Bedrijf", overig: "Anders" } as Record<string, string>,
   orgCode: "Gewenst adres", orgCodeHint: "Wordt {host}. Kleine letters, cijfers en streepjes.", orgCodeExample: "jouw-naam", and: "en",
+  metaPlate: (name: string, kind: string) => `${kind} ${name}: gratis online inkleuren of printen op A4.`,
   orgChildren: "Aantal kinderen", orgChildrenHint: "Een schatting is genoeg", orgSite: "Website van de organisatie",
   orgMessage: "Wat zouden jullie graag willen?", orgMessagePlaceholder: "Bijvoorbeeld: voor groep 1 tot en met 4, met ons logo, zonder knutselwerk.",
   orgSend: "Aanvraag versturen", optionalField: "mag leeg",

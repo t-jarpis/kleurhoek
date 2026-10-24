@@ -4,8 +4,9 @@ import { CatalogModule } from "../catalog/catalog.module";
 import { LocalizationModule } from "../localization/localization.module";
 import { ShopModule } from "../shop/shop.module";
 import { SourcesModule } from "../sources/sources.module";
+import { AdminSeoController } from "./admin-seo.controller";
 import { StorefrontController } from "./storefront.controller";
 import { StorefrontService } from "./storefront.service";
 
-@Module({ imports: [CatalogModule, LocalizationModule, AvailabilityModule, ShopModule, SourcesModule], controllers: [StorefrontController], providers: [StorefrontService] })
+@Module({ imports: [CatalogModule, LocalizationModule, AvailabilityModule, ShopModule, SourcesModule], controllers: [StorefrontController, AdminSeoController], providers: [StorefrontService] })
 export class StorefrontModule {}

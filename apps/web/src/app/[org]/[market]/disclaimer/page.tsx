@@ -7,11 +7,13 @@ import { disclaimer } from "@/i18n/disclaimer";
 import { messages } from "@/i18n/nl";
 import { marketLanguage } from "@/lib/markets";
 import { getOrg } from "@/lib/org";
+import { pageMeta } from "@/lib/seo";
 
 export const revalidate = 3600;
-export async function generateMetadata({ params }: { params: Promise<{ market: string }> }): Promise<Metadata> {
-  const t = messages(marketLanguage((await params).market));
-  return { title: t.disclaimer, description: t.metaDisclaimer };
+export async function generateMetadata({ params }: { params: Promise<{ org: string; market: string }> }): Promise<Metadata> {
+  const { org, market } = await params;
+  const t = messages(marketLanguage(market));
+  return { title: t.disclaimer, description: t.metaDisclaimer, ...pageMeta(await getOrg(org), market, "/disclaimer") };
 }
 
 /** Disclaimer (ADR 0026), per taal een eigen tekst in i18n/disclaimer (ADR 0029). */

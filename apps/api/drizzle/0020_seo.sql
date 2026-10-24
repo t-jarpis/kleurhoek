@@ -1,0 +1,1 @@
+ALTER TABLE "organizations"."organizations" ADD COLUMN "seo" jsonb;

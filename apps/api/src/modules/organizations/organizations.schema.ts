@@ -13,6 +13,14 @@ export interface OrgBrand { theme: string | null; font: string | null; colors: {
 /** Aanbod: welke platen en markten deze organisatie toont. null = alles. */
 export interface OrgOffer { markets: string[] | null; categories: string[] | null; ages: string[] | null; kinds: ("kleurplaat" | "knutselen")[] | null }
 export interface OrgFeatures { shop: boolean; accounts: boolean }
+/**
+ * Vindbaarheid (ADR 0035), alleen voor Kleurhoek zelf: verificatiecodes voor zoekmachines en per markt een eigen
+ * titel en beschrijving voor de startpagina.
+ */
+export interface OrgSeo {
+  googleVerification: string | null; bingVerification: string | null;
+  home: Record<string, { title: string | null; description: string | null }>;
+}
 
 /**
  * Organisaties (ADR 0017): Kleurhoek zelf en whitelabel-partners zoals scholen en opvang. Elke
@@ -29,6 +37,7 @@ export const organizations = organizationsSchema.table("organizations", {
   brand: jsonb("brand").$type<OrgBrand>().notNull(),
   offer: jsonb("offer").$type<OrgOffer>().notNull(),
   features: jsonb("features").$type<OrgFeatures>().notNull(),
+  seo: jsonb("seo").$type<OrgSeo>(),
   updatedBy: text("updated_by").notNull().default("systeem"),
 }, (t) => [uniqueIndex("organizations_tenant_slug").on(t.tenantId, t.slug)]);
 

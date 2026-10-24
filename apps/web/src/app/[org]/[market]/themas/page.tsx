@@ -8,11 +8,13 @@ import { messages } from "@/i18n/nl";
 import { api, NotFound } from "@/lib/api";
 import { marketLanguage } from "@/lib/markets";
 import { getOrg } from "@/lib/org";
+import { pageMeta } from "@/lib/seo";
 
 export const revalidate = 300;
-export async function generateMetadata({ params }: { params: Promise<{ market: string }> }): Promise<Metadata> {
-  const t = messages(marketLanguage((await params).market));
-  return { title: t.themesTitle, description: t.metaThemes };
+export async function generateMetadata({ params }: { params: Promise<{ org: string; market: string }> }): Promise<Metadata> {
+  const { org, market } = await params;
+  const t = messages(marketLanguage(market));
+  return { title: t.themesTitle, description: t.metaThemes, ...pageMeta(await getOrg(org), market, "/themas") };
 }
 
 /** Bronnengids (ADR 0025): eigen tekst en een eigen letterteken per thema, geen beeld van de maker. */

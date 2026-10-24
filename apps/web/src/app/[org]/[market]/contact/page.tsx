@@ -7,11 +7,13 @@ import { Track } from "@/components/Track";
 import { messages } from "@/i18n/nl";
 import { marketLanguage } from "@/lib/markets";
 import { getOrg } from "@/lib/org";
+import { pageMeta } from "@/lib/seo";
 import { sendContact } from "./actions";
 
-export async function generateMetadata({ params }: { params: Promise<{ market: string }> }): Promise<Metadata> {
-  const t = messages(marketLanguage((await params).market));
-  return { title: t.contact, description: t.metaContact };
+export async function generateMetadata({ params }: { params: Promise<{ org: string; market: string }> }): Promise<Metadata> {
+  const { org, market } = await params;
+  const t = messages(marketLanguage(market));
+  return { title: t.contact, description: t.metaContact, ...pageMeta(await getOrg(org), market, "/contact") };
 }
 
 /** Onderwerp vooraf kiezen via ?onderwerp=… (bijvoorbeeld vanuit de disclaimer). */

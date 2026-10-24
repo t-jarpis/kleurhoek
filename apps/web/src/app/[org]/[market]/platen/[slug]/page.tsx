@@ -8,6 +8,7 @@ import { Studio } from "@/components/Studio";
 import { Track } from "@/components/Track";
 import { messages } from "@/i18n/nl";
 import { getOrg } from "@/lib/org";
+import { hreflang, indexable, jsonLd, pageMeta, SITE } from "@/lib/seo";
 
 export const revalidate = 300;
 
@@ -25,7 +26,10 @@ async function load(org: string, market: string, slug: string) {
 export async function generateMetadata({ params }: { params: Promise<{ org: string; market: string; slug: string }> }): Promise<Metadata> {
   const { org, market, slug } = await params;
   const { plate } = await load(org, market, slug);
-  return { title: plate.name, description: `Kleurplaat ${plate.name}: online inkleuren of printen.` };
+  const t = messages(marketLanguage(market));
+  const description = t.metaPlate(plate.name, t.kindNames[plate.kind] ?? t.kindNames.kleurplaat!);
+  const o = await getOrg(org);
+  return { title: plate.name, description, ...pageMeta(o, market, `/platen/${slug}`, false), ...(indexable(o) ? { openGraph: { title: plate.name, description, type: "article" } } : {}) };
 }
 
 export default async function PlatePage({ params }: { params: Promise<{ org: string; market: string; slug: string }> }) {
@@ -33,8 +37,15 @@ export default async function PlatePage({ params }: { params: Promise<{ org: str
   const { plate, taxonomy, inner } = await load(org, market, slug);
   const ageWidth = taxonomy.ages.find((a) => a.slug === plate.age)?.strokeWidth ?? 2.4;
   const language = marketLanguage(market);
+  const o = await getOrg(org);
+  const t = messages(language);
   return (
     <>
+      {indexable(o) && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd({
+        "@context": "https://schema.org", "@type": "CreativeWork", name: plate.name, url: `${SITE}/${market}/platen/${plate.slug}`,
+        description: t.metaPlate(plate.name, t.kindNames[plate.kind] ?? t.kindNames.kleurplaat!), inLanguage: hreflang(market), isAccessibleForFree: true,
+        genre: t.kindNames[plate.kind], publisher: { "@type": "Organization", name: "Kleurhoek", url: SITE },
+      }) }} />}
       <Track event={{ type: "page_view", market, page: "plaat", plate: plate.slug }} />
       <Studio plate={plate} inner={inner} ageWidth={ageWidth} market={market} language={language} />
       <div className="wrap after-studio" data-mode="ouder"><ForParents plate={plate} market={market} t={messages(language)} /><SiteFooter market={market} t={messages(language)} own={(await getOrg(org))?.isDefault ?? false} /></div>

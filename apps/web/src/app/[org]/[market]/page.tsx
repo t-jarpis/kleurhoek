@@ -13,8 +13,22 @@ import { SeasonBand } from "@/components/SeasonBand";
 import { Surprise } from "@/components/Surprise";
 import { Track } from "@/components/Track";
 import { getOrg } from "@/lib/org";
+import { hreflang, indexable, jsonLd, pageMeta, SITE } from "@/lib/seo";
+import type { Metadata } from "next";
 
 export const revalidate = 300;
+
+/** Titel en omschrijving van de voorpagina zijn per markt in te stellen in het admin panel (Vindbaarheid, ADR 0035). */
+export async function generateMetadata({ params }: { params: Promise<{ org: string; market: string }> }): Promise<Metadata> {
+  const { org: slug, market } = await params;
+  const org = await getOrg(slug);
+  const own = indexable(org) ? org!.seo?.home?.[hreflang(market)] : undefined;
+  return {
+    ...(own?.title ? { title: { absolute: own.title } } : {}),
+    ...(own?.description ? { description: own.description } : {}),
+    ...pageMeta(org, market, ""),
+  };
+}
 
 export default async function Home({ params }: { params: Promise<{ org: string; market: string }> }) {
   const { org: slug, market } = await params;
@@ -28,6 +42,10 @@ export default async function Home({ params }: { params: Promise<{ org: string; 
   });
   return (
     <div className="wrap" data-mode="kind">
+      {indexable(org) && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd({
+        "@context": "https://schema.org", "@type": "WebSite", name: "Kleurhoek", url: `${SITE}/${market}`, inLanguage: hreflang(market),
+        description: org.seo?.home?.[hreflang(market)]?.description || t.lede, publisher: { "@type": "Organization", name: "Kleurhoek", url: SITE },
+      }) }} />}
       <header className="mast">
         <div><Logo market={market} org={org} /><p className="lede">{t.lede}</p></div>
         <div className="row no-print"><BookButton language={language} /><Surprise market={market} slugs={plates.map((p) => p.slug)} label={t.surprise} />{org.features.accounts && <AccountButton market={market} t={{ login: t.login, account: t.account, logout: t.logout }} />}</div>

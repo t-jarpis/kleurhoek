@@ -7,6 +7,8 @@ export interface Org {
   offer: { markets: string[] | null; categories: string[] | null; ages: string[] | null; kinds: string[] | null };
   features: { shop: boolean; accounts: boolean };
   logo: string | null;
+  /** Alleen bij Kleurhoek zelf (ADR 0035). */
+  seo: { googleVerification: string | null; bingVerification: string | null; home: Record<string, { title: string | null; description: string | null }> } | null;
 }
 
 const API_URL = process.env.API_URL ?? "http://localhost:3001";

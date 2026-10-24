@@ -141,6 +141,13 @@
       "when": 1792876615085,
       "tag": "0019_verkopen",
       "breakpoints": true
+    },
+    {
+      "idx": 20,
+      "version": "7",
+      "when": 1792878755771,
+      "tag": "0020_seo",
+      "breakpoints": true
     }
   ]
 }
