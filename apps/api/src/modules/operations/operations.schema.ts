@@ -38,8 +38,11 @@ export const siteAccess = operationsSchema.table("site_access", {
 
 export interface SiteAccessEntry { cidr: string; label: string; addedBy: string; addedAt: string }
 
-/** Eén regel releasenotes: een commit, met de Nederlandse tekst uit de trailer Release-note als die er is. */
-export interface ReleaseNote { sha: string; date: string; text: string; technical: boolean }
+/**
+ * Eén regel releasenotes: een commit, met de Nederlandse tekst uit de trailer Release-note als die er is.
+ * `public`: tekst voor bezoekers uit de trailer Public-note (ADR 0030); alleen die komt op de website.
+ */
+export interface ReleaseNote { sha: string; date: string; text: string; technical: boolean; public?: string }
 
 /**
  * Releases van deze omgeving (ADR 0023): de API legt bij het opstarten vast welke versie draait, zodra

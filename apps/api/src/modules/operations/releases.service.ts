@@ -8,7 +8,7 @@ import { withTenant } from "../../db/tenant";
 import { releases, type ReleaseNote } from "./operations.schema";
 
 /** Eén commit uit release-log.json (nieuwste eerst), gemaakt in de Deploy-workflow. */
-const LogEntry = z.object({ sha: z.string(), date: z.string(), subject: z.string(), note: z.string().default("") });
+const LogEntry = z.object({ sha: z.string(), date: z.string(), subject: z.string(), note: z.string().default(""), public: z.string().default("") });
 export type LogEntry = z.infer<typeof LogEntry>;
 
 /** Hoeveel commits een eerste release (of een onbekende vorige versie) hooguit laat zien. */
@@ -23,7 +23,10 @@ export function notesBetween(log: LogEntry[], sha: string, previous: string | nu
   if (from < 0) return [];
   const to = previous ? log.findIndex((c) => c.sha === previous) : -1;
   const slice = to > from ? log.slice(from, to) : log.slice(from, from + FIRST_LIMIT);
-  return slice.map((c) => ({ sha: c.sha, date: c.date, text: c.note.trim() || c.subject, technical: !c.note.trim() }));
+  return slice.map((c) => ({
+    sha: c.sha, date: c.date, text: c.note.trim() || c.subject, technical: !c.note.trim(),
+    ...(c.public.trim() ? { public: c.public.trim() } : {}),
+  }));
 }
 
 @Injectable()

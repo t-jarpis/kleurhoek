@@ -12,4 +12,4 @@
 - `docker compose up` moet altijd zonder handwerk een werkende omgeving geven, inclusief inloggen via de echte Zitadel. Raak je login, env-variabelen of Terraform aan, test dan ook compose.
 - **Dev en productie:** push naar `main` gaat automatisch naar dev; daar itereren we. Productie is altijd een aparte actie, alleen als Thijs daar uitdrukkelijk om vraagt ("zet live", "naar productie"): Deploy met `environment=prod` (`gh workflow run Deploy -f environment=prod`). Die zet de versie live die op dev draait; Thijs keurt goed in GitHub. Ook `scripts/infra.sh up prod` en Terraform voor prod alleen op zijn verzoek.
 - Voor een commit: `pnpm check` groen.
-- Een commit met een merkbare wijziging krijgt de trailer `Release-note: <één zin in het Nederlands>`; die komt in de releasenotes in het admin panel (ADR 0023).
+- Een commit met een merkbare wijziging krijgt de trailer `Release-note: <één zin in het Nederlands>`; die komt in de releasenotes in het admin panel (ADR 0023). Merken bezoekers het, dan ook `Public-note: <één zin voor bezoekers>`; die staat voorlopig alleen in het admin panel (ADR 0030).

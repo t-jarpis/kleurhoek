@@ -3,9 +3,9 @@ import { notesBetween, ReleasesService, type LogEntry } from "../src/modules/ope
 import { createTestApp } from "./app";
 
 const LOG: LogEntry[] = [
-  { sha: "c3".padEnd(40, "0"), date: "2026-10-24T10:00:00+02:00", subject: "Goals in admin", note: "Doelen in het admin panel" },
-  { sha: "c2".padEnd(40, "0"), date: "2026-10-24T09:00:00+02:00", subject: "Terraform fmt", note: "" },
-  { sha: "c1".padEnd(40, "0"), date: "2026-10-23T09:00:00+02:00", subject: "Print fix", note: "Printen werkt weer" },
+  { sha: "c3".padEnd(40, "0"), date: "2026-10-24T10:00:00+02:00", subject: "Goals in admin", note: "Doelen in het admin panel", public: "" },
+  { sha: "c2".padEnd(40, "0"), date: "2026-10-24T09:00:00+02:00", subject: "Terraform fmt", note: "", public: "" },
+  { sha: "c1".padEnd(40, "0"), date: "2026-10-23T09:00:00+02:00", subject: "Print fix", note: "Printen werkt weer", public: "Printen werkt weer op alle telefoons." },
 ];
 
 describe("releasenotes (ADR 0023)", () => {
@@ -34,5 +34,10 @@ describe("releasenotes (ADR 0023)", () => {
     expect(list[1]!.sha).toBe(LOG[0]!.sha);
     expect(list[1]!.notes.map((n) => n.text)).toEqual(["Doelen in het admin panel", "Terraform fmt"]);
     expect(list[0]!.notes).toEqual([]);
+  });
+
+  it("bewaart de publieke tekst bij de note (ADR 0030)", () => {
+    expect(notesBetween(LOG, LOG[2]!.sha, null)[0]).toMatchObject({ text: "Printen werkt weer", public: "Printen werkt weer op alle telefoons." });
+    expect(notesBetween(LOG, LOG[0]!.sha, LOG[2]!.sha)[0]).not.toHaveProperty("public");
   });
 });

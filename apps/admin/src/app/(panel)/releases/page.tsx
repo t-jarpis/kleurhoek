@@ -31,6 +31,8 @@ export default async function Releases() {
 
 function Item({ r, current, all }: { r: Release; current: boolean; all: Release[] }) {
   const plain = r.notes.filter((n) => !n.technical), technical = r.notes.filter((n) => n.technical);
+  // Publieke teksten (ADR 0030): voorlopig alleen hier, nog niet op de website.
+  const pub = r.notes.filter((n) => n.public);
   // Bij terugdraaien: de eerste keer dat deze versie draaide.
   const first = r.kind === "rollback" ? all.filter((x) => x.sha === r.sha && x.kind !== "rollback").at(-1) : undefined;
   return (
@@ -46,6 +48,12 @@ function Item({ r, current, all }: { r: Release; current: boolean; all: Release[
         <p className="lead">Terug naar {first ? `de versie van ${when(first.startedAt)}` : "een eerdere versie"}.</p>
       ) : (
         <>
+          {pub.length > 0 && (
+            <div className="ui-release-public">
+              <span className="ui-badge" data-tone="accent">Voor bezoekers</span>
+              <ul>{pub.map((n) => <li key={n.sha}>{n.public}</li>)}</ul>
+            </div>
+          )}
           {plain.length > 0 && <ul>{plain.map((n) => <li key={n.sha}>{n.text}</li>)}</ul>}
           {technical.length > 0 && (
             <details>
