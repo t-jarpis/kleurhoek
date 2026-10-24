@@ -15,3 +15,7 @@ Productie stond klaar met een zware database (DB-PRO2-XXS met HA, circa € 125 
 ## Gevolgen
 - Zonder tweede node is er bij een storing van de database een korte onderbreking; de back-ups staan in een ander datacenter.
 - Dev en prod delen geen data: producten, partners, organisaties en materialen bij platen die in het admin panel van dev zijn gezet, moeten in productie opnieuw (de voorgestelde producten maken dat twee klikken).
+
+## Aanvulling (2026-10-24): seed bij een grote catalogus
+De catalogus groeit naar duizenden werkjes. Daarom voegt de seed materialen alleen nog toe bij platen die hij zelf nieuw aanmaakt (wat in het admin panel is weggehaald, komt niet terug), en schrijft hij materialen en vertalingen in blokken van 1000 tot 2000 rijen. Zo blijft een koude start snel en blijven we onder de parametergrens van Postgres.
+

@@ -15,6 +15,12 @@ type Tr = { entityType: EntityType; entityKey: string; language: string; fields:
  * staat blijft staan (ook als het in het admin panel is aangepast), nieuwe platen, materialen en
  * vertalingen komen erbij. Zo kan de seed na elke deploy veilig opnieuw draaien.
  */
+function chunks<T>(list: T[], size: number): T[][] {
+  const out: T[][] = [];
+  for (let i = 0; i < list.length; i += size) out.push(list.slice(i, i + size));
+  return out;
+}
+
 export async function seed(db: Database, tenantId: string): Promise<{ plates: number }> {
   return withTenant(db, tenantId, async (tx) => {
     await tx.insert(markets).values({ tenantId, code: "nl-NL", country: "NL", language: "nl", status: "live", paperSize: "A4", minAccountAge: 16 }).onConflictDoNothing();
@@ -60,6 +66,7 @@ export async function seed(db: Database, tenantId: string): Promise<{ plates: nu
     const list = source.plates();
     const existing = new Map((await tx.select({ id: plates.id, slug: plates.slug }).from(plates).where(inArray(plates.slug, list.map((p) => p.slug)))).map((r) => [r.slug, r.id]));
     let added = 0;
+    const newMaterials: (typeof plateMaterials.$inferInsert)[] = [];
     for (const p of list) {
       let plateId = existing.get(p.slug);
       if (!plateId) {
@@ -77,11 +84,15 @@ export async function seed(db: Database, tenantId: string): Promise<{ plates: nu
         }).returning({ id: plateVersions.id });
         await tx.update(plates).set({ currentVersionId: version!.id }).where(inArray(plates.id, [plateId]));
         added++;
+        // Materialen alleen voor nieuwe platen: wat er in het admin panel is weggehaald, komt niet terug.
+        newMaterials.push(...p.materials.map((m, i) => ({ tenantId, plateId: plateId!, materialSlug: m.slug, optional: m.optional, sortOrder: i })));
       }
-      await tx.insert(plateMaterials).values(p.materials.map((m, i) => ({ tenantId, plateId: plateId!, materialSlug: m.slug, optional: m.optional, sortOrder: i }))).onConflictDoNothing();
       add("plate", p.slug, p.i18n);
     }
-    await tx.insert(translations).values(tr.map((t) => ({ tenantId, ...t, status: "reviewed" as const }))).onConflictDoNothing();
+    // In blokken: één insert met duizenden rijen loopt tegen de parametergrens van Postgres aan,
+    // en losse inserts per plaat maken elke koude start trager.
+    for (const part of chunks(newMaterials, 2000)) await tx.insert(plateMaterials).values(part).onConflictDoNothing();
+    for (const part of chunks(tr, 1000)) await tx.insert(translations).values(part.map((t) => ({ tenantId, ...t, status: "reviewed" as const }))).onConflictDoNothing();
     return { plates: added };
   });
 }
