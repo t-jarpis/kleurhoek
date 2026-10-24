@@ -116165,5 +116165,373 @@
         "countQuestion": null
       }
     }
+  },
+  {
+    "slug": "tekenles-giraf",
+    "order": 667,
+    "category": "dieren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenles: een giraf",
+        "steps": [
+          "Teken een liggend ovaal lijf.",
+          "Een lange schuine nek.",
+          "Een klein hoofd met horentjes en een oog.",
+          "Vier lange poten.",
+          "Vlekken op het lijf en de nek.",
+          "Een staartje.",
+          "Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.",
+          "Klaar? Trek de lijnen mooi over en kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "tekenles-helikopter",
+    "order": 668,
+    "category": "voertuigen",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenles: een helikopter",
+        "steps": [
+          "Teken een ronde cabine.",
+          "Een staart met een kleine rotor.",
+          "Een raam.",
+          "Een lange rotor bovenop.",
+          "De landingsslede.",
+          "Een wolkje.",
+          "Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.",
+          "Klaar? Trek de lijnen mooi over en kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "tekenles-kikker",
+    "order": 669,
+    "category": "dieren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenles: een kikker",
+        "steps": [
+          "Teken een breed ovaal lijf.",
+          "Twee ronde ogen bovenop.",
+          "Pupillen en een brede glimlach.",
+          "Twee gebogen achterpoten.",
+          "Twee voorpootjes.",
+          "De grond en een vliegje.",
+          "Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.",
+          "Klaar? Trek de lijnen mooi over en kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "tekenles-kip",
+    "order": 670,
+    "category": "boerderij",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenles: een kip",
+        "steps": [
+          "Teken een rond lijf.",
+          "Een hoofd rechtsboven.",
+          "Een snavel, een kammetje en een oog.",
+          "Een vleugel.",
+          "Een staart.",
+          "Pootjes.",
+          "Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.",
+          "Klaar? Trek de lijnen mooi over en kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "tekenles-octopus",
+    "order": 671,
+    "category": "zee",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenles: een octopus",
+        "steps": [
+          "Teken een bolle kop met een platte onderkant.",
+          "Twee buitenste armen.",
+          "Vier armen daarbinnen.",
+          "Twee armen in het midden: nu zijn het er acht!",
+          "Ogen en een lieve mond.",
+          "Belletjes en een visje.",
+          "Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.",
+          "Klaar? Trek de lijnen mooi over en kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "tekenles-sneeuwpop",
+    "order": 672,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenles: een sneeuwpop",
+        "steps": [
+          "Teken een grote bal onderaan.",
+          "Een kleinere bal erop.",
+          "Een hoge hoed.",
+          "Ogen, een wortelneus en een mond.",
+          "Takken als armen en knoopjes.",
+          "Een sjaal en de sneeuw.",
+          "Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.",
+          "Klaar? Trek de lijnen mooi over en kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "tekenles-varken",
+    "order": 673,
+    "category": "boerderij",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenles: een varken",
+        "steps": [
+          "Teken een dik ovaal lijf.",
+          "Een rond hoofd ertegenaan.",
+          "Een snuit met twee gaatjes en een oog.",
+          "Twee puntige oortjes.",
+          "Vier korte pootjes.",
+          "Een krulstaartje.",
+          "Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.",
+          "Klaar? Trek de lijnen mooi over en kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "tekenles-walvis",
+    "order": 674,
+    "category": "zee",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenles: een walvis",
+        "steps": [
+          "Teken een groot bol lijf.",
+          "Een staart aan de achterkant.",
+          "Een oog en de lange mond.",
+          "Een kleine vin.",
+          "Een waterfontein bovenop.",
+          "Golfjes eronder.",
+          "Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.",
+          "Klaar? Trek de lijnen mooi over en kleur je tekening in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
   }
 ]
