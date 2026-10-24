@@ -76,8 +76,8 @@ def morse():
             x = 16
             for w_i, w in enumerate(m.split()):
                 for ch in w:
-                    x = draw_code(sh, x, y, MORSE[ch], 1.4); sh.text(x + 1, y + 2, "|", 6); x += 6
-                x += 8
+                    x = draw_code(sh, x, y, MORSE[ch], 1.15); sh.text(x + .5, y + 2, "|", 5); x += 4.5
+                x += 6
             sh.seg(16, y + 12, 184, y + 12, "guide")
             if ans: sh.text(16, y + 10, m, 8, "start")
             y += 28
@@ -179,7 +179,7 @@ def logisch():
         sh.seg(x0 + 3 * w, y0 - 10, x0 + 3 * w, y0 + 3 * w, "l", "stroke-width:1.8")
         sh.text(100, 196, "Zet een × waar het niet kan en een ✓ waar het wel moet.", 6.5)
         for i, nme in enumerate(names):
-            if not ans: sh.text(30, 216 + i * 14, f"{nme} heeft een ................... en houdt van ...................", 7, "start")
+            if not ans: sh.text(30, 216 + i * 14, f"{nme} heeft een ............. en houdt van .............", 7, "start")
             if ans: sh.text(30, 216 + i * 14 - 1, f"{nme} heeft een {P[nme]} en houdt van {Cc[nme]}", 7, "start") if False else None
         if ans:
             for i, nme in enumerate(names): sh.text(100, 216 + i * 14, f"{nme} heeft een {P[nme]} en houdt van {Cc[nme]}.", 7)

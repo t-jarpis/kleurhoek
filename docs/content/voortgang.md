@@ -2,7 +2,7 @@
 
 Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027.
 
-**Totaal: 685** van 5.000. Problemen: 3, waarschuwingen: 12.
+**Totaal: 685** van 5.000. Problemen: 0, waarschuwingen: 12.
 
 | Groep | Nu | Doel |
 |---|---:|---:|
