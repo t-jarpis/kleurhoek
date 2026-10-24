@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { orgForRedirect } from "@/lib/org";
+import { pickLanguage } from "@/lib/i18n";
 import { writeFlow } from "@/lib/state";
 import { zitadel } from "@/lib/zitadel";
 
@@ -18,7 +19,8 @@ export async function GET(request: NextRequest) {
     const ar = await zitadel.authRequest(id);
     const org = await orgForRedirect(ar.redirectUri);
     const hint = ar.loginHint && /^[^\s@]+@[^\s@]+$/.test(ar.loginHint) ? ar.loginHint : undefined;
-    await writeFlow({ ar: id, org: org.slug, back: new URL(ar.redirectUri).origin, step: "email", ...(hint ? { email: hint } : {}) });
+    const lang = pickLanguage(ar.uiLocales, request.headers.get("accept-language"));
+    await writeFlow({ ar: id, org: org.slug, back: new URL(ar.redirectUri).origin, step: "email", lang, ...(hint ? { email: hint } : {}) });
   } catch {
     return NextResponse.redirect(new URL("/inloggen?fout=verlopen", request.url), 303);
   }

@@ -2,19 +2,19 @@
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { afterLogin, current, fail, finish, go, RESEND_AFTER_MS, sendLoginCode } from "@/lib/flow-actions";
+import { t } from "@/lib/i18n";
 import { clearFlow } from "@/lib/state";
 import { zitadel, ZitadelError } from "@/lib/zitadel";
 
 const ORG = () => process.env.SITE_ORG_ID ?? "";
 const Email = z.string().trim().toLowerCase().email().max(200);
 const Code = z.string().trim().regex(/^[A-Za-z0-9]{4,12}$/);
-const STORING = "Inloggen lukt nu even niet. Probeer het over een paar minuten opnieuw.";
 
 /** Stap 1: e-mailadres. Bestaat het account, dan een passkey of een code; anders zeggen we niets. */
 export async function submitEmail(formData: FormData) {
   const flow = await current();
   const email = Email.safeParse(formData.get("email"));
-  if (!email.success) return fail(flow, "Vul een geldig e-mailadres in.");
+  if (!email.success) return fail(flow, t(flow.lang).errEmail);
   try {
     const user = await zitadel.findUser(email.data, ORG());
     // Onbekend adres: zelfde vervolgscherm, er gaat niets de deur uit (niemand kan zo achterhalen wie een account heeft).
@@ -26,7 +26,7 @@ export async function submitEmail(formData: FormData) {
     return await sendLoginCode(next, user.userId, user.verified, methods);
   } catch (e) {
     if (isRedirect(e)) throw e;
-    return fail(flow, STORING);
+    return fail(flow, t(flow.lang).errOutage);
   }
 }
 
@@ -34,20 +34,20 @@ export async function submitEmail(formData: FormData) {
 export async function submitCode(formData: FormData) {
   const flow = await current();
   const code = Code.safeParse(formData.get("code"));
-  if (!code.success || !flow.sid) return fail(flow, "Deze code klopt niet of is verlopen.");
+  if (!code.success || !flow.sid) return fail(flow, t(flow.lang).errCode);
   try {
     const { sessionToken } = await zitadel.setSession(flow.sid, { checks: { otpEmail: { code: code.data } } });
     return await afterLogin({ ...flow, st: sessionToken });
   } catch (e) {
     if (isRedirect(e)) throw e;
-    return fail(flow, e instanceof ZitadelError && e.invalid ? "Deze code klopt niet of is verlopen." : STORING);
+    return fail(flow, e instanceof ZitadelError && e.invalid ? t(flow.lang).errCode : t(flow.lang).errOutage);
   }
 }
 
 /** Opnieuw sturen, hooguit eens per 30 seconden. */
 export async function resend() {
   const flow = await current();
-  if (flow.sentAt && Date.now() - flow.sentAt < RESEND_AFTER_MS) return fail(flow, "Wacht even voor je een nieuwe code vraagt.");
+  if (flow.sentAt && Date.now() - flow.sentAt < RESEND_AFTER_MS) return fail(flow, t(flow.lang).errWait);
   try {
     if (flow.step === "verify" && flow.uid) { await zitadel.resendEmailCode(flow.uid); return go(flow, { sentAt: Date.now() }); }
     if (flow.uid) {
@@ -57,7 +57,7 @@ export async function resend() {
     return go(flow, { sentAt: Date.now() });
   } catch (e) {
     if (isRedirect(e)) throw e;
-    return fail(flow, STORING);
+    return fail(flow, t(flow.lang).errOutage);
   }
 }
 
@@ -69,7 +69,7 @@ export async function useCode() {
     return await sendLoginCode(flow, flow.uid, true, await zitadel.methods(flow.uid));
   } catch (e) {
     if (isRedirect(e)) throw e;
-    return fail(flow, STORING);
+    return fail(flow, t(flow.lang).errOutage);
   }
 }
 
@@ -84,18 +84,18 @@ const Register = z.object({ email: Email, name: z.string().trim().min(1).max(60)
 export async function submitRegister(formData: FormData) {
   const flow = await current();
   const r = Register.safeParse(Object.fromEntries(formData));
-  if (!r.success) return fail({ ...flow, step: "register" }, r.error.issues.some((i) => i.path[0] === "adult") ? "Een account is alleen voor ouders en verzorgers van 16 jaar en ouder." : "Vul je naam en een geldig e-mailadres in.");
+  if (!r.success) return fail({ ...flow, step: "register" }, r.error.issues.some((i) => i.path[0] === "adult") ? t(flow.lang).errAdult : t(flow.lang).errRegister);
   try {
-    const uid = await zitadel.addHuman(ORG(), r.data.email, r.data.name);
+    const uid = await zitadel.addHuman(ORG(), r.data.email, r.data.name, flow.lang);
     return go(flow, { step: "verify", email: r.data.email, uid, passkey: false, sentAt: Date.now() });
   } catch (e) {
     if (isRedirect(e)) throw e;
     // Bestaat het adres al, dan gewoon inloggen met een code: zelfde scherm, geen hint dat het account bestond.
     if (e instanceof ZitadelError && e.exists) {
       const user = await zitadel.findUser(r.data.email, ORG()).catch(() => null);
-      if (user) return await sendLoginCode({ ...flow, email: r.data.email }, user.userId, user.verified, await zitadel.methods(user.userId)).catch((x) => { if (isRedirect(x)) throw x; return fail(flow, STORING); });
+      if (user) return await sendLoginCode({ ...flow, email: r.data.email }, user.userId, user.verified, await zitadel.methods(user.userId)).catch((x) => { if (isRedirect(x)) throw x; return fail(flow, t(flow.lang).errOutage); });
     }
-    return fail(flow, STORING);
+    return fail(flow, t(flow.lang).errOutage);
   }
 }
 
@@ -103,7 +103,7 @@ export async function submitRegister(formData: FormData) {
 export async function submitVerify(formData: FormData) {
   const flow = await current();
   const code = Code.safeParse(formData.get("code"));
-  if (!code.success || !flow.uid) return fail(flow, "Deze code klopt niet of is verlopen.");
+  if (!code.success || !flow.uid) return fail(flow, t(flow.lang).errCode);
   try {
     await zitadel.verifyEmail(flow.uid, code.data);
     await zitadel.addOtpEmail(flow.uid).catch((e) => { if (!(e instanceof ZitadelError && e.exists)) throw e; });
@@ -111,7 +111,7 @@ export async function submitVerify(formData: FormData) {
     return await afterLogin({ ...flow, sid: s.sessionId, st: s.sessionToken });
   } catch (e) {
     if (isRedirect(e)) throw e;
-    return fail(flow, e instanceof ZitadelError && e.invalid ? "Deze code klopt niet of is verlopen." : STORING);
+    return fail(flow, e instanceof ZitadelError && e.invalid ? t(flow.lang).errCode : t(flow.lang).errOutage);
   }
 }
 

@@ -17,6 +17,8 @@ Kleurhoek gaat naar alle Europese talen. Platennamen, woord en telvraag stonden 
 - **Controle per taal**: `node scripts/plates/check-lang.mjs <taal>` meldt ontbrekende zinnen, platen die al een naam hebben maar nog niet zichtbaar zijn, en vertaalde tekst die buiten het vel valt of kleiner wordt dan 4,5 (dan een kortere vertaling kiezen). `--missing <bestand>` geeft de zinnen die nog vertaald moeten worden.
 - **Volgorde van talen**: eerst Duits, Frans, Engels, Spaans, Italiaans en Pools, daarna de overige EU-talen. Een markt (land + taal) gaat pas live als interface, categorieën en een flink deel van de platen vertaald zijn.
 
+- **Website en inlogpagina**: interfaceteksten per taal in `apps/web/src/i18n/<taal>.ts` (zelfde sleutels als `nl.ts`, gecontroleerd door TypeScript), de disclaimer per taal in `i18n/disclaimer/<taal>.tsx`. De inlogpagina (`apps/login`) kiest de taal uit `ui_locales` van het inlogverzoek of de browser en bewaart die in de flow; een nieuw account krijgt die taal als voorkeurstaal in Zitadel (voor de e-mails).
+
 ## Gevolgen
 - Geen databasewijziging: de woordenlijst gebruikt de bestaande tabel `localization.translations`.
 - De API houdt per plaatversie de lijst met zinnen in het geheugen en de woordenlijst een minuut.

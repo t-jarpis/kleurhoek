@@ -29,7 +29,7 @@ async function call<T>(method: string, path: string, body?: unknown): Promise<T>
   return json as T;
 }
 
-export interface AuthRequest { id: string; clientId: string; redirectUri: string; loginHint?: string; scope?: string[] }
+export interface AuthRequest { id: string; clientId: string; redirectUri: string; loginHint?: string; scope?: string[]; uiLocales?: string[] }
 export type AuthMethod = "AUTHENTICATION_METHOD_TYPE_PASSKEY" | "AUTHENTICATION_METHOD_TYPE_OTP_EMAIL" | "AUTHENTICATION_METHOD_TYPE_IDP" | string;
 export interface FoundUser { userId: string; email: string; verified: boolean }
 type Json = Record<string, unknown>;
@@ -59,10 +59,10 @@ export const zitadel = {
     return u?.human?.email ? { userId: u.userId, email: u.human.email.email, verified: !!u.human.email.isVerified } : null;
   },
   methods: async (userId: string) => (await call<{ authMethodTypes?: AuthMethod[] }>("GET", `/v2/users/${userId}/authentication_methods`)).authMethodTypes ?? [],
-  addHuman: async (orgId: string, email: string, name: string) =>
+  addHuman: async (orgId: string, email: string, name: string, language = "nl") =>
     (await call<{ userId: string }>("POST", "/v2/users/human", {
       organization: { orgId },
-      profile: { givenName: name, familyName: "-", displayName: name, preferredLanguage: "nl" },
+      profile: { givenName: name, familyName: "-", displayName: name, preferredLanguage: language },
       email: { email, sendCode: {} },
     })).userId,
   verifyEmail: (userId: string, code: string) => call<Json>("POST", `/v2/users/${userId}/email/verify`, { verificationCode: code }),

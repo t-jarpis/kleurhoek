@@ -1,5 +1,6 @@
 import "server-only";
 import { redirect } from "next/navigation";
+import { t } from "./i18n";
 import { clearFlow, readFlow, writeFlow, type Flow } from "./state";
 import { otpChallenge, zitadel, ZitadelError } from "./zitadel";
 
@@ -24,7 +25,7 @@ export const fail = (flow: Flow, error: string) => go(flow, { error });
 
 /** Sessie koppelen aan het auth request en terug naar de site. */
 export async function finish(flow: Flow): Promise<never> {
-  if (!flow.sid || !flow.st) return fail(flow, "Er ging iets mis. Begin opnieuw.");
+  if (!flow.sid || !flow.st) return fail(flow, t(flow.lang).errRestart);
   let url: string;
   try {
     url = await zitadel.finalize(flow.ar, flow.sid, flow.st);

@@ -19,6 +19,7 @@ export interface Flow {
   passkey?: boolean;     // gebruiker heeft een passkey
   sentAt?: number;       // laatste code verstuurd (ms)
   error?: string;
+  lang?: string;         // taal van de inlogpagina (ADR 0029)
 }
 
 const MAX_AGE = 15 * 60;
