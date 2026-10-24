@@ -25,6 +25,7 @@ export function Studio({ plate, inner, ageWidth, market, language }: { plate: Pl
   const [learn, setLearn] = useState(false);
   const [sure, setSure] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
+  const [printWhat, setPrintWhat] = useState<"kleur" | "leeg">("kleur");
   const colored = useRef(false);
   const wasDone = useRef(false);
 
@@ -59,6 +60,7 @@ export function Studio({ plate, inner, ageWidth, market, language }: { plate: Pl
   };
 
   const sw = strokeWidth(line, ageWidth);
+  const hasColor = Object.values(fills).some(Boolean);
   const sheet = useMemo(() => sheetPlate(plate), [plate]);
   const flash = (text: string) => { setToast(text); setTimeout(() => setToast(null), 2600); };
   const toFridge = () => {
@@ -74,8 +76,14 @@ export function Studio({ plate, inner, ageWidth, market, language }: { plate: Pl
           <Link href={`/${market}`} className="btn">{t.back}</Link>
           <h1>{plate.name}</h1>
         </div>
-        <div className="canvas">
-          <Sheet plate={sheet} inner={inner} fills={fills} sw={sw} numbers={mode === "num"} name={name} learn={learn} onPick={apply} />
+        <div className="canvas" data-print={hasColor ? printWhat : "leeg"}>
+          <Sheet className="sheet sheet-live" plate={sheet} inner={inner} fills={fills} sw={sw} numbers={mode === "num"} name={name} learn={learn} onPick={apply} />
+          {/* Leeg printen: dezelfde plaat zonder kleuren; het werk op het scherm blijft staan. */}
+          {hasColor && printWhat === "leeg" && (
+            <div className="print-copy" aria-hidden="true">
+              <Sheet plate={sheet} inner={inner} sw={sw} numbers={mode === "num"} legend={mode === "num"} name={name} learn={learn} />
+            </div>
+          )}
         </div>
         <aside className="tools">
           <div className="tool">
@@ -117,6 +125,15 @@ export function Studio({ plate, inner, ageWidth, market, language }: { plate: Pl
             <button type="button" className="btn" onClick={() => { const u = undo.at(-1); if (!u) return; setUndo(undo.slice(0, -1)); setFills((f) => paint(f, u.region, u.prev ?? ERASER).next); }}>{t.undo}</button>
             <button type="button" className="btn" onClick={() => { if (sure) { setFills({}); setUndo([]); setSure(false); } else { setSure(true); setTimeout(() => setSure(false), 2500); } }}>{sure ? t.resetSure : t.reset}</button>
           </div>
+          {hasColor && (
+            <div className="tool">
+              <h2>{t.printWhat}</h2>
+              <div className="seg" role="group" aria-label={t.printWhat}>
+                <button type="button" aria-pressed={printWhat === "kleur"} onClick={() => setPrintWhat("kleur")}>{t.printColored}</button>
+                <button type="button" aria-pressed={printWhat === "leeg"} onClick={() => setPrintWhat("leeg")}>{t.printBlank}</button>
+              </div>
+            </div>
+          )}
           <div className="row">
             <button type="button" className="btn" onClick={toFridge}>{t.toFridge}</button>
             <button type="button" className="btn primary" onClick={() => { track({ type: "print", market, plate: plate.slug }); window.print(); }}>{t.print}</button>

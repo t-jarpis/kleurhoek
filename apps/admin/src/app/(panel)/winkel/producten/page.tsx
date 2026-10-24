@@ -39,12 +39,12 @@ export default async function Products({ searchParams }: { searchParams: Promise
               <button className="ui-btn" data-variant="primary" type="submit">Alles toevoegen ({suggestions.length})</button>
             </form>
           </div>
-          <table><thead><tr><th>Product</th><th>Bij materiaal</th><th>Partner</th><th aria-label="Actie" /></tr></thead>
+          <table className="ui-suggest-table"><thead><tr><th>Product</th><th>Bij materiaal</th><th>Partner</th><th aria-label="Actie" /></tr></thead>
             <tbody>{suggestions.map((s) => (
               <tr key={s.slug}>
                 <td className="ui-suggest-item"><b>{s.name}</b><span>{s.note}</span></td>
-                <td>{s.materials.map(materialName).join(", ")}</td>
-                <td><a href={s.url} target="_blank" rel="noopener noreferrer">{partners.find((x) => x.slug === s.partner)?.name ?? s.partner}<span className="visually-hidden"> (opent in nieuw tabblad)</span></a></td>
+                <td data-label="Bij materiaal">{s.materials.map(materialName).join(", ")}</td>
+                <td data-label="Partner"><a href={s.url} target="_blank" rel="noopener noreferrer">{partners.find((x) => x.slug === s.partner)?.name ?? s.partner}<span className="visually-hidden"> (opent in nieuw tabblad)</span></a></td>
                 <td className="ui-suggest-action"><form action={importSuggestions}><input type="hidden" name="slug" value={s.slug} /><button className="ui-btn" data-variant="secondary" type="submit">Toevoegen</button></form></td>
               </tr>
             ))}</tbody></table>

@@ -250,3 +250,16 @@ body { margin: 0; background: var(--color-bg); color: var(--color-text); font: 4
 .ui-suggest-item span { display: block; color: var(--color-text-muted); font-size: 14px; }
 .ui-suggest-action { text-align: end; white-space: nowrap; }
 .ui-suggest-action form { display: inline; }
+
+/* MaterialArt: eigen tekening per materiaal op een papieren tegel (lijnen plate-ink, vlakken krijtkleuren). */
+.kh-material-art { flex: none; display: grid; place-items: center; width: 56px; height: 56px; border-radius: var(--radius-md); background: var(--color-paper); border: var(--border-thin) solid var(--color-border); }
+.kh-material-art svg { width: 44px; height: 44px; }
+.kh-material-row { display: flex; gap: var(--space-3); align-items: flex-start; }
+@media (max-width: 640px) {
+  .ui-suggest-table thead { display: none; }
+  .ui-suggest-table, .ui-suggest-table tbody, .ui-suggest-table tr, .ui-suggest-table td { display: block; width: 100%; }
+  .ui-suggest-table tr { padding: var(--space-3) 0; border-bottom: var(--border-thin) solid var(--color-border); }
+  .ui-suggest-table td { padding: 2px 0; border: 0; }
+  .ui-suggest-table td[data-label]::before { content: attr(data-label) ": "; color: var(--color-text-muted); }
+  .ui-suggest-table .ui-suggest-action { text-align: start; padding-top: var(--space-2); }
+}

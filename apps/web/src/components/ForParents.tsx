@@ -1,5 +1,6 @@
 import type { Messages } from "@/i18n/nl";
 import type { PlateDetail } from "@/lib/types";
+import { MaterialArt } from "./MaterialArt";
 import { SeenTracker } from "./SeenTracker";
 
 /**
@@ -33,12 +34,15 @@ export function ForParents({ plate, market, t }: { plate: PlateDetail; market: s
           <ul>
             {plate.materials.map((m) => (
               <li key={m.slug}>
+                <MaterialArt slug={m.slug} />
+                <div className="need">
                 <span><span className="nm"><b>{m.name}</b>{m.optional && <em> · {t.optional}</em>}</span>{m.hint && <small>{m.hint}</small>}</span>
                 {m.product && (
                   <a className="offer" href={`/ga/${m.product.slug}?plaat=${plate.slug}&m=${market}`} rel="sponsored nofollow noopener" target="_blank">
                     <span>{m.product.name}{m.product.priceHint ? ` · ${m.product.priceHint}` : ""}</span><small>{t.atPartner(m.product.partner)}</small>
                   </a>
                 )}
+                </div>
               </li>
             ))}
           </ul>
