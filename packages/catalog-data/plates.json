@@ -98519,5 +98519,556 @@
         "countQuestion": null
       }
     }
+  },
+  {
+    "slug": "klokkijken-24-uursklok",
+    "order": 555,
+    "category": "leren",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Klokkijken: de 24-uursklok",
+        "steps": [
+          "Op een digitale klok gaan de uren door tot 23. Na 12 uur 's middags tel je verder: 13, 14, 15 …",
+          "Haal er 12 vanaf om te weten hoe je het zegt: 15:30 is half 4 's middags.",
+          "Schrijf bij elke tijd hoe je hem zegt en kijk na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "klokkijken-digitaal-koppelen",
+    "order": 556,
+    "category": "leren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 6,
+    "colorByNumber": {
+      "codes": "------",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Klokkijken: wijzerklok en digitale klok koppelen",
+        "steps": [
+          "Kijk naar de kleine wijzer: welk uur is het?",
+          "Kijk naar de grote wijzer: op de 12 is :00, op de 3 is :15, op de 6 is :30 en op de 9 is :45.",
+          "Zoek de digitale tijd die erbij past en trek een lijn. Kijk na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "klokkijken-per-5-minuten",
+    "order": 557,
+    "category": "leren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 9,
+    "colorByNumber": {
+      "codes": "---------",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Klokkijken: per 5 minuten",
+        "steps": [
+          "De kleine wijzer wijst het uur aan, de grote wijzer de minuten. Elk streepje met een cijfer is 5 minuten.",
+          "Staat de grote wijzer rechts van de 12? Dan zeg je 'over' of 'voor half'. Links? Dan 'over half' of 'voor'.",
+          "Bijvoorbeeld: grote wijzer op de 4 is 20 minuten over, dat zeg je als 10 voor half.",
+          "Schrijf de tijd op het lijntje en kijk na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "pixelkunst-hart",
+    "order": 558,
+    "category": "vormen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Pixelkunst: hart",
+        "steps": [
+          "Kijk onder het rooster welke kleur bij welk cijfer hoort.",
+          "Kleur elk vakje met een cijfer in die kleur. Werk rij voor rij, dan sla je niets over.",
+          "Wat verschijnt er? Op de tweede bladzijde zie je hoe het wordt."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Zo wordt het"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "pixelkunst-huis",
+    "order": 559,
+    "category": "thuis",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 25,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Pixelkunst: huisje",
+        "steps": [
+          "Kijk onder het rooster welke kleur bij welk cijfer hoort.",
+          "Kleur elk vakje met een cijfer in die kleur. Werk rij voor rij, dan sla je niets over.",
+          "Wat verschijnt er? Op de tweede bladzijde zie je hoe het wordt."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Zo wordt het"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "pixelkunst-ijsje",
+    "order": 560,
+    "category": "eten",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Pixelkunst: ijsje",
+        "steps": [
+          "Kijk onder het rooster welke kleur bij welk cijfer hoort.",
+          "Kleur elk vakje met een cijfer in die kleur. Werk rij voor rij, dan sla je niets over.",
+          "Wat verschijnt er? Op de tweede bladzijde zie je hoe het wordt."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Zo wordt het"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "pixelkunst-raket",
+    "order": 561,
+    "category": "ruimte",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 30,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Pixelkunst: raket",
+        "steps": [
+          "Kijk onder het rooster welke kleur bij welk cijfer hoort.",
+          "Kleur elk vakje met een cijfer in die kleur. Werk rij voor rij, dan sla je niets over.",
+          "Wat verschijnt er? Op de tweede bladzijde zie je hoe het wordt."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Zo wordt het"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "pixelkunst-schildpad",
+    "order": 562,
+    "category": "dieren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 25,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Pixelkunst: schildpad",
+        "steps": [
+          "Kijk onder het rooster welke kleur bij welk cijfer hoort.",
+          "Kleur elk vakje met een cijfer in die kleur. Werk rij voor rij, dan sla je niets over.",
+          "Wat verschijnt er? Op de tweede bladzijde zie je hoe het wordt."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Zo wordt het"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "pixelkunst-vis",
+    "order": 563,
+    "category": "zee",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Pixelkunst: vis",
+        "steps": [
+          "Kijk onder het rooster welke kleur bij welk cijfer hoort.",
+          "Kleur elk vakje met een cijfer in die kleur. Werk rij voor rij, dan sla je niets over.",
+          "Wat verschijnt er? Op de tweede bladzijde zie je hoe het wordt."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Zo wordt het"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "spiegeltekenen-kerstboom",
+    "order": 564,
+    "category": "feest",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Spiegeltekenen: kerstboom",
+        "steps": [
+          "De stippellijn in het midden is een spiegel.",
+          "Kijk naar een hoekpunt links en tel hoeveel hokjes het van de spiegel af ligt. Zet rechts een stipje even ver van de spiegel.",
+          "Verbind de stipjes. Klaar? Kleur de tekening in en kijk op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Zo ziet hij er heel uit"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "spiegeltekenen-uil",
+    "order": 565,
+    "category": "dieren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Spiegeltekenen: uil",
+        "steps": [
+          "De stippellijn in het midden is een spiegel.",
+          "Kijk naar een hoekpunt links en tel hoeveel hokjes het van de spiegel af ligt. Zet rechts een stipje even ver van de spiegel.",
+          "Verbind de stipjes. Klaar? Kleur de tekening in en kijk op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Zo ziet hij er heel uit"
+        ]
+      }
+    }
   }
 ]
