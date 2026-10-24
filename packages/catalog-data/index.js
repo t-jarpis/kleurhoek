@@ -3,6 +3,8 @@ const fs = require("node:fs");
 const path = require("node:path");
 const read = (f) => JSON.parse(fs.readFileSync(path.join(__dirname, f), "utf8"));
 const textLayer = require("./text-layer");
+const goals = require("./goals");
+let overrides;
 
 /** Standaard voor kleurplaten: zonder knip- of bouwwerk, met potloden (stiften mag ook). */
 const DEFAULT_MATERIALS = [{ slug: "kleurpotloden" }, { slug: "stiften", optional: true }];
@@ -17,6 +19,10 @@ module.exports = {
   /** Groepen voor het filter op de site: kleurplaten, knutselen, leren en spelen, tekenen. */
   KIND_GROUPS: { kleurplaat: "kleurplaten", knipplaat: "knutselen", bouwplaat: "knutselen", vouwblad: "knutselen", kaart: "knutselen", spel: "leren", werkblad: "leren", tekenles: "tekenen", sjabloon: "tekenen" },
   plates: () => read("plates.json").map(normalize),
+  /** Leerdoelen (ADR 0036). */
+  GOALS: goals.GOALS,
+  goalName: goals.goalName,
+  learningGoals: (p) => goals.learningGoals(p, overrides ??= read("goals-overrides.json")),
   categories: () => read("categories.json"),
   ages: () => read("ages.json"),
   continents: () => read("continents.json"),

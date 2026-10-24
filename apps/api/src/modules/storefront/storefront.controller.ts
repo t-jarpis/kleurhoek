@@ -24,7 +24,7 @@ export class StorefrontController {
     if (org === undefined) return FULL_VIEW;
     const o = SLUG.test(org) ? await this.orgs.get(org) : null;
     if (!o || !o.active) throw new NotFoundException("Onbekende organisatie");
-    return { offer: o.offer, features: o.features };
+    return this.store.viewOf(o);
   }
 
   private async market(code: string, view: View = FULL_VIEW) {

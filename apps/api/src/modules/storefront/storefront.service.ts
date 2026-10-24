@@ -1,27 +1,26 @@
 import { createHash } from "node:crypto";
-import { localizeSvg, SOURCE_LANGUAGE } from "@kleurhoek/catalog-data";
+import { goalName, localizeSvg, SOURCE_LANGUAGE } from "@kleurhoek/catalog-data";
 import { Inject, Injectable } from "@nestjs/common";
 import { ENV, type Env } from "../../config/env";
 import { todayIn } from "../../shared/dates";
 import { AvailabilityService } from "../availability/availability.service";
-import { CatalogService, KIND_GROUPS, type PlateKind, type PlateSummary } from "../catalog/catalog.service";
+import { CatalogService, GOALS, KIND_GROUPS, type PlateKind, type PlateSummary } from "../catalog/catalog.service";
 import { LocalizationService, type Market } from "../localization/localization.service";
+import { offerAllows } from "../organizations/offer";
 import type { OrgFeatures, OrgOffer } from "../organizations/organizations.schema";
 import { ShopService } from "../shop/shop.service";
 import { SourcesService } from "../sources/sources.service";
 
-/** Wat een organisatie laat zien (ADR 0017). Zonder organisatie: alles, met winkel. */
-export interface View { offer: OrgOffer; features: OrgFeatures }
-export const FULL_VIEW: View = { offer: { markets: null, categories: null, ages: null, kinds: null }, features: { shop: true, accounts: true } };
-
-type Plateish = { category: string; age: string; kind: string };
-/** Valt een plaat binnen het aanbod van de organisatie? */
-export function inOffer(p: Plateish, offer: OrgOffer): boolean {
-  if (offer.categories && !offer.categories.includes(p.category)) return false;
-  if (offer.ages && !offer.ages.includes(p.age)) return false;
-  if (offer.kinds && !offer.kinds.includes(p.kind === "kleurplaat" ? "kleurplaat" : "knutselen")) return false;
-  return true;
-}
+/**
+ * Wat een organisatie laat zien (ADR 0017, 0036). Zonder organisatie: alles, met winkel. `allowed` zijn de platen
+ * uit de gekozen collecties (null = geen beperking).
+ */
+export interface View { offer: OrgOffer; features: OrgFeatures; allowed: ReadonlySet<string> | null }
+export const FULL_VIEW: View = {
+  offer: { markets: null, categories: null, ages: null, kinds: null, collections: null, goals: null, excluded: [] },
+  features: { shop: true, accounts: true, learningFilters: false }, allowed: null,
+};
+const inView = (p: PlateSummary, view: View) => offerAllows(p, view.offer, view.allowed);
 
 /** Knip-, vouw- en lijmlijnen van knutselplaten. Zelfde afspraken als in de CSS van de website. */
 export const CRAFT_STYLE = ".cut{fill:none;stroke:#1d1b22;stroke-width:1;stroke-dasharray:4 3}.fold{fill:none;stroke:#1d1b22;stroke-width:.8;stroke-dasharray:1 2.5}.glue{fill:#d5d9de;stroke:#9aa1a9;stroke-width:.6}.tip{font:600 6px Nunito,system-ui,sans-serif;fill:#4a5260}";
@@ -48,6 +47,11 @@ export class StorefrontService {
 
   market(code: string): Promise<Market | null> { return this.i18n.liveMarket(this.tenant, code); }
 
+  /** De View van een organisatie: aanbod, functies en de platen uit haar collecties. */
+  async viewOf(o: { offer: OrgOffer; features: OrgFeatures }): Promise<View> {
+    return { offer: o.offer, features: o.features, allowed: await this.catalog.collectionPlates(this.tenant, o.offer.collections) };
+  }
+
   /** Codes van alle markten die live staan (kleine letters, zoals in de URL). */
   liveMarkets(): Promise<string[]> { return this.i18n.liveMarkets(this.tenant); }
 
@@ -73,7 +77,7 @@ export class StorefrontService {
    * Vertaald betekent: een naam in die taal, en elke tekst in de plaat staat in de woordenlijst (ADR 0003, 0029).
    */
   private async visible(market: Market, now: Date, view: View = FULL_VIEW) {
-    const all = (await this.catalog.listPublished(this.tenant)).filter((p) => inOffer(p, view.offer));
+    const all = (await this.catalog.listPublished(this.tenant)).filter((p) => inView(p, view));
     const names = await this.i18n.translate(this.tenant, "plate", market.language, all.map((p) => p.slug));
     const named = all.filter((p) => names.get(p.slug)?.name);
     const layer = await this.textLayer(market.language, named);
@@ -95,13 +99,13 @@ export class StorefrontService {
     return items.map((p) => ({
       slug: p.slug, name: names.get(p.slug)!.name, category: p.category, age: p.age,
       world: p.continent ? { continent: p.continent, country: p.depictedCountry } : null,
-      holiday: p.holiday, svg: path(p), kind: p.kind,
+      holiday: p.holiday, svg: path(p), kind: p.kind, goals: p.goals,
     }));
   }
 
   async plate(market: Market, slug: string, view: View = FULL_VIEW, now = new Date()) {
     const detail = await this.catalog.getPublished(this.tenant, slug);
-    if (!detail || !inOffer(detail, view.offer)) return null;
+    if (!detail || !inView(detail, view)) return null;
     const [tr] = [(await this.i18n.translate(this.tenant, "plate", market.language, [slug])).get(slug)];
     if (!tr?.name) return null;
     const visible = await this.availability.visibleSlugs(this.tenant, [slug], market.country, todayIn(market.country, now));
@@ -127,7 +131,7 @@ export class StorefrontService {
         labels: detail.colorByNumber.labels,
       },
       kind: detail.kind, height: detail.height, minutes: detail.minutes, adultHelp: detail.adultHelp, paperGsm: detail.paperGsm,
-      difficulty: detail.difficulty,
+      difficulty: detail.difficulty, goals: detail.goals,
       // Extra pagina's (ADR 0027): antwoordblad of extra vel, met titel uit de vertaling.
       pages: detail.pages.map((page, i) => ({ role: page.role, height: page.height, svg: local(page.svg), title: tr.pageTitles?.split("\n")[i] ?? `Pagina ${i + 2}`, number: i + 2 })),
       steps: tr.steps ? tr.steps.split("\n").filter(Boolean) : [],
@@ -160,6 +164,9 @@ export class StorefrontService {
       ages: t.ages.filter((a) => age.has(a.slug) && (!view.offer.ages || view.offer.ages.includes(a.slug))).map((a) => ({ ...a, name: age.get(a.slug)!.name, hint: age.get(a.slug)!.hint ?? null })),
       continents: t.continents.filter((c) => cont.has(c.slug)).map((c) => ({ ...c, name: cont.get(c.slug)!.name })),
       holidays: holidays.filter((h) => hol.has(h)).map((slug) => ({ slug, name: hol.get(slug)!.name })),
+      // Leerdoelen (ADR 0036): namen staan in de website (vaste lijst); het filter staat aan per organisatie.
+      goals: GOALS.filter((g) => !view.offer.goals || view.offer.goals.includes(g)).map((slug) => ({ slug, name: goalName(slug, market.language) })),
+      learningFilters: view.features.learningFilters,
     };
   }
 

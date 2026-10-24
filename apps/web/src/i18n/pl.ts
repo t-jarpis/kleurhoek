@@ -89,6 +89,8 @@ export const pl: Messages = {
   orgKinds: { school: "Szkoła", opvang: "Żłobek, przedszkole lub świetlica", vereniging: "Stowarzyszenie", bedrijf: "Firma", overig: "Inne" } as Record<string, string>,
   orgCode: "Wybrany adres", orgCodeHint: "Będzie to {host}. Małe litery, cyfry i myślniki.", orgCodeExample: "twoja-nazwa", and: "i",
   metaPlate: (name: string, kind: string) => `${kind} ${name}: pokoloruj online albo wydrukuj na A4 za darmo.`,
+  mgFooter: "Zarządzanie",
+  goal: "Cel nauki", allGoals: "Wszystkie cele", mgTitle: (name: string) => `Oferta: ${name}`, mgIntro: "Wybierz, co jest na waszej stronie. Zmiany widać po kilku minutach.", mgGoals: "Cele nauki", mgGoalsHint: "Tylko plansze z co najmniej jednym z tych celów. Nic nie zaznaczono: wszystkie cele.", mgCollections: "Kolekcje", mgCollectionsHint: "Tylko plansze z tych kolekcji. Nic nie zaznaczono: wszystkie plansze.", mgPlates: "Pojedyncze plansze", mgPlatesHint: "Ukryj plansze, których nie chcesz pokazywać.", mgSearch: "Szukaj planszy", mgShown: "Widoczna", mgHidden: "Ukryta", mgSave: "Zapisz", mgSaving: "Zapisywanie…", mgSaved: "Zapisano.", mgError: "Nie udało się zapisać. Spróbuj ponownie.", mgNotManager: "Nie zarządzasz tą stroną. Poproś Kleurhoek o dodanie.", mgLink: (name: string) => `Zarządzaj ofertą: ${name}`, mgCount: (n: number, total: number) => `Widoczne plansze: ${n} z ${total}`, mgNoMatch: "Nie znaleziono plansz.", mgPlatesIn: "plansz",
   orgChildren: "Liczba dzieci", orgChildrenHint: "Wystarczy szacunkowo", orgSite: "Strona internetowa organizacji",
   orgMessage: "Czego byście chcieli?", orgMessagePlaceholder: "Na przykład: dla klas 1–3, z naszym logo, bez prac plastycznych.",
   orgSend: "Wyślij zgłoszenie", optionalField: "opcjonalnie",

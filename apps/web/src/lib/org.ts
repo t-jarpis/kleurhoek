@@ -5,7 +5,7 @@ export interface Org {
   slug: string; name: string; kind: string; isDefault: boolean;
   brand: { theme: string | null; font: string | null; colors: { primary: string | null; accent: string | null }; wordmark: string | null; logoVersion: string | null };
   offer: { markets: string[] | null; categories: string[] | null; ages: string[] | null; kinds: string[] | null };
-  features: { shop: boolean; accounts: boolean };
+  features: { shop: boolean; accounts: boolean; learningFilters: boolean };
   logo: string | null;
   /** Alleen bij Kleurhoek zelf (ADR 0035). */
   seo: { googleVerification: string | null; bingVerification: string | null; home: Record<string, { title: string | null; description: string | null }> } | null;

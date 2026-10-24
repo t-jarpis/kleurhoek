@@ -1,5 +1,6 @@
 import { Controller, Delete, Get, HttpCode, Req, UseGuards } from "@nestjs/common";
 import type { FastifyRequest } from "fastify";
+import { OrganizationsService } from "../organizations/organizations.service";
 import { IdentityService } from "./identity.service";
 import { MemberGuard } from "./member.guard";
 
@@ -7,7 +8,7 @@ import { MemberGuard } from "./member.guard";
 @Controller("v1/me")
 @UseGuards(MemberGuard)
 export class MeController {
-  constructor(private readonly identity: IdentityService) {}
+  constructor(private readonly identity: IdentityService, private readonly orgs: OrganizationsService) {}
 
   @Get()
   async me(@Req() req: FastifyRequest) {
@@ -19,6 +20,7 @@ export class MeController {
   @Delete()
   @HttpCode(204)
   async remove(@Req() req: FastifyRequest) {
+    await this.orgs.forgetUser(req.member!.userId);
     await this.identity.deleteSelf(req.member!.userId);
   }
 }

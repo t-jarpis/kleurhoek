@@ -61,3 +61,9 @@ export function isNeutral(text: string): boolean;
 export function plateTexts(...svgs: string[]): string[];
 export function localizeSvg(svg: string, lookup: (source: string) => string | undefined): { svg: string; missing: string[]; scaled: { source: string; text: string; from: number; to: number }[] };
 export function width(text: string): number;
+
+/** Leerdoelen (ADR 0036): volgen uit soort, onderwerp, feestdag, wereld en naam. */
+export type LearningGoal = "rekenen" | "taal" | "motoriek" | "knutselen" | "ruimtelijk" | "tekenen" | "wereld" | "seizoenen" | "samenspelen";
+export const GOALS: LearningGoal[];
+export function learningGoals(p: { slug: string; kind: string; category: string; holiday?: string | null; continent?: string | null }): LearningGoal[];
+export function goalName(goal: LearningGoal, language: string): string;

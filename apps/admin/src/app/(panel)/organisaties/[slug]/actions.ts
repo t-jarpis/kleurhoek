@@ -105,6 +105,25 @@ export async function saveOffer(formData: FormData) {
     ages: pick(formData, "ages", o.ages.map((a) => a.slug), "leeftijd", slug),
     kinds: pick(formData, "kinds", o.kinds.map((k) => k.slug), "soort plaat", slug) as ("kleurplaat" | "knutselen")[] | null,
   };
-  const features = { shop: formData.get("shop") === "on", accounts: formData.get("accounts") === "on" };
+  const collections = formData.getAll("collections").map(String).filter((v) => o.collections.some((c) => c.slug === v));
+  const excluded = [...new Set(String(formData.get("excluded") ?? "").split(/[\s,]+/).map((s) => s.trim()).filter((s) => /^[a-z0-9-]{1,64}$/.test(s)))];
+  Object.assign(offer, {
+    goals: pick(formData, "goals", o.goals.map((g) => g.slug), "leerdoel", slug),
+    collections: collections.length ? collections : null, excluded,
+  });
+  const features = { shop: formData.get("shop") === "on", accounts: formData.get("accounts") === "on", learningFilters: formData.get("learningFilters") === "on" };
   await save(slug, "aanbod", () => adminApi.updateOrganization(slug, { offer, features }), "Aanbod opgeslagen. De site toont het binnen 30 seconden.");
+}
+
+/** Beheerders van de organisatie (ADR 0036): websiteaccounts die het aanbod op de eigen site bijstellen. */
+export async function addManager(formData: FormData) {
+  const slug = slugOf(formData);
+  const email = String(formData.get("email") ?? "").trim();
+  await save(slug, "beheerders", () => adminApi.addOrgManager(slug, email), "Beheerder toegevoegd. Die ziet nu Beheer onderaan de site.");
+}
+
+export async function removeManager(formData: FormData) {
+  const slug = slugOf(formData);
+  const userId = String(formData.get("userId") ?? "");
+  await save(slug, "beheerders", () => adminApi.removeOrgManager(slug, userId), "Beheerder weggehaald.");
 }

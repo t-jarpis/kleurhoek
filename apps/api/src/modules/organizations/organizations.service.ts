@@ -7,8 +7,12 @@ import { ENV, type Env } from "../../config/env";
 import { DB, type Database } from "../../db/database";
 import { withTenant } from "../../db/tenant";
 import { accentProblem, HEX, primaryProblem } from "../../shared/contrast";
+import { GOALS } from "@kleurhoek/catalog-data";
 import { AuditService } from "../identity/audit.service";
-import { organizationLogos, organizations, type OrgBrand, type OrgFeatures, type OrgKind, type OrgOffer, type OrgSeo } from "./organizations.schema";
+import { IdentityService } from "../identity/identity.service";
+import { CatalogService } from "../catalog/catalog.service";
+import type { SelfOffer } from "./offer";
+import { organizationLogos, organizationManagers, organizations, type OrgBrand, type OrgFeatures, type OrgKind, type OrgOffer, type OrgSeo } from "./organizations.schema";
 
 /** Thema's en lettertypen die @kleurhoek/theme levert (generated/manifest.json). */
 const manifest = JSON.parse(readFileSync(createRequire(__filename).resolve("@kleurhoek/theme/manifest.json"), "utf8")) as {
@@ -26,7 +30,8 @@ export const LOGO_MAX_BYTES = 256 * 1024;
 
 export const DEFAULT_SLUG = "kleurhoek";
 const emptyBrand = (): OrgBrand => ({ theme: null, font: null, colors: { primary: null, accent: null }, wordmark: null, logoVersion: null });
-const allOffer = (): OrgOffer => ({ markets: null, categories: null, ages: null, kinds: null });
+const allOffer = (): OrgOffer => ({ markets: null, categories: null, ages: null, kinds: null, collections: null, goals: null, excluded: [] });
+const defaultFeatures = (): OrgFeatures => ({ shop: true, accounts: true, learningFilters: false });
 
 export interface Organization {
   id: string; slug: string; name: string; kind: OrgKind; active: boolean; isDefault: boolean; hosts: string[];
@@ -58,6 +63,8 @@ export class OrganizationsService implements OnModuleInit {
     @Inject(DB) private readonly db: Database,
     @Inject(ENV) private readonly env: Env,
     private readonly audit: AuditService,
+    private readonly identity: IdentityService,
+    private readonly catalog: CatalogService,
   ) {}
 
   private get tenant() { return this.env.TENANT_ID; }
@@ -66,7 +73,7 @@ export class OrganizationsService implements OnModuleInit {
     // Kleurhoek zelf bestaat altijd: de standaardorganisatie voor de eigen domeinen en onbekende hosts.
     await withTenant(this.db, this.tenant, (tx) => tx.insert(organizations).values({
       tenantId: this.tenant, slug: DEFAULT_SLUG, name: "Kleurhoek", kind: "platform", isDefault: true,
-      brand: emptyBrand(), offer: allOffer(), features: { shop: true, accounts: true },
+      brand: emptyBrand(), offer: allOffer(), features: defaultFeatures(),
     }).onConflictDoNothing());
   }
 
@@ -74,7 +81,7 @@ export class OrganizationsService implements OnModuleInit {
     return {
       id: r.id, slug: r.slug, name: r.name, kind: r.kind, active: r.active, isDefault: r.isDefault, hosts: r.hosts,
       brand: { ...emptyBrand(), ...r.brand, colors: { ...emptyBrand().colors, ...r.brand.colors } },
-      offer: { ...allOffer(), ...r.offer }, features: { ...({ shop: true, accounts: true } as OrgFeatures), ...r.features },
+      offer: { ...allOffer(), ...r.offer }, features: { ...defaultFeatures(), ...r.features },
       seo: { ...emptySeo(), ...(r.seo ?? {}) },
       updatedBy: r.updatedBy, updatedAt: r.updatedAt.toISOString(),
     };
@@ -146,6 +153,22 @@ export class OrganizationsService implements OnModuleInit {
     if (problems.length) throw new BadRequestException(problems.join("; "));
   }
 
+  /** Collecties en leerdoelen in een aanbod moeten bestaan (ADR 0036). */
+  private async validateOffer(offer: Partial<OrgOffer> | undefined) {
+    if (!offer) return;
+    const problems: string[] = [];
+    if (offer.collections) {
+      const known = new Set((await this.catalog.collections(this.tenant)).map((c) => c.slug));
+      for (const c of offer.collections) if (!known.has(c)) problems.push(`Onbekende collectie: ${c}`);
+      if (!offer.collections.length) problems.push("Kies minstens één collectie, of laat alle platen toe");
+    }
+    if (offer.goals) {
+      for (const g of offer.goals) if (!(GOALS as string[]).includes(g)) problems.push(`Onbekend leerdoel: ${g}`);
+      if (!offer.goals.length) problems.push("Kies minstens één leerdoel, of laat alle leerdoelen toe");
+    }
+    if (problems.length) throw new BadRequestException(problems.join("; "));
+  }
+
   private merge(o: Organization, input: OrgInput): Organization {
     return {
       ...o,
@@ -172,9 +195,10 @@ export class OrganizationsService implements OnModuleInit {
     if (all.some((o) => o.slug === slug)) throw new ConflictException(`Er is al een organisatie met code ${slug}`);
     const base: Organization = {
       id: "", slug, name: input.name, kind: input.kind, active: true, isDefault: false, hosts: [], brand: emptyBrand(), offer: allOffer(),
-      features: { shop: input.kind === "platform", accounts: false }, seo: emptySeo(), updatedBy: actor, updatedAt: "",
+      features: { shop: input.kind === "platform", accounts: false, learningFilters: input.kind === "school" || input.kind === "opvang" }, seo: emptySeo(), updatedBy: actor, updatedAt: "",
     };
     this.validate(input, null, all);
+    await this.validateOffer(input.offer);
     const next = this.merge(base, input);
     await withTenant(this.db, this.tenant, async (tx) => {
       await tx.insert(organizations).values({ tenantId: this.tenant, slug, name: next.name, kind: next.kind, active: next.active, hosts: next.hosts, brand: next.brand, offer: next.offer, features: next.features, updatedBy: actor });
@@ -190,6 +214,7 @@ export class OrganizationsService implements OnModuleInit {
     if (!current) throw new NotFoundException("Onbekende organisatie");
     if (current.isDefault && input.active === false) throw new BadRequestException("Kleurhoek zelf kan niet uit");
     this.validate(input, current, all);
+    await this.validateOffer(input.offer);
     const next = this.merge(current, input);
     await withTenant(this.db, this.tenant, async (tx) => {
       await tx.update(organizations).set({ name: next.name, kind: next.kind, active: next.active, hosts: next.hosts, brand: next.brand, offer: next.offer, features: next.features, updatedBy: actor, updatedAt: new Date() })
@@ -265,5 +290,73 @@ export class OrganizationsService implements OnModuleInit {
     if (!org?.brand.logoVersion) return null;
     const [row] = await withTenant(this.db, this.tenant, (tx) => tx.select().from(organizationLogos).where(and(eq(organizationLogos.tenantId, this.tenant), eq(organizationLogos.organizationId, org.id))).limit(1));
     return row ? { contentType: row.contentType, data: Buffer.from(row.data), version: row.sha256 } : null;
+  }
+
+  // ---------- Beheerders van een organisatie (ADR 0036) ----------
+
+  /** Beheerders met naam en e-mailadres. Accounts die niet meer bestaan vallen weg. */
+  async managers(slug: string): Promise<{ userId: string; displayName: string | null; email: string | null; since: string }[]> {
+    const org = await this.get(slug);
+    if (!org) throw new NotFoundException("Onbekende organisatie");
+    const rows = await withTenant(this.db, this.tenant, (tx) => tx.select().from(organizationManagers)
+      .where(and(eq(organizationManagers.tenantId, this.tenant), eq(organizationManagers.organizationId, org.id))).orderBy(asc(organizationManagers.createdAt)));
+    const users = new Map((await this.identity.getUsers(rows.map((r) => r.userId))).map((u) => [u.id, u]));
+    return rows.filter((r) => users.has(r.userId)).map((r) => ({ userId: r.userId, displayName: users.get(r.userId)!.displayName, email: users.get(r.userId)!.email, since: r.createdAt.toISOString() }));
+  }
+
+  /** Een websiteaccount beheerder maken. Het account moet al bestaan: de persoon logt eerst één keer in op de site. */
+  async addManager(slug: string, email: string, actor: string) {
+    const org = await this.get(slug);
+    if (!org) throw new NotFoundException("Onbekende organisatie");
+    if (org.isDefault) throw new BadRequestException("Kleurhoek zelf heeft geen beheerders op de site; gebruik het admin panel");
+    const user = await this.identity.findMemberByEmail(email);
+    if (!user) throw new BadRequestException("Geen account met dit e-mailadres. Laat de persoon eerst één keer inloggen op de site.");
+    await withTenant(this.db, this.tenant, async (tx) => {
+      await tx.insert(organizationManagers).values({ tenantId: this.tenant, organizationId: org.id, userId: user.id, createdBy: actor }).onConflictDoNothing();
+      await this.audit.record(tx, this.tenant, { actor, action: "organizations.manager.add", subject: `organization:${slug}`, after: { userId: user.id } });
+    });
+    return this.managers(slug);
+  }
+
+  async removeManager(slug: string, userId: string, actor: string) {
+    const org = await this.get(slug);
+    if (!org) throw new NotFoundException("Onbekende organisatie");
+    await withTenant(this.db, this.tenant, async (tx) => {
+      await tx.delete(organizationManagers).where(and(eq(organizationManagers.tenantId, this.tenant), eq(organizationManagers.organizationId, org.id), eq(organizationManagers.userId, userId)));
+      await this.audit.record(tx, this.tenant, { actor, action: "organizations.manager.remove", subject: `organization:${slug}`, before: { userId } });
+    });
+    return this.managers(slug);
+  }
+
+  /** De organisaties die een websiteaccount mag beheren (alleen actieve). */
+  async managedBy(userId: string): Promise<Organization[]> {
+    const rows = await withTenant(this.db, this.tenant, (tx) => tx.select({ organizationId: organizationManagers.organizationId }).from(organizationManagers)
+      .where(and(eq(organizationManagers.tenantId, this.tenant), eq(organizationManagers.userId, userId))));
+    const ids = new Set(rows.map((r) => r.organizationId));
+    return (await this.list()).filter((o) => ids.has(o.id) && o.active);
+  }
+
+  /** Een account verdwijnt: ook als beheerder (privacy, ADR 0002). */
+  async forgetUser(userId: string) {
+    await withTenant(this.db, this.tenant, (tx) => tx.delete(organizationManagers).where(and(eq(organizationManagers.tenantId, this.tenant), eq(organizationManagers.userId, userId))));
+  }
+
+  /**
+   * Een beheerder van de organisatie stelt zelf collecties, leerdoelen en uitgezette platen in. Markten, onderwerpen,
+   * huisstijl en functies blijven bij Kleurhoek.
+   */
+  async saveSelfOffer(slug: string, userId: string, input: SelfOffer): Promise<Organization> {
+    const org = (await this.managedBy(userId)).find((o) => o.slug === slug);
+    if (!org) throw new NotFoundException("Onbekende organisatie");
+    await this.validateOffer(input);
+    const published = new Set((await this.catalog.listPublished(this.tenant)).map((p) => p.slug));
+    const excluded = [...new Set(input.excluded)].filter((s) => published.has(s));
+    const offer: OrgOffer = { ...org.offer, collections: input.collections, goals: input.goals, excluded };
+    await withTenant(this.db, this.tenant, async (tx) => {
+      await tx.update(organizations).set({ offer, updatedBy: `user:${userId}`, updatedAt: new Date() }).where(and(eq(organizations.tenantId, this.tenant), eq(organizations.id, org.id)));
+      await this.audit.record(tx, this.tenant, { actor: `user:${userId}`, action: "organizations.offer.self", subject: `organization:${slug}`, before: org.offer, after: offer });
+    });
+    this.cache = null;
+    return (await this.get(slug))!;
   }
 }

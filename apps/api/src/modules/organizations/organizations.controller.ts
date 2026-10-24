@@ -5,7 +5,9 @@ import { z } from "zod";
 import { ENV, type Env } from "../../config/env";
 import { AdminGuard, RequirePermission } from "../identity/admin.guard";
 import { RateLimit } from "../operations/rate-limit.guard";
-import { ages, categories } from "@kleurhoek/catalog-data";
+import { ages, categories, GOALS, goalName } from "@kleurhoek/catalog-data";
+import { CatalogService } from "../catalog/catalog.service";
+import { MemberGuard } from "../identity/member.guard";
 import { LocalizationService } from "../localization/localization.service";
 import { ORG_KINDS } from "./organizations.schema";
 import { FONTS, LOGO_MAX_BYTES, OrganizationsService, RESERVED, SLUG, THEMES } from "./organizations.service";
@@ -26,9 +28,15 @@ const Input = z.object({
   offer: z.object({
     markets: List(z.string().regex(/^[a-z]{2}-[a-z]{2}$/i).transform((m) => m.toLowerCase()) as unknown as z.ZodString), categories: List(Slugish), ages: List(z.string().regex(/^[0-9+-]{2,8}$/)),
     kinds: z.array(z.enum(["kleurplaat", "knutselen"])).max(2).nullable().optional(),
+    collections: List(Slugish), goals: z.array(z.enum(GOALS as [string, ...string[]])).max(20).nullable().optional(),
+    excluded: z.array(Slugish).max(2000).optional(),
   }).strict().optional(),
-  features: z.object({ shop: z.boolean().optional(), accounts: z.boolean().optional() }).strict().optional(),
+  features: z.object({ shop: z.boolean().optional(), accounts: z.boolean().optional(), learningFilters: z.boolean().optional() }).strict().optional(),
 }).strict();
+const SelfOfferInput = z.object({
+  collections: z.array(Slugish).max(50).nullable(), goals: z.array(z.enum(GOALS as [string, ...string[]])).max(20).nullable(), excluded: z.array(Slugish).max(2000),
+}).strict();
+const Manager = z.object({ email: z.string().trim().email().max(254) }).strict();
 const Create = Input.extend({ slug: z.string(), name: z.string().min(2).max(80), kind: z.enum(ORG_KINDS) });
 const Logo = z.object({ contentType: z.string().max(40), data: z.string().max(Math.ceil(LOGO_MAX_BYTES * 1.4)) }).strict();
 
@@ -42,7 +50,7 @@ const parse = <T>(schema: z.ZodType<T>, body: unknown): T => {
 @UseGuards(AdminGuard)
 @RateLimit("admin")
 export class AdminOrganizationsController {
-  constructor(private readonly orgs: OrganizationsService, private readonly i18n: LocalizationService, @Inject(ENV) private readonly env: Env) {}
+  constructor(private readonly orgs: OrganizationsService, private readonly i18n: LocalizationService, private readonly catalog: CatalogService, @Inject(ENV) private readonly env: Env) {}
 
   /** Keuzes voor het beheer: thema's, lettertypen, soorten en wat er in het aanbod kan. */
   private async choices() {
@@ -57,6 +65,8 @@ export class AdminOrganizationsController {
         categories: categories().sort((a, b) => a.order - b.order).map((c) => ({ slug: c.slug, name: name(c.i18n) })),
         ages: ages().sort((a, b) => a.order - b.order).map((a) => ({ slug: a.slug, name: name(a.i18n) })),
         kinds: [{ slug: "kleurplaat", name: "Kleurplaten" }, { slug: "knutselen", name: "Knutselplaten" }],
+        goals: GOALS.map((g) => ({ slug: g, name: goalName(g, "nl") })),
+        collections: (await this.catalog.collections(this.env.TENANT_ID)).map((c) => ({ slug: c.slug, name: c.names.nl ?? c.slug, plates: c.plates.length })),
       },
     };
   }
@@ -95,6 +105,26 @@ export class AdminOrganizationsController {
   async remove(@Param("slug") slug: string, @Req() req: FastifyRequest) {
     if (!SLUG.test(slug)) throw new NotFoundException("Onbekende organisatie");
     await this.orgs.remove(slug, req.admin!.subject);
+  }
+
+  /** Beheerders op de site van de organisatie (ADR 0036): websiteaccounts die het aanbod zelf mogen bijstellen. */
+  @Get(":slug/managers")
+  @RequirePermission("organizations.read")
+  async managers(@Param("slug") slug: string) {
+    return { managers: await this.orgs.managers(slug) };
+  }
+
+  @Post(":slug/managers")
+  @RequirePermission("organizations.manage")
+  async addManager(@Param("slug") slug: string, @Body() body: unknown, @Req() req: FastifyRequest) {
+    return { managers: await this.orgs.addManager(slug, parse(Manager, body).email, req.admin!.subject) };
+  }
+
+  @Delete(":slug/managers/:userId")
+  @RequirePermission("organizations.manage")
+  async removeManager(@Param("slug") slug: string, @Param("userId") userId: string, @Req() req: FastifyRequest) {
+    if (!/^[0-9a-f-]{36}$/.test(userId)) throw new NotFoundException();
+    return { managers: await this.orgs.removeManager(slug, userId, req.admin!.subject) };
   }
 
   @Put(":slug/logo")
@@ -152,5 +182,49 @@ export class OrganizationsController {
       .header("Content-Security-Policy", "default-src 'none'; style-src 'unsafe-inline'; sandbox")
       .header("X-Content-Type-Options", "nosniff")
       .send(logo.data);
+  }
+}
+
+/**
+ * Beheer door de organisatie zelf (ADR 0036): een websiteaccount dat beheerder is van een school, bso of bibliotheek
+ * stelt daar collecties, leerdoelen en uitgezette platen in. Alleen voor de eigen organisatie.
+ */
+@Controller("v1/me/organizations")
+@UseGuards(MemberGuard)
+export class MeOrganizationsController {
+  constructor(private readonly orgs: OrganizationsService, private readonly catalog: CatalogService, private readonly i18n: LocalizationService, @Inject(ENV) private readonly env: Env) {}
+
+  @Get()
+  async list(@Req() req: FastifyRequest) {
+    return { organizations: (await this.orgs.managedBy(req.member!.userId)).map((o) => ({ slug: o.slug, name: o.name, kind: o.kind })) };
+  }
+
+  /** Het eigen aanbod met de keuzes en de platen die binnen de grenzen van Kleurhoek vallen, in de gevraagde taal. */
+  @Get(":slug")
+  async get(@Param("slug") slug: string, @Query("language") language: string | undefined, @Req() req: FastifyRequest) {
+    const org = (await this.orgs.managedBy(req.member!.userId)).find((o) => o.slug === slug);
+    if (!org) throw new NotFoundException("Onbekende organisatie");
+    const lang = language && /^[a-z]{2}$/.test(language) ? language : "nl";
+    const tenant = this.env.TENANT_ID;
+    const [all, collections] = await Promise.all([this.catalog.listPublished(tenant), this.catalog.collections(tenant)]);
+    const o = org.offer;
+    // Binnen de vaste grenzen (onderwerpen, leeftijden, soort); collecties, leerdoelen en uitzetten kiest de beheerder hier.
+    const inBounds = all.filter((p) => (!o.categories || o.categories.includes(p.category)) && (!o.ages || o.ages.includes(p.age))
+      && (!o.kinds || o.kinds.includes(p.kind === "kleurplaat" ? "kleurplaat" : "knutselen")));
+    const names = await this.i18n.translate(tenant, "plate", lang, inBounds.map((p) => p.slug));
+    const fallback = lang === "nl" ? names : await this.i18n.translate(tenant, "plate", "nl", inBounds.map((p) => p.slug));
+    return {
+      slug: org.slug, name: org.name, kind: org.kind,
+      offer: { collections: o.collections, goals: o.goals, excluded: o.excluded },
+      goals: GOALS.map((g) => ({ slug: g, name: goalName(g, lang) })),
+      collections: collections.map((c) => ({ slug: c.slug, name: c.names[lang] ?? c.names.nl ?? c.slug, description: c.descriptions[lang] ?? c.descriptions.nl ?? null, plates: c.plates })),
+      plates: inBounds.map((p) => ({ slug: p.slug, name: names.get(p.slug)?.name ?? fallback.get(p.slug)?.name ?? p.slug, category: p.category, kind: p.kind, age: p.age, goals: p.goals })),
+    };
+  }
+
+  @Put(":slug")
+  async save(@Param("slug") slug: string, @Body() body: unknown, @Req() req: FastifyRequest) {
+    const o = await this.orgs.saveSelfOffer(slug, req.member!.userId, parse(SelfOfferInput, body));
+    return { offer: { collections: o.offer.collections, goals: o.offer.goals, excluded: o.offer.excluded } };
   }
 }

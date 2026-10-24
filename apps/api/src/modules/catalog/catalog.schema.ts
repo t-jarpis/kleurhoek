@@ -93,3 +93,17 @@ export const plateVersions = catalogSchema.table("plate_versions", {
   pages: jsonb("pages").$type<PlatePage[]>().notNull().default([]),
   createdBy: text("created_by").notNull(),
 }, (t) => [uniqueIndex("plate_versions_plate_version").on(t.plateId, t.version)]);
+
+/**
+ * Collecties (ADR 0036): een samengestelde reeks platen, bijvoorbeeld "Rekenen groep 3" of "Herfst op school".
+ * Organisaties kunnen hun aanbod beperken tot een of meer collecties. Naam per taal; platen op volgorde.
+ */
+export const collections = catalogSchema.table("collections", {
+  ...baseColumns(),
+  slug: text("slug").notNull(),
+  names: jsonb("names").$type<Record<string, string>>().notNull(),
+  descriptions: jsonb("descriptions").$type<Record<string, string>>().notNull().default({}),
+  plates: text("plates").array().notNull().default([]),
+  sortOrder: integer("sort_order").notNull().default(0),
+  updatedBy: text("updated_by").notNull().default("systeem"),
+}, (t) => [uniqueIndex("collections_tenant_slug").on(t.tenantId, t.slug)]);

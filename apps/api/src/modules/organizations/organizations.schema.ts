@@ -10,9 +10,16 @@ export type OrgKind = (typeof ORG_KINDS)[number];
 
 /** Huisstijl: thema en lettertype uit @kleurhoek/theme, twee eigen kleuren, eigen naam of logo. */
 export interface OrgBrand { theme: string | null; font: string | null; colors: { primary: string | null; accent: string | null }; wordmark: string | null; logoVersion: string | null }
-/** Aanbod: welke platen en markten deze organisatie toont. null = alles. */
-export interface OrgOffer { markets: string[] | null; categories: string[] | null; ages: string[] | null; kinds: ("kleurplaat" | "knutselen")[] | null }
-export interface OrgFeatures { shop: boolean; accounts: boolean }
+/**
+ * Aanbod: welke platen en markten deze organisatie toont. null = alles. Daarbovenop (ADR 0036): alleen platen uit
+ * bepaalde collecties, alleen platen met bepaalde leerdoelen, en losse platen uitgezet.
+ */
+export interface OrgOffer {
+  markets: string[] | null; categories: string[] | null; ages: string[] | null; kinds: ("kleurplaat" | "knutselen")[] | null;
+  collections: string[] | null; goals: string[] | null; excluded: string[];
+}
+/** learningFilters: het filter Leerdoel op de site (ADR 0036). */
+export interface OrgFeatures { shop: boolean; accounts: boolean; learningFilters: boolean }
 /**
  * Vindbaarheid (ADR 0035), alleen voor Kleurhoek zelf: verificatiecodes voor zoekmachines en per markt een eigen
  * titel en beschrijving voor de startpagina.
@@ -49,3 +56,14 @@ export const organizationLogos = organizationsSchema.table("logos", {
   sha256: text("sha256").notNull(),
   data: bytea("data").notNull(),
 }, (t) => [uniqueIndex("logos_organization").on(t.tenantId, t.organizationId)]);
+
+/**
+ * Beheerders van een organisatie (ADR 0036): een account op de website (bijvoorbeeld een leerkracht) die het
+ * aanbod van de eigen school zelf kan bijstellen. Geen beheeraccount: dat blijft gescheiden (ADR 0018).
+ */
+export const organizationManagers = organizationsSchema.table("managers", {
+  ...baseColumns(),
+  organizationId: uuid("organization_id").notNull(),
+  userId: uuid("user_id").notNull(),
+  createdBy: text("created_by").notNull(),
+}, (t) => [uniqueIndex("managers_org_user").on(t.tenantId, t.organizationId, t.userId)]);

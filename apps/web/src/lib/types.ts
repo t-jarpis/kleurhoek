@@ -2,6 +2,8 @@ export interface PlateItem {
   slug: string; name: string; category: string; age: string;
   world: { continent: string; country: string | null } | null;
   holiday: string | null; svg: string; kind: PlateKind;
+  /** Leerdoelen (ADR 0036). */
+  goals: string[];
 }
 export type PlateKind = "kleurplaat" | "knipplaat" | "bouwplaat" | "spel" | "vouwblad" | "werkblad" | "sjabloon" | "kaart" | "tekenles";
 /** Groepen voor het filter Soort (ADR 0027); "kleurplaat" is ook de waarde in de URL voor kleurplaten. */
@@ -31,6 +33,9 @@ export interface Taxonomy {
   ages: { slug: string; level: number; strokeWidth: number; name: string; hint: string | null }[];
   continents: { slug: string; color: string; name: string }[];
   holidays: { slug: string; name: string }[];
+  /** Leerdoelen in het aanbod, en of het filter Leerdoel aanstaat voor deze organisatie (ADR 0036). */
+  goals: { slug: string; name: string }[];
+  learningFilters: boolean;
 }
 export interface Season {
   today: string;

@@ -139,6 +139,20 @@ export class IdentityService implements OnModuleInit {
     });
   }
 
+  /** Een actief websiteaccount op e-mailadres (hoofdletters tellen niet), voor het aanwijzen van beheerders van een organisatie. */
+  async findMemberByEmail(email: string): Promise<UserView | null> {
+    return withTenant(this.db, this.tenantId, async (tx) => {
+      const rows = await tx.select().from(users).where(and(eq(users.kind, "member"), eq(users.status, "active"), sql`lower(${users.email}) = ${email.trim().toLowerCase()}`)).limit(1);
+      return rows.length ? (await this.views(tx, rows))[0]! : null;
+    });
+  }
+
+  /** Meerdere accounts tegelijk (alleen bestaande). */
+  async getUsers(ids: string[]): Promise<UserView[]> {
+    if (!ids.length) return [];
+    return withTenant(this.db, this.tenantId, async (tx) => this.views(tx, await tx.select().from(users).where(inArray(users.id, ids))));
+  }
+
   async getUser(id: string): Promise<UserView | null> {
     return withTenant(this.db, this.tenantId, async (tx) => {
       const rows = await tx.select().from(users).where(eq(users.id, id)).limit(1);

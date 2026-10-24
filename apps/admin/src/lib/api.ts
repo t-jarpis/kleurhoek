@@ -69,20 +69,25 @@ export interface SalesReport {
 
 export type OrgKind = "platform" | "school" | "opvang" | "vereniging" | "bedrijf" | "overig";
 export interface OrgBrand { theme: string | null; font: string | null; colors: { primary: string | null; accent: string | null }; wordmark: string | null; logoVersion: string | null }
-export interface OrgOffer { markets: string[] | null; categories: string[] | null; ages: string[] | null; kinds: ("kleurplaat" | "knutselen")[] | null }
+export interface OrgOffer { markets: string[] | null; categories: string[] | null; ages: string[] | null; kinds: ("kleurplaat" | "knutselen")[] | null; collections: string[] | null; goals: string[] | null; excluded: string[] }
+export interface OrgFeatures { shop: boolean; accounts: boolean; learningFilters: boolean }
+/** Collecties (ADR 0036). */
+export interface Collection { slug: string; names: Record<string, string>; descriptions: Record<string, string>; plates: string[]; sortOrder: number; updatedBy: string; updatedAt: string }
+export interface CollectionPlate { slug: string; name: string; category: string; categoryName: string; kind: string; age: string; goals: string[] }
+export interface OrgManager { userId: string; displayName: string | null; email: string | null; since: string }
 export interface Organization {
   id: string; slug: string; name: string; kind: OrgKind; active: boolean; isDefault: boolean; hosts: string[];
-  brand: OrgBrand; offer: OrgOffer; features: { shop: boolean; accounts: boolean }; updatedBy: string; updatedAt: string; subdomain: string | null;
+  brand: OrgBrand; offer: OrgOffer; features: OrgFeatures; updatedBy: string; updatedAt: string; subdomain: string | null;
 }
 export interface OrgChoices {
   themes: { id: string; name: string; description?: string; font: string }[]; fonts: { id: string; family: string }[]; kinds: OrgKind[];
   hostPattern: string | null; reserved: string[];
-  options: { markets: string[]; categories: { slug: string; name: string }[]; ages: { slug: string; name: string }[]; kinds: { slug: "kleurplaat" | "knutselen"; name: string }[] };
+  options: { markets: string[]; categories: { slug: string; name: string }[]; ages: { slug: string; name: string }[]; kinds: { slug: "kleurplaat" | "knutselen"; name: string }[]; goals: { slug: string; name: string }[]; collections: { slug: string; name: string; plates: number }[] };
 }
 export interface OrgInput {
   name?: string; kind?: OrgKind; active?: boolean; hosts?: string[];
   brand?: { theme?: string | null; font?: string | null; colors?: { primary?: string | null; accent?: string | null }; wordmark?: string | null };
-  offer?: Partial<OrgOffer>; features?: { shop?: boolean; accounts?: boolean };
+  offer?: Partial<OrgOffer>; features?: Partial<OrgFeatures>;
 }
 
 export interface OverviewTotals { visitors: number; pageViews: number; plateViews: number; downloads: number; completions: number; prints: number; pdfDownloads: number; materialsViews: number; productClicks: number }
@@ -191,6 +196,13 @@ export const adminApi = {
   updateOrganization: (slug: string, body: OrgInput) => call<Organization>(`/v1/admin/organizations/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
   setOrganizationLogo: (slug: string, contentType: string, data: string) =>
     call<Organization>(`/v1/admin/organizations/${encodeURIComponent(slug)}/logo`, { method: "PUT", body: JSON.stringify({ contentType, data }) }),
+  orgManagers: (slug: string) => call<{ managers: OrgManager[] }>(`/v1/admin/organizations/${encodeURIComponent(slug)}/managers`).then((r) => r.managers),
+  addOrgManager: (slug: string, email: string) => call<{ managers: OrgManager[] }>(`/v1/admin/organizations/${encodeURIComponent(slug)}/managers`, { method: "POST", body: JSON.stringify({ email }) }),
+  removeOrgManager: (slug: string, userId: string) => call<{ managers: OrgManager[] }>(`/v1/admin/organizations/${encodeURIComponent(slug)}/managers/${encodeURIComponent(userId)}`, { method: "DELETE" }),
+  collections: () => call<{ collections: Collection[]; plates: CollectionPlate[]; goals: { slug: string; name: string }[] }>("/v1/admin/collections"),
+  saveCollection: (slug: string, body: { names: Record<string, string>; descriptions?: Record<string, string>; plates: string[]; sortOrder?: number }) =>
+    call<Collection>(`/v1/admin/collections/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
+  deleteCollection: (slug: string) => call<void>(`/v1/admin/collections/${encodeURIComponent(slug)}`, { method: "DELETE" }),
   deleteOrganization: (slug: string) => call<void>(`/v1/admin/organizations/${encodeURIComponent(slug)}`, { method: "DELETE" }),
   removeOrganizationLogo: (slug: string) => call<Organization>(`/v1/admin/organizations/${encodeURIComponent(slug)}/logo`, { method: "DELETE" }),
   inbox: (q: { status?: ConversationStatus; page?: number }) => {

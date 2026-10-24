@@ -6,7 +6,7 @@ import { messages } from "@/i18n/nl";
 import { PlateCard } from "./PlateCard";
 import { book, useBook } from "@/lib/local";
 
-type Key = "soort" | "onderwerp" | "werelddeel" | "land" | "feestdag" | "leeftijd";
+type Key = "soort" | "leerdoel" | "onderwerp" | "werelddeel" | "land" | "feestdag" | "leeftijd";
 
 /** Filters en raster. De filterstand staat in de URL, zodat je hem kunt delen en de pagina zelf gecachet blijft. */
 export function Browse({ plates, taxonomy, market, language }: { plates: PlateItem[]; taxonomy: Taxonomy; market: string; language: string }) {
@@ -16,7 +16,7 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
   const params = useSearchParams();
   const picks = useBook();
   const f = {
-    kind: params.get("soort") ?? "alle",
+    kind: params.get("soort") ?? "alle", goal: taxonomy.learningFilters ? params.get("leerdoel") ?? "alle" : "alle",
     cat: params.get("onderwerp") ?? "alle", cont: params.get("werelddeel") ?? "alle", land: params.get("land") ?? "alle",
     hol: params.get("feestdag") ?? "alle", age: params.get("leeftijd") ?? "alle",
   };
@@ -29,7 +29,9 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
 
   const inCat = (p: PlateItem, c: string) => c === "alle" || (c === "wereld" ? !!p.world : c === "feest" ? !!p.holiday : p.category === c);
   const ofKind = (p: PlateItem, k: string) => k === "alle" || KIND_GROUP[p.kind] === k || p.kind === k;
-  const aged = plates.filter((p) => (f.age === "alle" || p.age === f.age) && ofKind(p, f.kind));
+  const hasGoal = (p: PlateItem, g: string) => g === "alle" || p.goals.includes(g);
+  const kinded = plates.filter((p) => (f.age === "alle" || p.age === f.age) && ofKind(p, f.kind));
+  const aged = kinded.filter((p) => hasGoal(p, f.goal));
   const crafts = plates.filter((p) => p.kind !== "kleurplaat").length;
   const groups = new Set(plates.map((p) => KIND_GROUP[p.kind]));
   const kindOptions = ([["alle", t.allKinds], ["kleurplaat", t.kindColoring], ["knutselen", t.kindCrafts], ["leren", t.kindLearn], ["tekenen", t.kindDrawing]] as const)
@@ -59,6 +61,14 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
                 <button key={k} type="button" aria-pressed={f.kind === k} onClick={() => set({ soort: k })}>{label}</button>
               ))}
             </div>
+          </div>
+        )}
+        {taxonomy.learningFilters && taxonomy.goals.length > 1 && (
+          <div className="frow"><span className="flabel">{t.goal}</span>
+            <nav className="chips" aria-label={t.goal}>
+              {chip("leerdoel", "alle", t.allGoals, "var(--color-text)", kinded.length, f.goal === "alle")}
+              {taxonomy.goals.map((g) => chip("leerdoel", g.slug, g.name, "var(--color-primary)", kinded.filter((p) => hasGoal(p, g.slug)).length, f.goal === g.slug))}
+            </nav>
           </div>
         )}
         <div className="frow"><span className="flabel">{t.topic}</span>

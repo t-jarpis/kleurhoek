@@ -148,6 +148,13 @@
       "when": 1792878755771,
       "tag": "0020_seo",
       "breakpoints": true
+    },
+    {
+      "idx": 21,
+      "version": "7",
+      "when": 1792879954758,
+      "tag": "0021_organisatie_instellingen",
+      "breakpoints": true
     }
   ]
 }

@@ -11,6 +11,8 @@ export function SiteFooter({ market, t, own = false }: { market: string; t: Mess
         {own && <Link href={`/${market}/eigen-omgeving`}>{t.ownSpace}</Link>}
         <Link href={`/${market}/contact`}>{t.contact}</Link>
         <Link href={`/${market}/disclaimer`}>{t.disclaimer}</Link>
+        {/* Op de site van een organisatie: ingang voor wie het aanbod beheert (ADR 0036). */}
+        {!own && <Link href={`/${market}/beheer`} rel="nofollow">{t.mgFooter}</Link>}
       </nav>
       <p>{t.note}</p>
     </footer>

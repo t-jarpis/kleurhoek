@@ -83,6 +83,8 @@ export const en: Messages = {
   orgKinds: { school: "School", opvang: "Nursery or after-school club", vereniging: "Club or society", bedrijf: "Business", overig: "Other" } as Record<string, string>,
   orgCode: "Preferred address", orgCodeHint: "Becomes {host}. Lower-case letters, numbers and hyphens.", orgCodeExample: "your-name", and: "and",
   metaPlate: (name: string, kind: string) => `${kind} ${name}: colour in online or print on A4 for free.`,
+  mgFooter: "Manage",
+  goal: "Learning goal", allGoals: "All learning goals", mgTitle: (name: string) => `What ${name} offers`, mgIntro: "Choose what appears on your site. Changes show up for everyone within a few minutes.", mgGoals: "Learning goals", mgGoalsHint: "Only pages with at least one of these goals. Nothing ticked: all goals.", mgCollections: "Collections", mgCollectionsHint: "Only pages from these collections. Nothing ticked: all pages.", mgPlates: "Single pages", mgPlatesHint: "Hide pages you don't want to show.", mgSearch: "Search for a page", mgShown: "Shown", mgHidden: "Hidden", mgSave: "Save", mgSaving: "Saving…", mgSaved: "Saved.", mgError: "Saving didn't work. Please try again.", mgNotManager: "You don't manage this site. Ask Kleurhoek to add you.", mgLink: (name: string) => `Manage what ${name} offers`, mgCount: (n: number, total: number) => `${n} of ${total} pages shown`, mgNoMatch: "No pages found.", mgPlatesIn: "pages",
   orgChildren: "Number of children", orgChildrenHint: "An estimate is fine", orgSite: "Organisation's website",
   orgMessage: "What would you like?", orgMessagePlaceholder: "For example: for ages 4 to 8, with our logo, without crafts.",
   orgSend: "Send request", optionalField: "optional",
