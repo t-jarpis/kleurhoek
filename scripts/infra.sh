@@ -283,6 +283,39 @@ heal_domains() { # heal_domains <env>
   done
 }
 
+# Een adres (www, admin, login) dat al in Cloudflare staat maar niet in Terraform (bijv. van vóór de
+# overstap) laat Terraform falen ("record with that host already exists"). Neem het over in de state;
+# Terraform zet het daarna goed. Eerst tonen waar het nu heen wijst.
+adopt_dns() { # adopt_dns <env>
+  local env="$1" dir="$INFRA/envs/$1" zone app name addr rec id info state
+  zone="$(tfvar "$dir/terraform.tfvars" cloudflare_zone_id)"; [ -n "$zone" ] || return 0
+  # Zonder images staan de containers (en dus deze records) nog niet in de configuratie.
+  images_ready || base_ready || return 0
+  state="$(terraform -chdir="$dir" state list 2>/dev/null)"
+  for app in web admin login; do
+    case "$env:$app" in
+      prod:web) name="www" ;; prod:admin) name="admin" ;; prod:login) name="login" ;;
+      dev:web) name="dev" ;; dev:admin) name="admin-dev" ;; dev:login) name="login-dev" ;;
+    esac
+    addr="module.site.module.cloudflare.cloudflare_dns_record.app[\"$app\"]"
+    grep -qF "$addr" <<<"$state" && continue
+    rec="$(curl -s -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" "https://api.cloudflare.com/client/v4/zones/$zone/dns_records?name=$name.kleurhoek.nl" \
+      | jq -c '[.result[]? | select(.type == "A" or .type == "AAAA" or .type == "CNAME")]')"
+    [ "$(jq length <<<"$rec")" -gt 0 ] || continue
+    info="$(jq -r '.[] | "\(.type) \(.content)"' <<<"$rec" | paste -sd ',' -)"
+    warn "$name.kleurhoek.nl bestaat al in Cloudflare buiten Terraform: $info"
+    if [ "$(jq length <<<"$rec")" -gt 1 ]; then
+      problem "$name.kleurhoek.nl heeft meerdere records; verwijder ze in Cloudflare (DNS › Records) en draai opnieuw"; continue
+    fi
+    if [ "$env" = prod ]; then read -rp "  Overnemen en laten wijzen naar de nieuwe site? (ja/nee) " a; [ "$a" = ja ] || die "afgebroken"; fi
+    id="$(jq -r '.[0].id' <<<"$rec")"
+    terraform -chdir="$dir" import -input=false "$addr" "$zone/$id" >/tmp/kh-import.log 2>&1 \
+      || { tail -20 /tmp/kh-import.log; die "overnemen van $name.kleurhoek.nl mislukte"; }
+    ok "$name.kleurhoek.nl overgenomen in Terraform"
+  done
+  [ ${#PROBLEMS[@]} -eq 0 ] || die "eerst de DNS-records hierboven opruimen"
+}
+
 images_count() { # images_count <regex van namen>
   curl -s -H "X-Auth-Token: $SCW_SECRET_KEY" \
     "https://api.scaleway.com/registry/v1/regions/$REGION/images?project_id=$PROJECT_ID&page_size=100" \
@@ -367,6 +400,7 @@ cmd_up() {
 
   step "Omgeving $TARGET"
   tf_init "$TARGET"
+  adopt_dns "$TARGET"
   if images_ready; then
     tf_apply "$TARGET"
     github_sync "$TARGET"
