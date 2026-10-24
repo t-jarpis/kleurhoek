@@ -33,9 +33,9 @@ locals {
         ADMIN_BOOTSTRAP_SUBJECTS = join(",", var.admin_bootstrap_subjects)
         MIGRATE_ON_START         = "true"
         # De seed is aanvullend (overschrijft niets uit het admin panel): ook in prod bij elke start.
-        SEED_ON_START            = "true"
-        DATABASE_CA              = scaleway_rdb_instance.main.certificate
-        ORG_HOST_PATTERN         = var.org_host_pattern
+        SEED_ON_START    = "true"
+        DATABASE_CA      = scaleway_rdb_instance.main.certificate
+        ORG_HOST_PATTERN = var.org_host_pattern
       }
       secret_env = {
         DATABASE_URL = local.database_url
