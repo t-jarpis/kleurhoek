@@ -50,7 +50,7 @@ export async function saveProduct(formData: FormData) {
     priceHint: text("priceHint"),
     ean: text("ean"),
     enabled: formData.get("enabled") === "on",
-    markets: String(formData.get("markets") ?? "nl-NL").split(",").map((m) => m.trim()).filter(Boolean),
+    markets: formData.getAll("market").map(String),
     materials: formData.getAll("material").map(String),
     rank: Math.min(99, Math.max(0, Number(formData.get("rank") ?? 0) || 0)),
   }), "Product opgeslagen");
@@ -61,8 +61,10 @@ export type ProductFormState = { error?: string; values?: Record<string, string 
 /** Product opslaan vanuit het formulier: bij een fout blijft alles staan wat iemand invulde. */
 export async function saveProductForm(_prev: ProductFormState, formData: FormData): Promise<ProductFormState> {
   const values: Record<string, string | string[]> = {};
-  for (const k of ["slug", "name", "partner", "url", "priceHint", "ean", "note", "markets", "rank"]) values[k] = String(formData.get(k) ?? "");
+  for (const k of ["slug", "name", "partner", "url", "priceHint", "ean", "note", "rank"]) values[k] = String(formData.get(k) ?? "");
   values.material = formData.getAll("material").map(String);
+  values.market = formData.getAll("market").map(String);
+  if (!values.market.length) return { error: "Kies minstens één land.", values };
   values.enabled = formData.get("enabled") === "on" ? "on" : "";
   const slug = Slug.safeParse(String(values.slug).trim());
   if (!slug.success) return { error: "Gebruik voor de code kleine letters, cijfers en streepjes (minstens 2 tekens).", values };
@@ -71,7 +73,7 @@ export async function saveProductForm(_prev: ProductFormState, formData: FormDat
     await adminApi.saveProduct(slug.data, {
       partner: String(values.partner), url: String(values.url).trim(), name: String(values.name).trim(),
       note: text("note"), priceHint: text("priceHint"), ean: text("ean"), enabled: values.enabled === "on",
-      markets: String(values.markets || "nl-NL").split(",").map((m) => m.trim()).filter(Boolean),
+      markets: values.market as string[],
       materials: values.material as string[], rank: Math.min(99, Math.max(0, Number(values.rank) || 0)),
     });
   } catch (e) {
@@ -88,4 +90,38 @@ export async function importSuggestions(formData: FormData) {
   let added: string[];
   try { added = (await adminApi.importSuggestions(slugs)).added; } catch (e) { if (e instanceof ApiError) done("/winkel/producten", e.message); throw e; }
   done("/winkel/producten", added.length === 1 ? "1 product toegevoegd" : `${added.length} producten toegevoegd`);
+}
+
+/** Aan of uit vanuit de productlijst (ADR 0031); blijft op dezelfde pagina met hetzelfde filter. */
+export async function toggleProduct(formData: FormData) {
+  const slug = Slug.parse(formData.get("slug"));
+  const back = String(formData.get("back") ?? "/winkel/producten");
+  const path = back.startsWith("/winkel/") ? back : "/winkel/producten";
+  const enabled = formData.get("enabled") === "true";
+  await attempt(path, () => adminApi.setProductEnabled(slug, enabled), enabled ? "Product staat aan" : "Product staat uit");
+}
+
+export type AmazonState = { error?: string; added?: { slug: string; partner: string; url: string }[]; values?: Record<string, string | string[]> } | null;
+
+/** Eén ASIN als product in meerdere Amazon-winkels (ADR 0031). Bij een fout blijft het formulier ingevuld. */
+export async function amazonAdd(_prev: AmazonState, formData: FormData): Promise<AmazonState> {
+  const values: Record<string, string | string[]> = {
+    asin: String(formData.get("asin") ?? ""), name: String(formData.get("name") ?? ""), priceHint: String(formData.get("priceHint") ?? ""),
+    material: formData.getAll("material").map(String), store: formData.getAll("store").map(String),
+  };
+  const names: Record<string, string> = {};
+  for (const [k, v] of formData.entries()) if (k.startsWith("name:") && typeof v === "string" && v.trim()) { names[k.slice(5)] = v.trim(); values[k] = v; }
+  if (!(values.material as string[]).length) return { error: "Kies minstens één materiaal.", values };
+  if (!(values.store as string[]).length) return { error: "Kies minstens één winkel.", values };
+  try {
+    const r = await adminApi.amazonAdd({
+      asin: String(values.asin).trim(), name: String(values.name).trim(), names,
+      priceHint: String(values.priceHint).trim() || null, materials: values.material as string[], stores: values.store as string[],
+    });
+    revalidatePath("/winkel", "layout");
+    return { added: r.added };
+  } catch (e) {
+    if (e instanceof ApiError) return { error: e.message, values };
+    throw e;
+  }
 }

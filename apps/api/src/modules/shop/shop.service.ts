@@ -5,6 +5,7 @@ import { DB, type Database } from "../../db/database";
 import { withTenant } from "../../db/tenant";
 import { AuditService } from "../identity/audit.service";
 import { LocalizationService } from "../localization/localization.service";
+import { AMAZON_STORES } from "./shop.defaults";
 import { materialProducts, partners, products } from "./shop.schema";
 
 export class ShopError extends Error {
@@ -70,7 +71,7 @@ export function checkProductUrl(url: string, allowedHosts: string[]): string | n
 
 /** Korte deellinks van Amazon (app, deelknop): die volgen we tot de echte productpagina. */
 const AMAZON_SHORT = new Set(["amzn.eu", "amzn.to", "a.co", "amzn.com"]);
-const AMAZON_HOST = /^(?:www\.)?(amazon\.(?:nl|de|fr|be|com\.be|es|it|co\.uk|com))$/;
+const AMAZON_HOST = /^(?:www\.)?(amazon\.(?:nl|de|fr|be|com\.be|es|it|pl|se|co\.uk|com))$/;
 const ASIN = /\/(?:dp|gp\/product|gp\/aw\/d|d)\/([A-Z0-9]{10})(?:[/?]|$)/i;
 
 /**
@@ -113,6 +114,21 @@ async function followRedirect(url: string): Promise<string | null> {
   } catch {
     return null;
   }
+}
+
+/**
+ * ASIN uit een Amazon-link (ook korte deellinks zoals amzn.eu/d/…, die worden gevolgd) of los ingevuld.
+ * null als er geen ASIN in zit.
+ */
+export async function asinFrom(input: string, follow?: (url: string) => Promise<string | null>): Promise<string | null> {
+  const t = input.trim();
+  if (/^[A-Z0-9]{10}$/i.test(t)) return t.toUpperCase();
+  const url = await normalizeProductUrl(t.startsWith("http") ? t : `https://${t}`, follow);
+  try {
+    const u = new URL(url);
+    if (!AMAZON_HOST.test(u.hostname.toLowerCase())) return null;
+    return ASIN.exec(u.pathname + "/")?.[1]?.toUpperCase() ?? null;
+  } catch { return null; }
 }
 
 export interface ProductView {
@@ -232,6 +248,46 @@ export class ShopService {
     });
     await this.i18n.save(this.tenant, "product", input.slug, language, { name: input.name, note: input.note ?? null });
     return result;
+  }
+
+  /** Product aan- of uitzetten vanuit de lijst (ADR 0031). */
+  async setEnabled(actor: string, slug: string, enabled: boolean) {
+    return withTenant(this.db, this.tenant, async (tx) => {
+      const [before] = await tx.select({ enabled: products.enabled }).from(products).where(eq(products.slug, slug)).limit(1);
+      if (!before) throw new ShopError("not_found", "Onbekend product");
+      await tx.update(products).set({ enabled, updatedAt: new Date() }).where(eq(products.slug, slug));
+      await this.audit.record(tx, this.tenant, { actor, action: "shop.product.updated", subject: `product:${slug}`, before, after: { enabled } });
+      return { slug, enabled };
+    });
+  }
+
+  /**
+   * Eén Amazon-product (ASIN) toevoegen voor meerdere Amazon-winkels: per winkel een product met de juiste
+   * productpagina en markten (ADR 0031). Bestaat het product voor een winkel al, dan wordt het bijgewerkt.
+   * Namen: Nederlands verplicht; per andere taal optioneel, anders de Nederlandse.
+   */
+  async amazonQuickAdd(actor: string, input: {
+    asin: string; name: string; names?: Record<string, string> | undefined; priceHint?: string | null | undefined;
+    materials: string[]; stores: string[]; rank?: number | undefined;
+  }) {
+    const base = input.name.toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40) || input.asin.toLowerCase();
+    const added: { slug: string; partner: string; url: string }[] = [];
+    for (const partner of input.stores) {
+      const store = AMAZON_STORES.find((s) => s.partner === partner);
+      if (!store) throw new ShopError("invalid", `Onbekende Amazon-winkel: ${partner}`);
+      const slug = `${base}-${store.partner}`.slice(0, 64).replace(/-+$/, "");
+      const url = `https://${store.host}/dp/${input.asin}`;
+      await this.saveProduct(actor, "nl", {
+        slug, partner, url, priceHint: input.priceHint ?? null, enabled: true, markets: [...store.markets],
+        name: input.name, materials: input.materials, rank: input.rank,
+      });
+      for (const language of new Set(store.markets.map((m) => m.slice(0, 2)))) {
+        if (language === "nl") continue;
+        await this.i18n.save(this.tenant, "product", slug, language, { name: input.names?.[language]?.trim() || input.name, note: null });
+      }
+      added.push({ slug, partner, url });
+    }
+    return added;
   }
 
   /**

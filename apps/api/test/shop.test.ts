@@ -5,7 +5,7 @@ import { DB, type Database } from "../src/db/database";
 import { withTenant } from "../src/db/tenant";
 import { AnalyticsService, isCandidate } from "../src/modules/analytics/analytics.service";
 import { auditEvents } from "../src/modules/identity/identity.schema";
-import { buildLink, checkProductUrl, normalizeProductUrl, ShopService } from "../src/modules/shop/shop.service";
+import { asinFrom, buildLink, checkProductUrl, normalizeProductUrl, ShopService } from "../src/modules/shop/shop.service";
 import { createTestApp, INGEST_KEY, TENANT } from "./app";
 
 let ctx: Awaited<ReturnType<typeof createTestApp>>;
@@ -206,5 +206,41 @@ describe("winkel", () => {
     expect(after.suggestions.map((s: { slug: string }) => s.slug)).not.toContain("faber-castell-colour-grip-12");
     // Nog een keer toevoegen doet niets.
     expect((await ctx.http.inject({ method: "POST", url: "/v1/admin/shop/products/suggestions", headers: admin, payload: { slugs: ["faber-castell-colour-grip-12"] } })).json()).toEqual({ added: [] });
+  });
+
+  it("haalt een ASIN uit een link, een korte link of los (ADR 0031)", async () => {
+    const follow = async () => "https://www.amazon.de/-/dp/B00ABCDE12?ref=x";
+    expect(await asinFrom("b00abcde12")).toBe("B00ABCDE12");
+    expect(await asinFrom("https://www.amazon.fr/Crayola-Feutres/dp/B00ABCDE12/ref=sr_1")).toBe("B00ABCDE12");
+    expect(await asinFrom("https://amzn.eu/d/abc123", follow)).toBe("B00ABCDE12");
+    expect(await asinFrom("https://www.bol.com/nl/p/x/920000/")).toBeNull();
+    expect(await asinFrom("hallo")).toBeNull();
+  });
+
+  it("voegt één ASIN toe voor meerdere Amazon-winkels, met markten en namen per taal", async () => {
+    const res = await ctx.http.inject({ method: "POST", url: "/v1/admin/shop/products/amazon", headers: admin, payload: {
+      asin: "https://www.amazon.nl/dp/B0STEMPEL1?tag=iemand-21", name: "Stempelset dieren", names: { de: "Tierstempel-Set" },
+      materials: ["stempels"], stores: ["amazon-nl", "amazon-de"],
+    } });
+    expect(res.statusCode).toBe(201);
+    expect(res.json().added).toEqual([
+      { slug: "stempelset-dieren-amazon-nl", partner: "amazon-nl", url: "https://www.amazon.nl/dp/B0STEMPEL1" },
+      { slug: "stempelset-dieren-amazon-de", partner: "amazon-de", url: "https://www.amazon.de/dp/B0STEMPEL1" },
+    ]);
+    const list = (await ctx.http.inject({ method: "GET", url: "/v1/admin/shop/products", headers: admin })).json();
+    expect(list.products.find((p: { slug: string }) => p.slug === "stempelset-dieren-amazon-de")).toMatchObject({ markets: ["de-DE", "de-AT", "de-CH", "de-LU"], materials: ["stempels"], enabled: true });
+    expect(list.amazonStores.map((s: { partner: string }) => s.partner)).toContain("amazon-pl");
+    const names = (await ctx.http.inject({ method: "GET", url: "/v1/admin/shop/products?language=de", headers: admin })).json();
+    expect(names.products.find((p: { slug: string }) => p.slug === "stempelset-dieren-amazon-de").name).toBe("Tierstempel-Set");
+    const bad = await ctx.http.inject({ method: "POST", url: "/v1/admin/shop/products/amazon", headers: admin, payload: { asin: "geen", name: "X y", materials: ["stempels"], stores: ["amazon-nl"] } });
+    expect(bad.statusCode).toBe(400);
+  });
+
+  it("zet een product aan en uit vanuit de lijst", async () => {
+    const off = await ctx.http.inject({ method: "PUT", url: "/v1/admin/shop/products/stempelset-dieren-amazon-nl/enabled", headers: admin, payload: { enabled: false } });
+    expect(off.json()).toEqual({ slug: "stempelset-dieren-amazon-nl", enabled: false });
+    const list = (await ctx.http.inject({ method: "GET", url: "/v1/admin/shop/products", headers: admin })).json();
+    expect(list.products.find((p: { slug: string }) => p.slug === "stempelset-dieren-amazon-nl").enabled).toBe(false);
+    expect((await ctx.http.inject({ method: "PUT", url: "/v1/admin/shop/products/bestaat-niet/enabled", headers: admin, payload: { enabled: true } })).statusCode).toBe(404);
   });
 });

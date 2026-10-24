@@ -24,6 +24,13 @@ export class LocalizationService {
     return rows[0] ?? null;
   }
 
+  /** Alle markten met hun status (voor het admin panel). */
+  async markets(tenantId: string): Promise<{ code: string; country: string; language: string; status: "draft" | "live" }[]> {
+    return withTenant(this.db, tenantId, (tx) =>
+      tx.select({ code: markets.code, country: markets.country, language: markets.language, status: markets.status })
+        .from(markets).where(eq(markets.tenantId, tenantId)).orderBy(markets.code));
+  }
+
   /** Codes van alle markten die live staan, in kleine letters (zoals in de URL). */
   async liveMarkets(tenantId: string): Promise<string[]> {
     const rows = await withTenant(this.db, tenantId, (tx) =>

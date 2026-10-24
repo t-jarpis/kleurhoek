@@ -19,13 +19,15 @@ export function partnerForUrl(url: string, partners: PartnerOption[]): string | 
 }
 
 /** Product toevoegen of bewerken. De link staat voorop; de partner volgt uit de link. */
-export function ProductForm({ editing, partners, materials }: { editing?: Product; partners: PartnerOption[]; materials: { slug: string; name: string }[] }) {
+export function ProductForm({ editing, partners, materials, marketOptions }: { editing?: Product; partners: PartnerOption[]; materials: { slug: string; name: string }[]; marketOptions: string[] }) {
   const [state, action, pending] = useActionState<ProductFormState, FormData>(saveProductForm, null);
   const v = state?.values;
   const val = (k: string, fallback: string) => (v ? String(v[k] ?? "") : fallback);
   const [partner, setPartner] = useState(val("partner", editing?.partner ?? ""));
   const chosen = partners.find((p) => p.slug === partner);
   const checkedMaterials = v ? (v.material as string[]) : editing?.materials ?? [];
+  const checkedMarkets = v ? (v.market as string[]) : editing?.markets ?? ["nl-NL"];
+  const allMarkets = [...new Set([...marketOptions, ...checkedMarkets])].sort();
   return (
     <form action={action} className="grid-form" key={state ? JSON.stringify(state) : editing?.slug ?? "nieuw"}>
       {state?.error && <div className="err wide" role="alert"><p>{state.error}</p></div>}
@@ -49,7 +51,10 @@ export function ProductForm({ editing, partners, materials }: { editing?: Produc
       <fieldset className="field wide"><legend>Bij materialen</legend>
         <div className="checks">{materials.map((m) => <label key={m.slug} className="check"><input type="checkbox" name="material" value={m.slug} defaultChecked={checkedMaterials.includes(m.slug)} /> {m.name}</label>)}</div>
       </fieldset>
-      <label className="field"><span>Markten</span><input name="markets" defaultValue={val("markets", (editing?.markets ?? ["nl-NL"]).join(", "))} /><small>Bijvoorbeeld nl-NL, nl-BE of de-DE.</small></label>
+      <fieldset className="field wide"><legend>Landen (markt: land en taal)</legend>
+        <div className="checks">{allMarkets.map((m) => <label key={m} className="check"><input type="checkbox" name="market" value={m} defaultChecked={checkedMarkets.includes(m)} /> {m.slice(3)} · {m.slice(0, 2)}</label>)}</div>
+        <small>Het product verschijnt alleen in de aangevinkte markten (ADR 0031).</small>
+      </fieldset>
       <label className="field"><span>Voorkeur</span><input name="rank" type="number" min={0} max={99} defaultValue={val("rank", String(editing?.rank ?? 0))} /><small>Meer producten bij hetzelfde materiaal? Laagste getal wint.</small></label>
       <label className="check"><input type="checkbox" name="enabled" defaultChecked={v ? v.enabled === "on" : editing?.enabled ?? true} /> Tonen op de site</label>
       <div className="wide"><button type="submit" disabled={pending}>{pending ? "Opslaan…" : "Opslaan"}</button> {editing && <Link href="/winkel/producten" className="lead">Annuleren</Link>}</div>

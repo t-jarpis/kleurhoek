@@ -28,7 +28,7 @@ export interface Product {
   slug: string; partner: string; url: string; ean: string | null; priceHint: string | null; enabled: boolean;
   markets: string[]; name: string | null; note: string | null; materials: string[]; rank: number;
 }
-export interface Release { sha: string; previousSha: string | null; kind: "first" | "release" | "rollback"; startedAt: string; notes: { sha: string; date: string; text: string; technical: boolean }[] }
+export interface Release { sha: string; previousSha: string | null; kind: "first" | "release" | "rollback"; startedAt: string; notes: { sha: string; date: string; text: string; technical: boolean; public?: string }[] }
 export type GoalMetric = "visits" | "plates" | "clicks";
 export interface GoalMilestone { month: number; target: number; stretch: number }
 export interface Goals {
@@ -36,6 +36,10 @@ export interface Goals {
   metrics: { metric: GoalMetric; milestones: GoalMilestone[]; months: { month: string; target: number; stretch: number; actual: number | null }[];
     now: { actual: number; target: number; stretch: number; expected: number; onTrack: boolean } | null }[];
 }
+/** Een markt (land + taal) en een Amazon-winkel met de markten die hij bedient (ADR 0031). */
+export interface MarketInfo { code: string; country: string; language: string; status: "draft" | "live" }
+export interface AmazonStore { partner: string; name: string; host: string; markets: string[]; enabled: boolean }
+export interface AmazonInput { asin: string; name: string; names?: Record<string, string>; priceHint?: string | null; materials: string[]; stores: string[] }
 export interface ProductSuggestion { slug: string; partner: string; url: string; name: string; note: string; materials: string[]; markets: string[] }
 export interface ProductInput {
   partner: string; url: string; ean?: string | null; priceHint?: string | null; enabled: boolean;
@@ -146,7 +150,9 @@ export const adminApi = {
     call<{ slug: string }>("/v1/admin/shop/partners", { method: "POST", body: JSON.stringify(body) }),
   updatePartner: (slug: string, body: { enabled?: boolean; linkTemplate?: string; settings?: Record<string, string> }) =>
     call<Partner>(`/v1/admin/shop/partners/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
-  products: () => call<{ products: Product[]; materials: { slug: string; name: string }[]; partners: { slug: string; name: string; enabled: boolean; allowedHosts: string[] }[]; suggestions: ProductSuggestion[] }>("/v1/admin/shop/products"),
+  products: () => call<{ products: Product[]; materials: { slug: string; name: string }[]; partners: { slug: string; name: string; enabled: boolean; allowedHosts: string[] }[]; suggestions: ProductSuggestion[]; markets: MarketInfo[]; amazonStores: AmazonStore[] }>("/v1/admin/shop/products"),
+  setProductEnabled: (slug: string, enabled: boolean) => call<{ slug: string; enabled: boolean }>(`/v1/admin/shop/products/${encodeURIComponent(slug)}/enabled`, { method: "PUT", body: JSON.stringify({ enabled }) }),
+  amazonAdd: (body: AmazonInput) => call<{ asin: string; added: { slug: string; partner: string; url: string }[] }>("/v1/admin/shop/products/amazon", { method: "POST", body: JSON.stringify(body) }),
   importSuggestions: (slugs: string[]) => call<{ added: string[] }>("/v1/admin/shop/products/suggestions", { method: "POST", body: JSON.stringify({ slugs }) }),
   saveProduct: (slug: string, body: ProductInput) => call<{ slug: string }>(`/v1/admin/shop/products/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
   shopSummary: (from: string, to: string) => call<ShopSummary>(`/v1/admin/analytics/shop?from=${from}&to=${to}`),

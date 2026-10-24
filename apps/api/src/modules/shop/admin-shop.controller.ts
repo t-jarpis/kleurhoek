@@ -6,7 +6,8 @@ import { CatalogService } from "../catalog/catalog.service";
 import { AdminGuard, RequirePermission } from "../identity/admin.guard";
 import { LocalizationService } from "../localization/localization.service";
 import { RateLimit } from "../operations/rate-limit.guard";
-import { ShopError, ShopService } from "./shop.service";
+import { AMAZON_STORES } from "./shop.defaults";
+import { asinFrom, ShopError, ShopService } from "./shop.service";
 import { PRODUCT_SUGGESTIONS } from "./shop.suggestions";
 
 const Language = z.object({ language: z.string().regex(/^[a-z]{2}$/).default("nl") });
@@ -31,6 +32,16 @@ const ProductBody = z.object({
   name: z.string().trim().min(2).max(120),
   note: z.string().trim().max(200).nullish(),
   materials: z.array(z.string().regex(/^[a-z0-9-]{1,64}$/)).max(20),
+  rank: z.number().int().min(0).max(99).optional(),
+}).strict();
+const ToggleBody = z.object({ enabled: z.boolean() }).strict();
+const AmazonBody = z.object({
+  asin: z.string().trim().min(10).max(1000),
+  name: z.string().trim().min(2).max(120),
+  names: z.record(z.string().regex(/^[a-z]{2}$/), z.string().trim().max(120)).optional(),
+  priceHint: z.string().max(40).nullish(),
+  materials: z.array(z.string().regex(/^[a-z0-9-]{1,64}$/)).min(1).max(20),
+  stores: z.array(z.string().regex(/^amazon-[a-z]{2}$/)).min(1).max(20),
   rank: z.number().int().min(0).max(99).optional(),
 }).strict();
 const ImportBody = z.object({ slugs: z.array(z.string().regex(/^[a-z0-9-]{2,64}$/)).min(1).max(50) }).strict();
@@ -84,6 +95,9 @@ export class AdminShopController {
       materials: materialSlugs.map((slug) => ({ slug, name: names.get(slug)?.name ?? slug })),
       partners: partners.map((p) => ({ slug: p.slug, name: p.name, enabled: p.enabled, allowedHosts: p.allowedHosts })),
       suggestions: this.openSuggestions(products.map((p) => p.slug), materialSlugs, partners.map((p) => p.slug)),
+      // Markten voor de lijst en de matrix per land (ADR 0031): bestaande markten plus die van de Amazon-winkels.
+      markets: await this.i18n.markets(this.env.TENANT_ID),
+      amazonStores: AMAZON_STORES.map((s) => ({ ...s, markets: [...s.markets], enabled: partners.find((p) => p.slug === s.partner)?.enabled ?? false })),
     };
   }
 
@@ -107,6 +121,27 @@ export class AdminShopController {
       added.push(await this.shop.saveProduct(req.admin!.subject, language, { slug: s.slug, partner: s.partner, url: s.url, enabled: true, markets: s.markets, name: s.name, note: s.note, materials: s.materials }).catch(mapError));
     }
     return { added };
+  }
+
+  /** Aan of uit vanuit de productlijst (ADR 0031). */
+  @Put("products/:slug/enabled")
+  @RequirePermission("shop.manage")
+  async setEnabled(@Param("slug") slug: string, @Body() body: unknown, @Req() req: FastifyRequest) {
+    const { enabled } = parse(ToggleBody, body);
+    return this.shop.setEnabled(req.admin!.subject, slug, enabled).catch(mapError);
+  }
+
+  /** Eén ASIN als product in meerdere Amazon-winkels (ADR 0031). */
+  @Post("products/amazon")
+  @RequirePermission("shop.manage")
+  async amazon(@Body() body: unknown, @Req() req: FastifyRequest) {
+    const input = parse(AmazonBody, body);
+    const asin = await asinFrom(input.asin);
+    if (!asin) throw new BadRequestException("Geen geldige Amazon-link of ASIN (10 tekens, bijvoorbeeld B0007OECNU)");
+    const known = new Set(await this.catalog.materials(this.env.TENANT_ID));
+    const unknown = input.materials.filter((m) => !known.has(m));
+    if (unknown.length) throw new BadRequestException(`Onbekend materiaal: ${unknown.join(", ")}`);
+    return { asin, added: await this.shop.amazonQuickAdd(req.admin!.subject, { ...input, asin }).catch(mapError) };
   }
 
   @Put("products/:slug")

@@ -6,6 +6,30 @@
       "nl": {
         "name": "Kleurpotloden",
         "hint": "Voor fijne vlakken en kleine handen"
+      },
+      "de": {
+        "name": "Buntstifte",
+        "hint": "Für feine Flächen und kleine Hände"
+      },
+      "fr": {
+        "name": "Crayons de couleur",
+        "hint": "Pour les petites zones et les petites mains"
+      },
+      "en": {
+        "name": "Colouring pencils",
+        "hint": "For fine areas and small hands"
+      },
+      "es": {
+        "name": "Lápices de colores",
+        "hint": "Para zonas finas y manos pequeñas"
+      },
+      "it": {
+        "name": "Matite colorate",
+        "hint": "Per spazi piccoli e mani piccole"
+      },
+      "pl": {
+        "name": "Kredki",
+        "hint": "Do drobnych pól i małych rączek"
       }
     }
   },
@@ -16,6 +40,30 @@
       "nl": {
         "name": "Stiften",
         "hint": "Felle kleuren, kies uitwasbare"
+      },
+      "de": {
+        "name": "Filzstifte",
+        "hint": "Kräftige Farben, am besten auswaschbare"
+      },
+      "fr": {
+        "name": "Feutres",
+        "hint": "Couleurs vives ; choisissez-les lavables"
+      },
+      "en": {
+        "name": "Felt-tip pens",
+        "hint": "Bright colours; choose washable ones"
+      },
+      "es": {
+        "name": "Rotuladores",
+        "hint": "Colores vivos; elígelos lavables"
+      },
+      "it": {
+        "name": "Pennarelli",
+        "hint": "Colori vivaci, scegli quelli lavabili"
+      },
+      "pl": {
+        "name": "Flamastry",
+        "hint": "Żywe kolory, wybierz zmywalne"
       }
     }
   },
@@ -26,6 +74,30 @@
       "nl": {
         "name": "Waskrijtjes",
         "hint": "Dik en stevig, fijn voor de kleinsten"
+      },
+      "de": {
+        "name": "Wachsmalstifte",
+        "hint": "Dick und stabil, gut für die Kleinsten"
+      },
+      "fr": {
+        "name": "Craies grasses",
+        "hint": "Épaisses et solides, idéales pour les tout-petits"
+      },
+      "en": {
+        "name": "Wax crayons",
+        "hint": "Thick and sturdy, great for the youngest"
+      },
+      "es": {
+        "name": "Ceras",
+        "hint": "Gruesas y resistentes, ideales para los más pequeños"
+      },
+      "it": {
+        "name": "Pastelli a cera",
+        "hint": "Grossi e robusti, ideali per i più piccoli"
+      },
+      "pl": {
+        "name": "Kredki świecowe",
+        "hint": "Grube i mocne, dobre dla najmłodszych"
       }
     }
   },
@@ -36,6 +108,30 @@
       "nl": {
         "name": "Kinderschaar",
         "hint": "Met ronde punt; laat jonge kinderen niet alleen knippen"
+      },
+      "de": {
+        "name": "Kinderschere",
+        "hint": "Mit runder Spitze; kleine Kinder nicht allein schneiden lassen"
+      },
+      "fr": {
+        "name": "Ciseaux pour enfants",
+        "hint": "À bouts ronds ; ne laissez pas les jeunes enfants découper seuls"
+      },
+      "en": {
+        "name": "Children's scissors",
+        "hint": "With a rounded tip; don't let young children cut on their own"
+      },
+      "es": {
+        "name": "Tijeras infantiles",
+        "hint": "Con punta redonda; no dejes recortar solos a los más pequeños"
+      },
+      "it": {
+        "name": "Forbici per bambini",
+        "hint": "Con la punta arrotondata; non lasciare ritagliare da soli i bambini piccoli"
+      },
+      "pl": {
+        "name": "Nożyczki dla dzieci",
+        "hint": "Z zaokrąglonym czubkiem; nie zostawiaj małych dzieci samych przy wycinaniu"
       }
     }
   },
@@ -46,6 +142,30 @@
       "nl": {
         "name": "Lijmstift",
         "hint": "Plakt papier zonder kliederen"
+      },
+      "de": {
+        "name": "Klebestift",
+        "hint": "Klebt Papier ohne Kleckern"
+      },
+      "fr": {
+        "name": "Bâton de colle",
+        "hint": "Colle le papier sans en mettre partout"
+      },
+      "en": {
+        "name": "Glue stick",
+        "hint": "Sticks paper without the mess"
+      },
+      "es": {
+        "name": "Barra de pegamento",
+        "hint": "Pega papel sin pringar"
+      },
+      "it": {
+        "name": "Colla stick",
+        "hint": "Incolla la carta senza pasticci"
+      },
+      "pl": {
+        "name": "Klej w sztyfcie",
+        "hint": "Klei papier bez brudzenia"
       }
     }
   },
@@ -56,6 +176,24 @@
       "nl": {
         "name": "Plakband",
         "hint": null
+      },
+      "de": {
+        "name": "Klebeband"
+      },
+      "fr": {
+        "name": "Ruban adhésif"
+      },
+      "en": {
+        "name": "Sticky tape"
+      },
+      "es": {
+        "name": "Cinta adhesiva"
+      },
+      "it": {
+        "name": "Nastro adesivo"
+      },
+      "pl": {
+        "name": "Taśma klejąca"
       }
     }
   },
@@ -66,6 +204,30 @@
       "nl": {
         "name": "Stevig papier (160 gram)",
         "hint": "Voor bouwplaten en kaarten die moeten blijven staan"
+      },
+      "de": {
+        "name": "Festes Papier (160 Gramm)",
+        "hint": "Für Bastelbögen und Karten, die stehen bleiben sollen"
+      },
+      "fr": {
+        "name": "Papier épais (160 g)",
+        "hint": "Pour les maquettes et les cartes qui doivent tenir debout"
+      },
+      "en": {
+        "name": "Thick paper (160 gsm)",
+        "hint": "For paper models and cards that need to stand up"
+      },
+      "es": {
+        "name": "Papel grueso (160 gramos)",
+        "hint": "Para maquetas de papel y tarjetas que tienen que sostenerse de pie"
+      },
+      "it": {
+        "name": "Cartoncino (160 grammi)",
+        "hint": "Per costruzioni e biglietti che devono stare in piedi"
+      },
+      "pl": {
+        "name": "Sztywny papier (160 g)",
+        "hint": "Do modeli i kartek, które mają stać"
       }
     }
   },
@@ -76,6 +238,30 @@
       "nl": {
         "name": "Ledlampionstokje",
         "hint": "Veilig licht in je lampion"
+      },
+      "de": {
+        "name": "LED-Laternenstab",
+        "hint": "Sicheres Licht für deine Laterne"
+      },
+      "fr": {
+        "name": "Bâton lumineux LED pour lampion",
+        "hint": "Une lumière sûre dans le lampion"
+      },
+      "en": {
+        "name": "LED lantern stick",
+        "hint": "Safe light for your lantern"
+      },
+      "es": {
+        "name": "Palito LED para farolillo",
+        "hint": "Luz segura en tu farolillo"
+      },
+      "it": {
+        "name": "Bastoncino LED per lanterne",
+        "hint": "Una luce sicura nella tua lanterna"
+      },
+      "pl": {
+        "name": "Pałeczka LED do lampionu",
+        "hint": "Bezpieczne światło w twoim lampionie"
       }
     }
   },
@@ -86,6 +272,30 @@
       "nl": {
         "name": "Splitpennen",
         "hint": "Voor beweegbare armen en benen"
+      },
+      "de": {
+        "name": "Musterklammern",
+        "hint": "Für bewegliche Arme und Beine"
+      },
+      "fr": {
+        "name": "Attaches parisiennes",
+        "hint": "Pour des bras et des jambes qui bougent"
+      },
+      "en": {
+        "name": "Split pins",
+        "hint": "For movable arms and legs"
+      },
+      "es": {
+        "name": "Encuadernadores",
+        "hint": "Para brazos y piernas que se mueven"
+      },
+      "it": {
+        "name": "Fermacampioni",
+        "hint": "Per braccia e gambe che si muovono"
+      },
+      "pl": {
+        "name": "Spinacze dwunożne",
+        "hint": "Do ruchomych rąk i nóg"
       }
     }
   },
@@ -96,6 +306,30 @@
       "nl": {
         "name": "Potlood",
         "hint": "Om te schrijven, te tekenen en lijnen over te trekken"
+      },
+      "de": {
+        "name": "Bleistift",
+        "hint": "Zum Schreiben, Zeichnen und Nachspuren von Linien"
+      },
+      "fr": {
+        "name": "Crayon à papier",
+        "hint": "Pour écrire, dessiner et repasser sur les lignes"
+      },
+      "en": {
+        "name": "Pencil",
+        "hint": "For writing, drawing and tracing lines"
+      },
+      "es": {
+        "name": "Lápiz",
+        "hint": "Para escribir, dibujar y repasar líneas"
+      },
+      "it": {
+        "name": "Matita",
+        "hint": "Per scrivere, disegnare e ricalcare le linee"
+      },
+      "pl": {
+        "name": "Ołówek",
+        "hint": "Do pisania, rysowania i obrysowywania linii"
       }
     }
   },
@@ -106,6 +340,30 @@
       "nl": {
         "name": "Elastiek",
         "hint": "Rond elastiek, om een masker om je hoofd te houden"
+      },
+      "de": {
+        "name": "Gummiband",
+        "hint": "Rundes Gummiband, damit die Maske am Kopf hält"
+      },
+      "fr": {
+        "name": "Élastique",
+        "hint": "Élastique rond, pour faire tenir un masque sur la tête"
+      },
+      "en": {
+        "name": "Elastic",
+        "hint": "Round elastic, to hold a mask on your head"
+      },
+      "es": {
+        "name": "Goma elástica",
+        "hint": "Cordón elástico redondo, para sujetar una máscara a la cabeza"
+      },
+      "it": {
+        "name": "Elastico",
+        "hint": "Elastico tondo, per tenere una maschera sulla testa"
+      },
+      "pl": {
+        "name": "Gumka kapeluszowa",
+        "hint": "Okrągła gumka, żeby maska trzymała się na głowie"
       }
     }
   },
@@ -116,6 +374,30 @@
       "nl": {
         "name": "Touw of lint",
         "hint": "Om op te hangen of aan een cadeau te binden"
+      },
+      "de": {
+        "name": "Schnur oder Band",
+        "hint": "Zum Aufhängen oder um ein Geschenk zu binden"
+      },
+      "fr": {
+        "name": "Ficelle ou ruban",
+        "hint": "Pour suspendre ou attacher à un cadeau"
+      },
+      "en": {
+        "name": "String or ribbon",
+        "hint": "For hanging things up or tying to a present"
+      },
+      "es": {
+        "name": "Cordel o cinta",
+        "hint": "Para colgar o atar a un regalo"
+      },
+      "it": {
+        "name": "Spago o nastro",
+        "hint": "Per appendere o per legare a un regalo"
+      },
+      "pl": {
+        "name": "Sznurek lub wstążka",
+        "hint": "Do powieszenia albo do przywiązania do prezentu"
       }
     }
   },
@@ -126,6 +408,64 @@
       "nl": {
         "name": "Verf en een sponsje",
         "hint": "Plakkaatverf of waterverf, om te deppen of te schilderen"
+      },
+      "de": {
+        "name": "Farbe und ein Schwämmchen",
+        "hint": "Plakatfarbe oder Wasserfarbe, zum Tupfen oder Malen"
+      },
+      "fr": {
+        "name": "Peinture et petite éponge",
+        "hint": "Gouache ou aquarelle, pour tamponner ou peindre"
+      },
+      "en": {
+        "name": "Paint and a sponge",
+        "hint": "Poster paint or watercolours, for dabbing or painting"
+      },
+      "es": {
+        "name": "Pintura y una esponjita",
+        "hint": "Témpera o acuarela, para estampar o pintar"
+      },
+      "it": {
+        "name": "Colori e una spugnetta",
+        "hint": "Tempere o acquerelli, per tamponare o dipingere"
+      },
+      "pl": {
+        "name": "Farby i gąbka",
+        "hint": "Farby plakatowe lub akwarele, do stemplowania albo malowania"
+      }
+    }
+  },
+  {
+    "slug": "stempels",
+    "order": 13,
+    "i18n": {
+      "nl": {
+        "name": "Stempels en inktkussen",
+        "hint": "Afwasbare inkt; zelf maken kan ook, van een gum of een aardappel"
+      },
+      "de": {
+        "name": "Stempel und Stempelkissen",
+        "hint": "Abwaschbare Tinte; selbst machen geht auch, aus Radiergummi oder Kartoffel"
+      },
+      "en": {
+        "name": "Stamps and ink pad",
+        "hint": "Washable ink; you can also make your own from an eraser or a potato"
+      },
+      "fr": {
+        "name": "Tampons et encreur",
+        "hint": "Encre lavable ; on peut aussi les fabriquer avec une gomme ou une pomme de terre"
+      },
+      "es": {
+        "name": "Sellos y tampón",
+        "hint": "Tinta lavable; también puedes hacerlos con una goma o una patata"
+      },
+      "it": {
+        "name": "Timbri e tampone",
+        "hint": "Inchiostro lavabile; puoi farli anche con una gomma o una patata"
+      },
+      "pl": {
+        "name": "Stemple i poduszka z tuszem",
+        "hint": "Zmywalny tusz; można je też zrobić z gumki lub ziemniaka"
       }
     }
   }
