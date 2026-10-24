@@ -84,6 +84,7 @@ form.roles label { display: inline-flex; gap: 6px; align-items: center; white-sp
   .shell { grid-template-columns: 1fr; }
   nav.side { flex-direction: row; flex-wrap: wrap; align-items: center; }
   nav.side .brand { padding: 0 var(--space-3) 0 0; }
+  nav.side .ui-sidenav-group { display: none; }
   nav.side .who { margin-top: 0; padding-top: 0; border-top: 0; flex-direction: row; align-items: center; }
 }
 

@@ -15,16 +15,26 @@ export default async function PanelLayout({ children }: { children: React.ReactN
     <div className="shell">
       <nav className="side" aria-label="Beheer">
         <div className="brand"><Logo suffix="beheer" size={20} /></div>
-        {can("analytics.read") && <NavLink href="/">Dashboard</NavLink>}
-        {can("analytics.read") && <NavLink href="/doelen">Doelen</NavLink>}
-        {can("contact.read") && <NavLink href="/contact">Contact{unread > 0 && <span className="ui-count" aria-label={`${unread} nieuw`}>{unread}</span>}</NavLink>}
-        {can("shop.read") && <NavLink href="/winkel">Winkel</NavLink>}
-        {can("sources.read") && <NavLink href="/bronnen">Bronnengids</NavLink>}
-        {can("identity.users.read") && <NavLink href="/gebruikers">Gebruikers</NavLink>}
-        {can("operations.ratelimit.read") && <NavLink href="/rate-limits">Rate limits</NavLink>}
-        {can("organizations.read") && <NavLink href="/organisaties">Organisaties</NavLink>}
-        {can("operations.access.read") && <NavLink href="/toegang">Toegang</NavLink>}
-        {can("releases.read") && <NavLink href="/releases">Releases</NavLink>}
+        {/* Groepen (design system: AdminNav): een groep verschijnt alleen als je er iets in mag zien. */}
+        {can("analytics.read") && <>
+          <span className="ui-sidenav-group">Overzicht</span>
+          <NavLink href="/" icon="dashboard">Dashboard</NavLink>
+          <NavLink href="/analytics" icon="analytics">Analytics</NavLink>
+          <NavLink href="/doelen" icon="goals">Doelen</NavLink>
+        </>}
+        {(can("catalog.manage") || can("sources.read") || can("seo.read")) && <span className="ui-sidenav-group">Inhoud</span>}
+        {can("catalog.manage") && <NavLink href="/collecties" icon="collections">Collecties</NavLink>}
+        {can("sources.read") && <NavLink href="/bronnen" icon="sources">Bronnengids</NavLink>}
+        {can("seo.read") && <NavLink href="/seo" icon="seo">Vindbaarheid</NavLink>}
+        {(can("shop.read") || can("contact.read") || can("organizations.read")) && <span className="ui-sidenav-group">Klanten en partners</span>}
+        {can("shop.read") && <NavLink href="/winkel" icon="shop">Winkel</NavLink>}
+        {can("contact.read") && <NavLink href="/contact" icon="contact">Contact{unread > 0 && <span className="ui-count" aria-label={`${unread} nieuw`}>{unread}</span>}</NavLink>}
+        {can("organizations.read") && <NavLink href="/organisaties" icon="organizations">Organisaties</NavLink>}
+        {(can("identity.users.read") || can("operations.access.read") || can("operations.ratelimit.read") || can("releases.read")) && <span className="ui-sidenav-group">Systeem</span>}
+        {can("identity.users.read") && <NavLink href="/gebruikers" icon="users">Gebruikers</NavLink>}
+        {can("operations.access.read") && <NavLink href="/toegang" icon="access">Toegang</NavLink>}
+        {can("operations.ratelimit.read") && <NavLink href="/rate-limits" icon="limits">Rate limits</NavLink>}
+        {can("releases.read") && <NavLink href="/releases" icon="releases">Releases</NavLink>}
         <div className="who">
           <span>{who.name ?? who.email ?? "Beheerder"}</span>
           {who.dev ? <span className="pill off">lokaal</span> : <LogoutButton />}

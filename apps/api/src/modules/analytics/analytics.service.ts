@@ -132,6 +132,8 @@ export class AnalyticsService {
       const range = (a: string, z: string) => and(eq(dailyTotals.tenantId, tenantId), gte(dailyTotals.day, a), lte(dailyTotals.day, z));
       const totals = (a: string, z: string) => tx.select({
         pageViews: sql<number>`coalesce(sum(${dailyTotals.pageViews}), 0)::int`, plateViews: sql<number>`coalesce(sum(${dailyTotals.plateViews}), 0)::int`,
+        prints: sql<number>`coalesce(sum(${dailyTotals.prints}), 0)::int`, pdfDownloads: sql<number>`coalesce(sum(${dailyTotals.downloads}), 0)::int`,
+        materialsViews: sql<number>`coalesce(sum(${dailyTotals.materialsViews}), 0)::int`, productClicks: sql<number>`coalesce(sum(${dailyTotals.productClicks}), 0)::int`,
         downloads: sql<number>`coalesce(sum(${dailyTotals.downloads} + ${dailyTotals.prints}), 0)::int`, completions: sql<number>`coalesce(sum(${dailyTotals.completions}), 0)::int`,
       }).from(dailyTotals).where(range(a, z)).then((r) => r[0]!);
       const visitors = (a: string, z: string) => tx.select({ visitors: sql<number>`coalesce(sum(${dailyVisitors.visitors}), 0)::int` })
@@ -175,6 +177,26 @@ export class AnalyticsService {
         totals: { visitors: visitorsNow, ...current }, previousTotals: { visitors: visitorsBefore, ...previous },
         series, pages, devices, organizations, entries, referrers, topPlates: topPlates.slice(0, 10), countries: byCountry.slice(0, 10),
       };
+    });
+  }
+
+  /**
+   * Nu op de site (ADR 0034): unieke bezoekers en paginaweergaven in de laatste 30 minuten, uit de ruwe events.
+   * Bezoekers via de dagelijkse hash: rond middernacht (UTC) telt iemand even dubbel.
+   */
+  async realtime(tenantId: string, now = new Date()) {
+    const since = new Date(now.getTime() - 30 * 60_000);
+    return withTenant(this.db, tenantId, async (tx) => {
+      const recent = and(eq(events.tenantId, tenantId), gte(events.occurredAt, since));
+      const [t] = await tx.select({
+        visitors: sql<number>`count(distinct ${events.visitorHash})::int`,
+        pageViews: sql<number>`(count(*) filter (where ${events.type} = 'page_view'))::int`,
+      }).from(events).where(recent);
+      const pages = await tx.select({ page: sql<string>`coalesce(${events.page}, 'home')`, views: sql<number>`count(*)::int` })
+        .from(events).where(and(recent, eq(events.type, "page_view"))).groupBy(sql`1`).orderBy(desc(sql`count(*)`)).limit(8);
+      const plates = await tx.select({ plate: sql<string>`${events.plateSlug}`, views: sql<number>`count(*)::int` })
+        .from(events).where(and(recent, eq(events.type, "plate_view"), sql`${events.plateSlug} is not null`)).groupBy(events.plateSlug).orderBy(desc(sql`count(*)`)).limit(8);
+      return { since: since.toISOString(), visitors: t?.visitors ?? 0, pageViews: t?.pageViews ?? 0, pages, plates };
     });
   }
 

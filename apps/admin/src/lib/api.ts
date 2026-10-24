@@ -85,7 +85,8 @@ export interface OrgInput {
   offer?: Partial<OrgOffer>; features?: { shop?: boolean; accounts?: boolean };
 }
 
-export interface OverviewTotals { visitors: number; pageViews: number; plateViews: number; downloads: number; completions: number }
+export interface OverviewTotals { visitors: number; pageViews: number; plateViews: number; downloads: number; completions: number; prints: number; pdfDownloads: number; materialsViews: number; productClicks: number }
+export interface Realtime { since: string; visitors: number; pageViews: number; pages: { page: string; views: number }[]; plates: { plate: string; views: number }[] }
 export interface Overview {
   from: string; to: string; bucket: "day" | "week"; previous: { from: string; to: string };
   totals: OverviewTotals; previousTotals: OverviewTotals;
@@ -148,6 +149,7 @@ export const adminApi = {
   releases: () => call<{ current: string | null; releases: Release[] }>("/v1/admin/releases"),
   goals: () => call<Goals>("/v1/admin/analytics/goals"),
   saveGoals: (body: { start: string; metrics: Record<GoalMetric, GoalMilestone[]> }) => call<Goals>("/v1/admin/analytics/goals", { method: "PUT", body: JSON.stringify(body) }),
+  realtime: () => call<Realtime>("/v1/admin/analytics/realtime"),
   overview: (from: string, to: string) => call<Overview>(`/v1/admin/analytics/overview?from=${from}&to=${to}`),
   accountStats: (from: string, to: string) => call<AccountStats>(`/v1/admin/users/stats?from=${from}&to=${to}`),
   summary: (from: string, to: string) => call<Summary>(`/v1/admin/analytics/summary?from=${from}&to=${to}`),

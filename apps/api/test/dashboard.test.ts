@@ -66,6 +66,17 @@ describe("dashboard: pagina's, tijdreeksen en accounts (ADR 0020)", () => {
     expect(o.referrers).toEqual(expect.arrayContaining([{ referrer: "google.com", landings: 1 }, { referrer: "pinterest.com", landings: 1 }, { referrer: "", landings: 1 }]));
   });
 
+  it("toont wie er de laatste 30 minuten op de site was (ADR 0034)", async () => {
+    const now = new Date(), at = (min: number) => new Date(now.getTime() - min * 60_000).toISOString();
+    await ingest([
+      ev("page_view", { page: "home", visitorHash: "ffffffffffffffff", occurredAt: at(5) }),
+      ev("plate_view", { plate: "kat", visitorHash: "ffffffffffffffff", occurredAt: at(4) }),
+      ev("page_view", { page: "home", visitorHash: "gggggggggggggggg", occurredAt: at(45) }), // te lang geleden
+    ]);
+    const r = (await admin("/v1/admin/analytics/realtime")).json();
+    expect(r).toMatchObject({ visitors: 1, pageViews: 1, pages: [{ page: "home", views: 1 }], plates: [{ plate: "kat", views: 1 }] });
+  });
+
   it("gooit ruwe events na 90 dagen weg, dagtotalen blijven", async () => {
     const svc = ctx.app.get(AnalyticsService);
     await svc.purgeRawEvents(TENANT, new Date("2027-02-01T00:00:00Z"));

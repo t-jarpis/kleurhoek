@@ -56,6 +56,13 @@ export class AdminAnalyticsController {
     return this.analytics.overview(this.env.TENANT_ID, q.data.from, q.data.to);
   }
 
+  /** Nu op de site: laatste 30 minuten (ADR 0034). */
+  @Get("realtime")
+  @RequirePermission("analytics.read")
+  realtime() {
+    return this.analytics.realtime(this.env.TENANT_ID);
+  }
+
   /** Winkel: doorkliks per product en plaat, en kandidaten om zelf te leveren. */
   @Get("shop")
   @RequirePermission("shop.read")
