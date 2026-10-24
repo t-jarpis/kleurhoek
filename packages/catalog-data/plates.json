@@ -105350,5 +105350,483 @@
         ]
       }
     }
+  },
+  {
+    "slug": "stippen-appelboom",
+    "order": 626,
+    "category": "natuur",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "verf"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 2,
+    "colorByNumber": {
+      "codes": "wg",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 99.6,
+          "y": 171.3,
+          "size": 8.7
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 96.8,
+          "y": 98.2,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Stippen: appels in de boom",
+        "printNote": "Geen verf in huis? Ronde stickers of een dikke stift werken ook.",
+        "steps": [
+          "Doe een beetje vingerverf op een bordje.",
+          "Druk met je wijsvinger een stip in elk rondje. Probeer precies in het rondje te blijven.",
+          "Rood voor de appels! Kleur daarna de boom en de stam."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "stippen-hart",
+    "order": 627,
+    "category": "feest",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "verf"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 1,
+    "colorByNumber": {
+      "codes": "-",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Stippen: hartje",
+        "printNote": "Geen verf in huis? Ronde stickers of een dikke stift werken ook.",
+        "steps": [
+          "Doe een beetje vingerverf op een bordje.",
+          "Druk met je wijsvinger een stip in elk rondje. Probeer precies in het rondje te blijven.",
+          "Een mooi kaartje voor iemand die je lief vindt!"
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "stippen-lieveheersbeestje",
+    "order": 628,
+    "category": "natuur",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "verf"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 2,
+    "colorByNumber": {
+      "codes": "xr",
+      "palette": [
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 96.7,
+          "y": 60.1,
+          "size": 12.6
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 96.5,
+          "y": 146,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Stippen: lieveheersbeestje",
+        "printNote": "Geen verf in huis? Ronde stickers of een dikke stift werken ook.",
+        "steps": [
+          "Doe een beetje vingerverf op een bordje.",
+          "Druk met je wijsvinger een stip in elk rondje. Probeer precies in het rondje te blijven.",
+          "Zwarte stippen op de rode vleugels."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "stippen-regenboog",
+    "order": 629,
+    "category": "natuur",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "verf"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 6,
+    "colorByNumber": {
+      "codes": "------",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Stippen: regenboog",
+        "printNote": "Geen verf in huis? Ronde stickers of een dikke stift werken ook.",
+        "steps": [
+          "Doe een beetje vingerverf op een bordje.",
+          "Druk met je wijsvinger een stip in elk rondje. Probeer precies in het rondje te blijven.",
+          "Elke boog een eigen kleur: rood, oranje en geel."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "stippen-rups",
+    "order": 630,
+    "category": "natuur",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "verf"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 2,
+    "colorByNumber": {
+      "codes": "lg",
+      "palette": [
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 59.5,
+          "y": 255.8,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 169.1,
+          "y": 158.1,
+          "size": 11.4
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Stippen: maak de rups af",
+        "printNote": "Geen verf in huis? Ronde stickers of een dikke stift werken ook.",
+        "steps": [
+          "Doe een beetje vingerverf op een bordje.",
+          "Druk met je wijsvinger een stip in elk rondje. Probeer precies in het rondje te blijven.",
+          "Elke stip is een stukje van de rups. Kies steeds een andere kleur!"
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "stippen-tellen-tot-5",
+    "order": 631,
+    "category": "leren",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "verf"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Stippen: tel en stip",
+        "printNote": "Geen verf in huis? Ronde stickers of een dikke stift werken ook.",
+        "steps": [
+          "Doe een beetje vingerverf op een bordje.",
+          "Druk met je wijsvinger een stip in elk rondje. Probeer precies in het rondje te blijven.",
+          "Tel hardop terwijl je stipt: één, twee, drie …"
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "stippen-verjaardagstaart",
+    "order": 632,
+    "category": "feest",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "verf"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 8,
+    "colorByNumber": {
+      "codes": "kkyoyoyo",
+      "palette": [
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 79,
+          "y": 186.8,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 70.8,
+          "y": 135.2,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 74.8,
+          "y": 95.5,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 74.8,
+          "y": 84.7,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 99.8,
+          "y": 95.5,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 99.8,
+          "y": 84.7,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 124.9,
+          "y": 95.5,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 124.9,
+          "y": 84.7,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Stippen: versier de taart",
+        "printNote": "Geen verf in huis? Ronde stickers of een dikke stift werken ook.",
+        "steps": [
+          "Doe een beetje vingerverf op een bordje.",
+          "Druk met je wijsvinger een stip in elk rondje. Probeer precies in het rondje te blijven.",
+          "Hoe oud word jij? Zet zoveel kaarsjes erbij als je jaren hebt."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "stippen-vis",
+    "order": 633,
+    "category": "zee",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "verf"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 1,
+    "colorByNumber": {
+      "codes": "-",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Stippen: schubben voor de vis",
+        "printNote": "Geen verf in huis? Ronde stickers of een dikke stift werken ook.",
+        "steps": [
+          "Doe een beetje vingerverf op een bordje.",
+          "Druk met je wijsvinger een stip in elk rondje. Probeer precies in het rondje te blijven.",
+          "Kleur daarna de staart en de vinnen."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
   }
 ]
