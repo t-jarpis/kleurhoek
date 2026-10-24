@@ -140623,5 +140623,7688 @@
         "countQuestion": null
       }
     }
+  },
+  {
+    "slug": "bloemenboeket-plakken",
+    "order": 776,
+    "category": "natuur",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "extra",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      }
+    ],
+    "regionCount": 72,
+    "colorByNumber": {
+      "codes": "mmmmmmygrgyyyyyyyyyyyywgbbbbbbygpgoooooooooooowgmmmmmmygrgyyyyyyyyyyyywg",
+      "palette": [
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 45.5,
+          "y": 57.7,
+          "size": 4.5
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 41.4,
+          "y": 63.8,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 33.9,
+          "y": 65.5,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 1,
+          "x": 27.6,
+          "y": 59.4,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 30.6,
+          "y": 51.6,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 1,
+          "x": 40.3,
+          "y": 51.1,
+          "size": 4.9
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 35.8,
+          "y": 57.8,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 42.9,
+          "y": 79.7,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 98.7,
+          "y": 60.8,
+          "size": 7.1
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 106.9,
+          "y": 79.7,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 174.1,
+          "y": 57.8,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 172.3,
+          "y": 61.7,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 169.3,
+          "y": 65.6,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 164.8,
+          "y": 67.2,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 2,
+          "x": 160,
+          "y": 66.6,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 2,
+          "x": 156.4,
+          "y": 63.3,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 2,
+          "x": 154.8,
+          "y": 58.8,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 2,
+          "x": 155.7,
+          "y": 54.3,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 2,
+          "x": 158.7,
+          "y": 50.4,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 2,
+          "x": 163.2,
+          "y": 48.8,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 2,
+          "x": 168,
+          "y": 49.4,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 2,
+          "x": 171.6,
+          "y": 53.3,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 5,
+          "x": 163.7,
+          "y": 57.7,
+          "size": 6.5
+        },
+        {
+          "region": 23,
+          "number": 3,
+          "x": 170.9,
+          "y": 79.7,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 6,
+          "x": 45.5,
+          "y": 123.7,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 6,
+          "x": 41.4,
+          "y": 129.8,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 6,
+          "x": 33.9,
+          "y": 131.5,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 6,
+          "x": 27.6,
+          "y": 125.4,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 6,
+          "x": 30.6,
+          "y": 117.6,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 6,
+          "x": 40.3,
+          "y": 117.1,
+          "size": 4.9
+        },
+        {
+          "region": 30,
+          "number": 2,
+          "x": 35.8,
+          "y": 123.8,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 3,
+          "x": 42.9,
+          "y": 145.6,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 7,
+          "x": 98.7,
+          "y": 126.8,
+          "size": 7.1
+        },
+        {
+          "region": 33,
+          "number": 3,
+          "x": 106.9,
+          "y": 145.6,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 8,
+          "x": 174.1,
+          "y": 123.8,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 8,
+          "x": 172.3,
+          "y": 127.7,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 8,
+          "x": 169.3,
+          "y": 131.6,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 8,
+          "x": 164.8,
+          "y": 133.2,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 8,
+          "x": 160,
+          "y": 132.6,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 8,
+          "x": 156.4,
+          "y": 129.3,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 8,
+          "x": 154.8,
+          "y": 124.8,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 8,
+          "x": 155.7,
+          "y": 120.3,
+          "size": 4.5
+        },
+        {
+          "region": 42,
+          "number": 8,
+          "x": 158.7,
+          "y": 116.4,
+          "size": 4.5
+        },
+        {
+          "region": 43,
+          "number": 8,
+          "x": 163.2,
+          "y": 114.8,
+          "size": 4.5
+        },
+        {
+          "region": 44,
+          "number": 8,
+          "x": 168,
+          "y": 115.4,
+          "size": 4.5
+        },
+        {
+          "region": 45,
+          "number": 8,
+          "x": 171.6,
+          "y": 119.3,
+          "size": 4.5
+        },
+        {
+          "region": 46,
+          "number": 5,
+          "x": 163.7,
+          "y": 123.7,
+          "size": 6.5
+        },
+        {
+          "region": 47,
+          "number": 3,
+          "x": 170.9,
+          "y": 145.6,
+          "size": 4.5
+        },
+        {
+          "region": 48,
+          "number": 1,
+          "x": 45.5,
+          "y": 189.7,
+          "size": 4.5
+        },
+        {
+          "region": 49,
+          "number": 1,
+          "x": 41.4,
+          "y": 195.8,
+          "size": 4.5
+        },
+        {
+          "region": 50,
+          "number": 1,
+          "x": 33.9,
+          "y": 197.5,
+          "size": 4.5
+        },
+        {
+          "region": 51,
+          "number": 1,
+          "x": 27.6,
+          "y": 191.4,
+          "size": 4.5
+        },
+        {
+          "region": 52,
+          "number": 1,
+          "x": 30.6,
+          "y": 183.6,
+          "size": 4.5
+        },
+        {
+          "region": 53,
+          "number": 1,
+          "x": 40.3,
+          "y": 183.1,
+          "size": 4.9
+        },
+        {
+          "region": 54,
+          "number": 2,
+          "x": 35.8,
+          "y": 189.8,
+          "size": 4.5
+        },
+        {
+          "region": 55,
+          "number": 3,
+          "x": 42.9,
+          "y": 211.6,
+          "size": 4.5
+        },
+        {
+          "region": 56,
+          "number": 4,
+          "x": 98.7,
+          "y": 192.8,
+          "size": 7.1
+        },
+        {
+          "region": 57,
+          "number": 3,
+          "x": 106.9,
+          "y": 211.6,
+          "size": 4.5
+        },
+        {
+          "region": 58,
+          "number": 2,
+          "x": 174.1,
+          "y": 189.8,
+          "size": 4.5
+        },
+        {
+          "region": 59,
+          "number": 2,
+          "x": 172.3,
+          "y": 193.7,
+          "size": 4.5
+        },
+        {
+          "region": 60,
+          "number": 2,
+          "x": 169.3,
+          "y": 197.6,
+          "size": 4.5
+        },
+        {
+          "region": 61,
+          "number": 2,
+          "x": 164.8,
+          "y": 199.2,
+          "size": 4.5
+        },
+        {
+          "region": 62,
+          "number": 2,
+          "x": 160,
+          "y": 198.6,
+          "size": 4.5
+        },
+        {
+          "region": 63,
+          "number": 2,
+          "x": 156.4,
+          "y": 195.3,
+          "size": 4.5
+        },
+        {
+          "region": 64,
+          "number": 2,
+          "x": 154.8,
+          "y": 190.8,
+          "size": 4.5
+        },
+        {
+          "region": 65,
+          "number": 2,
+          "x": 155.4,
+          "y": 186,
+          "size": 4.5
+        },
+        {
+          "region": 66,
+          "number": 2,
+          "x": 158.7,
+          "y": 182.4,
+          "size": 4.5
+        },
+        {
+          "region": 67,
+          "number": 2,
+          "x": 163.2,
+          "y": 180.8,
+          "size": 4.5
+        },
+        {
+          "region": 68,
+          "number": 2,
+          "x": 167.7,
+          "y": 181.7,
+          "size": 4.5
+        },
+        {
+          "region": 69,
+          "number": 2,
+          "x": 171.6,
+          "y": 185.3,
+          "size": 4.5
+        },
+        {
+          "region": 70,
+          "number": 5,
+          "x": 163.7,
+          "y": 189.7,
+          "size": 6.5
+        },
+        {
+          "region": 71,
+          "number": 3,
+          "x": 170.9,
+          "y": 211.6,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Knippen en plakken: een bloemenboeket",
+        "steps": [
+          "Kleur de bloemen in vrolijke kleuren.",
+          "Knip ze uit langs de streepjeslijn.",
+          "Plak ze met de steeltjes naar beneden boven de vaas op blad 2. Een mooi cadeau voor Moederdag, Vaderdag of een verjaardag!"
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Mijn boeket"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "fruitgezicht-plakken",
+    "order": 777,
+    "category": "eten",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "extra",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      }
+    ],
+    "regionCount": 11,
+    "colorByNumber": {
+      "codes": "ooyrppplggy",
+      "palette": [
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 39.4,
+          "y": 59.4,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 99.4,
+          "y": 60.6,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 156.7,
+          "y": 64,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 39.5,
+          "y": 123.6,
+          "size": 9.8
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 92.9,
+          "y": 125.1,
+          "size": 6.3
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 107.1,
+          "y": 125.1,
+          "size": 6.3
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 99.7,
+          "y": 114.7,
+          "size": 7.6
+        },
+        {
+          "region": 7,
+          "number": 5,
+          "x": 151,
+          "y": 122.2,
+          "size": 6
+        },
+        {
+          "region": 8,
+          "number": 6,
+          "x": 31.8,
+          "y": 187.5,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 6,
+          "x": 47.8,
+          "y": 187.5,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 103.1,
+          "y": 187.4,
+          "size": 6.2
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Knippen en plakken: een gezicht van fruit",
+        "steps": [
+          "Kleur het fruit in en knip de kaartjes uit, of knip precies langs het fruit.",
+          "Leg het fruit op het bord op blad 2: wat worden de ogen, de neus, de mond en het haar?",
+          "Ben je tevreden? Plak alles vast. Smakelijk!"
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Plak je fruitgezicht"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "getallentrein-plakken",
+    "order": 778,
+    "category": "leren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "extra",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      }
+    ],
+    "regionCount": 30,
+    "colorByNumber": {
+      "codes": "rxxoxxoxxgxxyxxbxxbxxrxxyxxgxx",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 26.3,
+          "y": 48.5,
+          "size": 12
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 21.8,
+          "y": 63.8,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 37.8,
+          "y": 63.8,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 72.3,
+          "y": 48.5,
+          "size": 12
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 67.8,
+          "y": 63.8,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 83.8,
+          "y": 63.8,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 118.3,
+          "y": 48.5,
+          "size": 12
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 113.8,
+          "y": 63.8,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 129.8,
+          "y": 63.8,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 164.3,
+          "y": 48.5,
+          "size": 12
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 159.8,
+          "y": 63.8,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 175.8,
+          "y": 63.8,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 26.3,
+          "y": 98.4,
+          "size": 12
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 21.8,
+          "y": 113.8,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 2,
+          "x": 37.8,
+          "y": 113.8,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 6,
+          "x": 72.3,
+          "y": 98.4,
+          "size": 12
+        },
+        {
+          "region": 16,
+          "number": 2,
+          "x": 67.8,
+          "y": 113.8,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 2,
+          "x": 83.8,
+          "y": 113.8,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 6,
+          "x": 118.3,
+          "y": 98.4,
+          "size": 12
+        },
+        {
+          "region": 19,
+          "number": 2,
+          "x": 113.8,
+          "y": 113.8,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 2,
+          "x": 129.8,
+          "y": 113.8,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 1,
+          "x": 164.3,
+          "y": 98.4,
+          "size": 12
+        },
+        {
+          "region": 22,
+          "number": 2,
+          "x": 159.8,
+          "y": 113.8,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 2,
+          "x": 175.8,
+          "y": 113.8,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 5,
+          "x": 26.3,
+          "y": 148.4,
+          "size": 12
+        },
+        {
+          "region": 25,
+          "number": 2,
+          "x": 21.8,
+          "y": 163.8,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 2,
+          "x": 37.8,
+          "y": 163.8,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 4,
+          "x": 72.3,
+          "y": 148.4,
+          "size": 12
+        },
+        {
+          "region": 28,
+          "number": 2,
+          "x": 67.8,
+          "y": 163.8,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 2,
+          "x": 83.8,
+          "y": 163.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Knippen en plakken: de getallentrein",
+        "steps": [
+          "Kleur de wagons en knip ze uit.",
+          "Zoek wagon 1 en plak hem achter de locomotief. Dan 2, dan 3 … tot 10.",
+          "Lees de getallen hardop als je klaar bent."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Plak de trein op volgorde"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "groot-middel-klein-beren",
+    "order": 779,
+    "category": "vormen",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "extra",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      }
+    ],
+    "regionCount": 30,
+    "colorByNumber": {
+      "codes": "wwwwxrrrrbwwwwxrrrrbwwwwxrrrrb",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 37.8,
+          "y": 74.3,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 39.4,
+          "y": 45.1,
+          "size": 5.5
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 30.6,
+          "y": 42,
+          "size": 5
+        },
+        {
+          "region": 3,
+          "number": 1,
+          "x": 49,
+          "y": 42,
+          "size": 5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 39.9,
+          "y": 57,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 86.7,
+          "y": 35.3,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 87.9,
+          "y": 56.4,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 87.2,
+          "y": 63.2,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 112.5,
+          "y": 63.2,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 156,
+          "y": 67.6,
+          "size": 8.8
+        },
+        {
+          "region": 10,
+          "number": 1,
+          "x": 38.3,
+          "y": 139.5,
+          "size": 10.1
+        },
+        {
+          "region": 11,
+          "number": 1,
+          "x": 39.6,
+          "y": 117.9,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 1,
+          "x": 33,
+          "y": 115.6,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 46.6,
+          "y": 115.6,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 2,
+          "x": 39.9,
+          "y": 126.7,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 3,
+          "x": 90.1,
+          "y": 111.7,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 3,
+          "x": 91.1,
+          "y": 127.3,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 3,
+          "x": 90.6,
+          "y": 132.3,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 3,
+          "x": 109.3,
+          "y": 132.3,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 4,
+          "x": 157,
+          "y": 135.7,
+          "size": 6.5
+        },
+        {
+          "region": 20,
+          "number": 1,
+          "x": 38.9,
+          "y": 204.8,
+          "size": 6.6
+        },
+        {
+          "region": 21,
+          "number": 1,
+          "x": 39.7,
+          "y": 190.8,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 1,
+          "x": 35.5,
+          "y": 189.3,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 1,
+          "x": 44.3,
+          "y": 189.3,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 2,
+          "x": 39.9,
+          "y": 196.5,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 3,
+          "x": 93.6,
+          "y": 188.2,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 3,
+          "x": 94.2,
+          "y": 198.3,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 3,
+          "x": 93.8,
+          "y": 201.5,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 3,
+          "x": 106,
+          "y": 201.5,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 4,
+          "x": 158.1,
+          "y": 203.7,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Knippen en plakken: groot, middel en klein",
+        "steps": [
+          "Kleur de beren, stoelen en kommen in. Een volwassene helpt met knippen.",
+          "Zoek de grootste beer, de grootste stoel en de grootste kom en plak ze bij 'groot'.",
+          "Doe hetzelfde met middel en klein."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Wie hoort waar?"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "bedankkaart-buren",
+    "order": 780,
+    "category": "thuis",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 33,
+    "colorByNumber": {
+      "codes": "ryg--wwmowbr--wwmorgpppppypppppyy",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 54.3,
+          "y": 190.3,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 54.6,
+          "y": 214.3,
+          "size": 12.9
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 54.8,
+          "y": 234.1,
+          "size": 7.8
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 33.8,
+          "y": 223.4,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 67.8,
+          "y": 223.4,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 5,
+          "x": 38.9,
+          "y": 218.9,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 6,
+          "x": 72.9,
+          "y": 218.9,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 142.3,
+          "y": 190.3,
+          "size": 13
+        },
+        {
+          "region": 10,
+          "number": 7,
+          "x": 142.6,
+          "y": 214.3,
+          "size": 12.9
+        },
+        {
+          "region": 11,
+          "number": 1,
+          "x": 142.8,
+          "y": 234.1,
+          "size": 7.8
+        },
+        {
+          "region": 14,
+          "number": 4,
+          "x": 121.8,
+          "y": 223.4,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 4,
+          "x": 155.8,
+          "y": 223.4,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 5,
+          "x": 126.9,
+          "y": 218.9,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 6,
+          "x": 160.9,
+          "y": 218.9,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 1,
+          "x": 99.6,
+          "y": 192.1,
+          "size": 6
+        },
+        {
+          "region": 19,
+          "number": 3,
+          "x": 99.3,
+          "y": 245.9,
+          "size": 7.7
+        },
+        {
+          "region": 20,
+          "number": 8,
+          "x": 29.9,
+          "y": 239.4,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 8,
+          "x": 33.2,
+          "y": 241.8,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 8,
+          "x": 32.1,
+          "y": 245.7,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 8,
+          "x": 28.1,
+          "y": 245.9,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 8,
+          "x": 26.8,
+          "y": 241.8,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 2,
+          "x": 29.9,
+          "y": 242.9,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 8,
+          "x": 169.9,
+          "y": 239.4,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 8,
+          "x": 173.2,
+          "y": 241.8,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 8,
+          "x": 172.1,
+          "y": 245.7,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 8,
+          "x": 168.1,
+          "y": 245.9,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 8,
+          "x": 166.8,
+          "y": 241.8,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 2,
+          "x": 169.9,
+          "y": 242.9,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 2,
+          "x": 169.6,
+          "y": 180.6,
+          "size": 7.6
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bedankkaart voor de buren",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin waarvoor je de buren wilt bedanken, bijvoorbeeld voor het water geven van de plantjes of het oppassen.",
+          "Doe de kaart samen in de brievenbus bij de buren."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "beterschapskaart-pleisterbeer",
+    "order": 781,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 28,
+    "colorByNumber": {
+      "codes": "bwkwkwkxmmyoyotmmmmmwwyrrrrr",
+      "palette": [
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 65.5,
+          "y": 214,
+          "size": 12.6
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 72.8,
+          "y": 180.2,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 77.8,
+          "y": 182.8,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 127.2,
+          "y": 180.2,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 121.8,
+          "y": 182.8,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 93.5,
+          "y": 188.7,
+          "size": 12.3
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 94.5,
+          "y": 216.1,
+          "size": 4.7
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 99.8,
+          "y": 210.9,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 5,
+          "x": 82.8,
+          "y": 210.8,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 5,
+          "x": 116.8,
+          "y": 210.8,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 6,
+          "x": 105.7,
+          "y": 184.2,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 7,
+          "x": 111,
+          "y": 188,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 6,
+          "x": 107.2,
+          "y": 193.3,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 7,
+          "x": 110.7,
+          "y": 188.3,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 8,
+          "x": 69.2,
+          "y": 244.1,
+          "size": 12.5
+        },
+        {
+          "region": 15,
+          "number": 5,
+          "x": 59.9,
+          "y": 245.4,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 5,
+          "x": 79.9,
+          "y": 248.4,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 5,
+          "x": 99.9,
+          "y": 245.4,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 5,
+          "x": 119.9,
+          "y": 248.4,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 5,
+          "x": 139.9,
+          "y": 245.4,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 2,
+          "x": 79.6,
+          "y": 228.7,
+          "size": 7.1
+        },
+        {
+          "region": 21,
+          "number": 2,
+          "x": 119.6,
+          "y": 228.7,
+          "size": 7.1
+        },
+        {
+          "region": 22,
+          "number": 6,
+          "x": 168.6,
+          "y": 241.1,
+          "size": 9.3
+        },
+        {
+          "region": 23,
+          "number": 9,
+          "x": 29.8,
+          "y": 185.7,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 9,
+          "x": 167.8,
+          "y": 185.7,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 9,
+          "x": 29.8,
+          "y": 235.7,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 9,
+          "x": 25.8,
+          "y": 211.7,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 9,
+          "x": 171.8,
+          "y": 211.7,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Beterschapskaart met pleisterbeer",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin een lief berichtje en geef of stuur de kaart aan iemand die ziek is."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "bladwijzer-hoekjes-monsters",
+    "order": 782,
+    "category": "thuis",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      }
+    ],
+    "regionCount": 55,
+    "colorByNumber": {
+      "codes": "z---------------zlr-------xb---------------bpr--------m",
+      "palette": [
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 71.9,
+          "y": 87.3,
+          "size": 8.5
+        },
+        {
+          "region": 16,
+          "number": 1,
+          "x": 50,
+          "y": 116.3,
+          "size": 4.9
+        },
+        {
+          "region": 17,
+          "number": 2,
+          "x": 128.1,
+          "y": 103.8,
+          "size": 9.5
+        },
+        {
+          "region": 18,
+          "number": 3,
+          "x": 120,
+          "y": 77,
+          "size": 5.8
+        },
+        {
+          "region": 26,
+          "number": 4,
+          "x": 115.3,
+          "y": 90.3,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 5,
+          "x": 71.9,
+          "y": 207.3,
+          "size": 8.5
+        },
+        {
+          "region": 43,
+          "number": 5,
+          "x": 50,
+          "y": 236.3,
+          "size": 4.9
+        },
+        {
+          "region": 44,
+          "number": 6,
+          "x": 118.2,
+          "y": 223.8,
+          "size": 9.5
+        },
+        {
+          "region": 45,
+          "number": 3,
+          "x": 125,
+          "y": 204.5,
+          "size": 5.8
+        },
+        {
+          "region": 54,
+          "number": 7,
+          "x": 110.8,
+          "y": 216.9,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bladwijzer-hoekjes: twee hongerige monsters",
+        "steps": [
+          "Kleur de monsters en de stippeltjes in.",
+          "Knip elk hoekje uit langs de streepjeslijn. Het smalle flapje onderaan blijft vast.",
+          "Vouw de linker driehoek over de middelste stippellijn naar achteren, achter het monster.",
+          "Smeer lijm op het grijze strookje van het monster en vouw het flapje van achteren naar voren eroverheen.",
+          "Laat de lijm drogen. Schuif het hoekje over de hoek van een bladzijde: het monster eet je bladzijde op!"
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "boomhangers-winterdieren",
+    "order": 783,
+    "category": "dieren",
+    "age": "4-6",
+    "world": null,
+    "holiday": "kerst",
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 25,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "touw"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 51,
+    "colorByNumber": {
+      "codes": "b-oon-nnorrk-----xt--y-wy--ol-oxx-xgt-wkxr--m-wwwkr",
+      "palette": [
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 46.9,
+          "y": 38.1,
+          "size": 8.6
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 47.3,
+          "y": 88.9,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 64.3,
+          "y": 89.1,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 53.9,
+          "y": 60.3,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 39.8,
+          "y": 77.7,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 72.2,
+          "y": 77.7,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 55.8,
+          "y": 69.5,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 50,
+          "y": 77.7,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 4,
+          "x": 61.9,
+          "y": 80,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 5,
+          "x": 134.9,
+          "y": 38.1,
+          "size": 8.6
+        },
+        {
+          "region": 17,
+          "number": 6,
+          "x": 143.9,
+          "y": 78.9,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 7,
+          "x": 144.9,
+          "y": 50.2,
+          "size": 9.6
+        },
+        {
+          "region": 21,
+          "number": 8,
+          "x": 54.2,
+          "y": 120.1,
+          "size": 8.6
+        },
+        {
+          "region": 23,
+          "number": 9,
+          "x": 45.9,
+          "y": 154,
+          "size": 4.6
+        },
+        {
+          "region": 24,
+          "number": 8,
+          "x": 55.6,
+          "y": 161.4,
+          "size": 8.7
+        },
+        {
+          "region": 27,
+          "number": 2,
+          "x": 55.9,
+          "y": 152.3,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 10,
+          "x": 142.2,
+          "y": 120.1,
+          "size": 8.6
+        },
+        {
+          "region": 30,
+          "number": 2,
+          "x": 143.1,
+          "y": 154.9,
+          "size": 7.2
+        },
+        {
+          "region": 31,
+          "number": 6,
+          "x": 130.9,
+          "y": 145.7,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 6,
+          "x": 157.1,
+          "y": 145.7,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 6,
+          "x": 143.9,
+          "y": 167.9,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 11,
+          "x": 133.5,
+          "y": 175.3,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 7,
+          "x": 46.9,
+          "y": 202.1,
+          "size": 8.6
+        },
+        {
+          "region": 38,
+          "number": 9,
+          "x": 52.9,
+          "y": 241.2,
+          "size": 8.8
+        },
+        {
+          "region": 39,
+          "number": 5,
+          "x": 66.1,
+          "y": 243.8,
+          "size": 5.6
+        },
+        {
+          "region": 40,
+          "number": 6,
+          "x": 81.9,
+          "y": 246.9,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 4,
+          "x": 67,
+          "y": 230,
+          "size": 4.9
+        },
+        {
+          "region": 44,
+          "number": 12,
+          "x": 134.9,
+          "y": 202.1,
+          "size": 8.6
+        },
+        {
+          "region": 46,
+          "number": 9,
+          "x": 129.7,
+          "y": 230.3,
+          "size": 4.5
+        },
+        {
+          "region": 47,
+          "number": 9,
+          "x": 158.3,
+          "y": 230.3,
+          "size": 4.5
+        },
+        {
+          "region": 48,
+          "number": 9,
+          "x": 143.4,
+          "y": 228.3,
+          "size": 6
+        },
+        {
+          "region": 49,
+          "number": 5,
+          "x": 140.9,
+          "y": 249.7,
+          "size": 4.5
+        },
+        {
+          "region": 50,
+          "number": 4,
+          "x": 143.8,
+          "y": 243.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Boomhangers met winterdieren",
+        "printNote": "Op stevig papier (160 gram) blijven de hangers mooi plat.",
+        "steps": [
+          "Kleur de dieren en de randjes in.",
+          "Knip de hangers uit langs de golfjesrand.",
+          "Prik een gaatje in het kleine rondje bovenin (vraag een volwassene om hulp).",
+          "Rijg er een touwtje of lintje door en hang ze in de kerstboom, aan een tak of voor het raam."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "cadeautasje",
+    "order": 784,
+    "category": "feest",
+    "age": "9+",
+    "world": null,
+    "holiday": "verjaardag",
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 35,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "difficulty": 3,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier"
+      }
+    ],
+    "regionCount": 28,
+    "colorByNumber": {
+      "codes": "kykyryyyyyyyyoyoyobbbbbbbbbb",
+      "palette": [
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 47.2,
+          "y": 117.7,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 84.8,
+          "y": 58.3,
+          "size": 12.1
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 140.9,
+          "y": 47.5,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 172.8,
+          "y": 58.3,
+          "size": 12.1
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 35.8,
+          "y": 83.7,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 18.9,
+          "y": 45.9,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 54.9,
+          "y": 45.9,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 18.9,
+          "y": 123.9,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 54.9,
+          "y": 125.9,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 36.9,
+          "y": 131.9,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 29.1,
+          "y": 53.9,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 44.9,
+          "y": 53.9,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 124.4,
+          "y": 57.3,
+          "size": 6.1
+        },
+        {
+          "region": 13,
+          "number": 4,
+          "x": 109.6,
+          "y": 87.6,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 2,
+          "x": 139.6,
+          "y": 89.6,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 4,
+          "x": 124.6,
+          "y": 113.6,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 2,
+          "x": 110.8,
+          "y": 132.2,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 4,
+          "x": 138.8,
+          "y": 132.2,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 5,
+          "x": 86.8,
+          "y": 47.8,
+          "size": 4.9
+        },
+        {
+          "region": 19,
+          "number": 5,
+          "x": 74.8,
+          "y": 67.8,
+          "size": 4.9
+        },
+        {
+          "region": 20,
+          "number": 5,
+          "x": 86.8,
+          "y": 87.8,
+          "size": 4.9
+        },
+        {
+          "region": 21,
+          "number": 5,
+          "x": 74.8,
+          "y": 107.8,
+          "size": 4.9
+        },
+        {
+          "region": 22,
+          "number": 5,
+          "x": 86.8,
+          "y": 127.8,
+          "size": 4.9
+        },
+        {
+          "region": 23,
+          "number": 5,
+          "x": 174.8,
+          "y": 47.8,
+          "size": 4.9
+        },
+        {
+          "region": 24,
+          "number": 5,
+          "x": 162.8,
+          "y": 67.8,
+          "size": 4.9
+        },
+        {
+          "region": 25,
+          "number": 5,
+          "x": 174.8,
+          "y": 87.8,
+          "size": 4.9
+        },
+        {
+          "region": 26,
+          "number": 5,
+          "x": 162.8,
+          "y": 107.8,
+          "size": 4.9
+        },
+        {
+          "region": 27,
+          "number": 5,
+          "x": 174.8,
+          "y": 127.8,
+          "size": 4.9
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bouwplaat: cadeautasje met hengsels",
+        "printNote": "Print op stevig papier (160 gram), dan blijft het tasje goed staan.",
+        "steps": [
+          "Kleur het tasje, de hengsels en het kaartje in. Schrijf op het kaartje voor wie het cadeau is.",
+          "Knip alles uit langs de streepjeslijnen. De grijze lijmflappen blijven aan het tasje vast.",
+          "Kras de stippellijnen met een liniaal en een lege balpen en vouw ze allemaal naar binnen.",
+          "Smeer lijm op de lange lijmflap rechts en plak hem aan de binnenkant van de rand van de voorkant (het vlak met het hart). Nu heb je een koker.",
+          "Bodem: vouw eerst de twee kleine zijflapjes naar binnen, dan de flap onder het hart. Smeer lijm op die flap (de grijze kant) en vouw de flap onder de achterkant eroverheen. Druk goed aan.",
+          "Plak de uiteinden van elk hengsel aan de binnenkant van de voor- en achterkant, en hang het kaartje met een touwtje aan een hengsel."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "carnavalskaart-masker",
+    "order": 785,
+    "category": "feest",
+    "age": "6-9",
+    "world": null,
+    "holiday": "carnaval",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 17,
+    "colorByNumber": {
+      "codes": "tpmyr--yyyyyyyyyy",
+      "palette": [
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 75.6,
+          "y": 180.7,
+          "size": 6.2
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 87.4,
+          "y": 174.9,
+          "size": 5.2
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 110.8,
+          "y": 180.5,
+          "size": 5.2
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 124.4,
+          "y": 180.7,
+          "size": 6.2
+        },
+        {
+          "region": 4,
+          "number": 5,
+          "x": 66.9,
+          "y": 201.1,
+          "size": 8.8
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 99.8,
+          "y": 204.6,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 83.9,
+          "y": 220.9,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 73.9,
+          "y": 218.9,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 4,
+          "x": 63.9,
+          "y": 218.9,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 4,
+          "x": 115.9,
+          "y": 220.9,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 125.9,
+          "y": 218.9,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 4,
+          "x": 135.9,
+          "y": 218.9,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 4,
+          "x": 149.8,
+          "y": 183.2,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 4,
+          "x": 39.8,
+          "y": 243.2,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 4,
+          "x": 171.8,
+          "y": 201.2,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Carnavalskaart met masker",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Kleur het masker zo bont als je wilt.",
+          "Schrijf binnenin als wat jij je gaat verkleden."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "chinees-nieuwjaarskaart-lantaarns",
+    "order": 786,
+    "category": "wereld",
+    "age": "6-9",
+    "world": null,
+    "holiday": "chinees",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 40,
+    "colorByNumber": {
+      "codes": "kkkkkykkkkkykkkkkykkkkkyyryyryyoybogogog",
+      "palette": [
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 33.9,
+          "y": 180.2,
+          "size": 4.5
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 37.3,
+          "y": 182.7,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 36.2,
+          "y": 186.9,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 1,
+          "x": 31.8,
+          "y": 186.9,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 30.7,
+          "y": 182.7,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 33.9,
+          "y": 183.9,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 1,
+          "x": 64.9,
+          "y": 176.2,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 1,
+          "x": 68.3,
+          "y": 178.7,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 1,
+          "x": 67.2,
+          "y": 182.9,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 1,
+          "x": 62.8,
+          "y": 182.9,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 1,
+          "x": 61.7,
+          "y": 178.7,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 64.9,
+          "y": 179.9,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 1,
+          "x": 85.9,
+          "y": 191.2,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 89.3,
+          "y": 193.7,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 1,
+          "x": 88.2,
+          "y": 197.9,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 1,
+          "x": 83.8,
+          "y": 197.9,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 1,
+          "x": 82.7,
+          "y": 193.7,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 2,
+          "x": 85.9,
+          "y": 194.9,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 1,
+          "x": 102.9,
+          "y": 185.2,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 1,
+          "x": 106.3,
+          "y": 187.7,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 1,
+          "x": 105.2,
+          "y": 191.9,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 1,
+          "x": 100.8,
+          "y": 191.9,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 1,
+          "x": 99.7,
+          "y": 187.7,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 2,
+          "x": 102.9,
+          "y": 188.9,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 2,
+          "x": 126.8,
+          "y": 190.9,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 3,
+          "x": 131.1,
+          "y": 206.3,
+          "size": 13
+        },
+        {
+          "region": 26,
+          "number": 2,
+          "x": 127.4,
+          "y": 221.9,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 2,
+          "x": 161.8,
+          "y": 186.5,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 3,
+          "x": 165.3,
+          "y": 198.8,
+          "size": 13
+        },
+        {
+          "region": 29,
+          "number": 2,
+          "x": 162.4,
+          "y": 211.3,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 2,
+          "x": 43.3,
+          "y": 206.7,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 4,
+          "x": 47.2,
+          "y": 220.5,
+          "size": 13
+        },
+        {
+          "region": 32,
+          "number": 2,
+          "x": 43.9,
+          "y": 234.6,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 5,
+          "x": 108.7,
+          "y": 248.8,
+          "size": 5.5
+        },
+        {
+          "region": 34,
+          "number": 4,
+          "x": 97.6,
+          "y": 241.2,
+          "size": 7.8
+        },
+        {
+          "region": 35,
+          "number": 6,
+          "x": 100.9,
+          "y": 230.5,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 4,
+          "x": 122.4,
+          "y": 241.2,
+          "size": 7.8
+        },
+        {
+          "region": 37,
+          "number": 6,
+          "x": 124.9,
+          "y": 230.8,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 4,
+          "x": 109.6,
+          "y": 233.4,
+          "size": 8.2
+        },
+        {
+          "region": 39,
+          "number": 6,
+          "x": 112.9,
+          "y": 223.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Kaart voor Chinees Nieuwjaar met lantaarns",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Chinees Nieuwjaar (het Lentefeest) valt elk jaar op een andere dag in januari of februari.",
+          "Rood en goud zijn feestkleuren: kleur de lantaarns rood en de randjes geel.",
+          "Schrijf binnenin een wens voor het nieuwe jaar."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "deurhanger-slaap-of-wakker",
+    "order": 787,
+    "category": "thuis",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 25,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier"
+      }
+    ],
+    "regionCount": 16,
+    "colorByNumber": {
+      "codes": "ny-yyyyyyby---rr",
+      "palette": [
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 54.1,
+          "y": 69.8,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 31.9,
+          "y": 125.5,
+          "size": 5.8
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 31.8,
+          "y": 102.2,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 81.8,
+          "y": 154.2,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 33.8,
+          "y": 214.2,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 77.8,
+          "y": 222.2,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 55.8,
+          "y": 240.2,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 31.8,
+          "y": 158.2,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 142.1,
+          "y": 69.8,
+          "size": 13
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 143.1,
+          "y": 140.1,
+          "size": 11.4
+        },
+        {
+          "region": 14,
+          "number": 4,
+          "x": 143.7,
+          "y": 211.9,
+          "size": 6.3
+        },
+        {
+          "region": 15,
+          "number": 4,
+          "x": 143.9,
+          "y": 223.5,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Deurhanger: ik slaap of ik ben wakker",
+        "printNote": "Op stevig papier (160 gram) blijft hij mooi hangen.",
+        "steps": [
+          "Kleur beide kanten in: de nachtkant donker met een gele maan, de dagkant licht met een zon.",
+          "Knip ze uit langs de streepjeslijn, ook het rondje bovenin en het sneetje eronder.",
+          "Plak ze met de achterkanten precies op elkaar, zodat de rondjes over elkaar vallen.",
+          "Schuif het rondje over de deurklink. 's Avonds draai je hem naar de maan, 's ochtends naar de zon."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "enveloppe-vouwen",
+    "order": 788,
+    "category": "feest",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "vouwblad",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      }
+    ],
+    "regionCount": 14,
+    "colorByNumber": {
+      "codes": "bb-ryyymmmmmmm",
+      "palette": [
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 96.2,
+          "y": 39.7,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 65.8,
+          "y": 224.9,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 164.2,
+          "y": 99.9,
+          "size": 4.7
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 29.8,
+          "y": 185.8,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 43.8,
+          "y": 191.8,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 169.8,
+          "y": 189.8,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 133.8,
+          "y": 33.3,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 65.8,
+          "y": 33.3,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 51.8,
+          "y": 231.4,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 4,
+          "x": 75.8,
+          "y": 239.4,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 4,
+          "x": 99.8,
+          "y": 231.4,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 124.2,
+          "y": 239.4,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 4,
+          "x": 147.8,
+          "y": 231.4,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Enveloppe om te vouwen (past om een gevouwen kaart)",
+        "printNote": "Print de enveloppe op gewoon papier en met dezelfde printerinstellingen als je kaart: dan past een gevouwen Kleurhoek-kaart er precies in.",
+        "steps": [
+          "Schrijf op de voorkant voor wie de post is en teken een eigen postzegel. Kleur de flappen in.",
+          "Knip de enveloppe uit langs de streepjeslijn.",
+          "Vouw alle stippellijnen naar achteren, zodat de tekening aan de buitenkant blijft. Vouw ze daarna weer open.",
+          "Vouw de twee smalle zijflapjes naar achteren en smeer lijm op de grijze vlakjes.",
+          "Vouw de onderflap omhoog over de zijflapjes en druk hem goed aan.",
+          "Stop je kaart erin. Smeer lijm op de grijze strook van de onderflap en vouw de bovenflap eroverheen. Klaar om te geven!"
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "geboortekaart-ooievaar",
+    "order": 789,
+    "category": "dieren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 17,
+    "colorByNumber": {
+      "codes": "----x--o-bkmyyyyy",
+      "palette": [
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 4,
+          "number": 1,
+          "x": 155.6,
+          "y": 211.6,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 49,
+          "y": 176.4,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 31.7,
+          "y": 219.7,
+          "size": 5.2
+        },
+        {
+          "region": 10,
+          "number": 4,
+          "x": 39.7,
+          "y": 212.7,
+          "size": 6.5
+        },
+        {
+          "region": 11,
+          "number": 5,
+          "x": 39.8,
+          "y": 224.5,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 6,
+          "x": 149.8,
+          "y": 240.8,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 6,
+          "x": 175.8,
+          "y": 218.8,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 6,
+          "x": 123.8,
+          "y": 248.8,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 6,
+          "x": 175.8,
+          "y": 248.8,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 6,
+          "x": 139.8,
+          "y": 176.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Kaart voor een nieuwe baby: ooievaar",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin de naam van de baby en een lieve wens voor het nieuwe gezin."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "herfstslinger-bladeren",
+    "order": 790,
+    "category": "natuur",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 25,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "touw"
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 6,
+    "colorByNumber": {
+      "codes": "wrgoyy",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 54.8,
+          "y": 73.9,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 139.9,
+          "y": 68.9,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 54.6,
+          "y": 160.8,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 143.2,
+          "y": 147.5,
+          "size": 13
+        },
+        {
+          "region": 4,
+          "number": 5,
+          "x": 53.6,
+          "y": 223.9,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 5,
+          "x": 143.1,
+          "y": 218.6,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Herfstslinger met zes soorten bladeren",
+        "steps": [
+          "Kleur de bladeren in herfstkleuren: rood, oranje, geel, bruin en een beetje groen.",
+          "Knip ze uit langs de streepjeslijn rond elk blad.",
+          "Prik de twee gaatjes bovenin elk blad door (vraag een volwassene om hulp).",
+          "Rijg een touw van voren door het ene gaatje en van achteren door het andere. Schuif de bladeren op een rij en hang de slinger op.",
+          "Weet je welke bladeren het zijn? Eik, esdoorn, kastanje, beuk, ginkgo en berk. Zoek ze buiten!"
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "holikaart-kleurspatten",
+    "order": 791,
+    "category": "wereld",
+    "age": "4-6",
+    "world": null,
+    "holiday": "holi",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 17,
+    "colorByNumber": {
+      "codes": "mytlpomtyyoplwrwb",
+      "palette": [
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 41.6,
+          "y": 196.6,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 98.7,
+          "y": 203.1,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 157,
+          "y": 194.8,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 64.1,
+          "y": 238,
+          "size": 12
+        },
+        {
+          "region": 4,
+          "number": 5,
+          "x": 138.3,
+          "y": 239,
+          "size": 12.2
+        },
+        {
+          "region": 5,
+          "number": 6,
+          "x": 100.3,
+          "y": 244.8,
+          "size": 7.5
+        },
+        {
+          "region": 6,
+          "number": 1,
+          "x": 21.9,
+          "y": 218.9,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 177.9,
+          "y": 220.9,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 77.9,
+          "y": 180.9,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 123.9,
+          "y": 178.9,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 6,
+          "x": 99.9,
+          "y": 226.9,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 5,
+          "x": 23.9,
+          "y": 178.9,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 175.9,
+          "y": 176.9,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 7,
+          "x": 29.5,
+          "y": 249.3,
+          "size": 4.9
+        },
+        {
+          "region": 14,
+          "number": 8,
+          "x": 30,
+          "y": 243.1,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 7,
+          "x": 165.5,
+          "y": 249.3,
+          "size": 4.9
+        },
+        {
+          "region": 16,
+          "number": 9,
+          "x": 166,
+          "y": 243.1,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Holikaart met kleurspatten",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Met Holi gooien mensen in India en over de hele wereld met gekleurd poeder en vieren ze de lente.",
+          "Kleur elke spat in een andere felle kleur. Je mag ook stiften of verf gebruiken.",
+          "Schrijf binnenin een kleurrijke wens."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "mini-wenskaartjes",
+    "order": 792,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 33,
+    "colorByNumber": {
+      "codes": "rryybbyyryyyyyo-----yyyggggyyykyy",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 43.8,
+          "y": 121.2,
+          "size": 5.4
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 43.9,
+          "y": 131.1,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 55.8,
+          "y": 116.2,
+          "size": 5.4
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 55.9,
+          "y": 126.1,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 67.8,
+          "y": 121.2,
+          "size": 5.4
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 67.9,
+          "y": 131.1,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 22.8,
+          "y": 139.1,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 88.8,
+          "y": 139.1,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 1,
+          "x": 139.8,
+          "y": 131.9,
+          "size": 7.7
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 137.9,
+          "y": 117.5,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 141.2,
+          "y": 119.8,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 140.1,
+          "y": 123.7,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 136.1,
+          "y": 124,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 134.8,
+          "y": 119.8,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 4,
+          "x": 137.9,
+          "y": 120.9,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 2,
+          "x": 149.9,
+          "y": 126.9,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 2,
+          "x": 110.8,
+          "y": 139.1,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 2,
+          "x": 176.8,
+          "y": 139.1,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 5,
+          "x": 55.7,
+          "y": 238,
+          "size": 5.3
+        },
+        {
+          "region": 24,
+          "number": 5,
+          "x": 63,
+          "y": 244.7,
+          "size": 5.3
+        },
+        {
+          "region": 25,
+          "number": 5,
+          "x": 55.7,
+          "y": 252,
+          "size": 5.3
+        },
+        {
+          "region": 26,
+          "number": 5,
+          "x": 49,
+          "y": 244.7,
+          "size": 5.3
+        },
+        {
+          "region": 27,
+          "number": 2,
+          "x": 22.8,
+          "y": 261.1,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 2,
+          "x": 88.8,
+          "y": 261.1,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 2,
+          "x": 143.4,
+          "y": 249.9,
+          "size": 7
+        },
+        {
+          "region": 30,
+          "number": 6,
+          "x": 147.6,
+          "y": 239.5,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 2,
+          "x": 110.8,
+          "y": 261.1,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 2,
+          "x": 176.8,
+          "y": 261.1,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Mini-wenskaartjes: hoera, dank je, succes en beterschap",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkantjes in (de onderste helft van elk kaartje).",
+          "Knip de vier kaartjes los langs de streepjeslijnen.",
+          "Vouw elk kaartje dubbel op de stippellijn, met de tekening aan de buitenkant.",
+          "Schrijf op de achterkant voor wie het is en van wie, en binnenin een berichtje. Leuk bij een cadeautje of zomaar in een broodtrommel!"
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "nieuwjaarskaart-klok",
+    "order": 793,
+    "category": "feest",
+    "age": "6-9",
+    "world": null,
+    "holiday": "oudnieuw",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 14,
+    "colorByNumber": {
+      "codes": "zyyy-xzzptrrbb",
+      "palette": [
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 97.3,
+          "y": 172.9,
+          "size": 4.5
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 71.5,
+          "y": 178,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 128.5,
+          "y": 178,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 79.2,
+          "y": 190.2,
+          "size": 5.2
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 99.9,
+          "y": 210.9,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 1,
+          "x": 81,
+          "y": 243.9,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 1,
+          "x": 117,
+          "y": 243.9,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 39.9,
+          "y": 239.3,
+          "size": 6.8
+        },
+        {
+          "region": 9,
+          "number": 5,
+          "x": 160.1,
+          "y": 239.3,
+          "size": 6.8
+        },
+        {
+          "region": 10,
+          "number": 6,
+          "x": 33.6,
+          "y": 190,
+          "size": 9
+        },
+        {
+          "region": 11,
+          "number": 6,
+          "x": 33.9,
+          "y": 206.6,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 7,
+          "x": 165.6,
+          "y": 192,
+          "size": 9
+        },
+        {
+          "region": 13,
+          "number": 7,
+          "x": 165.9,
+          "y": 208.6,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Nieuwjaarskaart: bijna twaalf uur!",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin je wens voor het nieuwe jaar, of een goed voornemen."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "offerfeestkaart-schaapje",
+    "order": 794,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": "offerfeest",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 20,
+    "colorByNumber": {
+      "codes": "lyyyyyxxx-xx-ryytwww",
+      "palette": [
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 63.1,
+          "y": 247.3,
+          "size": 6.6
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 148.4,
+          "y": 191.3,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 135.8,
+          "y": 180.8,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 171.8,
+          "y": 222.8,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 29.8,
+          "y": 182.8,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 59.8,
+          "y": 176.8,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 56.8,
+          "y": 237.4,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 68.8,
+          "y": 240.9,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 80.8,
+          "y": 237.4,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 91.6,
+          "y": 215.9,
+          "size": 7
+        },
+        {
+          "region": 11,
+          "number": 3,
+          "x": 83.1,
+          "y": 204.9,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 4,
+          "x": 129.1,
+          "y": 227.9,
+          "size": 5.1
+        },
+        {
+          "region": 14,
+          "number": 2,
+          "x": 122.9,
+          "y": 225.3,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 2,
+          "x": 116.5,
+          "y": 219.5,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 5,
+          "x": 155,
+          "y": 239.3,
+          "size": 5.1
+        },
+        {
+          "region": 17,
+          "number": 6,
+          "x": 149.7,
+          "y": 231.8,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 6,
+          "x": 159.7,
+          "y": 231.8,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 6,
+          "x": 169.7,
+          "y": 231.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Offerfeestkaart met schaapje en maan",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Met het Offerfeest delen moslims eten met familie, buren en mensen die het minder goed hebben.",
+          "Schrijf binnenin een wens voor het feest."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "paasslinger-kuikens-en-eieren",
+    "order": 795,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": "pasen",
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 25,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "touw"
+      }
+    ],
+    "regionCount": 57,
+    "colorByNumber": {
+      "codes": "k-y-o-momb-byyymmomy--k-k-kmoml-ggrmomm-ktywmomt-yyyoymom",
+      "palette": [
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 38.7,
+          "y": 126.5,
+          "size": 10.9
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 34,
+          "y": 78.9,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 39.8,
+          "y": 79.3,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 31.9,
+          "y": 115.9,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 39.9,
+          "y": 115.9,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 47.9,
+          "y": 115.9,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 5,
+          "x": 98.7,
+          "y": 126.5,
+          "size": 10.9
+        },
+        {
+          "region": 11,
+          "number": 5,
+          "x": 97.8,
+          "y": 95,
+          "size": 9.4
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 92.9,
+          "y": 85.4,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 99.9,
+          "y": 85.4,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 2,
+          "x": 106.9,
+          "y": 85.4,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 4,
+          "x": 99.8,
+          "y": 69.5,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 4,
+          "x": 91.9,
+          "y": 115.9,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 3,
+          "x": 99.9,
+          "y": 115.9,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 4,
+          "x": 107.9,
+          "y": 115.9,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 2,
+          "x": 158.6,
+          "y": 126.5,
+          "size": 10.9
+        },
+        {
+          "region": 22,
+          "number": 1,
+          "x": 151.9,
+          "y": 65.8,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 1,
+          "x": 167.7,
+          "y": 67.7,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 1,
+          "x": 159.9,
+          "y": 90.8,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 4,
+          "x": 151.9,
+          "y": 115.9,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 3,
+          "x": 159.9,
+          "y": 115.9,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 4,
+          "x": 167.9,
+          "y": 115.9,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 6,
+          "x": 38.7,
+          "y": 248.5,
+          "size": 10.9
+        },
+        {
+          "region": 32,
+          "number": 7,
+          "x": 29.8,
+          "y": 212.8,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 7,
+          "x": 46,
+          "y": 213.3,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 8,
+          "x": 38.5,
+          "y": 196.2,
+          "size": 7.8
+        },
+        {
+          "region": 35,
+          "number": 4,
+          "x": 31.9,
+          "y": 237.9,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 3,
+          "x": 39.9,
+          "y": 237.9,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 4,
+          "x": 47.9,
+          "y": 237.9,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 4,
+          "x": 98.7,
+          "y": 248.5,
+          "size": 10.9
+        },
+        {
+          "region": 40,
+          "number": 1,
+          "x": 88.6,
+          "y": 202.6,
+          "size": 5.2
+        },
+        {
+          "region": 41,
+          "number": 9,
+          "x": 111.4,
+          "y": 202.6,
+          "size": 5.2
+        },
+        {
+          "region": 42,
+          "number": 2,
+          "x": 99.7,
+          "y": 199.5,
+          "size": 7.6
+        },
+        {
+          "region": 43,
+          "number": 10,
+          "x": 97,
+          "y": 216.4,
+          "size": 8.8
+        },
+        {
+          "region": 44,
+          "number": 4,
+          "x": 91.9,
+          "y": 237.9,
+          "size": 4.5
+        },
+        {
+          "region": 45,
+          "number": 3,
+          "x": 99.9,
+          "y": 237.9,
+          "size": 4.5
+        },
+        {
+          "region": 46,
+          "number": 4,
+          "x": 107.9,
+          "y": 237.9,
+          "size": 4.5
+        },
+        {
+          "region": 47,
+          "number": 9,
+          "x": 158.6,
+          "y": 248.5,
+          "size": 10.9
+        },
+        {
+          "region": 49,
+          "number": 2,
+          "x": 164.9,
+          "y": 213.4,
+          "size": 6.4
+        },
+        {
+          "region": 50,
+          "number": 2,
+          "x": 160.9,
+          "y": 193.4,
+          "size": 6.5
+        },
+        {
+          "region": 51,
+          "number": 2,
+          "x": 162.9,
+          "y": 180.9,
+          "size": 4.5
+        },
+        {
+          "region": 52,
+          "number": 3,
+          "x": 173.4,
+          "y": 193.9,
+          "size": 4.5
+        },
+        {
+          "region": 53,
+          "number": 2,
+          "x": 156.6,
+          "y": 206.8,
+          "size": 4.5
+        },
+        {
+          "region": 54,
+          "number": 4,
+          "x": 151.9,
+          "y": 237.9,
+          "size": 4.5
+        },
+        {
+          "region": 55,
+          "number": 3,
+          "x": 159.9,
+          "y": 237.9,
+          "size": 4.5
+        },
+        {
+          "region": 56,
+          "number": 4,
+          "x": 167.9,
+          "y": 237.9,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Paasslinger met kuikens en eieren",
+        "steps": [
+          "Kleur de vlaggen en de plaatjes in.",
+          "Knip de vlaggen uit langs de streepjeslijn.",
+          "Leg een touw langs de stippellijnen, smeer lijm op de grijze randjes en vouw ze over het touw.",
+          "Print het vel twee keer als je een lange slinger wilt. Hang hem op bij het raam of boven de paastafel."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "pinksterkaart-lente",
+    "order": 796,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": "pinksteren",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 44,
+    "colorByNumber": {
+      "codes": "l----o----ogmgyyyyyygpppppygrgoooooygbbbbbyy",
+      "palette": [
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 71.3,
+          "y": 245.4,
+          "size": 8.7
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 76.7,
+          "y": 187.3,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 123.3,
+          "y": 181.3,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 3,
+          "x": 38.1,
+          "y": 239.8,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 33.7,
+          "y": 220.8,
+          "size": 6
+        },
+        {
+          "region": 13,
+          "number": 3,
+          "x": 57.4,
+          "y": 239.2,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 5,
+          "x": 61.8,
+          "y": 206.1,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 5,
+          "x": 67.3,
+          "y": 210,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 5,
+          "x": 65.4,
+          "y": 216.5,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 5,
+          "x": 58.9,
+          "y": 216.9,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 5,
+          "x": 56.7,
+          "y": 210,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 5,
+          "x": 61.8,
+          "y": 211.9,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 3,
+          "x": 94.1,
+          "y": 239.8,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 6,
+          "x": 89.8,
+          "y": 214.1,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 6,
+          "x": 95.3,
+          "y": 218,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 6,
+          "x": 93.4,
+          "y": 224.5,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 6,
+          "x": 86.9,
+          "y": 224.9,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 6,
+          "x": 84.7,
+          "y": 218,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 5,
+          "x": 89.8,
+          "y": 219.9,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 3,
+          "x": 113.4,
+          "y": 239.2,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 7,
+          "x": 117.7,
+          "y": 212.8,
+          "size": 6
+        },
+        {
+          "region": 29,
+          "number": 3,
+          "x": 150.1,
+          "y": 239.8,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 2,
+          "x": 145.8,
+          "y": 214.1,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 2,
+          "x": 151.3,
+          "y": 218,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 2,
+          "x": 149.4,
+          "y": 224.5,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 2,
+          "x": 142.9,
+          "y": 224.9,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 2,
+          "x": 140.7,
+          "y": 218,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 5,
+          "x": 145.9,
+          "y": 219.9,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 3,
+          "x": 165.4,
+          "y": 239.2,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 8,
+          "x": 169.8,
+          "y": 206.1,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 8,
+          "x": 175.3,
+          "y": 210,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 8,
+          "x": 173.4,
+          "y": 216.5,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 8,
+          "x": 166.9,
+          "y": 216.9,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 8,
+          "x": 164.7,
+          "y": 210,
+          "size": 4.5
+        },
+        {
+          "region": 42,
+          "number": 5,
+          "x": 169.9,
+          "y": 211.9,
+          "size": 4.5
+        },
+        {
+          "region": 43,
+          "number": 5,
+          "x": 29.6,
+          "y": 180.6,
+          "size": 8.7
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Pinksterkaart: lente vol bloemen",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin een wens of teken wat jij met Pinksteren gaat doen."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "raamhangers-ster-en-maan",
+    "order": 797,
+    "category": "ruimte",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 30,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "touw"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 7,
+    "colorByNumber": {
+      "codes": "yooooby",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 83.8,
+          "y": 78.1,
+          "size": 10.3
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 153.2,
+          "y": 82.6,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 132.8,
+          "y": 145.2,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 67,
+          "y": 145.2,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 46.6,
+          "y": 82.6,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 69.6,
+          "y": 201.3,
+          "size": 13
+        },
+        {
+          "region": 6,
+          "number": 1,
+          "x": 167.2,
+          "y": 196.6,
+          "size": 8.3
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Raamhangers: ster en maan met vensters",
+        "printNote": "Op stevig papier (160 gram) blijven de raamhangers mooi plat.",
+        "steps": [
+          "Kleur de rand van de ster en de maan in.",
+          "Knip de vormen uit langs de buitenste streepjeslijn.",
+          "Laat een volwassene helpen met de vensters: prik een gaatje in het midden, knip naar de lijn en knip het venster eruit.",
+          "Plak aan de achterkant een stukje doorschijnend papier (vliegerpapier, bakpapier of een stukje plastic zakje) over de vensters.",
+          "Prik het ophanggaatje door, rijg er een touwtje door en hang ze voor het raam. Als de zon schijnt, gloeien ze op!"
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "servetringen-met-naam",
+    "order": 798,
+    "category": "eten",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 40,
+    "colorByNumber": {
+      "codes": "yrrbbrrbb-lmmmmmymmmmmy-byy-krr-tpkrpkr-",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 142.8,
+          "y": 56.3,
+          "size": 11
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 28.8,
+          "y": 47.7,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 29,
+          "y": 55.1,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 39.8,
+          "y": 47.7,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 40,
+          "y": 55.1,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 146.8,
+          "y": 47.7,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 147,
+          "y": 55.1,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 157.8,
+          "y": 47.7,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 158,
+          "y": 55.1,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 4,
+          "x": 45.3,
+          "y": 90.3,
+          "size": 9.3
+        },
+        {
+          "region": 11,
+          "number": 5,
+          "x": 34.8,
+          "y": 93.1,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 39.5,
+          "y": 96.3,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 5,
+          "x": 38,
+          "y": 101.8,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 5,
+          "x": 32,
+          "y": 101.8,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 5,
+          "x": 30.5,
+          "y": 96.3,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 1,
+          "x": 34.9,
+          "y": 97.9,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 5,
+          "x": 152.9,
+          "y": 93.1,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 5,
+          "x": 157.4,
+          "y": 96.3,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 5,
+          "x": 155.9,
+          "y": 101.8,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 5,
+          "x": 150.1,
+          "y": 101.8,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 5,
+          "x": 148.6,
+          "y": 96.3,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 1,
+          "x": 152.9,
+          "y": 97.9,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 3,
+          "x": 45.3,
+          "y": 137.8,
+          "size": 10.1
+        },
+        {
+          "region": 25,
+          "number": 1,
+          "x": 34.6,
+          "y": 143.6,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 1,
+          "x": 152.6,
+          "y": 143.6,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 6,
+          "x": 45.3,
+          "y": 182.3,
+          "size": 9.3
+        },
+        {
+          "region": 29,
+          "number": 2,
+          "x": 34.6,
+          "y": 191.1,
+          "size": 6
+        },
+        {
+          "region": 30,
+          "number": 2,
+          "x": 152.6,
+          "y": 191.1,
+          "size": 6
+        },
+        {
+          "region": 32,
+          "number": 7,
+          "x": 45.3,
+          "y": 228.3,
+          "size": 8.8
+        },
+        {
+          "region": 33,
+          "number": 8,
+          "x": 33.3,
+          "y": 240.8,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 6,
+          "x": 34.6,
+          "y": 233,
+          "size": 4.6
+        },
+        {
+          "region": 35,
+          "number": 2,
+          "x": 34.9,
+          "y": 225.9,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 8,
+          "x": 151.3,
+          "y": 240.8,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 6,
+          "x": 152.6,
+          "y": 233,
+          "size": 4.6
+        },
+        {
+          "region": 38,
+          "number": 2,
+          "x": 152.9,
+          "y": 225.9,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Servetringen met naam",
+        "printNote": "Op stevig papier (160 gram) blijven de ringen mooi rond.",
+        "steps": [
+          "Schrijf op elke strook de naam van iemand die mee-eet en kleur de strook in.",
+          "Knip de stroken uit langs de streepjeslijn.",
+          "Buig een strook rond tot een ring. Smeer lijm op het grijze stukje en plak het andere uiteinde eroverheen, met de tekening aan de buitenkant.",
+          "Rol een servet op, schuif de ring eromheen en leg hem bij het bord. Print nog een vel als jullie met meer zijn."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "sterktekaart-paraplu",
+    "order": 799,
+    "category": "feest",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 17,
+    "colorByNumber": {
+      "codes": "bbbbbzyrktnnkynnm",
+      "palette": [
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 25.9,
+          "y": 204,
+          "size": 4.5
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 37.9,
+          "y": 204,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 49.9,
+          "y": 204,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 1,
+          "x": 31.9,
+          "y": 204,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 43.9,
+          "y": 204,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 44.1,
+          "y": 181.3,
+          "size": 8.9
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 163.5,
+          "y": 188.5,
+          "size": 10.8
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 102,
+          "y": 197.3,
+          "size": 13
+        },
+        {
+          "region": 8,
+          "number": 5,
+          "x": 81.6,
+          "y": 204.6,
+          "size": 5.1
+        },
+        {
+          "region": 9,
+          "number": 6,
+          "x": 81.6,
+          "y": 232.3,
+          "size": 9.3
+        },
+        {
+          "region": 10,
+          "number": 7,
+          "x": 78.1,
+          "y": 245.7,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 7,
+          "x": 85.6,
+          "y": 245.7,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 117.7,
+          "y": 211.7,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 3,
+          "x": 117.6,
+          "y": 234.3,
+          "size": 8
+        },
+        {
+          "region": 14,
+          "number": 7,
+          "x": 114.7,
+          "y": 245.1,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 7,
+          "x": 121.2,
+          "y": 245.1,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 8,
+          "x": 99.8,
+          "y": 225.7,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Sterktekaart: samen onder de paraplu",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin een lief berichtje of teken iets om iemand een hart onder de riem te steken.",
+          "Een sterktekaart stuur je als iemand het moeilijk heeft, bijvoorbeeld als iemand verdrietig of ziek is."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "vaderdagkaart-gereedschap",
+    "order": 800,
+    "category": "feest",
+    "age": "6-9",
+    "world": null,
+    "holiday": "vaderdag",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 18,
+    "colorByNumber": {
+      "codes": "rozzwzz-yzyzzzrryy",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 121.6,
+          "y": 238,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 59.2,
+          "y": 217.8,
+          "size": 5.5
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 89.5,
+          "y": 202.9,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 97.9,
+          "y": 230.8,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 56.9,
+          "y": 188.1,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 49.4,
+          "y": 183.7,
+          "size": 5.6
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 126.3,
+          "y": 211.9,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 5,
+          "x": 99.3,
+          "y": 187.7,
+          "size": 4.8
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 96.6,
+          "y": 168.9,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 5,
+          "x": 26,
+          "y": 248.8,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 3,
+          "x": 159.9,
+          "y": 246.9,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 3,
+          "x": 171.9,
+          "y": 248.9,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 3,
+          "x": 165.9,
+          "y": 238.9,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 1,
+          "x": 30.3,
+          "y": 187.9,
+          "size": 4.7
+        },
+        {
+          "region": 15,
+          "number": 1,
+          "x": 169.7,
+          "y": 185.9,
+          "size": 4.7
+        },
+        {
+          "region": 16,
+          "number": 5,
+          "x": 39.8,
+          "y": 213.2,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 5,
+          "x": 159.8,
+          "y": 217.2,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Vaderdagkaart met gereedschapskist",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin wat jullie samen gemaakt of gerepareerd hebben, of wat je nog eens samen wilt doen."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "verjaardagskaart-dino",
+    "order": 801,
+    "category": "dinos",
+    "age": "4-6",
+    "world": null,
+    "holiday": "verjaardag",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 28,
+    "colorByNumber": {
+      "codes": "goooooggggglggkrybbkm-yoyoyo",
+      "palette": [
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 47,
+          "y": 228.4,
+          "size": 8.6
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 61.8,
+          "y": 206,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 71.8,
+          "y": 203.1,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 81.8,
+          "y": 201.9,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 92.3,
+          "y": 201.9,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 101.8,
+          "y": 203.8,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 1,
+          "x": 63.8,
+          "y": 242.6,
+          "size": 5.5
+        },
+        {
+          "region": 7,
+          "number": 1,
+          "x": 75.8,
+          "y": 245.9,
+          "size": 5.5
+        },
+        {
+          "region": 8,
+          "number": 1,
+          "x": 95.8,
+          "y": 245.9,
+          "size": 5.5
+        },
+        {
+          "region": 9,
+          "number": 1,
+          "x": 107.8,
+          "y": 242.6,
+          "size": 5.5
+        },
+        {
+          "region": 10,
+          "number": 1,
+          "x": 78,
+          "y": 212.6,
+          "size": 9.5
+        },
+        {
+          "region": 11,
+          "number": 3,
+          "x": 83,
+          "y": 228.6,
+          "size": 9.8
+        },
+        {
+          "region": 12,
+          "number": 1,
+          "x": 115.8,
+          "y": 214.3,
+          "size": 9.6
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 132,
+          "y": 201.9,
+          "size": 6.6
+        },
+        {
+          "region": 14,
+          "number": 4,
+          "x": 123.9,
+          "y": 200.9,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 5,
+          "x": 123.2,
+          "y": 183.5,
+          "size": 4.6
+        },
+        {
+          "region": 16,
+          "number": 6,
+          "x": 119.3,
+          "y": 169.9,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 7,
+          "x": 33.6,
+          "y": 180.3,
+          "size": 8.1
+        },
+        {
+          "region": 18,
+          "number": 7,
+          "x": 33.9,
+          "y": 195.2,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 4,
+          "x": 152.4,
+          "y": 242.6,
+          "size": 9.3
+        },
+        {
+          "region": 20,
+          "number": 8,
+          "x": 155.8,
+          "y": 226.6,
+          "size": 7.6
+        },
+        {
+          "region": 22,
+          "number": 6,
+          "x": 151.4,
+          "y": 211.8,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 2,
+          "x": 151.4,
+          "y": 206.8,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 6,
+          "x": 159.9,
+          "y": 211.8,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 2,
+          "x": 159.9,
+          "y": 206.8,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 6,
+          "x": 168.4,
+          "y": 211.8,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 2,
+          "x": 168.4,
+          "y": 206.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Verjaardagskaart met dino",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin voor wie de kaart is en hoe oud diegene wordt."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "verjaardagskaart-eenhoorn",
+    "order": 802,
+    "category": "sprookjes",
+    "age": "4-6",
+    "world": null,
+    "holiday": "verjaardag",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 20,
+    "colorByNumber": {
+      "codes": "pm--k-ybroy-yyyyymmm",
+      "palette": [
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 121.1,
+          "y": 240.8,
+          "size": 8.2
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 116.2,
+          "y": 220.5,
+          "size": 6.2
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 85.8,
+          "y": 216.9,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 90.8,
+          "y": 184.8,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 5,
+          "x": 93.9,
+          "y": 192.3,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 6,
+          "x": 30.1,
+          "y": 231.9,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 7,
+          "x": 27.3,
+          "y": 241.8,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 4,
+          "x": 39.4,
+          "y": 238.5,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 149.8,
+          "y": 181.2,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 4,
+          "x": 163.8,
+          "y": 209.2,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 4,
+          "x": 145.8,
+          "y": 237.2,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 4,
+          "x": 35.8,
+          "y": 183.2,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 4,
+          "x": 59.8,
+          "y": 193.2,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 2,
+          "x": 169.8,
+          "y": 241.6,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 2,
+          "x": 127.8,
+          "y": 179.6,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 2,
+          "x": 175.8,
+          "y": 183.6,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Verjaardagskaart met eenhoorn",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin voor wie de kaart is en een toverwens."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "verjaardagskaart-juf-meester",
+    "order": 803,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": "verjaardag",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 20,
+    "colorByNumber": {
+      "codes": "wgw-yrgbwxywxrwxoyyy",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 47.8,
+          "y": 179.1,
+          "size": 4.5
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 82.5,
+          "y": 206.6,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 58.2,
+          "y": 243.9,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 80.2,
+          "y": 239.9,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 28.1,
+          "y": 239.2,
+          "size": 11.7
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 38.9,
+          "y": 222.9,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 5,
+          "x": 163.9,
+          "y": 218.8,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 1,
+          "x": 163.9,
+          "y": 213.4,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 6,
+          "x": 164,
+          "y": 210.7,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 169.9,
+          "y": 222.3,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 1,
+          "x": 169.9,
+          "y": 217.4,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 6,
+          "x": 170,
+          "y": 214.7,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 4,
+          "x": 175.9,
+          "y": 225.8,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 1,
+          "x": 175.9,
+          "y": 221.4,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 6,
+          "x": 176,
+          "y": 218.7,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 7,
+          "x": 167.3,
+          "y": 246.6,
+          "size": 8.7
+        },
+        {
+          "region": 17,
+          "number": 3,
+          "x": 29.8,
+          "y": 186.8,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 3,
+          "x": 169.8,
+          "y": 188.8,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 3,
+          "x": 33.8,
+          "y": 208.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Verjaardagskaart voor de juf of meester",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf de naam van je juf of meester op het schoolbord.",
+          "Neem de kaart mee naar school op de verjaardag (of op de juffen- en meestersdag)."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "verjaardagskaart-opa-oma",
+    "order": 804,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": "verjaardag",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 29,
+    "colorByNumber": {
+      "codes": "wkmboyorolopo-bbbygyyrybglmry",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 33.5,
+          "y": 247.9,
+          "size": 4.5
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 122.1,
+          "y": 232.4,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 84.4,
+          "y": 212.6,
+          "size": 8.7
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 83.9,
+          "y": 197.6,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 5,
+          "x": 83.9,
+          "y": 193.7,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 6,
+          "x": 91.9,
+          "y": 197.6,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 5,
+          "x": 91.9,
+          "y": 193.7,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 7,
+          "x": 99.9,
+          "y": 197.6,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 5,
+          "x": 99.9,
+          "y": 193.7,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 8,
+          "x": 107.9,
+          "y": 197.6,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 5,
+          "x": 107.9,
+          "y": 193.7,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 9,
+          "x": 115.9,
+          "y": 197.6,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 115.9,
+          "y": 193.7,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 4,
+          "x": 46.1,
+          "y": 235.5,
+          "size": 10.9
+        },
+        {
+          "region": 15,
+          "number": 4,
+          "x": 63,
+          "y": 233.6,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 4,
+          "x": 45.9,
+          "y": 224.1,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 6,
+          "x": 47.9,
+          "y": 220.9,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 10,
+          "x": 144.9,
+          "y": 231.9,
+          "size": 5.1
+        },
+        {
+          "region": 19,
+          "number": 6,
+          "x": 150.9,
+          "y": 229.3,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 6,
+          "x": 144.5,
+          "y": 223.5,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 7,
+          "x": 28.3,
+          "y": 176.2,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 6,
+          "x": 48.8,
+          "y": 178.4,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 4,
+          "x": 69.3,
+          "y": 179.9,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 10,
+          "x": 89.8,
+          "y": 180.7,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 8,
+          "x": 110.3,
+          "y": 180.7,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 3,
+          "x": 130.8,
+          "y": 180,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 7,
+          "x": 151.3,
+          "y": 178.5,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 6,
+          "x": 171.8,
+          "y": 176.2,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Verjaardagskaart voor opa of oma",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf in het rondje op de taart hoe oud opa of oma wordt.",
+          "Schrijf of teken binnenin iets wat jullie samen graag doen."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "verjaardagskaart-ruimte",
+    "order": 805,
+    "category": "ruimte",
+    "age": "4-6",
+    "world": null,
+    "holiday": "verjaardag",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 18,
+    "colorByNumber": {
+      "codes": "pykkrro-rbzyyyyyyt",
+      "palette": [
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 48.7,
+          "y": 202.7,
+          "size": 12.4
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 67.2,
+          "y": 205.8,
+          "size": 6.4
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 35.8,
+          "y": 200.9,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 51.9,
+          "y": 218.9,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 90.8,
+          "y": 221.8,
+          "size": 5.4
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 118.4,
+          "y": 241.7,
+          "size": 5.9
+        },
+        {
+          "region": 6,
+          "number": 5,
+          "x": 99.5,
+          "y": 238.9,
+          "size": 4.7
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 128.4,
+          "y": 194.4,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 6,
+          "x": 118.7,
+          "y": 210.9,
+          "size": 7
+        },
+        {
+          "region": 10,
+          "number": 7,
+          "x": 103.6,
+          "y": 232.2,
+          "size": 4.9
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 149.8,
+          "y": 179.2,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 171.8,
+          "y": 215.2,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 27.8,
+          "y": 177.2,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 2,
+          "x": 83.8,
+          "y": 181.2,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 2,
+          "x": 163.8,
+          "y": 245.2,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 2,
+          "x": 79.8,
+          "y": 245.2,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 8,
+          "x": 163.6,
+          "y": 188.6,
+          "size": 8.7
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Verjaardagskaart: raket in de ruimte",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin een wens die net zo ver gaat als de sterren."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "verjaardagskaart-voetbal",
+    "order": 806,
+    "category": "sport",
+    "age": "6-9",
+    "world": null,
+    "holiday": "verjaardag",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 12,
+    "colorByNumber": {
+      "codes": "l--xrybrwyyo",
+      "palette": [
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 63.1,
+          "y": 247.3,
+          "size": 6.6
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 131.7,
+          "y": 212.7,
+          "size": 4.9
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 25.7,
+          "y": 180.4,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 41.7,
+          "y": 183.1,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 5,
+          "x": 57.7,
+          "y": 183.4,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 73.7,
+          "y": 181.2,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 6,
+          "x": 43,
+          "y": 237.9,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 51.8,
+          "y": 228.3,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 4,
+          "x": 51.3,
+          "y": 219.1,
+          "size": 6.7
+        },
+        {
+          "region": 11,
+          "number": 7,
+          "x": 51.8,
+          "y": 210.2,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Verjaardagskaart: goal!",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin voor wie de kaart is en hoe oud diegene wordt."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "verjaardagskaart-zeemeermin",
+    "order": 807,
+    "category": "sprookjes",
+    "age": "4-6",
+    "world": null,
+    "holiday": "verjaardag",
+    "kind": "kaart",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 16,
+    "colorByNumber": {
+      "codes": "ztokpkoykryyymko",
+      "palette": [
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 93.4,
+          "y": 242.6,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 101.1,
+          "y": 223.2,
+          "size": 8.8
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 90,
+          "y": 198,
+          "size": 5
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 100.7,
+          "y": 208.7,
+          "size": 7.3
+        },
+        {
+          "region": 4,
+          "number": 5,
+          "x": 98.4,
+          "y": 199.4,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 4,
+          "x": 100.6,
+          "y": 187.9,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 98.8,
+          "y": 176.3,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 6,
+          "x": 107.8,
+          "y": 172.8,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 107.8,
+          "y": 199.4,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 7,
+          "x": 117.2,
+          "y": 188.3,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 6,
+          "x": 120.9,
+          "y": 186.5,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 6,
+          "x": 116.4,
+          "y": 182.1,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 6,
+          "x": 44.1,
+          "y": 216.6,
+          "size": 7.3
+        },
+        {
+          "region": 13,
+          "number": 8,
+          "x": 165.7,
+          "y": 182.7,
+          "size": 5.9
+        },
+        {
+          "region": 14,
+          "number": 4,
+          "x": 164.4,
+          "y": 243.9,
+          "size": 8.2
+        },
+        {
+          "region": 15,
+          "number": 3,
+          "x": 33.6,
+          "y": 245.3,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Verjaardagskaart met zeemeermin",
+        "printNote": "Print op stevig papier (160 gram) als je het hebt; gewoon papier kan ook.",
+        "steps": [
+          "Kleur de voorkant (de onderste helft) mooi in.",
+          "Knip de kaart uit langs de streepjeslijn.",
+          "Vouw hem dubbel op de stippellijn, met de tekening aan de buitenkant. De kaart staat dan rechtop met de vouw bovenaan.",
+          "Schrijf binnenin voor wie de kaart is."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
   }
 ]
