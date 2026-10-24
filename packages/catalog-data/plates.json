@@ -115844,5 +115844,326 @@
         "countQuestion": null
       }
     }
+  },
+  {
+    "slug": "knipoefenen-krullen-en-bogen",
+    "order": 662,
+    "category": "vormen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Knippen oefenen: bogen en krullen",
+        "steps": [
+          "Houd de schaar met je duim boven en je vingers onder.",
+          "Begin bij de schaar en knip langzaam over de streepjeslijn.",
+          "Bij een bocht draai je het papier, niet de schaar.",
+          "Lukt het? Probeer de volgende lijn."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "knipoefenen-vormen",
+    "order": 663,
+    "category": "vormen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Knippen oefenen: vormen",
+        "steps": [
+          "Houd de schaar met je duim boven en je vingers onder.",
+          "Knip eerst grof rondom een vorm, dan heb je een klein stukje papier in je hand.",
+          "Knip daarna precies over de streepjeslijn.",
+          "Leg je vormen samen tot een plaatje: een huisje, een robot of een bloem!"
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "knippen-gras-franjes",
+    "order": 664,
+    "category": "natuur",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 3,
+    "colorByNumber": {
+      "codes": "glg",
+      "palette": [
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 45.4,
+          "y": 83.8,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 45.4,
+          "y": 153.8,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 45.4,
+          "y": 223.8,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Knippen: gras met franjes",
+        "steps": [
+          "Houd de schaar met je duim boven en je vingers onder.",
+          "Knip eerst een strook uit langs de buitenste streepjeslijn.",
+          "Knip daarna steeds een klein stukje in langs de korte streepjes: het gras.",
+          "Plak je grasstroken onderaan een tekening, of zet ze rechtop als tuintje."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "knippen-haren-knippen",
+    "order": 665,
+    "category": "beroepen",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 2,
+    "colorByNumber": {
+      "codes": "kw",
+      "palette": [
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 97.5,
+          "y": 192.5,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 85.5,
+          "y": 112.4,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Knippen: kappertje spelen",
+        "steps": [
+          "Houd de schaar met je duim boven en je vingers onder.",
+          "Knip eerst het hele hoofd uit langs de buitenrand.",
+          "Knip dan van de bovenkant naar beneden langs elk streepje in het haar. Stop aan het eind van het streepje!",
+          "Krul de haren om een potlood, of knip een pony."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "knippen-leeuwenmanen",
+    "order": 666,
+    "category": "dieren",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 6,
+    "colorByNumber": {
+      "codes": "oyyyyw",
+      "palette": [
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 56,
+          "y": 194,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 100,
+          "y": 150,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 67.8,
+          "y": 114.7,
+          "size": 7.3
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 131.4,
+          "y": 113.8,
+          "size": 7.3
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 97.9,
+          "y": 126.9,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 99.7,
+          "y": 159,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Knippen: manen voor de leeuw",
+        "steps": [
+          "Houd de schaar met je duim boven en je vingers onder.",
+          "Knip eerst de grote cirkel uit, langs de buitenrand.",
+          "Knip dan langs elk streepje naar het gezicht toe. Stop bij het gezicht!",
+          "Buig de manen een beetje op: je leeuw krijgt een wilde kuif."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
   }
 ]
