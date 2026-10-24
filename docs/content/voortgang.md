@@ -2,11 +2,11 @@
 
 Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027.
 
-**Totaal: 869** van 5.000. Problemen: 0, waarschuwingen: 18.
+**Totaal: 899** van 5.000. Problemen: 0, waarschuwingen: 19.
 
 | Groep | Nu | Doel |
 |---|---:|---:|
-| Kleurplaten | 402 | 2000 |
+| Kleurplaten | 432 | 2000 |
 | Knip-, plak- en knutselbladen | 94 | 750 |
 | Vouw- en bouwplaten | 76 | 500 |
 | Teken- en schilderactiviteiten | 76 | 400 |
@@ -18,7 +18,7 @@ Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027
 
 | | Aantal |
 |---|---:|
-| kleurplaat | 402 |
+| kleurplaat | 432 |
 | werkblad | 148 |
 | knipplaat | 94 |
 | tekenles | 68 |
@@ -36,28 +36,28 @@ Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027
 | feest | 98 |
 | leren | 84 |
 | natuur | 73 |
-| voertuigen | 54 |
+| voertuigen | 61 |
+| thuis | 53 |
 | vormen | 53 |
-| thuis | 48 |
-| eten | 42 |
+| eten | 49 |
 | zee | 42 |
+| wereld | 41 |
 | patronen | 41 |
 | sprookjes | 37 |
-| wereld | 36 |
 | ruimte | 35 |
+| sport | 30 |
 | boerderij | 29 |
 | beroepen | 27 |
-| sport | 24 |
 | dinos | 22 |
 
 ### Per leeftijd
 
 | | Aantal |
 |---|---:|
-| 4-6 | 358 |
-| 6-9 | 265 |
-| 2-4 | 113 |
-| 9+ | 74 |
+| 4-6 | 369 |
+| 6-9 | 275 |
+| 2-4 | 120 |
+| 9+ | 76 |
 | 12+ | 59 |
 
 ### Waarschuwingen
@@ -80,3 +80,4 @@ Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027
 - raketlancering: pagina 1: 1 onderdelen (deels) buiten het vel
 - velociraptor: pagina 1: 4 onderdelen (deels) buiten het vel
 - wielrenner: pagina 1: 1 onderdelen (deels) buiten het vel
+- noorderlicht: pagina 1: 1 onderdelen (deels) buiten het vel
