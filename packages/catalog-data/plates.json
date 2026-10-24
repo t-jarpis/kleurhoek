@@ -116784,5 +116784,256 @@
         "countQuestion": null
       }
     }
+  },
+  {
+    "slug": "binaire-puzzel-6x6",
+    "order": 680,
+    "category": "leren",
+    "age": "12+",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 25,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Binaire puzzel: 6 bij 6",
+        "steps": [
+          "Zoek eerst twee gelijke cijfers naast elkaar: de vakjes ervoor en erna moeten het andere cijfer zijn.",
+          "Zit er een gat tussen twee gelijke cijfers (0 . 0)? Dan moet daar het andere cijfer.",
+          "Tel per rij: zijn er al genoeg nullen? Dan is de rest één. Er is precies één oplossing."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "geheimschrift-cijfercode",
+    "order": 681,
+    "category": "leren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Geheimschrift: letters als cijfers",
+        "steps": [
+          "Zoek elk getal op in de tabel en schrijf de letter op.",
+          "De schuine streep / betekent: hier begint een nieuw woord.",
+          "Schrijf daarna zelf een geheim bericht. Antwoorden staan op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "logische-puzzel-huisdieren",
+    "order": 682,
+    "category": "leren",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Logische puzzel: wie heeft welk huisdier?",
+        "steps": [
+          "Lees de tips één voor één.",
+          "Zet in het rooster een × als iets niet kan en een ✓ als het zeker is.",
+          "Elk kind heeft precies één huisdier en één kleur. Heb je in een rij een ✓? Dan zijn de andere vakjes in die rij en kolom ×.",
+          "Vul onderaan het antwoord in en kijk na."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "morsecode-ontcijferen",
+    "order": 683,
+    "category": "leren",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Morsecode ontcijferen",
+        "steps": [
+          "Morsecode bestaat uit korte (stip) en lange (streep) tekens.",
+          "Zoek elke groep tekens op in de tabel en schrijf de letter op.",
+          "Een grotere ruimte betekent een nieuw woord. Probeer daarna zelf te seinen met een zaklamp: kort en lang licht!"
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "romeinse-cijfers",
+    "order": 684,
+    "category": "leren",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Romeinse cijfers lezen en schrijven",
+        "steps": [
+          "Lees de tekens van links naar rechts en tel ze op: XVI = 10 + 5 + 1 = 16.",
+          "Staat een kleiner teken vóór een groter, dan trek je het af: XL = 50 − 10 = 40.",
+          "Kijk na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
   }
 ]
