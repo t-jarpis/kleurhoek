@@ -50,6 +50,22 @@ describe("dashboard: pagina's, tijdreeksen en accounts (ADR 0020)", () => {
     expect((await admin("/v1/admin/users/stats?from=2026-10-20&to=2026-10-14")).statusCode).toBe(400);
   });
 
+  it("telt binnenkomsten per domein en verwijzende site, zonder paden (ADR 0032)", async () => {
+    expect((await ingest([ev("page_view", { page: "home", entry: "be", referrer: "google.com/search?q=x" })])).statusCode).toBe(400);
+    expect((await ingest([ev("page_view", { page: "home", entry: "de" })])).statusCode).toBe(400);
+    const day = "2026-10-22", at = (h: number) => `${day}T${String(h).padStart(2, "0")}:00:00.000Z`;
+    await ingest([
+      ev("page_view", { page: "home", entry: "be", referrer: "google.com", visitorHash: "cccccccccccccccc", occurredAt: at(8) }),
+      ev("page_view", { page: "plaat", visitorHash: "cccccccccccccccc", occurredAt: at(8) }), // daarna: geen binnenkomst
+      ev("page_view", { page: "home", entry: "nl", referrer: "", visitorHash: "dddddddddddddddd", occurredAt: at(9) }),
+      ev("page_view", { page: "home", entry: "nl", referrer: "pinterest.com", visitorHash: "eeeeeeeeeeeeeeee", occurredAt: at(9) }),
+    ]);
+    await ctx.app.get(AnalyticsService).aggregateDay(TENANT, day);
+    const o = (await admin(`/v1/admin/analytics/overview?from=${day}&to=${day}`)).json();
+    expect(o.entries).toEqual([{ entry: "nl", landings: 2, visitors: 2 }, { entry: "be", landings: 1, visitors: 1 }]);
+    expect(o.referrers).toEqual(expect.arrayContaining([{ referrer: "google.com", landings: 1 }, { referrer: "pinterest.com", landings: 1 }, { referrer: "", landings: 1 }]));
+  });
+
   it("gooit ruwe events na 90 dagen weg, dagtotalen blijven", async () => {
     const svc = ctx.app.get(AnalyticsService);
     await svc.purgeRawEvents(TENANT, new Date("2027-02-01T00:00:00Z"));

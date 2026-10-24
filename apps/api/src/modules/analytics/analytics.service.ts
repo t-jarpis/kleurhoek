@@ -3,7 +3,7 @@ import { and, desc, eq, gte, lt, lte, sql } from "drizzle-orm";
 import { z } from "zod";
 import { DB, type Database } from "../../db/database";
 import { withTenant } from "../../db/tenant";
-import { dailyPages, dailyProductClicks, dailyTotals, dailyVisitors, EVENT_TYPES, events } from "./analytics.schema";
+import { dailyPages, dailyProductClicks, dailySources, dailyTotals, dailyVisitors, EVENT_TYPES, events } from "./analytics.schema";
 
 /** Eén event zoals de Cloudflare Worker het aanlevert: zonder IP-adres, land al ingevuld. */
 export const EventInput = z.object({
@@ -18,6 +18,9 @@ export const EventInput = z.object({
   /** Soort pagina (home, plaat, boekje …), nooit een adres of zoekterm (ADR 0020). */
   page: z.string().regex(/^[a-z][a-z0-9-]{1,31}$/).optional(),
   org: z.string().regex(/^[a-z0-9](?:[a-z0-9-]{0,30}[a-z0-9])?$/).optional(),
+  /** Binnenkomst (ADR 0032): domein en hostnaam van de verwijzer, nooit een pad of zoekterm. */
+  entry: z.enum(["nl", "be", "com"]).optional(),
+  referrer: z.string().max(100).regex(/^$|^([a-z0-9-]{1,63}\.)+[a-z]{2,24}$/).optional(),
 }).strict();
 export const EventBatch = z.array(EventInput).min(1).max(100);
 export type EventInput = z.infer<typeof EventInput>;
@@ -30,6 +33,7 @@ export class AnalyticsService {
     await withTenant(this.db, tenantId, (tx) => tx.insert(events).values(batch.map((e) => ({
       tenantId, type: e.type, plateSlug: e.plate ?? null, productSlug: e.product ?? null, market: e.market, country: e.country ?? null,
       device: e.device, visitorHash: e.visitorHash ?? null, page: e.page ?? null, org: e.org ?? null,
+      entryDomain: e.entry ?? null, referrer: e.entry ? (e.referrer ?? "") : null,
       occurredAt: e.occurredAt ? new Date(e.occurredAt) : now,
     }))));
     return batch.length;
@@ -72,6 +76,14 @@ export class AnalyticsService {
       }).from(events).where(and(inDay, eq(events.type, "page_view"))).groupBy(sql`1`, sql`2`, events.market, events.device);
       await tx.delete(dailyPages).where(and(eq(dailyPages.tenantId, tenantId), eq(dailyPages.day, day)));
       if (pages.length) await tx.insert(dailyPages).values(pages.map((r) => ({ tenantId, day, ...r })));
+
+      // Binnenkomsten (ADR 0032): per domein en verwijzende site.
+      const landings = await tx.select({
+        org, entryDomain: sql<string>`${events.entryDomain}`, referrer: sql<string>`coalesce(${events.referrer}, '')`,
+        landings: sql<number>`count(*)::int`, visitors: sql<number>`count(distinct ${events.visitorHash})::int`,
+      }).from(events).where(and(inDay, eq(events.type, "page_view"), sql`${events.entryDomain} is not null`)).groupBy(sql`1`, sql`2`, sql`3`);
+      await tx.delete(dailySources).where(and(eq(dailySources.tenantId, tenantId), eq(dailySources.day, day)));
+      if (landings.length) await tx.insert(dailySources).values(landings.map((r) => ({ tenantId, day, ...r })));
 
       // Unieke bezoekers per organisatie en voor de hele site ('*'), over alle soorten events.
       const perOrg = await tx.select({ org, visitors: sql<number>`count(distinct ${events.visitorHash})::int` })
@@ -148,12 +160,20 @@ export class AnalyticsService {
       const orgViews = await tx.select({ org: dailyPages.org, views: sum(dailyPages.views) }).from(dailyPages).where(pagesIn).groupBy(dailyPages.org);
       const orgVisitors = await tx.select({ org: dailyVisitors.org, visitors: sql<number>`sum(${dailyVisitors.visitors})::int` })
         .from(dailyVisitors).where(and(eq(dailyVisitors.tenantId, tenantId), gte(dailyVisitors.day, from), lte(dailyVisitors.day, to), sql`${dailyVisitors.org} <> ${ALL_ORGS}`)).groupBy(dailyVisitors.org);
+      // Binnenkomsten (ADR 0032): per domein en per verwijzende site (top 15, de rest samen).
+      const sourcesIn = and(eq(dailySources.tenantId, tenantId), gte(dailySources.day, from), lte(dailySources.day, to));
+      const sumL = sql<number>`sum(${dailySources.landings})::int`;
+      const entries = await tx.select({ entry: dailySources.entryDomain, landings: sumL, visitors: sql<number>`sum(${dailySources.visitors})::int` })
+        .from(dailySources).where(sourcesIn).groupBy(dailySources.entryDomain).orderBy(desc(sumL));
+      const refs = await tx.select({ referrer: dailySources.referrer, landings: sumL })
+        .from(dailySources).where(sourcesIn).groupBy(dailySources.referrer).orderBy(desc(sumL));
+      const referrers = [...refs.slice(0, 15), ...(refs.length > 15 ? [{ referrer: "*", landings: refs.slice(15).reduce((n, r) => n + r.landings, 0) }] : [])];
       const ov = new Map(orgViews.map((o) => [o.org, o.views]));
       const organizations = orgVisitors.map((o) => ({ org: o.org, visitors: o.visitors, views: ov.get(o.org) ?? 0 })).sort((x, y) => y.visitors - x.visitors);
       return {
         from, to, bucket, previous: { from: prevFrom, to: prevTo },
         totals: { visitors: visitorsNow, ...current }, previousTotals: { visitors: visitorsBefore, ...previous },
-        series, pages, devices, organizations, topPlates: topPlates.slice(0, 10), countries: byCountry.slice(0, 10),
+        series, pages, devices, organizations, entries, referrers, topPlates: topPlates.slice(0, 10), countries: byCountry.slice(0, 10),
       };
     });
   }

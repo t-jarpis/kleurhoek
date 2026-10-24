@@ -77,6 +77,7 @@ export interface Overview {
   totals: OverviewTotals; previousTotals: OverviewTotals;
   series: { date: string; visitors: number; pageViews: number; plateViews: number; downloads: number }[];
   pages: { page: string; views: number; visitors: number }[]; devices: { device: string; views: number }[];
+  entries: { entry: string; landings: number; visitors: number }[]; referrers: { referrer: string; landings: number }[];
   organizations: { org: string; visitors: number; views: number }[];
   topPlates: Summary["topPlates"]; countries: Summary["byCountry"];
 }

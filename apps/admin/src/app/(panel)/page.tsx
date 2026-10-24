@@ -13,6 +13,8 @@ type Period = (typeof PERIODS)[number][0];
 const PERIOD_TEXT: Record<Period, string> = { "7": "vorige 7 dagen", "30": "vorige 30 dagen", "90": "vorige 90 dagen", "365": "vorige 12 maanden" };
 const PAGE_LABEL: Record<string, string> = { home: "Home", plaat: "Plaatpagina's", boekje: "Boekje", account: "Account" };
 const DEVICE_LABEL: Record<string, string> = { mobile: "Telefoon", tablet: "Tablet", desktop: "Computer", other: "Overig" };
+const ENTRY_LABEL: Record<string, string> = { nl: "kleurhoek.nl", be: "kleurhoek.be", com: "kleurhoek.com" };
+const refLabel = (r: string) => (r === "" ? "Direct of onbekend" : r === "*" ? "Overige sites" : r);
 const iso = (d: Date) => d.toISOString().slice(0, 10);
 const countryName = (code: string) => { try { return code ? new Intl.DisplayNames(["nl"], { type: "region" }).of(code) ?? code : "Onbekend"; } catch { return code || "Onbekend"; } };
 
@@ -89,6 +91,14 @@ export default async function Dashboard({ searchParams }: { searchParams: Promis
         <section className="panel stack">
           <h2>Landen</h2>
           <BarList items={o.countries.map((c) => ({ label: countryName(c.country), value: c.pageViews + c.plateViews }))} />
+        </section>
+        <section className="panel stack">
+          <h2>Binnengekomen via domein</h2>
+          <BarList items={o.entries.map((e) => ({ label: ENTRY_LABEL[e.entry] ?? e.entry, value: e.landings }))} empty="Nog geen binnenkomsten in deze periode." />
+        </section>
+        <section className="panel stack">
+          <h2>Verwijzende sites</h2>
+          <BarList items={o.referrers.map((r) => ({ label: refLabel(r.referrer), value: r.landings }))} empty="Nog geen binnenkomsten in deze periode." />
         </section>
       </div>
 

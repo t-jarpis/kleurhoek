@@ -25,6 +25,10 @@ export const events = analyticsSchema.table("events", {
   page: text("page"),
   /** Organisatie waarvan de site bekeken werd (ADR 0017); leeg bij oude events. */
   org: text("org"),
+  /** Binnenkomst (ADR 0032), alleen bij de eerste paginaweergave van buitenaf: domein (nl, be, com) en verwijzer. */
+  entryDomain: text("entry_domain"),
+  /** Hostnaam van de verwijzende site zonder pad ('' = direct of onbekend). */
+  referrer: text("referrer"),
   occurredAt: timestamp("occurred_at", { withTimezone: true }).notNull(),
 }, (t) => [index("events_tenant_time").on(t.tenantId, t.occurredAt)]);
 
@@ -80,6 +84,20 @@ export const dailyVisitors = analyticsSchema.table("daily_visitors", {
   org: text("org").notNull(),
   visitors: integer("visitors").notNull().default(0),
 }, (t) => [uniqueIndex("daily_visitors_unique").on(t.tenantId, t.day, t.org)]);
+
+/**
+ * Binnenkomsten per dag, organisatie, domein en verwijzende site (ADR 0032). Een binnenkomst = de eerste
+ * paginaweergave van een bezoek van buitenaf. Blijft na de 90 dagen van de ruwe events.
+ */
+export const dailySources = analyticsSchema.table("daily_sources", {
+  ...baseColumns(),
+  day: date("day", { mode: "string" }).notNull(),
+  org: text("org").notNull(),
+  entryDomain: text("entry_domain").notNull(),
+  referrer: text("referrer").notNull(),
+  landings: integer("landings").notNull().default(0),
+  visitors: integer("visitors").notNull().default(0),
+}, (t) => [uniqueIndex("daily_sources_unique").on(t.tenantId, t.day, t.org, t.entryDomain, t.referrer)]);
 
 /** Een tussendoel: zoveel maanden na de start, het doel (realistisch) en de ambitie. */
 export interface GoalMilestone { month: number; target: number; stretch: number }

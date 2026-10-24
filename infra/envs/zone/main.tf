@@ -83,6 +83,8 @@ module "redirect_domain" {
   zone_id  = each.value
   domain   = each.key
   target   = "https://www.kleurhoek.nl"
+  # kleurhoek.be → be, kleurhoek.com → com: zo telt de site via welk domein iemand binnenkwam (ADR 0032).
+  via = element(split(".", each.key), length(split(".", each.key)) - 1)
 }
 
 output "worker_secrets" {
