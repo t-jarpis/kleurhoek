@@ -97,7 +97,7 @@ def outline_points(segments, spacing):
     return pts
 
 # ---------- rekenen ----------
-def sums_sheet(slug, name, items, age, diff, intro, steps, cat="leren", box_w=24, eq=" =", after=None):
+def sums_sheet(slug, name, items, age, diff, intro, steps, cat="leren", box_w=24, eq=" =", after=None, box_x=None):
     def page(answer):
         sh = Sheet()
         t = cap(name.split(": ", 1)[-1])
@@ -107,7 +107,7 @@ def sums_sheet(slug, name, items, age, diff, intro, steps, cat="leren", box_w=24
         for i, (q, a) in enumerate(items):
             col, row = i % 2, i // 2
             x, y = 18 + col * 92, 52 + row * 30
-            bx = x + (30 if after else 54)
+            bx = x + (box_x if box_x is not None else (30 if after else 54))
             sh.text(x, y + 9, q + eq, 10, "start")
             sh.raw(f'<rect class="ans" x="{bx}" y="{y - 1}" width="{box_w}" height="14" rx="2"/>')
             if after: sh.text(bx + box_w + 4, y + 9, after, 10, "start")

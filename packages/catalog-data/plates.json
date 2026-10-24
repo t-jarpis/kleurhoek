@@ -78811,5 +78811,850 @@
         "countQuestion": null
       }
     }
+  },
+  {
+    "slug": "dagen-en-maanden",
+    "order": 433,
+    "category": "leren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Dagen en maanden op volgorde",
+        "steps": [
+          "Zeg de dagen van de week hardop, te beginnen bij maandag.",
+          "Welke dag mist er? Schrijf hem op het lijntje.",
+          "Doe hetzelfde met de maanden, te beginnen bij januari.",
+          "Kijk na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "getallenlijn-invullen",
+    "order": 434,
+    "category": "leren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Getallenlijn invullen",
+        "steps": [
+          "Kijk naar twee getallen naast elkaar: hoeveel komt er steeds bij? Dat is de sprong.",
+          "Tel vanaf het getal voor het lege hokje één sprong verder.",
+          "Kijk na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "letters-groot-en-klein",
+    "order": 435,
+    "category": "leren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Grote en kleine letters koppelen",
+        "steps": [
+          "Zeg de hoofdletter hardop.",
+          "Zoek rechts dezelfde letter, maar dan klein.",
+          "Trek een lijn van stip naar stip. Kijk daarna na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "rekenen-aftrekken-tot-100",
+    "order": 436,
+    "category": "leren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      }
+    ],
+    "regionCount": 1,
+    "colorByNumber": {
+      "codes": "y",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 99.3,
+          "y": 249.3,
+          "size": 6.6
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Rekenen: aftrekken tot 100",
+        "steps": [
+          "Splits het tweede getal: 72 − 27 = 72 − 20 − 7.",
+          "Eerst de tientallen eraf (52), dan de eenheden (45).",
+          "Kijk samen na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "rekenen-dubbelen",
+    "order": 437,
+    "category": "leren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      }
+    ],
+    "regionCount": 1,
+    "colorByNumber": {
+      "codes": "y",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 99.3,
+          "y": 249.3,
+          "size": 6.6
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Rekenen: dubbelen",
+        "steps": [
+          "Dubbel 6 is 6 + 6.",
+          "Weet je het niet? Tel twee keer hetzelfde getal op je vingers.",
+          "Kijk samen na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "rekenen-groter-kleiner",
+    "order": 438,
+    "category": "leren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      }
+    ],
+    "regionCount": 1,
+    "colorByNumber": {
+      "codes": "y",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 99.3,
+          "y": 249.3,
+          "size": 6.6
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Rekenen: groter, kleiner of gelijk",
+        "steps": [
+          "Kijk eerst naar de tientallen: welk getal heeft er meer?",
+          "Zijn de tientallen gelijk? Kijk dan naar de eenheden.",
+          "Schrijf < als het linkergetal kleiner is, > als het groter is en = als ze gelijk zijn.",
+          "Kijk samen na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "rekenen-halveren",
+    "order": 439,
+    "category": "leren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      }
+    ],
+    "regionCount": 1,
+    "colorByNumber": {
+      "codes": "y",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 99.3,
+          "y": 249.3,
+          "size": 6.6
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Rekenen: de helft",
+        "steps": [
+          "De helft van 10 is 5, want 5 + 5 = 10.",
+          "Twijfel je? Controleer met dubbelen: is het antwoord dubbel weer het getal?",
+          "Kijk samen na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "rekenen-optellen-tot-100",
+    "order": 440,
+    "category": "leren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      }
+    ],
+    "regionCount": 1,
+    "colorByNumber": {
+      "codes": "y",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 99.3,
+          "y": 249.3,
+          "size": 6.6
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Rekenen: optellen tot 100",
+        "steps": [
+          "Splits het tweede getal in tientallen en eenheden: 34 + 25 = 34 + 20 + 5.",
+          "Eerst de tientallen erbij (54), dan de eenheden (59).",
+          "Kijk samen na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "rekenen-optellen-tot-1000",
+    "order": 441,
+    "category": "leren",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      }
+    ],
+    "regionCount": 1,
+    "colorByNumber": {
+      "codes": "y",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 99.3,
+          "y": 249.3,
+          "size": 6.6
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Rekenen: optellen met honderdtallen",
+        "steps": [
+          "Kijk eerst naar de honderden: 300 + 400 = 700.",
+          "Tel daarna de tientallen erbij: 320 + 440 = 760.",
+          "Kijk samen na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "rekenpiramides",
+    "order": 442,
+    "category": "leren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      }
+    ],
+    "regionCount": 40,
+    "colorByNumber": {
+      "codes": "yyyy------yyyy------y-yyy-----y-yyy-----",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 29.5,
+          "y": 112.6,
+          "size": 9.8
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 49.5,
+          "y": 112.6,
+          "size": 9.8
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 69.5,
+          "y": 112.6,
+          "size": 9.8
+        },
+        {
+          "region": 3,
+          "number": 1,
+          "x": 89.5,
+          "y": 112.6,
+          "size": 9.8
+        },
+        {
+          "region": 10,
+          "number": 1,
+          "x": 117.5,
+          "y": 112.6,
+          "size": 9.8
+        },
+        {
+          "region": 11,
+          "number": 1,
+          "x": 137.5,
+          "y": 112.6,
+          "size": 9.8
+        },
+        {
+          "region": 12,
+          "number": 1,
+          "x": 157.5,
+          "y": 112.6,
+          "size": 9.8
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 177.5,
+          "y": 112.6,
+          "size": 9.8
+        },
+        {
+          "region": 20,
+          "number": 1,
+          "x": 29.5,
+          "y": 222.6,
+          "size": 9.8
+        },
+        {
+          "region": 22,
+          "number": 1,
+          "x": 69.5,
+          "y": 222.6,
+          "size": 9.8
+        },
+        {
+          "region": 23,
+          "number": 1,
+          "x": 89.5,
+          "y": 222.6,
+          "size": 9.8
+        },
+        {
+          "region": 24,
+          "number": 1,
+          "x": 39.5,
+          "y": 204.6,
+          "size": 9.8
+        },
+        {
+          "region": 30,
+          "number": 1,
+          "x": 117.5,
+          "y": 222.6,
+          "size": 9.8
+        },
+        {
+          "region": 32,
+          "number": 1,
+          "x": 157.5,
+          "y": 222.6,
+          "size": 9.8
+        },
+        {
+          "region": 33,
+          "number": 1,
+          "x": 177.5,
+          "y": 222.6,
+          "size": 9.8
+        },
+        {
+          "region": 34,
+          "number": 1,
+          "x": 127.5,
+          "y": 204.6,
+          "size": 9.8
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Rekenpiramides",
+        "steps": [
+          "Begin onderaan: tel twee blokken naast elkaar op en schrijf het antwoord in het blok erboven.",
+          "Werk zo verder tot je bovenaan bent.",
+          "Bij de laatste twee mist er een getal onderaan: reken terug met aftrekken.",
+          "Kijk na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "tellen-tot-5-plaatjes",
+    "order": 443,
+    "category": "leren",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      }
+    ],
+    "regionCount": 18,
+    "colorByNumber": {
+      "codes": "yyyrbbbbbyyrrrrbbb",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 21.6,
+          "y": 53.6,
+          "size": 4.5
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 39.6,
+          "y": 53.6,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 58.4,
+          "y": 53.6,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 21.7,
+          "y": 91,
+          "size": 5.3
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 21.6,
+          "y": 125.6,
+          "size": 7.6
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 39.7,
+          "y": 125.6,
+          "size": 7.6
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 57.7,
+          "y": 125.6,
+          "size": 7.6
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 75.7,
+          "y": 125.6,
+          "size": 7.6
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 93.7,
+          "y": 125.6,
+          "size": 7.6
+        },
+        {
+          "region": 9,
+          "number": 1,
+          "x": 21.6,
+          "y": 161.6,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 1,
+          "x": 39.6,
+          "y": 161.6,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 21.7,
+          "y": 199,
+          "size": 5.3
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 39.7,
+          "y": 199,
+          "size": 5.3
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 57.7,
+          "y": 199,
+          "size": 5.3
+        },
+        {
+          "region": 14,
+          "number": 2,
+          "x": 75.7,
+          "y": 199,
+          "size": 5.3
+        },
+        {
+          "region": 15,
+          "number": 3,
+          "x": 21.6,
+          "y": 233.6,
+          "size": 7.6
+        },
+        {
+          "region": 16,
+          "number": 3,
+          "x": 39.7,
+          "y": 233.6,
+          "size": 7.6
+        },
+        {
+          "region": 17,
+          "number": 3,
+          "x": 57.7,
+          "y": 233.6,
+          "size": 7.6
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tellen tot 5 met plaatjes",
+        "steps": [
+          "Wijs elk plaatje aan en tel hardop: één, twee, drie …",
+          "Zet een rondje om het getal dat je hebt geteld.",
+          "Kleur daarna de plaatjes in."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
   }
 ]
