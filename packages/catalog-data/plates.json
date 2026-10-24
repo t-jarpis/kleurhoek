@@ -105158,5 +105158,197 @@
         ]
       }
     }
+  },
+  {
+    "slug": "kwartet-vormen",
+    "order": 622,
+    "category": "vormen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "spel",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "kleurpotloden"
+      }
+    ],
+    "regionCount": 60,
+    "colorByNumber": {
+      "codes": "------------------------------------------------------------",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Kwartet met vormen",
+        "printNote": "Op dik papier kun je niet door de kaartjes heen kijken.",
+        "steps": [
+          "Kleur elke soort vorm in een eigen kleur (alle sterren geel, alle harten rood …) en knip de 24 kaartjes uit.",
+          "Een kwartet is een soort vorm met 1, 2, 3 en 4 vormen. Onderaan elk kaartje zie je welke er bij het kwartet horen.",
+          "Deel alle kaartjes. Vraag om de beurt een ander om een kaartje dat je mist: 'Mag ik van jou drie sterren?'",
+          "Heb je een kwartet compleet? Leg het neer. Wie de meeste kwartetten heeft, wint."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "letterbingo",
+    "order": 623,
+    "category": "leren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "spel",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "extra",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kinderschaar"
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Letterbingo: hoofdletter en kleine letter",
+        "steps": [
+          "Knip de bingokaarten en de trekkaartjes uit.",
+          "De spelleider trekt een kaartje met een hoofdletter en zegt de klank.",
+          "Wie dezelfde kleine letter op zijn kaart heeft, legt er een knoopje op.",
+          "Drie op een rij is bingo!"
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Trekkaartjes"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "memory-tafels",
+    "order": 624,
+    "category": "leren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "spel",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Memory met de tafels",
+        "printNote": "Op dik papier kun je niet door de kaartjes heen kijken.",
+        "steps": [
+          "Knip de 24 kaartjes uit en leg ze omgekeerd op tafel.",
+          "Draai om de beurt twee kaartjes om. Hoort de som bij het antwoord? Dan mag je ze houden en nog een keer.",
+          "Horen ze niet bij elkaar? Draai ze terug. Wie aan het eind de meeste paren heeft, wint.",
+          "Twijfel? Op de tweede bladzijde staan alle paren."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Alle paren"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "rekenbingo-tot-20",
+    "order": 625,
+    "category": "leren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "spel",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "extra",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "potlood",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Rekenbingo tot 20",
+        "steps": [
+          "Knip de vier bingokaarten en de twintig somkaartjes uit.",
+          "Elke speler krijgt een bingokaart en een handje knoopjes of muntjes.",
+          "De spelleider trekt een somkaartje en leest de som voor. Wie het antwoord op zijn kaart heeft, legt er een knoopje op.",
+          "Drie op een rij is bingo! Controleer samen of de sommen kloppen."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Somkaartjes"
+        ]
+      }
+    }
   }
 ]
