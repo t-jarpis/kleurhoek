@@ -2,7 +2,7 @@
 
 Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027.
 
-**Totaal: 387** van 5.000. Problemen: 0, waarschuwingen: 7.
+**Totaal: 404** van 5.000. Problemen: 0, waarschuwingen: 8.
 
 | Groep | Nu | Doel |
 |---|---:|---:|
@@ -10,7 +10,7 @@ Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027
 | Knip-, plak- en knutselbladen | 32 | 750 |
 | Vouw- en bouwplaten | 31 | 500 |
 | Teken- en schilderactiviteiten | 23 | 400 |
-| Educatief en spelletjes | 46 | 600 |
+| Educatief en spelletjes | 63 | 600 |
 | Kaarten, decoraties en cadeautjes | 20 | 400 |
 | Gevorderd (12+, overlapt) | 12 | 350 |
 
@@ -19,12 +19,12 @@ Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027
 | | Aantal |
 |---|---:|
 | kleurplaat | 235 |
-| werkblad | 38 |
+| werkblad | 54 |
 | knipplaat | 32 |
 | bouwplaat | 26 |
 | kaart | 20 |
 | tekenles | 18 |
-| spel | 8 |
+| spel | 9 |
 | vouwblad | 5 |
 | sjabloon | 5 |
 
@@ -32,21 +32,21 @@ Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027
 
 | | Aantal |
 |---|---:|
-| dieren | 61 |
+| dieren | 62 |
 | feest | 52 |
-| voertuigen | 35 |
+| voertuigen | 36 |
+| leren | 34 |
 | natuur | 24 |
 | thuis | 24 |
-| leren | 24 |
+| eten | 23 |
 | wereld | 23 |
 | zee | 23 |
-| eten | 22 |
 | patronen | 22 |
-| vormen | 16 |
+| vormen | 18 |
 | ruimte | 13 |
 | boerderij | 13 |
-| sprookjes | 12 |
-| sport | 11 |
+| sprookjes | 13 |
+| sport | 12 |
 | dinos | 7 |
 | beroepen | 5 |
 
@@ -54,14 +54,15 @@ Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027
 
 | | Aantal |
 |---|---:|
-| 4-6 | 161 |
-| 6-9 | 117 |
-| 2-4 | 66 |
-| 9+ | 31 |
+| 4-6 | 163 |
+| 6-9 | 125 |
+| 2-4 | 67 |
+| 9+ | 37 |
 | 12+ | 12 |
 
 ### Waarschuwingen
 
+- breuken-kleuren: werkblad met een opgave maar zonder antwoordblad
 - ketikoti: pagina 1: 1 onderdelen (deels) buiten het vel
 - molen: pagina 1: 2 onderdelen (deels) buiten het vel
 - piramides: pagina 1: 1 onderdelen (deels) buiten het vel
