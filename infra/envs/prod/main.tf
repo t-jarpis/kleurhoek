@@ -108,11 +108,13 @@ module "site" {
   org_worker_secret        = data.terraform_remote_state.zone.outputs.worker_secrets["prod"]
   org_host_pattern         = "{slug}.kleurhoek.nl"
   apps_enabled             = var.apps_enabled
+  # Klein starten (circa € 20 per maand): één node, dagelijkse back-up 35 dagen in een ander datacenter.
+  # Groeien = node_type ophogen (bijv. DB-PLAY2-NANO of DB-PRO2-XXS) en eventueel ha = true; kort onderbreking.
   database = {
-    node_type      = "DB-PRO2-XXS"
+    node_type      = "DB-PLAY2-PICO"
     engine         = "PostgreSQL-16"
-    volume_gb      = 20
-    ha             = true
+    volume_gb      = 10
+    ha             = false
     backup_days    = 35
     backup_hours   = 24
     backup_same_dc = false

@@ -132,6 +132,7 @@ check_config() { # check_config <env>
   step "Instellingen ($env)"
   [ -f "$zf" ] || { problem "ontbreekt: infra/envs/zone/terraform.tfvars (kopieer terraform.tfvars.example)"; }
   [ -f "$f" ]  || { problem "ontbreekt: infra/envs/$env/terraform.tfvars (kopieer terraform.tfvars.example)"; return; }
+  ensure_project "$env" "$f"
   local bad
   bad="$(grep -nE '^[^#]*<[^>]+>' "$f" "$zf" 2>/dev/null | sed "s|$INFRA/||")"
   [ -z "$bad" ] && ok "geen open plekken (<…>) in tfvars" || problem "nog in te vullen:"$'\n'"$(printf '%s\n' "$bad" | sed 's/^/      /')"
@@ -167,6 +168,27 @@ check_config() { # check_config <env>
     else
       problem "Cloudflare-token mist Workers-rechten. Voeg op dash.cloudflare.com › My Profile › API Tokens › (je token) › Edit toe:"$'\n'"      Account › Workers Scripts › Edit  én  Zone › Workers Routes › Edit"
     fi
+  fi
+}
+
+# Het Scaleway-project van de omgeving (kleurhoek-<env>): zoeken of aanmaken, en het ID in tfvars zetten.
+ensure_project() { # ensure_project <env> <tfvars>
+  local env="$1" f="$2" org pid uuid='^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$' id
+  org="$(tfvar "$f" scaleway_organization_id)"; pid="$(tfvar "$f" scaleway_project_id)"
+  [[ "$pid" =~ $uuid ]] && return 0
+  [[ "$org" =~ $uuid ]] && [ -n "${SCW_SECRET_KEY:-}" ] || return 0
+  id="$(curl -s -H "X-Auth-Token: $SCW_SECRET_KEY" "https://api.scaleway.com/account/v3/projects?organization_id=$org&name=kleurhoek-$env" | jq -r '.projects[0].id // empty')"
+  if [ -z "$id" ]; then
+    id="$(curl -s -X POST -H "X-Auth-Token: $SCW_SECRET_KEY" -H 'content-type: application/json' \
+      -d "{\"name\":\"kleurhoek-$env\",\"organization_id\":\"$org\",\"description\":\"Kleurhoek ($env)\"}" \
+      "https://api.scaleway.com/account/v3/projects" | jq -r '.id // empty')"
+    [ -n "$id" ] && ok "Scaleway-project kleurhoek-$env aangemaakt"
+  fi
+  if [ -n "$id" ]; then
+    sed -i '' -E "s|^([[:space:]]*scaleway_project_id[[:space:]]*=[[:space:]]*).*|\1\"$id\"|" "$f"
+    ok "project-ID van kleurhoek-$env ingevuld in infra/envs/$env/terraform.tfvars"
+  else
+    problem "Scaleway-project kleurhoek-$env aanmaken lukte niet met deze sleutel: maak het aan in de console (Project › Create project) en zet het ID in infra/envs/$env/terraform.tfvars"
   fi
 }
 
@@ -283,6 +305,15 @@ github_sync() { # github_sync <env>
   # Oude secret op repo-niveau (eerste poging) opruimen; die zou prod en dev door elkaar halen.
   gh secret delete SCW_SECRET_KEY -R "$REPO" >/dev/null 2>&1 || true
   [ "$env" = dev ] && gh variable set DEPLOY_ENABLED -R "$REPO" -b true >/dev/null
+  if [ "$env" = prod ]; then
+    # Productie alleen na jouw goedkeuring (kan op een gratis GitHub-plan met een privé repo niet).
+    local me; me="$(gh api user -q .id 2>/dev/null)"
+    if [ -n "$me" ] && gh api -X PUT "repos/$REPO/environments/prod" --input - >/dev/null 2>&1 <<<"{\"reviewers\":[{\"type\":\"User\",\"id\":$me}]}"; then
+      ok "uitrollen naar prod vraagt jouw goedkeuring"
+    else
+      warn "goedkeuring voor prod instellen lukte niet (GitHub-plan); prod rolt alleen uit als je Deploy zelf start"
+    fi
+  fi
   ok "variabelen en deploy-sleutel gezet in GitHub-omgeving $env"
 }
 
@@ -357,7 +388,27 @@ cmd_up() {
   step "Domeinen en certificaten"
   heal_domains "$TARGET"
   smoke_test "$(terraform -chdir="$INFRA/envs/$TARGET" output -raw site_url)"
+  [ "$TARGET" = prod ] && go_live
   echo; bold "Klaar: $(terraform -chdir="$INFRA/envs/$TARGET" output -raw site_url)"
+}
+
+# Live: kleurhoek.nl zonder www en de extra domeinen (.be, .com) sturen door naar www.kleurhoek.nl.
+go_live() {
+  step "Live: doorsturen naar www.kleurhoek.nl"
+  local zf="$INFRA/envs/zone/terraform.tfvars" d id map=""
+  for d in kleurhoek.be kleurhoek.com; do
+    id="$(curl -s -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" "https://api.cloudflare.com/client/v4/zones?name=$d" | jq -r '.result[0].id // empty')"
+    if [ -n "$id" ]; then map="$map${map:+, }\"$d\" = \"$id\""; ok "$d gevonden in Cloudflare"
+    else warn "$d niet in Cloudflare of niet in het token: stuurt nog niet door (voeg de zone toe aan het token en draai opnieuw)"; fi
+  done
+  sed -i '' -E "s|^([[:space:]]*prod_live[[:space:]]*=[[:space:]]*).*|\1true|" "$zf"
+  sed -i '' -E "s|^([[:space:]]*redirect_zone_ids[[:space:]]*=[[:space:]]*).*|\1{ $map }|" "$zf"
+  tf_init zone; tf_apply zone
+  for i in $(seq 1 30); do
+    [ "$(curl -s -o /dev/null -w '%{redirect_url}' https://kleurhoek.nl/)" = "https://www.kleurhoek.nl/" ] && { ok "kleurhoek.nl stuurt door naar www"; return; }
+    sleep 10
+  done
+  warn "kleurhoek.nl stuurt nog niet door; DNS kan even duren. Controleer later: curl -I https://kleurhoek.nl"
 }
 
 cmd_reset_keys() {

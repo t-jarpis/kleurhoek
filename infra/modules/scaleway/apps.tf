@@ -32,7 +32,8 @@ locals {
         SITE_ORG_ID              = var.oidc.site_org_id
         ADMIN_BOOTSTRAP_SUBJECTS = join(",", var.admin_bootstrap_subjects)
         MIGRATE_ON_START         = "true"
-        SEED_ON_START            = local.prod ? "false" : "true"
+        # De seed is aanvullend (overschrijft niets uit het admin panel): ook in prod bij elke start.
+        SEED_ON_START            = "true"
         DATABASE_CA              = scaleway_rdb_instance.main.certificate
         ORG_HOST_PATTERN         = var.org_host_pattern
       }
