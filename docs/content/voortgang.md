@@ -2,17 +2,17 @@
 
 Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027.
 
-**Totaal: 507** van 5.000. Problemen: 0, waarschuwingen: 11.
+**Totaal: 515** van 5.000. Problemen: 0, waarschuwingen: 11.
 
 | Groep | Nu | Doel |
 |---|---:|---:|
 | Kleurplaten | 291 | 2000 |
 | Knip-, plak- en knutselbladen | 32 | 750 |
-| Vouw- en bouwplaten | 33 | 500 |
+| Vouw- en bouwplaten | 41 | 500 |
 | Teken- en schilderactiviteiten | 37 | 400 |
 | Educatief en spelletjes | 79 | 600 |
 | Kaarten, decoraties en cadeautjes | 35 | 400 |
-| Gevorderd (12+, overlapt) | 20 | 350 |
+| Gevorderd (12+, overlapt) | 23 | 350 |
 
 ### Per soort
 
@@ -20,10 +20,10 @@ Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027
 |---|---:|
 | kleurplaat | 291 |
 | werkblad | 65 |
+| bouwplaat | 36 |
 | kaart | 35 |
 | knipplaat | 32 |
 | tekenles | 29 |
-| bouwplaat | 28 |
 | spel | 14 |
 | sjabloon | 8 |
 | vouwblad | 5 |
@@ -36,13 +36,13 @@ Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027
 | dieren | 68 |
 | leren | 47 |
 | voertuigen | 42 |
+| vormen | 32 |
 | thuis | 30 |
 | patronen | 29 |
 | eten | 28 |
 | natuur | 27 |
 | wereld | 27 |
 | zee | 26 |
-| vormen | 24 |
 | boerderij | 18 |
 | sprookjes | 18 |
 | ruimte | 17 |
@@ -55,10 +55,10 @@ Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027
 | | Aantal |
 |---|---:|
 | 4-6 | 210 |
-| 6-9 | 157 |
+| 6-9 | 158 |
 | 2-4 | 81 |
-| 9+ | 39 |
-| 12+ | 20 |
+| 9+ | 43 |
+| 12+ | 23 |
 
 ### Waarschuwingen
 

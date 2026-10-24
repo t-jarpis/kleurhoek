@@ -89931,5 +89931,1037 @@
         "countQuestion": null
       }
     }
+  },
+  {
+    "slug": "achthoekig-prisma",
+    "order": 507,
+    "category": "vormen",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 35,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 10,
+    "colorByNumber": {
+      "codes": "zznbnbnbnb",
+      "palette": [
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 98.8,
+          "y": 167.1,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 98.8,
+          "y": 60.7,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 28,
+          "y": 167.8,
+          "size": 11
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 50,
+          "y": 218.3,
+          "size": 13
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 99.5,
+          "y": 202.7,
+          "size": 11
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 125.3,
+          "y": 193.6,
+          "size": 13
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 134.4,
+          "y": 167.8,
+          "size": 11
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 125.3,
+          "y": 143.1,
+          "size": 13
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 99.5,
+          "y": 96.3,
+          "size": 11
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 50,
+          "y": 118.4,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bouwplaat: achthoekige toren",
+        "printNote": "Op stevig papier (160 gram) wordt hij het mooist.",
+        "steps": [
+          "Kleur de vlakken in. Knip de bouwplaat uit langs de doorgetrokken lijnen; de grijze flapjes blijven eraan.",
+          "Vouw alle stippellijnen en flapjes naar binnen (de tekening blijft buiten). Kras ze eerst met een lege balpen en een liniaal, dan vouwt het strakker.",
+          "Plak de flapjes één voor één vast, aan de binnenkant van de rand ernaast. Begin bij de flapjes die het verst van het laatste vlak af zitten.",
+          "Het laatste vlak sluit je als deksel: druk de flapjes van buitenaf aan tot de lijm droog is."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "afgeknot-viervlak",
+    "order": 508,
+    "category": "vormen",
+    "age": "12+",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 45,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 3,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 8,
+    "colorByNumber": {
+      "codes": "rybgotpm",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 99.1,
+          "y": 173.2,
+          "size": 11.8
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 134.8,
+          "y": 193,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 98.2,
+          "y": 129.6,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 61.6,
+          "y": 193,
+          "size": 13
+        },
+        {
+          "region": 4,
+          "number": 5,
+          "x": 135.7,
+          "y": 109.7,
+          "size": 11.8
+        },
+        {
+          "region": 5,
+          "number": 6,
+          "x": 98.2,
+          "y": 66.1,
+          "size": 13
+        },
+        {
+          "region": 6,
+          "number": 7,
+          "x": 135.7,
+          "y": 236.6,
+          "size": 11.8
+        },
+        {
+          "region": 7,
+          "number": 8,
+          "x": 62.5,
+          "y": 109.7,
+          "size": 11.8
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bouwplaat: afgeknot viervlak",
+        "printNote": "Op stevig papier (160 gram) wordt hij het mooist.",
+        "steps": [
+          "Kleur de vlakken in. Knip de bouwplaat uit langs de doorgetrokken lijnen; de grijze flapjes blijven eraan.",
+          "Vouw alle stippellijnen en flapjes naar binnen (de tekening blijft buiten). Kras ze eerst met een lege balpen en een liniaal, dan vouwt het strakker.",
+          "Plak de flapjes één voor één vast, aan de binnenkant van de rand ernaast. Begin bij de flapjes die het verst van het laatste vlak af zitten.",
+          "Het laatste vlak sluit je als deksel: druk de flapjes van buitenaf aan tot de lijm droog is."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "afgeknotte-piramide",
+    "order": 509,
+    "category": "vormen",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 30,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 6,
+    "colorByNumber": {
+      "codes": "wwoooo",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 98.3,
+          "y": 160.9,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 99,
+          "y": 62.6,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 98.3,
+          "y": 217.7,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 155.1,
+          "y": 160.9,
+          "size": 13
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 98.3,
+          "y": 105.3,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 42.7,
+          "y": 160.9,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bouwplaat: afgeknotte piramide",
+        "printNote": "Op stevig papier (160 gram) wordt hij het mooist.",
+        "steps": [
+          "Kleur de vlakken in. Knip de bouwplaat uit langs de doorgetrokken lijnen; de grijze flapjes blijven eraan.",
+          "Vouw alle stippellijnen en flapjes naar binnen (de tekening blijft buiten). Kras ze eerst met een lege balpen en een liniaal, dan vouwt het strakker.",
+          "Plak de flapjes één voor één vast, aan de binnenkant van de rand ernaast. Begin bij de flapjes die het verst van het laatste vlak af zitten.",
+          "Het laatste vlak sluit je als deksel: druk de flapjes van buitenaf aan tot de lijm droog is."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "antiprisma",
+    "order": 510,
+    "category": "vormen",
+    "age": "12+",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 40,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 3,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 10,
+    "colorByNumber": {
+      "codes": "pptmtmtmtm",
+      "palette": [
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 93.5,
+          "y": 168.8,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 65.1,
+          "y": 62.9,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 93.5,
+          "y": 214.6,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 156.4,
+          "y": 197.2,
+          "size": 13
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 139.3,
+          "y": 168.8,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 121.8,
+          "y": 108.7,
+          "size": 13
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 93.5,
+          "y": 125.9,
+          "size": 13
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 65.1,
+          "y": 108.7,
+          "size": 13
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 50.5,
+          "y": 168.8,
+          "size": 13
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 65.1,
+          "y": 231.8,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bouwplaat: vierkant antiprisma",
+        "printNote": "Op stevig papier (160 gram) wordt hij het mooist.",
+        "steps": [
+          "Kleur de vlakken in. Knip de bouwplaat uit langs de doorgetrokken lijnen; de grijze flapjes blijven eraan.",
+          "Vouw alle stippellijnen en flapjes naar binnen (de tekening blijft buiten). Kras ze eerst met een lege balpen en een liniaal, dan vouwt het strakker.",
+          "Plak de flapjes één voor één vast, aan de binnenkant van de rand ernaast. Begin bij de flapjes die het verst van het laatste vlak af zitten.",
+          "Het laatste vlak sluit je als deksel: druk de flapjes van buitenaf aan tot de lijm droog is."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "kuboctaeder",
+    "order": 511,
+    "category": "vormen",
+    "age": "12+",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 50,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 3,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 14,
+    "colorByNumber": {
+      "codes": "rybgotpmnkrybg",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 96.4,
+          "y": 160.9,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 96.4,
+          "y": 125.2,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 126.2,
+          "y": 180.2,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 132,
+          "y": 125.2,
+          "size": 13
+        },
+        {
+          "region": 4,
+          "number": 5,
+          "x": 65.7,
+          "y": 180.2,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 6,
+          "x": 62.9,
+          "y": 125.2,
+          "size": 13
+        },
+        {
+          "region": 6,
+          "number": 7,
+          "x": 109.9,
+          "y": 207.8,
+          "size": 13
+        },
+        {
+          "region": 7,
+          "number": 8,
+          "x": 96.4,
+          "y": 91.8,
+          "size": 13
+        },
+        {
+          "region": 8,
+          "number": 9,
+          "x": 43.6,
+          "y": 97.6,
+          "size": 13
+        },
+        {
+          "region": 9,
+          "number": 10,
+          "x": 148.3,
+          "y": 97.6,
+          "size": 13
+        },
+        {
+          "region": 10,
+          "number": 1,
+          "x": 156.8,
+          "y": 196.5,
+          "size": 13
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 156.8,
+          "y": 229.9,
+          "size": 13
+        },
+        {
+          "region": 12,
+          "number": 3,
+          "x": 35.9,
+          "y": 196.5,
+          "size": 13
+        },
+        {
+          "region": 13,
+          "number": 4,
+          "x": 167.6,
+          "y": 64.8,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bouwplaat: kuboctaëder",
+        "printNote": "Op stevig papier (160 gram) wordt hij het mooist.",
+        "steps": [
+          "Kleur de vlakken in. Knip de bouwplaat uit langs de doorgetrokken lijnen; de grijze flapjes blijven eraan.",
+          "Vouw alle stippellijnen en flapjes naar binnen (de tekening blijft buiten). Kras ze eerst met een lege balpen en een liniaal, dan vouwt het strakker.",
+          "Plak de flapjes één voor één vast, aan de binnenkant van de rand ernaast. Begin bij de flapjes die het verst van het laatste vlak af zitten.",
+          "Het laatste vlak sluit je als deksel: druk de flapjes van buitenaf aan tot de lijm droog is."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "vijfhoekige-piramide",
+    "order": 512,
+    "category": "vormen",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 25,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 6,
+    "colorByNumber": {
+      "codes": "yrogbp",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 109.7,
+          "y": 145.1,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 147.7,
+          "y": 120.3,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 147.7,
+          "y": 173.7,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 92.4,
+          "y": 192.3,
+          "size": 13
+        },
+        {
+          "region": 4,
+          "number": 5,
+          "x": 58.3,
+          "y": 145.8,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 6,
+          "x": 92.4,
+          "y": 101.7,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bouwplaat: vijfhoekige piramide",
+        "printNote": "Op stevig papier (160 gram) wordt hij het mooist.",
+        "steps": [
+          "Kleur de vlakken in. Knip de bouwplaat uit langs de doorgetrokken lijnen; de grijze flapjes blijven eraan.",
+          "Vouw alle stippellijnen en flapjes naar binnen (de tekening blijft buiten). Kras ze eerst met een lege balpen en een liniaal, dan vouwt het strakker.",
+          "Plak de flapjes één voor één vast, aan de binnenkant van de rand ernaast. Begin bij de flapjes die het verst van het laatste vlak af zitten.",
+          "Het laatste vlak sluit je als deksel: druk de flapjes van buitenaf aan tot de lijm droog is."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "zeshoekig-prisma",
+    "order": 513,
+    "category": "vormen",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 30,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 8,
+    "colorByNumber": {
+      "codes": "yyoooooo",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 98.3,
+          "y": 171.7,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 98.3,
+          "y": 64.2,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 49,
+          "y": 201.4,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 99.1,
+          "y": 220.9,
+          "size": 13
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 142.1,
+          "y": 198.8,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 145.1,
+          "y": 147.7,
+          "size": 13
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 99.1,
+          "y": 113.4,
+          "size": 13
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 52,
+          "y": 145,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bouwplaat: zeshoekig doosje",
+        "printNote": "Op stevig papier (160 gram) wordt hij het mooist.",
+        "steps": [
+          "Kleur de vlakken in. Knip de bouwplaat uit langs de doorgetrokken lijnen; de grijze flapjes blijven eraan.",
+          "Vouw alle stippellijnen en flapjes naar binnen (de tekening blijft buiten). Kras ze eerst met een lege balpen en een liniaal, dan vouwt het strakker.",
+          "Plak de flapjes één voor één vast, aan de binnenkant van de rand ernaast. Begin bij de flapjes die het verst van het laatste vlak af zitten.",
+          "Het laatste vlak sluit je als deksel: druk de flapjes van buitenaf aan tot de lijm droog is."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "zesvlak-dubbele-piramide",
+    "order": 514,
+    "category": "vormen",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 25,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 6,
+    "colorByNumber": {
+      "codes": "rbyrby",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 97.7,
+          "y": 172.4,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 137.9,
+          "y": 199,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 58.1,
+          "y": 199,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 1,
+          "x": 97.7,
+          "y": 121.6,
+          "size": 13
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 137.9,
+          "y": 95,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 58.1,
+          "y": 95,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bouwplaat: dubbele driehoekpiramide",
+        "printNote": "Op stevig papier (160 gram) wordt hij het mooist.",
+        "steps": [
+          "Kleur de vlakken in. Knip de bouwplaat uit langs de doorgetrokken lijnen; de grijze flapjes blijven eraan.",
+          "Vouw alle stippellijnen en flapjes naar binnen (de tekening blijft buiten). Kras ze eerst met een lege balpen en een liniaal, dan vouwt het strakker.",
+          "Plak de flapjes één voor één vast, aan de binnenkant van de rand ernaast. Begin bij de flapjes die het verst van het laatste vlak af zitten.",
+          "Het laatste vlak sluit je als deksel: druk de flapjes van buitenaf aan tot de lijm droog is."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
   }
 ]
