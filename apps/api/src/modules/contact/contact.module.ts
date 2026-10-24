@@ -26,6 +26,6 @@ export class ContactPurgeScheduler implements OnModuleInit, OnApplicationShutdow
   }
 }
 
-/** Domein Contact (ADR 0023): berichten via kanalen en de inbox in het admin panel. */
+/** Domein Contact (ADR 0024): berichten via kanalen en de inbox in het admin panel. */
 @Module({ controllers: [ContactController, AdminContactController], providers: [ContactService, ContactPurgeScheduler], exports: [ContactService] })
 export class ContactModule {}

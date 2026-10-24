@@ -3,7 +3,7 @@ import { lookup } from "node:dns/promises";
 import { isIP } from "node:net";
 
 /**
- * Controle van een bron bij de maker (ADR 0024). We halen alleen de HTML-pagina op om te zien of hij er
+ * Controle van een bron bij de maker (ADR 0025). We halen alleen de HTML-pagina op om te zien of hij er
  * nog is en of hij veranderd is. We bewaren een vingerafdruk en de paginatitel, nooit de inhoud of
  * afbeeldingen. We volgen robots.txt en praten nooit met adressen in een privénetwerk (SSRF).
  */

@@ -84,7 +84,7 @@ export class StorefrontController {
     return this.store.season(market, view);
   }
 
-  /** Bronnengids: thema's met links naar kleurplaten bij de maker (ADR 0024). */
+  /** Bronnengids: thema's met links naar kleurplaten bij de maker (ADR 0025). */
   @Get("markets/:market/themes")
   async themes(@Param("market") code: string, @Query("org") org: string | undefined, @Res({ passthrough: true }) res: FastifyReply) {
     const view = await this.view(org);

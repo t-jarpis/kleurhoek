@@ -24,7 +24,7 @@ const Arrow = () => <svg className="ui-icon" viewBox="0 0 24 24" aria-hidden="tr
 
 /**
  * Eén thema: links naar de maker (nieuw tabblad, zonder doorgeven van onze pagina) en eventueel echte
- * producten met partnerlink. Nooit beeld of tekst van de maker (ADR 0024).
+ * producten met partnerlink. Nooit beeld of tekst van de maker (ADR 0025).
  */
 export default async function ThemePage({ params }: { params: Promise<{ org: string; market: string; slug: string }> }) {
   const { org: orgSlug, market, slug } = await params;

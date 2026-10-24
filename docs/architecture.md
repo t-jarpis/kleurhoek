@@ -18,6 +18,7 @@ Het volledige architectuurdocument met diagrammen staat hier: https://claude.ai/
 - Dashboard met grafieken over 7 dagen tot 12 maanden, paginasoort per weergave, accountcijfers (nieuw, actief, terugkerend) zonder extra persoonsgegevens (ADR 0020).
 - Productie op www.kleurhoek.nl (kale domein, .be en .com sturen door): kleine database met back-up in een ander datacenter, API en website naar nul zolang het rustig is, catalogus bij elke start, uitrollen naar prod met goedkeuring (ADR 0021).
 - Doelen voor bezoeken, platen en doorkliks per maand, met grafiek en stand van deze maand in het admin panel (ADR 0022).
-- Contact: formulier op de website, inbox met notities en status in het admin panel, kanalen (web nu, WhatsApp als volgende stap), gesprekken 12 maanden bewaard (ADR 0023).
-- Bronnengids: thema's met alleen links naar kleurplaten bij de makers zelf (nooit hun beeld), goedkeuring in het admin panel, dagelijkse controle die verdwenen bronnen offline haalt, producten per thema (ADR 0024).
-- Disclaimer en voettekst op elke pagina; nieuwe platen via `scripts/plates` (preview en ingest) (ADR 0025).
+- Releasenotes per uitrol in het admin panel, vastgelegd door de API bij het opstarten; uitrollen en bouwen in één job, dus één goedkeuring voor prod (ADR 0023).
+- Contact: formulier op de website, inbox met notities en status in het admin panel, kanalen (web nu, WhatsApp als volgende stap), gesprekken 12 maanden bewaard (ADR 0024).
+- Bronnengids: thema's met alleen links naar kleurplaten bij de makers zelf (nooit hun beeld), goedkeuring in het admin panel, dagelijkse controle die verdwenen bronnen offline haalt, producten per thema (ADR 0025).
+- Disclaimer en voettekst op elke pagina; nieuwe platen via `scripts/plates` (preview en ingest) (ADR 0026).

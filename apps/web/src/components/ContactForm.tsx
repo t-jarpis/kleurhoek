@@ -8,7 +8,7 @@ type T = {
   contactError: string; contactTooMany: string; contactClosed: string;
 };
 
-/** Contactformulier (ADR 0023): geen captcha, wel een verborgen veld en een minimale invultijd tegen spam. */
+/** Contactformulier (ADR 0024): geen captcha, wel een verborgen veld en een minimale invultijd tegen spam. */
 export function ContactForm({ action, t, initialTopic }: { action: (s: ContactState, f: FormData) => Promise<ContactState>; t: T; initialTopic: string }) {
   const [state, submit, pending] = useActionState(action, { status: "idle" });
   const [started, setStarted] = useState(0);

@@ -3,7 +3,7 @@ import { baseColumns } from "../../shared/columns";
 
 export const contactSchema = pgSchema("contact");
 
-/** Kanalen waarlangs berichten binnenkomen. Web = het formulier op de site; WhatsApp volgt (ADR 0023). */
+/** Kanalen waarlangs berichten binnenkomen. Web = het formulier op de site; WhatsApp volgt (ADR 0024). */
 export const CHANNELS = ["web", "whatsapp"] as const;
 export type Channel = (typeof CHANNELS)[number];
 
@@ -15,7 +15,7 @@ export type ConversationStatus = (typeof STATUSES)[number];
 
 /**
  * Een gesprek met één afzender, via één kanaal. Bevat persoonsgegevens (naam, e-mail, telefoon): alleen
- * zichtbaar met contact.read, en 12 maanden na het laatste bericht verwijderd (ADR 0023).
+ * zichtbaar met contact.read, en 12 maanden na het laatste bericht verwijderd (ADR 0024).
  */
 export const conversations = contactSchema.table("conversations", {
   ...baseColumns(),
@@ -48,7 +48,7 @@ export const messages = contactSchema.table("messages", {
 }, (t) => [index("messages_conversation").on(t.tenantId, t.conversationId, t.createdAt)]);
 
 /**
- * Instellingen per kanaal (geen geheimen: tokens staan in de secret manager, ADR 0023). Een kanaal
+ * Instellingen per kanaal (geen geheimen: tokens staan in de secret manager, ADR 0024). Een kanaal
  * zonder rij staat uit, behalve web (standaard aan).
  */
 export const channels = contactSchema.table("channels", {

@@ -4,7 +4,7 @@ import { baseColumns } from "../../shared/columns";
 export const sourcesSchema = pgSchema("sources");
 
 /**
- * Bronnengids (ADR 0024): thema's waar mensen naar zoeken (een pretpark, een tekenfilm) met links naar
+ * Bronnengids (ADR 0025): thema's waar mensen naar zoeken (een pretpark, een tekenfilm) met links naar
  * de kleurplaten bij de maker zelf. Naam en beschrijving (eigen tekst) staan in Lokalisatie (entity "theme").
  * We tonen nooit beeld of inhoud van de maker; alleen een link.
  */

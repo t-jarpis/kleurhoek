@@ -275,7 +275,17 @@ body { margin: 0; background: var(--color-bg); color: var(--color-text); font: 4
 .ui-goal-bar i { display: block; height: 100%; max-width: 100%; border-radius: 4px; background: var(--chart-1); }
 .ui-goal-bar b { position: absolute; top: -4px; bottom: -4px; width: 2px; margin-left: -1px; border-radius: 1px; background: var(--color-text); }
 
-/* ---------- Formulier: Textarea en Select (ADR 0023) ---------- */
+/* ReleaseNotes (ADR 0023): per uitrol een kop met datum, status en versie, daaronder wat er veranderde. */
+.ui-releases { display: grid; gap: var(--space-4); margin: 0; padding: 0; list-style: none; }
+.ui-release { display: grid; gap: var(--space-2); padding-bottom: var(--space-4); border-bottom: var(--border-thin) solid var(--color-border); }
+.ui-release:last-child { border-bottom: 0; padding-bottom: 0; }
+.ui-release-head { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-3); align-items: baseline; }
+.ui-release-head h3 { margin: 0; font: 700 16px/1.3 var(--font-sans); }
+.ui-release-head code { font: 400 13px var(--font-mono); color: var(--color-text-muted); }
+.ui-release ul { margin: 0; padding-left: var(--space-5); display: grid; gap: var(--space-1); }
+.ui-release details summary { cursor: pointer; font-size: 14px; color: var(--color-text-muted); }
+.ui-release details ul { margin-top: var(--space-2); font-size: 14px; color: var(--color-text-muted); }
+/* ---------- Formulier: Textarea en Select (ADR 0024) ---------- */
 .ui-textarea { min-height: calc(var(--control-h) * 3); padding: var(--space-2) var(--space-3); border: var(--border-thin) solid var(--color-border-control); border-radius: var(--radius-control); background: var(--color-surface); color: var(--color-text); font: 400 var(--control-font)/1.5 var(--font-sans); resize: vertical; }
 .ui-textarea[aria-invalid="true"] { border-color: var(--color-danger); box-shadow: inset 0 0 0 1px var(--color-danger); }
 .ui-select { min-height: var(--control-h); padding: 0 var(--space-3); border: var(--border-thin) solid var(--color-border-control); border-radius: var(--radius-control); background: var(--color-surface); color: var(--color-text); font: 400 var(--control-font) var(--font-sans); }
@@ -307,7 +317,7 @@ body { margin: 0; background: var(--color-bg); color: var(--color-text); font: 4
 @media (max-width: 560px) { .kh-contact-row { grid-template-columns: 1fr; } }
 .kh-contact .ui-btn { justify-self: start; }
 
-/* ---------- ThemeCard en SourceLink (Bronnengids, ADR 0024). Nooit beeld van de maker: een eigen letterteken. ---------- */
+/* ---------- ThemeCard en SourceLink (Bronnengids, ADR 0025). Nooit beeld van de maker: een eigen letterteken. ---------- */
 .kh-themes { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: var(--space-4); }
 .kh-theme-card { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-4); align-items: start; padding: var(--space-5); background: var(--color-surface); border: var(--border-thin) solid var(--color-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); color: var(--color-text); text-decoration: none; transition: border-color var(--dur-fast); }
 .kh-theme-card:hover { border-color: var(--color-border-strong); }
@@ -321,7 +331,7 @@ body { margin: 0; background: var(--color-bg); color: var(--color-text); font: 4
 .kh-source span { display: block; color: var(--color-text-muted); font-size: 14px; }
 .kh-source .ui-btn .ui-icon { inline-size: 1em; block-size: 1em; }
 
-/* ---------- Inbox en Thread (admin, ADR 0023) ---------- */
+/* ---------- Inbox en Thread (admin, ADR 0024) ---------- */
 .ui-inbox-row td:first-child { inline-size: 1%; white-space: nowrap; }
 .ui-inbox-row a { color: var(--color-text); font-weight: 700; text-decoration: none; }
 .ui-inbox-row a:hover { text-decoration: underline; }

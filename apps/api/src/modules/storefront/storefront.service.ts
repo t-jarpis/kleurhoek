@@ -154,7 +154,7 @@ export class StorefrontService {
   }
 
   /**
-   * Bronnengids (ADR 0024): thema's met links naar de makers. Alleen eigen tekst en links; nooit beeld
+   * Bronnengids (ADR 0025): thema's met links naar de makers. Alleen eigen tekst en links; nooit beeld
    * van de maker. Producten bij een thema alleen als de organisatie de winkel aan heeft.
    */
   async themes(market: Market) {

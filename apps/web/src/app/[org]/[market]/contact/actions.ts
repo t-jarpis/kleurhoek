@@ -7,7 +7,7 @@ const TOPICS = new Set(["question", "idea", "bug", "partnership", "copyright", "
 export type ContactState = { status: "idle" | "sent" | "invalid" | "busy" | "closed" | "error"; fields?: Record<string, string> };
 
 /**
- * Stuurt het formulier door naar de API (domein Contact, ADR 0023). Het IP-adres gaat alleen mee voor de
+ * Stuurt het formulier door naar de API (domein Contact, ADR 0024). Het IP-adres gaat alleen mee voor de
  * rate limit en wordt nergens opgeslagen. De API controleert alles opnieuw.
  */
 export async function sendContact(market: string, _prev: ContactState, form: FormData): Promise<ContactState> {

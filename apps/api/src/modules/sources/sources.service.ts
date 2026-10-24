@@ -48,7 +48,7 @@ const isLive = (s: Pick<SourceRow, "status" | "health">) => s.status === "approv
 const needsAttention = (s: Pick<SourceRow, "status" | "health" | "changed">) => s.status === "pending" || (s.status === "approved" && (s.health === "broken" || s.changed));
 
 /**
- * Domein Bronnen (ADR 0024). Thema's met links naar kleurplaten bij de maker zelf. Alles gaat via
+ * Domein Bronnen (ADR 0025). Thema's met links naar kleurplaten bij de maker zelf. Alles gaat via
  * goedkeuring in het admin panel, en een controle (dagelijks) haalt verdwenen bronnen vanzelf offline.
  */
 @Injectable()

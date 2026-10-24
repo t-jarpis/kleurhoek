@@ -7,7 +7,7 @@ export const metadata = { title: "Contact" };
 
 const FILTERS: (ConversationStatus | "alles")[] = ["new", "open", "answered", "closed", "alles"];
 
-/** Inbox (ADR 0023): berichten van het contactformulier, later ook WhatsApp. */
+/** Inbox (ADR 0024): berichten van het contactformulier, later ook WhatsApp. */
 export default async function ContactInbox({ searchParams }: { searchParams: Promise<{ status?: string; pagina?: string; melding?: string; fout?: string }> }) {
   const q = await searchParams;
   const status = (["new", "open", "answered", "closed"] as const).find((s) => s === q.status) ?? (q.status === "alles" ? undefined : "new");

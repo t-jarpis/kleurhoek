@@ -12,7 +12,7 @@ import { getOrg } from "@/lib/org";
 export const revalidate = 300;
 export const metadata: Metadata = { title: "Thema's bij de maker", description: "Kleurplaten van bekende figuren en plekken, gratis bij de makers zelf. Door Kleurhoek nagekeken." };
 
-/** Bronnengids (ADR 0024): eigen tekst en een eigen letterteken per thema, geen beeld van de maker. */
+/** Bronnengids (ADR 0025): eigen tekst en een eigen letterteken per thema, geen beeld van de maker. */
 export default async function ThemesPage({ params }: { params: Promise<{ org: string; market: string }> }) {
   const { org: slug, market } = await params;
   const org = await getOrg(slug);

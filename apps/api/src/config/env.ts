@@ -33,6 +33,10 @@ const schema = z.object({
   /** Zitadel-ID's die bij hun eerste login platformbeheerder worden. Kommagescheiden; daarna via het admin panel. */
   ADMIN_BOOTSTRAP_SUBJECTS: z.string().default("").transform((v) => v.split(",").map((s) => s.trim()).filter(Boolean)),
   /** Hoe vaak de dagtotalen worden bijgewerkt. 0 = uit (tests). */
+  /** Commit van deze build (Dockerfile, ARG BUILD_SHA). Leeg lokaal: dan geen releases vastleggen. */
+  BUILD_SHA: z.union([z.literal(""), z.string().regex(/^[0-9a-f]{7,40}$/)]).optional().transform((v) => v || undefined),
+  /** Commits van de build voor de releasenotes (gemaakt in de Deploy-workflow). */
+  RELEASE_LOG_PATH: z.string().default("release-log.json"),
   AGGREGATE_INTERVAL_MS: z.coerce.number().int().min(0).default(600_000),
 });
 

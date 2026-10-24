@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 export const metadata = { title: "Bronnengids" };
 
 /**
- * Bronnengids (ADR 0024): thema's waar mensen naar zoeken, met links naar de kleurplaten bij de maker zelf.
+ * Bronnengids (ADR 0025): thema's waar mensen naar zoeken, met links naar de kleurplaten bij de maker zelf.
  * We tonen nooit beeld van de maker; alleen eigen tekst en een link.
  */
 export default async function Themes({ searchParams }: { searchParams: Promise<{ melding?: string; fout?: string }> }) {

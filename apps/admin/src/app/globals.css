@@ -113,7 +113,9 @@ button.danger { background: var(--color-surface); color: var(--color-danger); bo
 .goals-form legend { font-weight: 700; margin-bottom: var(--space-2); }
 .goals-form td input[type=number] { width: 100%; max-width: 160px; }
 
-/* Contact en Bronnengids (ADR 0023, 0024) */
+/* Releases (ADR 0023) */
+.ui-release p { margin: 0; }
+/* Contact en Bronnengids (ADR 0024, 0025) */
 details summary { cursor: pointer; font-weight: 700; }
 details[open] summary { margin-bottom: var(--space-3); }
 .checks form { display: inline; }

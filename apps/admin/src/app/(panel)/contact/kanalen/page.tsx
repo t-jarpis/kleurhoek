@@ -10,7 +10,7 @@ const ABOUT = {
   whatsapp: "Berichten via WhatsApp komen in dezelfde inbox, en je antwoordt vanuit het admin panel.",
 } as const;
 
-/** Kanalen (ADR 0023): web is er altijd; WhatsApp koppelen we als volgende stap. */
+/** Kanalen (ADR 0024): web is er altijd; WhatsApp koppelen we als volgende stap. */
 export default async function Channels({ searchParams }: { searchParams: Promise<{ melding?: string; fout?: string }> }) {
   const q = await searchParams;
   let channels, me;
@@ -33,7 +33,7 @@ export default async function Channels({ searchParams }: { searchParams: Promise
           <p className="lead">{ABOUT[c.slug]}</p>
           {c.slug === "whatsapp" && !c.connected && (
             <div className="note">
-              <p><b>Zo koppelen we WhatsApp</b> (volgende stap, ADR 0023):</p>
+              <p><b>Zo koppelen we WhatsApp</b> (volgende stap, ADR 0024):</p>
               <ol>
                 <li>Een Meta Business-account en een WhatsApp Business-nummer (WhatsApp Cloud API).</li>
                 <li>Het toegangstoken en app-geheim gaan in de secret manager van Scaleway, nooit in het admin panel.</li>

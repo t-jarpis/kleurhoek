@@ -1,4 +1,4 @@
-# 0025 Disclaimer, voettekst en platen toevoegen met scripts
+# 0026 Disclaimer, voettekst en platen toevoegen met scripts
 
 Datum: 24-10-2026. Status: aangenomen.
 

@@ -11,7 +11,7 @@ import { getOrg } from "@/lib/org";
 export const revalidate = 3600;
 export const metadata: Metadata = { title: "Disclaimer", description: "Wat je met de kleurplaten van Kleurhoek mag doen, hoe we naar andere sites linken en hoe je ons iets meldt." };
 
-/** Disclaimer (ADR 0025). Tekst in het Nederlands; andere markten krijgen hun eigen versie zodra ze live gaan. */
+/** Disclaimer (ADR 0026). Tekst in het Nederlands; andere markten krijgen hun eigen versie zodra ze live gaan. */
 export default async function DisclaimerPage({ params }: { params: Promise<{ org: string; market: string }> }) {
   const { org: slug, market } = await params;
   const org = await getOrg(slug);

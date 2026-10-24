@@ -37,6 +37,6 @@ export class SourceCheckScheduler implements OnModuleInit, OnApplicationShutdown
   }
 }
 
-/** Domein Bronnen (ADR 0024): de Bronnengids met links naar kleurplaten bij de makers zelf. */
+/** Domein Bronnen (ADR 0025): de Bronnengids met links naar kleurplaten bij de makers zelf. */
 @Module({ imports: [LocalizationModule], controllers: [AdminSourcesController], providers: [SourcesService, SourceCheckScheduler], exports: [SourcesService] })
 export class SourcesModule {}

@@ -37,7 +37,7 @@ function mapError(e: unknown): never {
 const id = (v: string) => { if (!Id.safeParse(v).success) throw new NotFoundException(); return v; };
 const slug = (v: string) => { if (!Slug.safeParse(v).success) throw new NotFoundException(); return v; };
 
-/** Beheer van de Bronnengids (ADR 0024). */
+/** Beheer van de Bronnengids (ADR 0025). */
 @Controller("v1/admin/sources")
 @UseGuards(AdminGuard)
 @RateLimit("admin")

@@ -10,7 +10,7 @@ export class ContactError extends Error {
   constructor(readonly code: "not_found" | "invalid" | "closed", message: string) { super(message); }
 }
 
-/** Bewaartermijn: 12 maanden na het laatste bericht (ADR 0023). */
+/** Bewaartermijn: 12 maanden na het laatste bericht (ADR 0024). */
 export const RETENTION_DAYS = 365;
 const PAGE_SIZE = 50;
 
@@ -128,7 +128,7 @@ export class ContactService {
   }
 
   /**
-   * Of een kanaal technisch gekoppeld is. WhatsApp volgt als eigen stap (ADR 0023): dan komen token en
+   * Of een kanaal technisch gekoppeld is. WhatsApp volgt als eigen stap (ADR 0024): dan komen token en
    * app-geheim in de secret manager en de webhook in de website. Tot die tijd kan hij niet aan.
    */
   private connected(slug: Channel): boolean {

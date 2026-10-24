@@ -1,4 +1,4 @@
-# 0024 Bronnengids: linken naar kleurplaten bij de maker
+# 0025 Bronnengids: linken naar kleurplaten bij de maker
 
 Datum: 24-10-2026. Status: aangenomen.
 
@@ -22,4 +22,4 @@ Zodra een maker meedoet: een rol `maker` die alleen bij de eigen thema's kan (br
 
 ## Gevolgen
 - De API maakt uitgaande verbindingen naar sites van makers; alleen vanuit de controle en altijd met de beperkingen hierboven.
-- Juridisch blijft het linken; de disclaimer (ADR 0025) legt dit uit en beschrijft hoe een maker een link laat aanpassen.
+- Juridisch blijft het linken; de disclaimer (ADR 0026) legt dit uit en beschrijft hoe een maker een link laat aanpassen.

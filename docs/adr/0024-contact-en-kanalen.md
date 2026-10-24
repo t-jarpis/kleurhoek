@@ -1,4 +1,4 @@
-# 0023 Contact: formulier, inbox en kanalen
+# 0024 Contact: formulier, inbox en kanalen
 
 Datum: 24-10-2026. Status: aangenomen.
 
