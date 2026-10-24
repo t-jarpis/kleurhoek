@@ -10,5 +10,6 @@
 - Alles in deze repo moet overdraagbaar zijn bij verkoop (ADR 0004). Geen geheimen of `.env`-bestanden committen.
 - Platformpakketten staan als tarball in `vendor/` (ADR 0009); bijwerken met `scripts/platform-update.mjs`, nooit met de hand.
 - `docker compose up` moet altijd zonder handwerk een werkende omgeving geven, inclusief inloggen via de echte Zitadel. Raak je login, env-variabelen of Terraform aan, test dan ook compose.
+- **Dev en productie:** push naar `main` gaat automatisch naar dev; daar itereren we. Productie is altijd een aparte actie, alleen als Thijs daar uitdrukkelijk om vraagt ("zet live", "naar productie"): Deploy met `environment=prod` (`gh workflow run Deploy -f environment=prod`). Die zet de versie live die op dev draait; Thijs keurt goed in GitHub. Ook `scripts/infra.sh up prod` en Terraform voor prod alleen op zijn verzoek.
 - Voor een commit: `pnpm check` groen.
 - Een commit met een merkbare wijziging krijgt de trailer `Release-note: <één zin in het Nederlands>`; die komt in de releasenotes in het admin panel (ADR 0023).

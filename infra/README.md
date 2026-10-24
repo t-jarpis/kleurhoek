@@ -54,7 +54,7 @@ Opnieuw draaien is altijd veilig: het gaat verder waar het bleef. Wat je zelf mo
 De eerste start van de API maakt de tabellen aan en vult de catalogus. Het eigen domein krijgt binnen enkele minuten een certificaat; tot dan geeft Cloudflare een 526.
 
 ## Daarna
-- **Uitrollen**: push naar `main` (dev), of start *Deploy* met `environment=prod` (vraagt goedkeuring). De workflow bouwt, pusht, zet de image per container (eerst de API, die migreert) en doet een rooktest.
+- **Uitrollen**: push naar `main` gaat naar dev. Productie is een aparte actie: start *Deploy* met `environment=prod` (zet de versie live die op dev draait; vraagt één goedkeuring). De workflow bouwt, pusht, zet de image per container (eerst de API, die migreert) en doet een rooktest.
 - **Infra wijzigen**: `scripts/infra.sh up dev` (of `prod`). Terraform kijkt niet naar de image van de containers; die beheert GitHub.
 - **Deploy-sleutel roteren**: `terraform apply -replace=module.site.module.scaleway.scaleway_iam_api_key.deploy`, daarna `scripts/infra.sh up dev`; dat zet het nieuwe secret in GitHub.
 

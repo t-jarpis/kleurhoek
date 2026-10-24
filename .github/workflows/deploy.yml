@@ -1,6 +1,7 @@
 name: Deploy
-# main gaat automatisch naar dev. Productie: handmatig starten met environment=prod; de GitHub-omgeving
-# "prod" vraagt dan om goedkeuring. Scaleway kent geen inloggen via OIDC; de GitHub-omgeving heeft
+# main gaat automatisch naar dev. Productie is een aparte actie (ADR 0019, aanvulling): handmatig starten
+# met environment=prod; dan gaat precies de versie die op dev draait (en daar door de tests kwam) live, en
+# vraagt de GitHub-omgeving "prod" om goedkeuring. Scaleway kent geen inloggen via OIDC; de GitHub-omgeving heeft
 # daarom een API-sleutel van een eigen IAM-applicatie die alleen images mag pushen en containers mag
 # bijwerken binnen het project van die omgeving (Terraform maakt hem aan, zie infra/README.md).
 on:
@@ -16,9 +17,15 @@ on:
         type: choice
         options: [dev, prod]
         default: dev
+      ref:
+        description: "Commit (leeg = bij prod de versie die nu op dev draait, bij dev de laatste op main)"
+        type: string
+        required: false
+        default: ""
 
 permissions:
   contents: read
+  actions: read
 
 concurrency:
   group: deploy-${{ inputs.environment || 'dev' }}
@@ -26,8 +33,6 @@ concurrency:
 
 env:
   TARGET_ENV: ${{ inputs.environment || 'dev' }}
-  # Bij een automatische uitrol: precies de commit die CI heeft goedgekeurd.
-  TAG: ${{ github.event.workflow_run.head_sha || github.sha }}
 
 jobs:
   # Eén job: bouwen en uitrollen. Zo vraagt de GitHub-omgeving "prod" maar één keer om goedkeuring.
@@ -47,6 +52,23 @@ jobs:
       MARKETS: ${{ vars.MARKETS || 'nl-nl' }}
       BUILDX_NO_DEFAULT_ATTESTATIONS: "1"
     steps:
+      - name: Welke versie
+        # Automatisch (dev): precies de commit die CI goedkeurde. Prod zonder ref: de laatste versie die op dev
+        # met succes is uitgerold, zodat live gaat wat je op dev hebt gezien.
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_SHA: ${{ github.event.workflow_run.head_sha }}
+          INPUT_REF: ${{ inputs.ref }}
+        run: |
+          set -euo pipefail
+          if [ -n "$RUN_SHA" ]; then tag="$RUN_SHA"
+          elif [ -n "$INPUT_REF" ]; then tag="$INPUT_REF"
+          elif [ "$TARGET_ENV" = prod ]; then
+            tag="$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/deploy.yml/runs?event=workflow_run&status=success&per_page=1" -q '.workflow_runs[0].head_sha // empty')"
+            [ -n "$tag" ] || { echo "::error::Geen geslaagde uitrol op dev gevonden; geef een commit op bij ref"; exit 1; }
+          else tag="$GITHUB_SHA"; fi
+          echo "TAG=$tag" >> "$GITHUB_ENV"
+          echo "### Versie naar $TARGET_ENV: \`${tag:0:7}\`" >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/checkout@v4
         with:
           ref: ${{ env.TAG }}

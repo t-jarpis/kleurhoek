@@ -16,3 +16,8 @@ Op 23 oktober stond dev een half uur zonder opmaak. Een lege tekst in de `<head>
 ## Afwegingen
 - *Het hele `docker compose`-stelsel in CI* (met Zitadel) test ook inloggen, maar duurt veel langer en hangt af van een externe image. Het admin panel en echt inloggen dekken we later met een aparte test tegen dev.
 - *Terugdraaien zonder migraties terug* is een bewuste grens: een terugdraaiing van het schema is riskanter dan de vorige app-versie op een uitgebreid schema.
+
+## Aanvulling (24-10-2026): productie is een aparte actie
+- Een push naar `main` gaat (na groene CI) alleen naar dev. Productie gaat nooit automatisch.
+- Naar productie: *Deploy* handmatig starten met `environment=prod`. Zonder `ref` neemt de workflow de commit van de laatste geslaagde uitrol naar dev: wat live gaat is precies wat op dev draaide en daar de browsertest haalde. Met `ref` kan een andere commit (bijvoorbeeld terug naar een vorige versie).
+- De GitHub-omgeving `prod` vraagt om goedkeuring (één keer, ADR 0023). De releasenotes van productie tonen daarna alles sinds de vorige release in productie.
