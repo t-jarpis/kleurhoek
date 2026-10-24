@@ -9,10 +9,10 @@ import { marketLanguage } from "@/lib/markets";
 import { getOrg } from "@/lib/org";
 import { sendOrgRequest } from "./actions";
 
-export const metadata: Metadata = {
-  title: "Eigen omgeving voor je school of opvang",
-  description: "Een eigen versie van Kleurhoek met jullie naam, kleuren en aanbod. Zonder reclame en zonder tracking. Vraag hem aan.",
-};
+export async function generateMetadata({ params }: { params: Promise<{ market: string }> }): Promise<Metadata> {
+  const t = messages(marketLanguage((await params).market));
+  return { title: t.metaOwnTitle, description: t.metaOwn };
+}
 
 /** Eigen omgeving (ADR 0028): wat een organisatie krijgt (ADR 0017) en een aanvraagformulier. Alleen op Kleurhoek zelf. */
 export default async function OwnSpacePage({ params }: { params: Promise<{ org: string; market: string }> }) {

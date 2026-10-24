@@ -6,15 +6,17 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LIVE_MARKETS, marketLanguage } from "@/lib/markets";
 import { getOrg } from "@/lib/org";
+import { messages } from "@/i18n/nl";
 
 type Params = Promise<{ org: string; market: string }>;
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const org = await getOrg((await params).org);
+  const { org: slug, market } = await params;
+  const org = await getOrg(slug);
   const name = org && !org.isDefault ? org.name : "Kleurhoek";
   return {
     title: { default: name, template: `%s · ${name}` },
-    description: "Zelf getekende kleurplaten om online in te kleuren of te printen.",
+    description: messages(marketLanguage(market)).lede,
     ...(org && !org.isDefault ? { robots: { index: false } } : {}),
   };
 }

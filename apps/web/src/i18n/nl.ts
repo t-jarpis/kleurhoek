@@ -85,9 +85,20 @@ export const nl = {
   orgSend: "Aanvraag versturen", optionalField: "mag leeg",
   orgThanks: "Bedankt voor je aanvraag!", orgThanksText: "We nemen binnen een paar werkdagen contact met je op via e-mail.",
   themeProducts: "Spullen bij dit thema", toShop: "Bekijk in de winkel",
+  metaDisclaimer: "Wat je met de kleurplaten van Kleurhoek mag doen, hoe we naar andere sites linken en hoe je ons iets meldt.",
+  metaContact: "Stuur Kleurhoek een vraag, een idee voor een kleurplaat of een melding.",
+  metaThemes: "Kleurplaten van bekende figuren en plekken, gratis bij de makers zelf. Door Kleurhoek nagekeken.",
+  metaOwnTitle: "Eigen omgeving voor je school of opvang",
+  metaOwn: "Een eigen versie van Kleurhoek met jullie naam, kleuren en aanbod. Zonder reclame en zonder tracking. Vraag hem aan.",
+  metaBook: "Kleurboekje",
 
 } as const;
 
-export type Messages = typeof nl;
+/** Zelfde vorm als nl, maar met gewone strings: elke taal vult dezelfde sleutels met eigen tekst. */
+type Widen<T> = T extends string ? string
+  : T extends (...a: infer A) => infer R ? (...a: A) => Widen<R>
+  : T extends readonly unknown[] ? { readonly [K in keyof T]: Widen<T[K]> }
+  : T extends object ? { [K in keyof T]: Widen<T[K]> } : T;
+export type Messages = Widen<typeof nl>;
 const all: Record<string, Messages> = { nl };
 export const messages = (language: string): Messages => all[language] ?? nl;

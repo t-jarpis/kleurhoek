@@ -9,7 +9,10 @@ import { marketLanguage } from "@/lib/markets";
 import { getOrg } from "@/lib/org";
 import { sendContact } from "./actions";
 
-export const metadata: Metadata = { title: "Contact", description: "Stuur Kleurhoek een vraag, een idee voor een kleurplaat of een melding." };
+export async function generateMetadata({ params }: { params: Promise<{ market: string }> }): Promise<Metadata> {
+  const t = messages(marketLanguage((await params).market));
+  return { title: t.contact, description: t.metaContact };
+}
 
 /** Onderwerp vooraf kiezen via ?onderwerp=… (bijvoorbeeld vanuit de disclaimer). */
 const TOPIC_PARAM: Record<string, string> = { vraag: "question", idee: "idea", fout: "bug", samenwerken: "partnership", partnership: "partnership", auteursrecht: "copyright", copyright: "copyright", privacy: "privacy" };

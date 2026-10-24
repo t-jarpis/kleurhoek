@@ -9,7 +9,10 @@ import { Track } from "@/components/Track";
 import { messages } from "@/i18n/nl";
 import { getOrg } from "@/lib/org";
 
-export const metadata: Metadata = { title: "Kleurboekje", robots: { index: false } };
+export async function generateMetadata({ params }: { params: Promise<{ market: string }> }): Promise<Metadata> {
+  const t = messages(marketLanguage((await params).market));
+  return { title: t.metaBook, robots: { index: false } };
+}
 
 /**
  * Het boekje: voorblad plus de gekozen platen, elk op een eigen A4. De keuze staat in de URL

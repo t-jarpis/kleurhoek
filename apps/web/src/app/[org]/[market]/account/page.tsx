@@ -7,7 +7,10 @@ import { messages } from "@/i18n/nl";
 import { notFound } from "next/navigation";
 import { getOrg } from "@/lib/org";
 
-export const metadata: Metadata = { title: "Mijn account", robots: { index: false } };
+export async function generateMetadata({ params }: { params: Promise<{ market: string }> }): Promise<Metadata> {
+  const t = messages(marketLanguage((await params).market));
+  return { title: t.account, robots: { index: false } };
+}
 
 export default async function AccountPage({ params }: { params: Promise<{ org: string; market: string }> }) {
   const { org: slug, market } = await params;
