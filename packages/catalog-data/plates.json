@@ -201006,5 +201006,384 @@
         ]
       }
     }
+  },
+  {
+    "slug": "maak-er-iets-van-krabbels",
+    "order": 861,
+    "category": "vormen",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenopdracht: wat wordt deze krabbel?",
+        "steps": [
+          "Draai het papier rond: zie je ergens een dier, een gezicht of een voertuig in?",
+          "Gebruik de krabbel als deel van je tekening en teken de rest erbij.",
+          "Geef elke tekening een naam."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "maak-er-iets-van-rondjes",
+    "order": 862,
+    "category": "vormen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenopdracht: maak er iets van (rondjes)",
+        "steps": [
+          "Kijk naar een rondje: waar lijkt het op? Een bal, een appel, een klok, een uil?",
+          "Teken er iets omheen of in, zodat het dat ding wordt.",
+          "Probeer alle twaalf rondjes iets anders te maken. Kleur ze daarna in."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "ontwerp-je-eigen-superheld",
+    "order": 863,
+    "category": "sprookjes",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenopdracht: ontwerp je eigen superheld",
+        "steps": [
+          "Gebruik het grijze poppetje als hulp voor de houding.",
+          "Teken het pak, een cape, een masker of iets wat alleen jouw held heeft.",
+          "Vul rechts in hoe je held heet en wat hij of zij kan."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "ontwerp-je-eigen-vlag",
+    "order": 864,
+    "category": "wereld",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenopdracht: ontwerp je eigen vlag",
+        "steps": [
+          "Bedenk waar de vlag voor is en wat erbij past: een dier, een ster, strepen, een kleur.",
+          "Houd het eenvoudig: goede vlaggen kun je van ver herkennen.",
+          "Ontwerp er vier en kies je favoriet."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "strip-tekenen",
+    "order": 865,
+    "category": "sprookjes",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 30,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenopdracht: teken je eigen strip",
+        "steps": [
+          "Bedenk een kort verhaal met een begin, iets wat misgaat en een einde.",
+          "Teken in elk vak één moment. Schrijf in de tekstballonnen wat de figuren zeggen.",
+          "Geef je strip een titel."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "teken-het-weer-van-de-week",
+    "order": 866,
+    "category": "natuur",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenopdracht: het weer van deze week",
+        "steps": [
+          "Kijk elke dag even naar buiten: schijnt de zon, regent het, is het bewolkt of waait het?",
+          "Teken het weer in het vak van die dag.",
+          "Aan het eind van de week: welk weer kwam het vaakst?"
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "teken-je-droomhuis",
+    "order": 867,
+    "category": "thuis",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenopdracht: mijn droomhuis",
+        "steps": [
+          "Bedenk eerst: een boomhut, een kasteel, een huis onder water of in de ruimte?",
+          "Teken de buitenkant groot in het kader. Gebruik de vragen onderaan als je vastzit.",
+          "Kleur je huis in en vertel er iemand over."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "teken-wat-er-in-de-doos-zit",
+    "order": 868,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "tekenles",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 4,
+    "colorByNumber": {
+      "codes": "w-ww",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 91,
+          "y": 210.4,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 50,
+          "y": 126.6,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 1,
+          "x": 130,
+          "y": 118.4,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Tekenopdracht: wat zit er in de doos?",
+        "steps": [
+          "Bedenk wat er in de doos zit: een dier, een cadeau, een monstertje, een regenboog?",
+          "Teken het zo dat het uit de doos komt, boven de klepjes.",
+          "Kleur de doos en wat erin zat."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
   }
 ]
