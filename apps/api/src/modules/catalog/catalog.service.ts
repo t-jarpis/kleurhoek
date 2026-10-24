@@ -1,5 +1,6 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { and, asc, eq } from "drizzle-orm";
+import { plateTexts } from "@kleurhoek/catalog-data";
+import { and, asc, eq, inArray } from "drizzle-orm";
 import { DB, type Database } from "../../db/database";
 import { withTenant } from "../../db/tenant";
 import { ages, categories, continents, materials, plateMaterials, plates, plateVersions, type ColorByNumber, type PlateKind, type PlatePage } from "./catalog.schema";
@@ -48,6 +49,27 @@ export class CatalogService {
         .where(and(eq(plates.tenantId, tenantId), eq(plates.slug, slug), eq(plates.status, "published")))
         .limit(1));
     return rows[0] ?? null;
+  }
+
+  private readonly textCache = new Map<string, string[]>();
+
+  /**
+   * De te vertalen teksten per gepubliceerde plaat (tekening en extra pagina's, ADR 0029). Per versie in het
+   * geheugen: een versie verandert nooit, dus alleen nieuwe versies worden opgehaald.
+   */
+  async publishedTexts(tenantId: string, list?: PlateSummary[]): Promise<Map<string, string[]>> {
+    const all = list ?? await this.listPublished(tenantId);
+    const key = (slug: string, version: number) => `${tenantId}:${slug}@${version}`;
+    const todo = all.filter((p) => !this.textCache.has(key(p.slug, p.version)));
+    for (let i = 0; i < todo.length; i += 200) {
+      const part = todo.slice(i, i + 200);
+      const rows = await withTenant(this.db, tenantId, (tx) =>
+        tx.select({ slug: plates.slug, version: plateVersions.version, svg: plateVersions.svg, pages: plateVersions.pages }).from(plates)
+          .innerJoin(plateVersions, eq(plates.currentVersionId, plateVersions.id))
+          .where(and(eq(plates.tenantId, tenantId), inArray(plates.slug, part.map((p) => p.slug)))));
+      for (const r of rows) this.textCache.set(key(r.slug, r.version), plateTexts(r.svg, ...r.pages.map((pg) => pg.svg)));
+    }
+    return new Map(all.map((p) => [p.slug, this.textCache.get(key(p.slug, p.version)) ?? []]));
   }
 
   /** De SVG van een specifieke versie. Versies veranderen nooit, dus het CDN mag ze voor altijd cachen. */

@@ -40,6 +40,23 @@ export class LocalizationService {
     return new Map(rows.map((r) => [r.key, r.fields]));
   }
 
+  private readonly glossaries = new Map<string, { at: number; map: Map<string, string> }>();
+
+  /**
+   * Woordenlijst voor de teksten in platen (ADR 0029): brontekst → vertaling. Een minuut in het geheugen,
+   * want de zichtbaarheid van elke plaat hangt ervan af.
+   */
+  async glossary(tenantId: string, language: string, now = Date.now()): Promise<Map<string, string>> {
+    const key = `${tenantId}:${language}`;
+    const hit = this.glossaries.get(key);
+    if (hit && now - hit.at < 60_000) return hit.map;
+    const rows = await this.translate(tenantId, "text", language);
+    const map = new Map<string, string>();
+    for (const [src, fields] of rows) if (fields.text) map.set(src, fields.text);
+    this.glossaries.set(key, { at: now, map });
+    return map;
+  }
+
   /** Vertaling opslaan of bijwerken (bijvoorbeeld de naam van een product uit het admin panel). */
   async save(tenantId: string, type: EntityType, key: string, language: string, fields: Fields): Promise<void> {
     await withTenant(this.db, tenantId, (tx) => tx.insert(translations)

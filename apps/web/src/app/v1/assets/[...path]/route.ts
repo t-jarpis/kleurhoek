@@ -7,8 +7,8 @@ const SAFE = /^[a-z0-9-]{1,64}$/;
 
 export async function GET(request: Request, { params }: { params: Promise<{ path: string[] }> }) {
   const { path } = await params;
-  // Alleen /v1/assets/plates/<slug>/<versie>.svg; niets anders van de API is zo bereikbaar.
-  if (path.length !== 3 || path[0] !== "plates" || !SAFE.test(path[1] ?? "") || !/^\d{1,6}\.svg$/.test(path[2] ?? "")) {
+  // Alleen /v1/assets/plates/<slug>/<versie>[.<taal>-<hash>].svg (ADR 0029); niets anders van de API is zo bereikbaar.
+  if (path.length !== 3 || path[0] !== "plates" || !SAFE.test(path[1] ?? "") || !/^\d{1,6}(\.[a-z]{2}-[0-9a-f]{8})?\.svg$/.test(path[2] ?? "")) {
     return new Response("Niet gevonden", { status: 404 });
   }
   // Het IP van de bezoeker gaat mee, zodat de rate limit van de API per bezoeker telt en niet per website-server.

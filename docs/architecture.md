@@ -24,3 +24,4 @@ Het volledige architectuurdocument met diagrammen staat hier: https://claude.ai/
 - Disclaimer en voettekst op elke pagina; nieuwe platen via `scripts/plates` (preview en ingest) (ADR 0026).
 - Meer soorten werkjes (vouwblad, werkblad, sjabloon, kaart, tekenles), moeilijkheid, extra pagina's met antwoordblad, leeftijd 12+, en een kwaliteitscontrole voor de hele catalogus (ADR 0027).
 - Pagina Eigen omgeving met de voordelen voor scholen, opvang en verenigingen en een aanvraagformulier; aanvragen komen in de inbox en worden met één klik een organisatie (ADR 0028).
+- Tekstlaag: teksten in platen blijven in het Nederlands in de SVG en worden bij het serveren vertaald uit een woordenlijst per taal (`texts/<taal>.json`), met kleinere letter als de vertaling langer is; adres per taal met hash; taalgebonden platen alleen in de brontaal; controle per taal met `check-lang.mjs` (ADR 0029).

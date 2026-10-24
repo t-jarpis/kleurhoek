@@ -28,6 +28,8 @@ export interface PlateSource {
     palette: { code: string; hex: string }[];
     labels: { region: number; number: number; x: number; y: number; size: number }[];
   };
+  /** De plaat is taalgebonden (woordpuzzel, letters, rijmen): alleen in de brontaal, niet vertalen (ADR 0029). */
+  languageBound?: boolean;
   i18n: Translations<{ name: string; word: string | null; countQuestion: string | null; steps?: string[]; printNote?: string; pageTitles?: string[] }>;
 }
 export interface MaterialSource extends Named {}
@@ -51,3 +53,11 @@ export function colors(): ColorSource[];
 export function materials(): MaterialSource[];
 export function plateSvg(slug: string): string;
 export function pageSvg(slug: string, n: number): string;
+export function textLanguages(): string[];
+export function texts(language: string): Record<string, string>;
+/** Brontaal van de teksten in de SVG's. */
+export const SOURCE_LANGUAGE: "nl";
+export function isNeutral(text: string): boolean;
+export function plateTexts(...svgs: string[]): string[];
+export function localizeSvg(svg: string, lookup: (source: string) => string | undefined): { svg: string; missing: string[]; scaled: { text: string; from: number; to: number }[] };
+export function width(text: string): number;

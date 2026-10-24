@@ -15,6 +15,7 @@
 //     "materials": [{ "slug": "kinderschaar" }], "i18n": { "nl": { "name": "…", "word": null,
 //     "countQuestion": null, "steps": ["…"], "printNote": "…" } } }
 //   codes: één letter per vlak (colors.json), "-" = geen nummer.
+//   Optioneel: "languageBound": true voor een plaat die alleen in de brontaal werkt (woordzoeker, letters; ADR 0029).
 //   Optioneel (ADR 0027): "difficulty": 1|2|3, en extra pagina's als <slug>.p2.svg, <slug>.p3.svg … met
 //   "pages": [{ "role": "extra" | "antwoorden", "height": 280 }] en i18n.nl.pageTitles: ["…"] in dezelfde volgorde.
 import fs from "node:fs";
@@ -79,6 +80,8 @@ for (const slug of slugs) {
       ...(meta.materials ? { materials: meta.materials } : {}),
     } : {}),
     regionCount: n,
+    // Taalgebonden (woordpuzzel, letters): alleen in de brontaal (ADR 0029). Bij vervangen blijft de markering staan.
+    ...(meta.languageBound || list.find((p) => p.slug === slug)?.languageBound ? { languageBound: true } : {}),
     colorByNumber: { codes, palette: legendKeys(codes).map((code) => ({ code, hex: COLORS[code] })), labels },
     i18n: meta.i18n,
   };

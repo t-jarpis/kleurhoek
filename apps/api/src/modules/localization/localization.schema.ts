@@ -14,10 +14,13 @@ export const markets = localizationSchema.table("markets", {
   minAccountAge: integer("min_account_age").notNull().default(16),
 }, (t) => [uniqueIndex("markets_tenant_code").on(t.tenantId, t.code)]);
 
-export const ENTITY_TYPES = ["plate", "category", "age", "continent", "holiday", "season", "color", "material", "product", "theme", "source", "ui"] as const;
+export const ENTITY_TYPES = ["plate", "category", "age", "continent", "holiday", "season", "color", "material", "product", "theme", "source", "ui", "text"] as const;
 export type EntityType = (typeof ENTITY_TYPES)[number];
 
-/** Vertaalde velden per ding en taal. Velden verschillen per soort (naam, woord, telvraag, hint). */
+/**
+ * Vertaalde velden per ding en taal. Velden verschillen per soort (naam, woord, telvraag, hint).
+ * Soort "text": de woordenlijst voor teksten in platen (ADR 0029); sleutel = de brontekst (nl), veld `text`.
+ */
 export const translations = localizationSchema.table("translations", {
   ...baseColumns(),
   entityType: text("entity_type", { enum: ENTITY_TYPES }).notNull(),

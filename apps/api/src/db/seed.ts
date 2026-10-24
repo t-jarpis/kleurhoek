@@ -1,6 +1,6 @@
 import * as source from "@kleurhoek/catalog-data";
-import { inArray } from "drizzle-orm";
-import type { Database } from "./database";
+import { and, eq, inArray, sql } from "drizzle-orm";
+import type { Database, Tx } from "./database";
 import { withTenant } from "./tenant";
 import { ages, categories, continents, materials, plateMaterials, plates, plateVersions } from "../modules/catalog/catalog.schema";
 import { markets, translations, type EntityType } from "../modules/localization/localization.schema";
@@ -93,6 +93,28 @@ export async function seed(db: Database, tenantId: string): Promise<{ plates: nu
     // en losse inserts per plaat maken elke koude start trager.
     for (const part of chunks(newMaterials, 2000)) await tx.insert(plateMaterials).values(part).onConflictDoNothing();
     for (const part of chunks(tr, 1000)) await tx.insert(translations).values(part.map((t) => ({ tenantId, ...t, status: "reviewed" as const }))).onConflictDoNothing();
+    await syncGlossaries(tx, tenantId);
     return { plates: added };
   });
+}
+
+/**
+ * Woordenlijsten voor de teksten in platen (ADR 0029). Anders dan de rest wél bijgewerkt als de tekst in
+ * catalog-data verandert: een verbeterde vertaling moet op de site komen. Alleen wat anders is wordt geschreven.
+ */
+async function syncGlossaries(tx: Tx, tenantId: string) {
+  for (const language of source.textLanguages()) {
+    const want = source.texts(language);
+    const have = new Map((await tx.select({ key: translations.entityKey, fields: translations.fields }).from(translations)
+      .where(and(eq(translations.tenantId, tenantId), eq(translations.entityType, "text"), eq(translations.language, language))))
+      .map((r) => [r.key, r.fields.text ?? null]));
+    const rows = Object.entries(want).filter(([k, v]) => v && have.get(k) !== v)
+      .map(([k, v]) => ({ tenantId, entityType: "text" as const, entityKey: k, language, fields: { text: v }, status: "reviewed" as const }));
+    for (const part of chunks(rows, 1000)) {
+      await tx.insert(translations).values(part).onConflictDoUpdate({
+        target: [translations.tenantId, translations.entityType, translations.entityKey, translations.language],
+        set: { fields: sql`excluded.fields`, updatedAt: sql`now()` },
+      });
+    }
+  }
 }

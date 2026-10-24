@@ -6,6 +6,6 @@
   "type": "commonjs",
   "main": "./index.js",
   "types": "./index.d.ts",
-  "files": ["*.json", "plates", "index.js", "index.d.ts"],
+  "files": ["*.json", "plates", "texts", "index.js", "index.d.ts", "text-layer.js"],
   "scripts": { "test": "node --test test/*.test.js" }
 }

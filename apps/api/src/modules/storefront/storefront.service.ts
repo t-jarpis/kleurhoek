@@ -1,3 +1,5 @@
+import { createHash } from "node:crypto";
+import { localizeSvg, SOURCE_LANGUAGE } from "@kleurhoek/catalog-data";
 import { Inject, Injectable } from "@nestjs/common";
 import { ENV, type Env } from "../../config/env";
 import { todayIn } from "../../shared/dates";
@@ -46,19 +48,40 @@ export class StorefrontService {
 
   market(code: string): Promise<Market | null> { return this.i18n.liveMarket(this.tenant, code); }
 
-  private svgPath(p: PlateSummary) { return `/v1/assets/plates/${p.slug}/${p.version}.svg`; }
+  /**
+   * Adres van de SVG. In een andere taal dan de brontaal staat de taal erin plus een korte hash van de
+   * vertaalde teksten: een verbeterde vertaling geeft een nieuw adres, dus het CDN mag elk adres voor altijd bewaren.
+   */
+  private svgPath(p: PlateSummary, language: string = SOURCE_LANGUAGE, texts: string[] = [], glossary?: Map<string, string>) {
+    if (language === SOURCE_LANGUAGE || !glossary || !texts.length) return `/v1/assets/plates/${p.slug}/${p.version}.svg`;
+    const rev = createHash("sha1").update(texts.map((t) => `${t}\u0000${glossary.get(t) ?? ""}`).join("\u0001")).digest("hex").slice(0, 8);
+    return `/v1/assets/plates/${p.slug}/${p.version}.${language}-${rev}.svg`;
+  }
 
-  /** Gepubliceerde, vertaalde en zichtbare platen voor een markt, met de namen in de taal van de markt. */
+  /** De woordenlijst en teksten per plaat, alleen nodig buiten de brontaal (ADR 0029). */
+  private async textLayer(language: string, list: PlateSummary[]) {
+    if (language === SOURCE_LANGUAGE) return null;
+    const [glossary, texts] = await Promise.all([this.i18n.glossary(this.tenant, language), this.catalog.publishedTexts(this.tenant, list)]);
+    return { glossary, texts };
+  }
+
+  /**
+   * Gepubliceerde, vertaalde en zichtbare platen voor een markt, met de namen in de taal van de markt.
+   * Vertaald betekent: een naam in die taal, en elke tekst in de plaat staat in de woordenlijst (ADR 0003, 0029).
+   */
   private async visible(market: Market, now: Date, view: View = FULL_VIEW) {
     const all = (await this.catalog.listPublished(this.tenant)).filter((p) => inOffer(p, view.offer));
     const names = await this.i18n.translate(this.tenant, "plate", market.language, all.map((p) => p.slug));
-    const translated = all.filter((p) => names.get(p.slug)?.name);
+    const named = all.filter((p) => names.get(p.slug)?.name);
+    const layer = await this.textLayer(market.language, named);
+    const translated = layer ? named.filter((p) => (layer.texts.get(p.slug) ?? []).every((t) => layer.glossary.has(t))) : named;
     const shown = await this.availability.visibleSlugs(this.tenant, translated.map((p) => p.slug), market.country, todayIn(market.country, now));
-    return { plates: translated.filter((p) => shown.has(p.slug)), names };
+    const path = (p: PlateSummary) => this.svgPath(p, market.language, layer?.texts.get(p.slug), layer?.glossary);
+    return { plates: translated.filter((p) => shown.has(p.slug)), names, path };
   }
 
   async listPlates(market: Market, filter: PlateFilter, view: View = FULL_VIEW, now = new Date()) {
-    const { plates, names } = await this.visible(market, now, view);
+    const { plates, names, path } = await this.visible(market, now, view);
     const items = plates.filter((p) =>
       (!filter.kind || p.kind === filter.kind || KIND_GROUPS[p.kind as PlateKind] === filter.kind) &&
       (!filter.category || p.category === filter.category || (filter.category === "wereld" && p.continent) || (filter.category === "feest" && p.holiday)) &&
@@ -69,7 +92,7 @@ export class StorefrontService {
     return items.map((p) => ({
       slug: p.slug, name: names.get(p.slug)!.name, category: p.category, age: p.age,
       world: p.continent ? { continent: p.continent, country: p.depictedCountry } : null,
-      holiday: p.holiday, svg: this.svgPath(p), kind: p.kind,
+      holiday: p.holiday, svg: path(p), kind: p.kind,
     }));
   }
 
@@ -80,6 +103,10 @@ export class StorefrontService {
     if (!tr?.name) return null;
     const visible = await this.availability.visibleSlugs(this.tenant, [slug], market.country, todayIn(market.country, now));
     if (!visible.has(slug)) return null;
+    const layer = await this.textLayer(market.language, [detail]);
+    const texts = layer?.texts.get(slug) ?? [];
+    if (layer && !texts.every((t) => layer.glossary.has(t))) return null;
+    const local = (svg: string) => (layer ? localizeSvg(svg, (t) => layer.glossary.get(t)).svg : svg);
     const colorNames = await this.i18n.translate(this.tenant, "color", market.language, detail.colorByNumber.palette.map((c) => c.code));
     const needs = await this.catalog.materialsOf(this.tenant, slug);
     const [materialNames, offers] = await Promise.all([
@@ -90,7 +117,7 @@ export class StorefrontService {
       slug, name: tr.name, word: tr.word ?? null, countQuestion: tr.countQuestion ?? null,
       category: detail.category, age: detail.age, holiday: detail.holiday,
       world: detail.continent ? { continent: detail.continent, country: detail.depictedCountry } : null,
-      version: detail.version, svg: this.svgPath(detail), regionCount: detail.regionCount,
+      version: detail.version, svg: this.svgPath(detail, market.language, texts, layer?.glossary), regionCount: detail.regionCount,
       colorByNumber: {
         codes: detail.colorByNumber.codes,
         palette: detail.colorByNumber.palette.map((c, i) => ({ number: i + 1, code: c.code, hex: c.hex, name: colorNames.get(c.code)?.name ?? c.code })),
@@ -99,7 +126,7 @@ export class StorefrontService {
       kind: detail.kind, height: detail.height, minutes: detail.minutes, adultHelp: detail.adultHelp, paperGsm: detail.paperGsm,
       difficulty: detail.difficulty,
       // Extra pagina's (ADR 0027): antwoordblad of extra vel, met titel uit de vertaling.
-      pages: detail.pages.map((page, i) => ({ role: page.role, height: page.height, svg: page.svg, title: tr.pageTitles?.split("\n")[i] ?? `Pagina ${i + 2}`, number: i + 2 })),
+      pages: detail.pages.map((page, i) => ({ role: page.role, height: page.height, svg: local(page.svg), title: tr.pageTitles?.split("\n")[i] ?? `Pagina ${i + 2}`, number: i + 2 })),
       steps: tr.steps ? tr.steps.split("\n").filter(Boolean) : [],
       printNote: tr.printNote ?? null,
       // Wat je nodig hebt, met (als er een is) een product om door te klikken. Voor ouders, zie ADR 0011.
@@ -180,15 +207,19 @@ export class StorefrontService {
    * De SVG als losse afbeelding: met een eigen stijlblok, zodat hij ook in een <img> en via het CDN
    * goed getoond wordt. De lijndikte past bij de leeftijd en is te overschrijven met de CSS-variabele --sw.
    */
-  async svg(slug: string, version: number) {
-    const [raw, detail, taxonomy] = await Promise.all([
+  async svg(slug: string, version: number, language: string = SOURCE_LANGUAGE) {
+    const [raw, detail, taxonomy, glossary] = await Promise.all([
       this.catalog.getSvg(this.tenant, slug, version),
       this.catalog.getPublished(this.tenant, slug),
       this.catalog.taxonomy(this.tenant),
+      language === SOURCE_LANGUAGE ? Promise.resolve(null) : this.i18n.glossary(this.tenant, language),
     ]);
     if (!raw || !detail) return null;
+    // Teksten in de taal van de bezoeker (ADR 0029). Ontbrekende vertalingen blijven in de brontaal staan;
+    // zo'n plaat is in die taal toch niet zichtbaar.
+    const text = language === SOURCE_LANGUAGE ? raw : localizeSvg(raw, (t) => glossary!.get(t)).svg;
     const sw = taxonomy.ages.find((a) => a.slug === detail.age)?.strokeWidth ?? 2.4;
     const style = `<style>.r{fill:#fff;stroke:#1d1b22;stroke-width:var(--sw,${sw});stroke-linejoin:round}.l{fill:none;stroke:#1d1b22;stroke-width:var(--sw,${sw});stroke-linecap:round;stroke-linejoin:round}.dot{fill:#1d1b22}${CRAFT_STYLE}</style>`;
-    return raw.replace(/^(<svg[^>]*>)/, `$1${style}`);
+    return text.replace(/^(<svg[^>]*>)/, `$1${style}`);
   }
 }

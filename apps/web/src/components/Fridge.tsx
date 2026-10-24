@@ -24,12 +24,18 @@ export function Fridge({ market, plates, language }: { market: string; plates: P
   const [inner, setInner] = useState<Record<string, Loaded>>({});
   const [sure, setSure] = useState<string | null>(null);
   const names = new Map(plates.map((p) => [p.slug, p.name]));
+  // Het adres uit de lijst is in de taal van de markt (ADR 0029); een oudere versie valt terug op de brontaal.
+  const svgs = new Map(plates.map((p) => [p.slug, p.svg]));
+  const pathOf = (i: { slug: string; version: number }) => {
+    const current = svgs.get(i.slug);
+    return current?.startsWith(`/v1/assets/plates/${i.slug}/${i.version}.`) ? current : `/v1/assets/plates/${i.slug}/${i.version}.svg`;
+  };
   const shown = items.filter((i) => names.has(i.slug));
 
   useEffect(() => {
     let live = true;
     for (const i of shown) {
-      const url = `/v1/assets/plates/${i.slug}/${i.version}.svg`;
+      const url = pathOf(i);
       if (inner[url] === undefined) void loadInner(url).then((svg) => { if (live) setInner((m) => ({ ...m, [url]: svg })); });
     }
     return () => { live = false; };
@@ -43,7 +49,7 @@ export function Fridge({ market, plates, language }: { market: string; plates: P
       <div className="fridge">
         {shown.map((item, k) => {
           const name = names.get(item.slug)!;
-          const svg = inner[`/v1/assets/plates/${item.slug}/${item.version}.svg`];
+          const svg = inner[pathOf(item)];
           return (
             <div className="magw" key={item.id}>
               <button type="button" className="mag" style={{ "--rot": `${TILT[k % 6]}deg`, "--mc": MAGNETS[k % 6] } as CSSProperties}

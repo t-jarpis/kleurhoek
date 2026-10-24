@@ -108,9 +108,10 @@ export class StorefrontController {
   @Get("assets/plates/:slug/:file")
   @RateLimit("assets")
   async svg(@Param("slug") slug: string, @Param("file") file: string, @Res() res: FastifyReply) {
-    const m = /^(\d{1,6})\.svg$/.exec(file);
+    // <versie>.svg in de brontaal, <versie>.<taal>-<hash>.svg vertaald (ADR 0029).
+    const m = /^(\d{1,6})(?:\.([a-z]{2})-[0-9a-f]{8})?\.svg$/.exec(file);
     if (!Slug.safeParse(slug).success || !m) throw new NotFoundException();
-    const svg = await this.store.svg(slug, Number(m[1]));
+    const svg = await this.store.svg(slug, Number(m[1]), m[2]);
     if (!svg) throw new NotFoundException();
     void res.header("Content-Type", "image/svg+xml; charset=utf-8")
       .header("Cache-Control", "public, max-age=31536000, immutable")

@@ -45148,6 +45148,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Schrijven: de letters a tot en met e",
@@ -45185,6 +45186,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Schrijven: de letters f tot en met j",
@@ -54558,6 +54560,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Schrijven: de letters k tot en met o",
@@ -54595,6 +54598,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Schrijven: de letters p tot en met t",
@@ -54632,6 +54636,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Schrijven: de letters u tot en met z",
@@ -55099,6 +55104,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Woord raden met de sneeuwpop (3 spelletjes)",
@@ -69576,6 +69582,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Woordzoeker: dieren",
@@ -69626,6 +69633,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Woordzoeker: lekker eten",
@@ -69676,6 +69684,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Woordzoeker: sport",
@@ -69726,6 +69735,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Woordzoeker: vervoer",
@@ -78935,6 +78945,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Grote en kleine letters koppelen",
@@ -87692,6 +87703,7 @@
         }
       ]
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Letterslinger: HOERA!",
@@ -101362,6 +101374,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Schrijven: getallen in woorden",
@@ -101399,6 +101412,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Schrijven: seizoenen en weer",
@@ -101436,6 +101450,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Schrijven: woorden met dieren",
@@ -101473,6 +101488,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Schrijven: kleuren",
@@ -102968,6 +102984,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Woordzoeker: beroepen",
@@ -103018,6 +103035,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Woordzoeker: feest",
@@ -103068,6 +103086,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Woordzoeker: fruit",
@@ -103118,6 +103137,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Woordzoeker: kleding",
@@ -103168,6 +103188,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Woordzoeker: de ruimte",
@@ -103218,6 +103239,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Woordzoeker: aan zee",
@@ -105231,6 +105253,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Letterbingo: hoofdletter en kleine letter",
@@ -116869,6 +116892,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Geheimschrift: letters als cijfers",
@@ -116970,6 +116994,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Morsecode ontcijferen",
@@ -226342,6 +226367,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Taal: op alfabetische volgorde",
@@ -226393,6 +226419,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Taal: de of het?",
@@ -226444,6 +226471,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Taal: één en meer",
@@ -226495,6 +226523,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Taal: rijmwoorden",
@@ -226546,6 +226575,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Taal: verkleinwoorden",
@@ -226597,6 +226627,7 @@
       "palette": [],
       "labels": []
     },
+    "languageBound": true,
     "i18n": {
       "nl": {
         "name": "Taal: maak een zin",

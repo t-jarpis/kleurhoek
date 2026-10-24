@@ -2,6 +2,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const read = (f) => JSON.parse(fs.readFileSync(path.join(__dirname, f), "utf8"));
+const textLayer = require("./text-layer");
 
 /** Standaard voor kleurplaten: zonder knip- of bouwwerk, met potloden (stiften mag ook). */
 const DEFAULT_MATERIALS = [{ slug: "kleurpotloden" }, { slug: "stiften", optional: true }];
@@ -25,5 +26,10 @@ module.exports = {
   materials: () => read("materials.json"),
   plateSvg: (slug) => fs.readFileSync(path.join(__dirname, "plates", `${slug}.svg`), "utf8").trim(),
   /** Extra pagina n (2, 3 …) van een plaat: plates/<slug>.p<n>.svg. */
+  /** Talen met een woordenlijst voor de teksten in platen (texts/<taal>.json). */
+  textLanguages: () => (fs.existsSync(path.join(__dirname, "texts")) ? fs.readdirSync(path.join(__dirname, "texts")) : []).filter((f) => /^[a-z]{2}\.json$/.test(f)).map((f) => f.slice(0, 2)).sort(),
+  /** Woordenlijst bronzin (nl) → vertaling voor de teksten in platen (ADR 0029). */
+  texts: (language) => (fs.existsSync(path.join(__dirname, "texts", `${language}.json`)) ? read(`texts/${language}.json`) : {}),
+  ...textLayer,
   pageSvg: (slug, n) => fs.readFileSync(path.join(__dirname, "plates", `${slug}.p${n}.svg`), "utf8").trim(),
 };
