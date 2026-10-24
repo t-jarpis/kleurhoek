@@ -104477,5 +104477,560 @@
         "countQuestion": null
       }
     }
+  },
+  {
+    "slug": "afgeknot-achtvlak",
+    "order": 617,
+    "category": "vormen",
+    "age": "12+",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 50,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 3,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 14,
+    "colorByNumber": {
+      "codes": "obbbboooobbbbo",
+      "palette": [
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 99.4,
+          "y": 160.9,
+          "size": 12.7
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 98.8,
+          "y": 128.8,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 130.7,
+          "y": 160.3,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 67.3,
+          "y": 160.3,
+          "size": 13
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 98.8,
+          "y": 192.2,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 1,
+          "x": 128.2,
+          "y": 113.2,
+          "size": 12.2
+        },
+        {
+          "region": 6,
+          "number": 1,
+          "x": 71.8,
+          "y": 114.7,
+          "size": 12.2
+        },
+        {
+          "region": 7,
+          "number": 1,
+          "x": 146.8,
+          "y": 188.2,
+          "size": 12.2
+        },
+        {
+          "region": 8,
+          "number": 1,
+          "x": 71.8,
+          "y": 209.8,
+          "size": 12.2
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 98.8,
+          "y": 88.6,
+          "size": 13
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 170.9,
+          "y": 160.3,
+          "size": 13
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 27.1,
+          "y": 160.3,
+          "size": 13
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 98.8,
+          "y": 232.4,
+          "size": 13
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 99.4,
+          "y": 57.3,
+          "size": 12.7
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bouwplaat: afgeknot achtvlak",
+        "printNote": "Gebruik stevig papier (160 gram) en een liniaal om de vouwlijnen te krassen.",
+        "steps": [
+          "Kleur de vlakken: alle vlakken met hetzelfde aantal hoeken in dezelfde kleur geeft het mooiste patroon.",
+          "Knip de bouwplaat uit langs de doorgetrokken lijnen; de grijze flapjes blijven eraan.",
+          "Kras alle stippellijnen met een lege balpen langs een liniaal en vouw ze naar binnen, ook de flapjes.",
+          "Plak de flapjes één voor één, steeds aan de rand die ernaast komt te liggen. Werk rondom en sluit als laatste het vlak dat nog open is."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "afgeknotte-kubus",
+    "order": 618,
+    "category": "vormen",
+    "age": "12+",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 50,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 3,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 14,
+    "colorByNumber": {
+      "codes": "ggyyggyygyyyyg",
+      "palette": [
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 109.5,
+          "y": 136,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 146.2,
+          "y": 172.7,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 110.2,
+          "y": 169.2,
+          "size": 7
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 142.7,
+          "y": 136.7,
+          "size": 7
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 72.8,
+          "y": 172.7,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 1,
+          "x": 146.2,
+          "y": 99.3,
+          "size": 13
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 78.8,
+          "y": 136.7,
+          "size": 7
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 110.2,
+          "y": 105.3,
+          "size": 7
+        },
+        {
+          "region": 8,
+          "number": 1,
+          "x": 72.8,
+          "y": 99.3,
+          "size": 13
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 73.5,
+          "y": 205.9,
+          "size": 7
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 179.4,
+          "y": 173.4,
+          "size": 7
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 42.1,
+          "y": 173.4,
+          "size": 7
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 146.9,
+          "y": 68.6,
+          "size": 7
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 36.1,
+          "y": 209.4,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bouwplaat: afgeknotte kubus",
+        "printNote": "Gebruik stevig papier (160 gram) en een liniaal om de vouwlijnen te krassen.",
+        "steps": [
+          "Kleur de vlakken: alle vlakken met hetzelfde aantal hoeken in dezelfde kleur geeft het mooiste patroon.",
+          "Knip de bouwplaat uit langs de doorgetrokken lijnen; de grijze flapjes blijven eraan.",
+          "Kras alle stippellijnen met een lege balpen langs een liniaal en vouw ze naar binnen, ook de flapjes.",
+          "Plak de flapjes één voor één, steeds aan de rand die ernaast komt te liggen. Werk rondom en sluit als laatste het vlak dat nog open is."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "ruitkuboctaeder",
+    "order": 619,
+    "category": "vormen",
+    "age": "12+",
+    "world": null,
+    "holiday": null,
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 75,
+    "adultHelp": false,
+    "paperGsm": 160,
+    "difficulty": 3,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 26,
+    "colorByNumber": {
+      "codes": "kkkrkrkrrkkkkkkkkkrrkkrrkk",
+      "palette": [
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 99.3,
+          "y": 162.6,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 125.6,
+          "y": 162.6,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 99.3,
+          "y": 136.3,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 120.5,
+          "y": 136.3,
+          "size": 8.5
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 99.3,
+          "y": 188.9,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 125.6,
+          "y": 183.8,
+          "size": 8.5
+        },
+        {
+          "region": 6,
+          "number": 1,
+          "x": 73.1,
+          "y": 162.6,
+          "size": 13
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 79.5,
+          "y": 136.3,
+          "size": 8.5
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 79.5,
+          "y": 188.9,
+          "size": 8.5
+        },
+        {
+          "region": 9,
+          "number": 1,
+          "x": 151.9,
+          "y": 162.6,
+          "size": 13
+        },
+        {
+          "region": 10,
+          "number": 1,
+          "x": 130.2,
+          "y": 118.2,
+          "size": 13
+        },
+        {
+          "region": 11,
+          "number": 1,
+          "x": 151.9,
+          "y": 188.9,
+          "size": 13
+        },
+        {
+          "region": 12,
+          "number": 1,
+          "x": 99.3,
+          "y": 110,
+          "size": 13
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 99.3,
+          "y": 215.2,
+          "size": 13
+        },
+        {
+          "region": 14,
+          "number": 1,
+          "x": 68.1,
+          "y": 118.2,
+          "size": 13
+        },
+        {
+          "region": 15,
+          "number": 1,
+          "x": 73.1,
+          "y": 215.2,
+          "size": 13
+        },
+        {
+          "region": 16,
+          "number": 1,
+          "x": 46.8,
+          "y": 162.6,
+          "size": 13
+        },
+        {
+          "region": 17,
+          "number": 1,
+          "x": 178.2,
+          "y": 162.6,
+          "size": 13
+        },
+        {
+          "region": 18,
+          "number": 2,
+          "x": 141.6,
+          "y": 100.4,
+          "size": 8.5
+        },
+        {
+          "region": 19,
+          "number": 2,
+          "x": 178.2,
+          "y": 183.8,
+          "size": 8.5
+        },
+        {
+          "region": 20,
+          "number": 1,
+          "x": 99.3,
+          "y": 83.7,
+          "size": 13
+        },
+        {
+          "region": 21,
+          "number": 1,
+          "x": 99.3,
+          "y": 241.4,
+          "size": 13
+        },
+        {
+          "region": 22,
+          "number": 2,
+          "x": 58.4,
+          "y": 100.4,
+          "size": 8.5
+        },
+        {
+          "region": 23,
+          "number": 2,
+          "x": 79.5,
+          "y": 241.4,
+          "size": 8.5
+        },
+        {
+          "region": 24,
+          "number": 1,
+          "x": 20.5,
+          "y": 162.6,
+          "size": 13
+        },
+        {
+          "region": 25,
+          "number": 1,
+          "x": 99.3,
+          "y": 57.4,
+          "size": 13
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bouwplaat: ruitkuboctaëder",
+        "printNote": "Gebruik stevig papier (160 gram) en een liniaal om de vouwlijnen te krassen.",
+        "steps": [
+          "Kleur de vlakken: alle vlakken met hetzelfde aantal hoeken in dezelfde kleur geeft het mooiste patroon.",
+          "Knip de bouwplaat uit langs de doorgetrokken lijnen; de grijze flapjes blijven eraan.",
+          "Kras alle stippellijnen met een lege balpen langs een liniaal en vouw ze naar binnen, ook de flapjes.",
+          "Plak de flapjes één voor één, steeds aan de rand die ernaast komt te liggen. Werk rondom en sluit als laatste het vlak dat nog open is."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
   }
 ]

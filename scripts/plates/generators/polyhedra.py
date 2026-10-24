@@ -15,44 +15,64 @@ def dot(a, b): return sum(x * y for x, y in zip(a, b))
 def norm(a): return math.sqrt(dot(a, a))
 def scale(a, s): return tuple(x * s for x in a)
 
-def unfold(verts, faces, root=0, order=None):
-    """Geeft {face: [2D-punten]} en de boomranden. BFS vanaf root; order kan de buurvolgorde sturen."""
-    edge_faces = {}
+def _edge_faces(faces):
+    ef = {}
     for fi, fc in enumerate(faces):
         for i in range(len(fc)):
-            e = frozenset((fc[i], fc[(i + 1) % len(fc)])); edge_faces.setdefault(e, []).append(fi)
-    assert all(len(v) == 2 for v in edge_faces.values()), "niet gesloten"
-    pos = {}
-    fc = faces[root]; a, b = verts[fc[0]], verts[fc[1]]
-    e = scale(sub(b, a), 1 / norm(sub(b, a)))
-    # tweede as in het vlak
-    c = verts[fc[2]]; w = sub(sub(c, a), scale(e, dot(sub(c, a), e))); w = scale(w, 1 / norm(w))
-    pos[root] = {v: (dot(sub(verts[v], a), e), dot(sub(verts[v], a), w)) for v in fc}
-    tree = []; q = deque([root]); seen = {root}
-    while q:
-        p = q.popleft(); pf = faces[p]
-        nbrs = []
+            ef.setdefault(frozenset((fc[i], fc[(i + 1) % len(fc)])), []).append(fi)
+    assert all(len(v) == 2 for v in ef.values()), "niet gesloten"
+    return ef
+
+def _tree(faces, ef, root, order=None, dfs=False, rng=None):
+    """Opspannende boom over de vlakken: lijst (ouder, kind, rand) in plaatsingsvolgorde."""
+    def nbrs(p):
+        pf = faces[p]; out = []
         for i in range(len(pf)):
             ed = frozenset((pf[i], pf[(i + 1) % len(pf)]))
-            for ch in edge_faces[ed]:
-                if ch != p and ch not in seen: nbrs.append((ch, pf[i], pf[(i + 1) % len(pf)]))
-        if order: nbrs.sort(key=lambda t: order(p, t[0]))
-        for ch, va, vb in nbrs:
-            if ch in seen: continue
-            seen.add(ch); q.append(ch); tree.append((p, ch, frozenset((va, vb))))
-            A, B = pos[p][va], pos[p][vb]
-            a3, b3 = verts[va], verts[vb]
-            e3 = scale(sub(b3, a3), 1 / norm(sub(b3, a3)))
-            u = ((B[0] - A[0]) / math.dist(A, B), (B[1] - A[1]) / math.dist(A, B))
-            pc = (sum(pos[p][v][0] for v in pf) / len(pf), sum(pos[p][v][1] for v in pf) / len(pf))
-            perp = (-u[1], u[0])
-            if (pc[0] - A[0]) * perp[0] + (pc[1] - A[1]) * perp[1] > 0: perp = (-perp[0], -perp[1])
-            pos[ch] = {}
-            for v in faces[ch]:
-                d = sub(verts[v], a3); along = dot(d, e3); off = norm(sub(d, scale(e3, along)))
-                pos[ch][v] = (A[0] + u[0] * along + perp[0] * off, A[1] + u[1] * along + perp[1] * off)
+            out += [(ch, ed) for ch in ef[ed] if ch != p]
+        if order: out.sort(key=lambda t: order(p, t[0]))
+        if rng: rng.shuffle(out)
+        return out
+    seen = {root}; tree = []
+    if dfs:
+        stack = [root]
+        while stack:
+            p = stack[-1]
+            nxt = next(((ch, ed) for ch, ed in nbrs(p) if ch not in seen), None)
+            if nxt is None: stack.pop(); continue
+            ch, ed = nxt; seen.add(ch); tree.append((p, ch, ed)); stack.append(ch)
+    else:
+        q = deque([root])
+        while q:
+            p = q.popleft()
+            for ch, ed in nbrs(p):
+                if ch in seen: continue
+                seen.add(ch); tree.append((p, ch, ed)); q.append(ch)
     assert len(seen) == len(faces)
-    return pos, tree, edge_faces
+    return tree
+
+def unfold(verts, faces, root=0, order=None, dfs=False, rng=None):
+    """Geeft {vlak: {hoekpunt: 2D-punt}}, de boomranden en rand->vlakken."""
+    ef = _edge_faces(faces)
+    fc = faces[root]; a, b = verts[fc[0]], verts[fc[1]]
+    e = scale(sub(b, a), 1 / norm(sub(b, a)))
+    c = verts[fc[2]]; w = sub(sub(c, a), scale(e, dot(sub(c, a), e))); w = scale(w, 1 / norm(w))
+    pos = {root: {v: (dot(sub(verts[v], a), e), dot(sub(verts[v], a), w)) for v in fc}}
+    tree = _tree(faces, ef, root, order, dfs, rng)
+    for p, ch, ed in tree:
+        va, vb = tuple(ed); pf = faces[p]
+        A, B = pos[p][va], pos[p][vb]
+        a3, b3 = verts[va], verts[vb]
+        e3 = scale(sub(b3, a3), 1 / norm(sub(b3, a3)))
+        u = ((B[0] - A[0]) / math.dist(A, B), (B[1] - A[1]) / math.dist(A, B))
+        pc = (sum(pos[p][v][0] for v in pf) / len(pf), sum(pos[p][v][1] for v in pf) / len(pf))
+        perp = (-u[1], u[0])
+        if (pc[0] - A[0]) * perp[0] + (pc[1] - A[1]) * perp[1] > 0: perp = (-perp[0], -perp[1])
+        pos[ch] = {}
+        for v in faces[ch]:
+            d = sub(verts[v], a3); along = dot(d, e3); off = norm(sub(d, scale(e3, along)))
+            pos[ch][v] = (A[0] + u[0] * along + perp[0] * off, A[1] + u[1] * along + perp[1] * off)
+    return pos, tree, ef
 
 def net_polys(faces, pos):
     return [[pos[i][v] for v in fc] for i, fc in enumerate(faces)]
@@ -65,13 +85,13 @@ def tab_poly(p, q, inside, depth, shrink=.25):
     dx, dy = q[0] - p[0], q[1] - p[1]; L = math.hypot(dx, dy); nx, ny = -dy / L, dx / L
     mx, my = (p[0] + q[0]) / 2, (p[1] + q[1]) / 2
     if (inside[0] - mx) * nx + (inside[1] - my) * ny > 0: nx, ny = -nx, -ny
-    s = min(shrink, depth / L * 1.0)
+    s = min(shrink, depth / L * 1.0) if shrink <= .25 else shrink
     a = (p[0] + dx * s + nx * depth, p[1] + dy * s + ny * depth); b = (q[0] - dx * s + nx * depth, q[1] - dy * s + ny * depth)
     return [p, a, b, q]
 
-def layout(verts, faces, root=0, order=None, depth=0.18):
+def layout(verts, faces, root=0, order=None, depth=0.18, dfs=False, rng=None):
     """Uitslag + flappen; geeft (faces2d, tabs2d, folds, cuts) in modelmaat. Gooit fout bij overlap."""
-    pos, tree, edge_faces = unfold(verts, faces, root, order)
+    pos, tree, edge_faces = unfold(verts, faces, root, order, dfs, rng)
     polys = net_polys(faces, pos)
     assert no_overlap(polys), "uitslag overlapt"
     tree_edges = {t[2] for t in tree}
@@ -85,11 +105,12 @@ def layout(verts, faces, root=0, order=None, depth=0.18):
             folds.append((pos[f1][v1], pos[f1][v2])); continue
         # randpaar: probeer de flap aan f1, anders aan f2, zonder overlap met de rest of andere flappen
         placed = False
-        for fa in (max(f1, f2), min(f1, f2)):
+        for fa, dd, sk in [(fa, dd, sk) for dd, sk in ((d, .25), (d * .7, .38), (d * .5, .45), (d * .35, .45)) for fa in (max(f1, f2), min(f1, f2))]:
             P, Q = pos[fa][v1], pos[fa][v2]
             cen = (sum(x for x, _ in polys[fa]) / len(polys[fa]), sum(y for _, y in polys[fa]) / len(polys[fa]))
-            tp = tab_poly(P, Q, cen, d)
+            tp = tab_poly(P, Q, cen, dd, sk)
             tpoly = Polygon(tp)
+            if placed: break
             if tpoly.intersection(union).area < 1e-6 and all(tpoly.intersection(Polygon(t)).area < 1e-6 for t, _ in tabs):
                 tabs.append((tp, fa)); folds.append((P, Q))
                 other = f2 if fa == f1 else f1
@@ -97,9 +118,23 @@ def layout(verts, faces, root=0, order=None, depth=0.18):
         assert placed, "geen plek voor een lijmflap"
     return polys, [t for t, _ in tabs], folds, cuts
 
-def draw(sh, verts, faces, codes, box, root=0, order=None, depth=0.18):
-    """Tekent de uitslag geschaald in box (x, y, w, h). Geeft de schaal terug (eenheden per modelmaat)."""
-    polys, tabs, folds, cuts = layout(verts, faces, root, order, depth)
+def search(verts, faces, tries=4000, seed=1, depth=0.18):
+    """Zoekt een uitslag zonder overlap: eerst de gewone (BFS vanaf elk vlak), daarna willekeurige DFS-bomen."""
+    import random
+    rng = random.Random(seed)
+    for t in range(tries):
+        if t < len(faces): args = dict(root=t)
+        else: args = dict(root=rng.randrange(len(faces)), dfs=t % 2 == 0, rng=random.Random(rng.random()))
+        try:
+            return layout(verts, faces, depth=depth, **args), args
+        except AssertionError:
+            continue
+    raise AssertionError("geen uitslag gevonden")
+
+def draw(sh, verts, faces, codes, box, root=0, order=None, depth=0.18, find=False):
+    """Tekent de uitslag geschaald in box (x, y, w, h). Geeft de schaal en de vlakken (in velmaat) terug."""
+    if find: (polys, tabs, folds, cuts), _ = search(verts, faces, depth=depth)
+    else: polys, tabs, folds, cuts = layout(verts, faces, root, order, depth)
     allp = [p for poly in polys + tabs for p in poly]
     mnx, mxx = min(x for x, _ in allp), max(x for x, _ in allp); mny, mxy = min(y for _, y in allp), max(y for _, y in allp)
     bx, by, bw, bh = box
