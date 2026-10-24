@@ -234,3 +234,25 @@ def card(slug, name, front, back_text, cat, age, steps_extra, holiday=None, minu
 
 def outline_text(sh, x, y, s, size):
     sh.raw(f'<text class="l" style="stroke-width:1.1" x="{f(float(x))}" y="{f(float(y))}" font-size="{size}" text-anchor="middle" font-weight="800">{s}</text>')
+
+# ---------- tekenles in zes stappen ----------
+def lesson(slug, name, steps_draw, step_texts, age, diff, cat):
+    sh = Sheet()
+    title(sh, cap(name.split(": ", 1)[-1]), 16)
+    sh.text(100, 26, "Teken het zwarte stukje van elke stap. Het grijze heb je al.", 6)
+    for i in range(6):
+        col, row = i % 3, i // 3
+        bx, by = 13 + col * 60, 33 + row * 70
+        sh.rect_line(bx, by, 58, 58, "l", 3, "stroke-width:.8")
+        sh.text(bx + 5, by + 8, str(i + 1), 7, "start")
+        for j in range(i + 1):
+            cls, style = ("l", "stroke-width:1.2") if j == i else ("guide", "stroke-width:1.1")
+            for d in steps_draw[j]:
+                sh.raw(f'<path class="{cls}" style="{style}" transform="translate({bx + 6} {by + 6}) scale(.46)" d="{d}" fill="none"/>')
+    sh.rect_line(13, 176, 174, 92, "l", 4, "stroke-width:.8")
+    sh.text(19, 186, "Nu jij!", 7, "start")
+    write(OUT, slug, sh, {"category": cat, "age": age, "kind": "tekenles", "difficulty": diff, "minutes": 15,
+        "materials": [{"slug": "potlood"}, {"slug": "kleurpotloden", "optional": True}],
+        "i18n": {"nl": {"name": name, "steps": step_texts + ["Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.", "Klaar? Trek de lijnen mooi over en kleur je tekening in."]}}})
+C = lambda x, y, r: f"M{x - r} {y}a{r} {r} 0 1 0 {2 * r} 0a{r} {r} 0 1 0 {-2 * r} 0"
+E = lambda x, y, rx, ry: f"M{x - rx} {y}a{rx} {ry} 0 1 0 {2 * rx} 0a{rx} {ry} 0 1 0 {-2 * rx} 0"

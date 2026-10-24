@@ -258,26 +258,6 @@ def bookmarks_dieren():
 bookmarks_dieren()
 
 # ---------- tekenlessen ----------
-def lesson(slug, name, steps_draw, step_texts, age, diff, cat):
-    sh = Sheet()
-    title(sh, cap(name.split(": ", 1)[-1]), 16)
-    sh.text(100, 26, "Teken het zwarte stukje van elke stap. Het grijze heb je al.", 6)
-    for i in range(6):
-        col, row = i % 3, i // 3
-        bx, by = 13 + col * 60, 33 + row * 70
-        sh.rect_line(bx, by, 58, 58, "l", 3, "stroke-width:.8")
-        sh.text(bx + 5, by + 8, str(i + 1), 7, "start")
-        for j in range(i + 1):
-            cls, style = ("l", "stroke-width:1.2") if j == i else ("guide", "stroke-width:1.1")
-            for d in steps_draw[j]:
-                sh.raw(f'<path class="{cls}" style="{style}" transform="translate({bx + 6} {by + 6}) scale(.46)" d="{d}" fill="none"/>')
-    sh.rect_line(13, 176, 174, 92, "l", 4, "stroke-width:.8")
-    sh.text(19, 186, "Nu jij!", 7, "start")
-    write(OUT, slug, sh, {"category": cat, "age": age, "kind": "tekenles", "difficulty": diff, "minutes": 15,
-        "materials": [{"slug": "potlood"}, {"slug": "kleurpotloden", "optional": True}],
-        "i18n": {"nl": {"name": name, "steps": step_texts + ["Teken het nu zelf groot in het vak onderaan, eerst dun met potlood.", "Klaar? Trek de lijnen mooi over en kleur je tekening in."]}}})
-C = lambda x, y, r: f"M{x - r} {y}a{r} {r} 0 1 0 {2 * r} 0a{r} {r} 0 1 0 {-2 * r} 0"
-E = lambda x, y, rx, ry: f"M{x - rx} {y}a{rx} {ry} 0 1 0 {2 * rx} 0a{rx} {ry} 0 1 0 {-2 * rx} 0"
 lesson("tekenles-hond", "Tekenles: een hond", [
     [E(50, 32, 20, 17)], ["M31 26C20 26 18 48 26 52C32 52 32 36 31 26", "M69 26C80 26 82 48 74 52C68 52 68 36 69 26"],
     [C(43, 28, 2.5), C(57, 28, 2.5), E(50, 38, 5, 3.5), "M50 41V45M44 46Q50 50 56 46"], [E(52, 72, 26, 16)],
