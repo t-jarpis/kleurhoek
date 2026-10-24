@@ -226613,5 +226613,211 @@
         ]
       }
     }
+  },
+  {
+    "slug": "dambord-met-schijven",
+    "order": 937,
+    "category": "vormen",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "spel",
+    "height": 280,
+    "minutes": 30,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "extra",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Dambord met schijven",
+        "printNote": "Plak het bord op karton, dan blijft het plat.",
+        "steps": [
+          "Kleur op blad 2 twintig schijven donker en twintig licht en knip ze uit. Ook knopen of muntjes werken.",
+          "Leg ieder je twintig schijven op de donkere velden van de eerste vier rijen aan jouw kant.",
+          "Om de beurt schuif je één schijf schuin vooruit naar een leeg donker veld. Staat er een schijf van de ander schuin voor je en is het veld erachter leeg? Dan spring je eroverheen en sla je hem: dat moet.",
+          "Kom je aan de overkant? Dan wordt je schijf een dam (leg er een tweede op): die mag schuin over meer velden. Wie geen schijven meer heeft of niet meer kan zetten, verliest."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Damschijven"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "molenspel",
+    "order": 938,
+    "category": "vormen",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "spel",
+    "height": 280,
+    "minutes": 30,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 24,
+    "colorByNumber": {
+      "codes": "------------------------",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Molenspel (negen stenen)",
+        "steps": [
+          "Ieder heeft negen stenen. Om de beurt zet je een steen op een leeg rondje.",
+          "Drie stenen van jou op één rechte lijn is een molen: dan mag je een steen van de ander van het bord halen (niet uit een molen, tenzij het niet anders kan).",
+          "Staan alle stenen op het bord? Dan schuif je om de beurt een steen langs een lijn naar een leeg rondje ernaast, en maak je zo nieuwe molens.",
+          "Wie nog maar twee stenen heeft of niet meer kan schuiven, verliest."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "reversi-bord",
+    "order": 939,
+    "category": "vormen",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "spel",
+    "height": 280,
+    "minutes": 30,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "extra",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      },
+      {
+        "slug": "lijmstift"
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Reversi: bord en stenen",
+        "steps": [
+          "Maak de stenen van blad 2: knip elk paartje uit, vouw dubbel en plak dicht. Zo is de ene kant wit en de andere zwart.",
+          "Begin met twee witte en twee zwarte stenen in het midden, zoals op het bord getekend.",
+          "Om de beurt leg je een steen met jouw kleur boven zo dat je stenen van de ander insluit (recht of schuin). Alle ingesloten stenen draai je om naar jouw kleur.",
+          "Kun je niet? Dan pas je. Is het bord vol, dan wint wie de meeste stenen heeft."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Reversi-stenen"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "schaakbord-met-stukken",
+    "order": 940,
+    "category": "vormen",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "spel",
+    "height": 280,
+    "minutes": 30,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "materials": [
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Schaakbord met stukken om te knippen",
+        "printNote": "Plak het vel eerst op karton, dan staan de stukken steviger.",
+        "steps": [
+          "Knip de 32 kaartjes uit: 16 witte en 16 grijze. Op elk stuk staat een letter (K, D, T, L, P); de pionnen hebben geen letter.",
+          "Leg het bord neer met rechtsonder een wit veld. Zet de pionnen op de tweede rij, en op de eerste rij: toren, paard, loper, dame, koning, loper, paard, toren. De dame staat op haar eigen kleur.",
+          "Wit begint. Ken je de regels nog niet? Begin met alleen pionnen: wie het eerst de overkant haalt, wint."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
   }
 ]
