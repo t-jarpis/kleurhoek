@@ -200650,5 +200650,361 @@
         "countQuestion": null
       }
     }
+  },
+  {
+    "slug": "rekenen-hoe-lang-duurt-het",
+    "order": 854,
+    "category": "leren",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Klokrekenen: hoe lang duurt het?",
+        "steps": [
+          "Tel eerst de minuten tot het volgende hele uur.",
+          "Tel daarna de hele uren, en tot slot de minuten van het laatste stukje.",
+          "Tel alles bij elkaar op. 60 minuten is 1 uur.",
+          "Kijk na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "rekenen-kommagetallen",
+    "order": 855,
+    "category": "leren",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Rekenen: kommagetallen",
+        "steps": [
+          "Schrijf de getallen onder elkaar, komma onder komma.",
+          "Vul lege plekjes aan met een 0: 2,5 is 2,50.",
+          "Reken van rechts naar links en zet de komma op dezelfde plek in je antwoord.",
+          "Kijk na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "rekenen-procenten",
+    "order": 856,
+    "category": "leren",
+    "age": "12+",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Rekenen: procenten",
+        "steps": [
+          "50% is de helft, 25% is een kwart, 10% is een tiende.",
+          "Reken eerst 1% of 10% uit en vermenigvuldig dan: 30% van 60 is 3 × 6 = 18.",
+          "Kijk na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "rekenen-temperatuur-onder-nul",
+    "order": 857,
+    "category": "leren",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Rekenen onder nul: temperatuur",
+        "steps": [
+          "Zoek de begintemperatuur op de getallenlijn.",
+          "Kouder? Ga zoveel stapjes naar beneden. Warmer? Ga omhoog.",
+          "Onder nul schrijf je een min: -3 °C is 3 graden onder nul.",
+          "Kijk na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "rekenen-wisselgeld",
+    "order": 858,
+    "category": "leren",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Rekenen met geld: wisselgeld",
+        "steps": [
+          "Begin bij de prijs en tel op tot een rond bedrag: van € 3,50 naar € 4 is 50 cent.",
+          "Tel daarna verder tot wat je betaalt: van € 4 naar € 5 is € 1. Samen € 1,50.",
+          "Schrijf het met een komma: euro's voor de komma, centen erachter.",
+          "Kijk na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "verhaaltjessommen-groep-5",
+    "order": 859,
+    "category": "leren",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Verhaaltjessommen: keer, delen en tijd",
+        "steps": [
+          "Lees het verhaal twee keer en onderstreep de getallen.",
+          "Bedenk welke som erbij hoort en reken die uit op kladpapier.",
+          "Vergeet de eenheid niet: euro, minuten of milliliter.",
+          "Kijk na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "verhaaltjessommen-tot-20",
+    "order": 860,
+    "category": "leren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Verhaaltjessommen tot 20",
+        "steps": [
+          "Lees het verhaaltje en kijk wat er gevraagd wordt.",
+          "Komt er iets bij (erbij, krijgt, samen)? Dan tel je op. Gaat er iets weg (weg, gebruikt, geeft)? Dan haal je eraf.",
+          "Schrijf het antwoord in het hokje.",
+          "Kijk na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
   }
 ]
