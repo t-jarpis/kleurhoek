@@ -103233,5 +103233,424 @@
         ]
       }
     }
+  },
+  {
+    "slug": "sudoku-9x9-gemiddeld",
+    "order": 603,
+    "category": "leren",
+    "age": "12+",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 30,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Sudoku: 9 bij 9, gemiddeld",
+        "steps": [
+          "Elke rij, elke kolom en elk vak van 3 bij 3 krijgt de cijfers 1 tot en met 9, elk precies één keer.",
+          "Zoek een rij, kolom of vak met veel cijfers en kijk welk cijfer er nog maar op één plek kan.",
+          "Schrijf met potlood, dan kun je gummen. Vast? Kijk op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "sudoku-9x9-makkelijk",
+    "order": 604,
+    "category": "leren",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 30,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Sudoku: 9 bij 9, makkelijk",
+        "steps": [
+          "Elke rij, elke kolom en elk vak van 3 bij 3 krijgt de cijfers 1 tot en met 9, elk precies één keer.",
+          "Zoek een rij, kolom of vak met veel cijfers en kijk welk cijfer er nog maar op één plek kan.",
+          "Schrijf met potlood, dan kun je gummen. Vast? Kijk op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "sudoku-met-plaatjes",
+    "order": 605,
+    "category": "leren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden"
+      }
+    ],
+    "regionCount": 36,
+    "colorByNumber": {
+      "codes": "rmbybbyrrybyyrrmmbymrymrrrbmmbymrymb",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 43.7,
+          "y": 49.7,
+          "size": 5.6
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 23.8,
+          "y": 70.7,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 43.8,
+          "y": 69.8,
+          "size": 5.4
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 63.7,
+          "y": 90.3,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 83.8,
+          "y": 89.8,
+          "size": 5.4
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 23.8,
+          "y": 109.8,
+          "size": 5.4
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 43.7,
+          "y": 110.3,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 1,
+          "x": 83.7,
+          "y": 109.7,
+          "size": 5.6
+        },
+        {
+          "region": 8,
+          "number": 1,
+          "x": 115.7,
+          "y": 49.7,
+          "size": 5.6
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 135.7,
+          "y": 49.7,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 135.8,
+          "y": 69.8,
+          "size": 5.4
+        },
+        {
+          "region": 11,
+          "number": 4,
+          "x": 155.7,
+          "y": 69.7,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 115.7,
+          "y": 90.3,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 155.7,
+          "y": 89.7,
+          "size": 5.6
+        },
+        {
+          "region": 14,
+          "number": 1,
+          "x": 135.7,
+          "y": 109.7,
+          "size": 5.6
+        },
+        {
+          "region": 15,
+          "number": 2,
+          "x": 155.8,
+          "y": 110.7,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 2,
+          "x": 23.8,
+          "y": 146.7,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 3,
+          "x": 43.8,
+          "y": 145.8,
+          "size": 5.4
+        },
+        {
+          "region": 18,
+          "number": 4,
+          "x": 83.7,
+          "y": 146.3,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 2,
+          "x": 63.8,
+          "y": 166.7,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 1,
+          "x": 43.7,
+          "y": 185.7,
+          "size": 5.6
+        },
+        {
+          "region": 21,
+          "number": 4,
+          "x": 63.7,
+          "y": 186.3,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 2,
+          "x": 43.8,
+          "y": 206.7,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 1,
+          "x": 83.7,
+          "y": 205.7,
+          "size": 5.6
+        },
+        {
+          "region": 24,
+          "number": 1,
+          "x": 155.7,
+          "y": 145.7,
+          "size": 5.6
+        },
+        {
+          "region": 25,
+          "number": 1,
+          "x": 115.7,
+          "y": 165.7,
+          "size": 5.6
+        },
+        {
+          "region": 26,
+          "number": 3,
+          "x": 155.8,
+          "y": 165.8,
+          "size": 5.4
+        },
+        {
+          "region": 27,
+          "number": 2,
+          "x": 175.8,
+          "y": 166.7,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 2,
+          "x": 115.8,
+          "y": 186.7,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 3,
+          "x": 175.8,
+          "y": 185.8,
+          "size": 5.4
+        },
+        {
+          "region": 30,
+          "number": 4,
+          "x": 115.7,
+          "y": 206.3,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 2,
+          "x": 155.8,
+          "y": 206.7,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 1,
+          "x": 64.3,
+          "y": 249.7,
+          "size": 5.6
+        },
+        {
+          "region": 33,
+          "number": 4,
+          "x": 87.7,
+          "y": 250.3,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 2,
+          "x": 111.8,
+          "y": 250.7,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 3,
+          "x": 135.8,
+          "y": 249.8,
+          "size": 5.4
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Sudoku met plaatjes",
+        "steps": [
+          "Er zijn vier plaatjes: een rondje, een ster, een hartje en een vierkantje.",
+          "In elke rij, elke kolom en elk vak met een dikke rand komt elk plaatje precies één keer.",
+          "Teken het plaatje dat mist in het lege hokje. Kleur ze daarna in. Kijk na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
   }
 ]
