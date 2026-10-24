@@ -80,14 +80,15 @@ export interface AccountStats { total: number; created: number; createdBefore: n
 
 
 export type ConversationStatus = "new" | "open" | "answered" | "closed";
-export type ContactTopic = "question" | "idea" | "bug" | "partnership" | "copyright" | "privacy";
+export type ContactTopic = "question" | "idea" | "bug" | "partnership" | "copyright" | "privacy" | "organization";
+export interface OrgRequest { organization: string; kind: "school" | "opvang" | "vereniging" | "bedrijf" | "overig"; code: string | null; children: string | null; website: string | null }
 export interface ConversationSummary {
   id: string; channel: "web" | "whatsapp"; topic: ContactTopic; status: ConversationStatus; name: string | null; email: string | null; phone: string | null;
   org: string; market: string; lastMessageAt: string; createdAt: string; preview: string;
 }
 export interface Inbox { page: number; pageSize: number; total: number; counts: Record<ConversationStatus, number>; conversations: ConversationSummary[] }
 export interface Conversation extends Omit<ConversationSummary, "preview"> {
-  updatedBy: string | null; messages: { id: string; direction: "in" | "out" | "note"; body: string; author: string | null; createdAt: string }[];
+  updatedBy: string | null; details: OrgRequest | null; messages: { id: string; direction: "in" | "out" | "note"; body: string; author: string | null; createdAt: string }[];
 }
 export interface ContactChannel { slug: "web" | "whatsapp"; enabled: boolean; connected: boolean; settings: Record<string, string>; updatedBy: string; updatedAt: string | null }
 

@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ContactTopic, ConversationStatus } from "@/lib/api";
 
 export const TOPIC_LABEL: Record<ContactTopic, string> = {
-  question: "Vraag", idea: "Idee voor een plaat", bug: "Iets werkt niet", partnership: "Samenwerken", copyright: "Auteursrecht", privacy: "Privacy",
+  question: "Vraag", idea: "Idee voor een plaat", bug: "Iets werkt niet", partnership: "Samenwerken", copyright: "Auteursrecht", privacy: "Privacy", organization: "Aanvraag eigen omgeving",
 };
 export const STATUS_LABEL: Record<ConversationStatus, string> = { new: "Nieuw", open: "Open", answered: "Beantwoord", closed: "Gesloten" };
 export const CHANNEL_LABEL = { web: "Website", whatsapp: "WhatsApp" } as const;

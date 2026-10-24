@@ -7,8 +7,14 @@ export const contactSchema = pgSchema("contact");
 export const CHANNELS = ["web", "whatsapp"] as const;
 export type Channel = (typeof CHANNELS)[number];
 
-export const TOPICS = ["question", "idea", "bug", "partnership", "copyright", "privacy"] as const;
+export const TOPICS = ["question", "idea", "bug", "partnership", "copyright", "privacy", "organization"] as const;
 export type Topic = (typeof TOPICS)[number];
+
+/** Soorten organisaties die een eigen omgeving kunnen aanvragen (zelfde als in Organisaties, ADR 0017). */
+export const REQUEST_ORG_KINDS = ["school", "opvang", "vereniging", "bedrijf", "overig"] as const;
+
+/** Extra gegevens bij een aanvraag voor een eigen omgeving (ADR 0028). Geen persoonsgegevens behalve wat al in het gesprek staat. */
+export interface OrgRequest { organization: string; kind: (typeof REQUEST_ORG_KINDS)[number]; code: string | null; children: string | null; website: string | null }
 
 export const STATUSES = ["new", "open", "answered", "closed"] as const;
 export type ConversationStatus = (typeof STATUSES)[number];
@@ -30,6 +36,8 @@ export const conversations = contactSchema.table("conversations", {
   org: text("org").notNull(),
   market: text("market").notNull(),
   lastMessageAt: timestamp("last_message_at", { withTimezone: true }).notNull().defaultNow(),
+  /** Gestructureerde gegevens bij bepaalde onderwerpen, nu alleen een aanvraag voor een eigen omgeving. */
+  details: jsonb("details").$type<OrgRequest>(),
   updatedBy: text("updated_by"),
 }, (t) => [index("conversations_tenant_status").on(t.tenantId, t.status, t.lastMessageAt)]);
 

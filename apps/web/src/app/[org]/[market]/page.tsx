@@ -35,7 +35,7 @@ export default async function Home({ params }: { params: Promise<{ org: string; 
       <SeasonBand season={season} plates={plates} taxonomy={taxonomy} market={market} t={t} />
       <Suspense fallback={null}><Browse plates={plates} taxonomy={taxonomy} market={market} language={language} /></Suspense>
       <Fridge market={market} plates={plates} language={language} />
-      <SiteFooter market={market} t={t} />
+      <SiteFooter market={market} t={t} own={org.isDefault} />
       <PickBar market={market} language={language} />
       <Track event={{ type: "page_view", market, page: "home" }} />
     </div>

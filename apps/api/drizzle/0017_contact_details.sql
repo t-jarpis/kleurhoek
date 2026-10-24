@@ -1,0 +1,1 @@
+ALTER TABLE "contact"."conversations" ADD COLUMN "details" jsonb;

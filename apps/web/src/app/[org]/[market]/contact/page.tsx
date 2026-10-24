@@ -25,13 +25,14 @@ export default async function ContactPage({ params, searchParams }: { params: Pr
       <header className="mast"><Logo market={market} org={org} /><a className="btn" href={`/${market}`}>{t.back}</a></header>
       <h1 className="page-title">{t.contactTitle}</h1>
       <p className="lede">{t.contactLede}</p>
+      {org.isDefault && <p className="lede">{t.ownHint} <a href={`/${market}/eigen-omgeving`}>{t.ownHintLink}</a>.</p>}
       <ContactForm action={sendContact.bind(null, market)} initialTopic={TOPIC_PARAM[onderwerp ?? ""] ?? "question"} t={{
         contactTopic: t.contactTopic, contactTopics: t.contactTopics, contactName: t.contactName, contactNameHint: t.contactNameHint,
         contactEmail: t.contactEmail, contactEmailHint: t.contactEmailHint, contactMessage: t.contactMessage, contactSend: t.contactSend,
         contactSending: t.contactSending, contactPrivacy: t.contactPrivacy, contactThanks: t.contactThanks, contactThanksText: t.contactThanksText,
         contactError: t.contactError, contactTooMany: t.contactTooMany, contactClosed: t.contactClosed,
       }} />
-      <SiteFooter market={market} t={t} />
+      <SiteFooter market={market} t={t} own={org.isDefault} />
     </div>
   );
 }

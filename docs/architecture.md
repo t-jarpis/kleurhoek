@@ -23,3 +23,4 @@ Het volledige architectuurdocument met diagrammen staat hier: https://claude.ai/
 - Bronnengids: thema's met alleen links naar kleurplaten bij de makers zelf (nooit hun beeld), goedkeuring in het admin panel, dagelijkse controle die verdwenen bronnen offline haalt, producten per thema (ADR 0025).
 - Disclaimer en voettekst op elke pagina; nieuwe platen via `scripts/plates` (preview en ingest) (ADR 0026).
 - Meer soorten werkjes (vouwblad, werkblad, sjabloon, kaart, tekenles), moeilijkheid, extra pagina's met antwoordblad, leeftijd 12+, en een kwaliteitscontrole voor de hele catalogus (ADR 0027).
+- Pagina Eigen omgeving met de voordelen voor scholen, opvang en verenigingen en een aanvraagformulier; aanvragen komen in de inbox en worden met één klik een organisatie (ADR 0028).

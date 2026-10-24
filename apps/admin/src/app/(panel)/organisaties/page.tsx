@@ -6,8 +6,8 @@ import { NewOrgForm } from "./NewOrgForm";
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Organisaties" };
 
-export default async function Organizations({ searchParams }: { searchParams: Promise<{ melding?: string; fout?: string }> }) {
-  const { melding, fout } = await searchParams;
+export default async function Organizations({ searchParams }: { searchParams: Promise<{ melding?: string; fout?: string; naam?: string; code?: string; soort?: string }> }) {
+  const { melding, fout, naam, code, soort } = await searchParams;
   const [me, data] = await Promise.all([adminApi.me().catch(() => null), adminApi.organizations().catch((e: unknown) => e)]);
   if (data instanceof Error) { const d = describe(data); return <div className="err"><h1>{d.title}</h1><p>{d.text}</p></div>; }
   const data2 = data as Awaited<ReturnType<typeof adminApi.organizations>>;
@@ -40,9 +40,9 @@ export default async function Organizations({ searchParams }: { searchParams: Pr
       </section>
 
       {canManage && (
-        <section className="panel stack">
+        <section className="panel stack" id="nieuw">
           <h2>Nieuwe organisatie</h2>
-          <NewOrgForm hostPattern={data2.hostPattern} reserved={data2.reserved} taken={organizations.map((o) => o.slug)} />
+          <NewOrgForm hostPattern={data2.hostPattern} reserved={data2.reserved} taken={organizations.map((o) => o.slug)} initial={{ name: naam ?? "", code: code ?? "", kind: soort ?? "school" }} />
         </section>
       )}
     </>

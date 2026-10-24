@@ -2,6 +2,7 @@ import Link from "next/link";
 import { adminApi, describe } from "@/lib/api";
 import { addMessage, deleteConversation, setStatus } from "../actions";
 import { CHANNEL_LABEL, STATUS_LABEL, TOPIC_LABEL, when } from "../labels";
+import { KIND_LABEL } from "../../organisaties/labels";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Gesprek" };
@@ -30,6 +31,27 @@ export default async function ConversationPage({ params, searchParams }: { param
       </div>
       {q.melding && <p className="note" role="status">{q.melding}</p>}
       {q.fout && <div className="err" role="alert"><p>{q.fout}</p></div>}
+
+      {c.details && (
+        <section className="panel stack">
+          <div className="row-between">
+            <h2>Aanvraag eigen omgeving</h2>
+            {me.permissions.includes("organizations.manage") && (
+              <Link className="button" href={`/organisaties?${new URLSearchParams({ naam: c.details.organization, soort: c.details.kind, ...(c.details.code ? { code: c.details.code } : {}) })}#nieuw`}>Organisatie aanmaken</Link>
+            )}
+          </div>
+          <table>
+            <tbody>
+              <tr><th>Organisatie</th><td>{c.details.organization}</td></tr>
+              <tr><th>Soort</th><td>{KIND_LABEL[c.details.kind]}</td></tr>
+              <tr><th>Gewenst adres</th><td>{c.details.code ? <code>{c.details.code}.kleurhoek.nl</code> : "—"}</td></tr>
+              <tr><th>Aantal kinderen</th><td>{c.details.children ?? "—"}</td></tr>
+              <tr><th>Website</th><td>{c.details.website ?? "—"}</td></tr>
+            </tbody>
+          </table>
+          <p className="lead">Maak de organisatie aan, stel huisstijl en aanbod in, en stuur het adres naar de aanvrager. Leg daarna hieronder vast wat je antwoordde.</p>
+        </section>
+      )}
 
       <section className="panel stack">
         <h2>Afzender</h2>

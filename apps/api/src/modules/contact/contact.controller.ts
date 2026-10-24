@@ -3,7 +3,7 @@ import type { FastifyRequest } from "fastify";
 import { z } from "zod";
 import { AdminGuard, RequirePermission } from "../identity/admin.guard";
 import { RateLimit } from "../operations/rate-limit.guard";
-import { CHANNELS, STATUSES, TOPICS } from "./contact.schema";
+import { CHANNELS, REQUEST_ORG_KINDS, STATUSES, TOPICS } from "./contact.schema";
 import { ContactError, ContactService } from "./contact.service";
 
 /** Webformulier. `trap` is een verborgen veld (moet leeg blijven), `elapsedMs` hoe lang het formulier open stond. */
@@ -16,7 +16,15 @@ export const ContactForm = z.object({
   market: z.string().regex(/^[a-z]{2}-[A-Za-z]{2}$/).transform((m) => `${m.slice(0, 2)}-${m.slice(3).toUpperCase()}`),
   trap: z.string().max(200).optional(),
   elapsedMs: z.number().int().min(0).optional(),
-}).strict();
+  /** Alleen bij onderwerp "organization": de aanvraag voor een eigen omgeving (ADR 0028). */
+  details: z.object({
+    organization: z.string().trim().min(2, "Naam van de organisatie").max(120),
+    kind: z.enum(REQUEST_ORG_KINDS),
+    code: z.string().trim().toLowerCase().regex(/^[a-z0-9](?:[a-z0-9-]{0,30}[a-z0-9])?$/, "Adres: kleine letters, cijfers en streepjes").optional().transform((v) => v || null),
+    children: z.string().trim().max(40).optional().transform((v) => v || null),
+    website: z.string().trim().max(200).optional().transform((v) => v || null),
+  }).strict().optional(),
+}).strict().refine((f) => (f.topic === "organization") === Boolean(f.details), { message: "Gegevens van de organisatie horen bij een aanvraag voor een eigen omgeving", path: ["details"] });
 
 /** Zichtbaar spam: verborgen veld ingevuld, te snel verstuurd of vol links. We doen alsof het lukte. */
 export function looksLikeSpam(f: { trap?: string | undefined; elapsedMs?: number | undefined; message: string }): boolean {
@@ -51,7 +59,7 @@ export class ContactController {
   async submit(@Body() body: unknown) {
     const f = parse(ContactForm, body);
     if (looksLikeSpam(f)) return { ok: true };
-    await this.contact.submit("web", { topic: f.topic, name: f.name, email: f.email, message: f.message, org: f.org, market: f.market }).catch(mapError);
+    await this.contact.submit("web", { topic: f.topic, name: f.name, email: f.email, message: f.message, org: f.org, market: f.market, details: f.details ?? null }).catch(mapError);
     return { ok: true };
   }
 }

@@ -4,7 +4,7 @@ import { ENV, type Env } from "../../config/env";
 import { DB, type Database } from "../../db/database";
 import { withTenant } from "../../db/tenant";
 import { AuditService } from "../identity/audit.service";
-import { channels, conversations, messages, STATUSES, type Channel, type ConversationStatus, type Topic } from "./contact.schema";
+import { channels, conversations, messages, STATUSES, type Channel, type ConversationStatus, type OrgRequest, type Topic } from "./contact.schema";
 
 export class ContactError extends Error {
   constructor(readonly code: "not_found" | "invalid" | "closed", message: string) { super(message); }
@@ -27,12 +27,12 @@ export class ContactService {
   private get tenant() { return this.env.TENANT_ID; }
 
   /** Een nieuw bericht via een kanaal. Geeft het id van het gesprek. */
-  async submit(channel: Channel, input: { topic: Topic; name: string | null; email: string | null; phone?: string | null; message: string; org: string; market: string }) {
+  async submit(channel: Channel, input: { topic: Topic; name: string | null; email: string | null; phone?: string | null; message: string; org: string; market: string; details?: OrgRequest | null }) {
     if (!(await this.channelEnabled(channel))) throw new ContactError("closed", "Dit kanaal staat uit");
     return withTenant(this.db, this.tenant, async (tx) => {
       const [c] = await tx.insert(conversations).values({
         tenantId: this.tenant, channel, topic: input.topic, name: input.name, email: input.email, phone: input.phone ?? null,
-        org: input.org, market: input.market,
+        org: input.org, market: input.market, details: input.details ?? null,
       }).returning({ id: conversations.id });
       await tx.insert(messages).values({ tenantId: this.tenant, conversationId: c!.id, direction: "in", body: input.message });
       return c!.id;
@@ -66,7 +66,7 @@ export class ContactService {
       const list = await tx.select().from(messages).where(eq(messages.conversationId, id)).orderBy(asc(messages.createdAt));
       return {
         id: c.id, channel: c.channel, topic: c.topic, status: c.status, name: c.name, email: c.email, phone: c.phone, org: c.org, market: c.market,
-        createdAt: c.createdAt.toISOString(), lastMessageAt: c.lastMessageAt.toISOString(), updatedBy: c.updatedBy,
+        createdAt: c.createdAt.toISOString(), lastMessageAt: c.lastMessageAt.toISOString(), updatedBy: c.updatedBy, details: c.details ?? null,
         messages: list.map((m) => ({ id: m.id, direction: m.direction, body: m.body, author: m.author, createdAt: m.createdAt.toISOString() })),
       };
     });

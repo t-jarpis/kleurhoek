@@ -115,3 +115,19 @@ describe("kanalen", () => {
     expect((await send(form(), "203.0.113.15")).statusCode).toBe(202);
   });
 });
+
+describe("aanvraag eigen omgeving", () => {
+  const details = { organization: "Basisschool De Regenboog", kind: "school", code: "De-Regenboog", children: "ongeveer 200" };
+  it("bewaart de gegevens van de organisatie bij het gesprek", async () => {
+    expect((await send(form({ topic: "organization", details, message: "Wij willen graag een eigen omgeving voor onze school." }), "203.0.113.20")).statusCode).toBe(202);
+    const inbox = (await ctx.http.inject({ method: "GET", url: "/v1/admin/contact/conversations?status=new", headers: admin })).json();
+    const id = inbox.conversations.find((c: { topic: string }) => c.topic === "organization").id;
+    const c = (await ctx.http.inject({ method: "GET", url: `/v1/admin/contact/conversations/${id}`, headers: admin })).json();
+    expect(c.details).toEqual({ organization: "Basisschool De Regenboog", kind: "school", code: "de-regenboog", children: "ongeveer 200", website: null });
+  });
+  it("vraagt gegevens bij een aanvraag, en weigert ze bij andere onderwerpen", async () => {
+    expect((await send(form({ topic: "organization" }), "203.0.113.21")).statusCode).toBe(400);
+    expect((await send(form({ details }), "203.0.113.21")).statusCode).toBe(400);
+    expect((await send(form({ topic: "organization", details: { ...details, code: "geen spaties" } }), "203.0.113.21")).statusCode).toBe(400);
+  });
+});

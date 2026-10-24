@@ -120,6 +120,13 @@
       "when": 1792846315244,
       "tag": "0016_plate_kinds_pages",
       "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "7",
+      "when": 1792847209251,
+      "tag": "0017_contact_details",
+      "breakpoints": true
     }
   ]
 }

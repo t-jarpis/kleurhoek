@@ -63,7 +63,7 @@ export default async function ThemePage({ params }: { params: Promise<{ org: str
           <p className="disclosure">{t.partnerDisclosure}</p>
         </section>
       )}
-      <SiteFooter market={market} t={t} />
+      <SiteFooter market={market} t={t} own={org.isDefault} />
     </div>
   );
 }

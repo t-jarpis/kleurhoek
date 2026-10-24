@@ -68,7 +68,7 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ org
         <h2>Wijzigingen en vragen</h2>
         <p>We kunnen deze disclaimer aanpassen, bijvoorbeeld als er iets nieuws op Kleurhoek komt. Bovenaan staat wanneer hij voor het laatst is bijgewerkt. Op deze disclaimer is Nederlands recht van toepassing. Vragen? <Link href={contact()}>Neem contact met ons op</Link>.</p>
       </article>
-      <SiteFooter market={market} t={t} />
+      <SiteFooter market={market} t={t} own={org.isDefault} />
     </div>
   );
 }

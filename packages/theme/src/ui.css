@@ -359,3 +359,15 @@ body { margin: 0; background: var(--color-bg); color: var(--color-text); font: 4
 .kh-page figcaption { font-weight: 700; font-size: 15px; }
 .kh-answers summary { cursor: pointer; font-weight: 700; }
 .kh-answers[open] summary { margin-bottom: var(--space-3); }
+
+/* ---------- Pitch: pagina Eigen omgeving (ADR 0028) — voordelen en stappen ---------- */
+.kh-pitch { margin-top: var(--space-10); }
+.kh-pitch h2 { margin: 0 0 var(--space-4); font: 800 22px/1.25 var(--font-sans); letter-spacing: -0.01em; }
+.kh-pitch > p { margin: 0; max-width: var(--measure); }
+.kh-benefits { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: var(--space-3); margin: 0; padding: 0; list-style: none; }
+.kh-benefits li { display: grid; gap: var(--space-1); padding: var(--space-4) var(--space-5); background: var(--color-surface); border: var(--border-thin) solid var(--color-border); border-radius: var(--radius-lg); }
+.kh-benefits b { font: 800 17px/1.3 var(--font-sans); }
+.kh-benefits span { color: var(--color-text-muted); font-size: 15px; }
+.kh-steps { display: grid; gap: var(--space-3); margin: 0; padding: 0; list-style: none; counter-reset: kh-step; max-width: var(--measure); }
+.kh-steps li { counter-increment: kh-step; display: grid; grid-template-columns: auto 1fr; gap: var(--space-3); align-items: start; }
+.kh-steps li::before { content: counter(kh-step); display: grid; place-items: center; inline-size: 32px; block-size: 32px; border-radius: var(--radius-full); background: var(--color-primary); color: var(--color-text-on-primary); font: 800 15px/1 var(--font-sans); }

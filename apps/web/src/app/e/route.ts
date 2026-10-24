@@ -6,7 +6,7 @@ import { ingest, normalizeMarket } from "@/lib/ingest";
  * worden nergens opgeslagen; zie lib/ingest.ts. Doorkliks naar producten tellen we in /ga.
  */
 const TYPES = new Set(["page_view", "plate_view", "plate_colored", "plate_completed", "pdf_download", "print", "materials_view"]);
-const PAGES = new Set(["home", "plaat", "boekje", "account", "niet-gevonden", "disclaimer", "contact", "themas", "thema"]);
+const PAGES = new Set(["home", "plaat", "boekje", "account", "niet-gevonden", "disclaimer", "contact", "themas", "thema", "eigen-omgeving"]);
 
 export async function POST(req: NextRequest) {
   let body: { type?: unknown; market?: unknown; plate?: unknown; page?: unknown };
