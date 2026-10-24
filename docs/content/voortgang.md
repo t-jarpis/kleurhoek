@@ -2,28 +2,28 @@
 
 Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027.
 
-**Totaal: 968** van 5.000. Problemen: 0, waarschuwingen: 25.
+**Totaal: 1023** van 5.000. Problemen: 0, waarschuwingen: 27.
 
 | Groep | Nu | Doel |
 |---|---:|---:|
-| Kleurplaten | 464 | 2000 |
+| Kleurplaten | 497 | 2000 |
 | Knip-, plak- en knutselbladen | 97 | 750 |
-| Vouw- en bouwplaten | 78 | 500 |
+| Vouw- en bouwplaten | 100 | 500 |
 | Teken- en schilderactiviteiten | 76 | 400 |
 | Educatief en spelletjes | 176 | 600 |
 | Kaarten, decoraties en cadeautjes | 77 | 400 |
-| Gevorderd (12+, overlapt) | 59 | 350 |
+| Gevorderd (12+, overlapt) | 60 | 350 |
 
 ### Per soort
 
 | | Aantal |
 |---|---:|
-| kleurplaat | 464 |
+| kleurplaat | 497 |
 | werkblad | 154 |
 | knipplaat | 97 |
+| bouwplaat | 86 |
 | kaart | 77 |
 | tekenles | 68 |
-| bouwplaat | 64 |
 | spel | 22 |
 | vouwblad | 14 |
 | sjabloon | 8 |
@@ -32,33 +32,33 @@ Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027
 
 | | Aantal |
 |---|---:|
-| feest | 130 |
-| dieren | 127 |
-| leren | 91 |
-| natuur | 76 |
-| voertuigen | 62 |
-| thuis | 60 |
-| vormen | 57 |
-| eten | 53 |
-| zee | 43 |
-| wereld | 41 |
+| dieren | 134 |
+| feest | 132 |
+| leren | 92 |
+| natuur | 78 |
+| thuis | 75 |
+| voertuigen | 68 |
+| eten | 62 |
+| vormen | 59 |
+| zee | 46 |
+| wereld | 42 |
 | patronen | 41 |
 | sprookjes | 38 |
 | ruimte | 37 |
-| sport | 31 |
-| boerderij | 30 |
-| beroepen | 29 |
+| beroepen | 34 |
+| sport | 32 |
+| boerderij | 31 |
 | dinos | 22 |
 
 ### Per leeftijd
 
 | | Aantal |
 |---|---:|
-| 4-6 | 393 |
-| 6-9 | 306 |
-| 2-4 | 127 |
-| 9+ | 83 |
-| 12+ | 59 |
+| 4-6 | 400 |
+| 6-9 | 318 |
+| 2-4 | 160 |
+| 9+ | 85 |
+| 12+ | 60 |
 
 ### Waarschuwingen
 
@@ -87,3 +87,5 @@ Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027
 - paaseieren-zoeken: pagina 1: 1 onderdelen (deels) buiten het vel
 - verjaardagsfeest-in-de-tuin: pagina 1: 3 onderdelen (deels) buiten het vel
 - verkleedkinderen-carnaval: pagina 1: 6 onderdelen (deels) buiten het vel
+- roodborstje: pagina 1: 1 onderdelen (deels) buiten het vel
+- taxi: pagina 1: 1 onderdelen (deels) buiten het vel
