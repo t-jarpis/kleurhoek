@@ -2,7 +2,7 @@
 
 Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027.
 
-**Totaal: 578** van 5.000. Problemen: 0, waarschuwingen: 11.
+**Totaal: 586** van 5.000. Problemen: 0, waarschuwingen: 11.
 
 | Groep | Nu | Doel |
 |---|---:|---:|
@@ -10,7 +10,7 @@ Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027
 | Knip-, plak- en knutselbladen | 53 | 750 |
 | Vouw- en bouwplaten | 45 | 500 |
 | Teken- en schilderactiviteiten | 39 | 400 |
-| Educatief en spelletjes | 115 | 600 |
+| Educatief en spelletjes | 123 | 600 |
 | Kaarten, decoraties en cadeautjes | 35 | 400 |
 | Gevorderd (12+, overlapt) | 24 | 350 |
 
@@ -19,7 +19,7 @@ Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027
 | | Aantal |
 |---|---:|
 | kleurplaat | 291 |
-| werkblad | 101 |
+| werkblad | 109 |
 | knipplaat | 53 |
 | bouwplaat | 36 |
 | kaart | 35 |
@@ -34,7 +34,7 @@ Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027
 |---|---:|
 | dieren | 80 |
 | feest | 75 |
-| leren | 51 |
+| leren | 59 |
 | voertuigen | 48 |
 | natuur | 38 |
 | vormen | 37 |
@@ -54,9 +54,9 @@ Bijgewerkt door `scripts/plates/check.mjs --report`. Doel en verdeling: ADR 0027
 
 | | Aantal |
 |---|---:|
-| 4-6 | 243 |
-| 6-9 | 181 |
-| 2-4 | 84 |
+| 4-6 | 245 |
+| 6-9 | 186 |
+| 2-4 | 85 |
 | 9+ | 46 |
 | 12+ | 24 |
 

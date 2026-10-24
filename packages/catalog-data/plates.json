@@ -99670,5 +99670,1820 @@
         ]
       }
     }
+  },
+  {
+    "slug": "aftrekken-met-plaatjes",
+    "order": 578,
+    "category": "leren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 48,
+    "colorByNumber": {
+      "codes": "yyyyymmmmgggggggyyyyyymmmmmmmmgggyyyyyyyyymmmmmm",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 17.7,
+          "y": 45.7,
+          "size": 4.5
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 30.2,
+          "y": 45.7,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 42.7,
+          "y": 45.7,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 1,
+          "x": 55.2,
+          "y": 45.7,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 67.7,
+          "y": 45.7,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 17.8,
+          "y": 74.6,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 30.3,
+          "y": 74.6,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 42.8,
+          "y": 74.6,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 55.3,
+          "y": 74.6,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 17.9,
+          "y": 101.8,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 30.4,
+          "y": 101.8,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 3,
+          "x": 42.9,
+          "y": 101.8,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 3,
+          "x": 55.4,
+          "y": 101.8,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 3,
+          "x": 67.9,
+          "y": 101.8,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 3,
+          "x": 80.4,
+          "y": 101.8,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 3,
+          "x": 92.9,
+          "y": 101.8,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 1,
+          "x": 17.7,
+          "y": 129.7,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 1,
+          "x": 30.2,
+          "y": 129.7,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 1,
+          "x": 42.7,
+          "y": 129.7,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 1,
+          "x": 55.2,
+          "y": 129.7,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 1,
+          "x": 67.7,
+          "y": 129.7,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 1,
+          "x": 80.2,
+          "y": 129.7,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 2,
+          "x": 17.8,
+          "y": 158.6,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 2,
+          "x": 30.3,
+          "y": 158.6,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 2,
+          "x": 42.8,
+          "y": 158.6,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 2,
+          "x": 55.3,
+          "y": 158.6,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 2,
+          "x": 67.8,
+          "y": 158.6,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 2,
+          "x": 80.3,
+          "y": 158.6,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 2,
+          "x": 92.8,
+          "y": 158.6,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 2,
+          "x": 105.3,
+          "y": 158.6,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 3,
+          "x": 17.9,
+          "y": 185.8,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 3,
+          "x": 30.4,
+          "y": 185.8,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 3,
+          "x": 42.9,
+          "y": 185.8,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 1,
+          "x": 17.7,
+          "y": 213.7,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 1,
+          "x": 30.2,
+          "y": 213.7,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 1,
+          "x": 42.7,
+          "y": 213.7,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 1,
+          "x": 55.2,
+          "y": 213.7,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 1,
+          "x": 67.7,
+          "y": 213.7,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 1,
+          "x": 80.2,
+          "y": 213.7,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 1,
+          "x": 92.7,
+          "y": 213.7,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 1,
+          "x": 105.2,
+          "y": 213.7,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 1,
+          "x": 117.7,
+          "y": 213.7,
+          "size": 4.5
+        },
+        {
+          "region": 42,
+          "number": 2,
+          "x": 17.8,
+          "y": 242.6,
+          "size": 4.5
+        },
+        {
+          "region": 43,
+          "number": 2,
+          "x": 30.3,
+          "y": 242.6,
+          "size": 4.5
+        },
+        {
+          "region": 44,
+          "number": 2,
+          "x": 42.8,
+          "y": 242.6,
+          "size": 4.5
+        },
+        {
+          "region": 45,
+          "number": 2,
+          "x": 55.3,
+          "y": 242.6,
+          "size": 4.5
+        },
+        {
+          "region": 46,
+          "number": 2,
+          "x": 67.8,
+          "y": 242.6,
+          "size": 4.5
+        },
+        {
+          "region": 47,
+          "number": 2,
+          "x": 80.3,
+          "y": 242.6,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Aftrekken met plaatjes",
+        "steps": [
+          "Tel alle plaatjes in de rij.",
+          "Streep er zoveel door als het tweede getal zegt (van rechts af).",
+          "Tel wat er over is: dat is het antwoord.",
+          "Kijk samen na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "meer-of-minder-plaatjes",
+    "order": 579,
+    "category": "leren",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      }
+    ],
+    "regionCount": 54,
+    "colorByNumber": {
+      "codes": "yyyyyyyymmmmmmmmggggggggyyyyyyyyyyyymmmmgggggggggggggg",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 25.8,
+          "y": 44.8,
+          "size": 4.5
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 38.8,
+          "y": 44.8,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 51.8,
+          "y": 44.8,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 1,
+          "x": 123.8,
+          "y": 44.8,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 136.8,
+          "y": 44.8,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 1,
+          "x": 149.8,
+          "y": 44.8,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 1,
+          "x": 162.8,
+          "y": 44.8,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 1,
+          "x": 123.8,
+          "y": 56.8,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 25.8,
+          "y": 81.5,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 38.8,
+          "y": 81.5,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 51.8,
+          "y": 81.5,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 64.8,
+          "y": 81.5,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 25.8,
+          "y": 93.5,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 38.8,
+          "y": 93.5,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 2,
+          "x": 124.2,
+          "y": 81.5,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 2,
+          "x": 136.8,
+          "y": 81.5,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 3,
+          "x": 25.9,
+          "y": 116.8,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 3,
+          "x": 38.9,
+          "y": 116.8,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 3,
+          "x": 51.9,
+          "y": 116.8,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 3,
+          "x": 64.9,
+          "y": 116.8,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 3,
+          "x": 124.1,
+          "y": 116.8,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 3,
+          "x": 136.9,
+          "y": 116.8,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 3,
+          "x": 149.9,
+          "y": 116.8,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 3,
+          "x": 162.9,
+          "y": 116.8,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 1,
+          "x": 25.8,
+          "y": 152.8,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 1,
+          "x": 38.8,
+          "y": 152.8,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 1,
+          "x": 51.8,
+          "y": 152.8,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 1,
+          "x": 64.8,
+          "y": 152.8,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 1,
+          "x": 25.8,
+          "y": 164.8,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 1,
+          "x": 38.8,
+          "y": 164.8,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 1,
+          "x": 51.8,
+          "y": 164.8,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 1,
+          "x": 123.8,
+          "y": 152.8,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 1,
+          "x": 136.8,
+          "y": 152.8,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 1,
+          "x": 149.8,
+          "y": 152.8,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 1,
+          "x": 162.8,
+          "y": 152.8,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 1,
+          "x": 123.8,
+          "y": 164.8,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 2,
+          "x": 25.8,
+          "y": 189.5,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 2,
+          "x": 124.2,
+          "y": 189.5,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 2,
+          "x": 136.8,
+          "y": 189.5,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 2,
+          "x": 149.8,
+          "y": 189.5,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 3,
+          "x": 25.9,
+          "y": 224.8,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 3,
+          "x": 38.9,
+          "y": 224.8,
+          "size": 4.5
+        },
+        {
+          "region": 42,
+          "number": 3,
+          "x": 51.9,
+          "y": 224.8,
+          "size": 4.5
+        },
+        {
+          "region": 43,
+          "number": 3,
+          "x": 64.9,
+          "y": 224.8,
+          "size": 4.5
+        },
+        {
+          "region": 44,
+          "number": 3,
+          "x": 25.9,
+          "y": 236.8,
+          "size": 4.5
+        },
+        {
+          "region": 45,
+          "number": 3,
+          "x": 38.9,
+          "y": 236.8,
+          "size": 4.5
+        },
+        {
+          "region": 46,
+          "number": 3,
+          "x": 51.9,
+          "y": 236.8,
+          "size": 4.5
+        },
+        {
+          "region": 47,
+          "number": 3,
+          "x": 64.9,
+          "y": 236.8,
+          "size": 4.5
+        },
+        {
+          "region": 48,
+          "number": 3,
+          "x": 124.1,
+          "y": 224.8,
+          "size": 4.5
+        },
+        {
+          "region": 49,
+          "number": 3,
+          "x": 136.9,
+          "y": 224.8,
+          "size": 4.5
+        },
+        {
+          "region": 50,
+          "number": 3,
+          "x": 149.9,
+          "y": 224.8,
+          "size": 4.5
+        },
+        {
+          "region": 51,
+          "number": 3,
+          "x": 162.9,
+          "y": 224.8,
+          "size": 4.5
+        },
+        {
+          "region": 52,
+          "number": 3,
+          "x": 124.1,
+          "y": 236.8,
+          "size": 4.5
+        },
+        {
+          "region": 53,
+          "number": 3,
+          "x": 136.9,
+          "y": 236.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Waar zijn er meer?",
+        "steps": [
+          "Tel de plaatjes in het linker vak en in het rechter vak.",
+          "Zet een kruisje in het vak met de meeste.",
+          "Zijn er evenveel? Dan krijgen ze allebei een kruisje."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "optellen-met-plaatjes-tot-10",
+    "order": 580,
+    "category": "leren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 67,
+    "colorByNumber": {
+      "codes": "yyyyyyymmmmmmmggggggggyyyyyyyyymmmmmmmmmgggggggggyyyyyyyyymmmmmmmmm",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 17.7,
+          "y": 45.7,
+          "size": 4.5
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 30.2,
+          "y": 45.7,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 42.7,
+          "y": 45.7,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 1,
+          "x": 64.2,
+          "y": 45.7,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 76.7,
+          "y": 45.7,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 1,
+          "x": 89.2,
+          "y": 45.7,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 1,
+          "x": 101.7,
+          "y": 45.7,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 17.8,
+          "y": 74.6,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 30.3,
+          "y": 74.6,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 42.8,
+          "y": 74.6,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 55.3,
+          "y": 74.6,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 67.8,
+          "y": 74.6,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 89.3,
+          "y": 74.6,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 101.8,
+          "y": 74.6,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 3,
+          "x": 17.9,
+          "y": 101.8,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 3,
+          "x": 30.4,
+          "y": 101.8,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 3,
+          "x": 42.9,
+          "y": 101.8,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 3,
+          "x": 55.4,
+          "y": 101.8,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 3,
+          "x": 76.9,
+          "y": 101.8,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 3,
+          "x": 89.4,
+          "y": 101.8,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 3,
+          "x": 101.9,
+          "y": 101.8,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 3,
+          "x": 114.4,
+          "y": 101.8,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 1,
+          "x": 17.7,
+          "y": 129.7,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 1,
+          "x": 30.2,
+          "y": 129.7,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 1,
+          "x": 42.7,
+          "y": 129.7,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 1,
+          "x": 55.2,
+          "y": 129.7,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 1,
+          "x": 67.7,
+          "y": 129.7,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 1,
+          "x": 80.2,
+          "y": 129.7,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 1,
+          "x": 101.7,
+          "y": 129.7,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 1,
+          "x": 114.2,
+          "y": 129.7,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 1,
+          "x": 126.7,
+          "y": 129.7,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 2,
+          "x": 17.8,
+          "y": 158.6,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 2,
+          "x": 30.3,
+          "y": 158.6,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 2,
+          "x": 51.8,
+          "y": 158.6,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 2,
+          "x": 64.3,
+          "y": 158.6,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 2,
+          "x": 76.8,
+          "y": 158.6,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 2,
+          "x": 89.3,
+          "y": 158.6,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 2,
+          "x": 101.8,
+          "y": 158.6,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 2,
+          "x": 114.3,
+          "y": 158.6,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 2,
+          "x": 126.8,
+          "y": 158.6,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 3,
+          "x": 17.9,
+          "y": 185.8,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 3,
+          "x": 30.4,
+          "y": 185.8,
+          "size": 4.5
+        },
+        {
+          "region": 42,
+          "number": 3,
+          "x": 42.9,
+          "y": 185.8,
+          "size": 4.5
+        },
+        {
+          "region": 43,
+          "number": 3,
+          "x": 55.4,
+          "y": 185.8,
+          "size": 4.5
+        },
+        {
+          "region": 44,
+          "number": 3,
+          "x": 67.9,
+          "y": 185.8,
+          "size": 4.5
+        },
+        {
+          "region": 45,
+          "number": 3,
+          "x": 89.4,
+          "y": 185.8,
+          "size": 4.5
+        },
+        {
+          "region": 46,
+          "number": 3,
+          "x": 101.9,
+          "y": 185.8,
+          "size": 4.5
+        },
+        {
+          "region": 47,
+          "number": 3,
+          "x": 114.4,
+          "y": 185.8,
+          "size": 4.5
+        },
+        {
+          "region": 48,
+          "number": 3,
+          "x": 126.9,
+          "y": 185.8,
+          "size": 4.5
+        },
+        {
+          "region": 49,
+          "number": 1,
+          "x": 17.7,
+          "y": 213.7,
+          "size": 4.5
+        },
+        {
+          "region": 50,
+          "number": 1,
+          "x": 30.2,
+          "y": 213.7,
+          "size": 4.5
+        },
+        {
+          "region": 51,
+          "number": 1,
+          "x": 42.7,
+          "y": 213.7,
+          "size": 4.5
+        },
+        {
+          "region": 52,
+          "number": 1,
+          "x": 64.2,
+          "y": 213.7,
+          "size": 4.5
+        },
+        {
+          "region": 53,
+          "number": 1,
+          "x": 76.7,
+          "y": 213.7,
+          "size": 4.5
+        },
+        {
+          "region": 54,
+          "number": 1,
+          "x": 89.2,
+          "y": 213.7,
+          "size": 4.5
+        },
+        {
+          "region": 55,
+          "number": 1,
+          "x": 101.7,
+          "y": 213.7,
+          "size": 4.5
+        },
+        {
+          "region": 56,
+          "number": 1,
+          "x": 114.2,
+          "y": 213.7,
+          "size": 4.5
+        },
+        {
+          "region": 57,
+          "number": 1,
+          "x": 126.7,
+          "y": 213.7,
+          "size": 4.5
+        },
+        {
+          "region": 58,
+          "number": 2,
+          "x": 17.8,
+          "y": 242.6,
+          "size": 4.5
+        },
+        {
+          "region": 59,
+          "number": 2,
+          "x": 30.3,
+          "y": 242.6,
+          "size": 4.5
+        },
+        {
+          "region": 60,
+          "number": 2,
+          "x": 42.8,
+          "y": 242.6,
+          "size": 4.5
+        },
+        {
+          "region": 61,
+          "number": 2,
+          "x": 55.3,
+          "y": 242.6,
+          "size": 4.5
+        },
+        {
+          "region": 62,
+          "number": 2,
+          "x": 76.8,
+          "y": 242.6,
+          "size": 4.5
+        },
+        {
+          "region": 63,
+          "number": 2,
+          "x": 89.3,
+          "y": 242.6,
+          "size": 4.5
+        },
+        {
+          "region": 64,
+          "number": 2,
+          "x": 101.8,
+          "y": 242.6,
+          "size": 4.5
+        },
+        {
+          "region": 65,
+          "number": 2,
+          "x": 114.3,
+          "y": 242.6,
+          "size": 4.5
+        },
+        {
+          "region": 66,
+          "number": 2,
+          "x": 126.8,
+          "y": 242.6,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Optellen met plaatjes tot 10",
+        "steps": [
+          "Tel eerst de plaatjes links, dan de plaatjes rechts.",
+          "Tel ze daarna allemaal samen: dat is het antwoord.",
+          "Kijk samen na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "optellen-met-plaatjes-tot-5",
+    "order": 581,
+    "category": "leren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 33,
+    "colorByNumber": {
+      "codes": "yyymmmmggggyyyyymmmmmgggggyymmmmm",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 17.7,
+          "y": 45.7,
+          "size": 4.5
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 39.2,
+          "y": 45.7,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 51.7,
+          "y": 45.7,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 17.8,
+          "y": 74.6,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 30.3,
+          "y": 74.6,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 51.8,
+          "y": 74.6,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 64.3,
+          "y": 74.6,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 17.9,
+          "y": 101.8,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 30.4,
+          "y": 101.8,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 42.9,
+          "y": 101.8,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 64.4,
+          "y": 101.8,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 1,
+          "x": 17.7,
+          "y": 129.7,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 1,
+          "x": 39.2,
+          "y": 129.7,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 51.7,
+          "y": 129.7,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 1,
+          "x": 64.2,
+          "y": 129.7,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 1,
+          "x": 76.7,
+          "y": 129.7,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 2,
+          "x": 17.8,
+          "y": 158.6,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 2,
+          "x": 30.3,
+          "y": 158.6,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 2,
+          "x": 51.8,
+          "y": 158.6,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 2,
+          "x": 64.3,
+          "y": 158.6,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 2,
+          "x": 76.8,
+          "y": 158.6,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 3,
+          "x": 17.9,
+          "y": 185.8,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 3,
+          "x": 30.4,
+          "y": 185.8,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 3,
+          "x": 42.9,
+          "y": 185.8,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 3,
+          "x": 55.4,
+          "y": 185.8,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 3,
+          "x": 76.9,
+          "y": 185.8,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 1,
+          "x": 17.7,
+          "y": 213.7,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 1,
+          "x": 39.2,
+          "y": 213.7,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 2,
+          "x": 17.8,
+          "y": 242.6,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 2,
+          "x": 30.3,
+          "y": 242.6,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 2,
+          "x": 42.8,
+          "y": 242.6,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 2,
+          "x": 64.3,
+          "y": 242.6,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 2,
+          "x": 76.8,
+          "y": 242.6,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Optellen met plaatjes tot 5",
+        "steps": [
+          "Tel eerst de plaatjes links, dan de plaatjes rechts.",
+          "Tel ze daarna allemaal samen: dat is het antwoord.",
+          "Kijk samen na met het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "schrijven-getallen-in-woorden",
+    "order": 582,
+    "category": "leren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "potlood"
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Schrijven: getallen in woorden",
+        "steps": [
+          "Lees het woord vooraan hardop.",
+          "Trek het stippelwoord ernaast over, letter voor letter.",
+          "Schrijf het daarna nog een keer zelf op de lijn eronder of op de achterkant."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "schrijven-seizoenen-en-weer",
+    "order": 583,
+    "category": "leren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "potlood"
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Schrijven: seizoenen en weer",
+        "steps": [
+          "Lees het woord vooraan hardop.",
+          "Trek het stippelwoord ernaast over, letter voor letter.",
+          "Schrijf het daarna nog een keer zelf op de lijn eronder of op de achterkant."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "schrijven-woorden-dieren",
+    "order": 584,
+    "category": "leren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "potlood"
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Schrijven: woorden met dieren",
+        "steps": [
+          "Lees het woord vooraan hardop.",
+          "Trek het stippelwoord ernaast over, letter voor letter.",
+          "Schrijf het daarna nog een keer zelf op de lijn eronder of op de achterkant."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "schrijven-woorden-kleuren",
+    "order": 585,
+    "category": "leren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "potlood"
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Schrijven: kleuren",
+        "steps": [
+          "Lees het woord vooraan hardop.",
+          "Trek het stippelwoord ernaast over, letter voor letter.",
+          "Schrijf het daarna nog een keer zelf op de lijn eronder of op de achterkant."
+        ],
+        "word": null,
+        "countQuestion": null
+      }
+    }
   }
 ]
