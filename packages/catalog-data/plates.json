@@ -102933,5 +102933,305 @@
         ]
       }
     }
+  },
+  {
+    "slug": "woordzoeker-beroepen",
+    "order": 597,
+    "category": "beroepen",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Woordzoeker: beroepen",
+        "steps": [
+          "Kies een woord uit het lijstje onderaan.",
+          "Zoek de eerste letter in het rooster en kijk of de rest erachter staat: van links naar rechts of van boven naar beneden.",
+          "Gevonden? Zet een rondje om het woord en vink het af in het lijstje. Op het antwoordblad zie je waar alles staat."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "woordzoeker-feest",
+    "order": 598,
+    "category": "feest",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Woordzoeker: feest",
+        "steps": [
+          "Kies een woord uit het lijstje onderaan.",
+          "Zoek de eerste letter in het rooster en kijk of de rest erachter staat: naar rechts, naar beneden of schuin.",
+          "Gevonden? Zet een rondje om het woord en vink het af in het lijstje. Op het antwoordblad zie je waar alles staat."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "woordzoeker-fruit",
+    "order": 599,
+    "category": "eten",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Woordzoeker: fruit",
+        "steps": [
+          "Kies een woord uit het lijstje onderaan.",
+          "Zoek de eerste letter in het rooster en kijk of de rest erachter staat: van links naar rechts of van boven naar beneden.",
+          "Gevonden? Zet een rondje om het woord en vink het af in het lijstje. Op het antwoordblad zie je waar alles staat."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "woordzoeker-kleding",
+    "order": 600,
+    "category": "thuis",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Woordzoeker: kleding",
+        "steps": [
+          "Kies een woord uit het lijstje onderaan.",
+          "Zoek de eerste letter in het rooster en kijk of de rest erachter staat: van links naar rechts of van boven naar beneden.",
+          "Gevonden? Zet een rondje om het woord en vink het af in het lijstje. Op het antwoordblad zie je waar alles staat."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "woordzoeker-ruimte",
+    "order": 601,
+    "category": "ruimte",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Woordzoeker: de ruimte",
+        "steps": [
+          "Kies een woord uit het lijstje onderaan.",
+          "Zoek de eerste letter in het rooster en kijk of de rest erachter staat: naar rechts, naar beneden of schuin.",
+          "Gevonden? Zet een rondje om het woord en vink het af in het lijstje. Op het antwoordblad zie je waar alles staat."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "woordzoeker-zee",
+    "order": 602,
+    "category": "zee",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Woordzoeker: aan zee",
+        "steps": [
+          "Kies een woord uit het lijstje onderaan.",
+          "Zoek de eerste letter in het rooster en kijk of de rest erachter staat: naar rechts, naar beneden of schuin.",
+          "Gevonden? Zet een rondje om het woord en vink het af in het lijstje. Op het antwoordblad zie je waar alles staat."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
   }
 ]
