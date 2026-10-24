@@ -12,7 +12,8 @@ De contentopdracht van 24-10-2026 breidt Kleurhoek uit van kleurplaten naar alle
 - **Leeftijd 12+** voor tieners, volwassenen en gevorderde knutselaars (data, geen code).
 - **Regels per soort** (catalogustest en `scripts/plates/ingest.mjs`): knip-, bouw-, sjabloon- en kaartbladen hebben kniplijnen; vouwbladen vouwlijnen; elk werkje behalve een kleurplaat heeft stappen en materialen.
 - **Kwaliteitscontrole** `scripts/plates/check.mjs`: dubbele tekeningen, ontbrekende gegevens, onderdelen buiten het vel (in een echte browser gemeten), onleesbaar kleine tekst, werkbladen met een opgave maar zonder antwoordblad. `--report` schrijft de voortgang naar `docs/content/voortgang.md`. Een werkje komt alleen in `catalog-data` als ingest en check slagen en het contactvel (preview) is bekeken.
-- **Herkomst en licentie**: alle werkjes zijn eigen tekeningen, als SVG-code gemaakt; geen beeldgenerator, geen bestaande personages, merken of bouwplaten. Ze zijn van Kleurhoek (ADR 0004). Dat geldt voor de hele catalogus en staat daarom hier, niet per werkje.
+- **Niet overschrijven**: `ingest.mjs` weigert een slug die al bestaat, tenzij met `--vervang`. Voor een nieuw werkje kijken we eerst of er al een vergelijkbaar werkje is (zelfde onderwerp en soort); zo ja, dan laten we het nieuwe vallen of maken we het echt anders.
+- **Herkomst en licentie**: alle werkjes zijn eigen tekeningen, als SVG-code gemaakt; geen beeldgenerator, geen bestaande personages, merken of bouwplaten. Ze zijn van Kleurhoek (ADR 0004). De generators staan in `scripts/plates/generators/`, zodat elk werkje opnieuw te maken is. Dat geldt voor de hele catalogus en staat daarom hier, niet per werkje.
 - **Status**: wat in `catalog-data` staat is goedgekeurd en wordt gepubliceerd bij de volgende start (seed, ADR 0021); op productie pas na de aparte uitrol (ADR 0019).
 
 ## Gevolgen

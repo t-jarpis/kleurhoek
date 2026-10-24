@@ -10,4 +10,6 @@ node ../ingest.mjs /tmp/batch1                    # toevoegen aan packages/catal
 node ../check.mjs --report                        # hele catalogus controleren, voortgang bijwerken
 ```
 
+Batch 1 staat in `batch1_*.py`; vanaf batch 2 gebruiken de batches de herbruikbare generators in `lib_gen.py` (doolhof, verbind-de-punten, rekenblad, schrijfblad, mandala, patroon, kaart): `OUT=/tmp/batch2 python3 batch2.py`.
+
 `kit.py` bevat de bouwstenen: vlakken (`r`, om in te kleuren), lijnen (`l`), knippen (`cut`), vouwen (`fold`), lijmen (`glue`), tekst (`tx`) en extra pagina's.

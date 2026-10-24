@@ -40,7 +40,7 @@ def front_balloons(sh, x0, y0, w, h):
     for i, (sx, sy) in enumerate([(30, 50), (170, 44), (26, 96), (174, 100)]):
         sh.poly_r([(sx + (6 if k % 2 == 0 else 2.6) * math.sin(math.pi * k / 5), y0 + sy - (6 if k % 2 == 0 else 2.6) * math.cos(math.pi * k / 5)) for k in range(10)], "y")
 card("verjaardagskaart-ballonnen", "Verjaardagskaart met ballonnen", front_balloons, "Fijne verjaardag!", "feest", "4-6",
-     ["Schrijf binnenin een lief berichtje."])
+     ["Schrijf binnenin een lief berichtje."], holiday="verjaardag")
 
 def front_flowers(sh, x0, y0, w, h):
     sh.raw(f'<text class="l" style="stroke-width:1.1" x="100" y="{f(y0 + 28)}" font-size="20" text-anchor="middle" font-weight="800">Dank je wel!</text>')

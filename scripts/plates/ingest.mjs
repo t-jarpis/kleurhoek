@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 // Conceptplaten toevoegen aan packages/catalog-data: nummert de vlakken, berekent de posities voor
 // kleur-op-nummer in een echte browser en schrijft plates/<slug>.svg en de regel in plates.json.
-// Een bestaande slug wordt vervangen (zelfde volgorde), een nieuwe komt achteraan.
+// Een nieuwe slug komt achteraan; een bestaande (met --vervang) houdt zijn plek.
 //
-// Gebruik: node scripts/plates/ingest.mjs <map-met-concepten> [slug ...]
+// Gebruik: node scripts/plates/ingest.mjs <map-met-concepten> [slug ...] [--vervang]
+// Een slug die al bestaat wordt alleen vervangen met --vervang (anders een fout): zo overschrijf je nooit
+// per ongeluk een bestaande plaat.
 //
 // Concept = <slug>.svg + <slug>.json:
 //   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"> … class="r" (vlak), "l" (lijn),
@@ -21,7 +23,9 @@ import { DATA, LABELS_JS, PLATE_CSS, legendKeys, numberRegions, playwright, regi
 import data from "../../packages/catalog-data/index.js";
 const { KINDS } = data;
 
-const [dir, ...only] = process.argv.slice(2);
+const args = process.argv.slice(2);
+const replaceOk = args.includes("--vervang");
+const [dir, ...only] = args.filter((a) => a !== "--vervang");
 if (!dir) { console.error("Gebruik: ingest.mjs <map> [slug ...]"); process.exit(1); }
 const slugs = (only.length ? only : fs.readdirSync(dir).filter((f) => f.endsWith(".svg") && !/\.p\d+\.svg$/.test(f)).map((f) => f.slice(0, -4))).sort();
 
@@ -79,6 +83,7 @@ for (const slug of slugs) {
     i18n: meta.i18n,
   };
   const at = list.findIndex((p) => p.slug === slug);
+  if (at >= 0 && !replaceOk) { errors.push(`${slug}: bestaat al; kies een andere slug of gebruik --vervang`); continue; }
   if (at >= 0) { entry.order = list[at].order; list[at] = entry; replaced++; }
   else { entry.order = Math.max(-1, ...list.map((p) => p.order)) + 1; list.push(entry); added++; }
   fs.writeFileSync(path.join(DATA, "plates", `${slug}.svg`), svg + "\n");
