@@ -9,7 +9,7 @@ code { font: 400 14px var(--font-mono); }
 .shell { display: grid; grid-template-columns: var(--sidebar-admin) minmax(0, 1fr); min-height: 100vh; }
 nav.side { background: var(--color-surface); border-right: var(--border-thin) solid var(--color-border); padding: var(--space-5) var(--space-3); display: flex; flex-direction: column; gap: 2px; }
 nav.side .brand { padding: 0 var(--space-3) var(--space-4); }
-nav.side a { color: var(--color-text); text-decoration: none; padding: var(--space-2) var(--space-3); border-radius: 6px; font-weight: 600; min-height: var(--tap-min); }
+nav.side a { display: flex; align-items: center; gap: var(--space-2); color: var(--color-text); text-decoration: none; padding: var(--space-2) var(--space-3); border-radius: 6px; font-weight: 600; min-height: var(--tap-min); }
 nav.side a:hover { background: var(--color-surface-sunken); }
 nav.side a[aria-current="page"] { background: var(--color-surface-sunken); font-weight: 800; box-shadow: inset 2px 0 0 var(--color-primary); }
 nav.side .who { margin-top: auto; padding: var(--space-4) var(--space-3) 0; border-top: var(--border-thin) solid var(--color-border); display: flex; flex-direction: column; gap: var(--space-2); align-items: flex-start; color: var(--color-text-muted); font-size: 14px; }
@@ -112,3 +112,9 @@ button.danger { background: var(--color-surface); color: var(--color-danger); bo
 .goals-form fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
 .goals-form legend { font-weight: 700; margin-bottom: var(--space-2); }
 .goals-form td input[type=number] { width: 100%; max-width: 160px; }
+
+/* Contact en Bronnengids (ADR 0023, 0024) */
+details summary { cursor: pointer; font-weight: 700; }
+details[open] summary { margin-bottom: var(--space-3); }
+.checks form { display: inline; }
+.note ol { margin: var(--space-2) 0 0; padding-inline-start: var(--space-5); }

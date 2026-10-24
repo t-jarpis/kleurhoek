@@ -8,6 +8,7 @@ import { marketLanguage } from "@/lib/markets";
 import { messages } from "@/i18n/nl";
 import { Browse } from "@/components/Browse";
 import { Logo } from "@/components/Logo";
+import { SiteFooter } from "@/components/SiteFooter";
 import { SeasonBand } from "@/components/SeasonBand";
 import { Surprise } from "@/components/Surprise";
 import { Track } from "@/components/Track";
@@ -34,7 +35,7 @@ export default async function Home({ params }: { params: Promise<{ org: string; 
       <SeasonBand season={season} plates={plates} taxonomy={taxonomy} market={market} t={t} />
       <Suspense fallback={null}><Browse plates={plates} taxonomy={taxonomy} market={market} language={language} /></Suspense>
       <Fridge market={market} plates={plates} language={language} />
-      <p className="note">{t.note}</p>
+      <SiteFooter market={market} t={t} />
       <PickBar market={market} language={language} />
       <Track event={{ type: "page_view", market, page: "home" }} />
     </div>

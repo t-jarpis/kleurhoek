@@ -77,6 +77,32 @@ export interface Overview {
 }
 export interface AccountStats { total: number; created: number; createdBefore: number; active: number; returning: number; series: { date: string; count: number }[] }
 
+
+export type ConversationStatus = "new" | "open" | "answered" | "closed";
+export type ContactTopic = "question" | "idea" | "bug" | "partnership" | "copyright" | "privacy";
+export interface ConversationSummary {
+  id: string; channel: "web" | "whatsapp"; topic: ContactTopic; status: ConversationStatus; name: string | null; email: string | null; phone: string | null;
+  org: string; market: string; lastMessageAt: string; createdAt: string; preview: string;
+}
+export interface Inbox { page: number; pageSize: number; total: number; counts: Record<ConversationStatus, number>; conversations: ConversationSummary[] }
+export interface Conversation extends Omit<ConversationSummary, "preview"> {
+  updatedBy: string | null; messages: { id: string; direction: "in" | "out" | "note"; body: string; author: string | null; createdAt: string }[];
+}
+export interface ContactChannel { slug: "web" | "whatsapp"; enabled: boolean; connected: boolean; settings: Record<string, string>; updatedBy: string; updatedAt: string | null }
+
+export interface Source {
+  id: string; themeSlug: string; url: string; host: string; title: string | null; description: string | null;
+  basis: "link" | "license"; licenseNote: string | null; licenseDate: string | null;
+  status: "pending" | "approved" | "rejected"; health: "unknown" | "ok" | "broken"; changed: boolean;
+  httpStatus: number | null; finalUrl: string | null; robotsAllowed: boolean | null; pageTitle: string | null; checkNote: string | null;
+  failCount: number; lastCheckedAt: string | null; lastOkAt: string | null; approvedBy: string | null; approvedAt: string | null; live: boolean;
+}
+export interface Theme {
+  slug: string; status: "draft" | "published"; name: string | null; description: string | null; makerName: string; makerUrl: string;
+  productSlugs: string[]; sortOrder: number; updatedBy: string; updatedAt: string; counts: { total: number; live: number; attention: number };
+}
+export interface SourceInput { title?: string; description?: string | null; basis?: "link" | "license"; licenseNote?: string | null; licenseDate?: string | null }
+
 export class ApiError extends Error {
   constructor(readonly status: number, message: string) { super(message); }
 }
@@ -132,6 +158,30 @@ export const adminApi = {
     call<Organization>(`/v1/admin/organizations/${encodeURIComponent(slug)}/logo`, { method: "PUT", body: JSON.stringify({ contentType, data }) }),
   deleteOrganization: (slug: string) => call<void>(`/v1/admin/organizations/${encodeURIComponent(slug)}`, { method: "DELETE" }),
   removeOrganizationLogo: (slug: string) => call<Organization>(`/v1/admin/organizations/${encodeURIComponent(slug)}/logo`, { method: "DELETE" }),
+  inbox: (q: { status?: ConversationStatus; page?: number }) => {
+    const p = new URLSearchParams();
+    if (q.status) p.set("status", q.status);
+    if (q.page) p.set("page", String(q.page));
+    return call<Inbox>(`/v1/admin/contact/conversations?${p}`);
+  },
+  unread: () => call<{ count: number }>("/v1/admin/contact/unread").then((r) => r.count),
+  conversation: (id: string) => call<Conversation>(`/v1/admin/contact/conversations/${encodeURIComponent(id)}`),
+  setConversationStatus: (id: string, status: ConversationStatus) => call<Conversation>(`/v1/admin/contact/conversations/${encodeURIComponent(id)}/status`, { method: "PUT", body: JSON.stringify({ status }) }),
+  addConversationMessage: (id: string, direction: "out" | "note", body: string) => call<Conversation>(`/v1/admin/contact/conversations/${encodeURIComponent(id)}/messages`, { method: "POST", body: JSON.stringify({ direction, body }) }),
+  deleteConversation: (id: string) => call<void>(`/v1/admin/contact/conversations/${encodeURIComponent(id)}`, { method: "DELETE" }),
+  contactChannels: () => call<{ channels: ContactChannel[] }>("/v1/admin/contact/channels").then((r) => r.channels),
+  updateContactChannel: (slug: string, body: { enabled?: boolean; settings?: Record<string, string> }) => call(`/v1/admin/contact/channels/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
+  themes: () => call<{ themes: Theme[] }>("/v1/admin/sources/themes").then((r) => r.themes),
+  theme: (slug: string) => call<Theme & { sources: Source[] }>(`/v1/admin/sources/themes/${encodeURIComponent(slug)}`),
+  createTheme: (body: { slug: string; name: string; description: string; makerName: string; makerUrl: string }) => call<Theme>("/v1/admin/sources/themes", { method: "POST", body: JSON.stringify(body) }),
+  updateTheme: (slug: string, body: { name?: string; description?: string; makerName?: string; makerUrl?: string; status?: "draft" | "published"; productSlugs?: string[] }) =>
+    call<Theme>(`/v1/admin/sources/themes/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
+  addSource: (theme: string, body: { url: string; title: string; description?: string | null; basis: "link" | "license"; licenseNote?: string | null; licenseDate?: string | null }) =>
+    call<Source>(`/v1/admin/sources/themes/${encodeURIComponent(theme)}/sources`, { method: "POST", body: JSON.stringify(body) }),
+  updateSource: (id: string, body: SourceInput) => call<Source>(`/v1/admin/sources/items/${encodeURIComponent(id)}`, { method: "PUT", body: JSON.stringify(body) }),
+  sourceAction: (id: string, action: "check" | "approve" | "reject") => call(`/v1/admin/sources/items/${encodeURIComponent(id)}/${action}`, { method: "POST" }),
+  deleteSource: (id: string) => call<void>(`/v1/admin/sources/items/${encodeURIComponent(id)}`, { method: "DELETE" }),
+  sourceReview: () => call<{ sources: Source[] }>("/v1/admin/sources/review").then((r) => r.sources),
   setStatus: (id: string, status: "active" | "blocked") => call<AdminUser>(`/v1/admin/users/${encodeURIComponent(id)}/status`, { method: "PUT", body: JSON.stringify({ status }) }),
 };
 

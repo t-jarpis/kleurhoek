@@ -31,3 +31,11 @@ export interface Season {
   soon: { slug: string; name: string; date: string; approximate: boolean; label: string | null }[];
   plates: string[];
 }
+
+/** Bronnengids (ADR 0024): eigen tekst en links naar de maker, nooit beeld van de maker. */
+export interface ThemeItem { slug: string; name: string; description: string | null; makerName: string; sourceCount: number }
+export interface ThemeDetail {
+  slug: string; name: string; description: string | null; makerName: string; makerUrl: string;
+  sources: { title: string; description: string | null; url: string; host: string; basis: "link" | "license" }[];
+  products: { slug: string; name: string; note: string | null; priceHint: string | null; partner: string }[];
+}

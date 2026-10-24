@@ -14,7 +14,7 @@ export const markets = localizationSchema.table("markets", {
   minAccountAge: integer("min_account_age").notNull().default(16),
 }, (t) => [uniqueIndex("markets_tenant_code").on(t.tenantId, t.code)]);
 
-export const ENTITY_TYPES = ["plate", "category", "age", "continent", "holiday", "season", "color", "material", "product", "ui"] as const;
+export const ENTITY_TYPES = ["plate", "category", "age", "continent", "holiday", "season", "color", "material", "product", "theme", "source", "ui"] as const;
 export type EntityType = (typeof ENTITY_TYPES)[number];
 
 /** Vertaalde velden per ding en taal. Velden verschillen per soort (naam, woord, telvraag, hint). */

@@ -10,13 +10,16 @@ export const dynamic = "force-dynamic";
 export default async function PanelLayout({ children }: { children: React.ReactNode }) {
   const [who, me] = await Promise.all([viewer(), adminApi.me().catch(() => null)]);
   const can = (p: string) => me?.permissions.includes(p) ?? false;
+  const unread = can("contact.read") ? await adminApi.unread().catch(() => 0) : 0;
   return (
     <div className="shell">
       <nav className="side" aria-label="Beheer">
         <div className="brand"><Logo suffix="beheer" size={20} /></div>
         {can("analytics.read") && <NavLink href="/">Dashboard</NavLink>}
         {can("analytics.read") && <NavLink href="/doelen">Doelen</NavLink>}
+        {can("contact.read") && <NavLink href="/contact">Contact{unread > 0 && <span className="ui-count" aria-label={`${unread} nieuw`}>{unread}</span>}</NavLink>}
         {can("shop.read") && <NavLink href="/winkel">Winkel</NavLink>}
+        {can("sources.read") && <NavLink href="/bronnen">Bronnengids</NavLink>}
         {can("identity.users.read") && <NavLink href="/gebruikers">Gebruikers</NavLink>}
         {can("operations.ratelimit.read") && <NavLink href="/rate-limits">Rate limits</NavLink>}
         {can("organizations.read") && <NavLink href="/organisaties">Organisaties</NavLink>}

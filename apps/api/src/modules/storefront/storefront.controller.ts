@@ -84,6 +84,26 @@ export class StorefrontController {
     return this.store.season(market, view);
   }
 
+  /** Bronnengids: thema's met links naar kleurplaten bij de maker (ADR 0024). */
+  @Get("markets/:market/themes")
+  async themes(@Param("market") code: string, @Query("org") org: string | undefined, @Res({ passthrough: true }) res: FastifyReply) {
+    const view = await this.view(org);
+    const market = await this.market(code, view);
+    res.header("Cache-Control", PUBLIC_CACHE);
+    return { themes: await this.store.themes(market) };
+  }
+
+  @Get("markets/:market/themes/:slug")
+  async theme(@Param("market") code: string, @Param("slug") slug: string, @Query("org") org: string | undefined, @Res({ passthrough: true }) res: FastifyReply) {
+    if (!Slug.safeParse(slug).success) throw new NotFoundException();
+    const view = await this.view(org);
+    const market = await this.market(code, view);
+    const theme = await this.store.theme(market, slug, view);
+    if (!theme) throw new NotFoundException("Thema niet gevonden");
+    res.header("Cache-Control", PUBLIC_CACHE);
+    return theme;
+  }
+
   /** Versies veranderen nooit, dus het CDN mag ze voor altijd bewaren. */
   @Get("assets/plates/:slug/:file")
   @RateLimit("assets")

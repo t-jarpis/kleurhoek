@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { api, NotFound } from "@/lib/api";
 import { marketLanguage } from "@/lib/markets";
 import { ForParents } from "@/components/ForParents";
+import { SiteFooter } from "@/components/SiteFooter";
 import { Studio } from "@/components/Studio";
 import { Track } from "@/components/Track";
 import { messages } from "@/i18n/nl";
@@ -35,7 +36,7 @@ export default async function PlatePage({ params }: { params: Promise<{ org: str
     <>
       <Track event={{ type: "page_view", market, page: "plaat", plate: plate.slug }} />
       <Studio plate={plate} inner={inner} ageWidth={ageWidth} market={market} language={language} />
-      <div className="wrap after-studio" data-mode="ouder"><ForParents plate={plate} market={market} t={messages(language)} /></div>
+      <div className="wrap after-studio" data-mode="ouder"><ForParents plate={plate} market={market} t={messages(language)} /><SiteFooter market={market} t={messages(language)} /></div>
     </>
   );
 }

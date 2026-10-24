@@ -5,7 +5,7 @@ Het volledige architectuurdocument met diagrammen staat hier: https://claude.ai/
 **Afspraak:** bij elke architectuurwijziging worden het document én de diagrammen bijgewerkt, en komt er een ADR in `docs/adr/`.
 
 ## Kort
-- Website en admin panel in Next.js, API in NestJS als modulaire monoliet met domeinen: Identiteit en toegang, Catalogus, Lokalisatie, Beschikbaarheid, Analytics, Organisaties (fase 1); Betrokkenheid, Rechten en abonnementen (fase 2); Betalingen (fase 3); Winkel (fase 4).
+- Website en admin panel in Next.js, API in NestJS als modulaire monoliet met domeinen: Identiteit en toegang, Catalogus, Lokalisatie, Beschikbaarheid, Analytics, Organisaties, Contact, Bronnen (fase 1); Betrokkenheid, Rechten en abonnementen (fase 2); Betalingen (fase 3); Winkel (fase 4).
 - Inloggen via Zitadel Cloud, organisatie `Kleurhoek` in de gedeelde instance per omgeving. Gedeelde code uit `t-jarpis/platform`.
 - Scaleway Amsterdam (eigen organisatie, een project per omgeving), Cloudflare (eigen zone), PostgreSQL met een schema per domein en row-level security op `tenant_id`.
 - Analytics zonder cookies en zonder persoonsgegevens. Accounts alleen voor volwassenen (16+ in NL).
@@ -18,3 +18,6 @@ Het volledige architectuurdocument met diagrammen staat hier: https://claude.ai/
 - Dashboard met grafieken over 7 dagen tot 12 maanden, paginasoort per weergave, accountcijfers (nieuw, actief, terugkerend) zonder extra persoonsgegevens (ADR 0020).
 - Productie op www.kleurhoek.nl (kale domein, .be en .com sturen door): kleine database met back-up in een ander datacenter, API en website naar nul zolang het rustig is, catalogus bij elke start, uitrollen naar prod met goedkeuring (ADR 0021).
 - Doelen voor bezoeken, platen en doorkliks per maand, met grafiek en stand van deze maand in het admin panel (ADR 0022).
+- Contact: formulier op de website, inbox met notities en status in het admin panel, kanalen (web nu, WhatsApp als volgende stap), gesprekken 12 maanden bewaard (ADR 0023).
+- Bronnengids: thema's met alleen links naar kleurplaten bij de makers zelf (nooit hun beeld), goedkeuring in het admin panel, dagelijkse controle die verdwenen bronnen offline haalt, producten per thema (ADR 0024).
+- Disclaimer en voettekst op elke pagina; nieuwe platen via `scripts/plates` (preview en ingest) (ADR 0025).

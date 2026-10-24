@@ -6,6 +6,7 @@ import { CatalogService, type PlateSummary } from "../catalog/catalog.service";
 import { LocalizationService, type Market } from "../localization/localization.service";
 import type { OrgFeatures, OrgOffer } from "../organizations/organizations.schema";
 import { ShopService } from "../shop/shop.service";
+import { SourcesService } from "../sources/sources.service";
 
 /** Wat een organisatie laat zien (ADR 0017). Zonder organisatie: alles, met winkel. */
 export interface View { offer: OrgOffer; features: OrgFeatures }
@@ -38,6 +39,7 @@ export class StorefrontService {
     private readonly i18n: LocalizationService,
     private readonly availability: AvailabilityService,
     private readonly shop: ShopService,
+    private readonly sources: SourcesService,
   ) {}
 
   private get tenant() { return this.env.TENANT_ID; }
@@ -148,6 +150,26 @@ export class StorefrontService {
       active: [...view.spans.map((s) => ({ kind: "season" as const, slug: s.slug, name: name(sea, s.slug) })), ...view.active.map((h) => ({ kind: "holiday" as const, slug: h.slug, name: name(hol, h.slug), date: h.date, approximate: h.approximate, label: h.label }))],
       soon: view.soon.map((h) => ({ slug: h.slug, name: name(hol, h.slug), date: h.date, approximate: h.approximate, label: h.label })),
       plates: [...slugs].filter((s) => bySlug.has(s)).slice(0, 12),
+    };
+  }
+
+  /**
+   * Bronnengids (ADR 0024): thema's met links naar de makers. Alleen eigen tekst en links; nooit beeld
+   * van de maker. Producten bij een thema alleen als de organisatie de winkel aan heeft.
+   */
+  async themes(market: Market) {
+    const list = await this.sources.published(market.language);
+    return list.map((t) => ({ slug: t.slug, name: t.name!, description: t.description, makerName: t.makerName, sourceCount: t.sources.length }));
+  }
+
+  async theme(market: Market, slug: string, view: View = FULL_VIEW) {
+    const t = (await this.sources.published(market.language)).find((x) => x.slug === slug);
+    if (!t) return null;
+    const products = view.features.shop ? await this.shop.forProducts(market.code, market.language, t.productSlugs) : [];
+    return {
+      slug: t.slug, name: t.name!, description: t.description, makerName: t.makerName, makerUrl: t.makerUrl,
+      sources: t.sources.map((s) => ({ title: s.title!, description: s.description, url: s.url, host: s.host, basis: s.basis })),
+      products,
     };
   }
 

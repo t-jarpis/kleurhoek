@@ -78,5 +78,85 @@
         "name": "Patronen"
       }
     }
+  },
+  {
+    "slug": "boerderij",
+    "order": 8,
+    "color": "#b7791f",
+    "i18n": {
+      "nl": {
+        "name": "Boerderij"
+      }
+    }
+  },
+  {
+    "slug": "zee",
+    "order": 9,
+    "color": "#1f8fc9",
+    "i18n": {
+      "nl": {
+        "name": "Onder water"
+      }
+    }
+  },
+  {
+    "slug": "dinos",
+    "order": 10,
+    "color": "#5e8c31",
+    "i18n": {
+      "nl": {
+        "name": "Dino's"
+      }
+    }
+  },
+  {
+    "slug": "sprookjes",
+    "order": 11,
+    "color": "#a64fc9",
+    "i18n": {
+      "nl": {
+        "name": "Sprookjes"
+      }
+    }
+  },
+  {
+    "slug": "sport",
+    "order": 12,
+    "color": "#d9573b",
+    "i18n": {
+      "nl": {
+        "name": "Sport en spel"
+      }
+    }
+  },
+  {
+    "slug": "beroepen",
+    "order": 13,
+    "color": "#4a6fa5",
+    "i18n": {
+      "nl": {
+        "name": "Beroepen"
+      }
+    }
+  },
+  {
+    "slug": "thuis",
+    "order": 14,
+    "color": "#c9744f",
+    "i18n": {
+      "nl": {
+        "name": "Thuis en speelgoed"
+      }
+    }
+  },
+  {
+    "slug": "vormen",
+    "order": 15,
+    "color": "#6b7280",
+    "i18n": {
+      "nl": {
+        "name": "Vormen en figuren"
+      }
+    }
   }
 ]

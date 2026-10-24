@@ -34,6 +34,6 @@ test("elke plaat is compleet en consistent", () => {
       assert.match(svg, /class="cut"/, `${p.slug}: knutselwerk zonder kniplijn`);
     }
   }
-  assert.equal(plates.length, 66);
+  assert.ok(plates.length >= 168, `${plates.length} platen`);
   assert.ok(plates.some((p) => p.kind !== "kleurplaat"), "minstens één knutselwerk");
 });

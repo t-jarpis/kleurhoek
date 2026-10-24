@@ -40,6 +40,22 @@ export const nl = {
   atPartner: (p: string) => `bij ${p}`,
   partnerDisclosure: "Partnerlinks: als je via deze links iets koopt, krijgt Kleurhoek een kleine vergoeding van de winkel. Jij betaalt hetzelfde. Zo blijven de platen gratis.",
   deleteAccount: "Account verwijderen", deleteSure: "Zeker weten? Tik nog eens",
+  disclaimer: "Disclaimer", contact: "Contact", themes: "Thema's bij de maker",
+  contactTitle: "Contact", contactLede: "Een vraag, een idee voor een plaat of iets wat niet werkt? Laat het ons weten. We reageren meestal binnen een paar werkdagen.",
+  contactTopic: "Waar gaat het over?",
+  contactTopics: { question: "Een vraag", idea: "Idee voor een plaat", bug: "Er werkt iets niet", partnership: "Samenwerken", copyright: "Auteursrecht", privacy: "Privacy en mijn gegevens" } as Record<string, string>,
+  contactName: "Je naam", contactNameHint: "Mag ook leeg blijven", contactEmail: "Je e-mailadres", contactEmailHint: "Alleen om je te antwoorden",
+  contactMessage: "Je bericht", contactSend: "Versturen", contactSending: "Versturen…",
+  contactPrivacy: "We gebruiken je gegevens alleen om je te antwoorden en bewaren je bericht hooguit 12 maanden. Ben je jonger dan 16? Vraag dan een ouder om dit formulier in te vullen.",
+  contactThanks: "Bedankt! We hebben je bericht ontvangen.", contactThanksText: "We antwoorden via e-mail. Kijk ook even in je map met ongewenste mail.",
+  contactError: "Versturen lukte niet. Controleer je gegevens en probeer het opnieuw.", contactTooMany: "Je hebt al een paar berichten gestuurd. Probeer het over een uur opnieuw.",
+  contactClosed: "Het contactformulier staat even uit. Probeer het later opnieuw.",
+  themesTitle: "Thema's bij de maker", themesLede: "Kleurplaten van bekende figuren en plekken mogen we niet zelf maken of kopiëren. Veel makers bieden ze wel gratis aan op hun eigen site. Hier vind je de links, door ons nagekeken.",
+  themesEmpty: "Er staan nog geen thema's klaar. Kom binnenkort terug!", themeSources: (n: number) => (n === 1 ? "1 link" : `${n} links`),
+  byMaker: (m: string) => `van ${m}`, toMaker: "Bekijk bij de maker", allThemes: "← Alle thema's",
+  themeNotice: (m: string) => `Deze kleurplaten zijn van ${m} en staan op hun eigen website. Kleurhoek linkt er alleen naar; wij hebben er geen invloed op.`,
+  themeProducts: "Spullen bij dit thema", toShop: "Bekijk in de winkel",
+
 } as const;
 
 export type Messages = typeof nl;

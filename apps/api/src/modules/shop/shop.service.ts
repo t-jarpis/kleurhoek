@@ -257,6 +257,22 @@ export class ShopService {
     return out;
   }
 
+  /**
+   * Producten op volgorde van `productSlugs` (bijvoorbeeld bij een thema uit de Bronnengids): alleen
+   * ingeschakeld, voor deze markt, bij een partner die aan staat en met een naam in deze taal.
+   */
+  async forProducts(market: string, language: string, productSlugs: string[]) {
+    if (!productSlugs.length) return [];
+    const rows = await withTenant(this.db, this.tenant, (tx) => tx.select({ slug: products.slug, priceHint: products.priceHint, partner: partners.name, markets: products.markets })
+      .from(products).innerJoin(partners, and(eq(partners.slug, products.partnerSlug), eq(partners.tenantId, products.tenantId)))
+      .where(and(inArray(products.slug, productSlugs), eq(products.enabled, true), eq(partners.enabled, true))));
+    const names = await this.i18n.translate(this.tenant, "product", language, rows.map((r) => r.slug));
+    return productSlugs.flatMap((slug) => {
+      const r = rows.find((x) => x.slug === slug), name = names.get(slug)?.name;
+      return r && name && r.markets.includes(market) ? [{ slug, name, note: names.get(slug)?.note ?? null, priceHint: r.priceHint, partner: r.partner }] : [];
+    });
+  }
+
   /** De doorverwijzing voor een product, of null als het (in deze markt) niet getoond mag worden. */
   async link(market: string, productSlug: string, subId: string): Promise<string | null> {
     const [row] = await withTenant(this.db, this.tenant, (tx) => tx.select({

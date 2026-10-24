@@ -7,3 +7,5 @@ export * from "../modules/identity/identity.schema";
 export * from "../modules/operations/operations.schema";
 export * from "../modules/shop/shop.schema";
 export * from "../modules/organizations/organizations.schema";
+export * from "../modules/contact/contact.schema";
+export * from "../modules/sources/sources.schema";

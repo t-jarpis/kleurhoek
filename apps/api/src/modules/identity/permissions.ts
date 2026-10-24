@@ -16,6 +16,10 @@ export const PERMISSIONS = {
   "availability.manage": "Beschikbaarheid per land beheren",
   "shop.read": "Winkel en winkelcijfers bekijken",
   "shop.manage": "Winkelkoppelingen en producten beheren",
+  "contact.read": "Contactberichten en kanalen bekijken",
+  "contact.manage": "Contactberichten afhandelen en kanalen instellen",
+  "sources.read": "Bronnengids (thema's en bronnen) bekijken",
+  "sources.manage": "Bronnengids beheren: bronnen goedkeuren, thema's publiceren",
   "organizations.read": "Organisaties en huisstijl bekijken",
   "organizations.manage": "Organisaties, huisstijl, domeinen en aanbod wijzigen",
 } as const;
@@ -28,7 +32,7 @@ export interface BuiltInRole { slug: string; name: string; permissions: Permissi
 /** Ingebouwde rollen. Worden bij elke start bijgewerkt, zodat code en database niet uit elkaar lopen. */
 export const BUILT_IN_ROLES: BuiltInRole[] = [
   { slug: "platformbeheerder", name: "Platformbeheerder", permissions: ALL_PERMISSIONS },
-  { slug: "contentbeheerder", name: "Contentbeheerder", permissions: ["catalog.manage", "availability.manage", "analytics.read", "shop.read", "shop.manage", "organizations.read"] },
+  { slug: "contentbeheerder", name: "Contentbeheerder", permissions: ["catalog.manage", "availability.manage", "analytics.read", "shop.read", "shop.manage", "organizations.read", "sources.read", "sources.manage"] },
   { slug: "analist", name: "Analist", permissions: ["analytics.read", "operations.ratelimit.read", "operations.access.read", "shop.read"] },
-  { slug: "support", name: "Support", permissions: ["identity.users.read", "identity.users.block"] },
+  { slug: "support", name: "Support", permissions: ["identity.users.read", "identity.users.block", "contact.read", "contact.manage"] },
 ];
