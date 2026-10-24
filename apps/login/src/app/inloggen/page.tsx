@@ -68,6 +68,12 @@ function Step({ flow, org, t }: { flow: Flow; org: Org; t: LoginMessages }) {
             <button type="submit" className="ui-btn" data-variant="primary">{t.next}</button>
           </form>
           <div className="kh-login-note">{t.noAccount} <form action={startRegister} style={{ display: "inline" }}><button type="submit" className="kh-login-link">{t.makeOne}</button></form></div>
+          {/* Inloggen via school, opvang of bibliotheek (SSO per organisatie): nog niet beschikbaar, wel zichtbaar. */}
+          <div className="kh-login-or" aria-hidden="true">{t.or}</div>
+          <div className="kh-login-org">
+            <button type="button" className="ui-btn" disabled aria-describedby="org-hint">{t.orgLogin} <span className="ui-badge">{t.soon}</span></button>
+            <p className="kh-login-note" id="org-hint">{t.orgLoginHint}</p>
+          </div>
           <Foot flow={flow} t={t} />
         </>
       );
