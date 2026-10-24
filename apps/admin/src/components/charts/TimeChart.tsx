@@ -1,8 +1,9 @@
 "use client";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
-import { longDate, niceScale, num, shortDate, tick } from "./format";
+import { longDate, niceScale, num, shortDate, shortMonth, tick } from "./format";
 
-export interface Series { key: string; label: string; color: string; values: number[] }
+/** `dash`: doel gestreept, ambitie gestippeld (ADR 0022). `null` = nog geen waarde (de lijn stopt). */
+export interface Series { key: string; label: string; color: string; values: (number | null)[]; dash?: "dash" | "dot" }
 
 const H = 240, L = 44, R = 12, T = 12, B = 28;
 
@@ -12,7 +13,7 @@ const H = 240, L = 44, R = 12, T = 12, B = 28;
  * cijfers als tabel. Kleuren komen als CSS-variabelen (var(--chart-1) …), nooit als hex.
  */
 export function TimeChart({ title, dates, series, bucket, kind = "line" }: {
-  title: string; dates: string[]; series: Series[]; bucket: "day" | "week"; kind?: "line" | "bar";
+  title: string; dates: string[]; series: Series[]; bucket: "day" | "week" | "month"; kind?: "line" | "bar";
 }) {
   const id = useId();
   const [active, setActive] = useState<number | null>(null);
@@ -26,7 +27,7 @@ export function TimeChart({ title, dates, series, bucket, kind = "line" }: {
     ro.observe(el);
     return () => ro.disconnect();
   }, []);
-  const max = Math.max(0, ...series.flatMap((s) => s.values));
+  const max = Math.max(0, ...series.flatMap((s) => s.values.filter((v): v is number => v !== null)));
   const ticks = niceScale(max);
   const top = ticks.at(-1) || 1;
   const n = dates.length;
@@ -34,7 +35,7 @@ export function TimeChart({ title, dates, series, bucket, kind = "line" }: {
   const x = (i: number) => (kind === "bar" ? L + slot * i + slot / 2 : L + (n <= 1 ? (W - L - R) / 2 : ((W - L - R) * i) / (n - 1)));
   const y = (v: number) => T + (H - T - B) * (1 - v / top);
   const labelEvery = Math.max(1, Math.ceil(n / Math.max(2, Math.floor((W - L - R) / 72))));
-  const paths = useMemo(() => series.map((s) => s.values.map((v, i) => `${i ? "L" : "M"}${x(i).toFixed(1)} ${y(v).toFixed(1)}`).join(" ")), [series, n, top, W]); // eslint-disable-line react-hooks/exhaustive-deps
+  const paths = useMemo(() => series.map((s) => s.values.map((v, i) => v === null ? "" : `${i && s.values[i - 1] !== null ? "L" : "M"}${x(i).toFixed(1)} ${y(v).toFixed(1)}`).join(" ")), [series, n, top, W]); // eslint-disable-line react-hooks/exhaustive-deps
   const barW = Math.min(24, Math.max(2, slot / series.length - 2));
 
   function pick(clientX: number, rect: DOMRect) {
@@ -50,7 +51,7 @@ export function TimeChart({ title, dates, series, bucket, kind = "line" }: {
       <div className="ui-chart-head">
         <h3 id={`${id}-t`}>{title}</h3>
         {series.length > 1 && (
-          <ul className="ui-legend">{series.map((s) => <li key={s.key}><i style={{ ["--sw" as string]: s.color }} data-shape={kind === "bar" ? "bar" : undefined} />{s.label}</li>)}</ul>
+          <ul className="ui-legend">{series.map((s) => <li key={s.key}><i style={{ ["--sw" as string]: s.color }} data-shape={kind === "bar" ? "bar" : undefined} data-dash={s.dash} />{s.label}</li>)}</ul>
         )}
       </div>
       <div ref={box} style={{ position: "relative" }}>
@@ -63,14 +64,17 @@ export function TimeChart({ title, dates, series, bucket, kind = "line" }: {
           }} onBlur={() => setActive(null)}>
           {ticks.map((t) => <line key={t} className={t === 0 ? "ui-chart-axis" : "ui-chart-grid"} x1={L} x2={W - R} y1={y(t)} y2={y(t)} />)}
           {ticks.map((t) => <text key={`l${t}`} x={L - 8} y={y(t) + 4} textAnchor="end">{tick(t)}</text>)}
-          {dates.map((d, i) => (i % labelEvery === 0 || i === n - 1) && (i === n - 1 || n - 1 - i >= labelEvery / 2) ? <text key={d} x={x(i)} y={H - 8} textAnchor="middle">{shortDate(d)}</text> : null)}
+          {dates.map((d, i) => (i % labelEvery === 0 || i === n - 1) && (i === n - 1 || n - 1 - i >= labelEvery / 2) ? <text key={d} x={x(i)} y={H - 8} textAnchor="middle">{bucket === "month" ? shortMonth(d) : shortDate(d)}</text> : null)}
           {kind === "line" ? series.map((s, k) => (
             <g key={s.key}>
               {/* Vlak alleen bij één reeks: twee vlakken over elkaar worden modderig. */}
-              {series.length === 1 && <path className="ui-chart-area" fill={s.color} d={`${paths[k]} L${x(n - 1)} ${y(0)} L${x(0)} ${y(0)} Z`} />}
-              <path className="ui-chart-line" stroke={s.color} d={paths[k]} />
+              {series.length === 1 && !s.values.includes(null) && <path className="ui-chart-area" fill={s.color} d={`${paths[k]} L${x(n - 1)} ${y(0)} L${x(0)} ${y(0)} Z`} />}
+              <path className="ui-chart-line" stroke={s.color} d={paths[k]} data-dash={s.dash} />
+              {/* Per maand: punten op de werkelijke lijn, zodat ook één maand zichtbaar is. */}
+              {bucket === "month" && !s.dash && s.values.map((v, i) => v === null ? null : <circle key={i} cx={x(i)} cy={y(v)} r={3} fill={s.color} />)}
             </g>
           )) : series.map((s, k) => s.values.map((v, i) => {
+            if (v === null) return null;
             const bx = x(i) - (series.length * (barW + 2) - 2) / 2 + k * (barW + 2), by = y(v), h = y(0) - by;
             const r = Math.min(4, h, barW / 2);
             return v > 0 ? <path key={`${s.key}${i}`} fill={s.color} opacity={a === null || a === i ? 1 : 0.55}
@@ -79,22 +83,22 @@ export function TimeChart({ title, dates, series, bucket, kind = "line" }: {
           {a !== null && kind === "line" && (
             <g>
               <line className="ui-chart-cross" x1={x(a)} x2={x(a)} y1={T} y2={y(0)} />
-              {series.map((s) => <circle key={s.key} className="ui-chart-dot" cx={x(a)} cy={y(s.values[a] ?? 0)} r={5} fill={s.color} />)}
+              {series.map((s) => s.values[a] === null ? null : <circle key={s.key} className="ui-chart-dot" cx={x(a)} cy={y(s.values[a] ?? 0)} r={5} fill={s.color} />)}
             </g>
           )}
         </svg>
         {a !== null && (
           <div className="ui-chart-tip" role="status" style={{ left: `clamp(0px, calc(${tipLeft}% + 12px), calc(100% - 180px))`, top: 8 }}>
             <b>{longDate(dates[a]!, bucket)}</b>
-            {series.map((s) => <span key={s.key}>{s.label} <b>{num(s.values[a] ?? 0)}</b></span>)}
+            {series.map((s) => <span key={s.key}>{s.label} <b>{s.values[a] === null ? "–" : num(s.values[a] ?? 0)}</b></span>)}
           </div>
         )}
       </div>
       <details>
         <summary className="lead">Toon als tabel</summary>
         <table>
-          <thead><tr><th>{bucket === "week" ? "Week" : "Dag"}</th>{series.map((s) => <th key={s.key} className="num">{s.label}</th>)}</tr></thead>
-          <tbody>{dates.map((d, i) => <tr key={d}><td>{longDate(d, bucket)}</td>{series.map((s) => <td key={s.key} className="num">{num(s.values[i] ?? 0)}</td>)}</tr>)}</tbody>
+          <thead><tr><th>{bucket === "week" ? "Week" : bucket === "month" ? "Maand" : "Dag"}</th>{series.map((s) => <th key={s.key} className="num">{s.label}</th>)}</tr></thead>
+          <tbody>{dates.map((d, i) => <tr key={d}><td>{longDate(d, bucket)}</td>{series.map((s) => <td key={s.key} className="num">{s.values[i] === null || s.values[i] === undefined ? "–" : num(s.values[i]!)}</td>)}</tr>)}</tbody>
         </table>
       </details>
     </figure>

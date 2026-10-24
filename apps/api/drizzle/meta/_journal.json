@@ -92,6 +92,13 @@
       "when": 1792793024357,
       "tag": "0012_analytics_pages",
       "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "7",
+      "when": 1792829732515,
+      "tag": "0013_analytics_goals",
+      "breakpoints": true
     }
   ]
 }

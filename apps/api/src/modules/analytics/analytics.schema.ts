@@ -1,4 +1,4 @@
-import { date, index, integer, pgSchema, text, timestamp, uniqueIndex } from "drizzle-orm/pg-core";
+import { date, index, integer, jsonb, pgSchema, text, timestamp, uniqueIndex } from "drizzle-orm/pg-core";
 import { baseColumns } from "../../shared/columns";
 
 export const analyticsSchema = pgSchema("analytics");
@@ -80,3 +80,18 @@ export const dailyVisitors = analyticsSchema.table("daily_visitors", {
   org: text("org").notNull(),
   visitors: integer("visitors").notNull().default(0),
 }, (t) => [uniqueIndex("daily_visitors_unique").on(t.tenantId, t.day, t.org)]);
+
+/** Een tussendoel: zoveel maanden na de start, het doel (realistisch) en de ambitie. */
+export interface GoalMilestone { month: number; target: number; stretch: number }
+
+/**
+ * Doelen per meetwaarde (ADR 0022): bezoeken per maand, platen online, doorkliks naar winkels. Tussen
+ * de tussendoelen loopt de lijn recht; na het laatste blijft hij gelijk.
+ */
+export const goals = analyticsSchema.table("goals", {
+  ...baseColumns(),
+  metric: text("metric").notNull(),
+  /** Eerste maand van de doelen, YYYY-MM. */
+  startMonth: text("start_month").notNull(),
+  milestones: jsonb("milestones").$type<GoalMilestone[]>().notNull(),
+}, (t) => [uniqueIndex("goals_tenant_metric").on(t.tenantId, t.metric)]);

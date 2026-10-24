@@ -1,10 +1,12 @@
 import { timingSafeEqual } from "node:crypto";
-import { BadRequestException, Body, Controller, Get, HttpCode, Inject, Post, Query, UnauthorizedException, UseGuards, Headers } from "@nestjs/common";
+import { BadRequestException, Body, Controller, Get, HttpCode, Inject, Post, Put, Query, Req, UnauthorizedException, UseGuards, Headers } from "@nestjs/common";
+import type { FastifyRequest } from "fastify";
 import { z } from "zod";
 import { ENV, type Env } from "../../config/env";
 import { AdminGuard, RequirePermission } from "../identity/admin.guard";
 import { RateLimit } from "../operations/rate-limit.guard";
 import { AnalyticsService, EventBatch } from "./analytics.service";
+import { GoalsInput, GoalsService } from "./goals.service";
 
 function sameSecret(a: string | undefined, b: string): boolean {
   if (!a) return false;
@@ -34,7 +36,7 @@ const Range = z.object({ from: z.iso.date(), to: z.iso.date(), country: z.string
 @UseGuards(AdminGuard)
 @RateLimit("admin")
 export class AdminAnalyticsController {
-  constructor(private readonly analytics: AnalyticsService, @Inject(ENV) private readonly env: Env) {}
+  constructor(private readonly analytics: AnalyticsService, private readonly goals: GoalsService, @Inject(ENV) private readonly env: Env) {}
 
   @Get("summary")
   @RequirePermission("analytics.read")
@@ -61,5 +63,21 @@ export class AdminAnalyticsController {
     const q = Range.safeParse(query);
     if (!q.success || q.data.from > q.data.to) throw new BadRequestException("Geef from en to op als YYYY-MM-DD");
     return this.analytics.shopSummary(this.env.TENANT_ID, q.data.from, q.data.to);
+  }
+
+  /** Doelen per maand met de werkelijke cijfers ernaast (ADR 0022). */
+  @Get("goals")
+  @RequirePermission("analytics.read")
+  async getGoals() {
+    return this.goals.get(this.env.TENANT_ID);
+  }
+
+  @Put("goals")
+  @RequirePermission("analytics.goals.manage")
+  async saveGoals(@Body() body: unknown, @Req() req: FastifyRequest) {
+    const parsed = GoalsInput.safeParse(body);
+    if (!parsed.success) throw new BadRequestException(parsed.error.issues.map((i) => i.message).join("; "));
+    await this.goals.save(this.env.TENANT_ID, req.admin!.subject, parsed.data);
+    return this.goals.get(this.env.TENANT_ID);
   }
 }

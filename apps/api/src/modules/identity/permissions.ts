@@ -4,6 +4,7 @@
  */
 export const PERMISSIONS = {
   "analytics.read": "Bezoekers en downloads bekijken",
+  "analytics.goals.manage": "Doelen voor bezoekers, platen en doorkliks wijzigen",
   "operations.ratelimit.read": "Rate limits bekijken",
   "operations.ratelimit.manage": "Rate limits wijzigen",
   "operations.access.read": "Toegang tot de website (IP-lijst) bekijken",

@@ -263,3 +263,14 @@ body { margin: 0; background: var(--color-bg); color: var(--color-text); font: 4
   .ui-suggest-table td[data-label]::before { content: attr(data-label) ": "; color: var(--color-text-muted); }
   .ui-suggest-table .ui-suggest-action { text-align: start; padding-top: var(--space-2); }
 }
+
+/* Doelen (ADR 0022): doellijnen in de Chart en de GoalCard. Doel gestreept, ambitie gestippeld, werkelijk doorgetrokken. */
+.ui-chart .ui-chart-line[data-dash="dash"] { stroke-dasharray: 6 4; }
+.ui-chart .ui-chart-line[data-dash="dot"] { stroke-dasharray: 1.5 4.5; }
+.ui-legend i[data-dash="dash"] { background: repeating-linear-gradient(90deg, var(--sw) 0 5px, transparent 5px 8px); }
+.ui-legend i[data-dash="dot"] { background: repeating-linear-gradient(90deg, var(--sw) 0 2px, transparent 2px 5px); }
+.ui-goal { display: grid; gap: var(--space-2); }
+.ui-goal-of { font-size: 14px; color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
+.ui-goal-bar { position: relative; height: 8px; border-radius: 4px; background: var(--chart-grid); }
+.ui-goal-bar i { display: block; height: 100%; max-width: 100%; border-radius: 4px; background: var(--chart-1); }
+.ui-goal-bar b { position: absolute; top: -4px; bottom: -4px; width: 2px; margin-left: -1px; border-radius: 1px; background: var(--color-text); }

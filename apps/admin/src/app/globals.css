@@ -106,3 +106,9 @@ textarea.mono { font-family: var(--font-mono); font-size: 14px; }
 .dash-head .tabs { max-width: 100%; overflow-x: auto; }
 button.danger { background: var(--color-surface); color: var(--color-danger); border-color: var(--color-danger); }
 @media (hover: hover) { button.danger:hover { background: var(--color-danger-soft); } }
+
+/* Doelen aanpassen (ADR 0022) */
+.goals-form { display: grid; gap: var(--space-4); max-width: 640px; }
+.goals-form fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.goals-form legend { font-weight: 700; margin-bottom: var(--space-2); }
+.goals-form td input[type=number] { width: 100%; max-width: 160px; }

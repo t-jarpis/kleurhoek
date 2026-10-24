@@ -66,6 +66,12 @@ export class CatalogService {
         .orderBy(asc(plateMaterials.sortOrder)));
   }
 
+  /** Wanneer elke gepubliceerde plaat erbij kwam (voor de doelen in het admin panel, ADR 0022). */
+  publishedDates(tenantId: string): Promise<Date[]> {
+    return withTenant(this.db, tenantId, async (tx) =>
+      (await tx.select({ at: plates.createdAt }).from(plates).where(and(eq(plates.tenantId, tenantId), eq(plates.status, "published")))).map((r) => r.at));
+  }
+
   /** Alle materialen, voor het koppelen aan producten in het admin panel. */
   materials(tenantId: string): Promise<string[]> {
     return withTenant(this.db, tenantId, async (tx) =>

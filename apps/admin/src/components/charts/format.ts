@@ -11,7 +11,14 @@ export function shortDate(iso: string): string {
   const [, m, d] = iso.split("-").map(Number);
   return `${d} ${MONTHS.at((m ?? 1) - 1)}`;
 }
-export function longDate(iso: string, bucket: "day" | "week"): string {
+const MONTHS_LONG = ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"];
+/** Maand uit YYYY-MM(-DD): "nov '26". */
+export function shortMonth(iso: string): string {
+  const [y, m] = iso.split("-").map(Number);
+  return `${MONTHS.at((m ?? 1) - 1)} '${String(y).slice(2)}`;
+}
+export function longDate(iso: string, bucket: "day" | "week" | "month"): string {
+  if (bucket === "month") { const [y, m] = iso.split("-").map(Number); return `${MONTHS_LONG.at((m ?? 1) - 1)} ${y}`; }
   const date = new Date(`${iso}T12:00:00Z`);
   if (bucket === "week") return `Week van ${shortDate(iso)}`;
   const day = DAYS.at(date.getUTCDay()) ?? "";

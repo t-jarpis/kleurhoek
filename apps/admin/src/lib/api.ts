@@ -28,6 +28,13 @@ export interface Product {
   slug: string; partner: string; url: string; ean: string | null; priceHint: string | null; enabled: boolean;
   markets: string[]; name: string | null; note: string | null; materials: string[]; rank: number;
 }
+export type GoalMetric = "visits" | "plates" | "clicks";
+export interface GoalMilestone { month: number; target: number; stretch: number }
+export interface Goals {
+  start: string; current: string; custom: boolean;
+  metrics: { metric: GoalMetric; milestones: GoalMilestone[]; months: { month: string; target: number; stretch: number; actual: number | null }[];
+    now: { actual: number; target: number; stretch: number; expected: number; onTrack: boolean } | null }[];
+}
 export interface ProductSuggestion { slug: string; partner: string; url: string; name: string; note: string; materials: string[]; markets: string[] }
 export interface ProductInput {
   partner: string; url: string; ean?: string | null; priceHint?: string | null; enabled: boolean;
@@ -91,6 +98,8 @@ export const adminApi = {
   rateLimits: () => call<{ rules: RateLimitRule[] }>("/v1/admin/rate-limits").then((r) => r.rules),
   updateRateLimit: (slug: string, body: { limit?: number; windowSeconds?: number; enabled?: boolean }) =>
     call(`/v1/admin/rate-limits/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
+  goals: () => call<Goals>("/v1/admin/analytics/goals"),
+  saveGoals: (body: { start: string; metrics: Record<GoalMetric, GoalMilestone[]> }) => call<Goals>("/v1/admin/analytics/goals", { method: "PUT", body: JSON.stringify(body) }),
   overview: (from: string, to: string) => call<Overview>(`/v1/admin/analytics/overview?from=${from}&to=${to}`),
   accountStats: (from: string, to: string) => call<AccountStats>(`/v1/admin/users/stats?from=${from}&to=${to}`),
   summary: (from: string, to: string) => call<Summary>(`/v1/admin/analytics/summary?from=${from}&to=${to}`),
