@@ -65,7 +65,7 @@ export function Studio({ plate, inner, ageWidth, market, language }: { plate: Pl
   const flash = (text: string) => { setToast(text); setTimeout(() => setToast(null), 2600); };
   const toFridge = () => {
     const d = new Date();
-    fridge.hang({ slug: plate.slug, version: plate.version, fills, name }, `${d.getDate()} ${t.months[d.getMonth()]!.slice(0, 3)}`);
+    fridge.hang({ slug: plate.slug, version: plate.version, fills, name }, new Intl.DateTimeFormat(market, { day: "numeric", month: "short" }).format(d));
     flash(t.onFridge);
   };
 

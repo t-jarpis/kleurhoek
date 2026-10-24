@@ -32,7 +32,7 @@ function plateTexts(...svgs) {
 function width(s) {
   let w = 0;
   for (const ch of s) {
-    if (/[iljtfrI.,:;'!|() ]/.test(ch)) w += 0.55;
+    if (/[iljtfrIJ.,:;'!|() ]/.test(ch)) w += 0.55;
     else if (/[mwMW]/.test(ch)) w += 1.45;
     else if (/\p{Lu}/u.test(ch)) w += 1.2;
     else w += 1;
@@ -62,8 +62,11 @@ function localizeSvg(svg, lookup) {
       const cls = /\sclass="([^"]*)"/.exec(a)?.[1] ?? "";
       // De CSS van .tip zet de lettergrootte vast en wint van het attribuut; een inline stijl wint van allebei.
       const base = Number(styleSize?.[1] ?? DEFAULT_SIZE[cls] ?? sizeAttr?.[1] ?? 16);
-      const size = Math.round((base / ratio) * 100) / 100;
-      scaled.push({ text: tr, from: base, to: size });
+      // Niet kleiner dan 4,5 (leesbaar geprint) en niet kleiner dan 70% van het origineel: een wat langere tekst
+      // mag iets buiten zijn ruimte lopen; check-lang.mjs meldt als hij dan iets anders raakt of van het vel valt.
+      const floor = Math.max(Math.min(base, 4.5), base * 0.7);
+      const size = Math.round(Math.max(base / ratio, floor) * 100) / 100;
+      scaled.push({ source: src, text: tr, from: base, to: size });
       if (sizeAttr) a = a.replace(/\sfont-size="[\d.]+"/, ` font-size="${size}"`);
       if (styleSize) a = a.replace(/font-size:\s*[\d.]+(px)?/, `font-size:${size}px`);
       else a = /\sstyle="/.test(a) ? a.replace(/\sstyle="/, ` style="font-size:${size}px;`) : `${a} style="font-size:${size}px"`;

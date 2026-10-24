@@ -8,6 +8,30 @@
       "nl": {
         "name": "2–4 jaar",
         "hint": "Grote vlakken en dikke lijnen. Goed voor de eerste krijtjes."
+      },
+      "de": {
+        "name": "2–4 Jahre",
+        "hint": "Große Flächen und dicke Linien. Gut für die ersten Wachsmalstifte."
+      },
+      "fr": {
+        "name": "2–4 ans",
+        "hint": "De grandes zones et des traits épais. Idéal pour les premières craies."
+      },
+      "en": {
+        "name": "2–4 years",
+        "hint": "Big areas and thick lines. Good for first crayons."
+      },
+      "es": {
+        "name": "2–4 años",
+        "hint": "Zonas grandes y líneas gruesas. Ideal para las primeras ceras."
+      },
+      "it": {
+        "name": "2–4 anni",
+        "hint": "Spazi grandi e linee spesse. Perfetti per i primi pastelli."
+      },
+      "pl": {
+        "name": "2–4 lata",
+        "hint": "Duże pola i grube linie. Dobre na pierwsze kredki."
       }
     }
   },
@@ -20,6 +44,30 @@
       "nl": {
         "name": "4–6 jaar",
         "hint": "Meer vlakken, nog steeds ruim. Fijn voor kleuters."
+      },
+      "de": {
+        "name": "4–6 Jahre",
+        "hint": "Mehr Flächen, aber noch schön groß. Prima für Kindergartenkinder."
+      },
+      "fr": {
+        "name": "4–6 ans",
+        "hint": "Plus de zones, mais toujours larges. Parfait pour la maternelle."
+      },
+      "en": {
+        "name": "4–6 years",
+        "hint": "More areas, still roomy. Great for preschoolers."
+      },
+      "es": {
+        "name": "4–6 años",
+        "hint": "Más zonas, pero todavía amplias. Ideal para Infantil."
+      },
+      "it": {
+        "name": "4–6 anni",
+        "hint": "Più spazi, ma ancora ampi. Ideali per la scuola dell'infanzia."
+      },
+      "pl": {
+        "name": "4–6 lat",
+        "hint": "Więcej pól, ale wciąż dużych. W sam raz dla przedszkolaków."
       }
     }
   },
@@ -32,6 +80,30 @@
       "nl": {
         "name": "6–9 jaar",
         "hint": "Kleinere details om netjes binnen de lijnen te blijven."
+      },
+      "de": {
+        "name": "6–9 Jahre",
+        "hint": "Kleinere Details, um ordentlich in den Linien zu bleiben."
+      },
+      "fr": {
+        "name": "6–9 ans",
+        "hint": "Des détails plus petits pour apprendre à bien colorier sans dépasser."
+      },
+      "en": {
+        "name": "6–9 years",
+        "hint": "Smaller details for staying neatly inside the lines."
+      },
+      "es": {
+        "name": "6–9 años",
+        "hint": "Detalles más pequeños para no salirse de las líneas."
+      },
+      "it": {
+        "name": "6–9 anni",
+        "hint": "Dettagli più piccoli per colorare bene dentro i bordi."
+      },
+      "pl": {
+        "name": "6–9 lat",
+        "hint": "Mniejsze szczegóły, żeby ćwiczyć kolorowanie w liniach."
       }
     }
   },
@@ -44,6 +116,30 @@
       "nl": {
         "name": "9+ jaar",
         "hint": "Veel kleine vlakken en dunne lijnen. Ook leuk voor volwassenen."
+      },
+      "de": {
+        "name": "9+ Jahre",
+        "hint": "Viele kleine Flächen und dünne Linien. Macht auch Erwachsenen Spaß."
+      },
+      "fr": {
+        "name": "9 ans et +",
+        "hint": "Beaucoup de petites zones et des traits fins. Sympa aussi pour les adultes."
+      },
+      "en": {
+        "name": "9+ years",
+        "hint": "Lots of small areas and thin lines. Fun for grown-ups too."
+      },
+      "es": {
+        "name": "9+ años",
+        "hint": "Muchas zonas pequeñas y líneas finas. También para adultos."
+      },
+      "it": {
+        "name": "9+ anni",
+        "hint": "Tanti spazi piccoli e linee sottili. Belli anche per gli adulti."
+      },
+      "pl": {
+        "name": "9+ lat",
+        "hint": "Dużo małych pól i cienkie linie. Fajne także dla dorosłych."
       }
     }
   },
@@ -56,6 +152,30 @@
       "nl": {
         "name": "12+ jaar",
         "hint": "Fijne lijnen en veel detail. Voor tieners, volwassenen en gevorderde knutselaars."
+      },
+      "de": {
+        "name": "12+ Jahre",
+        "hint": "Feine Linien und viele Details. Für Jugendliche, Erwachsene und geübte Bastler."
+      },
+      "fr": {
+        "name": "12 ans et +",
+        "hint": "Des traits fins et beaucoup de détails. Pour les ados, les adultes et les bricoleurs confirmés."
+      },
+      "en": {
+        "name": "12+ years",
+        "hint": "Fine lines and lots of detail. For teens, adults and skilled crafters."
+      },
+      "es": {
+        "name": "12+ años",
+        "hint": "Líneas finas y mucho detalle. Para adolescentes, adultos y manitas con experiencia."
+      },
+      "it": {
+        "name": "12+ anni",
+        "hint": "Linee sottili e tanti dettagli. Per ragazzi, adulti e appassionati di lavoretti esperti."
+      },
+      "pl": {
+        "name": "12+ lat",
+        "hint": "Cienkie linie i dużo szczegółów. Dla nastolatków, dorosłych i zaawansowanych majsterkowiczów."
       }
     }
   }

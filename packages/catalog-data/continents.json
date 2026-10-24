@@ -6,6 +6,24 @@
     "i18n": {
       "nl": {
         "name": "Europa"
+      },
+      "de": {
+        "name": "Europa"
+      },
+      "fr": {
+        "name": "Europe"
+      },
+      "en": {
+        "name": "Europe"
+      },
+      "es": {
+        "name": "Europa"
+      },
+      "it": {
+        "name": "Europa"
+      },
+      "pl": {
+        "name": "Europa"
       }
     }
   },
@@ -16,6 +34,24 @@
     "i18n": {
       "nl": {
         "name": "Afrika"
+      },
+      "de": {
+        "name": "Afrika"
+      },
+      "fr": {
+        "name": "Afrique"
+      },
+      "en": {
+        "name": "Africa"
+      },
+      "es": {
+        "name": "África"
+      },
+      "it": {
+        "name": "Africa"
+      },
+      "pl": {
+        "name": "Afryka"
       }
     }
   },
@@ -26,6 +62,24 @@
     "i18n": {
       "nl": {
         "name": "Azië"
+      },
+      "de": {
+        "name": "Asien"
+      },
+      "fr": {
+        "name": "Asie"
+      },
+      "en": {
+        "name": "Asia"
+      },
+      "es": {
+        "name": "Asia"
+      },
+      "it": {
+        "name": "Asia"
+      },
+      "pl": {
+        "name": "Azja"
       }
     }
   },
@@ -36,6 +90,24 @@
     "i18n": {
       "nl": {
         "name": "Noord-Amerika"
+      },
+      "de": {
+        "name": "Nordamerika"
+      },
+      "fr": {
+        "name": "Amérique du Nord"
+      },
+      "en": {
+        "name": "North America"
+      },
+      "es": {
+        "name": "Norteamérica"
+      },
+      "it": {
+        "name": "Nord America"
+      },
+      "pl": {
+        "name": "Ameryka Północna"
       }
     }
   },
@@ -46,6 +118,24 @@
     "i18n": {
       "nl": {
         "name": "Zuid-Amerika"
+      },
+      "de": {
+        "name": "Südamerika"
+      },
+      "fr": {
+        "name": "Amérique du Sud"
+      },
+      "en": {
+        "name": "South America"
+      },
+      "es": {
+        "name": "Sudamérica"
+      },
+      "it": {
+        "name": "Sud America"
+      },
+      "pl": {
+        "name": "Ameryka Południowa"
       }
     }
   },
@@ -56,6 +146,24 @@
     "i18n": {
       "nl": {
         "name": "Oceanië"
+      },
+      "de": {
+        "name": "Ozeanien"
+      },
+      "fr": {
+        "name": "Océanie"
+      },
+      "en": {
+        "name": "Oceania"
+      },
+      "es": {
+        "name": "Oceanía"
+      },
+      "it": {
+        "name": "Oceania"
+      },
+      "pl": {
+        "name": "Oceania"
       }
     }
   },
@@ -66,6 +174,24 @@
     "i18n": {
       "nl": {
         "name": "Antarctica"
+      },
+      "de": {
+        "name": "Antarktis"
+      },
+      "fr": {
+        "name": "Antarctique"
+      },
+      "en": {
+        "name": "Antarctica"
+      },
+      "es": {
+        "name": "Antártida"
+      },
+      "it": {
+        "name": "Antartide"
+      },
+      "pl": {
+        "name": "Antarktyda"
       }
     }
   }

@@ -3,7 +3,7 @@ import { useActionState, useEffect, useState } from "react";
 import type { ContactState } from "@/app/[org]/[market]/contact/actions";
 
 export type OrgRequestTexts = {
-  orgName: string; orgKind: string; orgKinds: Record<string, string>; orgCode: string; orgCodeHint: string;
+  orgName: string; orgKind: string; orgKinds: Record<string, string>; orgCode: string; orgCodeHint: string; orgCodeExample: string;
   orgChildren: string; orgChildrenHint: string; orgSite: string; contactName: string; contactEmail: string; contactEmailHint: string;
   orgMessage: string; orgMessagePlaceholder: string; orgSend: string; contactSending: string; contactPrivacy: string;
   orgThanks: string; orgThanksText: string; contactError: string; contactTooMany: string; contactClosed: string; optionalField: string;
@@ -45,7 +45,7 @@ export function OrgRequestForm({ action, t }: { action: (s: ContactState, f: For
         <label htmlFor="o-code">{t.orgCode} <span className="ui-hint">({t.optionalField})</span></label>
         <input id="o-code" name="code" className="ui-input" maxLength={32} spellCheck={false} autoCapitalize="none" value={shown} aria-describedby="o-code-hint"
           onChange={(e) => { setTouched(true); setCode(e.target.value.toLowerCase()); }} />
-        <span className="ui-hint" id="o-code-hint">{t.orgCodeHint.replace("{host}", `${shown || "jouw-naam"}.kleurhoek.nl`)}</span>
+        <span className="ui-hint" id="o-code-hint">{t.orgCodeHint.replace("{host}", `${shown || t.orgCodeExample}.kleurhoek.nl`)}</span>
       </div>
       <div className="kh-contact-row">
         <div className="ui-field">

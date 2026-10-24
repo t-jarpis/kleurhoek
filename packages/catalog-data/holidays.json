@@ -17,6 +17,24 @@
     "i18n": {
       "nl": {
         "name": "Oud en nieuw"
+      },
+      "de": {
+        "name": "Silvester und Neujahr"
+      },
+      "fr": {
+        "name": "Nouvel An"
+      },
+      "en": {
+        "name": "New Year's Eve"
+      },
+      "es": {
+        "name": "Nochevieja y Año Nuevo"
+      },
+      "it": {
+        "name": "Capodanno"
+      },
+      "pl": {
+        "name": "Sylwester i Nowy Rok"
       }
     }
   },
@@ -38,6 +56,24 @@
     "i18n": {
       "nl": {
         "name": "Chinees Nieuwjaar"
+      },
+      "de": {
+        "name": "Chinesisches Neujahr"
+      },
+      "fr": {
+        "name": "Nouvel An chinois"
+      },
+      "en": {
+        "name": "Chinese New Year"
+      },
+      "es": {
+        "name": "Año Nuevo chino"
+      },
+      "it": {
+        "name": "Capodanno cinese"
+      },
+      "pl": {
+        "name": "Chiński Nowy Rok"
       }
     }
   },
@@ -59,6 +95,24 @@
     "i18n": {
       "nl": {
         "name": "Valentijnsdag"
+      },
+      "de": {
+        "name": "Valentinstag"
+      },
+      "fr": {
+        "name": "Saint-Valentin"
+      },
+      "en": {
+        "name": "Valentine's Day"
+      },
+      "es": {
+        "name": "San Valentín"
+      },
+      "it": {
+        "name": "San Valentino"
+      },
+      "pl": {
+        "name": "Walentynki"
       }
     }
   },
@@ -80,6 +134,24 @@
     "i18n": {
       "nl": {
         "name": "Carnaval"
+      },
+      "de": {
+        "name": "Karneval und Fasching"
+      },
+      "fr": {
+        "name": "Carnaval"
+      },
+      "en": {
+        "name": "Carnival"
+      },
+      "es": {
+        "name": "Carnaval"
+      },
+      "it": {
+        "name": "Carnevale"
+      },
+      "pl": {
+        "name": "Karnawał"
       }
     }
   },
@@ -100,6 +172,24 @@
     ],
     "i18n": {
       "nl": {
+        "name": "Holi"
+      },
+      "de": {
+        "name": "Holi"
+      },
+      "fr": {
+        "name": "Holi"
+      },
+      "en": {
+        "name": "Holi"
+      },
+      "es": {
+        "name": "Holi"
+      },
+      "it": {
+        "name": "Holi"
+      },
+      "pl": {
         "name": "Holi"
       }
     }
@@ -122,6 +212,24 @@
     "i18n": {
       "nl": {
         "name": "Suikerfeest"
+      },
+      "de": {
+        "name": "Zuckerfest"
+      },
+      "fr": {
+        "name": "Aïd el-Fitr"
+      },
+      "en": {
+        "name": "Eid al-Fitr"
+      },
+      "es": {
+        "name": "Fiesta del fin del Ramadán"
+      },
+      "it": {
+        "name": "Festa della fine del Ramadan"
+      },
+      "pl": {
+        "name": "Święto Przerwania Postu"
       }
     }
   },
@@ -143,6 +251,24 @@
     "i18n": {
       "nl": {
         "name": "Pasen"
+      },
+      "de": {
+        "name": "Ostern"
+      },
+      "fr": {
+        "name": "Pâques"
+      },
+      "en": {
+        "name": "Easter"
+      },
+      "es": {
+        "name": "Pascua"
+      },
+      "it": {
+        "name": "Pasqua"
+      },
+      "pl": {
+        "name": "Wielkanoc"
       }
     }
   },
@@ -164,6 +290,24 @@
     "i18n": {
       "nl": {
         "name": "Koningsdag"
+      },
+      "de": {
+        "name": "Königstag"
+      },
+      "fr": {
+        "name": "Fête du Roi"
+      },
+      "en": {
+        "name": "King's Day"
+      },
+      "es": {
+        "name": "Día del Rey"
+      },
+      "it": {
+        "name": "Festa del Re"
+      },
+      "pl": {
+        "name": "Dzień Króla"
       }
     }
   },
@@ -185,6 +329,24 @@
     "i18n": {
       "nl": {
         "name": "Bevrijdingsdag"
+      },
+      "de": {
+        "name": "Befreiungstag"
+      },
+      "fr": {
+        "name": "Fête de la Libération"
+      },
+      "en": {
+        "name": "Liberation Day"
+      },
+      "es": {
+        "name": "Día de la Liberación"
+      },
+      "it": {
+        "name": "Festa della Liberazione"
+      },
+      "pl": {
+        "name": "Dzień Wyzwolenia"
       }
     }
   },
@@ -206,6 +368,24 @@
     "i18n": {
       "nl": {
         "name": "Moederdag"
+      },
+      "de": {
+        "name": "Muttertag"
+      },
+      "fr": {
+        "name": "Fête des mères"
+      },
+      "en": {
+        "name": "Mother's Day"
+      },
+      "es": {
+        "name": "Día de la Madre"
+      },
+      "it": {
+        "name": "Festa della mamma"
+      },
+      "pl": {
+        "name": "Dzień Matki"
       }
     }
   },
@@ -227,6 +407,24 @@
     "i18n": {
       "nl": {
         "name": "Hemelvaart"
+      },
+      "de": {
+        "name": "Christi Himmelfahrt"
+      },
+      "fr": {
+        "name": "Ascension"
+      },
+      "en": {
+        "name": "Ascension Day"
+      },
+      "es": {
+        "name": "Ascensión"
+      },
+      "it": {
+        "name": "Ascensione"
+      },
+      "pl": {
+        "name": "Wniebowstąpienie"
       }
     }
   },
@@ -248,6 +446,24 @@
     "i18n": {
       "nl": {
         "name": "Pinksteren"
+      },
+      "de": {
+        "name": "Pfingsten"
+      },
+      "fr": {
+        "name": "Pentecôte"
+      },
+      "en": {
+        "name": "Pentecost"
+      },
+      "es": {
+        "name": "Pentecostés"
+      },
+      "it": {
+        "name": "Pentecoste"
+      },
+      "pl": {
+        "name": "Zielone Świątki"
       }
     }
   },
@@ -269,6 +485,24 @@
     "i18n": {
       "nl": {
         "name": "Offerfeest"
+      },
+      "de": {
+        "name": "Opferfest"
+      },
+      "fr": {
+        "name": "Aïd el-Kébir"
+      },
+      "en": {
+        "name": "Eid al-Adha"
+      },
+      "es": {
+        "name": "Fiesta del Cordero"
+      },
+      "it": {
+        "name": "Festa del Sacrificio"
+      },
+      "pl": {
+        "name": "Święto Ofiarowania"
       }
     }
   },
@@ -290,6 +524,24 @@
     "i18n": {
       "nl": {
         "name": "Vaderdag"
+      },
+      "de": {
+        "name": "Vatertag"
+      },
+      "fr": {
+        "name": "Fête des pères"
+      },
+      "en": {
+        "name": "Father's Day"
+      },
+      "es": {
+        "name": "Día del Padre"
+      },
+      "it": {
+        "name": "Festa del papà"
+      },
+      "pl": {
+        "name": "Dzień Ojca"
       }
     }
   },
@@ -310,6 +562,24 @@
     ],
     "i18n": {
       "nl": {
+        "name": "Keti Koti"
+      },
+      "de": {
+        "name": "Keti Koti"
+      },
+      "fr": {
+        "name": "Keti Koti"
+      },
+      "en": {
+        "name": "Keti Koti"
+      },
+      "es": {
+        "name": "Keti Koti"
+      },
+      "it": {
+        "name": "Keti Koti"
+      },
+      "pl": {
         "name": "Keti Koti"
       }
     }
@@ -332,6 +602,24 @@
     "i18n": {
       "nl": {
         "name": "Eerste schooldag"
+      },
+      "de": {
+        "name": "Erster Schultag"
+      },
+      "fr": {
+        "name": "Rentrée des classes"
+      },
+      "en": {
+        "name": "First day of school"
+      },
+      "es": {
+        "name": "Primer día de cole"
+      },
+      "it": {
+        "name": "Primo giorno di scuola"
+      },
+      "pl": {
+        "name": "Pierwszy dzień szkoły"
       }
     }
   },
@@ -353,6 +641,24 @@
     "i18n": {
       "nl": {
         "name": "Dierendag"
+      },
+      "de": {
+        "name": "Welttiertag"
+      },
+      "fr": {
+        "name": "Journée des animaux"
+      },
+      "en": {
+        "name": "World Animal Day"
+      },
+      "es": {
+        "name": "Día de los Animales"
+      },
+      "it": {
+        "name": "Giornata degli animali"
+      },
+      "pl": {
+        "name": "Dzień Zwierząt"
       }
     }
   },
@@ -373,6 +679,24 @@
     ],
     "i18n": {
       "nl": {
+        "name": "Halloween"
+      },
+      "de": {
+        "name": "Halloween"
+      },
+      "fr": {
+        "name": "Halloween"
+      },
+      "en": {
+        "name": "Halloween"
+      },
+      "es": {
+        "name": "Halloween"
+      },
+      "it": {
+        "name": "Halloween"
+      },
+      "pl": {
         "name": "Halloween"
       }
     }
@@ -395,6 +719,24 @@
     "i18n": {
       "nl": {
         "name": "Divali"
+      },
+      "de": {
+        "name": "Diwali"
+      },
+      "fr": {
+        "name": "Diwali"
+      },
+      "en": {
+        "name": "Diwali"
+      },
+      "es": {
+        "name": "Diwali"
+      },
+      "it": {
+        "name": "Diwali"
+      },
+      "pl": {
+        "name": "Diwali"
       }
     }
   },
@@ -416,6 +758,24 @@
     "i18n": {
       "nl": {
         "name": "Sint-Maarten"
+      },
+      "de": {
+        "name": "Sankt Martin"
+      },
+      "fr": {
+        "name": "Saint-Martin"
+      },
+      "en": {
+        "name": "St. Martin's Day"
+      },
+      "es": {
+        "name": "San Martín"
+      },
+      "it": {
+        "name": "San Martino"
+      },
+      "pl": {
+        "name": "Dzień Świętego Marcina"
       }
     }
   },
@@ -436,6 +796,24 @@
     ],
     "i18n": {
       "nl": {
+        "name": "Sinterklaas"
+      },
+      "de": {
+        "name": "Sinterklaas"
+      },
+      "fr": {
+        "name": "Saint-Nicolas"
+      },
+      "en": {
+        "name": "Sinterklaas"
+      },
+      "es": {
+        "name": "Sinterklaas"
+      },
+      "it": {
+        "name": "Sinterklaas"
+      },
+      "pl": {
         "name": "Sinterklaas"
       }
     }
@@ -458,6 +836,24 @@
     "i18n": {
       "nl": {
         "name": "Chanoeka"
+      },
+      "de": {
+        "name": "Chanukka"
+      },
+      "fr": {
+        "name": "Hanoukka"
+      },
+      "en": {
+        "name": "Hanukkah"
+      },
+      "es": {
+        "name": "Janucá"
+      },
+      "it": {
+        "name": "Hanukkah"
+      },
+      "pl": {
+        "name": "Chanuka"
       }
     }
   },
@@ -479,6 +875,24 @@
     "i18n": {
       "nl": {
         "name": "Kerst"
+      },
+      "de": {
+        "name": "Weihnachten"
+      },
+      "fr": {
+        "name": "Noël"
+      },
+      "en": {
+        "name": "Christmas"
+      },
+      "es": {
+        "name": "Navidad"
+      },
+      "it": {
+        "name": "Natale"
+      },
+      "pl": {
+        "name": "Boże Narodzenie"
       }
     }
   },
@@ -497,6 +911,24 @@
     "i18n": {
       "nl": {
         "name": "Verjaardag"
+      },
+      "de": {
+        "name": "Geburtstag"
+      },
+      "fr": {
+        "name": "Anniversaire"
+      },
+      "en": {
+        "name": "Birthday"
+      },
+      "es": {
+        "name": "Cumpleaños"
+      },
+      "it": {
+        "name": "Compleanno"
+      },
+      "pl": {
+        "name": "Urodziny"
       }
     }
   }

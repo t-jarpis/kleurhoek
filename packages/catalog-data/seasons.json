@@ -20,6 +20,24 @@
     "i18n": {
       "nl": {
         "name": "Herfst"
+      },
+      "de": {
+        "name": "Herbst"
+      },
+      "fr": {
+        "name": "Automne"
+      },
+      "en": {
+        "name": "Autumn"
+      },
+      "es": {
+        "name": "Otoño"
+      },
+      "it": {
+        "name": "Autunno"
+      },
+      "pl": {
+        "name": "Jesień"
       }
     }
   }

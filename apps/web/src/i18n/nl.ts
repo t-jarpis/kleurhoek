@@ -1,4 +1,11 @@
-/** Interfaceteksten. Andere talen volgen als eigen bestand met dezelfde sleutels. */
+import { de } from "./de";
+import { en } from "./en";
+import { es } from "./es";
+import { fr } from "./fr";
+import { it } from "./it";
+import { pl } from "./pl";
+
+/** Interfaceteksten. Andere talen staan als eigen bestand met dezelfde sleutels ernaast. */
 export const nl = {
   lede: "Zelf getekende kleurplaten om online in te kleuren of te printen.",
   surprise: "Verras me",
@@ -79,7 +86,7 @@ export const nl = {
   ownFormTitle: "Aanvraag indienen",
   orgName: "Naam van de organisatie", orgKind: "Soort organisatie",
   orgKinds: { school: "School", opvang: "Kinderopvang of bso", vereniging: "Vereniging", bedrijf: "Bedrijf", overig: "Anders" } as Record<string, string>,
-  orgCode: "Gewenst adres", orgCodeHint: "Wordt {host}. Kleine letters, cijfers en streepjes.",
+  orgCode: "Gewenst adres", orgCodeHint: "Wordt {host}. Kleine letters, cijfers en streepjes.", orgCodeExample: "jouw-naam", and: "en",
   orgChildren: "Aantal kinderen", orgChildrenHint: "Een schatting is genoeg", orgSite: "Website van de organisatie",
   orgMessage: "Wat zouden jullie graag willen?", orgMessagePlaceholder: "Bijvoorbeeld: voor groep 1 tot en met 4, met ons logo, zonder knutselwerk.",
   orgSend: "Aanvraag versturen", optionalField: "mag leeg",
@@ -100,5 +107,6 @@ type Widen<T> = T extends string ? string
   : T extends readonly unknown[] ? { readonly [K in keyof T]: Widen<T[K]> }
   : T extends object ? { [K in keyof T]: Widen<T[K]> } : T;
 export type Messages = Widen<typeof nl>;
-const all: Record<string, Messages> = { nl };
+// Elke taal een eigen bestand met dezelfde sleutels (ADR 0029). Alleen type-imports terug naar nl.ts.
+const all: Record<string, Messages> = { nl, de, en, es, fr, it, pl };
 export const messages = (language: string): Messages => all[language] ?? nl;

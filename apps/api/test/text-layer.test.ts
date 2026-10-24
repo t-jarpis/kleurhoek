@@ -14,33 +14,33 @@ const SLUG = "lampion-maken";
 beforeAll(async () => {
   ctx = await createTestApp();
   const db = ctx.app.get<Database>(DB);
-  await withTenant(db, TENANT, (tx) => tx.insert(markets).values({ tenantId: TENANT, code: "de-DE", country: "DE", language: "de", status: "live" }).onConflictDoNothing());
+  await withTenant(db, TENANT, (tx) => tx.insert(markets).values({ tenantId: TENANT, code: "fi-FI", country: "FI", language: "fi", status: "live" }).onConflictDoNothing());
   const i18n = ctx.app.get(LocalizationService);
   const p = source.plates().find((x) => x.slug === SLUG)!;
-  await i18n.save(TENANT, "plate", SLUG, "de", { name: "Laterne basteln", word: null, countQuestion: null, steps: "Ausschneiden.\nKleben.", pageTitles: p.pages.map(() => "Seite").join("\n") || null });
-  await i18n.save(TENANT, "plate", "kat", "de", { name: "Katze", word: null, countQuestion: null });
+  await i18n.save(TENANT, "plate", SLUG, "fi", { name: "Lyhty", word: null, countQuestion: null, steps: "Ausschneiden.\nKleben.", pageTitles: p.pages.map(() => "Seite").join("\n") || null });
+  await i18n.save(TENANT, "plate", "kat", "fi", { name: "Kissa", word: null, countQuestion: null });
   const texts = source.plateTexts(source.plateSvg(SLUG), ...p.pages.map((_, i) => source.pageSvg(SLUG, i + 2)));
   expect(texts.length).toBeGreaterThan(0);
-  for (const t of texts) await i18n.save(TENANT, "text", t, "de", { text: t === "knippen" ? "ausschneiden" : `DE ${t}` });
+  for (const t of texts) await i18n.save(TENANT, "text", t, "fi", { text: t === "knippen" ? "leikkaa" : `FI ${t}` });
 });
 afterAll(async () => { await ctx.app.close(); });
 
 describe("tekstlaag", () => {
   it("toont alleen platen met naam én alle teksten vertaald, met een adres per taal", async () => {
-    const items = (await get("/v1/markets/de-DE/plates")).json().items as { slug: string; svg: string }[];
+    const items = (await get("/v1/markets/fi-FI/plates")).json().items as { slug: string; svg: string }[];
     const lampion = items.find((i) => i.slug === SLUG);
-    expect(lampion?.svg).toMatch(new RegExp(`^/v1/assets/plates/${SLUG}/1\\.de-[0-9a-f]{8}\\.svg$`));
+    expect(lampion?.svg).toMatch(new RegExp(`^/v1/assets/plates/${SLUG}/1\\.fi-[0-9a-f]{8}\\.svg$`));
     // "kat" heeft geen tekst in de tekening: met een naam is hij zichtbaar, op het gewone adres.
     expect(items.find((i) => i.slug === "kat")?.svg).toBe("/v1/assets/plates/kat/1.svg");
     expect(items).toHaveLength(2);
   });
 
   it("serveert de vertaalde SVG", async () => {
-    const path = (await get(`/v1/markets/de-DE/plates/${SLUG}`)).json().svg as string;
+    const path = (await get(`/v1/markets/fi-FI/plates/${SLUG}`)).json().svg as string;
     const r = await get(path);
     expect(r.statusCode).toBe(200);
-    expect(r.body).toContain(">ausschneiden</text>");
+    expect(r.body).toContain(">leikkaa</text>");
     expect(r.body).not.toContain(">knippen</text>");
-    expect((await get(`/v1/assets/plates/${SLUG}/1.de-zzzz.svg`)).statusCode).toBe(404);
+    expect((await get(`/v1/assets/plates/${SLUG}/1.fi-zzzz.svg`)).statusCode).toBe(404);
   });
 });

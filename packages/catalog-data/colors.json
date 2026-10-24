@@ -5,6 +5,24 @@
     "i18n": {
       "nl": {
         "name": "rood"
+      },
+      "de": {
+        "name": "rot"
+      },
+      "fr": {
+        "name": "rouge"
+      },
+      "en": {
+        "name": "red"
+      },
+      "es": {
+        "name": "rojo"
+      },
+      "it": {
+        "name": "rosso"
+      },
+      "pl": {
+        "name": "czerwony"
       }
     }
   },
@@ -14,6 +32,24 @@
     "i18n": {
       "nl": {
         "name": "oranje"
+      },
+      "de": {
+        "name": "orange"
+      },
+      "fr": {
+        "name": "orange"
+      },
+      "en": {
+        "name": "orange"
+      },
+      "es": {
+        "name": "naranja"
+      },
+      "it": {
+        "name": "arancione"
+      },
+      "pl": {
+        "name": "pomarańczowy"
       }
     }
   },
@@ -23,6 +59,24 @@
     "i18n": {
       "nl": {
         "name": "geel"
+      },
+      "de": {
+        "name": "gelb"
+      },
+      "fr": {
+        "name": "jaune"
+      },
+      "en": {
+        "name": "yellow"
+      },
+      "es": {
+        "name": "amarillo"
+      },
+      "it": {
+        "name": "giallo"
+      },
+      "pl": {
+        "name": "żółty"
       }
     }
   },
@@ -32,6 +86,24 @@
     "i18n": {
       "nl": {
         "name": "lichtgroen"
+      },
+      "de": {
+        "name": "hellgrün"
+      },
+      "fr": {
+        "name": "vert clair"
+      },
+      "en": {
+        "name": "light green"
+      },
+      "es": {
+        "name": "verde claro"
+      },
+      "it": {
+        "name": "verde chiaro"
+      },
+      "pl": {
+        "name": "jasnozielony"
       }
     }
   },
@@ -41,6 +113,24 @@
     "i18n": {
       "nl": {
         "name": "groen"
+      },
+      "de": {
+        "name": "grün"
+      },
+      "fr": {
+        "name": "vert"
+      },
+      "en": {
+        "name": "green"
+      },
+      "es": {
+        "name": "verde"
+      },
+      "it": {
+        "name": "verde"
+      },
+      "pl": {
+        "name": "zielony"
       }
     }
   },
@@ -50,6 +140,24 @@
     "i18n": {
       "nl": {
         "name": "turquoise"
+      },
+      "de": {
+        "name": "türkis"
+      },
+      "fr": {
+        "name": "turquoise"
+      },
+      "en": {
+        "name": "turquoise"
+      },
+      "es": {
+        "name": "turquesa"
+      },
+      "it": {
+        "name": "turchese"
+      },
+      "pl": {
+        "name": "turkusowy"
       }
     }
   },
@@ -59,6 +167,24 @@
     "i18n": {
       "nl": {
         "name": "lichtblauw"
+      },
+      "de": {
+        "name": "hellblau"
+      },
+      "fr": {
+        "name": "bleu clair"
+      },
+      "en": {
+        "name": "light blue"
+      },
+      "es": {
+        "name": "azul claro"
+      },
+      "it": {
+        "name": "azzurro"
+      },
+      "pl": {
+        "name": "jasnoniebieski"
       }
     }
   },
@@ -68,6 +194,24 @@
     "i18n": {
       "nl": {
         "name": "blauw"
+      },
+      "de": {
+        "name": "blau"
+      },
+      "fr": {
+        "name": "bleu"
+      },
+      "en": {
+        "name": "blue"
+      },
+      "es": {
+        "name": "azul"
+      },
+      "it": {
+        "name": "blu"
+      },
+      "pl": {
+        "name": "niebieski"
       }
     }
   },
@@ -77,6 +221,24 @@
     "i18n": {
       "nl": {
         "name": "paars"
+      },
+      "de": {
+        "name": "lila"
+      },
+      "fr": {
+        "name": "violet"
+      },
+      "en": {
+        "name": "purple"
+      },
+      "es": {
+        "name": "morado"
+      },
+      "it": {
+        "name": "viola"
+      },
+      "pl": {
+        "name": "fioletowy"
       }
     }
   },
@@ -86,6 +248,24 @@
     "i18n": {
       "nl": {
         "name": "roze"
+      },
+      "de": {
+        "name": "rosa"
+      },
+      "fr": {
+        "name": "rose"
+      },
+      "en": {
+        "name": "pink"
+      },
+      "es": {
+        "name": "rosa"
+      },
+      "it": {
+        "name": "rosa"
+      },
+      "pl": {
+        "name": "różowy"
       }
     }
   },
@@ -95,6 +275,24 @@
     "i18n": {
       "nl": {
         "name": "lichtroze"
+      },
+      "de": {
+        "name": "hellrosa"
+      },
+      "fr": {
+        "name": "rose clair"
+      },
+      "en": {
+        "name": "light pink"
+      },
+      "es": {
+        "name": "rosa claro"
+      },
+      "it": {
+        "name": "rosa chiaro"
+      },
+      "pl": {
+        "name": "jasnoróżowy"
       }
     }
   },
@@ -104,6 +302,24 @@
     "i18n": {
       "nl": {
         "name": "bruin"
+      },
+      "de": {
+        "name": "braun"
+      },
+      "fr": {
+        "name": "marron"
+      },
+      "en": {
+        "name": "brown"
+      },
+      "es": {
+        "name": "marrón"
+      },
+      "it": {
+        "name": "marrone"
+      },
+      "pl": {
+        "name": "brązowy"
       }
     }
   },
@@ -113,6 +329,24 @@
     "i18n": {
       "nl": {
         "name": "grijs"
+      },
+      "de": {
+        "name": "grau"
+      },
+      "fr": {
+        "name": "gris"
+      },
+      "en": {
+        "name": "grey"
+      },
+      "es": {
+        "name": "gris"
+      },
+      "it": {
+        "name": "grigio"
+      },
+      "pl": {
+        "name": "szary"
       }
     }
   },
@@ -122,6 +356,24 @@
     "i18n": {
       "nl": {
         "name": "zwart"
+      },
+      "de": {
+        "name": "schwarz"
+      },
+      "fr": {
+        "name": "noir"
+      },
+      "en": {
+        "name": "black"
+      },
+      "es": {
+        "name": "negro"
+      },
+      "it": {
+        "name": "nero"
+      },
+      "pl": {
+        "name": "czarny"
       }
     }
   }

@@ -12,14 +12,13 @@ export function PlateCard({ plate, market, taxonomy, view = "alle", mini = false
   pick?: { selected: boolean; onToggle: () => void };
 }) {
   const label = labelFor(plate, taxonomy, view);
-  const age = taxonomy.ages.find((a) => a.slug === plate.age);
   const body = (
     <>
       {pick && <span className="tick" aria-hidden="true">{pick.selected ? "✓" : ""}</span>}
       {kindLabel && <span className="kind-badge">{kindLabel}</span>}
       <div className="paper"><img src={plate.svg} alt="" loading={mini ? "eager" : "lazy"} width={200} height={200} /></div>
       <b>{plate.name}</b>
-      <em><i />{label.text}<span className="yr">{age ? age.name.replace(/ jaar$/, "") : plate.age} {yr}</span></em>
+      <em><i />{label.text}<span className="yr">{plate.age.replace("-", "–")} {yr}</span></em>
     </>
   );
   const style = { "--c": label.color } as CSSProperties;

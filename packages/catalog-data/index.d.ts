@@ -59,5 +59,5 @@ export function texts(language: string): Record<string, string>;
 export const SOURCE_LANGUAGE: "nl";
 export function isNeutral(text: string): boolean;
 export function plateTexts(...svgs: string[]): string[];
-export function localizeSvg(svg: string, lookup: (source: string) => string | undefined): { svg: string; missing: string[]; scaled: { text: string; from: number; to: number }[] };
+export function localizeSvg(svg: string, lookup: (source: string) => string | undefined): { svg: string; missing: string[]; scaled: { source: string; text: string; from: number; to: number }[] };
 export function width(text: string): number;

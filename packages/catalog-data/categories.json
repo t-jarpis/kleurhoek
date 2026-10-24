@@ -6,6 +6,24 @@
     "i18n": {
       "nl": {
         "name": "Dieren"
+      },
+      "de": {
+        "name": "Tiere"
+      },
+      "fr": {
+        "name": "Animaux"
+      },
+      "en": {
+        "name": "Animals"
+      },
+      "es": {
+        "name": "Animales"
+      },
+      "it": {
+        "name": "Animali"
+      },
+      "pl": {
+        "name": "Zwierzęta"
       }
     }
   },
@@ -16,6 +34,24 @@
     "i18n": {
       "nl": {
         "name": "Voertuigen"
+      },
+      "de": {
+        "name": "Fahrzeuge"
+      },
+      "fr": {
+        "name": "Véhicules"
+      },
+      "en": {
+        "name": "Vehicles"
+      },
+      "es": {
+        "name": "Vehículos"
+      },
+      "it": {
+        "name": "Veicoli"
+      },
+      "pl": {
+        "name": "Pojazdy"
       }
     }
   },
@@ -26,6 +62,24 @@
     "i18n": {
       "nl": {
         "name": "Natuur"
+      },
+      "de": {
+        "name": "Natur"
+      },
+      "fr": {
+        "name": "Nature"
+      },
+      "en": {
+        "name": "Nature"
+      },
+      "es": {
+        "name": "Naturaleza"
+      },
+      "it": {
+        "name": "Natura"
+      },
+      "pl": {
+        "name": "Przyroda"
       }
     }
   },
@@ -36,6 +90,24 @@
     "i18n": {
       "nl": {
         "name": "Lekker eten"
+      },
+      "de": {
+        "name": "Leckeres Essen"
+      },
+      "fr": {
+        "name": "Bons petits plats"
+      },
+      "en": {
+        "name": "Yummy food"
+      },
+      "es": {
+        "name": "Comida rica"
+      },
+      "it": {
+        "name": "Cose buone da mangiare"
+      },
+      "pl": {
+        "name": "Pyszne jedzenie"
       }
     }
   },
@@ -46,6 +118,24 @@
     "i18n": {
       "nl": {
         "name": "Ruimte"
+      },
+      "de": {
+        "name": "Weltraum"
+      },
+      "fr": {
+        "name": "Espace"
+      },
+      "en": {
+        "name": "Space"
+      },
+      "es": {
+        "name": "Espacio"
+      },
+      "it": {
+        "name": "Spazio"
+      },
+      "pl": {
+        "name": "Kosmos"
       }
     }
   },
@@ -56,6 +146,24 @@
     "i18n": {
       "nl": {
         "name": "Feestdagen"
+      },
+      "de": {
+        "name": "Feste und Feiertage"
+      },
+      "fr": {
+        "name": "Fêtes"
+      },
+      "en": {
+        "name": "Holidays"
+      },
+      "es": {
+        "name": "Fiestas"
+      },
+      "it": {
+        "name": "Feste"
+      },
+      "pl": {
+        "name": "Święta"
       }
     }
   },
@@ -66,6 +174,24 @@
     "i18n": {
       "nl": {
         "name": "Wereld"
+      },
+      "de": {
+        "name": "Welt"
+      },
+      "fr": {
+        "name": "Monde"
+      },
+      "en": {
+        "name": "World"
+      },
+      "es": {
+        "name": "Mundo"
+      },
+      "it": {
+        "name": "Mondo"
+      },
+      "pl": {
+        "name": "Świat"
       }
     }
   },
@@ -76,6 +202,24 @@
     "i18n": {
       "nl": {
         "name": "Patronen"
+      },
+      "de": {
+        "name": "Muster"
+      },
+      "fr": {
+        "name": "Motifs"
+      },
+      "en": {
+        "name": "Patterns"
+      },
+      "es": {
+        "name": "Patrones"
+      },
+      "it": {
+        "name": "Motivi decorativi"
+      },
+      "pl": {
+        "name": "Wzory"
       }
     }
   },
@@ -86,6 +230,24 @@
     "i18n": {
       "nl": {
         "name": "Boerderij"
+      },
+      "de": {
+        "name": "Bauernhof"
+      },
+      "fr": {
+        "name": "À la ferme"
+      },
+      "en": {
+        "name": "Farm"
+      },
+      "es": {
+        "name": "Granja"
+      },
+      "it": {
+        "name": "Fattoria"
+      },
+      "pl": {
+        "name": "Wieś i farma"
       }
     }
   },
@@ -96,6 +258,24 @@
     "i18n": {
       "nl": {
         "name": "Onder water"
+      },
+      "de": {
+        "name": "Unter Wasser"
+      },
+      "fr": {
+        "name": "Sous l'eau"
+      },
+      "en": {
+        "name": "Under the sea"
+      },
+      "es": {
+        "name": "Bajo el agua"
+      },
+      "it": {
+        "name": "Sott'acqua"
+      },
+      "pl": {
+        "name": "Pod wodą"
       }
     }
   },
@@ -106,6 +286,24 @@
     "i18n": {
       "nl": {
         "name": "Dino's"
+      },
+      "de": {
+        "name": "Dinos"
+      },
+      "fr": {
+        "name": "Dinos"
+      },
+      "en": {
+        "name": "Dinosaurs"
+      },
+      "es": {
+        "name": "Dinosaurios"
+      },
+      "it": {
+        "name": "Dinosauri"
+      },
+      "pl": {
+        "name": "Dinozaury"
       }
     }
   },
@@ -116,6 +314,24 @@
     "i18n": {
       "nl": {
         "name": "Sprookjes"
+      },
+      "de": {
+        "name": "Märchen"
+      },
+      "fr": {
+        "name": "Contes de fées"
+      },
+      "en": {
+        "name": "Fairy tales"
+      },
+      "es": {
+        "name": "Cuentos"
+      },
+      "it": {
+        "name": "Fiabe"
+      },
+      "pl": {
+        "name": "Bajki"
       }
     }
   },
@@ -126,6 +342,24 @@
     "i18n": {
       "nl": {
         "name": "Sport en spel"
+      },
+      "de": {
+        "name": "Sport und Spiel"
+      },
+      "fr": {
+        "name": "Sports et jeux"
+      },
+      "en": {
+        "name": "Sports and games"
+      },
+      "es": {
+        "name": "Deportes y juegos"
+      },
+      "it": {
+        "name": "Sport e giochi"
+      },
+      "pl": {
+        "name": "Sport i zabawa"
       }
     }
   },
@@ -136,6 +370,24 @@
     "i18n": {
       "nl": {
         "name": "Beroepen"
+      },
+      "de": {
+        "name": "Berufe"
+      },
+      "fr": {
+        "name": "Métiers"
+      },
+      "en": {
+        "name": "Jobs"
+      },
+      "es": {
+        "name": "Oficios"
+      },
+      "it": {
+        "name": "Mestieri"
+      },
+      "pl": {
+        "name": "Zawody"
       }
     }
   },
@@ -146,6 +398,24 @@
     "i18n": {
       "nl": {
         "name": "Thuis en speelgoed"
+      },
+      "de": {
+        "name": "Zuhause und Spielzeug"
+      },
+      "fr": {
+        "name": "Maison et jouets"
+      },
+      "en": {
+        "name": "Home and toys"
+      },
+      "es": {
+        "name": "Casa y juguetes"
+      },
+      "it": {
+        "name": "Casa e giocattoli"
+      },
+      "pl": {
+        "name": "Dom i zabawki"
       }
     }
   },
@@ -156,6 +426,24 @@
     "i18n": {
       "nl": {
         "name": "Vormen en figuren"
+      },
+      "de": {
+        "name": "Formen und Figuren"
+      },
+      "fr": {
+        "name": "Formes et figures"
+      },
+      "en": {
+        "name": "Shapes and figures"
+      },
+      "es": {
+        "name": "Formas y figuras"
+      },
+      "it": {
+        "name": "Forme e figure"
+      },
+      "pl": {
+        "name": "Kształty i figury"
       }
     }
   },
@@ -166,6 +454,24 @@
     "i18n": {
       "nl": {
         "name": "Letters, cijfers en klok"
+      },
+      "de": {
+        "name": "Buchstaben, Zahlen und Uhr"
+      },
+      "fr": {
+        "name": "Lettres, chiffres et heure"
+      },
+      "en": {
+        "name": "Letters, numbers and clock"
+      },
+      "es": {
+        "name": "Letras, números y reloj"
+      },
+      "it": {
+        "name": "Lettere, numeri e orologio"
+      },
+      "pl": {
+        "name": "Litery, cyfry i zegar"
       }
     }
   }

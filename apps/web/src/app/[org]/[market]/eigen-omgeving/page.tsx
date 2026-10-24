@@ -48,7 +48,7 @@ export default async function OwnSpacePage({ params }: { params: Promise<{ org: 
       <section className="kh-pitch" id="aanvragen">
         <h2>{t.ownFormTitle}</h2>
         <OrgRequestForm action={sendOrgRequest.bind(null, market)} t={{
-          orgName: t.orgName, orgKind: t.orgKind, orgKinds: t.orgKinds, orgCode: t.orgCode, orgCodeHint: t.orgCodeHint,
+          orgName: t.orgName, orgKind: t.orgKind, orgKinds: t.orgKinds, orgCode: t.orgCode, orgCodeHint: t.orgCodeHint, orgCodeExample: t.orgCodeExample,
           orgChildren: t.orgChildren, orgChildrenHint: t.orgChildrenHint, orgSite: t.orgSite, contactName: t.contactName,
           contactEmail: t.contactEmail, contactEmailHint: t.contactEmailHint, orgMessage: t.orgMessage, orgMessagePlaceholder: t.orgMessagePlaceholder,
           orgSend: t.orgSend, contactSending: t.contactSending, contactPrivacy: t.contactPrivacy, orgThanks: t.orgThanks, orgThanksText: t.orgThanksText,
