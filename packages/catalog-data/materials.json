@@ -88,5 +88,45 @@
         "hint": "Voor beweegbare armen en benen"
       }
     }
+  },
+  {
+    "slug": "potlood",
+    "order": 9,
+    "i18n": {
+      "nl": {
+        "name": "Potlood",
+        "hint": "Om te schrijven, te tekenen en lijnen over te trekken"
+      }
+    }
+  },
+  {
+    "slug": "elastiek",
+    "order": 10,
+    "i18n": {
+      "nl": {
+        "name": "Elastiek",
+        "hint": "Rond elastiek, om een masker om je hoofd te houden"
+      }
+    }
+  },
+  {
+    "slug": "touw",
+    "order": 11,
+    "i18n": {
+      "nl": {
+        "name": "Touw of lint",
+        "hint": "Om op te hangen of aan een cadeau te binden"
+      }
+    }
+  },
+  {
+    "slug": "verf",
+    "order": 12,
+    "i18n": {
+      "nl": {
+        "name": "Verf en een sponsje",
+        "hint": "Plakkaatverf of waterverf, om te deppen of te schilderen"
+      }
+    }
   }
 ]

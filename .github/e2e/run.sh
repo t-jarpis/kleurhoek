@@ -28,9 +28,12 @@ api POST /v1/admin/organizations '{"slug":"e2e-school","name":"E2E School","kind
 api PUT /v1/admin/organizations/e2e-school '{"brand":{"font":"nunito","colors":{"primary":"#1f5f8b","accent":"#b0306a"},"wordmark":"e2e school"},"offer":{"categories":["dieren","natuur"]},"features":{"shop":false}}' || fail "huisstijl zetten mislukte"
 
 plate=$(curl -fsS -H "x-ingest-key: $INGEST_KEY" "http://localhost:3001/v1/markets/nl-nl/plates" | jq -r '.items[0].slug')
+# Ook een werkje met extra pagina's en antwoordblad (ADR 0027): het ouderdeel met printknoppen.
+sheet=$(curl -fsS -H "x-ingest-key: $INGEST_KEY" "http://localhost:3001/v1/markets/nl-nl/plates?kind=leren" | jq -r '[.items[] | select(.kind == "werkblad")][0].slug // empty')
 .github/diagnose/browser-check.sh \
   "http://localhost:3000/nl-nl" \
   "http://localhost:3000/nl-nl/platen/$plate" \
+  ${sheet:+"http://localhost:3000/nl-nl/platen/$sheet"} \
   "http://localhost:3000/nl-nl/boekje" \
   "http://localhost:3000/nl-nl|e2e-school-dev.kleurhoek.nl" \
   "http://localhost:3003/inloggen" \

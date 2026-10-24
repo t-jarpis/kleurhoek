@@ -23,7 +23,7 @@ const { KINDS } = data;
 
 const [dir, ...only] = process.argv.slice(2);
 if (!dir) { console.error("Gebruik: ingest.mjs <map> [slug ...]"); process.exit(1); }
-const slugs = (only.length ? only : fs.readdirSync(dir).filter((f) => f.endsWith(".svg")).map((f) => f.slice(0, -4))).sort();
+const slugs = (only.length ? only : fs.readdirSync(dir).filter((f) => f.endsWith(".svg") && !/\.p\d+\.svg$/.test(f)).map((f) => f.slice(0, -4))).sort();
 
 const platesFile = path.join(DATA, "plates.json");
 const list = JSON.parse(fs.readFileSync(platesFile, "utf8"));

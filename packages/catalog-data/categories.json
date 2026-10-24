@@ -158,5 +158,15 @@
         "name": "Vormen en figuren"
       }
     }
+  },
+  {
+    "slug": "leren",
+    "order": 16,
+    "color": "#c2410c",
+    "i18n": {
+      "nl": {
+        "name": "Letters, cijfers en klok"
+      }
+    }
   }
 ]

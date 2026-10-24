@@ -23,3 +23,4 @@ infra/envs/*/plan
 *.tfplan
 crash.log
 apps/api/release-log.json
+__pycache__/

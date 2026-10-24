@@ -35,7 +35,7 @@ export const nl = {
   bookCount: (n: number) => `${n} kleurplaten · Kleurhoek`, bookEmpty: "Nog geen platen gekozen. Ga terug en tik op de platen die je wilt.",
   kind: "Soort", allKinds: "Alles", kindColoring: "Kleurplaten", kindCrafts: "Knutselen", kindLearn: "Leren en spelen", kindDrawing: "Tekenen",
   kindNames: { kleurplaat: "Kleurplaat", knipplaat: "Knipplaat", bouwplaat: "Bouwplaat", spel: "Spel", vouwblad: "Vouwen", werkblad: "Werkblad", sjabloon: "Sjabloon", kaart: "Kaart", tekenles: "Tekenles" } as Record<string, string>,
-  difficulty: ["", "makkelijk", "gemiddeld", "uitdagend"] as const, morePages: "Meer pagina's", howItWorks: "Zo werkt het", answers: "Antwoorden (voor ouders)", printPage: (n: number) => `Print pagina ${n}`,
+  difficulty: ["", "makkelijk", "gemiddeld", "uitdagend"] as const, morePages: "Meer pagina's", howItWorks: "Zo werkt het", answers: "Antwoorden (voor ouders)", printPage: (n: number | string) => `Print pagina ${n}`,
   forParents: "Voor ouders", howToMake: "Zo maak je het", whatYouNeed: "Wat heb je nodig", optional: "mag ook",
   aboutMinutes: (n: number) => `ongeveer ${n} minuten`, adultHelp: "met hulp van een volwassene", paper: (g: number) => `papier van ${g} gram`,
   atPartner: (p: string) => `bij ${p}`,

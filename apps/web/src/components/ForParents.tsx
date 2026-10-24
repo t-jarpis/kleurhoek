@@ -30,7 +30,7 @@ export function ForParents({ plate, market, t }: { plate: PlateDetail; market: s
         <ol className="steps">{plate.steps.map((s, i) => <li key={i}>{s}</li>)}</ol>
       )}
       {plate.printNote && <p className="hint">{plate.printNote}</p>}
-      <ExtraPages pages={plate.pages} t={t} />
+      <ExtraPages pages={plate.pages} labels={{ morePages: t.morePages, answers: t.answers, printPage: t.printPage("{n}") }} />
       {plate.materials.length > 0 && (
         <div className="needs">
           {craft && <h3>{t.whatYouNeed}</h3>}

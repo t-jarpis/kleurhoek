@@ -11,7 +11,7 @@ import { AGES, COLORS, LABELS_JS, PLATE_CSS, numberRegions, playwright, regionCo
 const [dir, out, ...only] = process.argv.slice(2);
 if (!dir || !out) { console.error("Gebruik: preview.mjs <map> <uit.png> [slug ...]"); process.exit(1); }
 
-const slugs = (only.length ? only : fs.readdirSync(dir).filter((f) => f.endsWith(".svg")).map((f) => f.slice(0, -4))).sort();
+const slugs = (only.length ? only : fs.readdirSync(dir).filter((f) => f.endsWith(".svg") && !/\.p\d+\.svg$/.test(f)).map((f) => f.slice(0, -4))).sort();
 const items = slugs.map((slug) => {
   const svg = numberRegions(fs.readFileSync(path.join(dir, `${slug}.svg`), "utf8").trim());
   const meta = JSON.parse(fs.readFileSync(path.join(dir, `${slug}.json`), "utf8"));

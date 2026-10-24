@@ -256,7 +256,7 @@ button.card:focus-visible { outline: var(--focus-width) solid var(--color-focus)
 @media (max-width: 560px) { .needs li { align-items: flex-start; } .needs .need { flex-direction: column; align-items: flex-start; } .offer { align-items: flex-start; text-align: left; } }
 
 /* Meer soorten werkjes (ADR 0027): filter Soort scrolt op smal scherm; extra pagina's; één pagina printen. */
-.seg-scroll { max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+.seg-scroll { max-width: 100%; overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none; }
 .seg-scroll button { flex: none; white-space: nowrap; }
 .extra-pages { display: grid; gap: var(--space-3); }
 .extra-pages h3 { margin: 0; font: 800 17px var(--font-sans); letter-spacing: 0; }

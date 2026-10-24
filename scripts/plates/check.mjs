@@ -42,12 +42,15 @@ const page = await browser.newPage({ viewport: { width: 400, height: 600 } });
 for (const p of plates) {
   const svgs = [[1, data.plateSvg(p.slug), p.height], ...p.pages.map((pg, i) => [i + 2, data.pageSvg(p.slug, i + 2), pg.height])];
   for (const [n, svg, height] of svgs) {
-    await page.setContent(`<style>${PLATE_CSS}</style>${svg}`);
+    await page.setContent(`<style>${PLATE_CSS}</style>${svg.replace("<svg ", '<svg width="400" ')}`);
     const r = await page.evaluate(({ height, kleur }) => {
       const out = { outside: 0, tinyText: 0, tiny: 0 };
+      const svg = document.querySelector("svg"), box = svg.getBoundingClientRect(), k = 200 / box.width;
       for (const el of document.querySelectorAll("svg *")) {
-        if (!(el instanceof SVGGraphicsElement) || el.closest("defs,clipPath,mask")) continue;
-        const b = el.getBBox();
+        if (!(el instanceof SVGGraphicsElement) || el.closest("defs,clipPath,mask") || el.tagName === "g") continue;
+        // Echte plek op het vel (met transform), in viewBox-eenheden.
+        const r = el.getBoundingClientRect();
+        const b = { x: (r.left - box.left) * k, y: (r.top - box.top) * k, width: r.width * k, height: r.height * k };
         if (b.width === 0 && b.height === 0) continue;
         if (b.x < -0.5 || b.y < -0.5 || b.x + b.width > 200.5 || b.y + b.height > height + 0.5) out.outside++;
         if (el.tagName === "text" && Number(getComputedStyle(el).fontSize.replace("px", "")) < 4.5) out.tinyText++;
