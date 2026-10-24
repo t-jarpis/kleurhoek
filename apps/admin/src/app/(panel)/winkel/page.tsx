@@ -14,13 +14,28 @@ export default async function Shop({ searchParams }: { searchParams: Promise<{ d
   const to = new Date(), from = new Date(Date.now() - (days - 1) * 86_400_000);
   let data;
   try {
-    const [summary, catalog] = await Promise.all([adminApi.shopSummary(iso(from), iso(to)), adminApi.products()]);
-    data = { summary, catalog };
+    const [summary, catalog, sales] = await Promise.all([adminApi.shopSummary(iso(from), iso(to)), adminApi.products(), adminApi.salesReport(iso(from), iso(to))]);
+    data = { summary, catalog, sales };
   } catch (e) {
     const d = describe(e);
     return <div className="err"><h1>{d.title}</h1><p>{d.text}</p></div>;
   }
-  const { summary, catalog } = data;
+  const { summary, catalog, sales } = data;
+  // Opbrengst per klik (ADR 0033): doorkliks uit Analytics, verkopen uit de rapporten van partners.
+  const partnerSlugOf = (product: string) => catalog.products.find((p) => p.slug === product)?.partner ?? "?";
+  const clicksBySlug = summary.products.reduce((m, p) => m.set(partnerSlugOf(p.product), (m.get(partnerSlugOf(p.product)) ?? 0) + p.clicks), new Map<string, number>());
+  const partnerName = (slug: string) => catalog.partners.find((p) => p.slug === slug)?.name ?? slug;
+  const lastDay = new Map(sales.coverage.map((c) => [c.partner, c.lastDay]));
+  const stale = (d: string | undefined) => !!d && Date.now() - Date.parse(d) > 14 * 86_400_000;
+  const money = (cents: number, currency: string, digits = 2) => new Intl.NumberFormat("nl-NL", { style: "currency", currency, minimumFractionDigits: digits, maximumFractionDigits: digits }).format(cents / 100);
+  const perfPartners = [...new Set([...clicksBySlug.keys(), ...sales.byPartner.map((r) => r.partner)])].filter((s) => s !== "direct" && s !== "?");
+  type Sale = (typeof sales.byPartner)[number];
+  const perfRows = perfPartners.flatMap((slug): { slug: string; first: boolean; clicks: number; sale: Sale | null }[] => {
+    const rows = sales.byPartner.filter((r) => r.partner === slug);
+    const clicks = clicksBySlug.get(slug) ?? 0;
+    return rows.length ? rows.map((r, i) => ({ slug, first: i === 0, clicks, sale: r })) : [{ slug, first: true, clicks, sale: null }];
+  }).sort((a, b) => b.clicks - a.clicks);
+  const productClicks = new Map(summary.products.map((p) => [p.product, p.clicks]));
   const name = (slug: string) => catalog.products.find((p) => p.slug === slug)?.name ?? slug;
   const partnerOf = (slug: string) => {
     const partner = catalog.products.find((p) => p.slug === slug)?.partner;
@@ -55,6 +70,46 @@ export default async function Shop({ searchParams }: { searchParams: Promise<{ d
         <div className="stat"><span>Klikratio</span><b>{pct(summary.totals.clickRate)}</b></div>
         <div className="stat"><span>Producten in de winkel</span><b>{catalog.products.filter((p) => p.enabled).length}</b></div>
       </div>
+      <section className="panel" aria-labelledby="perf-title">
+        <h2 id="perf-title">Opbrengst per partner</h2>
+        <p className="lead">Wat een doorklik oplevert: commissie gedeeld door doorkliks. Verkopen komen uit de rapporten die je inleest bij <Link href="/winkel/verkopen">Verkopen</Link>; conversie is verkopen gedeeld door doorkliks.</p>
+        {perfRows.length === 0 ? <p className="lead">Nog geen doorkliks of verkopen in deze periode.</p> : (
+          <div className="ui-table-wrap" tabIndex={0} role="region" aria-labelledby="perf-title">
+            <table className="ui-table"><thead><tr><th>Partner</th><th className="num">Doorkliks</th><th className="num">Verkopen</th><th className="num">Conversie</th><th className="num">Commissie</th><th className="num">Per klik</th><th>Rapport</th></tr></thead>
+              <tbody>{perfRows.map((r) => (
+                <tr key={`${r.slug}-${r.sale?.currency ?? "-"}`}>
+                  <td>{r.first ? partnerName(r.slug) : ""}</td>
+                  <td className="num">{r.first ? r.clicks : ""}</td>
+                  {r.sale ? <>
+                    <td className="num">{r.sale.orders}</td>
+                    <td className="num">{r.clicks ? pct(r.sale.orders / r.clicks) : "—"}</td>
+                    <td className="num">{money(r.sale.commissionCents, r.sale.currency)}</td>
+                    <td className="num">{r.clicks ? money(r.sale.commissionCents / r.clicks, r.sale.currency, 3) : "—"}</td>
+                  </> : <><td className="num">—</td><td className="num">—</td><td className="num">—</td><td className="num">—</td></>}
+                  <td>{r.first && (lastDay.get(r.slug)
+                    ? (stale(lastDay.get(r.slug)) ? <span className="ui-badge" data-tone="warning">Rapport verouderd (t/m {lastDay.get(r.slug)})</span> : `t/m ${lastDay.get(r.slug)}`)
+                    : <Link href="/winkel/verkopen">Nog geen rapport</Link>)}</td>
+                </tr>
+              ))}</tbody></table>
+          </div>
+        )}
+        {sales.byProduct.length > 0 && (
+          <div className="ui-table-wrap" tabIndex={0} role="region" aria-labelledby="perf-prod">
+            <table className="ui-table"><caption id="perf-prod">Opbrengst per product</caption>
+              <thead><tr><th>Product</th><th>Partner</th><th className="num">Doorkliks</th><th className="num">Verkopen</th><th className="num">Commissie</th><th className="num">Per klik</th></tr></thead>
+              <tbody>{sales.byProduct.map((r) => {
+                const clicks = r.matched ? productClicks.get(r.product) ?? 0 : 0;
+                return (
+                  <tr key={`${r.partner}-${r.product}-${r.currency}`}>
+                    <td>{r.matched ? name(r.product) : <>{r.product} <span className="ui-hint">(niet in de winkel)</span></>}</td>
+                    <td>{partnerName(r.partner)}</td><td className="num">{r.matched ? clicks : "—"}</td><td className="num">{r.orders}</td>
+                    <td className="num">{money(r.commissionCents, r.currency)}</td><td className="num">{clicks ? money(r.commissionCents / clicks, r.currency, 3) : "—"}</td>
+                  </tr>
+                );
+              })}</tbody></table>
+          </div>
+        )}
+      </section>
       <section className="panel">
         <h2>Kandidaten om zelf te leveren</h2>
         <p className="lead">Minstens 20 bezoekers die doorklikten in deze periode, en niet dalend ten opzichte van de periode ervoor ({summary.previous.from} t/m {summary.previous.to}). Kijk daarna in je partneraccount hoeveel er echt verkocht is.</p>

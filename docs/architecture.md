@@ -28,3 +28,4 @@ Het volledige architectuurdocument met diagrammen staat hier: https://claude.ai/
 - Publieke releasenotes: trailer `Public-note:` met een tekst voor bezoekers, voorlopig alleen zichtbaar in het admin panel (blok "Voor bezoekers" bij Releases); later eventueel een pagina "Wat is er nieuw" (ADR 0030).
 - Winkel per land: Amazon-winkels per land, snel toevoegen met een ASIN voor meerdere winkels, productlijst met aan/uit en filter per land, matrix "Per land", landen per product als vinkjes; materiaal stempels (ADR 0031).
 - Binnenkomst: .be en .com sturen door met `?via=`; de site telt bij de eerste paginaweergave van buitenaf het domein en de hostnaam van de verwijzer, zonder cookies; dashboard "Binnengekomen via domein" en "Verwijzende sites" (ADR 0032).
+- Opbrengst per klik: rapporten van partners (CSV) inlezen in het admin panel; verkopen en commissie per partner, product en plaat naast de doorkliks, met opbrengst per klik (ADR 0033).

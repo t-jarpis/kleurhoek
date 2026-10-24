@@ -134,6 +134,13 @@
       "when": 1792875267062,
       "tag": "0018_binnenkomst",
       "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "7",
+      "when": 1792876615085,
+      "tag": "0019_verkopen",
+      "breakpoints": true
     }
   ]
 }

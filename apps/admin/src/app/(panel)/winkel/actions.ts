@@ -2,7 +2,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
-import { adminApi, ApiError } from "@/lib/api";
+import { adminApi, ApiError, type SalesMapping, type SalesPreview } from "@/lib/api";
 
 const Slug = z.string().regex(/^[a-z0-9-]{2,64}$/);
 
@@ -122,6 +122,37 @@ export async function amazonAdd(_prev: AmazonState, formData: FormData): Promise
     return { added: r.added };
   } catch (e) {
     if (e instanceof ApiError) return { error: e.message, values };
+    throw e;
+  }
+}
+
+const FIELDS = ["date", "subId", "product", "items", "revenue", "commission", "currency"] as const;
+export type SalesState = { partner?: string; fileName?: string; csv?: string; preview?: SalesPreview; error?: string; done?: { from: string; to: string; rows: number } } | null;
+
+/**
+ * Rapport van een partner (ADR 0033). Stap 1 (bestand gekozen): voorbeeld met herkende kolommen. Stap 2
+ * (kolommen gekozen, "Bekijken" of "Importeren"): opnieuw voorbeeld of inlezen. De CSV blijft in het formulier.
+ */
+export async function salesStep(prev: SalesState, formData: FormData): Promise<SalesState> {
+  const partner = String(formData.get("partner") ?? prev?.partner ?? "");
+  const file = formData.get("file");
+  let csv = String(formData.get("csv") ?? "");
+  let fileName = String(formData.get("fileName") ?? "rapport.csv");
+  if (file instanceof File && file.size > 0) {
+    if (file.size > 900_000) return { error: "Het bestand is te groot (hooguit 900 kB). Exporteer een kortere periode." };
+    csv = await file.text(); fileName = file.name;
+  }
+  if (!csv) return { error: "Kies een bestand." };
+  const chosen = formData.has("map:date") ? Object.fromEntries(FIELDS.map((f) => [f, String(formData.get(`map:${f}`) ?? "") || null])) as SalesMapping : undefined;
+  try {
+    if (formData.get("intent") === "import" && chosen) {
+      const r = await adminApi.salesImport({ partner, csv, fileName, mapping: chosen });
+      revalidatePath("/winkel", "layout");
+      return { done: r };
+    }
+    return { partner, fileName, csv, preview: await adminApi.salesPreview({ partner, csv, fileName, ...(chosen ? { mapping: chosen } : {}) }) };
+  } catch (e) {
+    if (e instanceof ApiError) return { partner, fileName, csv, error: e.message, ...(prev?.preview ? { preview: prev.preview } : {}) };
     throw e;
   }
 }

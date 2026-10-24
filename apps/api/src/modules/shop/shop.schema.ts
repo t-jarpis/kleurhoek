@@ -1,4 +1,4 @@
-import { boolean, integer, jsonb, pgSchema, text, uniqueIndex } from "drizzle-orm/pg-core";
+import { boolean, date, index, integer, jsonb, pgSchema, text, uniqueIndex, uuid } from "drizzle-orm/pg-core";
 import { baseColumns } from "../../shared/columns";
 
 export const shopSchema = pgSchema("shop");
@@ -40,3 +40,38 @@ export const materialProducts = shopSchema.table("material_products", {
   productSlug: text("product_slug").notNull(),
   rank: integer("rank").notNull().default(0),
 }, (t) => [uniqueIndex("material_products_unique").on(t.tenantId, t.materialSlug, t.productSlug)]);
+
+/**
+ * Een ingelezen rapport van een partner (ADR 0033): welk bestand, welke periode, welke kolommen. De kolomkeuze
+ * van het laatste rapport van een partner is het voorstel voor het volgende.
+ */
+export const salesImports = shopSchema.table("sales_imports", {
+  ...baseColumns(),
+  partnerSlug: text("partner_slug").notNull(),
+  fileName: text("file_name").notNull(),
+  fromDay: date("from_day", { mode: "string" }).notNull(),
+  toDay: date("to_day", { mode: "string" }).notNull(),
+  rowCount: integer("row_count").notNull(),
+  mapping: jsonb("mapping").$type<Record<string, string | null>>().notNull(),
+  createdBy: text("created_by").notNull(),
+}, (t) => [index("sales_imports_partner").on(t.tenantId, t.partnerSlug)]);
+
+/**
+ * Verkopen per dag uit de rapporten van partners, opgeteld per sub-ID en product (ADR 0033). Bedragen in centen
+ * in de valuta van het rapport. Product en plaat zijn herkend uit de ASIN/EAN en de sub-ID (`kleurhoek-<plaat>`).
+ */
+export const sales = shopSchema.table("sales", {
+  ...baseColumns(),
+  importId: uuid("import_id").notNull().references(() => salesImports.id, { onDelete: "cascade" }),
+  partnerSlug: text("partner_slug").notNull(),
+  day: date("day", { mode: "string" }).notNull(),
+  subId: text("sub_id").notNull(),
+  productRef: text("product_ref").notNull(),
+  productSlug: text("product_slug"),
+  plateSlug: text("plate_slug"),
+  orders: integer("orders").notNull(),
+  items: integer("items").notNull(),
+  revenueCents: integer("revenue_cents").notNull(),
+  commissionCents: integer("commission_cents").notNull(),
+  currency: text("currency").notNull(),
+}, (t) => [index("sales_partner_day").on(t.tenantId, t.partnerSlug, t.day)]);

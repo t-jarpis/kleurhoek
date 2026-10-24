@@ -14,6 +14,8 @@ const nextConfig: NextConfig = {
   outputFileTracingRoot: path.join(__dirname, "../.."),
   // Thema (tokens, fonts, logo) als bronpakket uit de monorepo.
   transpilePackages: ["@kleurhoek/theme"],
+  // Partnerrapporten (CSV, hooguit 900 kB) gaan via een server action (ADR 0033).
+  experimental: { serverActions: { bodySizeLimit: "2mb" } },
   async headers() {
     return [{ source: "/(.*)", headers: [
       { key: "Content-Security-Policy", value: csp },

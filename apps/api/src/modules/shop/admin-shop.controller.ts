@@ -7,6 +7,8 @@ import { AdminGuard, RequirePermission } from "../identity/admin.guard";
 import { LocalizationService } from "../localization/localization.service";
 import { RateLimit } from "../operations/rate-limit.guard";
 import { AMAZON_STORES } from "./shop.defaults";
+import { SALES_FIELDS, type SalesMapping } from "./sales.import";
+import { MAX_CSV, SalesService } from "./sales.service";
 import { asinFrom, ShopError, ShopService } from "./shop.service";
 import { PRODUCT_SUGGESTIONS } from "./shop.suggestions";
 
@@ -44,6 +46,10 @@ const AmazonBody = z.object({
   stores: z.array(z.string().regex(/^amazon-[a-z]{2}$/)).min(1).max(20),
   rank: z.number().int().min(0).max(99).optional(),
 }).strict();
+const Partner = z.string().regex(/^[a-z0-9-]{2,32}$/);
+const Mapping = z.object(Object.fromEntries(SALES_FIELDS.map((f) => [f, z.string().max(120).nullable()])) as Record<(typeof SALES_FIELDS)[number], z.ZodNullable<z.ZodString>>).strict();
+const SalesBody = z.object({ partner: Partner, csv: z.string().min(1).max(MAX_CSV), fileName: z.string().max(200).default("rapport.csv"), mapping: Mapping.optional() }).strict();
+const Period = z.object({ from: z.iso.date(), to: z.iso.date() });
 const ImportBody = z.object({ slugs: z.array(z.string().regex(/^[a-z0-9-]{2,64}$/)).min(1).max(50) }).strict();
 
 function parse<T>(schema: z.ZodType<T>, value: unknown): T {
@@ -63,6 +69,7 @@ function mapError(e: unknown): never {
 export class AdminShopController {
   constructor(
     private readonly shop: ShopService,
+    private readonly sales: SalesService,
     private readonly catalog: CatalogService,
     private readonly i18n: LocalizationService,
     @Inject(ENV) private readonly env: Env,
@@ -121,6 +128,31 @@ export class AdminShopController {
       added.push(await this.shop.saveProduct(req.admin!.subject, language, { slug: s.slug, partner: s.partner, url: s.url, enabled: true, markets: s.markets, name: s.name, note: s.note, materials: s.materials }).catch(mapError));
     }
     return { added };
+  }
+
+  /** Rapport van een partner bekijken vóór het inlezen (ADR 0033): kolommen, eerste rijen, wat herkend is. */
+  @Post("sales/preview")
+  @RequirePermission("shop.manage")
+  async salesPreview(@Body() body: unknown) {
+    const b = parse(SalesBody, body);
+    return this.sales.preview(b.partner, b.csv, b.mapping as SalesMapping | undefined).catch(mapError);
+  }
+
+  /** Rapport inlezen; vervangt de cijfers van die partner in dezelfde periode. */
+  @Post("sales/import")
+  @RequirePermission("shop.manage")
+  async salesImport(@Body() body: unknown, @Req() req: FastifyRequest) {
+    const b = parse(SalesBody, body);
+    if (!b.mapping) throw new BadRequestException("Kies eerst de kolommen");
+    return this.sales.import(req.admin!.subject, b.partner, b.fileName, b.csv, b.mapping as SalesMapping).catch(mapError);
+  }
+
+  /** Verkopen in een periode, per partner, product en plaat (ADR 0033). */
+  @Get("sales")
+  @RequirePermission("shop.read")
+  async salesReport(@Query() query: unknown) {
+    const { from, to } = parse(Period, query);
+    return this.sales.report(from, to);
   }
 
   /** Aan of uit vanuit de productlijst (ADR 0031). */

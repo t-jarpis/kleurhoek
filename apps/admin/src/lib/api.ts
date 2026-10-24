@@ -53,6 +53,20 @@ export interface ShopSummary {
   candidates: ShopSummary["products"];
 }
 
+/** Verkopen uit partnerrapporten (ADR 0033). */
+export type SalesField = "date" | "subId" | "product" | "items" | "revenue" | "commission" | "currency";
+export type SalesMapping = Record<SalesField, string | null>;
+export interface SalesRow { day: string; subId: string; product: string; items: number; revenueCents: number; commissionCents: number; currency: string }
+export interface SalesPreview { headers: string[]; mapping: SalesMapping; sample: SalesRow[]; total: number; skipped: number; from: string | null; to: string | null; matchedProducts: number; matchedPlates: number; problem: string | null }
+export interface SalesReport {
+  from: string; to: string;
+  byPartner: { partner: string; currency: string; orders: number; items: number; revenueCents: number; commissionCents: number }[];
+  byProduct: { product: string; matched: boolean; partner: string; currency: string; orders: number; items: number; commissionCents: number }[];
+  byPlate: { plate: string; orders: number; commissionCents: number; currency: string }[];
+  coverage: { partner: string; lastDay: string }[];
+  imports: { id: string; partner: string; fileName: string; from: string; to: string; rows: number; by: string; at: string }[];
+}
+
 export type OrgKind = "platform" | "school" | "opvang" | "vereniging" | "bedrijf" | "overig";
 export interface OrgBrand { theme: string | null; font: string | null; colors: { primary: string | null; accent: string | null }; wordmark: string | null; logoVersion: string | null }
 export interface OrgOffer { markets: string[] | null; categories: string[] | null; ages: string[] | null; kinds: ("kleurplaat" | "knutselen")[] | null }
@@ -156,6 +170,9 @@ export const adminApi = {
   amazonAdd: (body: AmazonInput) => call<{ asin: string; added: { slug: string; partner: string; url: string }[] }>("/v1/admin/shop/products/amazon", { method: "POST", body: JSON.stringify(body) }),
   importSuggestions: (slugs: string[]) => call<{ added: string[] }>("/v1/admin/shop/products/suggestions", { method: "POST", body: JSON.stringify({ slugs }) }),
   saveProduct: (slug: string, body: ProductInput) => call<{ slug: string }>(`/v1/admin/shop/products/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
+  salesPreview: (body: { partner: string; csv: string; fileName?: string; mapping?: SalesMapping }) => call<SalesPreview>("/v1/admin/shop/sales/preview", { method: "POST", body: JSON.stringify(body) }),
+  salesImport: (body: { partner: string; csv: string; fileName: string; mapping: SalesMapping }) => call<{ importId: string; from: string; to: string; rows: number }>("/v1/admin/shop/sales/import", { method: "POST", body: JSON.stringify(body) }),
+  salesReport: (from: string, to: string) => call<SalesReport>(`/v1/admin/shop/sales?from=${from}&to=${to}`),
   shopSummary: (from: string, to: string) => call<ShopSummary>(`/v1/admin/analytics/shop?from=${from}&to=${to}`),
   siteAccess: () => call<SiteAccess>("/v1/admin/site-access"),
   updateSiteAccess: (body: { enabled?: boolean; entries?: { cidr: string; label: string }[] }) =>
