@@ -90963,5 +90963,1165 @@
         "countQuestion": null
       }
     }
+  },
+  {
+    "slug": "doolhof-auto-garage",
+    "order": 515,
+    "category": "voertuigen",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 6,
+    "colorByNumber": {
+      "codes": "rxxrz-",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 29.3,
+          "y": 40.3,
+          "size": 4.9
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 23.7,
+          "y": 45.9,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 33.7,
+          "y": 45.9,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 1,
+          "x": 170.7,
+          "y": 256.6,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 164.4,
+          "y": 262.7,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Doolhof: auto naar de garage",
+        "steps": [
+          "Zet je potlood bij de auto bovenaan.",
+          "Zoek de weg door het doolhof naar de garage onderaan, zonder door een muur te gaan.",
+          "Klaar? Kleur de tekeningetjes in. Het antwoord staat op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "doolhof-bij-bloem",
+    "order": 516,
+    "category": "natuur",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 9,
+    "colorByNumber": {
+      "codes": "y--mmmmmy",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 27.6,
+          "y": 42.3,
+          "size": 6.6
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 178.4,
+          "y": 254.7,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 174.5,
+          "y": 260.2,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 167.4,
+          "y": 258.8,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 167,
+          "y": 252.1,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 173.3,
+          "y": 249.1,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 1,
+          "x": 171.9,
+          "y": 254.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Doolhof: bij zoekt een bloem",
+        "steps": [
+          "Zet je potlood bij de bij bovenaan.",
+          "Zoek de weg door het doolhof naar de bloem onderaan, zonder door een muur te gaan.",
+          "Klaar? Kleur de tekeningetjes in. Het antwoord staat op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "doolhof-draakje-kasteel",
+    "order": 517,
+    "category": "sprookjes",
+    "age": "12+",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 7,
+    "colorByNumber": {
+      "codes": "ggyzzzw",
+      "palette": [
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 28.3,
+          "y": 44.3,
+          "size": 6.3
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 32.6,
+          "y": 38,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 25.9,
+          "y": 37.6,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 166.5,
+          "y": 249.6,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 164.4,
+          "y": 243.2,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 179.4,
+          "y": 243.2,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 4,
+          "x": 171.9,
+          "y": 253,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Doolhof: draakje naar het kasteel",
+        "steps": [
+          "Zet je potlood bij het draakje bovenaan.",
+          "Zoek de weg door het doolhof naar het kasteel onderaan, zonder door een muur te gaan.",
+          "Klaar? Kleur de tekeningetjes in. Het antwoord staat op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "doolhof-eekhoorn-eikel",
+    "order": 518,
+    "category": "natuur",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 5,
+    "colorByNumber": {
+      "codes": "oooww",
+      "palette": [
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 36.3,
+          "y": 44.2,
+          "size": 4.5
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 25.8,
+          "y": 44.3,
+          "size": 5.5
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 26,
+          "y": 37.4,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 171.8,
+          "y": 258.6,
+          "size": 5.2
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 170.3,
+          "y": 251.5,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Doolhof: eekhoorn zoekt een eikel",
+        "steps": [
+          "Zet je potlood bij de eekhoorn bovenaan.",
+          "Zoek de weg door het doolhof naar de eikel onderaan, zonder door een muur te gaan.",
+          "Klaar? Kleur de tekeningetjes in. Het antwoord staat op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "doolhof-heks-ketel",
+    "order": 519,
+    "category": "sprookjes",
+    "age": "9+",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 3,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 5,
+    "colorByNumber": {
+      "codes": "plxll",
+      "palette": [
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 27.5,
+          "y": 33.5,
+          "size": 4.7
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 27.8,
+          "y": 45.3,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 169.5,
+          "y": 255.5,
+          "size": 7.1
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 168.9,
+          "y": 246.2,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 174.9,
+          "y": 244.2,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Doolhof: heks zoekt haar ketel",
+        "steps": [
+          "Zet je potlood bij de heks bovenaan.",
+          "Zoek de weg door het doolhof naar de ketel onderaan, zonder door een muur te gaan.",
+          "Klaar? Kleur de tekeningetjes in. Het antwoord staat op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "doolhof-hond-bot",
+    "order": 520,
+    "category": "dieren",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 4,
+    "colorByNumber": {
+      "codes": "www-",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 28.3,
+          "y": 38.2,
+          "size": 4.5
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 20.9,
+          "y": 41.1,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 34.8,
+          "y": 41.1,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Doolhof: hond zoekt zijn bot",
+        "steps": [
+          "Zet je potlood bij de hond bovenaan.",
+          "Zoek de weg door het doolhof naar het bot onderaan, zonder door een muur te gaan.",
+          "Klaar? Kleur de tekeningetjes in. Het antwoord staat op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "doolhof-kabouter-paddenstoel",
+    "order": 521,
+    "category": "sprookjes",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 7,
+    "colorByNumber": {
+      "codes": "rk-r---",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 27.8,
+          "y": 36.1,
+          "size": 4.5
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 27.3,
+          "y": 42.4,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 1,
+          "x": 178.5,
+          "y": 258.2,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Doolhof: kabouter naar huis",
+        "steps": [
+          "Zet je potlood bij de kabouter bovenaan.",
+          "Zoek de weg door het doolhof naar de paddenstoel onderaan, zonder door een muur te gaan.",
+          "Klaar? Kleur de tekeningetjes in. Het antwoord staat op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "doolhof-pinguin-ijsschots",
+    "order": 522,
+    "category": "dieren",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 15,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 4,
+    "colorByNumber": {
+      "codes": "x-ob",
+      "palette": [
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 27.1,
+          "y": 34.3,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 27.9,
+          "y": 38.8,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 175,
+          "y": 259,
+          "size": 6.6
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Doolhof: pinguïn naar de ijsschots",
+        "steps": [
+          "Zet je potlood bij de pinguïn bovenaan.",
+          "Zoek de weg door het doolhof naar de ijsschots onderaan, zonder door een muur te gaan.",
+          "Klaar? Kleur de tekeningetjes in. Het antwoord staat op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "doolhof-slak-blaadje",
+    "order": 523,
+    "category": "natuur",
+    "age": "2-4",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 3,
+    "colorByNumber": {
+      "codes": "okg",
+      "palette": [
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 29.7,
+          "y": 39,
+          "size": 6.8
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 17.7,
+          "y": 42.4,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 171.8,
+          "y": 258.2,
+          "size": 5.2
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Doolhof: slak zoekt een blaadje",
+        "steps": [
+          "Zet je potlood bij de slak bovenaan.",
+          "Zoek de weg door het doolhof naar het blaadje onderaan, zonder door een muur te gaan.",
+          "Klaar? Kleur de tekeningetjes in. Het antwoord staat op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "doolhof-wolk-zon",
+    "order": 524,
+    "category": "natuur",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 2,
+    "colorByNumber": {
+      "codes": "-y",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        }
+      ],
+      "labels": [
+        {
+          "region": 1,
+          "number": 1,
+          "x": 171.6,
+          "y": 251.6,
+          "size": 7.6
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Doolhof: wolkje zoekt de zon",
+        "steps": [
+          "Zet je potlood bij het wolkje bovenaan.",
+          "Zoek de weg door het doolhof naar de zon onderaan, zonder door een muur te gaan.",
+          "Klaar? Kleur de tekeningetjes in. Het antwoord staat op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoorden"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "verbind-de-punten-auto",
+    "order": 525,
+    "category": "voertuigen",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Verbind de punten: auto (1 tot 11)",
+        "steps": [
+          "Begin bij punt 1 en trek een lijn naar 2, dan naar 3, en zo verder.",
+          "Ga van het laatste punt terug naar 1.",
+          "Kleur de tekening en schrijf op wat het is. Het antwoord staat op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoord"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "verbind-de-punten-kasteel",
+    "order": 526,
+    "category": "sprookjes",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Verbind de punten: kasteel (1 tot 22)",
+        "steps": [
+          "Begin bij punt 1 en trek een lijn naar 2, dan naar 3, en zo verder.",
+          "Ga van het laatste punt terug naar 1.",
+          "Kleur de tekening en schrijf op wat het is. Het antwoord staat op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoord"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "verbind-de-punten-kerstboom",
+    "order": 527,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Verbind de punten: kerstboom (1 tot 15)",
+        "steps": [
+          "Begin bij punt 1 en trek een lijn naar 2, dan naar 3, en zo verder.",
+          "Ga van het laatste punt terug naar 1.",
+          "Kleur de tekening en schrijf op wat het is. Het antwoord staat op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoord"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "verbind-de-punten-kroon",
+    "order": 528,
+    "category": "sprookjes",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Verbind de punten: kroon (1 tot 16)",
+        "steps": [
+          "Begin bij punt 1 en trek een lijn naar 2, dan naar 3, en zo verder.",
+          "Ga van het laatste punt terug naar 1.",
+          "Kleur de tekening en schrijf op wat het is. Het antwoord staat op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoord"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "verbind-de-punten-paddenstoel",
+    "order": 529,
+    "category": "natuur",
+    "age": "4-6",
+    "world": null,
+    "holiday": null,
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 10,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "pages": [
+      {
+        "role": "antwoorden",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "kleurpotloden",
+        "optional": true
+      }
+    ],
+    "regionCount": 0,
+    "colorByNumber": {
+      "codes": "",
+      "palette": [],
+      "labels": []
+    },
+    "i18n": {
+      "nl": {
+        "name": "Verbind de punten: paddenstoel (1 tot 14)",
+        "steps": [
+          "Begin bij punt 1 en trek een lijn naar 2, dan naar 3, en zo verder.",
+          "Ga van het laatste punt terug naar 1.",
+          "Kleur de tekening en schrijf op wat het is. Het antwoord staat op het antwoordblad."
+        ],
+        "word": null,
+        "countQuestion": null,
+        "pageTitles": [
+          "Antwoord"
+        ]
+      }
+    }
   }
 ]
