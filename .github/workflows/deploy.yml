@@ -30,7 +30,8 @@ env:
   TAG: ${{ github.event.workflow_run.head_sha || github.sha }}
 
 jobs:
-  build:
+  # Eén job: bouwen en uitrollen. Zo vraagt de GitHub-omgeving "prod" maar één keer om goedkeuring.
+  release:
     # Automatisch uitrollen pas zodra Scaleway klaarstaat: zet dan de repository-variabele DEPLOY_ENABLED op true.
     # Handmatig starten kan altijd.
     if: >-
@@ -38,45 +39,36 @@ jobs:
       (vars.DEPLOY_ENABLED == 'true' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push')
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment || 'dev' }}
-    strategy:
-      matrix:
-        app: [api, web, admin, login]
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ env.TAG }}
-      - uses: docker/setup-buildx-action@v3
-      - name: Inloggen bij de registry
-        env:
-          SCW_SECRET_KEY: ${{ secrets.SCW_SECRET_KEY }}
-        run: echo "$SCW_SECRET_KEY" | docker login "${REGISTRY%%/*}" -u nologin --password-stdin
-      - uses: docker/build-push-action@v6
-        with:
-          context: .
-          target: ${{ matrix.app }}
-          platforms: linux/amd64
-          push: true
-          provenance: false
-          # :latest is wat Terraform gebruikt bij het (her)aanmaken van een container; :<commit> rolt uit.
-          tags: |
-            ${{ vars.REGISTRY }}/kleurhoek-${{ matrix.app }}:${{ env.TAG }}
-            ${{ vars.REGISTRY }}/kleurhoek-${{ matrix.app }}:latest
-          build-args: NEXT_PUBLIC_MARKETS=${{ vars.MARKETS || 'nl-nl' }}
-          cache-from: type=gha,scope=${{ matrix.app }}
-          cache-to: type=gha,scope=${{ matrix.app }},mode=max
-    env:
-      REGISTRY: ${{ vars.REGISTRY }}
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment: ${{ inputs.environment || 'dev' }}
     env:
       SCW_SECRET_KEY: ${{ secrets.SCW_SECRET_KEY }}
       API: https://api.scaleway.com/containers/v1/regions/${{ vars.SCW_REGION || 'nl-ams' }}/containers
       REGISTRY: ${{ vars.REGISTRY }}
       CONTAINER_IDS: ${{ vars.CONTAINER_IDS || '{}' }}
+      MARKETS: ${{ vars.MARKETS || 'nl-nl' }}
+      BUILDX_NO_DEFAULT_ATTESTATIONS: "1"
     steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+          fetch-depth: 300
+      - name: Commits voor de releasenotes (ADR 0023)
+        run: |
+          git log -300 --format='%H%x1f%cI%x1f%s%x1f%(trailers:key=Release-note,valueonly,separator=%x20)%x1e' | python3 -c '
+          import json, sys
+          rows = [r.strip("\n").split("\x1f") for r in sys.stdin.read().split("\x1e") if r.strip()]
+          json.dump([{"sha": a, "date": b, "subject": c, "note": d.strip()} for a, b, c, d in rows], open("apps/api/release-log.json", "w"), ensure_ascii=False)
+          '
+          echo "$(python3 -c 'import json;print(len(json.load(open("apps/api/release-log.json"))))') commits in apps/api/release-log.json"
+      - uses: docker/setup-buildx-action@v3
+      - name: Inloggen bij de registry
+        run: echo "$SCW_SECRET_KEY" | docker login "${REGISTRY%%/*}" -u nologin --password-stdin
+      - name: Images bouwen en pushen (api, web, admin, login; zie docker-bake.hcl)
+        uses: docker/bake-action@v6
+        with:
+          source: .
+          files: docker-bake.hcl
+          push: true
+
       - name: Nieuwe versies uitrollen (eerst de API; die draait bij het opstarten de migraties)
         id: rollout
         run: |
@@ -126,10 +118,6 @@ jobs:
           done
           echo "::error::Website reageert niet na de deploy"; exit 1
 
-      - uses: actions/checkout@v4
-        if: steps.rollout.outputs.skip != 'true'
-        with:
-          ref: ${{ env.TAG }}
       - name: Browsertest (opmaak geladen, geen JavaScript-fouten)
         if: steps.rollout.outputs.skip != 'true'
         run: |

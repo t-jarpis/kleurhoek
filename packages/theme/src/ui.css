@@ -274,3 +274,14 @@ body { margin: 0; background: var(--color-bg); color: var(--color-text); font: 4
 .ui-goal-bar { position: relative; height: 8px; border-radius: 4px; background: var(--chart-grid); }
 .ui-goal-bar i { display: block; height: 100%; max-width: 100%; border-radius: 4px; background: var(--chart-1); }
 .ui-goal-bar b { position: absolute; top: -4px; bottom: -4px; width: 2px; margin-left: -1px; border-radius: 1px; background: var(--color-text); }
+
+/* ReleaseNotes (ADR 0023): per uitrol een kop met datum, status en versie, daaronder wat er veranderde. */
+.ui-releases { display: grid; gap: var(--space-4); margin: 0; padding: 0; list-style: none; }
+.ui-release { display: grid; gap: var(--space-2); padding-bottom: var(--space-4); border-bottom: var(--border-thin) solid var(--color-border); }
+.ui-release:last-child { border-bottom: 0; padding-bottom: 0; }
+.ui-release-head { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-3); align-items: baseline; }
+.ui-release-head h3 { margin: 0; font: 700 16px/1.3 var(--font-sans); }
+.ui-release-head code { font: 400 13px var(--font-mono); color: var(--color-text-muted); }
+.ui-release ul { margin: 0; padding-left: var(--space-5); display: grid; gap: var(--space-1); }
+.ui-release details summary { cursor: pointer; font-size: 14px; color: var(--color-text-muted); }
+.ui-release details ul { margin-top: var(--space-2); font-size: 14px; color: var(--color-text-muted); }

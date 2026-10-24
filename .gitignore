@@ -22,3 +22,4 @@ next-env.d.ts
 infra/envs/*/plan
 *.tfplan
 crash.log
+apps/api/release-log.json

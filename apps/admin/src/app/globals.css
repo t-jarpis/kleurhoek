@@ -112,3 +112,6 @@ button.danger { background: var(--color-surface); color: var(--color-danger); bo
 .goals-form fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
 .goals-form legend { font-weight: 700; margin-bottom: var(--space-2); }
 .goals-form td input[type=number] { width: 100%; max-width: 160px; }
+
+/* Releases (ADR 0023) */
+.ui-release p { margin: 0; }

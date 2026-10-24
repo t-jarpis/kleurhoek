@@ -27,6 +27,8 @@ RUN pnpm turbo run build --filter=@kleurhoek/api --filter=@kleurhoek/web --filte
 # Alleen productie-afhankelijkheden van de API, zonder symlinks naar de workspace.
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
     pnpm --filter @kleurhoek/api deploy --prod --legacy /out/api
+# Releasenotes (ADR 0023): commits van deze build, gemaakt in de Deploy-workflow; lokaal een lege lijst.
+RUN cp apps/api/release-log.json /out/api/release-log.json 2>/dev/null || echo '[]' > /out/api/release-log.json
 
 FROM ${NODE_IMAGE} AS runtime
 RUN apk add --no-cache tini && apk upgrade --no-cache
@@ -36,6 +38,8 @@ ENTRYPOINT ["/sbin/tini", "--"]
 
 # API: migreert (en in dev: vult de catalogus) bij het opstarten; handmatig kan ook met `node dist/db/migrate.js` en `node dist/db/seed-cli.js`.
 FROM runtime AS api
+ARG BUILD_SHA=""
+ENV BUILD_SHA=${BUILD_SHA}
 COPY --from=build --chown=node:node /out/api /app
 USER node
 EXPOSE 3001

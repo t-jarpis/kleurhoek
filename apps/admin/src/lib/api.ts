@@ -28,6 +28,7 @@ export interface Product {
   slug: string; partner: string; url: string; ean: string | null; priceHint: string | null; enabled: boolean;
   markets: string[]; name: string | null; note: string | null; materials: string[]; rank: number;
 }
+export interface Release { sha: string; previousSha: string | null; kind: "first" | "release" | "rollback"; startedAt: string; notes: { sha: string; date: string; text: string; technical: boolean }[] }
 export type GoalMetric = "visits" | "plates" | "clicks";
 export interface GoalMilestone { month: number; target: number; stretch: number }
 export interface Goals {
@@ -98,6 +99,7 @@ export const adminApi = {
   rateLimits: () => call<{ rules: RateLimitRule[] }>("/v1/admin/rate-limits").then((r) => r.rules),
   updateRateLimit: (slug: string, body: { limit?: number; windowSeconds?: number; enabled?: boolean }) =>
     call(`/v1/admin/rate-limits/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
+  releases: () => call<{ current: string | null; releases: Release[] }>("/v1/admin/releases"),
   goals: () => call<Goals>("/v1/admin/analytics/goals"),
   saveGoals: (body: { start: string; metrics: Record<GoalMetric, GoalMilestone[]> }) => call<Goals>("/v1/admin/analytics/goals", { method: "PUT", body: JSON.stringify(body) }),
   overview: (from: string, to: string) => call<Overview>(`/v1/admin/analytics/overview?from=${from}&to=${to}`),

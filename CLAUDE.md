@@ -11,3 +11,4 @@
 - Platformpakketten staan als tarball in `vendor/` (ADR 0009); bijwerken met `scripts/platform-update.mjs`, nooit met de hand.
 - `docker compose up` moet altijd zonder handwerk een werkende omgeving geven, inclusief inloggen via de echte Zitadel. Raak je login, env-variabelen of Terraform aan, test dan ook compose.
 - Voor een commit: `pnpm check` groen.
+- Een commit met een merkbare wijziging krijgt de trailer `Release-note: <één zin in het Nederlands>`; die komt in de releasenotes in het admin panel (ADR 0023).

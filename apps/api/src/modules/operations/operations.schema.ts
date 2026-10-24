@@ -1,4 +1,4 @@
-import { boolean, date, integer, jsonb, pgSchema, text, uniqueIndex } from "drizzle-orm/pg-core";
+import { boolean, date, index, integer, jsonb, pgSchema, text, timestamp, uniqueIndex } from "drizzle-orm/pg-core";
 import { baseColumns } from "../../shared/columns";
 
 export const operationsSchema = pgSchema("operations");
@@ -37,3 +37,20 @@ export const siteAccess = operationsSchema.table("site_access", {
 }, (t) => [uniqueIndex("site_access_tenant").on(t.tenantId)]);
 
 export interface SiteAccessEntry { cidr: string; label: string; addedBy: string; addedAt: string }
+
+/** Eén regel releasenotes: een commit, met de Nederlandse tekst uit de trailer Release-note als die er is. */
+export interface ReleaseNote { sha: string; date: string; text: string; technical: boolean }
+
+/**
+ * Releases van deze omgeving (ADR 0023): de API legt bij het opstarten vast welke versie draait, zodra
+ * die anders is dan de vorige. De notes zijn de commits sinds de vorige release.
+ */
+export const releases = operationsSchema.table("releases", {
+  ...baseColumns(),
+  sha: text("sha").notNull(),
+  previousSha: text("previous_sha"),
+  /** first = eerste in deze omgeving, release = nieuwe versie, rollback = terug naar een eerdere versie. */
+  kind: text("kind", { enum: ["first", "release", "rollback"] }).notNull(),
+  notes: jsonb("notes").$type<ReleaseNote[]>().notNull(),
+  startedAt: timestamp("started_at", { withTimezone: true }).notNull().defaultNow(),
+}, (t) => [index("releases_tenant_started").on(t.tenantId, t.startedAt)]);
