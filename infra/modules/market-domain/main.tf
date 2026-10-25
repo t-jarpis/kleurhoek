@@ -28,6 +28,10 @@ variable "apex_redirect" {
   default     = true
   description = "Kaal domein naar www (alleen als www bestaat)."
 }
+variable "block_ai_bots" {
+  type    = bool
+  default = true
+}
 variable "txt_records" {
   type        = list(string)
   default     = []
@@ -102,6 +106,14 @@ resource "cloudflare_ruleset" "redirect" {
       }
     }
   }]
+}
+
+# AI-crawlers ook op dit domein blokkeren (ADR 0045); bewust geen Bot Fight Mode.
+resource "cloudflare_bot_management" "main" {
+  count              = var.block_ai_bots ? 1 : 0
+  zone_id            = var.zone_id
+  ai_bots_protection = "block"
+  fight_mode         = false
 }
 
 output "hosts" {

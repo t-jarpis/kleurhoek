@@ -68,6 +68,7 @@ export const es: Messages = {
   ownBenefits: [
     ["Una dirección propia", "Vuestro espacio tiene su propia dirección, como elarcoiris.kleurhoek.nl. También puede ser un dominio propio."],
     ["Vuestra imagen", "Vuestro nombre o logotipo y vuestros colores. Nos aseguramos de que todo se lea bien."],
+    ["Sin nuestro nombre en los dibujos", "En nuestra web aparece kleurhoek.nl en pequeño bajo cada dibujo, también en papel. En vuestro espacio, no."],
     ["La oferta que os encaja", "Elegid los temas, las edades, los objetivos de aprendizaje y los tipos de actividades, o montad vuestra propia colección."],
     ["Solo los dibujos", "Si queréis, sin enlaces a tiendas ni de afiliados, para que solo queden los dibujos."],
     ["Lo ajustáis vosotros", "Desde «Gestión» en vuestro propio sitio activáis o desactiváis objetivos, colecciones y dibujos sueltos."],

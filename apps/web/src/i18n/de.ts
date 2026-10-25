@@ -68,6 +68,7 @@ export const de: Messages = {
   ownBenefits: [
     ["Eine eigene Adresse", "Eure Umgebung hat eine eigene Adresse, zum Beispiel regenbogenschule.kleurhoek.nl. Eine eigene Domain ist auch möglich."],
     ["Euer Erscheinungsbild", "Euer Name oder Logo und eure eigenen Farben. Wir sorgen dafür, dass alles gut lesbar bleibt."],
+    ["Ohne unseren Namen auf den Vorlagen", "Auf unserer eigenen Seite steht klein kleurhoek.nl unter jeder Vorlage, auch auf Papier. In eurer Umgebung nicht."],
     ["Das passende Angebot", "Wählt Themen, Altersstufen, Lernziele und Arten von Vorlagen oder stellt eine eigene Sammlung zusammen."],
     ["Nur die Vorlagen", "Auf Wunsch ohne Shop- und Partnerlinks, sodass nur die Vorlagen bleiben."],
     ["Selbst anpassen", "Über „Verwaltung“ auf eurer eigenen Seite schaltet ihr Lernziele, Sammlungen und einzelne Vorlagen selbst an oder aus."],

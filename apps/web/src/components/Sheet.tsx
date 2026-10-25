@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, type CSSProperties, type MouseEvent } from "react";
 import { layout, type Fills, type Label } from "@/lib/studio";
+import { useMark } from "./Base";
 
 export interface SheetPlate {
   name: string;
@@ -17,11 +18,15 @@ export interface SheetPlate {
  * Eén vel: de plaat met kleuren en wat er optioneel bij hoort (nummers, tekst, leerblad,
  * kleurenlijst). Gebruikt door de kleurstudio, de koelkast en het boekje.
  */
-export function Sheet({ plate, inner, fills = {}, sw, numbers = false, legend = false, name = "", learn = false, onPick, className = "sheet" }: {
+export function Sheet({ plate, inner, fills = {}, sw, numbers = false, legend = false, name = "", learn = false, onPick, className = "sheet", marked = true }: {
   plate: SheetPlate; inner: string; fills?: Fills; sw: number; numbers?: boolean; legend?: boolean; name?: string; learn?: boolean;
-  onPick?: (region: number) => void; className?: string;
+  onPick?: (region: number) => void; className?: string; marked?: boolean;
 }) {
   const group = useRef<SVGGElement>(null);
+  // Herkomst onder het vel (PlateMark): een eigen strook, niet op een eigen omgeving van een organisatie.
+  const site = useMark();
+  const mark = marked ? site : null;
+  const MARK_H = 8;
   // De plaat zelf is statische SVG; React raakt die niet aan, alleen de vulkleur van de vlakken.
   useEffect(() => {
     group.current?.querySelectorAll<SVGElement>("[data-i]").forEach((el) => { el.style.fill = fills[Number(el.dataset.i)] ?? ""; });
@@ -36,7 +41,7 @@ export function Sheet({ plate, inner, fills = {}, sw, numbers = false, legend = 
   const x0 = 100 - (L.legendStep * (plate.palette.length - 1)) / 2;
 
   return (
-    <svg className={className} viewBox={`0 0 200 ${L.height}`} style={{ "--sw": sw } as CSSProperties} onClick={click} role="img" aria-label={plate.name}>
+    <svg className={className} viewBox={`0 0 200 ${L.height + (mark ? MARK_H : 0)}`} style={{ "--sw": sw } as CSSProperties} onClick={click} role="img" aria-label={plate.name}>
       <g ref={group} dangerouslySetInnerHTML={{ __html: inner }} />
       {numbers && (
         <g aria-hidden="true">
@@ -66,6 +71,7 @@ export function Sheet({ plate, inner, fills = {}, sw, numbers = false, legend = 
           ))}
         </g>
       )}
+      {mark && <text className="kh-mark" x={100} y={L.height + MARK_H - 2.5} textAnchor="middle" aria-hidden="true">{mark}</text>}
     </svg>
   );
 }

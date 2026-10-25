@@ -68,6 +68,7 @@ export const fr: Messages = {
   ownBenefits: [
     ["Votre propre adresse", "Votre espace a sa propre adresse, par exemple arcenciel.kleurhoek.nl. Un nom de domaine à vous est aussi possible."],
     ["Votre identité visuelle", "Votre nom ou logo et vos propres couleurs. Nous veillons à ce que tout reste bien lisible."],
+    ["Sans notre nom sur les coloriages", "Sur notre site, kleurhoek.nl figure en petit sous chaque coloriage, aussi sur papier. Dans votre espace, non."],
     ["Le contenu qui vous convient", "Choisissez les thèmes, les âges, les objectifs d'apprentissage et les types d'activités, ou composez votre propre collection."],
     ["Rien que les coloriages", "Si vous le souhaitez, sans liens vers des boutiques ou des partenaires : il ne reste que les coloriages."],
     ["À ajuster vous-même", "Depuis « Gestion » sur votre propre site, vous activez ou désactivez vous-même objectifs, collections et coloriages."],

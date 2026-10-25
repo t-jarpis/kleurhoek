@@ -124,3 +124,9 @@ export interface SiteEntry { market: string; root: string; label: string }
 export function siteEntries(markets: string[], domains: Domains | null): SiteEntry[] {
   return markets.map((m) => ({ market: m, root: domains ? `${domains[domainOf(m)]}${prefixOf(m)}` : `/${m}`, label: marketLabel(m) }));
 }
+
+/** Het domein voor onder een vel (PlateMark): kleurhoek.nl, kleurhoek.be of kleurhoek.com, zonder www. */
+export function markFor(market: string, domains: Domains | null): string {
+  if (!domains) return "kleurhoek.nl";
+  return new URL(domains[domainOf(market)]).host.replace(/^www\./, "");
+}

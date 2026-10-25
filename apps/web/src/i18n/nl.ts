@@ -73,6 +73,7 @@ export const nl = {
   ownBenefits: [
     ["Een eigen adres", "Jullie omgeving staat op een eigen adres, zoals deregenboog.kleurhoek.nl. Een eigen domein kan ook."],
     ["Jullie huisstijl", "Jullie naam of logo en eigen kleuren. We zorgen dat alles goed leesbaar blijft."],
+    ["Zonder onze naam op de platen", "Op onze eigen site staat kleurhoek.nl klein onder elke plaat, ook op papier. In jullie omgeving niet."],
     ["Het aanbod dat past", "Kies de onderwerpen, leeftijden, leerdoelen en soorten werkjes, of stel een eigen collectie samen."],
     ["Alleen de platen", "Als jullie dat willen zonder winkel- en partnerlinks, zodat alleen de platen overblijven."],
     ["Zelf bij te stellen", "Via Beheer op jullie eigen site zetten jullie leerdoelen, collecties en losse platen zelf aan of uit."],

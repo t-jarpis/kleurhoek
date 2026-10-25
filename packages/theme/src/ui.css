@@ -520,3 +520,6 @@ a.ui-chip { text-decoration: none; }
 .ui-worldmap-scale li.none { background: var(--chart-grid); opacity: 1; margin-inline-end: var(--space-2); }
 .ui-worldmap-scale .from { margin-inline-start: var(--space-4); }
 .ui-worldmap-scale { flex-wrap: wrap; } .ui-worldmap-scale span { white-space: nowrap; }
+
+/* ---------- PlateMark: domein onder het vel ---------- */
+.sheet .kh-mark { fill: var(--color-text-muted); font: 600 5px var(--font-sans); letter-spacing: .02em; }

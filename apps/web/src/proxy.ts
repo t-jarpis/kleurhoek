@@ -4,6 +4,9 @@ import { bestMarket, LIVE_MARKETS } from "./lib/markets";
 import { DEFAULT_ORG, resolveOrg, SHARED_PATH } from "./lib/org-resolve";
 import { domainForHost, domainOf, routeFor, siteDomains } from "./lib/sites";
 import { blockedPage, CHECK_HEADER, checkKeyValid, currentPolicy, ipAllowed } from "./lib/site-access";
+import { hotlinkBlocked, PageLimiter } from "./lib/guard";
+
+const pages = new PageLimiter();
 
 export async function proxy(request: NextRequest) {
   const path = request.nextUrl.pathname;
@@ -29,14 +32,27 @@ export async function proxy(request: NextRequest) {
   // Mailrelay (bezorgmeldingen) en mailprogramma's (afmelden met één klik) komen niet van een toegestaan IP;
   // die routes controleren zelf een sleutel of token (ADR 0037, 0038).
   const machine = request.method === "POST" && /^\/mail\/(events\/[a-z]+|afmelden)$/.test(path);
-  if (policy && !machine && !ipAllowed(policy, ip) && !checkKeyValid(request.headers.get(CHECK_HEADER))) return blockedPage(ip);
+  const checked = checkKeyValid(request.headers.get(CHECK_HEADER));
+  if (policy && !machine && !ipAllowed(policy, ip) && !checked) return blockedPage(ip);
   headers.delete(CHECK_HEADER);
 
   // Welke organisatie: de host van het verzoek, of die van het organisatiedomein (via de Worker).
   const host = headers.get(FORWARDED.host) ?? request.headers.get("host") ?? "";
   const org = await resolveOrg(host);
   headers.set("x-kh-org", org.slug);
-  headers.set("x-kh-site-host", host.toLowerCase().replace(/:\d+$/, ""));
+  const siteHost = host.toLowerCase().replace(/:\d+$/, "");
+  headers.set("x-kh-site-host", siteHost);
+
+  // Tegen scrapers (ADR 0045): geen plaatbestanden als afbeelding op andere sites, en een paginalimiet per IP.
+  if (hotlinkBlocked({ path, dest: request.headers.get("sec-fetch-dest"), referer: request.headers.get("referer"), siteHost })) {
+    return new NextResponse("Deze kleurplaat staat op Kleurhoek", { status: 403, headers: { "cache-control": "no-store" } });
+  }
+  // Alleen echte paginaverzoeken tellen: geen prefetch en geen RSC-verzoeken van de site zelf (sec-fetch-dest "empty").
+  const dest = request.headers.get("sec-fetch-dest");
+  const pageLoad = request.method === "GET" && (dest === "document" || dest === null) && !request.headers.has("rsc") && !request.headers.has("next-router-prefetch");
+  if (!SHARED_PATH.test(path) && pageLoad && !checked && !pages.allow(ip, request.headers.get("user-agent") ?? "")) {
+    return new NextResponse("Even rustig aan: te veel pagina's in korte tijd. Probeer het over een minuut opnieuw.", { status: 429, headers: { "retry-after": "60", "cache-control": "no-store", "content-type": "text/plain; charset=utf-8" } });
+  }
 
   // Kleurhoek zelf op een eigen domein (ADR 0040): .nl zonder voorvoegsel, .be met /nl en /fr, .com met /<markt>.
   const domains = siteDomains();

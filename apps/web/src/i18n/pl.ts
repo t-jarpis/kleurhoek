@@ -74,6 +74,7 @@ export const pl: Messages = {
   ownBenefits: [
     ["Własny adres", "Wasza wersja ma własny adres, na przykład tecza.kleurhoek.nl. Możliwa jest też własna domena."],
     ["Wasz styl", "Wasza nazwa lub logo i wasze kolory. Dbamy o to, żeby wszystko było czytelne."],
+    ["Bez naszej nazwy na kolorowankach", "Na naszej stronie pod każdą kolorowanką jest mały napis kleurhoek.nl, także na papierze. W waszej wersji go nie ma."],
     ["Dopasowana oferta", "Wybierzcie tematy, wiek, cele nauki i rodzaje prac albo ułóżcie własną kolekcję."],
     ["Tylko plansze", "Jeśli chcecie, bez linków do sklepów i linków partnerskich, tak że zostają same plansze."],
     ["Sami dostosowujecie", "W „Zarządzaniu” na waszej stronie sami włączacie i wyłączacie cele nauki, kolekcje i pojedyncze plansze."],

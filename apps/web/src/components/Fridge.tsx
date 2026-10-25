@@ -56,7 +56,7 @@ export function Fridge({ market, plates, language }: { market: string; plates: P
             <div className="magw" key={item.id}>
               <button type="button" className="mag" style={{ "--rot": `${TILT[k % 6]}deg`, "--mc": MAGNETS[k % 6] } as CSSProperties}
                 aria-label={name} onClick={() => { fridge.resume(item); router.push(href(`/platen/${item.slug}`)); }}>
-                {svg?.inner ? <Sheet plate={{ name, height: svg.height, regionCount: -1, word: null, countQuestion: null, labels: [], palette: [] }} inner={svg.inner} fills={item.fills} name={item.name} sw={2} /> : <span className="mag-empty" />}
+                {svg?.inner ? <Sheet plate={{ name, height: svg.height, regionCount: -1, word: null, countQuestion: null, labels: [], palette: [] }} inner={svg.inner} fills={item.fills} name={item.name} sw={2} marked={false} /> : <span className="mag-empty" />}
               </button>
               <small>
                 <span>{name} · {item.date}</span>

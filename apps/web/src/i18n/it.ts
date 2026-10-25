@@ -68,6 +68,7 @@ export const it: Messages = {
   ownBenefits: [
     ["Un indirizzo vostro", "Il vostro spazio ha un indirizzo proprio, come arcobaleno.kleurhoek.nl. Si può usare anche un dominio vostro."],
     ["Il vostro stile", "Il vostro nome o logo e i vostri colori. Ci assicuriamo che tutto resti ben leggibile."],
+    ["Senza il nostro nome sui disegni", "Sul nostro sito kleurhoek.nl compare in piccolo sotto ogni disegno, anche su carta. Nel vostro spazio no."],
     ["L'offerta giusta", "Scegliete i temi, le età, gli obiettivi di apprendimento e i tipi di lavoretti, oppure create una vostra raccolta."],
     ["Solo i disegni", "Se volete, senza link a negozi e partner, così restano solo i disegni."],
     ["Lo regolate voi", "Da «Gestione» sul vostro sito attivate o disattivate voi stessi obiettivi, raccolte e singoli disegni."],

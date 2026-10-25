@@ -38,6 +38,11 @@ variable "market_hosts" {
   default     = {}
   description = "Domeinen per land (ADR 0040): host → omgeving, bijvoorbeeld { \"www.kleurhoek.be\" = \"prod\" }. De Worker stuurt ze door."
 }
+variable "block_ai_bots" {
+  type        = bool
+  default     = true
+  description = "AI-crawlers blokkeren via Cloudflare (ADR 0045). Faalt de apply op rechten, zet dan tijdelijk false."
+}
 variable "edge_rate_limits" {
   type = list(object({
     name       = string
@@ -251,6 +256,43 @@ resource "cloudflare_ruleset" "redirects" {
         target_url            = { expression = r.target }
       }
     }
+  }]
+}
+
+# ---------- Tegen scrapers (ADR 0045) ----------
+# AI-crawlers blokkeren (gratis, ook die zich niet aan robots.txt houden). Bewust géén Bot Fight Mode: die is op
+# het gratis plan niet uit te zonderen en zou de webhooks van de mailrelay, onze rooktests en de Worker blokkeren.
+
+resource "cloudflare_bot_management" "main" {
+  count              = var.block_ai_bots ? 1 : 0
+  zone_id            = var.zone_id
+  ai_bots_protection = "block"
+  fight_mode         = false
+}
+
+# Hotlinking: plaatbestanden (SVG) niet als afbeelding op andere sites. Vóór de cache, dus ook bij een cache-hit.
+# Eigen domeinen, organisatiesites (*.kleurhoek.nl) en zoekmachines mogen wel.
+resource "cloudflare_ruleset" "firewall" {
+  zone_id     = var.zone_id
+  name        = "Kleurhoek firewall"
+  description = "Beheerd door Terraform"
+  kind        = "zone"
+  phase       = "http_request_firewall_custom"
+  rules = [{
+    ref         = "hotlink_plates"
+    description = "Geen plaatbestanden als afbeelding op andere sites"
+    expression = join(" and ", [
+      "starts_with(http.request.uri.path, \"/v1/assets/plates/\")",
+      "ends_with(http.request.uri.path, \".svg\")",
+      "any(http.request.headers[\"sec-fetch-dest\"][*] eq \"image\")",
+      "http.referer ne \"\"",
+      "not http.referer contains \"kleurhoek.\"",
+      "not http.referer contains \"localhost\"",
+      # Geen regex: dat kan op het gratis plan niet.
+      "not (http.referer contains \"google.\" or http.referer contains \"bing.com\" or http.referer contains \"duckduckgo.com\" or http.referer contains \"ecosia.org\" or http.referer contains \"yahoo.com\" or http.referer contains \"qwant.com\" or http.referer contains \"startpage.com\" or http.referer contains \"brave.com\")",
+    ])
+    action  = "block"
+    enabled = true
   }]
 }
 

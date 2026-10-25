@@ -68,6 +68,7 @@ export const en: Messages = {
   ownBenefits: [
     ["Your own address", "Your space has its own address, such as rainbow.kleurhoek.nl. Your own domain is possible too."],
     ["Your own style", "Your name or logo and your own colours. We make sure everything stays easy to read."],
+    ["Without our name on the pages", "On our own site, kleurhoek.nl appears in small print under every page, on paper too. In your space it doesn't."],
     ["The right selection", "Choose the topics, ages, learning goals and types of activity, or put together your own collection."],
     ["Just the pages", "Without shop or partner links if you prefer, so only the pages remain."],
     ["Adjust it yourself", "Through Manage on your own site you switch learning goals, collections and single pages on or off yourself."],
