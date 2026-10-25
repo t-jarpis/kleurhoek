@@ -8,7 +8,8 @@ export const LIVE_MARKETS = (process.env.MARKETS ?? DEFAULT_MARKETS).split(",").
 
 export function bestMarket(country: string | null, acceptLanguage: string | null, live: string[] = LIVE_MARKETS): string {
   const LIVE = live.length ? live : LIVE_MARKETS;
-  const fallback = LIVE[0] ?? "nl-nl";
+  // Geen markt voor het land en geen taal die we hebben: Engels als internationale standaard (ADR 0044).
+  const fallback = LIVE.find((m) => m.startsWith("en-")) ?? LIVE[0] ?? "nl-nl";
   const c = (country ?? "").toLowerCase();
   const langs = (acceptLanguage ?? "").split(",").map((l) => l.split(";")[0]!.trim().slice(0, 2).toLowerCase()).filter(Boolean);
   const byCountry = LIVE.filter((m) => m.endsWith(`-${c}`));
