@@ -40,6 +40,11 @@ variable "redirect_zone_ids" {
   default     = {}
   description = "Domeinen per land met hun zone-ID (ADR 0040; de naam is historisch). Bijvoorbeeld { \"kleurhoek.be\" = \"...\", \"kleurhoek.com\" = \"...\" }."
 }
+variable "block_ai_bots" {
+  type        = bool
+  default     = true
+  description = "AI-crawlers blokkeren via Cloudflare (ADR 0045). Vraagt het tokenrecht Zone › Bot Management › Edit; scripts/infra.sh zet dit uit als dat recht ontbreekt."
+}
 variable "search_verification" {
   type        = map(list(string))
   default     = {}
@@ -79,6 +84,7 @@ module "zone" {
   login_cname      = var.zitadel_login_cname
   edge_rate_limits = var.edge_rate_limits
   market_hosts     = local.market_hosts
+  block_ai_bots    = var.block_ai_bots
 }
 
 # Verificatie van kleurhoek.nl zelf bij Search Console (de andere domeinen in hun eigen module).
@@ -108,6 +114,7 @@ module "market_domain" {
   worker        = module.zone.worker_name
   apex_redirect = var.prod_live
   txt_records   = lookup(var.search_verification, each.key, [])
+  block_ai_bots = var.block_ai_bots
 }
 
 # Van de oude doorstuurmodule (tot ADR 0040): zelfde resources, nu in market-domain.

@@ -168,6 +168,14 @@ check_config() { # check_config <env>
     else
       problem "Cloudflare-token mist Workers-rechten. Voeg op dash.cloudflare.com › My Profile › API Tokens › (je token) › Edit toe:"$'\n'"      Account › Workers Scripts › Edit  én  Zone › Workers Routes › Edit"
     fi
+    # AI-crawlers blokkeren (ADR 0045) vraagt een extra recht. Ontbreekt dat, dan gaat de rest gewoon door.
+    if [ "$(cf_get "zones/$ZONE_ID/bot_management")" = 200 ]; then
+      ok "Cloudflare-token mag Bot Management beheren (AI-crawlers blokkeren)"
+      export TF_VAR_block_ai_bots=true
+    else
+      warn "Cloudflare-token mist Zone › Bot Management › Edit: AI-crawlers blokkeren slaan we over. Voeg dat recht toe (My Profile › API Tokens › je token › Edit, voor alle drie de zones) en draai opnieuw."
+      export TF_VAR_block_ai_bots=false
+    fi
   fi
 }
 
