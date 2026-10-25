@@ -8,8 +8,8 @@ export function Disclaimer({ market, contact }: DisclaimerProps) {
       <p className="kh-meta">Zuletzt aktualisiert am 24. Oktober 2026.</p>
       <p>Auf dieser Seite erfährst du, was du mit den Malvorlagen und Bastelbögen von Kleurhoek machen darfst, wie wir auf andere Websites verlinken und wie du uns etwas meldest. Wenn du Kleurhoek nutzt, bist du mit diesen Regeln einverstanden.</p>
 
-      <h2>Alles ist selbst gezeichnet</h2>
-      <p>Alle Malvorlagen, Schneidebögen und Bastelbögen auf Kleurhoek sind extra für Kleurhoek gezeichnet. Wir kopieren keine Zeichnungen von anderen Websites oder aus Büchern, und wir zeichnen keine bekannten Figuren, Marken oder Charaktere nach. Das Urheberrecht an den Zeichnungen und an dieser Website liegt bei Kleurhoek.</p>
+      <h2>Eigene Entwürfe</h2>
+      <p>Alle Malvorlagen, Schneidebögen und Bastelbögen auf Kleurhoek sind extra für Kleurhoek gemacht. Wir erstellen sie mit Hilfe von KI und prüfen jede Vorlage, bevor sie online geht. Wir kopieren nichts von anderen Websites oder aus Büchern, und wir bilden keine bekannten Figuren, Marken oder Charaktere nach. Die Website, der Name Kleurhoek und die Sammlung der Vorlagen gehören Kleurhoek.</p>
       <p>Du darfst die Vorlagen kostenlos nutzen:</p>
       <ul>
         <li>zu Hause, zum Ausmalen, Ausdrucken und Verschenken an Familie und Freunde;</li>

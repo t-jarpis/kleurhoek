@@ -2,7 +2,7 @@ import type { Messages } from "./nl";
 
 /** Interfaceteksten in het Spaans (Spanje, tú-vorm). */
 export const es: Messages = {
-  lede: "Dibujos para colorear hechos a mano, para pintar en línea o imprimir.",
+  lede: "Dibujos para colorear propios, para pintar en línea o imprimir.",
   surprise: "Sorpréndeme",
   topic: "Tema", all: "Todo", continent: "Continente", wholeWorld: "Todo el mundo", country: "País",
   whole: (c: string) => `Toda ${c}`, holiday: "Fiesta", allHolidays: "Todas las fiestas",

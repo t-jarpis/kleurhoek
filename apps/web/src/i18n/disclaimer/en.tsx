@@ -8,8 +8,8 @@ export function Disclaimer({ market, contact }: DisclaimerProps) {
       <p className="kh-meta">Last updated on 24 October 2026.</p>
       <p>This page explains what you may do with Kleurhoek&apos;s colouring pages and craft sheets, how we link to other websites and how to report something to us. By using Kleurhoek, you agree to these terms.</p>
 
-      <h2>Everything is drawn by us</h2>
-      <p>All colouring pages, cut-outs and paper models on Kleurhoek are drawn especially for Kleurhoek. We don&apos;t copy drawings from other websites or from books, and we don&apos;t draw well-known characters, brands or figures. Copyright in the drawings and in this website belongs to Kleurhoek.</p>
+      <h2>Our own designs</h2>
+      <p>All colouring pages, cut-outs and paper models on Kleurhoek are made especially for Kleurhoek. We create them with the help of AI and check every page before it goes online. We don&apos;t copy anything from other websites or from books, and we don&apos;t recreate well-known characters, brands or figures. The website, the Kleurhoek name and the collection of pages belong to Kleurhoek.</p>
       <p>You may use the pages free of charge:</p>
       <ul>
         <li>at home, to colour in, print and hand out to family and friends;</li>

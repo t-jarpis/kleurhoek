@@ -7,14 +7,14 @@ import { pl } from "./pl";
 
 /** Interfaceteksten. Andere talen staan als eigen bestand met dezelfde sleutels ernaast. */
 export const nl = {
-  lede: "Zelf getekende kleurplaten om online in te kleuren of te printen.",
+  lede: "Eigen kleurplaten om online in te kleuren of te printen.",
   surprise: "Verras me",
   topic: "Onderwerp", all: "Alles", continent: "Werelddeel", wholeWorld: "Hele wereld", country: "Land",
   whole: (c: string) => `Heel ${c}`, holiday: "Feestdag", allHolidays: "Alle feestdagen",
   age: "Leeftijd", allAges: "Alle leeftijden", years: "jaar", yr: "jr",
   seasonNow: "Nu in het seizoen", soon: "Binnenkort", almostParty: "Bijna feest",
   emptyTitle: "Sjors zoekt nog", emptyText: "Er zijn nog geen platen voor deze combinatie. Kies een ander onderwerp of een andere leeftijd.", showAll: "Toon alle platen",
-  note: "Alle platen zijn speciaal voor Kleurhoek getekend.",
+  note: "Alle platen zijn speciaal voor Kleurhoek gemaakt.",
   back: "← Alle platen", howToColor: "Zo kleur je", free: "Vrij kleuren", byNumber: "Kleur op nummer",
   colors: "Kleuren", colorPerNumber: "Kleur bij elk nummer", eraser: "Gum", lines: "Lijnen",
   lineAuto: "Passend", lineThin: "Dun", lineNormal: "Normaal", lineThick: "Dik",

@@ -8,8 +8,8 @@ export function Disclaimer({ market, contact }: DisclaimerProps) {
       <p className="kh-meta">Dernière mise à jour le 24&nbsp;octobre&nbsp;2026.</p>
       <p>Sur cette page, vous découvrirez ce que vous pouvez faire avec les coloriages et les bricolages de Kleurhoek, comment nous renvoyons vers d&apos;autres sites web et comment nous signaler quelque chose. En utilisant Kleurhoek, vous acceptez ces conditions.</p>
 
-      <h2>Tout est dessiné par nous</h2>
-      <p>Tous les coloriages, modèles à découper et maquettes de Kleurhoek sont dessinés spécialement pour Kleurhoek. Nous ne copions aucun dessin provenant d&apos;autres sites web ou de livres, et nous ne reproduisons aucun personnage, aucune marque ni aucune figure connue. Les droits d&apos;auteur sur les dessins et sur ce site appartiennent à Kleurhoek.</p>
+      <h2>Nos propres créations</h2>
+      <p>Tous les coloriages, modèles à découper et maquettes de Kleurhoek sont créés spécialement pour Kleurhoek. Nous les réalisons avec l&apos;aide de l&apos;IA et vérifions chaque coloriage avant sa mise en ligne. Nous ne copions rien d&apos;autres sites web ou de livres, et nous ne reproduisons aucun personnage, aucune marque ni aucune figure connue. Le site, le nom Kleurhoek et la collection de coloriages appartiennent à Kleurhoek.</p>
       <p>Vous pouvez utiliser les coloriages gratuitement&nbsp;:</p>
       <ul>
         <li>à la maison, pour les colorier, les imprimer et les distribuer à la famille et aux amis&nbsp;;</li>

@@ -8,8 +8,8 @@ export function Disclaimer({ market, contact }: DisclaimerProps) {
       <p className="kh-meta">Ultimo aggiornamento: 24 ottobre 2026.</p>
       <p>In questa pagina trovi cosa puoi fare con i disegni da colorare e i lavoretti di Kleurhoek, come mettiamo i link ad altri siti web e come puoi segnalarci qualcosa. Usando Kleurhoek accetti queste regole.</p>
 
-      <h2>Tutto è disegnato da noi</h2>
-      <p>Tutti i disegni da colorare, da ritagliare e da costruire su Kleurhoek sono stati disegnati apposta per Kleurhoek. Non copiamo disegni da altri siti web o da libri e non ridisegniamo personaggi, marchi o figure famose. Il diritto d&apos;autore sui disegni e su questo sito web appartiene a Kleurhoek.</p>
+      <h2>Disegni nostri</h2>
+      <p>Tutti i disegni da colorare, da ritagliare e da costruire su Kleurhoek sono creati apposta per Kleurhoek. Li realizziamo con l&apos;aiuto dell&apos;IA e controlliamo ogni disegno prima di pubblicarlo. Non copiamo nulla da altri siti web o da libri e non riproduciamo personaggi, marchi o figure famose. Il sito, il nome Kleurhoek e la raccolta di disegni appartengono a Kleurhoek.</p>
       <p>Puoi usare i disegni gratis:</p>
       <ul>
         <li>a casa, per colorarli, stamparli e regalarli a parenti e amici;</li>

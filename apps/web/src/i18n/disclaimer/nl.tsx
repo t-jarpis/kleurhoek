@@ -8,8 +8,8 @@ export function Disclaimer({ market, contact }: DisclaimerProps) {
       <p className="kh-meta">Laatst bijgewerkt op 24 oktober 2026.</p>
       <p>Op deze pagina lees je wat je met de kleurplaten en knutselplaten van Kleurhoek mag doen, hoe wij naar andere websites linken en hoe je ons iets meldt. Door Kleurhoek te gebruiken ga je akkoord met deze afspraken.</p>
 
-      <h2>Alles is zelf getekend</h2>
-      <p>Alle kleurplaten, knipplaten en bouwplaten op Kleurhoek zijn speciaal voor Kleurhoek getekend. We kopiëren geen tekeningen van andere websites of uit boeken, en we tekenen geen bekende figuren, merken of personages na. Het auteursrecht op de tekeningen en op deze website ligt bij Kleurhoek.</p>
+      <h2>Eigen ontwerpen</h2>
+      <p>Alle kleurplaten, knipplaten en bouwplaten op Kleurhoek zijn speciaal voor Kleurhoek gemaakt. We maken ze met hulp van AI en kijken elke plaat na voordat hij online komt. We kopiëren niets van andere websites of uit boeken, en we maken geen bekende figuren, merken of personages na. De website, de naam Kleurhoek en de verzameling platen zijn van Kleurhoek.</p>
       <p>Je mag de platen gratis gebruiken:</p>
       <ul>
         <li>thuis, om in te kleuren, te printen en uit te delen aan familie en vriendjes;</li>

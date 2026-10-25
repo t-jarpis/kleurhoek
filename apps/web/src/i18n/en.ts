@@ -2,14 +2,14 @@ import type { Messages } from "./nl";
 
 /** Interface texts in British English (UK, Ireland, EU). Same keys as nl.ts. */
 export const en: Messages = {
-  lede: "Hand-drawn colouring pages to colour in online or print.",
+  lede: "Our own colouring pages to colour in online or print.",
   surprise: "Surprise me",
   topic: "Topic", all: "All", continent: "Continent", wholeWorld: "Whole world", country: "Country",
   whole: (c: string) => `All of ${c}`, holiday: "Holiday", allHolidays: "All holidays",
   age: "Age", allAges: "All ages", years: "years", yr: "yrs",
   seasonNow: "In season now", soon: "Coming soon", almostParty: "Almost party time",
   emptyTitle: "Sjors is still looking", emptyText: "There are no pages for this combination yet. Pick another topic or a different age.", showAll: "Show all pages",
-  note: "Every page is drawn especially for Kleurhoek.",
+  note: "Every page is made especially for Kleurhoek.",
   back: "← All pages", howToColor: "How to colour", free: "Free colouring", byNumber: "Colour by number",
   colors: "Colours", colorPerNumber: "Colour for each number", eraser: "Eraser", lines: "Lines",
   lineAuto: "Best fit", lineThin: "Thin", lineNormal: "Normal", lineThick: "Thick",

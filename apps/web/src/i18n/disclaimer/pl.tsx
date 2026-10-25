@@ -8,8 +8,8 @@ export function Disclaimer({ market, contact }: DisclaimerProps) {
       <p className="kh-meta">Ostatnia aktualizacja: 24 października 2026 r.</p>
       <p>Na tej stronie przeczytasz, co możesz robić z kolorowankami i planszami do wycinania z Kleurhoek, jak linkujemy do innych stron internetowych i jak możesz nam coś zgłosić. Korzystając z Kleurhoek, akceptujesz te zasady.</p>
 
-      <h2>Wszystko narysowaliśmy sami</h2>
-      <p>Wszystkie kolorowanki, wycinanki i modele z papieru w Kleurhoek zostały narysowane specjalnie dla Kleurhoek. Nie kopiujemy rysunków z innych stron internetowych ani z książek i nie odrysowujemy znanych postaci, marek ani bohaterów. Prawa autorskie do rysunków i do tej strony należą do Kleurhoek.</p>
+      <h2>Własne projekty</h2>
+      <p>Wszystkie kolorowanki, wycinanki i modele z papieru w Kleurhoek powstają specjalnie dla Kleurhoek. Tworzymy je z pomocą AI i sprawdzamy każdą planszę, zanim trafi do sieci. Niczego nie kopiujemy z innych stron internetowych ani z książek i nie odtwarzamy znanych postaci, marek ani bohaterów. Strona, nazwa Kleurhoek i zbiór plansz należą do Kleurhoek.</p>
       <p>Z plansz możesz korzystać bezpłatnie:</p>
       <ul>
         <li>w domu, aby je kolorować, drukować i rozdawać rodzinie i przyjaciołom;</li>

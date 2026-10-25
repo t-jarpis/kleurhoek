@@ -2,14 +2,14 @@ import type { Messages } from "./nl";
 
 /** Interfaceteksten in het Frans (Frankrijk en België). "tu" voor kinderen, "vous" voor ouders en organisaties. Vaste spatie (U+00A0) voor ? ! : ; volgens de Franse typografie. */
 export const fr: Messages = {
-  lede: "Des coloriages dessinés par nous, à colorier en ligne ou à imprimer.",
+  lede: "Nos propres coloriages, à colorier en ligne ou à imprimer.",
   surprise: "Surprends-moi",
   topic: "Thème", all: "Tout", continent: "Continent", wholeWorld: "Le monde entier", country: "Pays",
   whole: (c: string) => `Tout${/^antarctique/i.test(c) ? "" : "e"} l'${c}`, holiday: "Fête", allHolidays: "Toutes les fêtes",
   age: "Âge", allAges: "Tous les âges", years: "ans", yr: "ans",
   seasonNow: "De saison", soon: "Bientôt", almostParty: "Bientôt la fête",
   emptyTitle: "Sjors cherche encore", emptyText: "Il n'y a pas encore de coloriages pour cette combinaison. Choisis un autre thème ou un autre âge.", showAll: "Voir tous les coloriages",
-  note: "Tous les coloriages sont dessinés spécialement pour Kleurhoek.",
+  note: "Tous les coloriages sont créés spécialement pour Kleurhoek.",
   back: "← Tous les coloriages", howToColor: "Comment colorier", free: "Coloriage libre", byNumber: "Coloriage magique",
   colors: "Couleurs", colorPerNumber: "Une couleur par numéro", eraser: "Gomme", lines: "Traits",
   lineAuto: "Adapté", lineThin: "Fin", lineNormal: "Normal", lineThick: "Épais",

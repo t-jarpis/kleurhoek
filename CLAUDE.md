@@ -5,7 +5,7 @@
 - Gedeelde code komt uit `@t-jarpis/*` (repo `t-jarpis/platform`). Kleurhoek-code gaat nooit naar het platform; iets verhuist pas als een tweede site het nodig heeft (platform ADR 0001).
 - Domeinen hebben harde grenzen (ADR 0001): eigen schema, geen imports van andermans internals.
 - **Design system eerst** (ADR 0012): een nieuwe of gewijzigde component, variant of staat komt eerst in het design system (https://claude.ai/artifact/L7Df2x1wNxdihbVvuKuRMt: spec, tokens, preview) en wordt pas daarna gebouwd. Geen losse hex-waarden of maten in componenten. Stijl zit in `packages/theme` (ADR 0016): componenten lezen alleen semantische variabelen; een nieuwe stijl is een nieuwe map in `themes/`.
-- Alle platen zijn eigen tekeningen. Geen bekende figuren, merken of werk van anderen.
+- Alle platen zijn eigen ontwerpen (gemaakt met hulp van AI, elke plaat nagekeken). Geen bekende figuren, merken of werk van anderen. Claim nergens dat ze met de hand of "zelf getekend" zijn.
 - Privacy: geen tracking-cookies, geen persoonsgegevens in analytics, kinderen zonder account (ADR 0002).
 - Alles in deze repo moet overdraagbaar zijn bij verkoop (ADR 0004). Geen geheimen of `.env`-bestanden committen.
 - Platformpakketten staan als tarball in `vendor/` (ADR 0009); bijwerken met `scripts/platform-update.mjs`, nooit met de hand.

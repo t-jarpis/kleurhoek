@@ -2,14 +2,14 @@ import type { Messages } from "./nl";
 
 /** Interfaceteksten in het Duits (Duitsland, Oostenrijk, Zwitserland). Zelfde sleutels als nl.ts. */
 export const de: Messages = {
-  lede: "Selbst gezeichnete Malvorlagen zum Ausmalen am Bildschirm oder zum Ausdrucken.",
+  lede: "Eigene Malvorlagen zum Ausmalen am Bildschirm oder zum Ausdrucken.",
   surprise: "Überrasch mich",
   topic: "Thema", all: "Alles", continent: "Kontinent", wholeWorld: "Ganze Welt", country: "Land",
   whole: (c: string) => `Ganz ${c}`, holiday: "Fest", allHolidays: "Alle Feste",
   age: "Alter", allAges: "Jedes Alter", years: "Jahre", yr: "J.",
   seasonNow: "Passend zur Jahreszeit", soon: "Demnächst", almostParty: "Bald wird gefeiert",
   emptyTitle: "Sjors sucht noch", emptyText: "Für diese Auswahl gibt es noch keine Vorlagen. Wähle ein anderes Thema oder ein anderes Alter.", showAll: "Alle Vorlagen zeigen",
-  note: "Alle Vorlagen sind extra für Kleurhoek gezeichnet.",
+  note: "Alle Vorlagen sind extra für Kleurhoek gemacht.",
   back: "← Alle Vorlagen", howToColor: "So malst du", free: "Frei ausmalen", byNumber: "Malen nach Zahlen",
   colors: "Farben", colorPerNumber: "Farbe für jede Zahl", eraser: "Radiergummi", lines: "Linien",
   lineAuto: "Passend", lineThin: "Dünn", lineNormal: "Normal", lineThick: "Dick",

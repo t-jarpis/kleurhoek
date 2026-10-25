@@ -1,6 +1,6 @@
 # Kleurhoek
 
-Zelf getekende kleurplaten om online in te kleuren of te printen, met platen per leeftijd, onderwerp, land en feestdag. Start in Nederland, gebouwd om wereldwijd uit te rollen.
+Eigen kleurplaten om online in te kleuren of te printen, met platen per leeftijd, onderwerp, land en feestdag. Start in Nederland, gebouwd om wereldwijd uit te rollen.
 
 ## Indeling
 | Map | Inhoud |

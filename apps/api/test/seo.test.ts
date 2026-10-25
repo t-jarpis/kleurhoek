@@ -15,7 +15,7 @@ describe("vindbaarheid (ADR 0035)", () => {
     const bad = await ctx.http.inject({ method: "PUT", url: "/v1/admin/seo", headers: admin, payload: { googleVerification: "<script>", bingVerification: null, home: {} } });
     expect(bad.statusCode).toBe(400);
     const ok = await ctx.http.inject({ method: "PUT", url: "/v1/admin/seo", headers: admin, payload: {
-      googleVerification: "abcDEF123_-xyz", bingVerification: "", home: { "nl-NL": { title: "Kleurplaten om te printen", description: "Gratis, zelf getekend." } },
+      googleVerification: "abcDEF123_-xyz", bingVerification: "", home: { "nl-NL": { title: "Kleurplaten om te printen", description: "Gratis eigen kleurplaten." } },
     } });
     expect(ok.json()).toMatchObject({ googleVerification: "abcDEF123_-xyz", bingVerification: null });
     const analist = await ctx.http.inject({ method: "PUT", url: "/v1/admin/seo", headers: { authorization: "Bearer analist" }, payload: { googleVerification: null, bingVerification: null, home: {} } });

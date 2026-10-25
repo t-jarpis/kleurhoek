@@ -28,7 +28,7 @@ export function SnippetFields({ market, host, title, description }: { market: st
         <figcaption className="visually-hidden">Voorbeeld in zoekresultaten</figcaption>
         <p className="ui-snippet-url">{host} › {key}</p>
         <p className="ui-snippet-title">{t || "Kleurhoek"}</p>
-        <p className="ui-snippet-desc">{d || "Zelf getekende kleurplaten om online in te kleuren of te printen."}</p>
+        <p className="ui-snippet-desc">{d || "Eigen kleurplaten om online in te kleuren of te printen."}</p>
       </figure>
     </div>
   );

@@ -19,10 +19,16 @@ export class TemplatesService implements OnModuleInit {
   constructor(@Inject(DB) private readonly db: Database, @Inject(ENV) private readonly env: Env) {}
   private get tenant() { return this.env.TENANT_ID; }
 
-  /** Startinhoud neerzetten als die er nog niet is; nooit overschrijven. */
+  /**
+   * Startinhoud neerzetten. Een template dat nog niemand in het admin panel heeft aangepast (bijgewerkt door
+   * "systeem") volgt de tekst in de code; een aangepast template wordt nooit overschreven.
+   */
   async onModuleInit() {
     await withTenant(this.db, this.tenant, async (tx) => {
-      for (const d of DEFAULT_TEMPLATES) await tx.insert(templates).values({ tenantId: this.tenant, ...d }).onConflictDoNothing();
+      for (const d of DEFAULT_TEMPLATES) {
+        await tx.insert(templates).values({ tenantId: this.tenant, ...d })
+          .onConflictDoUpdate({ target: [templates.tenantId, templates.slug], set: { subject: d.subject, preheader: d.preheader, blocks: d.blocks, updatedAt: new Date() }, setWhere: eq(templates.updatedBy, "systeem") });
+      }
       for (const w of DEFAULT_WORKFLOWS) await tx.insert(workflows).values({ tenantId: this.tenant, ...w }).onConflictDoNothing();
     });
   }

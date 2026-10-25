@@ -8,14 +8,14 @@ const plural = (n: number, one: string, few: string, many: string): string => {
 };
 
 export const pl: Messages = {
-  lede: "Samodzielnie narysowane kolorowanki do kolorowania online lub do wydruku.",
+  lede: "Własne kolorowanki do kolorowania online lub do wydruku.",
   surprise: "Zaskocz mnie",
   topic: "Temat", all: "Wszystko", continent: "Kontynent", wholeWorld: "Cały świat", country: "Kraj",
   whole: (c: string) => `${c} (wszystko)`, holiday: "Święto", allHolidays: "Wszystkie święta",
   age: "Wiek", allAges: "Każdy wiek", years: "lat", yr: "l.",
   seasonNow: "Teraz w sezonie", soon: "Wkrótce", almostParty: "Zaraz święto",
   emptyTitle: "Sjors jeszcze szuka", emptyText: "Nie ma jeszcze plansz dla tego połączenia. Wybierz inny temat albo inny wiek.", showAll: "Pokaż wszystkie plansze",
-  note: "Wszystkie plansze są rysowane specjalnie dla Kleurhoek.",
+  note: "Wszystkie plansze powstają specjalnie dla Kleurhoek.",
   back: "← Wszystkie plansze", howToColor: "Sposób kolorowania", free: "Dowolnie", byNumber: "Koloruj według numerów",
   colors: "Kolory", colorPerNumber: "Kolor dla każdego numeru", eraser: "Gumka", lines: "Linie",
   lineAuto: "Dopasowane", lineThin: "Cienkie", lineNormal: "Zwykłe", lineThick: "Grube",

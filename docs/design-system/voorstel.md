@@ -11,10 +11,10 @@ In één zin: **"Kleur is voor kinderen en inhoud, rust is voor volwassenen."** 
 ## 0. Merk
 
 ### 0.1 Merkpositie
-**Kleurhoek is de rustige, eerlijke plek waar kinderen kleuren en knutselen met platen die speciaal voor hen getekend zijn, en waar volwassenen zonder gedoe kunnen printen, voorbereiden en de juiste spullen vinden.**
+**Kleurhoek is de rustige, eerlijke plek waar kinderen kleuren en knutselen met platen die speciaal voor hen gemaakt zijn, en waar volwassenen zonder gedoe kunnen printen, voorbereiden en de juiste spullen vinden.**
 
-- **Belofte:** *Zelf getekend. Eerlijk. Klaar om te printen.*
-- **Bewijs dat er al is:** eigen tekeningen, geen bekende figuren (CLAUDE.md), geen reclame in het kinderdeel, geen tracking-cookies (ADR 0002 en 0011), partnerlinks met uitleg erbij, en print op ware grootte.
+- **Belofte:** *Eigen ontwerpen. Eerlijk. Klaar om te printen.* (Gemaakt met hulp van AI en nagekeken; nooit "met de hand" of "zelf getekend" claimen.)
+- **Bewijs dat er al is:** eigen ontwerpen, geen bekende figuren (CLAUDE.md), partnerlinks met uitleg erbij, en print op ware grootte. Privacy en geen reclame in het kinderdeel zijn uitgangspunten (ADR 0002 en 0011), geen verkoopargument in teksten.
 - **Wat ons onderscheidt van de grote kleurplatensites** (vol advertenties, rommelig): rust, vakmanschap en eerlijkheid. Dat moet je *zien*, en daar is dit design system voor.
 
 ### 0.2 Persoonlijkheid (vier eigenschappen, elk met een grens)

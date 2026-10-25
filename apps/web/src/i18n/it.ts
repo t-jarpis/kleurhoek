@@ -2,14 +2,14 @@ import type { Messages } from "./nl";
 
 /** Testi dell'interfaccia in italiano. Stesse chiavi di nl.ts. */
 export const it: Messages = {
-  lede: "Disegni da colorare fatti a mano, da colorare online o da stampare.",
+  lede: "Disegni da colorare tutti nostri, da colorare online o da stampare.",
   surprise: "Sorprendimi",
   topic: "Tema", all: "Tutto", continent: "Continente", wholeWorld: "Tutto il mondo", country: "Paese",
   whole: (c: string) => `Tutto: ${c}`, holiday: "Festa", allHolidays: "Tutte le feste",
   age: "Età", allAges: "Tutte le età", years: "anni", yr: "anni",
   seasonNow: "Di stagione", soon: "Fra poco", almostParty: "Quasi festa",
   emptyTitle: "Sjors sta ancora cercando", emptyText: "Non ci sono ancora disegni per questa combinazione. Scegli un altro tema o un'altra età.", showAll: "Mostra tutti i disegni",
-  note: "Tutti i disegni sono fatti apposta per Kleurhoek.",
+  note: "Tutti i disegni sono creati apposta per Kleurhoek.",
   back: "← Tutti i disegni", howToColor: "Come colorare", free: "Colora libero", byNumber: "Colora con i numeri",
   colors: "Colori", colorPerNumber: "Colore per ogni numero", eraser: "Gomma", lines: "Linee",
   lineAuto: "Adatte", lineThin: "Sottili", lineNormal: "Normali", lineThick: "Spesse",
