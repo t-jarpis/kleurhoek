@@ -39,6 +39,9 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: var(--font-display-w
 .season-txt h2 { margin: 0; font-size: 24px; line-height: 1.2; }
 .soon { margin: 0; color: var(--color-text-muted); font-size: 14px; }
 .soon b { color: var(--color-text); }
+/* Feestdag met platen: link naar die platen in de lijst (filter Feestdag). */
+.soon .season-link { color: var(--color-text); text-decoration: underline; text-decoration-color: var(--color-border-control); text-underline-offset: 3px; }
+@media (hover: hover) { .soon .season-link:hover { color: var(--color-accent); text-decoration-color: currentColor; } }
 .minis { display: flex; gap: var(--space-3); overflow-x: auto; padding: var(--space-2) var(--space-2) var(--space-1) 2px; }
 .minis .card { width: 112px; flex: none; }
 .minis .card b { font-size: 14px; }
@@ -97,6 +100,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: var(--font-display-w
 .studio { display: grid; grid-template-columns: minmax(0, 1fr) var(--tools-width); gap: var(--space-6); align-items: start; }
 .studio-top { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; justify-content: space-between; }
 .studio-top h1 { font-size: clamp(24px, 5vw, 32px); line-height: 1.1; margin: 0; }
+.studio-top .ui-fav-hint { flex-basis: 100%; text-align: end; }
 .canvas { background: var(--color-paper); border-radius: var(--radius-paper); padding: var(--space-3); box-shadow: var(--shadow-paper); width: 100%; max-width: 620px; justify-self: center; }
 .canvas svg { display: block; width: 100%; height: auto; }
 .canvas .r { cursor: pointer; }

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { PlateItem, Season, Taxonomy } from "@/lib/types";
 import type { Messages } from "@/i18n/nl";
 import { PlateCard } from "./PlateCard";
@@ -19,14 +20,19 @@ export function SeasonBand({ season, plates, taxonomy, market, t }: { season: Se
   const title = names.length > 1 ? `${names.slice(0, -1).join(", ")} ${t.and} ${names.at(-1)}` : names[0] ?? t.almostParty;
   const holidays = season.active.filter((a) => a.kind === "holiday");
   const bySlug = new Map(plates.map((p) => [p.slug, p]));
+  // Een feestdag met platen is een link naar die platen (filter Feestdag in de lijst eronder).
+  const withPlates = new Set(plates.map((p) => p.holiday).filter(Boolean));
+  const holiday = (h: { slug: string; name: string }) => withPlates.has(h.slug)
+    ? <Link href={`/${market}?onderwerp=feest&feestdag=${h.slug}#platen`} className="season-link"><b>{h.name}</b></Link>
+    : <b>{h.name}</b>;
   return (
     <section className="season" aria-label={t.seasonNow}>
       <div className="tear" aria-hidden="true"><span className="tm">{t.months[m - 1]!.slice(0, 3)}</span><b>{d}</b><span className="td">{weekday}</span></div>
       <div className="season-txt">
         <p className="eyebrow">{t.seasonNow}</p>
         <h2>{title}</h2>
-        {holidays.length > 0 && <p className="soon">{holidays.map((h, i) => <span key={h.slug}>{i > 0 && " · "}<b>{h.name}</b> ({label(h)})</span>)}</p>}
-        {season.soon.length > 0 && <p className="soon">{t.soon}: {season.soon.map((h, i) => <span key={h.slug}>{i > 0 && " · "}<b>{h.name}</b> ({label(h)})</span>)}</p>}
+        {holidays.length > 0 && <p className="soon">{holidays.map((h, i) => <span key={h.slug}>{i > 0 && " · "}{holiday(h)} ({label(h)})</span>)}</p>}
+        {season.soon.length > 0 && <p className="soon">{t.soon}: {season.soon.map((h, i) => <span key={h.slug}>{i > 0 && " · "}{holiday(h)} ({label(h)})</span>)}</p>}
         <div className="minis">
           {season.plates.map((s) => bySlug.get(s)).filter((p): p is PlateItem => !!p).map((p) => <PlateCard key={p.slug} plate={p} market={market} taxonomy={taxonomy} mini yr={t.yr} />)}
         </div>

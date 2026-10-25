@@ -47,7 +47,7 @@ export default async function PlatePage({ params }: { params: Promise<{ org: str
         genre: t.kindNames[plate.kind], publisher: { "@type": "Organization", name: "Kleurhoek", url: SITE },
       }) }} />}
       <Track event={{ type: "page_view", market, page: "plaat", plate: plate.slug }} />
-      <Studio plate={plate} inner={inner} ageWidth={ageWidth} market={market} language={language} />
+      <Studio plate={plate} inner={inner} ageWidth={ageWidth} market={market} language={language} accounts={o?.features.accounts ?? false} />
       <div className="wrap after-studio" data-mode="ouder"><ForParents plate={plate} market={market} t={messages(language)} /><SiteFooter market={market} t={messages(language)} own={(await getOrg(org))?.isDefault ?? false} /></div>
     </>
   );

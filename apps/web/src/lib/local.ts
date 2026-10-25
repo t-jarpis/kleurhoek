@@ -3,11 +3,15 @@ import { useSyncExternalStore } from "react";
 import { hang, togglePick, type Fills, type FridgeItem } from "./studio";
 
 /**
- * Alles wat op dit apparaat bewaard blijft (koelkast, keuze voor het boekje). Zonder account en
- * zonder server: het werk van een kind hoort bij het apparaat, niet bij ons.
+ * Alles wat op dit apparaat bewaard blijft (koelkast, keuze voor het boekje, favorieten). Koelkast en boekje
+ * zonder server: het werk van een kind hoort bij het apparaat, niet bij ons. Favorieten gaan met een account mee
+ * naar elk apparaat (ADR 0039).
  */
 const FRIDGE = "kh:koelkast";
 const BOOK = "kh:boekje";
+const FAVS = "kh:favorieten";
+/** Staan de favorieten op dit apparaat gelijk met een account? Dan gaat elke wijziging ook naar het account. */
+const FAVS_ACCOUNT = "kh:favorieten:account";
 const EVENT = "kh:local";
 
 function read<T>(key: string, fallback: T): T {
@@ -26,7 +30,7 @@ function snapshot<T>(key: string, fallback: T): T {
   return cache.get(key) as T;
 }
 function subscribe(onChange: () => void) {
-  const storage = (e: StorageEvent) => { if (e.key === FRIDGE || e.key === BOOK) { cache.clear(); onChange(); } };
+  const storage = (e: StorageEvent) => { if (e.key === FRIDGE || e.key === BOOK || e.key === FAVS) { cache.clear(); onChange(); } };
   window.addEventListener(EVENT, onChange);
   window.addEventListener("storage", storage);
   return () => { window.removeEventListener(EVENT, onChange); window.removeEventListener("storage", storage); };
@@ -59,4 +63,43 @@ export const book = {
   setPicking(picking: boolean) { write(BOOK, { ...read(BOOK, NO_BOOK), picking }); },
   toggle(slug: string) { const s = read(BOOK, NO_BOOK); write(BOOK, { ...s, slugs: togglePick(s.slugs, slug) }); },
   set(slugs: string[]) { write(BOOK, { ...read(BOOK, NO_BOOK), slugs }); },
+};
+
+// ---------- Favorieten (ADR 0039) ----------
+// Zonder account op het apparaat. Met een account: na inloggen één keer samenvoegen, daarna is het account leidend,
+// zodat iets wat op een ander apparaat is weggehaald niet terugkomt.
+
+const NO_FAVS: string[] = [];
+export function useFavorites(): string[] {
+  return useSyncExternalStore(subscribe, () => snapshot(FAVS, NO_FAVS), () => NO_FAVS);
+}
+
+let syncing: Promise<boolean> | null = null;
+export const favorites = {
+  /** Eén keer per pagina: gelijkzetten met het account als iemand is ingelogd. Geeft terug of dat zo is. */
+  sync(): Promise<boolean> {
+    syncing ??= (async () => {
+      const res = await fetch("/auth/favorites").catch(() => null);
+      if (!res?.ok) { if (read(FAVS_ACCOUNT, false)) write(FAVS_ACCOUNT, false); return false; }
+      let server = ((await res.json()) as { slugs: string[] }).slugs;
+      const wasLinked = read(FAVS_ACCOUNT, false);
+      const extra = wasLinked ? [] : read(FAVS, NO_FAVS).filter((s) => !server.includes(s));
+      if (extra.length) {
+        const merged = await fetch("/auth/favorites", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ slugs: extra }) }).catch(() => null);
+        if (merged?.ok) server = ((await merged.json()) as { slugs: string[] }).slugs;
+      }
+      write(FAVS, server);
+      if (!wasLinked) write(FAVS_ACCOUNT, true);
+      return true;
+    })();
+    return syncing;
+  },
+  /** Aan of uit. Geeft de nieuwe stand. */
+  toggle(slug: string): boolean {
+    const list = read(FAVS, NO_FAVS);
+    const on = !list.includes(slug);
+    write(FAVS, on ? [...list, slug] : list.filter((s) => s !== slug));
+    if (read(FAVS_ACCOUNT, false)) void fetch(`/auth/favorites/${slug}`, { method: on ? "PUT" : "DELETE" }).catch(() => undefined);
+    return on;
+  },
 };

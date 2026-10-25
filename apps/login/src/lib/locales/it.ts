@@ -13,7 +13,7 @@ export const it: LoginMessages = {
   errRestart: "Qualcosa è andato storto. Ricomincia.",
   backToSite: "Torna al sito",
   privacy: "Privacy",
-  emailIntro: (site: string) => `Per genitori e tutori: salva i tuoi libretti e le tue preferenze su ${site}.`,
+  emailIntro: (site: string) => `Per genitori e tutori: ritrova i tuoi preferiti su tutti i tuoi dispositivi e scegli le tue email su ${site}.`,
   email: "Indirizzo email",
   next: "Avanti",
   noAccount: "Non hai ancora un account?",

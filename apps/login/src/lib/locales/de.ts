@@ -13,7 +13,7 @@ export const de: LoginMessages = {
   errRestart: "Da ist etwas schiefgelaufen. Fang noch einmal von vorn an.",
   backToSite: "Zurück zur Website",
   privacy: "Datenschutz",
-  emailIntro: (site: string) => `Für Eltern und Betreuungspersonen: Speichere deine Heftchen und Einstellungen bei ${site}.`,
+  emailIntro: (site: string) => `Für Eltern und Betreuungspersonen: Speichere deine Favoriten auf all deinen Geräten und wähle deine E-Mails bei ${site}.`,
   email: "E-Mail-Adresse",
   next: "Weiter",
   noAccount: "Noch kein Konto?",

@@ -5,7 +5,7 @@ Het volledige architectuurdocument met diagrammen staat hier: https://claude.ai/
 **Afspraak:** bij elke architectuurwijziging worden het document én de diagrammen bijgewerkt, en komt er een ADR in `docs/adr/`.
 
 ## Kort
-- Website en admin panel in Next.js, API in NestJS als modulaire monoliet met domeinen: Identiteit en toegang, Catalogus, Lokalisatie, Beschikbaarheid, Analytics, Organisaties, Contact, Bronnen, Berichten (fase 1); Betrokkenheid, Rechten en abonnementen (fase 2); Betalingen (fase 3); Winkel (fase 4).
+- Website en admin panel in Next.js, API in NestJS als modulaire monoliet met domeinen: Identiteit en toegang, Catalogus, Lokalisatie, Beschikbaarheid, Analytics, Organisaties, Contact, Bronnen, Berichten, Betrokkenheid (fase 1, begint met favorieten); Rechten en abonnementen (fase 2); Betalingen (fase 3); Winkel (fase 4).
 - Inloggen via Zitadel Cloud, organisatie `Kleurhoek` in de gedeelde instance per omgeving. Gedeelde code uit `t-jarpis/platform`.
 - Scaleway Amsterdam (eigen organisatie, een project per omgeving), Cloudflare (eigen zone), PostgreSQL met een schema per domein en row-level security op `tenant_id`.
 - Analytics zonder cookies en zonder persoonsgegevens. Accounts alleen voor volwassenen (16+ in NL).
@@ -34,3 +34,4 @@ Het volledige architectuurdocument met diagrammen staat hier: https://claude.ai/
 - Instellingen per organisatie: leerdoelen afgeleid uit soort, onderwerp en naam; collecties in Catalogus; aanbod beperkt tot collecties, leerdoelen en zonder uitgezette platen; filter Leerdoel per organisatie; beheerders van een school (websiteaccounts) stellen dit zelf in via Beheer op de eigen site (ADR 0036).
 - Mail (domein Berichten): aanmelden met bevestiging (16+), voorkeuren en afmelden met één klik, templates als blokken per taal, workflows (aanleiding + stappen), campagnes en een wachtrij. Alles zelf gebouwd; afleveren via SMTP achter één adapter (lokaal Mailpit). Geen tracking; afmelden verwijdert de abonnee (ADR 0037).
 - Bezorging in eigen beheer: meldingen uit SMTP-antwoorden en webhooks van de relay (Brevo, Scaleway TEM, eigen formaat) worden één soort melding; harde bounce of klacht blokkeert het adres (alleen een HMAC, geen adres), herhaalde soft bounce pauzeert. Inzicht per dag, mailprovider en mail in Mail › Bezorging (ADR 0038).
+- Betrokkenheid: favorieten per account (op het apparaat zonder account, na inloggen samengevoegd, daarna op elk apparaat); het eerste wat een account toevoegt naast mail (ADR 0039).

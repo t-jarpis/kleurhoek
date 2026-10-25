@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Logo } from "@/components/Logo";
+import { AccountBenefits } from "@/components/AccountBenefits";
 import { AccountPanel } from "@/components/AccountPanel";
 import { Track } from "@/components/Track";
 import { marketLanguage } from "@/lib/markets";
@@ -27,6 +28,7 @@ export default async function AccountPage({ params }: { params: Promise<{ org: s
         memberSince: t.memberSince, accountPrivacy: t.accountPrivacy, deleteAccount: t.deleteAccount, deleteSure: t.deleteSure,
         mlAccount: t.mlAccount, mlAccountHint: t.mlAccountHint, mlTopicNames: t.mlTopicNames, mlSave: t.mlSave, mlSaved: t.mlSaved, mlError: t.mlError,
       }} />
+      <AccountBenefits market={market} language={marketLanguage(market)} />
     </div>
   );
 }

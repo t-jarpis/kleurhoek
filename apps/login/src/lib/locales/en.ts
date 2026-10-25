@@ -13,7 +13,7 @@ export const en: LoginMessages = {
   errRestart: "Something went wrong. Please start again.",
   backToSite: "Back to the site",
   privacy: "Privacy",
-  emailIntro: (site: string) => `For parents and carers: save your booklets and preferences on ${site}.`,
+  emailIntro: (site: string) => `For parents and carers: keep your favourites on all your devices and choose your emails on ${site}.`,
   email: "Email address",
   next: "Continue",
   noAccount: "No account yet?",

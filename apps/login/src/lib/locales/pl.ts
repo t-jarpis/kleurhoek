@@ -13,7 +13,7 @@ export const pl: LoginMessages = {
   errRestart: "Coś poszło nie tak. Zacznij od nowa.",
   backToSite: "Wróć na stronę",
   privacy: "Prywatność",
-  emailIntro: (site: string) => `Dla rodziców i opiekunów: zapisuj swoje książeczki i ustawienia w serwisie ${site}.`,
+  emailIntro: (site: string) => `Dla rodziców i opiekunów: zapisuj ulubione na wszystkich urządzeniach i wybieraj e-maile w serwisie ${site}.`,
   email: "Adres e-mail",
   next: "Dalej",
   noAccount: "Nie masz jeszcze konta?",

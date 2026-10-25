@@ -1,4 +1,5 @@
 "use client";
+import { FavoriteButton } from "./FavoriteButton";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import type { PlateDetail } from "@/lib/types";
@@ -14,7 +15,7 @@ function load(p: PlateDetail): Saved {
   try { return { fills: {}, name: "", ...JSON.parse(localStorage.getItem(storageKey(p)) ?? "{}") }; } catch { return { fills: {}, name: "" }; }
 }
 
-export function Studio({ plate, inner, ageWidth, market, language }: { plate: PlateDetail; inner: string; ageWidth: number; market: string; language: string }) {
+export function Studio({ plate, inner, ageWidth, market, language, accounts = false }: { plate: PlateDetail; inner: string; ageWidth: number; market: string; language: string; accounts?: boolean }) {
   const t = messages(language);
   const [mode, setMode] = useState<"free" | "num">("free");
   const [color, setColor] = useState(FREE_PALETTE[0]!);
@@ -75,6 +76,7 @@ export function Studio({ plate, inner, ageWidth, market, language }: { plate: Pl
         <div className="studio-top">
           <Link href={`/${market}`} className="btn">{t.back}</Link>
           <h1>{plate.name}</h1>
+          <FavoriteButton slug={plate.slug} market={market} language={language} accounts={accounts} />
         </div>
         <div className="canvas" data-print={hasColor ? printWhat : "kleur"}>
           <Sheet className="sheet sheet-live" plate={sheet} inner={inner} fills={fills} sw={sw} numbers={mode === "num"} name={name} learn={learn} onPick={apply} />

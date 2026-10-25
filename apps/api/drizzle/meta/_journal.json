@@ -169,6 +169,13 @@
       "when": 1792920619580,
       "tag": "0023_bezorging",
       "breakpoints": true
+    },
+    {
+      "idx": 24,
+      "version": "7",
+      "when": 1792921903178,
+      "tag": "0024_favorieten",
+      "breakpoints": true
     }
   ]
 }

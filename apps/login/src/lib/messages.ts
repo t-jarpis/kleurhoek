@@ -15,7 +15,7 @@ export const nl = {
   errRestart: "Er ging iets mis. Begin opnieuw.",
   backToSite: "Terug naar de site",
   privacy: "Privacy",
-  emailIntro: (site: string) => `Voor ouders en verzorgers: bewaar je boekjes en voorkeuren bij ${site}.`,
+  emailIntro: (site: string) => `Voor ouders en verzorgers: bewaar je favorieten op al je apparaten en kies je mails bij ${site}.`,
   email: "E-mailadres",
   next: "Verder",
   noAccount: "Nog geen account?",

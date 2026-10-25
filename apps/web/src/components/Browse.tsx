@@ -1,10 +1,10 @@
 "use client";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useMemo, type CSSProperties } from "react";
+import { useEffect, useMemo, type CSSProperties } from "react";
 import { KIND_GROUP, type PlateItem, type Taxonomy } from "@/lib/types";
 import { messages } from "@/i18n/nl";
 import { PlateCard } from "./PlateCard";
-import { book, useBook } from "@/lib/local";
+import { book, favorites, useBook, useFavorites } from "@/lib/local";
 
 type Key = "soort" | "leerdoel" | "onderwerp" | "werelddeel" | "land" | "feestdag" | "leeftijd";
 
@@ -15,6 +15,8 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
   const pathname = usePathname();
   const params = useSearchParams();
   const picks = useBook();
+  const favs = useFavorites();
+  useEffect(() => { void favorites.sync(); }, []);
   const f = {
     kind: params.get("soort") ?? "alle", goal: taxonomy.learningFilters ? params.get("leerdoel") ?? "alle" : "alle",
     cat: params.get("onderwerp") ?? "alle", cont: params.get("werelddeel") ?? "alle", land: params.get("land") ?? "alle",
@@ -27,7 +29,7 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
     router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
   };
 
-  const inCat = (p: PlateItem, c: string) => c === "alle" || (c === "wereld" ? !!p.world : c === "feest" ? !!p.holiday : p.category === c);
+  const inCat = (p: PlateItem, c: string) => c === "alle" || (c === "favorieten" ? favs.includes(p.slug) : c === "wereld" ? !!p.world : c === "feest" ? !!p.holiday : p.category === c);
   const ofKind = (p: PlateItem, k: string) => k === "alle" || KIND_GROUP[p.kind] === k || p.kind === k;
   const hasGoal = (p: PlateItem, g: string) => g === "alle" || p.goals.includes(g);
   const kinded = plates.filter((p) => (f.age === "alle" || p.age === f.age) && ofKind(p, f.kind));
@@ -39,7 +41,7 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
   const visible = useMemo(() => aged.filter((p) => inCat(p, f.cat)
     && (f.cat !== "wereld" || f.cont === "alle" || p.world?.continent === f.cont)
     && (f.cat !== "wereld" || f.land === "alle" || p.world?.country === f.land)
-    && (f.cat !== "feest" || f.hol === "alle" || p.holiday === f.hol)), [aged, f.cat, f.cont, f.land, f.hol]);
+    && (f.cat !== "feest" || f.hol === "alle" || p.holiday === f.hol)), [aged, f.cat, f.cont, f.land, f.hol, favs]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const cont = taxonomy.continents.find((c) => c.slug === f.cont);
   const lands = cont ? [...new Set(aged.filter((p) => p.world?.continent === cont.slug && p.world.country).map((p) => p.world!.country!))].sort((a, b) => a.localeCompare(b, language)) : [];
@@ -53,7 +55,7 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
 
   return (
     <>
-      <div className="filters">
+      <div className="filters" id="platen">
         {crafts > 0 && (
           <div className="frow"><span className="flabel">{t.kind}</span>
             <div className="seg seg-scroll" role="group" aria-label={t.kind}>
@@ -74,6 +76,8 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
         <div className="frow"><span className="flabel">{t.topic}</span>
           <nav className="chips" aria-label={t.topic}>
             {chip("onderwerp", "alle", t.all, "var(--color-text)", aged.length, f.cat === "alle")}
+            {/* Favorieten (ADR 0039): alleen als er favorieten zijn, of als de link er al op staat. */}
+            {(favs.length > 0 || f.cat === "favorieten") && chip("onderwerp", "favorieten", t.favorites, "var(--krijt-rood)", aged.filter((p) => favs.includes(p.slug)).length, f.cat === "favorieten")}
             {taxonomy.categories.map((c) => chip("onderwerp", c.slug, c.name, c.color, aged.filter((p) => inCat(p, c.slug)).length, f.cat === c.slug))}
           </nav>
         </div>

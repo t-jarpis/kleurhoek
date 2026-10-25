@@ -328,8 +328,15 @@ a.ui-chip { text-decoration: none; }
 .kh-contact { display: grid; gap: var(--space-4); max-width: 560px; margin-top: var(--space-6); }
 .kh-contact > .ui-hint { margin: 0; font-size: 14px; color: var(--color-text-muted); }
 .kh-contact .ui-field { max-width: none; }
-.kh-contact-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); }
-@media (max-width: 560px) { .kh-contact-row { grid-template-columns: 1fr; } }
+/* Twee velden naast elkaar: label, invoer en hint delen rijen (subgrid), zodat de invoervelden op één lijn staan,
+   ook als het ene label over twee regels loopt of maar één veld een hint heeft. */
+.kh-contact-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-4); row-gap: var(--space-1); }
+.kh-contact-row > .ui-field { grid-row: span 3; grid-template-rows: subgrid; row-gap: var(--space-1); align-content: start; }
+.kh-contact-row > .ui-field > label { align-self: end; }
+@media (max-width: 560px) {
+  .kh-contact-row { grid-template-columns: 1fr; }
+  .kh-contact-row > .ui-field + .ui-field { margin-block-start: var(--space-3); }
+}
 .kh-contact .ui-btn { justify-self: start; }
 
 /* ---------- ThemeCard en SourceLink (Bronnengids, ADR 0025). Nooit beeld van de maker: een eigen letterteken. ---------- */
@@ -459,3 +466,10 @@ a.ui-chip { text-decoration: none; }
 .ui-health strong { font: 800 28px/1.1 var(--font-sans); font-variant-numeric: tabular-nums; }
 .ui-health small { font-size: 13px; color: var(--color-text-muted); }
 .ui-health .ui-badge { justify-self: start; }
+/* ---------- FavoriteButton: plaat bewaren als favoriet (site, ADR 0039) ---------- */
+.ui-fav { display: inline-flex; align-items: center; gap: var(--space-2); }
+.ui-fav .ui-icon { flex: none; color: var(--color-text); }
+.ui-fav[aria-pressed="true"] .ui-icon { color: var(--krijt-rood); }
+.ui-fav[aria-pressed="true"] .ui-icon path { fill: currentColor; }
+.ui-fav-hint { margin: 0; font-size: 14px; color: var(--color-text-muted); }
+.ui-fav-hint a { color: var(--color-accent); }

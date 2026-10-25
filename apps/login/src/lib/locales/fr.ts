@@ -14,7 +14,7 @@ export const fr: LoginMessages = {
   errRestart: "Une erreur s'est produite. Veuillez recommencer.",
   backToSite: "Retour au site",
   privacy: "Confidentialité",
-  emailIntro: (site: string) => `Pour les parents et les adultes responsables : conservez vos livrets et vos préférences sur ${site}.`,
+  emailIntro: (site: string) => `Pour les parents et les adultes responsables : retrouvez vos favoris sur tous vos appareils et choisissez vos e-mails sur ${site}.`,
   email: "Adresse e-mail",
   next: "Continuer",
   noAccount: "Pas encore de compte ?",

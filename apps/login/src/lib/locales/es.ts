@@ -13,7 +13,7 @@ export const es: LoginMessages = {
   errRestart: "Algo ha salido mal. Empieza de nuevo.",
   backToSite: "Volver al sitio",
   privacy: "Privacidad",
-  emailIntro: (site: string) => `Para padres y cuidadores: guarda tus cuadernillos y preferencias en ${site}.`,
+  emailIntro: (site: string) => `Para padres y cuidadores: guarda tus favoritos en todos tus dispositivos y elige tus correos en ${site}.`,
   email: "Correo electrónico",
   next: "Continuar",
   noAccount: "¿Aún no tienes cuenta?",
