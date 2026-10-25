@@ -1,5 +1,6 @@
 import "server-only";
 import { createHash, createHmac } from "node:crypto";
+import { isBot } from "./bots";
 
 /**
  * Eén event doorgeven aan de API, zonder IP-adres of user agent op te slaan: alleen land, soort
@@ -16,6 +17,7 @@ export function device(ua: string): "mobile" | "tablet" | "desktop" | "other" {
   return "other";
 }
 
+
 /** `nl-nl` of `nl-NL` naar `nl-NL`; null als het geen markt is. */
 export function normalizeMarket(value: unknown): string | null {
   return typeof value === "string" && /^[a-z]{2}-[a-z]{2}$/i.test(value) ? `${value.slice(0, 2).toLowerCase()}-${value.slice(3).toUpperCase()}` : null;
@@ -23,6 +25,7 @@ export function normalizeMarket(value: unknown): string | null {
 
 export async function ingest(req: Request, event: { type: string; market: string; plate?: string | undefined; product?: string | undefined; page?: string | undefined; entry?: string | undefined; ref?: string | undefined }) {
   const ua = req.headers.get("user-agent") ?? "";
+  if (isBot(ua)) return;
   const ip = req.headers.get("cf-connecting-ip") ?? req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "";
   const country = (req.headers.get("cf-ipcountry") ?? process.env.DEV_COUNTRY ?? "").toUpperCase();
   const day = new Date().toISOString().slice(0, 10);

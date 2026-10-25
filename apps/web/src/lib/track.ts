@@ -29,6 +29,8 @@ function landing(): { entry: string; ref: string } | null {
 /** Stuurt een anonieme telling naar ons eigen domein. Geen cookies, geen scripts van derden. */
 export function track(e: TrackEvent) {
   try {
+    // Geautomatiseerde browsers (tests, scrapers) tellen niet mee; de server filtert daarnaast op user agent.
+    if (navigator.webdriver) return;
     const land = e.type === "page_view" ? landing() : null;
     const body = JSON.stringify(land ? { ...e, ...land } : e);
     if (!navigator.sendBeacon?.("/e", new Blob([body], { type: "text/plain" }))) {
