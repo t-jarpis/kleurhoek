@@ -154,6 +154,21 @@ export interface MailOverview {
   queue: { queued?: number; sent?: number; failed?: number; expired?: number; errors: { error: string | null; n: number }[] };
   runs: Record<string, Record<string, number>>; options: MailOptions;
 }
+/** Bezorging (ADR 0038). */
+export interface MailCounts { sent: number; delivered: number; deferred: number; soft: number; hard: number; complaints: number; unsubscribes: number }
+export type MailHealth = "goed" | "let op" | "slecht" | "te weinig";
+export interface MailDeliveryEvent { type: string; provider: string; domain?: string; source: string | null; template?: string | null; reason: string | null; at: string }
+export interface MailDeliverability {
+  days: number; totals: MailCounts; daily: (MailCounts & { day: string })[]; byDomain: (MailCounts & { domain: string })[];
+  bySource: (MailCounts & { source: string | null; template: string | null })[]; recent: MailDeliveryEvent[];
+  limits: { bounce: { warn: number; bad: number }; complaint: { warn: number; bad: number } };
+  rates: { bounce: number; complaint: number; delivered: number | null }; health: { bounce: MailHealth; complaint: MailHealth };
+  providers: Record<string, { last: string; events: number }>; suppressed: Record<string, number>; sending: { bulk: boolean; transactional: boolean };
+}
+export interface MailSuppressionLookup {
+  suppression: { reason: string; detail: string | null; since: string; expiresAt: string | null; by: string } | null;
+  events: MailDeliveryEvent[];
+}
 export interface MailSubscriber { id: string; email: string; market: string; topics: MailTopic[]; status: "pending" | "active"; viaAccount: boolean; consentAt: string; confirmedAt: string | null }
 
 export interface SourceInput { title?: string; description?: string | null; basis?: "link" | "license"; licenseNote?: string | null; licenseDate?: string | null }
@@ -228,6 +243,11 @@ export const adminApi = {
     call<Collection>(`/v1/admin/collections/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
   deleteCollection: (slug: string) => call<void>(`/v1/admin/collections/${encodeURIComponent(slug)}`, { method: "DELETE" }),
   mailOverview: () => call<MailOverview>("/v1/admin/mail"),
+  mailDeliverability: (days: number) => call<MailDeliverability>(`/v1/admin/mail/deliverability?days=${days}`),
+  mailWebhooks: () => call<{ webhooks: Record<string, string> }>("/v1/admin/mail/deliverability/webhooks").then((r) => r.webhooks),
+  mailSuppression: (email: string) => call<MailSuppressionLookup>(`/v1/admin/mail/suppressions?email=${encodeURIComponent(email)}`),
+  addMailSuppression: (email: string, detail: string | null) => call<MailSuppressionLookup>("/v1/admin/mail/suppressions", { method: "POST", body: JSON.stringify({ email, ...(detail ? { detail } : {}) }) }),
+  removeMailSuppression: (email: string) => call<{ removed: boolean; reason: string | null }>(`/v1/admin/mail/suppressions?email=${encodeURIComponent(email)}`, { method: "DELETE" }),
   mailSubscriber: (email: string) => call<{ subscriber: MailSubscriber | null }>(`/v1/admin/mail/subscribers?email=${encodeURIComponent(email)}`).then((r) => r.subscriber),
   removeMailSubscriber: (id: string) => call<void>(`/v1/admin/mail/subscribers/${encodeURIComponent(id)}`, { method: "DELETE" }),
   mailTemplates: () => call<{ templates: MailTemplate[]; options: MailOptions }>("/v1/admin/mail/templates"),

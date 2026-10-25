@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, HttpCode, NotFoundException, Param, Post, Put, Query, Req, ServiceUnavailableException, UseGuards } from "@nestjs/common";
+import { BadRequestException, Body, Controller, Delete, Get, HttpCode, NotFoundException, Param, Post, Put, Query, Req, ServiceUnavailableException, UseGuards } from "@nestjs/common";
 import type { FastifyRequest } from "fastify";
 import { z } from "zod";
 import { AdminGuard, RequirePermission } from "../identity/admin.guard";
@@ -9,6 +9,8 @@ import { LocalizationService } from "../localization/localization.service";
 import { RateLimit } from "../operations/rate-limit.guard";
 import { StorefrontService } from "../storefront/storefront.service";
 import { CampaignsService } from "./campaigns.service";
+import { DeliverabilityService } from "./deliverability/deliverability.service";
+import { PROVIDERS, type Provider } from "./deliverability/feedback";
 import { TOPICS } from "./messaging.types";
 import { OutboxService } from "./outbox.service";
 import { maskEmail, SubscribersService } from "./subscribers.service";
@@ -105,6 +107,25 @@ export class MeMailController {
   }
 }
 
+/**
+ * Meldingen van de relay over bezorging (ADR 0038): afgeleverd, bounce, spamklacht, afgemeld. Via de website
+ * (/mail/events/<bron>?key=…), met een geheime sleutel per bron in het adres.
+ */
+@Controller("v1/mail/events")
+export class MailEventsController {
+  constructor(private readonly delivery: DeliverabilityService) {}
+
+  @Post(":provider")
+  @HttpCode(200)
+  async receive(@Param("provider") provider: string, @Query("key") key: string | undefined, @Body() body: unknown) {
+    if (!(PROVIDERS as readonly string[]).includes(provider) || !this.delivery.keyValid(provider as Provider, key)) throw new NotFoundException();
+    // SNS (Scaleway) stuurt JSON als text/plain.
+    let data = body;
+    if (typeof body === "string") { try { data = JSON.parse(body); } catch { throw new BadRequestException("Geen JSON"); } }
+    return this.delivery.ingest(provider as Provider, data);
+  }
+}
+
 /** Mail in het admin panel (ADR 0037). Adressen alleen met mail.manage, en alleen op exact adres. */
 @Controller("v1/admin/mail")
 @UseGuards(AdminGuard)
@@ -114,6 +135,7 @@ export class AdminMailController {
     private readonly subs: SubscribersService, private readonly templates: TemplatesService, private readonly workflows: WorkflowsService,
     private readonly campaigns: CampaignsService, private readonly outbox: OutboxService, private readonly i18n: LocalizationService,
     private readonly catalog: CatalogService, private readonly store: StorefrontService, @Inject(ENV) private readonly env: Env,
+    private readonly delivery: DeliverabilityService,
   ) {}
 
   /** Keuzes voor de editors: onderwerpen, markten, templates, collecties. */
@@ -131,6 +153,43 @@ export class AdminMailController {
   async overview() {
     const [subscribers, queue, runs, options] = await Promise.all([this.subs.counts(), this.outbox.queueStats(), this.workflows.runStats(), this.options()]);
     return { sending: this.outbox.sending(), subscribers, queue, runs, options };
+  }
+
+  /** Bezorging (ADR 0038): afgeleverd, bounces en klachten per dag, mailprovider en bron; webhookadressen. */
+  @Get("deliverability")
+  @RequirePermission("mail.read")
+  async deliverability(@Query("days") days: string | undefined) {
+    const d = [7, 30, 90].includes(Number(days)) ? Number(days) : 30;
+    const report = await this.delivery.report(d);
+    // Webhookadressen bevatten een geheim: alleen voor wie mail mag beheren.
+    return { ...report, sending: this.outbox.sending() };
+  }
+
+  @Get("deliverability/webhooks")
+  @RequirePermission("mail.manage")
+  webhooks() { return { webhooks: this.delivery.webhookUrls() }; }
+
+  @Get("suppressions")
+  @RequirePermission("mail.manage")
+  async lookupSuppression(@Query("email") email: string | undefined) {
+    if (!email || !z.string().email().safeParse(email.trim()).success) throw new BadRequestException("Vul een geldig e-mailadres in");
+    return this.delivery.lookup(email.trim().toLowerCase());
+  }
+
+  @Post("suppressions")
+  @RequirePermission("mail.manage")
+  async addSuppression(@Body() body: unknown, @Req() req: FastifyRequest) {
+    const { email, detail } = parse(z.object({ email: z.string().trim().toLowerCase().email().max(254), detail: z.string().trim().max(200).optional() }).strict(), body);
+    await this.delivery.suppress(email, req.admin!.subject, detail ?? null);
+    return this.delivery.lookup(email);
+  }
+
+  @Delete("suppressions")
+  @RequirePermission("mail.manage")
+  async removeSuppression(@Query("email") email: string | undefined) {
+    if (!email || !z.string().email().safeParse(email.trim()).success) throw new BadRequestException("Vul een geldig e-mailadres in");
+    const was = await this.delivery.unsuppress(email.trim().toLowerCase());
+    return { removed: Boolean(was), reason: was };
   }
 
   @Get("subscribers")

@@ -5,7 +5,9 @@ import { DB, type Database } from "../../db/database";
 import { withTenant } from "../../db/tenant";
 import { CatalogService } from "../catalog/catalog.service";
 import { StorefrontService } from "../storefront/storefront.service";
-import { MAIL_TRANSPORT, type MailTransport } from "./mailer";
+import { classifySmtpError } from "./deliverability/feedback";
+import { DeliverabilityService } from "./deliverability/deliverability.service";
+import { MAIL_TRANSPORT, messageIdFor, type MailTransport } from "./mailer";
 import { deliveries, subscribers } from "./messaging.schema";
 import type { Block, MailContext, Topic } from "./messaging.types";
 import { renderMail, type RenderedMail, type RenderPlate } from "./render";
@@ -32,6 +34,7 @@ export class OutboxService {
     @Inject(DB) private readonly db: Database, @Inject(ENV) private readonly env: Env,
     @Inject(MAIL_TRANSPORT) private readonly transport: MailTransport,
     private readonly templates: TemplatesService, private readonly store: StorefrontService, private readonly catalog: CatalogService,
+    private readonly delivery: DeliverabilityService,
   ) {}
   private get tenant() { return this.env.TENANT_ID; }
 
@@ -87,7 +90,7 @@ export class OutboxService {
     if (!kinds.length) return { sent: 0, failed: 0 };
     const batch = Math.max(1, Math.ceil(this.env.MAIL_RATE_PER_MINUTE * Math.max(this.env.MAIL_INTERVAL_MS, 20_000) / 60_000));
     const due = await withTenant(this.db, this.tenant, (tx) => tx.select({
-      id: deliveries.id, template: deliveries.template, context: deliveries.context, transactional: deliveries.transactional, attempts: deliveries.attempts,
+      id: deliveries.id, source: deliveries.source, template: deliveries.template, context: deliveries.context, transactional: deliveries.transactional, attempts: deliveries.attempts,
       subscriberId: subscribers.id, email: subscribers.email, market: subscribers.market, topics: subscribers.topics, status: subscribers.status,
     }).from(deliveries).innerJoin(subscribers, eq(subscribers.id, deliveries.subscriberId))
       .where(and(eq(deliveries.tenantId, this.tenant), eq(deliveries.status, "queued"), inArray(deliveries.transactional, kinds)))
@@ -97,16 +100,28 @@ export class OutboxService {
     for (const d of due) {
       // Bulkmail alleen naar actieve abonnees; een bevestigingsmail juist naar een onbevestigde.
       if (!d.transactional && d.status !== "active") { await this.finish(d.id, "expired", "Abonnee niet actief", now); continue; }
+      // Geblokkeerd adres (bounce, klacht): niets meer sturen, ook geen bevestigingsmail na een harde bounce (ADR 0038).
+      const blocked = await this.delivery.suppressed(d.email, now);
+      if (blocked && !(d.transactional && blocked === "complaint")) { await this.finish(d.id, "expired", `Adres geblokkeerd (${blocked})`, now); continue; }
       if (!cache.has(d.template)) cache.set(d.template, await this.templates.get(d.template));
       const template = cache.get(d.template);
       if (!template) { await this.finish(d.id, "failed", `Template ${d.template} bestaat niet`, now); failed++; continue; }
       try {
         const mail = await this.compose(template, { id: d.subscriberId, email: d.email, market: d.market, topics: d.topics }, d.context, d.transactional);
         if (mail.empty) { await this.finish(d.id, "expired", "Geen platen om te tonen", now); continue; }
-        await this.transport.send({ to: d.email, subject: mail.subject, html: mail.html, text: mail.text, transactional: d.transactional, ...(d.transactional ? {} : { unsubscribeUrl: mail.oneClick }) });
-        await this.finish(d.id, "sent", null, now);
+        await this.transport.send({ to: d.email, subject: mail.subject, html: mail.html, text: mail.text, transactional: d.transactional, ref: d.id, ...(d.transactional ? {} : { unsubscribeUrl: mail.oneClick }) });
+        await this.finish(d.id, "sent", null, now, messageIdFor(d.id, this.env.MAIL_FROM));
+        await withTenant(this.db, this.tenant, (tx) => this.delivery.sent(tx, { id: d.id, source: d.source, template: d.template }, d.email, now));
         sent++;
       } catch (e) {
+        // Permanent geweigerd door de ontvanger (5xx op RCPT TO): harde bounce, niet opnieuw proberen.
+        const c = classifySmtpError(e);
+        if (c.kind === "hard_bounce") {
+          await this.finish(d.id, "failed", c.reason, now);
+          await this.delivery.apply("smtp", { type: "hard_bounce", email: d.email, messageId: null, ref: d.id, reason: c.reason, occurredAt: now });
+          failed++;
+          continue;
+        }
         const attempts = d.attempts + 1;
         this.log.warn(`Mail ${d.id} mislukt (${attempts}): ${String(e).slice(0, 200)}`);
         await withTenant(this.db, this.tenant, (tx) => tx.update(deliveries).set({ attempts, error: String(e).slice(0, 500), status: attempts >= MAX_ATTEMPTS ? "failed" : "queued", updatedAt: now }).where(eq(deliveries.id, d.id)));
@@ -117,9 +132,9 @@ export class OutboxService {
     return { sent, failed };
   }
 
-  private async finish(id: string, status: "sent" | "failed" | "expired", error: string | null, now: Date) {
+  private async finish(id: string, status: "sent" | "failed" | "expired", error: string | null, now: Date, messageId?: string) {
     // Het bevestigingstoken hoeft na versturen niet meer in de wachtrij te staan.
-    await withTenant(this.db, this.tenant, (tx) => tx.update(deliveries).set({ status, error, context: sql`${deliveries.context} - 'token'`, ...(status === "sent" ? { sentAt: now } : {}), updatedAt: now }).where(eq(deliveries.id, id)));
+    await withTenant(this.db, this.tenant, (tx) => tx.update(deliveries).set({ status, error, context: sql`${deliveries.context} - 'token'`, ...(status === "sent" ? { sentAt: now, messageId: messageId ?? null } : {}), updatedAt: now }).where(eq(deliveries.id, id)));
   }
 
   /** Stand van de wachtrij voor het overzicht. */

@@ -93,3 +93,19 @@ function amsterdamOffset(local: string): string {
   const h = Number(name.replace("GMT", "") || "0");
   return `${h >= 0 ? "+" : "-"}${String(Math.abs(h)).padStart(2, "0")}:00`;
 }
+
+/** Blokkeerlijst (ADR 0038): een adres blokkeren of weer vrijgeven. */
+export async function suppressAddress(formData: FormData) {
+  const email = String(formData.get("email") ?? "").trim();
+  const detail = String(formData.get("detail") ?? "").trim() || null;
+  let melding = "Adres geblokkeerd. Een eventueel abonnement is verwijderd.";
+  try { await adminApi.addMailSuppression(email, detail); } catch (e) { melding = message(e); }
+  redirect(`/mail/bezorging?email=${encodeURIComponent(email)}&melding=${encodeURIComponent(melding)}`);
+}
+
+export async function unsuppressAddress(formData: FormData) {
+  const email = String(formData.get("email") ?? "").trim();
+  let melding = "Adres vrijgegeven. Er gaat pas weer mail naartoe als iemand zich opnieuw aanmeldt.";
+  try { const r = await adminApi.removeMailSuppression(email); if (!r.removed) melding = "Dit adres stond niet op de blokkeerlijst."; } catch (e) { melding = message(e); }
+  redirect(`/mail/bezorging?email=${encodeURIComponent(email)}&melding=${encodeURIComponent(melding)}`);
+}

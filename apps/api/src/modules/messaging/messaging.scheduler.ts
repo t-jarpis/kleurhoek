@@ -1,6 +1,7 @@
 import { Inject, Injectable, Logger, type OnApplicationShutdown, type OnModuleInit } from "@nestjs/common";
 import { ENV, type Env } from "../../config/env";
 import { CampaignsService } from "./campaigns.service";
+import { DeliverabilityService } from "./deliverability/deliverability.service";
 import { OutboxService } from "./outbox.service";
 import { SubscribersService } from "./subscribers.service";
 import { WorkflowsService } from "./workflows.service";
@@ -18,7 +19,7 @@ export class MessagingScheduler implements OnModuleInit, OnApplicationShutdown {
 
   constructor(
     @Inject(ENV) private readonly env: Env, private readonly outbox: OutboxService, private readonly workflows: WorkflowsService,
-    private readonly campaigns: CampaignsService, private readonly subscribers: SubscribersService,
+    private readonly campaigns: CampaignsService, private readonly subscribers: SubscribersService, private readonly delivery: DeliverabilityService,
   ) {}
 
   onModuleInit() {
@@ -37,7 +38,7 @@ export class MessagingScheduler implements OnModuleInit, OnApplicationShutdown {
       await this.campaigns.tick(now);
       const r = await this.outbox.process(now);
       if (r.sent || r.failed) this.log.log(`Mail: ${r.sent} verstuurd, ${r.failed} mislukt`);
-      if (now.getTime() - this.lastPurge > 3_600_000) { await this.subscribers.purgePending(now); this.lastPurge = now.getTime(); }
+      if (now.getTime() - this.lastPurge > 3_600_000) { await this.subscribers.purgePending(now); await this.delivery.purge(now); this.lastPurge = now.getTime(); }
     } catch (e) { this.log.error(`Mail verwerken mislukt: ${e}`); } finally { this.busy = false; }
   }
 }

@@ -7,7 +7,12 @@ export interface OutgoingMail {
   /** Afmelden met één klik (RFC 8058); niet bij transactionele mail. */
   unsubscribeUrl?: string | undefined;
   transactional: boolean;
+  /** Onze verwijzing (id van de mail): als Message-ID en X-Mail-Ref, zodat meldingen van elke relay terug te koppelen zijn (ADR 0038). */
+  ref?: string | undefined;
 }
+
+/** Message-ID voor een mail: <ref@domein van de afzender>. */
+export const messageIdFor = (ref: string, from: string) => `${ref}@${/@([^>\s]+)/.exec(from)?.[1] ?? "kleurhoek.localhost"}`;
 
 /**
  * Afleveren (ADR 0037): alles wat we zelf doen eindigt hier, bij SMTP. Welke dienst erachter zit (lokaal Mailpit,
@@ -41,7 +46,11 @@ export class SmtpTransport implements MailTransport {
     if (!t) throw new Error("Versturen staat uit");
     const info = await t.sendMail({
       from: this.env.MAIL_FROM, to: mail.to, subject: mail.subject, html: mail.html, text: mail.text,
-      headers: mail.unsubscribeUrl ? { "List-Unsubscribe": `<${mail.unsubscribeUrl}>`, "List-Unsubscribe-Post": "List-Unsubscribe=One-Click" } : {},
+      ...(mail.ref ? { messageId: `<${messageIdFor(mail.ref, this.env.MAIL_FROM)}>` } : {}),
+      headers: {
+        ...(mail.unsubscribeUrl ? { "List-Unsubscribe": `<${mail.unsubscribeUrl}>`, "List-Unsubscribe-Post": "List-Unsubscribe=One-Click" } : {}),
+        ...(mail.ref ? { "X-Mail-Ref": mail.ref } : {}),
+      },
     });
     return { messageId: String(info.messageId ?? "") };
   }

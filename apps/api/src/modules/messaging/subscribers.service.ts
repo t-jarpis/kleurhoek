@@ -3,6 +3,7 @@ import { and, count, eq, lt, sql } from "drizzle-orm";
 import { ENV, type Env } from "../../config/env";
 import { DB, type Database } from "../../db/database";
 import { withTenant } from "../../db/tenant";
+import { DeliverabilityService } from "./deliverability/deliverability.service";
 import { deliveries, subscribers } from "./messaging.schema";
 import { SYSTEM_TEMPLATES, TOPICS, type Topic } from "./messaging.types";
 import { bump } from "./stats";
@@ -23,7 +24,7 @@ export const maskEmail = (e: string) => e.replace(/^(.)[^@]*(@.*)$/, "$1***$2");
  */
 @Injectable()
 export class SubscribersService {
-  constructor(@Inject(DB) private readonly db: Database, @Inject(ENV) private readonly env: Env) {}
+  constructor(@Inject(DB) private readonly db: Database, @Inject(ENV) private readonly env: Env, private readonly delivery: DeliverabilityService) {}
   private get tenant() { return this.env.TENANT_ID; }
 
   /**
@@ -34,6 +35,10 @@ export class SubscribersService {
     const email = normEmail(input.email);
     const topics = onlyTopics(input.topics);
     if (!topics.length) return;
+    // Hard gebounced of gepauzeerd: een bevestigingsmail komt toch niet aan (ADR 0038). Na een klacht wel: wie zich
+    // bewust opnieuw aanmeldt en bevestigt, komt van de lijst.
+    const blocked = await this.delivery.suppressed(email, now);
+    if (blocked && blocked !== "complaint") return;
     await withTenant(this.db, this.tenant, async (tx) => {
       const [existing] = await tx.select().from(subscribers).where(and(eq(subscribers.tenantId, this.tenant), eq(subscribers.organization, "kleurhoek"), eq(subscribers.email, email))).limit(1);
       if (existing?.status === "active") return;
@@ -56,7 +61,7 @@ export class SubscribersService {
         .returning();
       if (row) await bump(tx, this.tenant, "subscribed", 1, now);
       return row ?? null;
-    });
+    }).then(async (row) => { if (row) await this.delivery.unsuppress(row.email, ["complaint"]); return row; });
   }
 
   /** Abonnee bij een voorkeurlink. */
@@ -99,6 +104,8 @@ export class SubscribersService {
   async setForUser(userId: string, email: string, market: string, topicsIn: Topic[], now = new Date()): Promise<{ subscriber: Subscriber | null; started: boolean }> {
     const topics = onlyTopics(topicsIn);
     const mine = await this.forUser(userId);
+    // Bewust aangezet vanuit het account, met een adres dat bij het inloggen werkte: van de blokkeerlijst af.
+    if (topics.length) await this.delivery.unsuppress(email, ["hard_bounce", "soft_bounce", "complaint"]);
     if (!topics.length) { if (mine) await this.remove(mine.id); return { subscriber: null, started: false }; }
     return withTenant(this.db, this.tenant, async (tx) => {
       const addr = normEmail(email);

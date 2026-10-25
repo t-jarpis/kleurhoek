@@ -453,3 +453,9 @@ a.ui-chip { text-decoration: none; }
 .ui-step::before { counter-increment: step; content: counter(step); position: absolute; inset-inline-start: var(--space-3); inset-block-start: var(--space-3); inline-size: 24px; block-size: 24px; border-radius: var(--radius-full); background: var(--color-surface-sunken); border: var(--border-thin) solid var(--color-border-strong); display: grid; place-items: center; font: 700 13px var(--font-sans); }
 .ui-step[data-kind="trigger"]::before { content: "▶"; }
 .ui-step-row { display: flex; flex-wrap: wrap; align-items: end; gap: var(--space-2) var(--space-3); }
+/* ---------- HealthCard: een percentage tegen een grens, met oordeel in tekst (beheer, ADR 0038) ---------- */
+.ui-health { display: grid; gap: var(--space-1); background: var(--color-surface); border: var(--border-thin) solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-4); }
+.ui-health > span { font-size: 14px; color: var(--color-text-muted); }
+.ui-health strong { font: 800 28px/1.1 var(--font-sans); font-variant-numeric: tabular-nums; }
+.ui-health small { font-size: 13px; color: var(--color-text-muted); }
+.ui-health .ui-badge { justify-self: start; }

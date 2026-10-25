@@ -24,4 +24,4 @@ Bezoekers willen een mail als er nieuwe platen zijn, als er een feestdag aankomt
 - Nieuwe afhankelijkheden in de API: `nodemailer`, `@resvg/resvg-js`, `wawoff2`.
 - Terraform: variabele `mail` (afzender, SMTP-adressen) en het geheim `MAIL_SECRET`; zonder dat geheim leidt de API het af van `INGEST_KEY`. DNS (SPF, DKIM, DMARC) volgt zodra de dienst gekozen is.
 - `docker compose up` heeft Mailpit op http://localhost:8025.
-- Bounces en klachten verwerken we nog niet automatisch; bij een relay doet die dienst dat (blocklist). Volgt via een webhook als het volume groeit.
+- Bounces en klachten: zie ADR 0038 (eigen afhandeling en inzicht, meldingen via SMTP-antwoord en webhooks).

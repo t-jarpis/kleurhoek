@@ -92,9 +92,12 @@ export const deliveries = messagingSchema.table("deliveries", {
   attempts: integer("attempts").notNull().default(0),
   error: text("error"),
   sentAt: timestamp("sent_at", { withTimezone: true }),
+  /** Message-ID die wij meegeven (<id@domein>): daarmee koppelen we meldingen van de relay terug (ADR 0038). */
+  messageId: text("message_id"),
 }, (t) => [
   uniqueIndex("deliveries_once").on(t.tenantId, t.source, t.subscriberId),
   index("deliveries_queue").on(t.tenantId, t.status, t.createdAt),
+  index("deliveries_message_id").on(t.tenantId, t.messageId),
 ]);
 
 /** Tellers per dag zonder persoonsgegevens: aanmeldingen, afmeldingen, verstuurd (ADR 0037). */
@@ -104,3 +107,47 @@ export const mailStats = messagingSchema.table("daily_stats", {
   metric: text("metric").notNull(),
   value: integer("value").notNull().default(0),
 }, (t) => [uniqueIndex("daily_stats_day_metric").on(t.tenantId, t.day, t.metric)]);
+
+// ---------- Bezorging (ADR 0038) ----------
+
+export const DELIVERY_EVENT_TYPES = ["sent", "delivered", "deferred", "soft_bounce", "hard_bounce", "complaint", "unsubscribe"] as const;
+export type DeliveryEventType = (typeof DELIVERY_EVENT_TYPES)[number];
+
+/**
+ * Wat er met een mail gebeurde, van welke bron ook (SMTP-antwoord, webhook van een relay, later een eigen
+ * mailserver). Geen e-mailadres: alleen een hash (voor koppelen en blokkeren) en het domein van de ontvanger
+ * (voor inzicht per mailprovider). 180 dagen bewaard.
+ */
+export const deliveryEvents = messagingSchema.table("delivery_events", {
+  ...baseColumns(),
+  type: text("type").$type<DeliveryEventType>().notNull(),
+  /** Waar de melding vandaan kwam: smtp, brevo, scaleway, generic. */
+  provider: text("provider").notNull(),
+  emailHash: text("email_hash").notNull(),
+  domain: text("domain").notNull(),
+  deliveryId: uuid("delivery_id"),
+  /** Bron van de mail (campaign:…, workflow:…, system:…), overgenomen van de mail; blijft als de abonnee weg is. */
+  source: text("source"),
+  template: text("template"),
+  /** Reden zoals de ontvangende server of relay die gaf, ingekort; adressen eruit gefilterd. */
+  reason: text("reason"),
+  occurredAt: timestamp("occurred_at", { withTimezone: true }).notNull(),
+}, (t) => [
+  index("delivery_events_time").on(t.tenantId, t.occurredAt),
+  index("delivery_events_email").on(t.tenantId, t.emailHash, t.occurredAt),
+]);
+
+/**
+ * Adressen waar we niet meer naar sturen: hard gebounced, spamklacht, herhaald soft gebounced of handmatig.
+ * Alleen een hash van het adres, zodat de lijst zelf geen adressen bevat.
+ */
+export const suppressions = messagingSchema.table("suppressions", {
+  ...baseColumns(),
+  emailHash: text("email_hash").notNull(),
+  domain: text("domain").notNull(),
+  reason: text("reason", { enum: ["hard_bounce", "soft_bounce", "complaint", "manual"] }).notNull(),
+  detail: text("detail"),
+  /** Leeg = blijvend. */
+  expiresAt: timestamp("expires_at", { withTimezone: true }),
+  createdBy: text("created_by").notNull().default("systeem"),
+}, (t) => [uniqueIndex("suppressions_email").on(t.tenantId, t.emailHash)]);

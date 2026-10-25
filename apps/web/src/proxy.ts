@@ -25,7 +25,10 @@ export async function proxy(request: NextRequest) {
   const policy = await currentPolicy();
   if (!policy && process.env.NODE_ENV === "production") return new NextResponse("Even niet bereikbaar", { status: 503, headers: { "retry-after": "30" } });
   const ip = headers.get("cf-connecting-ip");
-  if (policy && !ipAllowed(policy, ip) && !checkKeyValid(request.headers.get(CHECK_HEADER))) return blockedPage(ip);
+  // Mailrelay (bezorgmeldingen) en mailprogramma's (afmelden met één klik) komen niet van een toegestaan IP;
+  // die routes controleren zelf een sleutel of token (ADR 0037, 0038).
+  const machine = request.method === "POST" && /^\/mail\/(events\/[a-z]+|afmelden)$/.test(path);
+  if (policy && !machine && !ipAllowed(policy, ip) && !checkKeyValid(request.headers.get(CHECK_HEADER))) return blockedPage(ip);
   headers.delete(CHECK_HEADER);
 
   // Welke organisatie: de host van het verzoek, of die van het organisatiedomein (via de Worker).
