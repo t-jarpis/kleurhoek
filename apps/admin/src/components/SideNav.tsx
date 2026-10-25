@@ -23,9 +23,11 @@ export function SideNav({ brand, children }: { brand: ReactNode; children: React
   }, [path]);
   useEffect(() => {
     if (!open) return;
+    // Open menu op een telefoon: de pagina erachter schuift niet mee (zie globals.css, html[data-nav-open]).
+    document.documentElement.dataset.navOpen = "";
     const esc = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
     window.addEventListener("keydown", esc);
-    return () => window.removeEventListener("keydown", esc);
+    return () => { window.removeEventListener("keydown", esc); delete document.documentElement.dataset.navOpen; };
   }, [open]);
   return (
     <nav className="side" aria-label="Beheer" data-open={open || undefined}>

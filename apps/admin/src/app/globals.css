@@ -92,7 +92,9 @@ nav.side .side-items { display: flex; flex-direction: column; gap: 2px; flex: 1;
   nav.side .brand { padding: 0; }
   nav.side .side-toggle { display: inline-flex; }
   nav.side .side-items { display: none; }
-  nav.side[data-open] .side-items { display: flex; max-height: calc(100dvh - 64px); overflow-y: auto; padding-block: var(--space-2) var(--space-3); }
+  nav.side[data-open] .side-items { display: flex; max-height: calc(100dvh - 64px); overflow-y: auto; overscroll-behavior: contain; padding-block: var(--space-2) var(--space-3); }
+  /* Menu open: alleen het menu schuift, niet de pagina erachter (ook niet het doorschuiven op iOS). */
+  html[data-nav-open], html[data-nav-open] body { overflow: hidden; overscroll-behavior: none; }
   nav.side .who { flex-direction: row; align-items: center; justify-content: space-between; }
   main { padding: var(--space-5) var(--space-4); gap: var(--space-5); }
   /* Het menu krijgt alleen zijn eigen hoogte; de rest van het scherm is voor de inhoud. */
