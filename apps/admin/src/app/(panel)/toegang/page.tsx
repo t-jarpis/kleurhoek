@@ -1,5 +1,5 @@
 import { adminApi, describe } from "@/lib/api";
-import { addEntry, addMine, myIp, removeEntry, setEnabled } from "./actions";
+import { addEntry, addMine, myIp, removeEntry, setEnabled, setLogin } from "./actions";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Toegang" };
@@ -14,10 +14,22 @@ export default async function Access({ searchParams }: { searchParams: Promise<{
     <>
       <div>
         <h1>Toegang</h1>
-        <p className="lead">Schermt de website af: alleen bezoekers van deze IP-adressen zien hem. Bedoeld voor een testomgeving of vóór de lancering. Het admin panel valt hier niet onder; dat blijft achter Cloudflare Access. Wijzigingen werken binnen 30 seconden en komen in het auditlog.</p>
+        <p className="lead">Inloggen op de website aan- of uitzetten, en de website afschermen met een lijst IP-adressen (voor een testomgeving of vóór een lancering). Het admin panel valt hier niet onder; dat blijft achter Cloudflare Access. Wijzigingen werken binnen een minuut en komen in het auditlog.</p>
       </div>
       {melding && <p className="note" role="status">{melding}</p>}
       {fout && <div className="err" role="alert"><p>{fout}</p></div>}
+
+      <section className="panel stack">
+        <div className="row-between">
+          <h2>Inloggen op de website</h2>
+          {canManage
+            ? <form action={setLogin}><input type="hidden" name="loginEnabled" value={String(!access.loginEnabled)} /><button type="submit" className="ui-switch" aria-pressed={access.loginEnabled}>{access.loginEnabled ? "Aan" : "Uit"}<span className="visually-hidden">: inloggen op de website</span></button></form>
+            : <span className={`pill ${access.loginEnabled ? "on" : "off"}`}>{access.loginEnabled ? "Aan" : "Uit"}</span>}
+        </div>
+        <p className="lead">{access.loginEnabled
+          ? "Ouders, leerkrachten en beheerders van scholen kunnen inloggen (als dat voor hun organisatie aanstaat)."
+          : "Niemand kan op de website inloggen: de knop is weg, nieuwe logins worden geweigerd en accountfuncties zoals favorieten in je account zijn verborgen. Kleuren en printen werkt gewoon."} Het admin panel valt hier niet onder.</p>
+      </section>
 
       <section className="panel stack">
         <div className="row-between">

@@ -16,7 +16,7 @@ export interface AdminUser {
   locale: string | null; country: string | null; roles: string[]; createdAt: string; lastLoginAt: string | null;
 }
 export interface SiteAccessEntry { cidr: string; label: string; addedBy: string; addedAt: string }
-export interface SiteAccess { enabled: boolean; entries: SiteAccessEntry[]; updatedBy: string; updatedAt: string }
+export interface SiteAccess { enabled: boolean; entries: SiteAccessEntry[]; loginEnabled: boolean; updatedBy: string; updatedAt: string }
 export interface Role { slug: string; name: string; permissions: string[] }
 export interface Me { userId: string; subject: string; permissions: string[] }
 
@@ -247,7 +247,7 @@ export const adminApi = {
   salesReport: (from: string, to: string) => call<SalesReport>(`/v1/admin/shop/sales?from=${from}&to=${to}`),
   shopSummary: (from: string, to: string) => call<ShopSummary>(`/v1/admin/analytics/shop?from=${from}&to=${to}`),
   siteAccess: () => call<SiteAccess>("/v1/admin/site-access"),
-  updateSiteAccess: (body: { enabled?: boolean; entries?: { cidr: string; label: string }[] }) =>
+  updateSiteAccess: (body: { enabled?: boolean; entries?: { cidr: string; label: string }[]; loginEnabled?: boolean }) =>
     call<SiteAccess>("/v1/admin/site-access", { method: "PUT", body: JSON.stringify(body) }),
   organizations: () => call<{ organizations: Organization[] } & OrgChoices>("/v1/admin/organizations"),
   organization: (slug: string) => call<Organization & OrgChoices>(`/v1/admin/organizations/${encodeURIComponent(slug)}`),

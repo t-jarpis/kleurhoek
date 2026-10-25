@@ -14,6 +14,7 @@ const Entry = z.object({
 const UpdateBody = z.object({
   enabled: z.boolean().optional(),
   entries: z.array(Entry).max(MAX_ENTRIES).optional(),
+  loginEnabled: z.boolean().optional(),
 }).strict().refine((b) => Object.keys(b).length > 0, "Geef minstens één veld op");
 
 @Controller("v1/admin/site-access")
@@ -31,12 +32,12 @@ export class AdminSiteAccessController {
   async update(@Body() body: unknown, @Req() req: FastifyRequest) {
     const parsed = UpdateBody.safeParse(body);
     if (!parsed.success) throw new BadRequestException(parsed.error.issues.map((i) => i.message).join("; "));
-    const { enabled, entries } = parsed.data;
+    const { enabled, entries, loginEnabled } = parsed.data;
     const next = entries ?? (await this.access.get()).entries;
     if ((enabled ?? (await this.access.get()).enabled) && next.length === 0) {
       throw new BadRequestException("Voeg eerst minstens één IP-adres toe; anders kan niemand de website meer zien");
     }
-    return this.access.update({ enabled, entries }, req.admin!.subject);
+    return this.access.update({ enabled, entries, loginEnabled }, req.admin!.subject);
   }
 }
 
@@ -56,6 +57,6 @@ export class InternalSiteAccessController {
   async get(@Headers("x-ingest-key") key: string | undefined) {
     if (!sameSecret(key, this.env.INGEST_KEY)) throw new UnauthorizedException();
     const s = await this.access.get();
-    return { enabled: s.enabled, cidrs: s.entries.map((e) => e.cidr) };
+    return { enabled: s.enabled, cidrs: s.entries.map((e) => e.cidr), loginEnabled: s.loginEnabled };
   }
 }

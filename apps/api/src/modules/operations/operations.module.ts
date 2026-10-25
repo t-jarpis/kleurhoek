@@ -19,6 +19,6 @@ import { ReleasesService } from "./releases.service";
     ReleasesService,
     { provide: APP_GUARD, useClass: RateLimitGuard },
   ],
-  exports: [RateLimitService],
+  exports: [RateLimitService, SiteAccessService],
 })
 export class OperationsModule {}

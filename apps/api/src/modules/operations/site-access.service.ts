@@ -23,7 +23,7 @@ export function normalizeCidr(input: string): string | null {
   return `${addr.toLowerCase()}/${prefix}`;
 }
 
-export interface SiteAccessState { enabled: boolean; entries: SiteAccessEntry[]; updatedBy: string; updatedAt: string }
+export interface SiteAccessState { enabled: boolean; entries: SiteAccessEntry[]; loginEnabled: boolean; updatedBy: string; updatedAt: string }
 
 @Injectable()
 export class SiteAccessService {
@@ -36,12 +36,21 @@ export class SiteAccessService {
   async get(): Promise<SiteAccessState> {
     const tenantId = this.env.TENANT_ID;
     const [row] = await withTenant(this.db, tenantId, (tx) => tx.select().from(siteAccess).where(eq(siteAccess.tenantId, tenantId)).limit(1));
-    if (!row) return { enabled: false, entries: [], updatedBy: "systeem", updatedAt: new Date(0).toISOString() };
-    return { enabled: row.enabled, entries: row.entries, updatedBy: row.updatedBy, updatedAt: row.updatedAt.toISOString() };
+    if (!row) return { enabled: false, entries: [], loginEnabled: true, updatedBy: "systeem", updatedAt: new Date(0).toISOString() };
+    return { enabled: row.enabled, entries: row.entries, loginEnabled: row.loginEnabled, updatedBy: row.updatedBy, updatedAt: row.updatedAt.toISOString() };
+  }
+
+  /** Staat inloggen op de website aan? (Kort in het geheugen: elke organisatie vraagt dit bij elke websitepagina.) */
+  private loginCache: { value: boolean; at: number } | null = null;
+  async loginEnabled(): Promise<boolean> {
+    if (this.loginCache && Date.now() - this.loginCache.at < 5_000) return this.loginCache.value;
+    const value = (await this.get()).loginEnabled;
+    this.loginCache = { value, at: Date.now() };
+    return value;
   }
 
   /** Slaat de nieuwe stand op en legt de wijziging vast in het auditlog, in dezelfde transactie. */
-  async update(change: { enabled?: boolean | undefined; entries?: { cidr: string; label: string }[] | undefined }, actor: string): Promise<SiteAccessState> {
+  async update(change: { enabled?: boolean | undefined; entries?: { cidr: string; label: string }[] | undefined; loginEnabled?: boolean | undefined }, actor: string): Promise<SiteAccessState> {
     const tenantId = this.env.TENANT_ID;
     const before = await this.get();
     const now = new Date().toISOString();
@@ -51,15 +60,17 @@ export class SiteAccessService {
       return existing ? { ...existing, label: e.label } : { cidr, label: e.label, addedBy: actor, addedAt: now };
     });
     const enabled = change.enabled ?? before.enabled;
+    const loginEnabled = change.loginEnabled ?? before.loginEnabled;
     await withTenant(this.db, tenantId, async (tx) => {
-      await tx.insert(siteAccess).values({ tenantId, enabled, entries, updatedBy: actor })
-        .onConflictDoUpdate({ target: siteAccess.tenantId, set: { enabled, entries, updatedBy: actor, updatedAt: new Date() } });
+      await tx.insert(siteAccess).values({ tenantId, enabled, entries, loginEnabled, updatedBy: actor })
+        .onConflictDoUpdate({ target: siteAccess.tenantId, set: { enabled, entries, loginEnabled, updatedBy: actor, updatedAt: new Date() } });
       await this.audit.record(tx, tenantId, {
-        actor, action: "operations.access.update", subject: "site_access",
-        before: { enabled: before.enabled, cidrs: before.entries.map((e) => e.cidr) },
-        after: { enabled, cidrs: entries.map((e) => e.cidr) },
+        actor, action: change.loginEnabled !== undefined && change.loginEnabled !== before.loginEnabled ? "operations.login.update" : "operations.access.update", subject: "site_access",
+        before: { enabled: before.enabled, cidrs: before.entries.map((e) => e.cidr), loginEnabled: before.loginEnabled },
+        after: { enabled, cidrs: entries.map((e) => e.cidr), loginEnabled },
       });
     });
+    this.loginCache = null;
     return this.get();
   }
 }

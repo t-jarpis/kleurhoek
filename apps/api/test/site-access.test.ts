@@ -24,7 +24,7 @@ describe("toegang tot de website", () => {
   const internal = (key = INGEST_KEY) => ctx.http.inject({ method: "GET", url: "/v1/internal/site-access", headers: { "x-ingest-key": key } });
 
   it("staat standaard uit", async () => {
-    expect((await internal()).json()).toEqual({ enabled: false, cidrs: [] });
+    expect((await internal()).json()).toEqual({ enabled: false, cidrs: [], loginEnabled: true });
   });
 
   it("mag niet aan met een lege lijst, en alleen met het juiste recht", async () => {
@@ -37,11 +37,24 @@ describe("toegang tot de website", () => {
     const r = await put({ enabled: true, entries: [{ cidr: "203.0.113.7", label: "Thuis" }, { cidr: "2001:db8:1::/64", label: "Thuis IPv6" }] });
     expect(r.statusCode).toBe(200);
     expect(r.json()).toMatchObject({ enabled: true, updatedBy: "user-beheerder", entries: [{ cidr: "203.0.113.7/32", label: "Thuis", addedBy: "user-beheerder" }, { cidr: "2001:db8:1::/64" }] });
-    expect((await internal()).json()).toEqual({ enabled: true, cidrs: ["203.0.113.7/32", "2001:db8:1::/64"] });
+    expect((await internal()).json()).toEqual({ enabled: true, cidrs: ["203.0.113.7/32", "2001:db8:1::/64"], loginEnabled: true });
     expect((await ctx.http.inject({ method: "GET", url: "/v1/admin/site-access", headers: { authorization: "Bearer analist" } })).statusCode).toBe(403);
   });
 
   it("weigert de interne route zonder geldige sleutel", async () => {
     expect((await internal("fout")).statusCode).toBe(401);
+  });
+
+  it("zet inloggen op de website uit en weer aan (ADR 0042)", async () => {
+    const org = async () => (await ctx.http.inject({ method: "GET", url: "/v1/internal/organizations/kleurhoek", headers: { "x-ingest-key": INGEST_KEY } })).json().features.accounts;
+    const before = await org();
+    expect((await put({ loginEnabled: false }, "Bearer analist")).statusCode).toBe(403);
+    const r = await put({ loginEnabled: false });
+    expect(r.statusCode).toBe(200);
+    expect(r.json().loginEnabled).toBe(false);
+    expect((await internal()).json().loginEnabled).toBe(false);
+    expect(await org()).toBe(false);
+    await put({ loginEnabled: true });
+    expect(await org()).toBe(before);
   });
 });

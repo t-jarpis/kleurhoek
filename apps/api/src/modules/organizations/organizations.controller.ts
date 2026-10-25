@@ -5,6 +5,7 @@ import { z } from "zod";
 import { ENV, type Env } from "../../config/env";
 import { AdminGuard, RequirePermission } from "../identity/admin.guard";
 import { RateLimit } from "../operations/rate-limit.guard";
+import { SiteAccessService } from "../operations/site-access.service";
 import { ages, categories, GOALS, goalName } from "@kleurhoek/catalog-data";
 import { CatalogService } from "../catalog/catalog.service";
 import { MemberGuard } from "../identity/member.guard";
@@ -149,7 +150,13 @@ function sameSecret(a: string | undefined, b: string): boolean {
 
 @Controller("v1")
 export class OrganizationsController {
-  constructor(private readonly orgs: OrganizationsService, @Inject(ENV) private readonly env: Env) {}
+  constructor(private readonly orgs: OrganizationsService, private readonly access: SiteAccessService, @Inject(ENV) private readonly env: Env) {}
+
+  /** Inloggen kan in het admin panel voor de hele website uit (Toegang); dan voor geen enkele organisatie. */
+  private async forSite(o: Parameters<OrganizationsService["toPublic"]>[0]) {
+    const pub = this.orgs.toPublic(o);
+    return (await this.access.loginEnabled()) ? pub : { ...pub, features: { ...pub.features, accounts: false } };
+  }
 
   /** Voor website en inlogpagina: welke organisatie hoort bij deze host (met huisstijl en aanbod). */
   @Get("internal/organizations/resolve")
@@ -157,7 +164,7 @@ export class OrganizationsController {
   async resolve(@Headers("x-ingest-key") key: string | undefined, @Query("host") host: string | undefined) {
     if (!sameSecret(key, this.env.INGEST_KEY)) throw new UnauthorizedException();
     if (!host || host.length > 253) throw new BadRequestException("host ontbreekt");
-    return this.orgs.toPublic(await this.orgs.resolve(host));
+    return this.forSite(await this.orgs.resolve(host));
   }
 
   /** Voor de website: een organisatie op code (de proxy heeft de host al omgezet). */
@@ -167,7 +174,7 @@ export class OrganizationsController {
     if (!sameSecret(key, this.env.INGEST_KEY)) throw new UnauthorizedException();
     const o = SLUG.test(slug) ? await this.orgs.get(slug) : null;
     if (!o || !o.active) throw new NotFoundException();
-    return this.orgs.toPublic(o);
+    return this.forSite(o);
   }
 
   /** Logo per versie: verandert nooit, dus het CDN mag het voor altijd bewaren. SVG in een zandbak. */

@@ -64,3 +64,9 @@ export async function setEnabled(formData: FormData) {
   if (ip && !entries.some((e) => e.cidr === cidrFor(ip))) entries.push({ cidr: cidrFor(ip), label: "Mijn verbinding" });
   await save({ enabled: true, entries }, "Afscherming aan: alleen adressen uit de lijst zien de website.");
 }
+
+/** Inloggen op de website aan of uit (ouders, leerkrachten, beheerders van scholen). Het admin panel valt hier niet onder. */
+export async function setLogin(formData: FormData) {
+  const on = formData.get("loginEnabled") === "true";
+  await save({ loginEnabled: on }, on ? "Inloggen staat weer aan. Binnen een minuut zichtbaar op de website." : "Inloggen staat uit. Binnen een minuut verdwijnt de knop; wie al is ingelogd, ziet geen accountfuncties meer.");
+}

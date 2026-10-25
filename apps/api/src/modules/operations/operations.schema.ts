@@ -33,6 +33,8 @@ export const siteAccess = operationsSchema.table("site_access", {
   ...baseColumns(),
   enabled: boolean("enabled").notNull().default(false),
   entries: jsonb("entries").$type<SiteAccessEntry[]>().notNull().default([]),
+  /** Inloggen op de website (ouders, leerkrachten, beheerders van scholen). Uit = geen knop en geen nieuwe logins. */
+  loginEnabled: boolean("login_enabled").notNull().default(true),
   updatedBy: text("updated_by").notNull().default("systeem"),
 }, (t) => [uniqueIndex("site_access_tenant").on(t.tenantId)]);
 

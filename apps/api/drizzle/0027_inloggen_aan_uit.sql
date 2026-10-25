@@ -1,0 +1,1 @@
+ALTER TABLE "operations"."site_access" ADD COLUMN "login_enabled" boolean DEFAULT true NOT NULL;
