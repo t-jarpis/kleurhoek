@@ -2,3 +2,9 @@
 cloudflare_zone_id = "<zone-id van kleurhoek.nl>"
 prod_live          = false
 redirect_zone_ids  = { "kleurhoek.be" = "<zone-id>", "kleurhoek.com" = "<zone-id>" }
+# Search Console (ADR 0041): de TXT-records die Google per domein vraagt (domeineigenschap).
+# search_verification = {
+#   "kleurhoek.nl"  = ["google-site-verification=<code>"]
+#   "kleurhoek.be"  = ["google-site-verification=<code>"]
+#   "kleurhoek.com" = ["google-site-verification=<code>"]
+# }

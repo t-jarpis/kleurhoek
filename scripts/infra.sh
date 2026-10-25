@@ -426,14 +426,14 @@ cmd_up() {
   echo; bold "Klaar: $(terraform -chdir="$INFRA/envs/$TARGET" output -raw site_url)"
 }
 
-# Live: kleurhoek.nl zonder www en de extra domeinen (.be, .com) sturen door naar www.kleurhoek.nl.
+# Live: kleurhoek.nl zonder www stuurt door naar www; kleurhoek.be en .com krijgen een eigen www (ADR 0040).
 go_live() {
-  step "Live: doorsturen naar www.kleurhoek.nl"
+  step "Live: www.kleurhoek.nl, .be en .com"
   local zf="$INFRA/envs/zone/terraform.tfvars" d id map=""
   for d in kleurhoek.be kleurhoek.com; do
     id="$(curl -s -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" "https://api.cloudflare.com/client/v4/zones?name=$d" | jq -r '.result[0].id // empty')"
     if [ -n "$id" ]; then map="$map${map:+, }\"$d\" = \"$id\""; ok "$d gevonden in Cloudflare"
-    else warn "$d niet in Cloudflare of niet in het token: stuurt nog niet door (voeg de zone toe aan het token en draai opnieuw)"; fi
+    else warn "$d niet in Cloudflare of niet in het token: nog niet actief (voeg de zone toe aan het token en draai opnieuw)"; fi
   done
   sed -i '' -E "s|^([[:space:]]*prod_live[[:space:]]*=[[:space:]]*).*|\1true|" "$zf"
   sed -i '' -E "s|^([[:space:]]*redirect_zone_ids[[:space:]]*=[[:space:]]*).*|\1{ $map }|" "$zf"

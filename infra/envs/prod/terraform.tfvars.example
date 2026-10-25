@@ -17,3 +17,8 @@ admin_bootstrap_subjects = ["<jouw Zitadel-gebruikers-id>"]
 #   smtp_url               = "smtp://<gebruiker>:<wachtwoord>@<host>:587"
 #   transactional_smtp_url = "smtp://<project-id>:<sleutel>@smtp.tem.scaleway.com:587"
 # }
+# Zoekcijfers (ADR 0041): JSON-sleutel van het Google-serviceaccount (bestand buiten de repo) en de Bing-API-sleutel.
+# search = {
+#   google_key_file = "~/.config/kleurhoek/search-console.json"
+#   bing_api_key    = "<Bing Webmaster Tools › Instellingen › API-toegang>"
+# }
