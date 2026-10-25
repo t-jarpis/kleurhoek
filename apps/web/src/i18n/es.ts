@@ -57,6 +57,7 @@ export const es: Messages = {
   themesEmpty: "Todavía no hay temas preparados. ¡Vuelve pronto!", themeSources: (n: number) => (n === 1 ? "1 enlace" : `${n} enlaces`),
   byMaker: (m: string) => `de ${m}`, toMaker: "Ver en la web del creador", allThemes: "← Todos los temas",
   marketsLabel: "País e idioma", langHint: "Esta página también está en español.", langRead: "Leer en español", close: "Cerrar",
+  showMore: "Más dibujos", shownOf: (n: number, total: number) => `${n.toLocaleString("es-ES")} de ${total.toLocaleString("es-ES")} dibujos`,
   themeNotice: (m: string) => `Estos dibujos para colorear son de ${m} y están en su propia web. Kleurhoek solo enlaza a ellos; no tenemos ningún control sobre su contenido.`,
   ownSpace: "Espacio propio", ownHint: "¿Para un colegio, una guardería o una asociación?", ownHintLink: "Solicita un espacio propio",
   ownTitle: "Kleurhoek para tu colegio, guardería o asociación",

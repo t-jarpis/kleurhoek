@@ -57,6 +57,7 @@ export const fr: Messages = {
   themesEmpty: "Aucun thème n'est encore prêt. Revenez bientôt !", themeSources: (n: number) => (n === 1 ? "1 lien" : `${n} liens`),
   byMaker: (m: string) => `par ${m}`, toMaker: "Voir chez le créateur", allThemes: "← Tous les thèmes",
   marketsLabel: "Pays et langue", langHint: "Cette page existe aussi en français.", langRead: "Lire en français", close: "Fermer",
+  showMore: "Plus de coloriages", shownOf: (n: number, total: number) => `${n.toLocaleString("fr-FR")} sur ${total.toLocaleString("fr-FR")} coloriages`,
   themeNotice: (m: string) => `Ces coloriages appartiennent à ${m} et se trouvent sur son propre site. Kleurhoek ne fait qu'y renvoyer ; nous n'avons aucune influence sur leur contenu.`,
   ownSpace: "Espace personnalisé", ownHint: "Pour une école, une crèche ou une association ?", ownHintLink: "Demandez votre propre espace",
   ownTitle: "Kleurhoek pour votre école, votre accueil ou votre association",

@@ -57,6 +57,7 @@ export const en: Messages = {
   themesEmpty: "There are no themes ready yet. Come back soon!", themeSources: (n: number) => (n === 1 ? "1 link" : `${n} links`),
   byMaker: (m: string) => `by ${m}`, toMaker: "View at the maker's site", allThemes: "← All themes",
   marketsLabel: "Country and language", langHint: "This page is also available in English.", langRead: "Read in English", close: "Close",
+  showMore: "More pages", shownOf: (n: number, total: number) => `${n.toLocaleString("en-GB")} of ${total.toLocaleString("en-GB")} pages`,
   themeNotice: (m: string) => `These colouring pages belong to ${m} and are on their own website. Kleurhoek only links to them; we have no control over them.`,
   ownSpace: "Your own space", ownHint: "For a school, nursery or club?", ownHintLink: "Request your own space",
   ownTitle: "Kleurhoek for your school, nursery or club",

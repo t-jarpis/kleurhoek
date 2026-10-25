@@ -63,6 +63,7 @@ export const pl: Messages = {
   themesEmpty: "Nie ma jeszcze gotowych motywów. Zajrzyj wkrótce!", themeSources: (n: number) => `${n} ${plural(n, "link", "linki", "linków")}`,
   byMaker: (m: string) => `twórca: ${m}`, toMaker: "Zobacz u twórcy", allThemes: "← Wszystkie motywy",
   marketsLabel: "Kraj i język", langHint: "Ta strona jest też dostępna po polsku.", langRead: "Czytaj po polsku", close: "Zamknij",
+  showMore: "Więcej kolorowanek", shownOf: (n: number, total: number) => `${n.toLocaleString("pl-PL")} z ${total.toLocaleString("pl-PL")} kolorowanek`,
   themeNotice: (m: string) => `Te kolorowanki należą do twórcy ${m} i znajdują się na jego własnej stronie. Kleurhoek tylko do nich linkuje; nie mamy na nie wpływu.`,
   ownSpace: "Własna wersja", ownHint: "Dla szkoły, świetlicy lub stowarzyszenia?", ownHintLink: "Poproś o własną wersję",
   ownTitle: "Kleurhoek dla twojej szkoły, świetlicy lub stowarzyszenia",

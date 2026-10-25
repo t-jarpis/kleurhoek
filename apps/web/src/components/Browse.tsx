@@ -1,11 +1,14 @@
 "use client";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useMemo, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { KIND_GROUP, type PlateItem, type Taxonomy } from "@/lib/types";
 import { messages } from "@/i18n/nl";
 import { PlateCard } from "./PlateCard";
 import { useBase } from "./Base";
 import { book, favorites, useBook, useFavorites } from "@/lib/local";
+
+/** Platenraster in porties (LoadMore): zoveel kaartjes per keer, de volgende automatisch bij het scrollen. */
+const BATCH = 60;
 
 type Key = "soort" | "leerdoel" | "onderwerp" | "werelddeel" | "land" | "feestdag" | "leeftijd";
 
@@ -44,6 +47,20 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
     && (f.cat !== "wereld" || f.cont === "alle" || p.world?.continent === f.cont)
     && (f.cat !== "wereld" || f.land === "alle" || p.world?.country === f.land)
     && (f.cat !== "feest" || f.hol === "alle" || p.holiday === f.hol)), [aged, f.cat, f.cont, f.land, f.hol, favs]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Porties: een ander filter begint weer bij de eerste portie.
+  const filterKey = `${f.kind}|${f.goal}|${f.cat}|${f.cont}|${f.land}|${f.hol}|${f.age}`;
+  const [limit, setLimit] = useState({ key: filterKey, n: BATCH });
+  const shown = limit.key === filterKey ? limit.n : BATCH;
+  const more = () => setLimit({ key: filterKey, n: shown + BATCH });
+  const sentinel = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = sentinel.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver((entries) => { if (entries.some((e) => e.isIntersecting)) setLimit((l) => ({ key: filterKey, n: (l.key === filterKey ? l.n : BATCH) + BATCH })); }, { rootMargin: "800px 0px" });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [filterKey, shown, visible.length]);
 
   const cont = taxonomy.continents.find((c) => c.slug === f.cont);
   const lands = cont ? [...new Set(aged.filter((p) => p.world?.continent === cont.slug && p.world.country).map((p) => p.world!.country!))].sort((a, b) => a.localeCompare(b, language)) : [];
@@ -123,11 +140,17 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
         {visible.length === 0 ? (
           <div className="empty"><b>{t.emptyTitle}</b><span>{t.emptyText}</span>
             <button type="button" className="btn" onClick={() => router.replace(pathname, { scroll: false })}>{t.showAll}</button></div>
-        ) : visible.map((p) => (
+        ) : visible.slice(0, shown).map((p) => (
           <PlateCard key={p.slug} plate={p} base={base} taxonomy={taxonomy} view={f.cat} yr={t.yr} kindLabel={p.kind !== "kleurplaat" ? t.kindNames[p.kind] : undefined}
             {...(picks.picking ? { pick: { selected: picks.slugs.includes(p.slug), onToggle: () => book.toggle(p.slug) } } : {})} />
         ))}
       </main>
+      {visible.length > shown && (
+        <div className="ui-loadmore no-print" ref={sentinel}>
+          <p aria-live="polite">{t.shownOf(shown, visible.length)}</p>
+          <button type="button" className="btn" onClick={more}>{t.showMore}</button>
+        </div>
+      )}
     </>
   );
 }
