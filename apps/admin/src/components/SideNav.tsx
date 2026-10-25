@@ -9,7 +9,18 @@ import { useEffect, useState, type ReactNode } from "react";
 export function SideNav({ brand, children }: { brand: ReactNode; children: ReactNode }) {
   const [open, setOpen] = useState(false);
   const path = usePathname();
-  useEffect(() => { setOpen(false); }, [path]);
+  useEffect(() => {
+    setOpen(false);
+    // Tabbladen die horizontaal schuiven: het actieve tabblad in beeld (op een telefoon valt het anders buiten de rand).
+    document.querySelectorAll<HTMLElement>(".tabs [aria-current='page']").forEach((el) => el.scrollIntoView({ block: "nearest", inline: "center" }));
+    // Vervagen aan de rand alleen als er echt meer is om naartoe te schuiven (data-more, zie globals.css).
+    const tabs = [...document.querySelectorAll<HTMLElement>(".tabs")];
+    const mark = () => tabs.forEach((t) => { if (t.scrollWidth - t.clientWidth - t.scrollLeft > 4) t.dataset.more = ""; else delete t.dataset.more; });
+    mark();
+    tabs.forEach((t) => t.addEventListener("scroll", mark, { passive: true }));
+    window.addEventListener("resize", mark);
+    return () => { tabs.forEach((t) => t.removeEventListener("scroll", mark)); window.removeEventListener("resize", mark); };
+  }, [path]);
   useEffect(() => {
     if (!open) return;
     const esc = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };

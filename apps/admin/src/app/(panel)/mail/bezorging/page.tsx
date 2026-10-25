@@ -79,11 +79,11 @@ export default async function DeliverabilityPage({ searchParams }: { searchParam
         <div className="ui-callout" data-tone="warning"><p><strong>Nog geen meldingen van de relay.</strong> Zonder webhook zie je alleen wat de mailserver direct weigert, niet wat later bounced of als spam gemeld wordt. Stel hieronder de webhook in bij je mailrelay.</p></div>
       )}
       <div className="ui-stats">
-        <div className="ui-stat"><span>Verstuurd</span><strong>{num(t.sent)}</strong><small>laatste {days} dagen</small></div>
-        <div className="ui-stat"><span>Afgeleverd</span><strong>{r.rates.delivered === null ? "—" : pct(r.rates.delivered)}</strong><small>{num(t.delivered)} gemeld{noFeedback ? " (geen meldingen)" : ""}</small></div>
+        <div className="ui-stat"><span>Verstuurd</span><strong>{num(t.sent)}</strong><p className="ui-stat-note">laatste {days} dagen</p></div>
+        <div className="ui-stat"><span>Afgeleverd</span><strong>{r.rates.delivered === null ? "—" : pct(r.rates.delivered)}</strong><p className="ui-stat-note">{num(t.delivered)} gemeld{noFeedback ? " (geen meldingen)" : ""}</p></div>
         <Health label="Bounces" rate={r.rates.bounce} health={r.health.bounce} part={bounces(t)} total={t.sent} limit={r.limits.bounce} />
         <Health label="Spamklachten" rate={r.rates.complaint} health={r.health.complaint} part={t.complaints} total={t.sent} limit={r.limits.complaint} />
-        <div className="ui-stat"><span>Geblokkeerd</span><strong>{num(blocked)}</strong><small>{Object.entries(r.suppressed).map(([k, v]) => `${v} ${REASON_LABEL[k]?.toLowerCase() ?? k}`).join(", ") || "geen adressen"}</small></div>
+        <div className="ui-stat"><span>Geblokkeerd</span><strong>{num(blocked)}</strong><p className="ui-stat-note">{Object.entries(r.suppressed).map(([k, v]) => `${v} ${REASON_LABEL[k]?.toLowerCase() ?? k}`).join(", ") || "geen adressen"}</p></div>
       </div>
 
       <section className="panel stack">

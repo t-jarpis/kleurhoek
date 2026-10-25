@@ -66,7 +66,9 @@ form.roles label { display: inline-flex; gap: 6px; align-items: center; white-sp
 .center { max-width: 460px; margin: 15vh auto; padding: 0 var(--space-4); text-align: center; display: grid; gap: var(--space-4); justify-items: center; }
 
 .stack { display: flex; flex-direction: column; gap: var(--stack-gap); }
-.row-between { display: flex; justify-content: space-between; align-items: center; gap: var(--space-3); }
+.row-between { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-3); }
+/* Een kop met uitleg naast tabbladen of knoppen: de tekst neemt de ruimte, de rest schuift eronder als het niet past. */
+.row-between > div { flex: 1 1 16em; min-width: 0; }
 .row-between h2 { margin: 0; }
 .field { display: flex; flex-direction: column; gap: var(--space-1); border: 0; padding: 0; margin: 0; min-width: 0; }
 .field > span, .field legend { font-weight: 700; font-size: 15px; }
@@ -93,6 +95,14 @@ nav.side .side-items { display: flex; flex-direction: column; gap: 2px; flex: 1;
   nav.side[data-open] .side-items { display: flex; max-height: calc(100dvh - 64px); overflow-y: auto; padding-block: var(--space-2) var(--space-3); }
   nav.side .who { flex-direction: row; align-items: center; justify-content: space-between; }
   main { padding: var(--space-5) var(--space-4); gap: var(--space-5); }
+  /* Het menu krijgt alleen zijn eigen hoogte; de rest van het scherm is voor de inhoud. */
+  .shell { grid-template-rows: auto 1fr; align-content: start; }
+  /* Brede tabellen schuiven binnen hun paneel in plaats van de hele pagina breder te maken. */
+  .panel { overflow-x: auto; }
+  main, main > * { min-width: 0; }
+  main th, main td { padding-inline: var(--space-2); }
+  /* Tabbladen die niet passen: vervagen aan de rand, zodat zichtbaar is dat er meer is om naartoe te schuiven. */
+  .tabs[data-more] { mask-image: linear-gradient(to right, black calc(100% - 32px), transparent); -webkit-mask-image: linear-gradient(to right, black calc(100% - 32px), transparent); }
 }
 
 /* Tabbladen en balken nooit breder dan het scherm: zelf horizontaal scrollen. */
@@ -104,7 +114,6 @@ nav.side .side-items { display: flex; flex-direction: column; gap: 2px; flex: 1;
 /* Organisaties: huisstijl naast het voorbeeld (ADR 0017). */
 .brand-editor { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: var(--space-6); align-items: start; }
 .brand-editor .ui-field { max-width: none; }
-.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 textarea { min-height: var(--control-h); padding: var(--space-2) var(--space-3); border: var(--control-border) solid var(--color-border-control); border-radius: var(--radius-control); background: var(--color-surface); color: var(--color-text); font: inherit; }
 textarea.mono { font-family: var(--font-mono); font-size: 14px; }
 @media (max-width: 900px) { .brand-editor { grid-template-columns: 1fr; } }
@@ -134,3 +143,6 @@ details summary { cursor: pointer; font-weight: 700; }
 details[open] summary { margin-bottom: var(--space-3); }
 .checks form { display: inline; }
 .note ol { margin: var(--space-2) 0 0; padding-inline-start: var(--space-5); }
+
+/* Groepen knoppen (Blok toevoegen, Stap toevoegen): links uitgelijnd, niet over de breedte verdeeld. */
+.toolbar[role="group"] { justify-content: flex-start; }

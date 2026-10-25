@@ -25,7 +25,7 @@ export default async function MailPage({ params, searchParams }: { params: Promi
       <h1 className="page-title">{token ? t.mlPrefsTitle : t.mlTitle}</h1>
       {token && /^[A-Za-z0-9_.-]{20,80}$/.test(token)
         ? <MailPreferences token={token} language={language} unsubscribe={afmelden === "1"} />
-        : <SubscribeForm action={subscribe.bind(null, market)} language={language} />}
+        : <SubscribeForm action={subscribe.bind(null, market)} language={language} titled={false} />}
     </div>
   );
 }

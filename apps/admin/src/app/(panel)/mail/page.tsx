@@ -29,9 +29,9 @@ export default async function MailOverview({ searchParams }: { searchParams: Pro
         <div className="ui-callout" data-tone="warning"><p><strong>Versturen staat {o.sending.bulk || o.sending.transactional ? "deels " : ""}uit.</strong> {!o.sending.transactional && "Bevestigingsmails (MAIL_TRANSACTIONAL_SMTP_URL of MAIL_SMTP_URL) "}{!o.sending.transactional && !o.sending.bulk && "en "}{!o.sending.bulk && "nieuwsbrief en automatische mails (MAIL_SMTP_URL) "}gaan pas weg als er een SMTP-dienst is ingesteld. Tot die tijd wachten ze; na 3 dagen vervallen ze.</p></div>
       )}
       <div className="cards">
-        <div className="ui-stat"><span>Abonnees</span><strong>{o.subscribers.active}</strong><small>{o.subscribers.pending} nog niet bevestigd</small></div>
-        <div className="ui-stat"><span>Verstuurd (7 dagen)</span><strong>{o.queue.sent ?? 0}</strong><small>{o.queue.queued ?? 0} in de wachtrij</small></div>
-        <div className="ui-stat"><span>Mislukt (7 dagen)</span><strong>{o.queue.failed ?? 0}</strong><small>{o.queue.expired ?? 0} vervallen of overgeslagen</small></div>
+        <div className="ui-stat"><span>Abonnees</span><strong>{o.subscribers.active}</strong><p className="ui-stat-note">{o.subscribers.pending} nog niet bevestigd</p></div>
+        <div className="ui-stat"><span>Verstuurd (7 dagen)</span><strong>{o.queue.sent ?? 0}</strong><p className="ui-stat-note">{o.queue.queued ?? 0} in de wachtrij</p></div>
+        <div className="ui-stat"><span>Mislukt (7 dagen)</span><strong>{o.queue.failed ?? 0}</strong><p className="ui-stat-note">{o.queue.expired ?? 0} vervallen of overgeslagen</p></div>
       </div>
       <section className="panel">
         <h2>Abonnees per onderwerp en markt</h2>

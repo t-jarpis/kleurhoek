@@ -9,15 +9,16 @@ const TOPICS = ["nieuwe-platen", "feestdagen", "nieuwsbrief"] as const;
  * Aanmelden voor mail (design system: SubscribeForm, ADR 0037). Ouderzone; verklaring 16+ (ADR 0002); geen captcha,
  * wel een verborgen veld en een minimale invultijd. Na versturen: "kijk in je mail" (double opt-in).
  */
-export function SubscribeForm({ action, language }: { action: (s: SubscribeState, f: FormData) => Promise<SubscribeState>; language: string }) {
+/** `titled`: eigen kop tonen (uit op de mailpagina, die heeft dezelfde tekst al als paginatitel). */
+export function SubscribeForm({ action, language, titled = true }: { action: (s: SubscribeState, f: FormData) => Promise<SubscribeState>; language: string; titled?: boolean }) {
   const t = messages(language);
   const [state, submit, pending] = useActionState(action, { status: "idle" });
   const [started, setStarted] = useState(0);
   useEffect(() => { setStarted(Date.now()); }, []);
 
   return (
-    <section className="ui-subscribe panel no-print" data-mode="ouder" aria-labelledby="kh-sub-title">
-      <h2 id="kh-sub-title">{t.mlTitle}</h2>
+    <section className="ui-subscribe panel no-print" data-mode="ouder" {...(titled ? { "aria-labelledby": "kh-sub-title" } : { "aria-label": t.mlTitle })}>
+      {titled && <h2 id="kh-sub-title">{t.mlTitle}</h2>}
       {state.status === "sent" ? (
         <div className="ui-callout" data-tone="success" role="status"><div><strong>{t.mlCheckTitle}</strong>{t.mlCheckText}</div></div>
       ) : (

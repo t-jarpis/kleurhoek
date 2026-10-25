@@ -57,6 +57,17 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: var(--font-display-w
   border: var(--control-border) solid var(--color-border-control); border-radius: var(--radius-chip); cursor: pointer;
 }
 .chips.sm .chip { font-size: 14px; min-height: 36px; padding: 0 var(--space-3); }
+/* Telefoon: het label boven de filter, de chips op één rij die horizontaal schuift (anders wordt Onderwerp een lange
+   kolom van één chip per regel). */
+@media (max-width: 560px) {
+  .frow { flex-direction: column; gap: var(--space-2); }
+  .flabel { padding-top: 0; min-width: 0; }
+  .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; inline-size: 100%; padding-block-end: 2px; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chips .chip { flex: none; white-space: nowrap; }
+  .frow .seg { flex-wrap: nowrap; overflow-x: auto; max-inline-size: 100%; scrollbar-width: none; }
+  .frow .seg button { flex: none; white-space: nowrap; }
+}
 .chip i { width: 8px; height: 8px; border-radius: var(--radius-full); background: var(--c); flex: none; }
 .chip small { color: var(--color-text-muted); font-weight: 400; }
 .chip[aria-pressed="true"] { background: var(--chip-selected-bg); border-color: var(--chip-selected-bg); color: var(--chip-selected-fg); }
@@ -73,6 +84,8 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: var(--font-display-w
 .hint { font-size: 14px; color: var(--color-text-muted); margin: 0; }
 
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: var(--space-6); }
+/* Telefoon: twee platen naast elkaar in plaats van één grote per scherm. */
+@media (max-width: 560px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); } }
 .card { display: flex; flex-direction: column; text-decoration: none; color: var(--color-text); background: var(--color-surface); border: var(--border-thin) solid var(--color-border); border-radius: var(--radius-card); box-shadow: var(--shadow-card); overflow: hidden; transition: border-color var(--dur-fast), transform var(--dur-fast); }
 .card .paper { background: var(--color-paper); padding: var(--space-3); aspect-ratio: 1; overflow: hidden; min-height: 0; border-bottom: var(--border-thin) solid var(--color-border); }
 .card .paper img { display: block; width: 100%; height: 100%; object-fit: contain; }

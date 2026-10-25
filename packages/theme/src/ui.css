@@ -478,3 +478,14 @@ a.ui-chip { text-decoration: none; }
 .ui-block-head { flex-wrap: wrap; }
 .ui-block-head strong { flex: 1 1 8em; }
 .ui-block > input { inline-size: 100%; min-height: var(--control-h); padding: 0 var(--space-3); border: var(--control-border, var(--border-thin)) solid var(--color-border-control); border-radius: var(--radius-control); background: var(--color-surface); color: var(--color-text); font: inherit; box-sizing: border-box; }
+
+/* Smal scherm: in de blokken- en stappeneditor staat de titel op een eigen regel, de knoppen eronder op één rij
+   (Verwijderen apart rechts), zodat ze niet willekeurig over twee regels springen. */
+@media (max-width: 560px) {
+  .ui-block-head strong { flex-basis: 100%; }
+  .ui-block-head [data-variant="danger"] { margin-inline-start: auto; }
+}
+
+/* VisuallyHidden: alleen voor schermlezers. Linksboven vastgezet, zodat hij nooit de pagina breder maakt
+   (zonder positie zou hij op zijn plek in een brede tabel blijven staan). */
+.visually-hidden { position: absolute; inset-block-start: 0; inset-inline-start: 0; inline-size: 1px; block-size: 1px; margin: -1px; padding: 0; border: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
