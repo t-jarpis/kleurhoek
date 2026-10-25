@@ -4,7 +4,7 @@
  * infra-run. Alleen bij uitzondering te overschrijven met MARKETS_OVERRIDE (tijdens het draaien, niet bij het
  * bouwen: één image voor dev en prod). Het oude MARKETS uit Terraform wordt bewust niet meer gelezen.
  */
-export const DEFAULT_MARKETS = "nl-nl,nl-be,fr-be,en-gb";
+export const DEFAULT_MARKETS = "nl-nl,nl-be,fr-be,en-gb,de-de,de-at,de-ch,fr-fr,fr-ch,en-us,en-ie,es-es,it-it,pl-pl";
 export const LIVE_MARKETS = (process.env.MARKETS_OVERRIDE || DEFAULT_MARKETS).split(",").map((m) => m.trim().toLowerCase()).filter(Boolean);
 
 export function bestMarket(country: string | null, acceptLanguage: string | null, live: string[] = LIVE_MARKETS): string {

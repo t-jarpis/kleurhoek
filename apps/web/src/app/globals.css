@@ -147,6 +147,9 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: var(--font-display-w
 @media (prefers-reduced-motion: reduce) { .card, .bar i { transition: none; } .card:hover { transform: none; } }
 
 @page { size: A4 portrait; margin: 14mm; }
+/* Letter in de VS en Canada (ADR 0046): een benoemde pagina, gekozen via html[data-paper]. */
+@page letter { size: letter portrait; margin: 0.55in; }
+html[data-paper="letter"] body { page: letter; }
 .print-copy { display: none; }
 @media print {
   body { background: var(--color-paper); }

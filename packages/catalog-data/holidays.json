@@ -14,7 +14,16 @@
     "countries": [
       "NL",
       "BE",
-      "GB"
+      "GB",
+      "DE",
+      "AT",
+      "CH",
+      "FR",
+      "US",
+      "IE",
+      "ES",
+      "IT",
+      "PL"
     ],
     "i18n": {
       "nl": {
@@ -42,8 +51,54 @@
     "overrides": {}
   },
   {
-    "slug": "chinees",
+    "slug": "driekoningen",
     "order": 1,
+    "fixed": [
+      1,
+      6
+    ],
+    "dates": null,
+    "leadDays": 7,
+    "afterDays": 0,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "DE",
+      "AT",
+      "CH",
+      "FR",
+      "ES",
+      "IT",
+      "PL"
+    ],
+    "overrides": {},
+    "i18n": {
+      "nl": {
+        "name": "Driekoningen"
+      },
+      "de": {
+        "name": "Heilige Drei Könige"
+      },
+      "fr": {
+        "name": "Épiphanie"
+      },
+      "en": {
+        "name": "Epiphany"
+      },
+      "es": {
+        "name": "Reyes Magos"
+      },
+      "it": {
+        "name": "Epifania"
+      },
+      "pl": {
+        "name": "Święto Trzech Króli"
+      }
+    }
+  },
+  {
+    "slug": "chinees",
+    "order": 2,
     "fixed": null,
     "dates": {
       "2026": "2026-02-17",
@@ -56,7 +111,16 @@
     "countries": [
       "NL",
       "BE",
-      "GB"
+      "GB",
+      "DE",
+      "AT",
+      "CH",
+      "FR",
+      "US",
+      "IE",
+      "ES",
+      "IT",
+      "PL"
     ],
     "i18n": {
       "nl": {
@@ -85,7 +149,7 @@
   },
   {
     "slug": "valentijn",
-    "order": 2,
+    "order": 3,
     "fixed": [
       2,
       14
@@ -98,7 +162,16 @@
     "countries": [
       "NL",
       "BE",
-      "GB"
+      "GB",
+      "DE",
+      "AT",
+      "CH",
+      "FR",
+      "US",
+      "IE",
+      "ES",
+      "IT",
+      "PL"
     ],
     "i18n": {
       "nl": {
@@ -127,7 +200,7 @@
   },
   {
     "slug": "carnaval",
-    "order": 3,
+    "order": 4,
     "fixed": null,
     "dates": {
       "2026": "2026-02-15",
@@ -139,7 +212,13 @@
     "label": null,
     "countries": [
       "NL",
-      "BE"
+      "BE",
+      "DE",
+      "AT",
+      "CH",
+      "FR",
+      "ES",
+      "IT"
     ],
     "i18n": {
       "nl": {
@@ -168,7 +247,7 @@
   },
   {
     "slug": "holi",
-    "order": 4,
+    "order": 5,
     "fixed": null,
     "dates": {
       "2026": "2026-03-04",
@@ -181,7 +260,16 @@
     "countries": [
       "NL",
       "BE",
-      "GB"
+      "GB",
+      "DE",
+      "AT",
+      "CH",
+      "FR",
+      "US",
+      "IE",
+      "ES",
+      "IT",
+      "PL"
     ],
     "i18n": {
       "nl": {
@@ -209,8 +297,49 @@
     "overrides": {}
   },
   {
+    "slug": "st-patrick",
+    "order": 6,
+    "fixed": [
+      3,
+      17
+    ],
+    "dates": null,
+    "leadDays": 10,
+    "afterDays": 0,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "IE",
+      "US"
+    ],
+    "overrides": {},
+    "i18n": {
+      "nl": {
+        "name": "Saint Patrick's Day"
+      },
+      "de": {
+        "name": "St. Patrick's Day"
+      },
+      "fr": {
+        "name": "Saint-Patrick"
+      },
+      "en": {
+        "name": "St Patrick's Day"
+      },
+      "es": {
+        "name": "San Patricio"
+      },
+      "it": {
+        "name": "San Patrizio"
+      },
+      "pl": {
+        "name": "Dzień Świętego Patryka"
+      }
+    }
+  },
+  {
     "slug": "suikerfeest",
-    "order": 5,
+    "order": 7,
     "fixed": null,
     "dates": {
       "2026": "2026-03-20",
@@ -223,7 +352,16 @@
     "countries": [
       "NL",
       "BE",
-      "GB"
+      "GB",
+      "DE",
+      "AT",
+      "CH",
+      "FR",
+      "US",
+      "IE",
+      "ES",
+      "IT",
+      "PL"
     ],
     "i18n": {
       "nl": {
@@ -252,7 +390,7 @@
   },
   {
     "slug": "pasen",
-    "order": 6,
+    "order": 8,
     "fixed": null,
     "dates": {
       "2026": "2026-04-05",
@@ -265,7 +403,16 @@
     "countries": [
       "NL",
       "BE",
-      "GB"
+      "GB",
+      "DE",
+      "AT",
+      "CH",
+      "FR",
+      "US",
+      "IE",
+      "ES",
+      "IT",
+      "PL"
     ],
     "i18n": {
       "nl": {
@@ -294,7 +441,7 @@
   },
   {
     "slug": "koningsdag",
-    "order": 7,
+    "order": 9,
     "fixed": [
       4,
       27
@@ -334,7 +481,7 @@
   },
   {
     "slug": "bevrijding",
-    "order": 8,
+    "order": 10,
     "fixed": [
       5,
       5
@@ -374,7 +521,7 @@
   },
   {
     "slug": "moederdag",
-    "order": 9,
+    "order": 11,
     "fixed": null,
     "dates": {
       "2026": "2026-05-10",
@@ -387,7 +534,16 @@
     "countries": [
       "NL",
       "BE",
-      "GB"
+      "GB",
+      "DE",
+      "AT",
+      "CH",
+      "FR",
+      "US",
+      "IE",
+      "ES",
+      "IT",
+      "PL"
     ],
     "i18n": {
       "nl": {
@@ -418,12 +574,36 @@
           "2026": "2026-03-15",
           "2027": "2027-03-07"
         }
+      },
+      "FR": {
+        "dates": {
+          "2026": "2026-05-31",
+          "2027": "2027-05-30"
+        }
+      },
+      "ES": {
+        "dates": {
+          "2026": "2026-05-03",
+          "2027": "2027-05-02"
+        }
+      },
+      "PL": {
+        "fixed": [
+          5,
+          26
+        ]
+      },
+      "IE": {
+        "dates": {
+          "2026": "2026-03-15",
+          "2027": "2027-03-07"
+        }
       }
     }
   },
   {
     "slug": "hemelvaart",
-    "order": 10,
+    "order": 12,
     "fixed": null,
     "dates": {
       "2026": "2026-05-14",
@@ -435,7 +615,11 @@
     "label": null,
     "countries": [
       "NL",
-      "BE"
+      "BE",
+      "DE",
+      "AT",
+      "CH",
+      "FR"
     ],
     "i18n": {
       "nl": {
@@ -464,7 +648,7 @@
   },
   {
     "slug": "pinksteren",
-    "order": 11,
+    "order": 13,
     "fixed": null,
     "dates": {
       "2026": "2026-05-24",
@@ -476,7 +660,12 @@
     "label": null,
     "countries": [
       "NL",
-      "BE"
+      "BE",
+      "DE",
+      "AT",
+      "CH",
+      "FR",
+      "PL"
     ],
     "i18n": {
       "nl": {
@@ -505,7 +694,7 @@
   },
   {
     "slug": "offerfeest",
-    "order": 12,
+    "order": 14,
     "fixed": null,
     "dates": {
       "2026": "2026-05-27",
@@ -518,7 +707,16 @@
     "countries": [
       "NL",
       "BE",
-      "GB"
+      "GB",
+      "DE",
+      "AT",
+      "CH",
+      "FR",
+      "US",
+      "IE",
+      "ES",
+      "IT",
+      "PL"
     ],
     "i18n": {
       "nl": {
@@ -547,7 +745,7 @@
   },
   {
     "slug": "vaderdag",
-    "order": 13,
+    "order": 15,
     "fixed": null,
     "dates": {
       "2026": "2026-06-21",
@@ -560,7 +758,16 @@
     "countries": [
       "NL",
       "BE",
-      "GB"
+      "GB",
+      "DE",
+      "AT",
+      "CH",
+      "FR",
+      "US",
+      "IE",
+      "ES",
+      "IT",
+      "PL"
     ],
     "i18n": {
       "nl": {
@@ -591,12 +798,48 @@
           "2026": "2026-06-14",
           "2027": "2027-06-13"
         }
+      },
+      "DE": {
+        "dates": {
+          "2026": "2026-05-14",
+          "2027": "2027-05-06"
+        }
+      },
+      "AT": {
+        "dates": {
+          "2026": "2026-06-14",
+          "2027": "2027-06-13"
+        }
+      },
+      "CH": {
+        "dates": {
+          "2026": "2026-06-07",
+          "2027": "2027-06-06"
+        }
+      },
+      "ES": {
+        "fixed": [
+          3,
+          19
+        ]
+      },
+      "IT": {
+        "fixed": [
+          3,
+          19
+        ]
+      },
+      "PL": {
+        "fixed": [
+          6,
+          23
+        ]
       }
     }
   },
   {
     "slug": "ketikoti",
-    "order": 14,
+    "order": 16,
     "fixed": [
       7,
       1
@@ -635,8 +878,88 @@
     "overrides": {}
   },
   {
+    "slug": "independence-day",
+    "order": 17,
+    "fixed": [
+      7,
+      4
+    ],
+    "dates": null,
+    "leadDays": 10,
+    "afterDays": 0,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "US"
+    ],
+    "overrides": {},
+    "i18n": {
+      "nl": {
+        "name": "Onafhankelijkheidsdag (VS)"
+      },
+      "de": {
+        "name": "Unabhängigkeitstag (USA)"
+      },
+      "fr": {
+        "name": "Fête de l'Indépendance (États-Unis)"
+      },
+      "en": {
+        "name": "Independence Day"
+      },
+      "es": {
+        "name": "Día de la Independencia (EE. UU.)"
+      },
+      "it": {
+        "name": "Giorno dell'Indipendenza (USA)"
+      },
+      "pl": {
+        "name": "Dzień Niepodległości (USA)"
+      }
+    }
+  },
+  {
+    "slug": "quatorze-juillet",
+    "order": 18,
+    "fixed": [
+      7,
+      14
+    ],
+    "dates": null,
+    "leadDays": 10,
+    "afterDays": 0,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "FR"
+    ],
+    "overrides": {},
+    "i18n": {
+      "nl": {
+        "name": "Franse nationale feestdag"
+      },
+      "de": {
+        "name": "Französischer Nationalfeiertag"
+      },
+      "fr": {
+        "name": "14 Juillet"
+      },
+      "en": {
+        "name": "Bastille Day"
+      },
+      "es": {
+        "name": "Fiesta Nacional de Francia"
+      },
+      "it": {
+        "name": "Festa nazionale francese"
+      },
+      "pl": {
+        "name": "Święto Narodowe Francji"
+      }
+    }
+  },
+  {
     "slug": "nationale-feestdag",
-    "order": 15,
+    "order": 19,
     "fixed": [
       7,
       21
@@ -676,7 +999,7 @@
   },
   {
     "slug": "school",
-    "order": 16,
+    "order": 20,
     "fixed": [
       8,
       31
@@ -689,7 +1012,16 @@
     "countries": [
       "NL",
       "BE",
-      "GB"
+      "GB",
+      "DE",
+      "AT",
+      "CH",
+      "FR",
+      "US",
+      "IE",
+      "ES",
+      "IT",
+      "PL"
     ],
     "i18n": {
       "nl": {
@@ -728,12 +1060,75 @@
           3
         ],
         "label": null
+      },
+      "DE": {
+        "fixed": [
+          9,
+          1
+        ],
+        "label": null
+      },
+      "AT": {
+        "fixed": [
+          9,
+          7
+        ],
+        "label": null
+      },
+      "CH": {
+        "fixed": [
+          8,
+          17
+        ],
+        "label": null
+      },
+      "FR": {
+        "fixed": [
+          9,
+          1
+        ],
+        "label": null
+      },
+      "US": {
+        "fixed": [
+          8,
+          25
+        ],
+        "label": null
+      },
+      "IE": {
+        "fixed": [
+          9,
+          1
+        ],
+        "label": null
+      },
+      "ES": {
+        "fixed": [
+          9,
+          10
+        ],
+        "label": null
+      },
+      "IT": {
+        "fixed": [
+          9,
+          14
+        ],
+        "label": null
+      },
+      "PL": {
+        "fixed": [
+          9,
+          1
+        ],
+        "label": null
       }
     }
   },
   {
     "slug": "dierendag",
-    "order": 17,
+    "order": 21,
     "fixed": [
       10,
       4
@@ -745,7 +1140,11 @@
     "label": null,
     "countries": [
       "NL",
-      "BE"
+      "BE",
+      "DE",
+      "AT",
+      "CH",
+      "PL"
     ],
     "i18n": {
       "nl": {
@@ -774,7 +1173,7 @@
   },
   {
     "slug": "halloween",
-    "order": 18,
+    "order": 22,
     "fixed": [
       10,
       31
@@ -787,7 +1186,16 @@
     "countries": [
       "NL",
       "BE",
-      "GB"
+      "GB",
+      "DE",
+      "AT",
+      "CH",
+      "FR",
+      "US",
+      "IE",
+      "ES",
+      "IT",
+      "PL"
     ],
     "i18n": {
       "nl": {
@@ -816,7 +1224,7 @@
   },
   {
     "slug": "bonfire-night",
-    "order": 19,
+    "order": 23,
     "fixed": [
       11,
       5
@@ -856,7 +1264,7 @@
   },
   {
     "slug": "divali",
-    "order": 20,
+    "order": 24,
     "fixed": null,
     "dates": {
       "2026": "2026-11-08",
@@ -869,7 +1277,16 @@
     "countries": [
       "NL",
       "BE",
-      "GB"
+      "GB",
+      "DE",
+      "AT",
+      "CH",
+      "FR",
+      "US",
+      "IE",
+      "ES",
+      "IT",
+      "PL"
     ],
     "i18n": {
       "nl": {
@@ -898,7 +1315,7 @@
   },
   {
     "slug": "sintmaarten",
-    "order": 21,
+    "order": 25,
     "fixed": [
       11,
       11
@@ -910,7 +1327,10 @@
     "label": null,
     "countries": [
       "NL",
-      "BE"
+      "BE",
+      "DE",
+      "AT",
+      "CH"
     ],
     "i18n": {
       "nl": {
@@ -938,8 +1358,48 @@
     "overrides": {}
   },
   {
+    "slug": "thanksgiving",
+    "order": 26,
+    "fixed": null,
+    "dates": {
+      "2026": "2026-11-26",
+      "2027": "2027-11-25"
+    },
+    "leadDays": 14,
+    "afterDays": 0,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "US"
+    ],
+    "overrides": {},
+    "i18n": {
+      "nl": {
+        "name": "Thanksgiving"
+      },
+      "de": {
+        "name": "Thanksgiving"
+      },
+      "fr": {
+        "name": "Thanksgiving"
+      },
+      "en": {
+        "name": "Thanksgiving"
+      },
+      "es": {
+        "name": "Acción de Gracias"
+      },
+      "it": {
+        "name": "Ringraziamento"
+      },
+      "pl": {
+        "name": "Święto Dziękczynienia"
+      }
+    }
+  },
+  {
     "slug": "sinterklaas",
-    "order": 22,
+    "order": 27,
     "fixed": [
       12,
       5
@@ -951,14 +1411,18 @@
     "label": null,
     "countries": [
       "NL",
-      "BE"
+      "BE",
+      "DE",
+      "AT",
+      "CH",
+      "PL"
     ],
     "i18n": {
       "nl": {
         "name": "Sinterklaas"
       },
       "de": {
-        "name": "Sinterklaas"
+        "name": "Nikolaustag"
       },
       "fr": {
         "name": "Saint-Nicolas"
@@ -967,17 +1431,41 @@
         "name": "Sinterklaas"
       },
       "es": {
-        "name": "Sinterklaas"
+        "name": "San Nicolás"
       },
       "it": {
-        "name": "Sinterklaas"
+        "name": "San Nicola"
       },
       "pl": {
-        "name": "Sinterklaas"
+        "name": "Mikołajki"
       }
     },
     "overrides": {
       "BE": {
+        "fixed": [
+          12,
+          6
+        ]
+      },
+      "DE": {
+        "fixed": [
+          12,
+          6
+        ]
+      },
+      "AT": {
+        "fixed": [
+          12,
+          6
+        ]
+      },
+      "CH": {
+        "fixed": [
+          12,
+          6
+        ]
+      },
+      "PL": {
         "fixed": [
           12,
           6
@@ -987,7 +1475,7 @@
   },
   {
     "slug": "chanoeka",
-    "order": 23,
+    "order": 28,
     "fixed": null,
     "dates": {
       "2026": "2026-12-05",
@@ -1000,7 +1488,16 @@
     "countries": [
       "NL",
       "BE",
-      "GB"
+      "GB",
+      "DE",
+      "AT",
+      "CH",
+      "FR",
+      "US",
+      "IE",
+      "ES",
+      "IT",
+      "PL"
     ],
     "i18n": {
       "nl": {
@@ -1029,7 +1526,7 @@
   },
   {
     "slug": "kerst",
-    "order": 24,
+    "order": 29,
     "fixed": [
       12,
       25
@@ -1042,7 +1539,16 @@
     "countries": [
       "NL",
       "BE",
-      "GB"
+      "GB",
+      "DE",
+      "AT",
+      "CH",
+      "FR",
+      "US",
+      "IE",
+      "ES",
+      "IT",
+      "PL"
     ],
     "i18n": {
       "nl": {
@@ -1071,7 +1577,7 @@
   },
   {
     "slug": "verjaardag",
-    "order": 25,
+    "order": 30,
     "fixed": null,
     "dates": null,
     "leadDays": 0,
@@ -1081,7 +1587,16 @@
     "countries": [
       "NL",
       "BE",
-      "GB"
+      "GB",
+      "DE",
+      "AT",
+      "CH",
+      "FR",
+      "US",
+      "IE",
+      "ES",
+      "IT",
+      "PL"
     ],
     "i18n": {
       "nl": {

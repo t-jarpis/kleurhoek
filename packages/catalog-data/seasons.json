@@ -17,7 +17,16 @@
     "countries": [
       "NL",
       "BE",
-      "GB"
+      "GB",
+      "DE",
+      "AT",
+      "CH",
+      "FR",
+      "US",
+      "IE",
+      "ES",
+      "IT",
+      "PL"
     ],
     "i18n": {
       "nl": {

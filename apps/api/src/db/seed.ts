@@ -30,6 +30,17 @@ export async function seed(db: Database, tenantId: string): Promise<{ plates: nu
       { tenantId, code: "fr-BE", country: "BE", language: "fr", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
       // Engels voor het Verenigd Koninkrijk op kleurhoek.com/en-gb (ADR 0044); digitale toestemming vanaf 13 (UK GDPR).
       { tenantId, code: "en-GB", country: "GB", language: "en", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
+      // Duits, Frans, Engels, Spaans, Italiaans en Pools op kleurhoek.com (ADR 0046). Leeftijd voor een account per land (AVG/COPPA).
+      { tenantId, code: "de-DE", country: "DE", language: "de", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
+      { tenantId, code: "de-AT", country: "AT", language: "de", status: "live" as const, paperSize: "A4" as const, minAccountAge: 14 },
+      { tenantId, code: "de-CH", country: "CH", language: "de", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
+      { tenantId, code: "fr-FR", country: "FR", language: "fr", status: "live" as const, paperSize: "A4" as const, minAccountAge: 15 },
+      { tenantId, code: "fr-CH", country: "CH", language: "fr", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
+      { tenantId, code: "en-US", country: "US", language: "en", status: "live" as const, paperSize: "Letter" as const, minAccountAge: 13 },
+      { tenantId, code: "en-IE", country: "IE", language: "en", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
+      { tenantId, code: "es-ES", country: "ES", language: "es", status: "live" as const, paperSize: "A4" as const, minAccountAge: 14 },
+      { tenantId, code: "it-IT", country: "IT", language: "it", status: "live" as const, paperSize: "A4" as const, minAccountAge: 14 },
+      { tenantId, code: "pl-PL", country: "PL", language: "pl", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
     ]).onConflictDoNothing();
 
     const cats = source.categories();

@@ -1,4 +1,4 @@
-const ZONES: Record<string, string> = { NL: "Europe/Amsterdam", BE: "Europe/Brussels", DE: "Europe/Berlin", FR: "Europe/Paris", GB: "Europe/London", US: "America/New_York" };
+const ZONES: Record<string, string> = { NL: "Europe/Amsterdam", BE: "Europe/Brussels", DE: "Europe/Berlin", AT: "Europe/Vienna", CH: "Europe/Zurich", FR: "Europe/Paris", GB: "Europe/London", IE: "Europe/Dublin", ES: "Europe/Madrid", IT: "Europe/Rome", PL: "Europe/Warsaw", US: "America/New_York" };
 
 /** De datum van vandaag in de tijdzone van een land, als YYYY-MM-DD. */
 export function todayIn(country: string, now = new Date()): string {
