@@ -65,13 +65,13 @@ locals {
       timeout = 60
       env = merge({
         NODE_ENV = "production"
-        # Live markten en domeinen per land (ADR 0040): runtime, zodat één image op dev en prod past.
-        MARKETS         = var.markets
-        SITE_URL        = "https://${var.hosts.site}"
-        OIDC_ISSUER     = var.oidc.issuer
-        OIDC_CLIENT_ID  = var.oidc.web_client_id
-        OIDC_PROJECT_ID = var.oidc.project_id
-        OIDC_ORG_ID     = var.oidc.site_org_id
+        # Live markten staan in de code (ADR 0044); MARKETS_OVERRIDE alleen voor een bewuste uitzondering.
+        MARKETS_OVERRIDE = var.markets
+        SITE_URL         = "https://${var.hosts.site}"
+        OIDC_ISSUER      = var.oidc.issuer
+        OIDC_CLIENT_ID   = var.oidc.web_client_id
+        OIDC_PROJECT_ID  = var.oidc.project_id
+        OIDC_ORG_ID      = var.oidc.site_org_id
         },
         var.site_domains != "" ? { SITE_DOMAINS = var.site_domains } : {},
       )

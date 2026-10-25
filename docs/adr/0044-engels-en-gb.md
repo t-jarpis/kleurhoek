@@ -18,4 +18,4 @@ Na Nederland en België (ADR 0040) is Engels de taal met het grootste bereik. Er
 - **Vertaling:** alle platen die niet taalgebonden zijn, plus de woordenlijst van de teksten in platen, zijn in het Engels. `check-lang.mjs en` controleert of alles op het vel past.
 
 ## Gevolgen
-- `MARKETS` staat standaard op `nl-nl,nl-be,fr-be,en-gb` (website-code en Terraform). Op dev en prod is en-GB pas zichtbaar na `scripts/infra.sh up dev` en `up prod`, omdat Terraform `MARKETS` daar expliciet zet.
+- De live markten staan in de websitecode (`DEFAULT_MARKETS`), zodat een nieuwe markt live gaat met de release zelf, zonder infra-run. Terraform zet alleen nog een bewuste uitzondering (`MARKETS_OVERRIDE`). Het oude `MARKETS` wordt niet meer gelezen; het verdwijnt bij de volgende `scripts/infra.sh up`.
