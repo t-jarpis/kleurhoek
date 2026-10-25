@@ -175,7 +175,7 @@ export class AnalyticsService {
       return {
         from, to, bucket, previous: { from: prevFrom, to: prevTo },
         totals: { visitors: visitorsNow, ...current }, previousTotals: { visitors: visitorsBefore, ...previous },
-        series, pages, devices, organizations, entries, referrers, topPlates: topPlates.slice(0, 10), countries: byCountry.slice(0, 10),
+        series, pages, devices, organizations, entries, referrers, topPlates: topPlates.slice(0, 10), countries: byCountry,
       };
     });
   }

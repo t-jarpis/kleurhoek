@@ -498,3 +498,25 @@ a.ui-chip { text-decoration: none; }
 .ui-lang-hint p { margin: 0; flex: 1 1 14em; }
 .ui-lang-hint-close { min-width: var(--tap-min); min-height: var(--tap-min); border: 0; background: none; color: var(--color-text-muted); font-size: 22px; line-height: 1; cursor: pointer; border-radius: var(--radius-sm); }
 .ui-lang-hint-close:hover { color: var(--color-text); }
+
+/* ---------- WorldMap: bezoek per land (admin analytics) ---------- */
+/* Vlakken in chart-1, vijf stappen dekking; zonder bezoek chart-grid. Waarde staat altijd ook als tekst (tip en lijst). */
+.ui-worldmap { position: relative; display: grid; gap: var(--space-3); }
+.ui-worldmap-head { display: flex; justify-content: space-between; align-items: center; gap: var(--space-3); flex-wrap: wrap; }
+.ui-worldmap svg { display: block; width: 100%; height: auto; touch-action: manipulation; }
+.ui-worldmap path { fill: var(--chart-grid); stroke: var(--color-surface); stroke-width: .6; vector-effect: non-scaling-stroke; transition: fill-opacity .12s; }
+.ui-worldmap path[data-level] { fill: var(--chart-1); cursor: pointer; }
+.ui-worldmap path[data-level="1"] { fill-opacity: .25; }
+.ui-worldmap path[data-level="2"] { fill-opacity: .45; }
+.ui-worldmap path[data-level="3"] { fill-opacity: .65; }
+.ui-worldmap path[data-level="4"] { fill-opacity: .85; }
+.ui-worldmap path[data-level="5"] { fill-opacity: 1; }
+.ui-worldmap path[data-level]:hover, .ui-worldmap path[data-active="true"] { stroke: var(--color-text); stroke-width: 1.5; }
+.ui-worldmap path[data-level]:focus-visible { outline: none; stroke: var(--color-focus); stroke-width: 2.5; }
+.ui-worldmap-scale { display: flex; align-items: center; gap: var(--space-2); margin: 0; font-size: 12px; color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
+.ui-worldmap-scale ol { display: flex; gap: 2px; margin: 0; padding: 0; list-style: none; }
+.ui-worldmap-scale li { width: 28px; height: 10px; border-radius: 2px; background: var(--chart-1); }
+.ui-worldmap-scale li:nth-child(1) { opacity: .25; } .ui-worldmap-scale li:nth-child(2) { opacity: .45; } .ui-worldmap-scale li:nth-child(3) { opacity: .65; } .ui-worldmap-scale li:nth-child(4) { opacity: .85; }
+.ui-worldmap-scale li.none { background: var(--chart-grid); opacity: 1; margin-inline-end: var(--space-2); }
+.ui-worldmap-scale .from { margin-inline-start: var(--space-4); }
+.ui-worldmap-scale { flex-wrap: wrap; } .ui-worldmap-scale span { white-space: nowrap; }

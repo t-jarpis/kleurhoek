@@ -3,6 +3,7 @@ import { BarList } from "@/components/charts/BarList";
 import { num } from "@/components/charts/format";
 import { StatCard } from "@/components/charts/StatCard";
 import { TimeChart } from "@/components/charts/TimeChart";
+import { WorldMap } from "@/components/charts/WorldMap";
 import { adminApi, describe } from "@/lib/api";
 import { REF_KIND_LABEL, refKind, type RefKind } from "@/lib/referrers";
 
@@ -107,9 +108,13 @@ export default async function Analytics({ searchParams }: { searchParams: Promis
         </section>
       </>}
 
+      {tab === "techniek" && <section className="panel stack">
+        <h2>Landen</h2>
+        {o.countries.some((c) => c.country) ? <WorldMap items={o.countries.map((c) => ({ country: c.country, value: c.pageViews + c.plateViews }))} /> : <p className="lead">Nog geen bezoek met een bekend land in deze periode.</p>}
+      </section>}
       {tab === "techniek" && <div className="dash-grid">
         <section className="panel stack"><h2>Apparaten</h2><BarList items={o.devices.map((d) => ({ label: DEVICE_LABEL[d.device] ?? d.device, value: d.views }))} /></section>
-        <section className="panel stack"><h2>Landen</h2><BarList items={o.countries.map((c) => ({ label: countryName(c.country), value: c.pageViews + c.plateViews }))} /></section>
+        <section className="panel stack"><h2>Ranglijst landen</h2><BarList items={o.countries.map((c) => ({ label: countryName(c.country), value: c.pageViews + c.plateViews }))} /></section>
         <section className="panel"><p className="lead">Browsers, schermformaten en besturingssystemen tellen we bewust niet: samen maken die een bezoeker herkenbaar (ADR 0002).</p></section>
       </div>}
 
