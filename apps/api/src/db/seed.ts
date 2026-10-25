@@ -23,11 +23,13 @@ function chunks<T>(list: T[], size: number): T[][] {
 
 export async function seed(db: Database, tenantId: string): Promise<{ plates: number }> {
   return withTenant(db, tenantId, async (tx) => {
-    // Nederland, en België in het Nederlands en Frans (ADR 0040). Bestaande markten blijven zoals ze in het admin panel staan.
+    // Nederland, België in het Nederlands en Frans (ADR 0040) en het Verenigd Koninkrijk (ADR 0044). Bestaande markten blijven zoals ze in het admin panel staan.
     await tx.insert(markets).values([
       { tenantId, code: "nl-NL", country: "NL", language: "nl", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
       { tenantId, code: "nl-BE", country: "BE", language: "nl", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
       { tenantId, code: "fr-BE", country: "BE", language: "fr", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
+      // Engels voor het Verenigd Koninkrijk op kleurhoek.com/en-gb (ADR 0044); digitale toestemming vanaf 13 (UK GDPR).
+      { tenantId, code: "en-GB", country: "GB", language: "en", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
     ]).onConflictDoNothing();
 
     const cats = source.categories();

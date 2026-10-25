@@ -13,7 +13,8 @@
     "label": null,
     "countries": [
       "NL",
-      "BE"
+      "BE",
+      "GB"
     ],
     "i18n": {
       "nl": {
@@ -54,7 +55,8 @@
     "label": null,
     "countries": [
       "NL",
-      "BE"
+      "BE",
+      "GB"
     ],
     "i18n": {
       "nl": {
@@ -95,7 +97,8 @@
     "label": null,
     "countries": [
       "NL",
-      "BE"
+      "BE",
+      "GB"
     ],
     "i18n": {
       "nl": {
@@ -177,7 +180,8 @@
     "label": null,
     "countries": [
       "NL",
-      "BE"
+      "BE",
+      "GB"
     ],
     "i18n": {
       "nl": {
@@ -218,7 +222,8 @@
     "label": null,
     "countries": [
       "NL",
-      "BE"
+      "BE",
+      "GB"
     ],
     "i18n": {
       "nl": {
@@ -259,7 +264,8 @@
     "label": null,
     "countries": [
       "NL",
-      "BE"
+      "BE",
+      "GB"
     ],
     "i18n": {
       "nl": {
@@ -380,7 +386,8 @@
     "label": null,
     "countries": [
       "NL",
-      "BE"
+      "BE",
+      "GB"
     ],
     "i18n": {
       "nl": {
@@ -405,7 +412,14 @@
         "name": "Dzień Matki"
       }
     },
-    "overrides": {}
+    "overrides": {
+      "GB": {
+        "dates": {
+          "2026": "2026-03-15",
+          "2027": "2027-03-07"
+        }
+      }
+    }
   },
   {
     "slug": "hemelvaart",
@@ -503,7 +517,8 @@
     "label": null,
     "countries": [
       "NL",
-      "BE"
+      "BE",
+      "GB"
     ],
     "i18n": {
       "nl": {
@@ -544,7 +559,8 @@
     "label": null,
     "countries": [
       "NL",
-      "BE"
+      "BE",
+      "GB"
     ],
     "i18n": {
       "nl": {
@@ -672,7 +688,8 @@
     "label": "eind augustus",
     "countries": [
       "NL",
-      "BE"
+      "BE",
+      "GB"
     ],
     "i18n": {
       "nl": {
@@ -702,6 +719,13 @@
         "fixed": [
           9,
           1
+        ],
+        "label": null
+      },
+      "GB": {
+        "fixed": [
+          9,
+          3
         ],
         "label": null
       }
@@ -762,7 +786,8 @@
     "label": null,
     "countries": [
       "NL",
-      "BE"
+      "BE",
+      "GB"
     ],
     "i18n": {
       "nl": {
@@ -790,8 +815,48 @@
     "overrides": {}
   },
   {
-    "slug": "divali",
+    "slug": "bonfire-night",
     "order": 19,
+    "fixed": [
+      11,
+      5
+    ],
+    "dates": null,
+    "leadDays": 10,
+    "afterDays": 0,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "GB"
+    ],
+    "overrides": {},
+    "i18n": {
+      "nl": {
+        "name": "Bonfire Night"
+      },
+      "de": {
+        "name": "Bonfire Night"
+      },
+      "fr": {
+        "name": "Bonfire Night"
+      },
+      "en": {
+        "name": "Bonfire Night"
+      },
+      "es": {
+        "name": "Noche de las hogueras"
+      },
+      "it": {
+        "name": "Bonfire Night"
+      },
+      "pl": {
+        "name": "Noc Guya Fawkesa"
+      }
+    }
+  },
+  {
+    "slug": "divali",
+    "order": 20,
     "fixed": null,
     "dates": {
       "2026": "2026-11-08",
@@ -803,7 +868,8 @@
     "label": null,
     "countries": [
       "NL",
-      "BE"
+      "BE",
+      "GB"
     ],
     "i18n": {
       "nl": {
@@ -832,7 +898,7 @@
   },
   {
     "slug": "sintmaarten",
-    "order": 20,
+    "order": 21,
     "fixed": [
       11,
       11
@@ -873,7 +939,7 @@
   },
   {
     "slug": "sinterklaas",
-    "order": 21,
+    "order": 22,
     "fixed": [
       12,
       5
@@ -921,7 +987,7 @@
   },
   {
     "slug": "chanoeka",
-    "order": 22,
+    "order": 23,
     "fixed": null,
     "dates": {
       "2026": "2026-12-05",
@@ -933,7 +999,8 @@
     "label": null,
     "countries": [
       "NL",
-      "BE"
+      "BE",
+      "GB"
     ],
     "i18n": {
       "nl": {
@@ -962,7 +1029,7 @@
   },
   {
     "slug": "kerst",
-    "order": 23,
+    "order": 24,
     "fixed": [
       12,
       25
@@ -974,7 +1041,8 @@
     "label": null,
     "countries": [
       "NL",
-      "BE"
+      "BE",
+      "GB"
     ],
     "i18n": {
       "nl": {
@@ -1003,7 +1071,7 @@
   },
   {
     "slug": "verjaardag",
-    "order": 24,
+    "order": 25,
     "fixed": null,
     "dates": null,
     "leadDays": 0,
@@ -1012,7 +1080,8 @@
     "label": null,
     "countries": [
       "NL",
-      "BE"
+      "BE",
+      "GB"
     ],
     "i18n": {
       "nl": {

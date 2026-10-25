@@ -24,7 +24,7 @@ variable "hosts" {
 
 variable "markets" {
   type    = string
-  default = "nl-nl,nl-be,fr-be"
+  default = "nl-nl,nl-be,fr-be,en-gb"
 }
 
 variable "oidc" {

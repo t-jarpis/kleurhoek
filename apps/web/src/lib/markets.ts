@@ -1,8 +1,9 @@
 /**
- * Markten die live staan (ADR 0040): Nederland en België (Nederlands en Frans). Op de server te overschrijven met
+ * Markten die live staan (ADR 0040, 0044): Nederland, België (Nederlands en Frans) en het Verenigd Koninkrijk
+ * (Engels, op kleurhoek.com/en-gb). Op de server te overschrijven met
  * MARKETS (tijdens het draaien, niet bij het bouwen: één image voor dev en prod).
  */
-export const DEFAULT_MARKETS = "nl-nl,nl-be,fr-be";
+export const DEFAULT_MARKETS = "nl-nl,nl-be,fr-be,en-gb";
 export const LIVE_MARKETS = (process.env.MARKETS ?? DEFAULT_MARKETS).split(",").map((m) => m.trim().toLowerCase()).filter(Boolean);
 
 export function bestMarket(country: string | null, acceptLanguage: string | null, live: string[] = LIVE_MARKETS): string {
