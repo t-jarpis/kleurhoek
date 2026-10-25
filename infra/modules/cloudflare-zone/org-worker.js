@@ -4,6 +4,8 @@
 // is de gewone geheime header waarmee de container verkeer van buiten Cloudflare weigert.
 // Configuratie (ROUTES, als tekst): [{ "env": "dev", "suffix": "-dev.kleurhoek.nl", "origin": "dev.kleurhoek.nl" }, …]
 // De langste suffix wint, dus "-dev.kleurhoek.nl" vóór ".kleurhoek.nl".
+// Daarnaast de domeinen per land (ADR 0040): HOSTS (als tekst) koppelt een vaste host aan een omgeving,
+// bijvoorbeeld { "www.kleurhoek.be": "prod", "dev.kleurhoek.com": "dev" }. Die gaan zonder code door.
 
 const CODE = /^[a-z0-9](?:[a-z0-9-]{0,30}[a-z0-9])?$/;
 
@@ -12,9 +14,10 @@ export default {
     const url = new URL(request.url);
     const host = url.hostname.toLowerCase();
     const routes = JSON.parse(env.ROUTES).sort((a, b) => b.suffix.length - a.suffix.length);
-    const route = routes.find((r) => host.endsWith(r.suffix));
-    const code = route ? host.slice(0, -route.suffix.length) : "";
-    if (!route || !CODE.test(code)) return new Response("Onbekend adres", { status: 404, headers: { "content-type": "text/plain; charset=utf-8" } });
+    const fixed = JSON.parse(env.HOSTS ?? "{}")[host];
+    const route = fixed ? routes.find((r) => r.env === fixed) : routes.find((r) => host.endsWith(r.suffix));
+    const code = route && !fixed ? host.slice(0, -route.suffix.length) : "";
+    if (!route || (!fixed && !CODE.test(code))) return new Response("Onbekend adres", { status: 404, headers: { "content-type": "text/plain; charset=utf-8" } });
 
     const target = new URL(url);
     target.hostname = route.origin;
@@ -28,9 +31,11 @@ export default {
 
     const res = await fetch(new Request(target, { method: request.method, headers, body: request.body, redirect: "manual" }));
 
-    // Doorverwijzingen naar de website zelf terugzetten naar het organisatiedomein.
+    // Doorverwijzingen naar de website zelf terugzetten naar het domein van de bezoeker. Niet als de website
+    // bewust naar een ander eigen domein stuurt (x-kh-keep-location, ADR 0040).
     const location = res.headers.get("location");
     if (!location) return res;
+    if (res.headers.get("x-kh-keep-location")) { const out = new Response(res.body, res); out.headers.delete("x-kh-keep-location"); return out; }
     const loc = new URL(location, target);
     if (loc.hostname !== route.origin) return res;
     loc.hostname = host;

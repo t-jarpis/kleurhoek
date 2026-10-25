@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { baseFor } from "@/lib/base";
+import { link } from "@/lib/sites";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Logo } from "@/components/Logo";
@@ -22,12 +24,13 @@ export default async function ThemesPage({ params }: { params: Promise<{ org: st
   const { org: slug, market } = await params;
   const org = await getOrg(slug);
   if (!org) notFound();
+  const base = baseFor(org, market);
   const t = messages(marketLanguage(market));
   const themes = await api.themes(market, slug).catch((e) => { if (e instanceof NotFound) notFound(); throw e; });
   return (
     <div className="wrap" data-mode="ouder">
       <Track event={{ type: "page_view", market, page: "themas" }} />
-      <header className="mast"><Logo market={market} org={org} /><a className="btn" href={`/${market}`}>{t.back}</a></header>
+      <header className="mast"><Logo market={market} org={org} /><a className="btn" href={link(base)}>{t.back}</a></header>
       <h1 className="page-title">{t.themesTitle}</h1>
       <p className="lede">{t.themesLede}</p>
       {themes.length === 0 ? (
@@ -35,7 +38,7 @@ export default async function ThemesPage({ params }: { params: Promise<{ org: st
       ) : (
         <div className="kh-themes">
           {themes.map((th) => (
-            <Link key={th.slug} className="kh-theme-card" href={`/${market}/themas/${th.slug}`}>
+            <Link key={th.slug} className="kh-theme-card" href={link(base, `/themas/${th.slug}`)}>
               <span className="kh-theme-mark" aria-hidden="true">{th.name.slice(0, 1).toUpperCase()}</span>
               <span>
                 <h3>{th.name}</h3>
@@ -46,7 +49,7 @@ export default async function ThemesPage({ params }: { params: Promise<{ org: st
           ))}
         </div>
       )}
-      <SiteFooter market={market} t={t} own={org.isDefault} />
+      <SiteFooter base={base} t={t} own={org.isDefault} />
     </div>
   );
 }

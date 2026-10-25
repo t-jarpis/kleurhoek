@@ -1,4 +1,5 @@
 "use client";
+import { useHref } from "./Base";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -41,6 +42,7 @@ function Cover({ owner, count, mascots, t }: { owner: string; count: number; mas
 }
 
 export function Booklet({ market, language, items, mascots, title }: { market: string; language: string; items: BookPlate[]; mascots: (string | null)[]; title: string }) {
+  const href = useHref();
   const t = messages(language);
   const router = useRouter();
   const [owner, setOwner] = useState("");
@@ -56,14 +58,14 @@ export function Booklet({ market, language, items, mascots, title }: { market: s
   const remove = (slug: string) => {
     const next = slugs.filter((s) => s !== slug);
     book.set(next);
-    router.replace(next.length ? `/${market}/boekje?platen=${next.join(",")}` : `/${market}/boekje`, { scroll: false });
+    router.replace(next.length ? href(`/boekje?platen=${next.join(",")}`) : href("/boekje"), { scroll: false });
   };
 
   return (
     <div className="wrap" data-mode="ouder">
       <div className="book">
         <div className="studio-top no-print">
-          <Link href={`/${market}`} className="btn" onClick={() => book.setPicking(true)}>{t.backToPicking}</Link>
+          <Link href={href()} className="btn" onClick={() => book.setPicking(true)}>{t.backToPicking}</Link>
           <h1>{title}</h1>
         </div>
         <aside className="tools no-print">

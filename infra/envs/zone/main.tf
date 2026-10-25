@@ -1,5 +1,5 @@
-# De zone kleurhoek.nl in Cloudflare (gedeeld door dev en prod) plus de doorstuur-domeinen
-# kleurhoek.be en kleurhoek.com. Eén keer toepassen vóór de omgevingen. Draaien: zie infra/README.md.
+# De zone kleurhoek.nl in Cloudflare (gedeeld door dev en prod) plus de domeinen per land
+# kleurhoek.be en kleurhoek.com (ADR 0040). Eén keer toepassen vóór de omgevingen. Draaien: zie infra/README.md.
 
 terraform {
   required_version = ">= 1.10"
@@ -38,7 +38,12 @@ variable "prod_live" {
 variable "redirect_zone_ids" {
   type        = map(string)
   default     = {}
-  description = "Extra domeinen die doorsturen naar www.kleurhoek.nl, met hun zone-ID. Bijvoorbeeld { \"kleurhoek.be\" = \"...\", \"kleurhoek.com\" = \"...\" }."
+  description = "Domeinen per land met hun zone-ID (ADR 0040; de naam is historisch). Bijvoorbeeld { \"kleurhoek.be\" = \"...\", \"kleurhoek.com\" = \"...\" }."
+}
+variable "search_verification" {
+  type        = map(list(string))
+  default     = {}
+  description = "TXT-records voor Search Console per domein (ADR 0041), bijvoorbeeld { \"kleurhoek.be\" = [\"google-site-verification=…\"] }."
 }
 variable "zitadel_login_cname" {
   type    = string
@@ -73,18 +78,42 @@ module "zone" {
   apex_redirect    = var.prod_live
   login_cname      = var.zitadel_login_cname
   edge_rate_limits = var.edge_rate_limits
+  market_hosts     = local.market_hosts
 }
 
-# kleurhoek.be en kleurhoek.com sturen door naar de Nederlandse site (pad blijft behouden).
-# Gaat een markt live met een eigen domein, dan krijgt dat domein een eigen site-configuratie (ADR 0013).
-module "redirect_domain" {
-  source   = "../../modules/redirect-domain"
-  for_each = var.prod_live ? var.redirect_zone_ids : {}
-  zone_id  = each.value
-  domain   = each.key
-  target   = "https://www.kleurhoek.nl"
-  # kleurhoek.be → be, kleurhoek.com → com: zo telt de site via welk domein iemand binnenkwam (ADR 0032).
-  via = element(split(".", each.key), length(split(".", each.key)) - 1)
+# Verificatie van kleurhoek.nl zelf bij Search Console (de andere domeinen in hun eigen module).
+resource "cloudflare_dns_record" "search_verification" {
+  for_each = toset(lookup(var.search_verification, "kleurhoek.nl", []))
+  zone_id  = var.cloudflare_zone_id
+  name     = "@"
+  type     = "TXT"
+  content  = "\"${each.value}\""
+  ttl      = 3600
+  comment  = "Verificatie zoekmachines (Terraform)"
+}
+
+# Domeinen per land (ADR 0040): www.kleurhoek.be en www.kleurhoek.com tonen de website van productie,
+# dev.kleurhoek.be en dev.kleurhoek.com die van dev. De website kiest op de host de markten.
+locals {
+  market_subdomains = merge({ dev = "dev" }, var.prod_live ? { www = "prod" } : {})
+  market_hosts      = merge([for d, _ in var.redirect_zone_ids : { for sub, env in local.market_subdomains : "${sub}.${d}" => env }]...)
+}
+
+module "market_domain" {
+  source        = "../../modules/market-domain"
+  for_each      = var.redirect_zone_ids
+  zone_id       = each.value
+  domain        = each.key
+  hosts         = local.market_subdomains
+  worker        = module.zone.worker_name
+  apex_redirect = var.prod_live
+  txt_records   = lookup(var.search_verification, each.key, [])
+}
+
+# Van de oude doorstuurmodule (tot ADR 0040): zelfde resources, nu in market-domain.
+moved {
+  from = module.redirect_domain
+  to   = module.market_domain
 }
 
 output "worker_secrets" {
@@ -95,4 +124,9 @@ output "worker_secrets" {
 output "edge_secrets" {
   value     = module.zone.edge_secrets
   sensitive = true
+}
+
+# Domeinen per land die er per omgeving zijn (ADR 0040); de omgevingen lezen dit voor SITE_DOMAINS.
+output "market_domains" {
+  value = { dev = keys(var.redirect_zone_ids), prod = var.prod_live ? keys(var.redirect_zone_ids) : [] }
 }

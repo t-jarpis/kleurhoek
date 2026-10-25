@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { LIVE_MARKETS } from "./markets";
 import type { Org } from "./org";
+import { marketUrl, siteDomains } from "./sites";
 
 /**
  * Vindbaarheid (ADR 0035). Alleen Kleurhoek zelf op het productiedomein wordt geïndexeerd; dev, lokaal en de
@@ -13,22 +14,40 @@ export function indexable(org: Org | null): boolean {
   return SITE === PRODUCTION_SITE && !!org?.isDefault;
 }
 
+/** Volledig adres van een pagina in een markt, op het eigen domein van die markt (ADR 0040). */
+export const pageUrl = (market: string, path: string) => marketUrl(market, path, siteDomains(), SITE);
+
 /** Normale markt-code zoals in hreflang: nl-NL. */
 export const hreflang = (market: string) => `${market.slice(0, 2)}-${market.slice(3).toUpperCase()}`;
 
 /**
- * Canonieke URL en taalversies voor een pad dat in elke live markt bestaat (bijv. "/themas"). Voor platen geeft de
- * sitemap de taalversies, omdat niet elke plaat in elke markt staat.
+ * Canonieke URL en taalversies voor een pad dat in elke live markt bestaat (bijv. "/themas"), elk op het eigen
+ * domein van de markt (ADR 0040). De beginpagina krijgt x-default: kleurhoek.com kiest daar de beste markt. Voor
+ * platen geeft de sitemap de taalversies, omdat niet elke plaat in elke markt staat.
  */
 export function pageMeta(org: Org | null, market: string, path: string, allMarkets = true): Pick<Metadata, "alternates"> {
   if (!indexable(org)) return {};
-  const languages = allMarkets && LIVE_MARKETS.length > 1 ? Object.fromEntries(LIVE_MARKETS.map((m) => [hreflang(m), `${SITE}/${m}${path}`])) : undefined;
-  return { alternates: { canonical: `${SITE}/${market}${path}`, ...(languages ? { languages } : {}) } };
+  const domains = siteDomains();
+  const languages = allMarkets && LIVE_MARKETS.length > 1 ? {
+    ...Object.fromEntries(LIVE_MARKETS.map((m) => [hreflang(m), pageUrl(m, path)])),
+    ...(path === "" && domains ? { "x-default": `${domains.com}/` } : {}),
+  } : undefined;
+  return { alternates: { canonical: pageUrl(market, path), ...(languages ? { languages } : {}) } };
 }
 
-/** Vraag naar robots.txt of sitemap.xml: alleen het productieadres van Kleurhoek zelf (ADR 0035). */
+/** Het adres waarop de bezoeker de site opvroeg; de proxy zet dat in deze header. */
+export const SITE_HOST_HEADER = "x-kh-site-host";
+
+/** De productiehosts van Kleurhoek zelf: www.kleurhoek.nl, .be en .com (ADR 0035, 0040). */
+export function productionHosts(): string[] {
+  if (SITE !== PRODUCTION_SITE) return [];
+  const domains = siteDomains();
+  return (domains ? Object.values(domains) : [PRODUCTION_SITE]).map((o) => new URL(o).host);
+}
+
+/** Vraag naar robots.txt of sitemap.xml: alleen de productieadressen van Kleurhoek zelf. */
 export function indexableHost(host: string | null): boolean {
-  return SITE === PRODUCTION_SITE && (host ?? "").toLowerCase().split(":")[0] === new URL(PRODUCTION_SITE).host;
+  return productionHosts().includes((host ?? "").toLowerCase().split(":")[0]!);
 }
 
 /** Gestructureerde gegevens als script-tag-inhoud; `<` gecodeerd zodat tekst nooit de tag kan sluiten. */

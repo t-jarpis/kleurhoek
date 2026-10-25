@@ -56,6 +56,7 @@ export const de: Messages = {
   themesTitle: "Themen bei den Machern", themesLede: "Malvorlagen von bekannten Figuren und Orten dürfen wir nicht selbst zeichnen oder kopieren. Viele Macher bieten sie aber kostenlos auf ihrer eigenen Website an. Hier findest du die Links, von uns geprüft.",
   themesEmpty: "Es sind noch keine Themen da. Schau bald wieder vorbei!", themeSources: (n: number) => (n === 1 ? "1 Link" : `${n} Links`),
   byMaker: (m: string) => `von ${m}`, toMaker: "Beim Macher ansehen", allThemes: "← Alle Themen",
+  marketsLabel: "Land und Sprache", langHint: "Diese Seite gibt es auch auf Deutsch.", langRead: "Auf Deutsch lesen", close: "Schließen",
   themeNotice: (m: string) => `Diese Malvorlagen sind von ${m} und stehen auf deren eigener Website. Kleurhoek verlinkt nur darauf; wir haben darauf keinen Einfluss.`,
   ownSpace: "Eigene Umgebung", ownHint: "Für eine Schule, Kita oder einen Verein?", ownHintLink: "Eigene Umgebung anfragen",
   ownTitle: "Kleurhoek für deine Schule, Kita oder deinen Verein",

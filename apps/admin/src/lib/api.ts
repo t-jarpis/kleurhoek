@@ -130,7 +130,23 @@ export interface Theme {
 }
 /** Vindbaarheid (ADR 0035). */
 export interface SeoSettings { googleVerification: string | null; bingVerification: string | null; home: Record<string, { title: string | null; description: string | null }> }
-export interface SeoOverview { settings: SeoSettings; markets: { market: string; language: string; plates: number; themes: number }[]; indexableHost: string }
+export interface SeoOverview { settings: SeoSettings; markets: { market: string; language: string; plates: number; themes: number }[]; indexableHost: string; indexableHosts: string[] }
+
+/** Zoekcijfers (ADR 0041). */
+export type SearchEngine = "google" | "bing";
+export interface SearchMetric { clicks: number; impressions: number; position: number | null }
+export interface SearchReport {
+  from: string; to: string;
+  configured: { domains: string[]; engines: SearchEngine[] };
+  totals: (SearchMetric & { engine: SearchEngine })[];
+  sites: (SearchMetric & { site: string; engine: SearchEngine })[];
+  series: { day: string; engine: SearchEngine; clicks: number; impressions: number }[];
+  queries: (SearchMetric & { key: string })[];
+  pages: (SearchMetric & { key: string })[];
+  sync: { engine: SearchEngine; site: string; ok: boolean; message: string | null; lastDay: string | null; runAt: string }[];
+  own: { engine: string; landings: number; visitors: number }[];
+  ownByDomain: { entry: string; landings: number }[];
+}
 
 /** Mail (ADR 0037). */
 export type MailTopic = "nieuwe-platen" | "feestdagen" | "nieuwsbrief";
@@ -225,6 +241,8 @@ export const adminApi = {
   salesPreview: (body: { partner: string; csv: string; fileName?: string; mapping?: SalesMapping }) => call<SalesPreview>("/v1/admin/shop/sales/preview", { method: "POST", body: JSON.stringify(body) }),
   salesImport: (body: { partner: string; csv: string; fileName: string; mapping: SalesMapping }) => call<{ importId: string; from: string; to: string; rows: number }>("/v1/admin/shop/sales/import", { method: "POST", body: JSON.stringify(body) }),
   seo: () => call<SeoOverview>("/v1/admin/seo"),
+  searchReport: (from: string, to: string) => call<SearchReport>(`/v1/admin/analytics/search?from=${from}&to=${to}`),
+  refreshSearch: () => call<{ started: boolean }>("/v1/admin/analytics/search/refresh", { method: "POST", body: "{}" }),
   saveSeo: (body: SeoSettings) => call<SeoSettings>("/v1/admin/seo", { method: "PUT", body: JSON.stringify(body) }),
   salesReport: (from: string, to: string) => call<SalesReport>(`/v1/admin/shop/sales?from=${from}&to=${to}`),
   shopSummary: (from: string, to: string) => call<ShopSummary>(`/v1/admin/analytics/shop?from=${from}&to=${to}`),

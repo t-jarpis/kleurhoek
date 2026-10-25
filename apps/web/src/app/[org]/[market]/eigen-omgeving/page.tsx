@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { baseFor } from "@/lib/base";
+import { link } from "@/lib/sites";
 import { notFound } from "next/navigation";
 import { Logo } from "@/components/Logo";
 import { OrgRequestForm } from "@/components/OrgRequestForm";
@@ -21,11 +23,12 @@ export default async function OwnSpacePage({ params }: { params: Promise<{ org: 
   const { org: slug, market } = await params;
   const org = await getOrg(slug);
   if (!org?.isDefault) notFound();
+  const base = baseFor(org, market);
   const t = messages(marketLanguage(market));
   return (
     <div className="wrap narrow" data-mode="ouder">
       <Track event={{ type: "page_view", market, page: "eigen-omgeving" }} />
-      <header className="mast"><Logo market={market} org={org} /><a className="btn" href={`/${market}`}>{t.back}</a></header>
+      <header className="mast"><Logo market={market} org={org} /><a className="btn" href={link(base)}>{t.back}</a></header>
       <h1 className="page-title">{t.ownTitle}</h1>
       <p className="lede">{t.ownLede}</p>
       <p><a className="ui-btn" data-variant="primary" href="#aanvragen">{t.ownCta}</a></p>
@@ -57,7 +60,7 @@ export default async function OwnSpacePage({ params }: { params: Promise<{ org: 
           contactError: t.contactError, contactTooMany: t.contactTooMany, contactClosed: t.contactClosed, optionalField: t.optionalField,
         }} />
       </section>
-      <SiteFooter market={market} t={t} own />
+      <SiteFooter base={base} t={t} own />
     </div>
   );
 }

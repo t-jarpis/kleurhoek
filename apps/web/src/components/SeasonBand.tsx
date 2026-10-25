@@ -1,10 +1,11 @@
 import Link from "next/link";
 import type { PlateItem, Season, Taxonomy } from "@/lib/types";
 import type { Messages } from "@/i18n/nl";
+import { link } from "@/lib/sites";
 import { PlateCard } from "./PlateCard";
 
 /** Scheurkalender met de feestdagen en het seizoen van nu, en de platen die erbij horen. */
-export function SeasonBand({ season, plates, taxonomy, market, t }: { season: Season; plates: PlateItem[]; taxonomy: Taxonomy; market: string; t: Messages }) {
+export function SeasonBand({ season, plates, taxonomy, market, base, t }: { season: Season; plates: PlateItem[]; taxonomy: Taxonomy; market: string; base: string; t: Messages }) {
   // Datums in de vorm van de taal ("5 december", "5. Dezember", "5 de diciembre", "5 grudnia").
   const dayMonth = new Intl.DateTimeFormat(market, { day: "numeric", month: "long", timeZone: "UTC" });
   if (!season.active.length && !season.soon.length) return null;
@@ -23,7 +24,7 @@ export function SeasonBand({ season, plates, taxonomy, market, t }: { season: Se
   // Een feestdag met platen is een link naar die platen (filter Feestdag in de lijst eronder).
   const withPlates = new Set(plates.map((p) => p.holiday).filter(Boolean));
   const holiday = (h: { slug: string; name: string }) => withPlates.has(h.slug)
-    ? <Link href={`/${market}?onderwerp=feest&feestdag=${h.slug}#platen`} className="season-link"><b>{h.name}</b></Link>
+    ? <Link href={link(base, `?onderwerp=feest&feestdag=${h.slug}#platen`)} className="season-link"><b>{h.name}</b></Link>
     : <b>{h.name}</b>;
   return (
     <section className="season" aria-label={t.seasonNow}>
@@ -34,7 +35,7 @@ export function SeasonBand({ season, plates, taxonomy, market, t }: { season: Se
         {holidays.length > 0 && <p className="soon">{holidays.map((h, i) => <span key={h.slug}>{i > 0 && " · "}{holiday(h)} ({label(h)})</span>)}</p>}
         {season.soon.length > 0 && <p className="soon">{t.soon}: {season.soon.map((h, i) => <span key={h.slug}>{i > 0 && " · "}{holiday(h)} ({label(h)})</span>)}</p>}
         <div className="minis">
-          {season.plates.map((s) => bySlug.get(s)).filter((p): p is PlateItem => !!p).map((p) => <PlateCard key={p.slug} plate={p} market={market} taxonomy={taxonomy} mini yr={t.yr} />)}
+          {season.plates.map((s) => bySlug.get(s)).filter((p): p is PlateItem => !!p).map((p) => <PlateCard key={p.slug} plate={p} base={base} taxonomy={taxonomy} mini yr={t.yr} />)}
         </div>
       </div>
     </section>

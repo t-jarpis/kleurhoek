@@ -4,12 +4,14 @@ import { useEffect, useMemo, type CSSProperties } from "react";
 import { KIND_GROUP, type PlateItem, type Taxonomy } from "@/lib/types";
 import { messages } from "@/i18n/nl";
 import { PlateCard } from "./PlateCard";
+import { useBase } from "./Base";
 import { book, favorites, useBook, useFavorites } from "@/lib/local";
 
 type Key = "soort" | "leerdoel" | "onderwerp" | "werelddeel" | "land" | "feestdag" | "leeftijd";
 
 /** Filters en raster. De filterstand staat in de URL, zodat je hem kunt delen en de pagina zelf gecachet blijft. */
 export function Browse({ plates, taxonomy, market, language }: { plates: PlateItem[]; taxonomy: Taxonomy; market: string; language: string }) {
+  const base = useBase();
   const t = messages(language);
   const router = useRouter();
   const pathname = usePathname();
@@ -122,7 +124,7 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
           <div className="empty"><b>{t.emptyTitle}</b><span>{t.emptyText}</span>
             <button type="button" className="btn" onClick={() => router.replace(pathname, { scroll: false })}>{t.showAll}</button></div>
         ) : visible.map((p) => (
-          <PlateCard key={p.slug} plate={p} market={market} taxonomy={taxonomy} view={f.cat} yr={t.yr} kindLabel={p.kind !== "kleurplaat" ? t.kindNames[p.kind] : undefined}
+          <PlateCard key={p.slug} plate={p} base={base} taxonomy={taxonomy} view={f.cat} yr={t.yr} kindLabel={p.kind !== "kleurplaat" ? t.kindNames[p.kind] : undefined}
             {...(picks.picking ? { pick: { selected: picks.slugs.includes(p.slug), onToggle: () => book.toggle(p.slug) } } : {})} />
         ))}
       </main>

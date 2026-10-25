@@ -40,7 +40,10 @@ export interface ContinentSource extends Named { color: string }
 export interface HolidaySource extends Named {
   fixed: [number, number] | null; dates: Record<string, string> | null;
   leadDays: number; afterDays: number; approximate: boolean; label: string | null; countries: string[];
+  /** Andere datum of omschrijving per land (bijv. Sinterklaas op 6 december in België), ADR 0040. */
+  overrides: Record<string, HolidayOverride>;
 }
+export interface HolidayOverride { fixed?: [number, number] | null; dates?: Record<string, string>; label?: string | null }
 export interface SeasonSource { slug: string; from: [number, number]; to: [number, number]; plates: string[]; countries: string[]; i18n: Translations<{ name: string }> }
 export interface ColorSource { code: string; hex: string; i18n: Translations<{ name: string }> }
 export function plates(): PlateSource[];

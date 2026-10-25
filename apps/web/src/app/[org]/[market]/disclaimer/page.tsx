@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { baseFor } from "@/lib/base";
+import { link } from "@/lib/sites";
 import { notFound } from "next/navigation";
 import { Logo } from "@/components/Logo";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -21,18 +23,19 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ org
   const { org: slug, market } = await params;
   const org = await getOrg(slug);
   if (!org) notFound();
+  const base = baseFor(org, market);
   const t = messages(marketLanguage(market));
   const Disclaimer = disclaimer(marketLanguage(market));
-  const contact = (topic?: string) => `/${market}/contact${topic ? `?onderwerp=${topic}` : ""}`;
+  const contact = (topic?: string) => link(base, `/contact${topic ? `?onderwerp=${topic}` : ""}`);
   return (
     <div className="wrap narrow" data-mode="ouder">
       <Track event={{ type: "page_view", market, page: "disclaimer" }} />
-      <header className="mast"><Logo market={market} org={org} /><a className="btn" href={`/${market}`}>{t.back}</a></header>
+      <header className="mast"><Logo market={market} org={org} /><a className="btn" href={link(base)}>{t.back}</a></header>
       <h1 className="page-title">{t.disclaimer}</h1>
       <article className="kh-prose">
-        <Disclaimer market={market} contact={contact} />
+        <Disclaimer base={base} contact={contact} />
       </article>
-      <SiteFooter market={market} t={t} own={org.isDefault} />
+      <SiteFooter base={base} t={t} own={org.isDefault} />
     </div>
   );
 }

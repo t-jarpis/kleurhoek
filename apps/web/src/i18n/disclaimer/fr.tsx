@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { link } from "@/lib/sites";
 import type { DisclaimerProps } from "./types";
 
 /** Disclaimer in het Frans (ADR 0026), vertaling van nl.tsx met dezelfde opbouw. */
-export function Disclaimer({ market, contact }: DisclaimerProps) {
+export function Disclaimer({ base, contact }: DisclaimerProps) {
   return (
     <>
       <p className="kh-meta">Dernière mise à jour le 24&nbsp;octobre&nbsp;2026.</p>
@@ -19,7 +20,7 @@ export function Disclaimer({ market, contact }: DisclaimerProps) {
       <p>Ce qui n&apos;est pas permis sans notre accord écrit&nbsp;: vendre les coloriages (à l&apos;unité, dans un cahier ou en téléchargement), les publier sur un autre site web, dans une application ou sur les réseaux sociaux comme s&apos;il s&apos;agissait de votre propre matériel, ou les utiliser dans des produits ou de la publicité. Vous pouvez en revanche les partager avec un lien vers le coloriage sur Kleurhoek.</p>
 
       <h2>Thèmes chez les créateurs</h2>
-      <p>Les enfants cherchent souvent des coloriages de personnages de dessins animés, de parcs d&apos;attractions ou de livres. Ces dessins appartiennent à leurs créateurs, et nous n&apos;avons pas le droit de les dessiner nous-mêmes ni de les copier. Beaucoup de créateurs en proposent toutefois gratuitement sur leur propre site. Dans <Link href={`/${market}/themas`}>Thèmes chez les créateurs</Link>, nous rassemblons des liens vers ces pages. Les règles suivantes s&apos;appliquent&nbsp;:</p>
+      <p>Les enfants cherchent souvent des coloriages de personnages de dessins animés, de parcs d&apos;attractions ou de livres. Ces dessins appartiennent à leurs créateurs, et nous n&apos;avons pas le droit de les dessiner nous-mêmes ni de les copier. Beaucoup de créateurs en proposent toutefois gratuitement sur leur propre site. Dans <Link href={link(base, "/themas")}>Thèmes chez les créateurs</Link>, nous rassemblons des liens vers ces pages. Les règles suivantes s&apos;appliquent&nbsp;:</p>
       <ul>
         <li>Nous renvoyons uniquement vers le site officiel du créateur ou de l&apos;ayant droit, jamais vers des sites qui reprennent les dessins d&apos;autrui.</li>
         <li>Nous n&apos;affichons et ne stockons aucune image, aucun dessin ni aucun logo du créateur. Chez nous, vous ne voyez qu&apos;une description rédigée par nos soins et un lien. Il ne peut en être autrement que si un créateur nous en donne l&apos;autorisation écrite&nbsp;; cela est alors indiqué.</li>

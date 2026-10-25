@@ -1,4 +1,5 @@
 "use client";
+import { useHref } from "./Base";
 import { useEffect, useState } from "react";
 import { logout } from "@/lib/account";
 import type { Messages } from "@/i18n/nl";
@@ -10,6 +11,7 @@ type Me = { displayName: string | null; email: string | null; createdAt: string 
 
 /** Accountgegevens en verwijderen. Alles via de eigen /auth-routes; tokens komen nooit in de browser. */
 export function AccountPanel({ market, t }: { market: string; t: AccountTexts }) {
+  const href = useHref();
   const [me, setMe] = useState<Me | null | "anon" | "error">(null);
   const [confirm, setConfirm] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -23,7 +25,7 @@ export function AccountPanel({ market, t }: { market: string; t: AccountTexts })
 
   if (me === null) return <p className="muted">{t.loading}</p>;
   if (me === "error") return <p className="muted">{t.accountError}</p>;
-  if (me === "anon") return <p><a className="btn primary" href={`/auth/login?returnTo=${encodeURIComponent(`/${market}/account`)}`}>{t.login}</a></p>;
+  if (me === "anon") return <p><a className="btn primary" href={`/auth/login?returnTo=${encodeURIComponent(href("/account"))}`}>{t.login}</a></p>;
 
   async function remove() {
     if (!confirm) return setConfirm(true);

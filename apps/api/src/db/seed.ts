@@ -23,7 +23,12 @@ function chunks<T>(list: T[], size: number): T[][] {
 
 export async function seed(db: Database, tenantId: string): Promise<{ plates: number }> {
   return withTenant(db, tenantId, async (tx) => {
-    await tx.insert(markets).values({ tenantId, code: "nl-NL", country: "NL", language: "nl", status: "live", paperSize: "A4", minAccountAge: 16 }).onConflictDoNothing();
+    // Nederland, en België in het Nederlands en Frans (ADR 0040). Bestaande markten blijven zoals ze in het admin panel staan.
+    await tx.insert(markets).values([
+      { tenantId, code: "nl-NL", country: "NL", language: "nl", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
+      { tenantId, code: "nl-BE", country: "BE", language: "nl", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
+      { tenantId, code: "fr-BE", country: "BE", language: "fr", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
+    ]).onConflictDoNothing();
 
     const cats = source.categories();
     const ageList = source.ages();
@@ -35,16 +40,24 @@ export async function seed(db: Database, tenantId: string): Promise<{ plates: nu
     await tx.insert(ages).values(ageList.map((a) => ({ tenantId, slug: a.slug, sortOrder: a.order, level: a.level, strokeWidth: a.strokeWidth }))).onConflictDoNothing();
     await tx.insert(continents).values(conts.map((c) => ({ tenantId, slug: c.slug, sortOrder: c.order, color: c.color }))).onConflictDoNothing();
     await tx.insert(materials).values(mats.map((m) => ({ tenantId, slug: m.slug, sortOrder: m.order }))).onConflictDoNothing();
+    // Feestdagen zijn niet te bewerken in het admin panel: catalog-data is de bron, dus bijwerken (landen, datums).
     await tx.insert(holidays).values(hols.map((h) => ({
       tenantId, slug: h.slug, sortOrder: h.order, countries: h.countries,
       fixedMonth: h.fixed?.[0] ?? null, fixedDay: h.fixed?.[1] ?? null,
-      leadDays: h.leadDays, afterDays: h.afterDays, approximate: h.approximate, label: h.label,
-    }))).onConflictDoNothing();
+      leadDays: h.leadDays, afterDays: h.afterDays, approximate: h.approximate, label: h.label, overrides: h.overrides ?? {},
+    }))).onConflictDoUpdate({
+      target: [holidays.tenantId, holidays.slug],
+      set: {
+        sortOrder: sql`excluded.sort_order`, countries: sql`excluded.countries`, fixedMonth: sql`excluded.fixed_month`, fixedDay: sql`excluded.fixed_day`,
+        leadDays: sql`excluded.lead_days`, afterDays: sql`excluded.after_days`, approximate: sql`excluded.approximate`, label: sql`excluded.label`,
+        overrides: sql`excluded.overrides`, updatedAt: sql`now()`,
+      },
+    });
     const dates = hols.flatMap((h) => Object.entries(h.dates ?? {}).map(([year, date]) => ({ tenantId, holidaySlug: h.slug, year: Number(year), date })));
-    if (dates.length) await tx.insert(holidayDates).values(dates).onConflictDoNothing();
+    if (dates.length) await tx.insert(holidayDates).values(dates).onConflictDoUpdate({ target: [holidayDates.tenantId, holidayDates.holidaySlug, holidayDates.year], set: { date: sql`excluded.date`, updatedAt: sql`now()` } });
     await tx.insert(seasons).values(seas.map((s) => ({
       tenantId, slug: s.slug, countries: s.countries, fromMonth: s.from[0], fromDay: s.from[1], toMonth: s.to[0], toDay: s.to[1], plateSlugs: s.plates,
-    }))).onConflictDoNothing();
+    }))).onConflictDoUpdate({ target: [seasons.tenantId, seasons.slug], set: { countries: sql`excluded.countries`, updatedAt: sql`now()` } });
     await tx.insert(partners).values(DEFAULT_PARTNERS.map((p) => ({ tenantId, ...p }))).onConflictDoNothing();
 
     const tr: Tr[] = [];

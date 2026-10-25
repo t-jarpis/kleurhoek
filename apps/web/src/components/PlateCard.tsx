@@ -1,14 +1,15 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import type { PlateItem, Taxonomy } from "@/lib/types";
+import { link } from "@/lib/sites";
 import { labelFor } from "./labels";
 
 /**
  * Een plaat in het raster. Normaal een link naar de kleurstudio; tijdens het kiezen voor een boekje
  * een knop die de plaat aan- of uitzet.
  */
-export function PlateCard({ plate, market, taxonomy, view = "alle", mini = false, yr, pick, kindLabel }: {
-  plate: PlateItem; market: string; taxonomy: Taxonomy; view?: string; mini?: boolean; yr: string; kindLabel?: string | undefined;
+export function PlateCard({ plate, base, taxonomy, view = "alle", mini = false, yr, pick, kindLabel }: {
+  plate: PlateItem; base: string; taxonomy: Taxonomy; view?: string; mini?: boolean; yr: string; kindLabel?: string | undefined;
   pick?: { selected: boolean; onToggle: () => void };
 }) {
   const label = labelFor(plate, taxonomy, view);
@@ -23,5 +24,5 @@ export function PlateCard({ plate, market, taxonomy, view = "alle", mini = false
   );
   const style = { "--c": label.color } as CSSProperties;
   if (pick) return <button type="button" className="card" style={style} aria-pressed={pick.selected} onClick={pick.onToggle}>{body}</button>;
-  return <Link href={`/${market}/platen/${plate.slug}`} className="card" style={style}>{body}</Link>;
+  return <Link href={link(base, `/platen/${plate.slug}`)} className="card" style={style}>{body}</Link>;
 }

@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { link } from "@/lib/sites";
 import type { DisclaimerProps } from "./types";
 
 /** Disclaimer in het Pools (ADR 0026), zelfde opbouw als nl.tsx. */
-export function Disclaimer({ market, contact }: DisclaimerProps) {
+export function Disclaimer({ base, contact }: DisclaimerProps) {
   return (
     <>
       <p className="kh-meta">Ostatnia aktualizacja: 24 października 2026 r.</p>
@@ -19,7 +20,7 @@ export function Disclaimer({ market, contact }: DisclaimerProps) {
       <p>Bez naszej pisemnej zgody nie wolno: sprzedawać plansz (pojedynczo, w zeszycie ani do pobrania), publikować ich jako własnych materiałów na innej stronie internetowej, w aplikacji lub w mediach społecznościowych ani wykorzystywać ich w produktach lub reklamach. Udostępniać możesz natomiast link do planszy w Kleurhoek.</p>
 
       <h2>Motywy u twórców</h2>
-      <p>Dzieci często szukają kolorowanek z postaciami z filmów animowanych, parków rozrywki lub książek. Te rysunki należą do ich twórców i nie możemy ich sami rysować ani kopiować. Wielu twórców udostępnia je jednak bezpłatnie na własnej stronie. W dziale <Link href={`/${market}/themas`}>Motywy u twórców</Link> zbieramy linki do tych stron. Obowiązują przy tym następujące zasady:</p>
+      <p>Dzieci często szukają kolorowanek z postaciami z filmów animowanych, parków rozrywki lub książek. Te rysunki należą do ich twórców i nie możemy ich sami rysować ani kopiować. Wielu twórców udostępnia je jednak bezpłatnie na własnej stronie. W dziale <Link href={link(base, "/themas")}>Motywy u twórców</Link> zbieramy linki do tych stron. Obowiązują przy tym następujące zasady:</p>
       <ul>
         <li>Linkujemy wyłącznie do oficjalnej strony twórcy lub właściciela praw, nigdy do stron, które przejmują rysunki innych.</li>
         <li>Nie pokazujemy obrazów, rysunków ani logo twórcy i ich nie przechowujemy. U nas widzisz tylko nasz własny opis i link. Może być inaczej tylko wtedy, gdy twórca udzieli nam na to pisemnej zgody; wtedy jest to wyraźnie zaznaczone.</li>

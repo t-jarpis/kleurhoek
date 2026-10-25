@@ -56,6 +56,7 @@ export const it: Messages = {
   themesTitle: "Temi dagli autori", themesLede: "Non possiamo creare né copiare disegni di personaggi e luoghi famosi. Però molti autori li offrono gratis sul proprio sito. Qui trovi i link, controllati da noi.",
   themesEmpty: "Non ci sono ancora temi pronti. Torna presto!", themeSources: (n: number) => (n === 1 ? "1 link" : `${n} link`),
   byMaker: (m: string) => `di ${m}`, toMaker: "Vai dall'autore", allThemes: "← Tutti i temi",
+  marketsLabel: "Paese e lingua", langHint: "Questa pagina è disponibile anche in italiano.", langRead: "Leggi in italiano", close: "Chiudi",
   themeNotice: (m: string) => `Questi disegni da colorare sono di ${m} e si trovano sul loro sito. Kleurhoek mette solo il link; non abbiamo alcun controllo su di essi.`,
   ownSpace: "Spazio dedicato", ownHint: "Per una scuola, un asilo o un'associazione?", ownHintLink: "Richiedi uno spazio dedicato",
   ownTitle: "Kleurhoek per la tua scuola, il tuo asilo o la tua associazione",

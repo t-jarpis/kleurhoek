@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { isVisible, nextOccurrence, seasonFor, type HolidayDef } from "./availability.domain";
+import { inCountry, isVisible, nextOccurrence, seasonFor, type HolidayDef } from "./availability.domain";
 
 const h = (over: Partial<HolidayDef>): HolidayDef => ({ slug: "x", sortOrder: 0, countries: ["NL"], fixed: null, dates: {}, leadDays: 0, afterDays: 0, approximate: false, label: null, ...over });
 
@@ -57,5 +57,25 @@ describe("seasonFor", () => {
   it("toont geen feestdagen van een ander land", () => {
     expect(seasonFor(holidays, spans, "NL", "2026-11-20").active.map((x) => x.slug)).not.toContain("thanksgiving");
     expect(seasonFor(holidays, spans, "US", "2026-11-20").active.map((x) => x.slug)).toEqual(["thanksgiving"]);
+  });
+});
+
+describe("feestdagen per land (ADR 0040)", () => {
+  const sint: HolidayDef = { slug: "sinterklaas", sortOrder: 0, countries: ["NL", "BE"], fixed: [12, 5], dates: {}, leadDays: 24, afterDays: 0, approximate: false, label: null, overrides: { BE: { fixed: [12, 6] } } };
+  const vader: HolidayDef = { slug: "vaderdag", sortOrder: 1, countries: ["NL", "BE"], fixed: null, dates: { 2026: "2026-06-21" }, leadDays: 14, afterDays: 0, approximate: false, label: null, overrides: { BE: { dates: { "2026": "2026-06-14" } } } };
+  const koning: HolidayDef = { slug: "koningsdag", sortOrder: 2, countries: ["NL"], fixed: [4, 27], dates: {}, leadDays: 21, afterDays: 0, approximate: false, label: null };
+  it("gebruikt de datum van het land", () => {
+    expect(nextOccurrence(inCountry(sint, "BE"), "2026-11-20")).toBe("2026-12-06");
+    expect(nextOccurrence(inCountry(sint, "NL"), "2026-11-20")).toBe("2026-12-05");
+    expect(nextOccurrence(inCountry(vader, "be"), "2026-06-01")).toBe("2026-06-14");
+  });
+  it("toont alleen feestdagen van het land", () => {
+    const be = seasonFor([sint, vader, koning], [], "BE", "2026-04-20");
+    expect([...be.active, ...be.soon].map((h) => h.slug)).not.toContain("koningsdag");
+    expect(seasonFor([sint], [], "BE", "2026-12-01").active[0]!.date).toBe("2026-12-06");
+  });
+  it("geeft alle feestdagen in een land zonder kalender (kleurhoek.com)", () => {
+    const fi = seasonFor([sint, koning], [], "FI", "2026-04-20");
+    expect(fi.active.map((h) => h.slug)).toContain("koningsdag");
   });
 });

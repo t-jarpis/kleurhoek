@@ -24,7 +24,7 @@ variable "hosts" {
 
 variable "markets" {
   type    = string
-  default = "nl-nl"
+  default = "nl-nl,nl-be,fr-be"
 }
 
 variable "oidc" {
@@ -117,6 +117,25 @@ variable "tags" {
   default = []
 }
 
+variable "site_domains" {
+  type        = string
+  default     = ""
+  description = "JSON met de domeinen per land voor de website (ADR 0040); leeg = alles op één domein."
+}
+variable "search_domains" {
+  type        = list(string)
+  default     = []
+  description = "Domeinen waarvan de API zoekcijfers ophaalt (ADR 0041). Alleen productie."
+}
+variable "search" {
+  type = object({
+    google_key = optional(string, "")
+    bing_key   = optional(string, "")
+  })
+  sensitive   = true
+  default     = {}
+  description = "Sleutels voor de zoekcijfers: JSON van het Google-serviceaccount en de Bing-API-sleutel."
+}
 variable "mail" {
   type = object({
     from                   = string

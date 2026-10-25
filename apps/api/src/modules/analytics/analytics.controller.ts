@@ -7,6 +7,7 @@ import { AdminGuard, RequirePermission } from "../identity/admin.guard";
 import { RateLimit } from "../operations/rate-limit.guard";
 import { AnalyticsService, EventBatch } from "./analytics.service";
 import { GoalsInput, GoalsService } from "./goals.service";
+import { SearchService } from "./search.service";
 
 function sameSecret(a: string | undefined, b: string): boolean {
   if (!a) return false;
@@ -36,7 +37,7 @@ const Range = z.object({ from: z.iso.date(), to: z.iso.date(), country: z.string
 @UseGuards(AdminGuard)
 @RateLimit("admin")
 export class AdminAnalyticsController {
-  constructor(private readonly analytics: AnalyticsService, private readonly goals: GoalsService, @Inject(ENV) private readonly env: Env) {}
+  constructor(private readonly analytics: AnalyticsService, private readonly goals: GoalsService, private readonly search: SearchService, @Inject(ENV) private readonly env: Env) {}
 
   @Get("summary")
   @RequirePermission("analytics.read")
@@ -70,6 +71,26 @@ export class AdminAnalyticsController {
     const q = Range.safeParse(query);
     if (!q.success || q.data.from > q.data.to) throw new BadRequestException("Geef from en to op als YYYY-MM-DD");
     return this.analytics.shopSummary(this.env.TENANT_ID, q.data.from, q.data.to);
+  }
+
+  /** Zoekcijfers van Google en Bing naast de eigen tellingen via zoekmachines (ADR 0041). */
+  @Get("search")
+  @RequirePermission("seo.read")
+  async searchReport(@Query() query: unknown) {
+    const q = Range.safeParse(query);
+    if (!q.success || q.data.from > q.data.to) throw new BadRequestException("Geef from en to op als YYYY-MM-DD");
+    if (Date.parse(q.data.to) - Date.parse(q.data.from) > 500 * 86_400_000) throw new BadRequestException("Hooguit 500 dagen");
+    return this.search.report(q.data.from, q.data.to);
+  }
+
+  /** Zoekcijfers nu ophalen in plaats van bij de volgende ronde. */
+  @Post("search/refresh")
+  @HttpCode(202)
+  @RequirePermission("seo.manage")
+  refreshSearch() {
+    if (!this.search.engines().length || !this.env.SEARCH_DOMAINS.length) throw new BadRequestException("Zoekcijfers zijn nog niet ingesteld");
+    void this.search.run();
+    return { started: true };
   }
 
   /** Doelen per maand met de werkelijke cijfers ernaast (ADR 0022). */

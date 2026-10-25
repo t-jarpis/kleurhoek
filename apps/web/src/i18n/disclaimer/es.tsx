@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { link } from "@/lib/sites";
 import type { DisclaimerProps } from "./types";
 
 /** Disclaimer in het Spaans (ADR 0026). Zelfde opbouw als nl.tsx. */
-export function Disclaimer({ market, contact }: DisclaimerProps) {
+export function Disclaimer({ base, contact }: DisclaimerProps) {
   return (
     <>
       <p className="kh-meta">Última actualización: 24 de octubre de 2026.</p>
@@ -19,7 +20,7 @@ export function Disclaimer({ market, contact }: DisclaimerProps) {
       <p>Sin nuestro permiso por escrito no está permitido: vender los dibujos (sueltos, en un cuadernillo o como descarga), publicarlos como material propio en otra web, en una app o en redes sociales, ni usarlos en productos o en publicidad. Sí puedes compartirlos con un enlace al dibujo en Kleurhoek.</p>
 
       <h2>Temas de sus creadores</h2>
-      <p>Los niños suelen buscar dibujos para colorear de personajes de una película de dibujos, de un parque de atracciones o de un libro. Esos dibujos son de sus creadores y nosotros no podemos dibujarlos ni copiarlos. Pero muchos creadores los ofrecen gratis en su propia web. En <Link href={`/${market}/themas`}>Temas de sus creadores</Link> reunimos enlaces a esas páginas. Para ello seguimos estas reglas:</p>
+      <p>Los niños suelen buscar dibujos para colorear de personajes de una película de dibujos, de un parque de atracciones o de un libro. Esos dibujos son de sus creadores y nosotros no podemos dibujarlos ni copiarlos. Pero muchos creadores los ofrecen gratis en su propia web. En <Link href={link(base, "/themas")}>Temas de sus creadores</Link> reunimos enlaces a esas páginas. Para ello seguimos estas reglas:</p>
       <ul>
         <li>Solo enlazamos a la web oficial del creador o del titular de los derechos, nunca a webs que copian dibujos de otros.</li>
         <li>No mostramos imágenes, dibujos ni logotipos del creador, ni los guardamos. En nuestra web solo ves una descripción propia y un enlace. Solo puede ser de otra manera si un creador nos da su permiso por escrito; en ese caso lo indicamos.</li>

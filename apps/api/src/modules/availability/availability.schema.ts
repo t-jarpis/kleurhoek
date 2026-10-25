@@ -1,5 +1,6 @@
 import { sql } from "drizzle-orm";
-import { boolean, date, integer, pgSchema, text, uniqueIndex } from "drizzle-orm/pg-core";
+import { boolean, date, integer, jsonb, pgSchema, text, uniqueIndex } from "drizzle-orm/pg-core";
+import type { HolidayOverride } from "./availability.domain";
 import { baseColumns } from "../../shared/columns";
 
 export const availabilitySchema = pgSchema("availability");
@@ -25,6 +26,8 @@ export const holidays = availabilitySchema.table("holidays", {
   afterDays: integer("after_days").notNull().default(0),
   approximate: boolean("approximate").notNull().default(false),
   label: text("label"),
+  /** Afwijkende datum of omschrijving per land (ADR 0040). */
+  overrides: jsonb("overrides").$type<Record<string, HolidayOverride>>().notNull().default({}),
 }, (t) => [uniqueIndex("holidays_tenant_slug").on(t.tenantId, t.slug)]);
 
 /** Datums van feestdagen zonder vaste datum, per jaar ingevuld. */

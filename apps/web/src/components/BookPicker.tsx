@@ -1,4 +1,5 @@
 "use client";
+import { useHref } from "./Base";
 import Link from "next/link";
 import { messages } from "@/i18n/nl";
 import { book, useBook } from "@/lib/local";
@@ -12,6 +13,7 @@ export function BookButton({ language }: { language: string }) {
 
 /** Balk onderin tijdens het kiezen. */
 export function PickBar({ market, language }: { market: string; language: string }) {
+  const href = useHref();
   const t = messages(language);
   const { picking, slugs } = useBook();
   if (!picking) return null;
@@ -22,7 +24,7 @@ export function PickBar({ market, language }: { market: string; language: string
         <div className="row">
           <button type="button" className="btn" onClick={() => book.setPicking(false)}>{t.stop}</button>
           {slugs.length > 0
-            ? <Link className="btn primary" href={`/${market}/boekje?platen=${slugs.join(",")}`}>{t.viewBook}</Link>
+            ? <Link className="btn primary" href={href(`/boekje?platen=${slugs.join(",")}`)}>{t.viewBook}</Link>
             : <button type="button" className="btn primary" disabled>{t.viewBook}</button>}
         </div>
       </div>

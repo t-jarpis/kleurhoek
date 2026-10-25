@@ -1,4 +1,5 @@
 "use client";
+import { useHref } from "./Base";
 import { useEffect, useMemo, useState } from "react";
 import { messages } from "@/i18n/nl";
 
@@ -17,6 +18,7 @@ const norm = (s: string) => s.toLocaleLowerCase().normalize("NFD").replace(/\p{D
  * Alles via de eigen /auth-routes; het token komt nooit in de browser.
  */
 export function OfferEditor({ org, market, language }: { org: string; market: string; language: string }) {
+  const href = useHref();
   const t = messages(language);
   const [data, setData] = useState<Data | "anon" | "none" | "error" | null>(null);
   const [goals, setGoals] = useState<string[]>([]);
@@ -43,7 +45,7 @@ export function OfferEditor({ org, market, language }: { org: string; market: st
 
   if (data === null) return <p className="muted">{t.loading}</p>;
   if (data === "error") return <p className="muted">{t.accountError}</p>;
-  if (data === "anon") return <p><a className="btn primary" href={`/auth/login?returnTo=${encodeURIComponent(`/${market}/beheer`)}`}>{t.login}</a></p>;
+  if (data === "anon") return <p><a className="btn primary" href={`/auth/login?returnTo=${encodeURIComponent(href("/beheer"))}`}>{t.login}</a></p>;
   if (data === "none") return <p className="panel">{t.mgNotManager}</p>;
 
   const inScope = (p: Data["plates"][number]) => (!allowed || allowed.has(p.slug)) && (!goals.length || p.goals.some((g) => goals.includes(g)));

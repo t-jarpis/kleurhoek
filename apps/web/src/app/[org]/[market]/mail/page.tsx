@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { baseFor } from "@/lib/base";
+import { link } from "@/lib/sites";
 import { Logo } from "@/components/Logo";
 import { MailPreferences } from "@/components/MailPreferences";
 import { SubscribeForm } from "@/components/SubscribeForm";
@@ -17,11 +19,12 @@ export default async function MailPage({ params, searchParams }: { params: Promi
   const [{ org: slug, market }, { t: token, afmelden }] = await Promise.all([params, searchParams]);
   const org = await getOrg(slug);
   if (!org?.isDefault) notFound();
+  const base = baseFor(org, market);
   const language = marketLanguage(market);
   const t = messages(language);
   return (
     <div className="wrap narrow" data-mode="ouder">
-      <header className="mast"><Logo market={market} org={org} /><a className="btn" href={`/${market}`}>{t.back}</a></header>
+      <header className="mast"><Logo market={market} org={org} /><a className="btn" href={link(base)}>{t.back}</a></header>
       <h1 className="page-title">{token ? t.mlPrefsTitle : t.mlTitle}</h1>
       {token && /^[A-Za-z0-9_.-]{20,80}$/.test(token)
         ? <MailPreferences token={token} language={language} unsubscribe={afmelden === "1"} />

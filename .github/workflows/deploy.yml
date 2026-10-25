@@ -137,7 +137,8 @@ jobs:
           set -euo pipefail
           for i in $(seq 1 30); do
             if curl -fsS "${{ vars.SITE_URL }}/healthz" > /dev/null; then
-              code=$(curl -sS -o page.html -w '%{http_code}' -H "x-kh-check: ${SITE_CHECK_KEY}" "${{ vars.SITE_URL }}/nl-nl" || echo 000)
+              # -L: met domeinen per land (ADR 0040) stuurt /nl-nl blijvend door naar /.
+              code=$(curl -sSL -o page.html -w '%{http_code}' -H "x-kh-check: ${SITE_CHECK_KEY}" "${{ vars.SITE_URL }}/nl-nl" || echo 000)
               if [ "$code" = 200 ]; then echo "Website werkt"; exit 0; fi
               # Afgeschermd en nog geen controlesleutel: de nieuwe versie antwoordt wel, alleen de pagina's
               # kunnen we niet zien. Geen reden om terug te draaien; de browsertest slaan we over.

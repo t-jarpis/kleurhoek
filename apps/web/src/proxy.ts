@@ -1,7 +1,8 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { EDGE_HEADER, edgeAllowed, FORWARDED, fromWorker, WORKER_HEADER } from "./lib/edge";
 import { bestMarket, LIVE_MARKETS } from "./lib/markets";
-import { resolveOrg, SHARED_PATH } from "./lib/org-resolve";
+import { DEFAULT_ORG, resolveOrg, SHARED_PATH } from "./lib/org-resolve";
+import { domainForHost, domainOf, routeFor, siteDomains } from "./lib/sites";
 import { blockedPage, CHECK_HEADER, checkKeyValid, currentPolicy, ipAllowed } from "./lib/site-access";
 
 export async function proxy(request: NextRequest) {
@@ -35,6 +36,28 @@ export async function proxy(request: NextRequest) {
   const host = headers.get(FORWARDED.host) ?? request.headers.get("host") ?? "";
   const org = await resolveOrg(host);
   headers.set("x-kh-org", org.slug);
+  headers.set("x-kh-site-host", host.toLowerCase().replace(/:\d+$/, ""));
+
+  // Kleurhoek zelf op een eigen domein (ADR 0040): .nl zonder voorvoegsel, .be met /nl en /fr, .com met /<markt>.
+  const domains = siteDomains();
+  const domain = org.slug === DEFAULT_ORG ? domainForHost(host, domains) : null;
+  if (domain && domains && !SHARED_PATH.test(path)) {
+    const best = (candidates: string[]) => bestMarket(headers.get("cf-ipcountry"), request.headers.get("accept-language"), candidates);
+    const r = routeFor({ domain, path, live: LIVE_MARKETS, domains, acceptLanguage: request.headers.get("accept-language"), best });
+    if (r.kind === "redirect") {
+      const res = NextResponse.redirect(r.location + request.nextUrl.search, r.permanent ? 301 : 302);
+      // Het adres is al volledig (soms een ander eigen domein): de Worker laat het staan.
+      res.headers.set("x-kh-keep-location", "1");
+      // De keuze op de beginpagina hangt af van taal en land: niet in een gedeelde cache.
+      if (!r.permanent) { res.headers.set("cache-control", "private, no-store"); res.headers.set("vary", "accept-language"); }
+      return res;
+    }
+    const url = request.nextUrl.clone();
+    // Onbekend pad: de niet-gevonden-pagina van een markt op dit domein (in de juiste taal).
+    const fallback = LIVE_MARKETS.find((m) => domainOf(m) === domain) ?? LIVE_MARKETS[0]!;
+    url.pathname = r.kind === "page" ? `/${org.slug}/${r.market}${r.rest}` : `/${org.slug}/${fallback}/_niet-gevonden`;
+    return NextResponse.rewrite(url, { request: { headers } });
+  }
 
   // Op "/" kiezen we de beste markt: eerst het land (van Cloudflare), dan de taal van de browser.
   if (path === "/") {

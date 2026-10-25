@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { link } from "@/lib/sites";
 import type { DisclaimerProps } from "./types";
 
 /** Disclaimer in het Italiaans (ADR 0026). Zelfde opbouw als nl.tsx. */
-export function Disclaimer({ market, contact }: DisclaimerProps) {
+export function Disclaimer({ base, contact }: DisclaimerProps) {
   return (
     <>
       <p className="kh-meta">Ultimo aggiornamento: 24 ottobre 2026.</p>
@@ -19,7 +20,7 @@ export function Disclaimer({ market, contact }: DisclaimerProps) {
       <p>Senza il nostro permesso scritto non è consentito: vendere i disegni (singoli, in un libretto o come download), pubblicarli come materiale proprio su un altro sito web, in un&apos;app o sui social media, oppure usarli in prodotti o pubblicità. Puoi invece condividerli con un link al disegno su Kleurhoek.</p>
 
       <h2>Temi dagli autori</h2>
-      <p>I bambini cercano spesso disegni da colorare di personaggi di un cartone animato, di un parco divertimenti o di un libro. Quei disegni appartengono ai loro autori e noi non possiamo crearli né copiarli. Però molti autori li offrono gratis sul proprio sito web. Nella sezione <Link href={`/${market}/themas`}>Temi dagli autori</Link> raccogliamo i link a quelle pagine. Valgono queste regole:</p>
+      <p>I bambini cercano spesso disegni da colorare di personaggi di un cartone animato, di un parco divertimenti o di un libro. Quei disegni appartengono ai loro autori e noi non possiamo crearli né copiarli. Però molti autori li offrono gratis sul proprio sito web. Nella sezione <Link href={link(base, "/themas")}>Temi dagli autori</Link> raccogliamo i link a quelle pagine. Valgono queste regole:</p>
       <ul>
         <li>Mettiamo link solo al sito ufficiale dell&apos;autore o del titolare dei diritti, mai a siti che riprendono disegni di altri.</li>
         <li>Non mostriamo immagini, disegni o loghi dell&apos;autore e non li salviamo. Da noi vedi solo una nostra descrizione e un link. Può essere diverso solo se un autore ci dà il suo permesso scritto; in quel caso lo indichiamo.</li>

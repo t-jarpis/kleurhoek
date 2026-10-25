@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { link } from "@/lib/sites";
 import type { DisclaimerProps } from "./types";
 
 /** Disclaimer in het Duits (ADR 0026). Zelfde opbouw als nl.tsx. */
-export function Disclaimer({ market, contact }: DisclaimerProps) {
+export function Disclaimer({ base, contact }: DisclaimerProps) {
   return (
     <>
       <p className="kh-meta">Zuletzt aktualisiert am 24. Oktober 2026.</p>
@@ -19,7 +20,7 @@ export function Disclaimer({ market, contact }: DisclaimerProps) {
       <p>Ohne unsere schriftliche Erlaubnis ist Folgendes nicht erlaubt: Vorlagen verkaufen (einzeln, in einem Heft oder als Download), sie als eigenes Material auf einer anderen Website, in einer App oder in sozialen Medien veröffentlichen oder sie in Produkten oder in der Werbung verwenden. Teilen ist erlaubt, mit einem Link zur Vorlage auf Kleurhoek.</p>
 
       <h2>Themen bei den Machern</h2>
-      <p>Kinder suchen oft Malvorlagen von Figuren aus einem Zeichentrickfilm, einem Freizeitpark oder einem Buch. Diese Zeichnungen gehören den Machern, und wir dürfen sie nicht selbst zeichnen oder kopieren. Viele Macher bieten sie aber kostenlos auf ihrer eigenen Website an. Unter <Link href={`/${market}/themas`}>Themen bei den Machern</Link> sammeln wir Links zu diesen Seiten. Dabei gilt:</p>
+      <p>Kinder suchen oft Malvorlagen von Figuren aus einem Zeichentrickfilm, einem Freizeitpark oder einem Buch. Diese Zeichnungen gehören den Machern, und wir dürfen sie nicht selbst zeichnen oder kopieren. Viele Macher bieten sie aber kostenlos auf ihrer eigenen Website an. Unter <Link href={link(base, "/themas")}>Themen bei den Machern</Link> sammeln wir Links zu diesen Seiten. Dabei gilt:</p>
       <ul>
         <li>Wir verlinken nur auf die offizielle Website des Machers oder Rechteinhabers, nie auf Seiten, die Zeichnungen anderer übernehmen.</li>
         <li>Wir zeigen keine Bilder, Zeichnungen oder Logos der Macher und speichern sie auch nicht. Bei uns siehst du nur eine eigene Beschreibung und einen Link. Nur wenn ein Macher uns dazu schriftlich die Erlaubnis gibt, kann das anders sein; das steht dann dabei.</li>

@@ -6,7 +6,7 @@ import { getBff, noStore, sameOrigin } from "@/lib/auth";
  * `form-action 'self'` in de CSP gewoon gelden.
  */
 export async function POST(request: Request) {
-  const bff = getBff();
+  const bff = getBff(request);
   if (!bff) return new Response("Inloggen staat uit", { status: 404 });
   if (!sameOrigin(request)) return new Response("Niet toegestaan", { status: 403 });
   const res = await bff.logout(request);

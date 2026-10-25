@@ -54,8 +54,22 @@ variable "apps_enabled" {
 }
 variable "markets" {
   type        = string
-  default     = "nl-nl"
+  default     = "nl-nl,nl-be,fr-be"
   description = "Markten die live staan, komma-gescheiden."
+}
+variable "market_domains" {
+  type        = list(string)
+  default     = []
+  description = "Domeinen per land naast het hoofddomein (ADR 0040), bijvoorbeeld [\"kleurhoek.be\", \"kleurhoek.com\"]. Leeg = alles op het hoofddomein met /<markt>."
+}
+variable "search" {
+  type = object({
+    google_key_file = optional(string, "")
+    bing_api_key    = optional(string, "")
+  })
+  sensitive   = true
+  default     = {}
+  description = "Zoekcijfers (ADR 0041): pad naar de JSON-sleutel van het Google-serviceaccount en de API-sleutel van Bing Webmaster Tools."
 }
 variable "mail" {
   type = object({
@@ -90,12 +104,16 @@ locals {
   }
   site_url  = "https://${local.hosts.site}"
   admin_url = "https://${local.hosts.admin}"
+  # Domeinen per land (ADR 0040): zelfde subdomein (www of dev) op kleurhoek.be en kleurhoek.com.
+  market_urls  = { for d in var.market_domains : d => "https://${var.subdomains.site}.${d}" }
+  site_domains = length(var.market_domains) == 0 ? "" : jsonencode({ nl = local.site_url, be = local.market_urls["kleurhoek.be"], com = local.market_urls["kleurhoek.com"] })
 }
 
 module "zitadel" {
   source       = "../zitadel"
   environment  = var.environment
   site_url     = local.site_url
+  site_aliases = values(local.market_urls)
   admin_url    = local.admin_url
   admin_org_id = var.zitadel_admin_org_id
   idp_ids      = var.zitadel_idp_ids
@@ -104,10 +122,16 @@ module "zitadel" {
 }
 
 module "scaleway" {
-  source      = "../scaleway"
-  environment = var.environment
-  hosts       = local.hosts
-  markets     = var.markets
+  source         = "../scaleway"
+  environment    = var.environment
+  hosts          = local.hosts
+  markets        = var.markets
+  site_domains   = local.site_domains
+  search_domains = var.environment == "prod" ? concat([var.domain], var.market_domains) : []
+  search = {
+    google_key = nonsensitive(var.search.google_key_file) != "" ? file(pathexpand(var.search.google_key_file)) : ""
+    bing_key   = var.search.bing_api_key
+  }
   oidc = {
     issuer          = var.zitadel_issuer
     project_id      = module.zitadel.project_id

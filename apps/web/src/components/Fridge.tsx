@@ -1,4 +1,5 @@
 "use client";
+import { useHref } from "./Base";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, type CSSProperties } from "react";
 import { messages } from "@/i18n/nl";
@@ -18,6 +19,7 @@ const loadInner = (url: string) => {
 
 /** De koelkastdeur: eigen werk dat op dit apparaat is opgehangen. Niets gaat naar de server. */
 export function Fridge({ market, plates, language }: { market: string; plates: PlateItem[]; language: string }) {
+  const href = useHref();
   const t = messages(language);
   const items = useFridge();
   const router = useRouter();
@@ -53,7 +55,7 @@ export function Fridge({ market, plates, language }: { market: string; plates: P
           return (
             <div className="magw" key={item.id}>
               <button type="button" className="mag" style={{ "--rot": `${TILT[k % 6]}deg`, "--mc": MAGNETS[k % 6] } as CSSProperties}
-                aria-label={name} onClick={() => { fridge.resume(item); router.push(`/${market}/platen/${item.slug}`); }}>
+                aria-label={name} onClick={() => { fridge.resume(item); router.push(href(`/platen/${item.slug}`)); }}>
                 {svg?.inner ? <Sheet plate={{ name, height: svg.height, regionCount: -1, word: null, countQuestion: null, labels: [], palette: [] }} inner={svg.inner} fills={item.fills} name={item.name} sw={2} /> : <span className="mag-empty" />}
               </button>
               <small>

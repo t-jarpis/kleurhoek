@@ -4,7 +4,7 @@ const API_URL = process.env.API_URL ?? "http://localhost:3001";
 
 /** Favorieten van het ingelogde account (ADR 0039). Niet ingelogd: 401, dan bewaart de site ze alleen op het apparaat. */
 async function withSession(request: Request, work: (token: string) => Promise<Response>) {
-  const bff = getBff();
+  const bff = getBff(request);
   if (!bff) return new Response(null, { status: 401, headers: noStore });
   const { session, setCookies } = await bff.session(request.headers.get("cookie"));
   if (!session) return withCookie(new Response(null, { status: 401, headers: noStore }), setCookies);

@@ -83,6 +83,9 @@ export class StorefrontService {
     const layer = await this.textLayer(market.language, named);
     const translated = layer ? named.filter((p) => (layer.texts.get(p.slug) ?? []).every((t) => layer.glossary.has(t))) : named;
     const shown = await this.availability.visibleSlugs(this.tenant, translated.map((p) => p.slug), market.country, todayIn(market.country, now));
+    // Platen bij een feestdag die in dit land niet gevierd wordt (Koningsdag in België), niet tonen (ADR 0040).
+    const celebrated = await this.availability.celebratedIn(this.tenant, market.country);
+    if (celebrated) for (const p of translated) if (p.holiday && !celebrated.has(p.holiday)) shown.delete(p.slug);
     const path = (p: PlateSummary) => this.svgPath(p, market.language, layer?.texts.get(p.slug), layer?.glossary);
     return { plates: translated.filter((p) => shown.has(p.slug)), names, path };
   }

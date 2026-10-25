@@ -33,6 +33,11 @@ variable "login_cname" {
   default     = null
   description = "Doel voor login.<domein> (het eigen domein van Zitadel Cloud). Leeg = geen record."
 }
+variable "market_hosts" {
+  type        = map(string)
+  default     = {}
+  description = "Domeinen per land (ADR 0040): host → omgeving, bijvoorbeeld { \"www.kleurhoek.be\" = \"prod\" }. De Worker stuurt ze door."
+}
 variable "edge_rate_limits" {
   type = list(object({
     name       = string
@@ -114,6 +119,7 @@ resource "cloudflare_workers_script" "orgs" {
   compatibility_date = "2026-06-01"
   bindings = concat(
     [{ type = "plain_text", name = "ROUTES", text = jsonencode(local.org_routes) }],
+    [{ type = "plain_text", name = "HOSTS", text = jsonencode(var.market_hosts) }],
     [for env, p in random_password.worker : { type = "secret_text", name = "WORKER_SECRET_${upper(env)}", text = p.result }],
     [for env, p in random_password.edge : { type = "secret_text", name = "EDGE_SECRET_${upper(env)}", text = p.result }],
   )
@@ -281,6 +287,10 @@ resource "cloudflare_dns_record" "login" {
   proxied = false
   ttl     = 3600
   comment = "Zitadel Cloud (Terraform)"
+}
+
+output "worker_name" {
+  value = cloudflare_workers_script.orgs.script_name
 }
 
 output "worker_secrets" {

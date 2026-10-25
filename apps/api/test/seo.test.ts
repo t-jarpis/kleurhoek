@@ -10,8 +10,9 @@ describe("vindbaarheid (ADR 0035)", () => {
   it("toont de stand per markt en bewaart instellingen; alleen Kleurhoek zelf deelt ze met de website", async () => {
     const r = (await ctx.http.inject({ method: "GET", url: "/v1/admin/seo", headers: admin })).json();
     expect(r.indexableHost).toBe("www.kleurhoek.nl");
-    expect(r.markets[0]).toMatchObject({ market: "nl-NL", language: "nl" });
-    expect(r.markets[0].plates).toBeGreaterThan(0);
+    const nl = r.markets.find((m: { market: string }) => m.market === "nl-NL");
+    expect(nl).toMatchObject({ market: "nl-NL", language: "nl" });
+    expect(nl.plates).toBeGreaterThan(0);
     const bad = await ctx.http.inject({ method: "PUT", url: "/v1/admin/seo", headers: admin, payload: { googleVerification: "<script>", bingVerification: null, home: {} } });
     expect(bad.statusCode).toBe(400);
     const ok = await ctx.http.inject({ method: "PUT", url: "/v1/admin/seo", headers: admin, payload: {

@@ -61,6 +61,7 @@ export const nl = {
   themesTitle: "Thema's bij de maker", themesLede: "Kleurplaten van bekende figuren en plekken mogen we niet zelf maken of kopiëren. Veel makers bieden ze wel gratis aan op hun eigen site. Hier vind je de links, door ons nagekeken.",
   themesEmpty: "Er staan nog geen thema's klaar. Kom binnenkort terug!", themeSources: (n: number) => (n === 1 ? "1 link" : `${n} links`),
   byMaker: (m: string) => `van ${m}`, toMaker: "Bekijk bij de maker", allThemes: "← Alle thema's",
+  marketsLabel: "Land en taal", langHint: "Deze pagina bestaat ook in het Nederlands.", langRead: "Lees in het Nederlands", close: "Sluiten",
   themeNotice: (m: string) => `Deze kleurplaten zijn van ${m} en staan op hun eigen website. Kleurhoek linkt er alleen naar; wij hebben er geen invloed op.`,
   ownSpace: "Eigen omgeving", ownHint: "Voor een school, opvang of vereniging?", ownHintLink: "Vraag een eigen omgeving aan",
   ownTitle: "Kleurhoek voor je school, opvang of vereniging",

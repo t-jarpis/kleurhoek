@@ -1,4 +1,5 @@
 "use client";
+import { useHref } from "./Base";
 import { useEffect, useState } from "react";
 import { logout } from "@/lib/account";
 import type { Messages } from "@/i18n/nl";
@@ -10,6 +11,7 @@ type State = { enabled: boolean; user: { name: string | null } | null } | null;
  * Kinderen hoeven niet in te loggen; het account is voor ouders en leerkrachten.
  */
 export function AccountButton({ market, t }: { market: string; t: Pick<Messages, "login" | "account" | "logout"> }) {
+  const href = useHref();
   const [state, setState] = useState<State>(null);
   const [open, setOpen] = useState(false);
 
@@ -21,7 +23,7 @@ export function AccountButton({ market, t }: { market: string; t: Pick<Messages,
 
   if (!state?.enabled) return null;
   if (!state.user) {
-    const back = typeof window === "undefined" ? `/${market}` : window.location.pathname + window.location.search;
+    const back = typeof window === "undefined" ? href() : window.location.pathname + window.location.search;
     return <a className="btn" href={`/auth/login?returnTo=${encodeURIComponent(back)}`}>{t.login}</a>;
   }
   return (
@@ -29,7 +31,7 @@ export function AccountButton({ market, t }: { market: string; t: Pick<Messages,
       <button type="button" className="btn" aria-expanded={open} onClick={() => setOpen(!open)}>{state.user.name ?? t.account}</button>
       {open && (
         <div className="acct-menu">
-          <a href={`/${market}/account`}>{t.account}</a>
+          <a href={href("/account")}>{t.account}</a>
           <button type="button" onClick={() => void logout()}>{t.logout}</button>
         </div>
       )}

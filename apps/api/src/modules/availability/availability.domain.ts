@@ -34,6 +34,21 @@ export interface HolidayDef {
   afterDays: number;
   approximate: boolean;
   label: string | null;
+  /** Per land een andere datum of omschrijving; `dates` per jaar. */
+  overrides?: Record<string, HolidayOverride>;
+}
+
+export interface HolidayOverride { fixed?: [number, number] | null; dates?: Record<string, IsoDate>; label?: string | null }
+
+/** De feestdag zoals hij in dit land valt: met de afwijkingen van dat land (Sinterklaas in België op 6 december). */
+export function inCountry(h: HolidayDef, country: string): HolidayDef {
+  const o = h.overrides?.[country.toUpperCase()];
+  if (!o) return h;
+  return {
+    ...h,
+    ...(o.fixed !== undefined || o.dates ? { fixed: o.dates ? null : o.fixed ?? null, dates: o.dates ? Object.fromEntries(Object.entries(o.dates).map(([y, d]) => [Number(y), d])) : h.dates } : {}),
+    ...(o.label !== undefined ? { label: o.label } : {}),
+  };
 }
 
 /** De eerstvolgende datum van een feestdag die nog niet voorbij is (inclusief de dagen erna). */
@@ -60,7 +75,9 @@ export function seasonFor(holidays: HolidayDef[], spans: SeasonSpan[], country: 
   const c = country.toUpperCase();
   const now = toMs(today);
   const view: SeasonView = { active: [], soon: [], spans: [] };
-  for (const h of holidays.filter((x) => x.countries.includes(c))) {
+  // Zonder kalender voor dit land (markten op kleurhoek.com): alle feestdagen (ADR 0040).
+  const known = holidays.some((x) => x.countries.includes(c));
+  for (const h of holidays.filter((x) => !known || x.countries.includes(c)).map((x) => inCountry(x, c))) {
     const date = nextOccurrence(h, today);
     if (!date) continue;
     const item = { slug: h.slug, date, approximate: h.approximate, label: h.label };
@@ -70,7 +87,8 @@ export function seasonFor(holidays: HolidayDef[], spans: SeasonSpan[], country: 
   view.active.sort((a, b) => a.date.localeCompare(b.date));
   view.soon.sort((a, b) => a.date.localeCompare(b.date));
   const md = today.slice(5);
-  for (const s of spans.filter((x) => x.countries.includes(c))) {
+  const knownSpans = spans.some((x) => x.countries.includes(c));
+  for (const s of spans.filter((x) => !knownSpans || x.countries.includes(c))) {
     const from = `${String(s.from[0]).padStart(2, "0")}-${String(s.from[1]).padStart(2, "0")}`;
     const to = `${String(s.to[0]).padStart(2, "0")}-${String(s.to[1]).padStart(2, "0")}`;
     const inSpan = from <= to ? md >= from && md <= to : md >= from || md <= to;

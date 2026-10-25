@@ -176,6 +176,20 @@
       "when": 1792921903178,
       "tag": "0024_favorieten",
       "breakpoints": true
+    },
+    {
+      "idx": 25,
+      "version": "7",
+      "when": 1792928927764,
+      "tag": "0025_land_feestdagen",
+      "breakpoints": true
+    },
+    {
+      "idx": 26,
+      "version": "7",
+      "when": 1792929449521,
+      "tag": "0026_zoekcijfers",
+      "breakpoints": true
     }
   ]
 }

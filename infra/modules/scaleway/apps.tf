@@ -23,7 +23,7 @@ locals {
       health  = "/health"
       public  = false
       timeout = 300
-      env = {
+      env = merge({
         NODE_ENV                 = "production"
         TENANT_ID                = var.tenant_id
         OIDC_ISSUER              = var.oidc.issuer
@@ -39,7 +39,10 @@ locals {
         # Mail (ADR 0037): links in mails gaan naar de website.
         SITE_URL  = "https://${var.hosts.site}"
         MAIL_FROM = nonsensitive(var.mail.from)
-      }
+        },
+        # Zoekcijfers (ADR 0041): alleen in productie.
+        length(var.search_domains) > 0 ? { SEARCH_DOMAINS = join(",", var.search_domains) } : {},
+      )
       secret_env = merge({
         DATABASE_URL = local.database_url
         INGEST_KEY   = random_password.secret["ingest-key"].result
@@ -47,6 +50,8 @@ locals {
         },
         var.mail.smtp_url != "" ? { MAIL_SMTP_URL = var.mail.smtp_url } : {},
         var.mail.transactional_smtp_url != "" ? { MAIL_TRANSACTIONAL_SMTP_URL = var.mail.transactional_smtp_url } : {},
+        var.search.google_key != "" ? { GOOGLE_SEARCH_KEY = var.search.google_key } : {},
+        var.search.bing_key != "" ? { BING_WEBMASTER_KEY = var.search.bing_key } : {},
       )
     }
     web = {
@@ -58,15 +63,18 @@ locals {
       health  = "/healthz"
       public  = true
       timeout = 60
-      env = {
-        NODE_ENV            = "production"
-        NEXT_PUBLIC_MARKETS = var.markets
-        SITE_URL            = "https://${var.hosts.site}"
-        OIDC_ISSUER         = var.oidc.issuer
-        OIDC_CLIENT_ID      = var.oidc.web_client_id
-        OIDC_PROJECT_ID     = var.oidc.project_id
-        OIDC_ORG_ID         = var.oidc.site_org_id
-      }
+      env = merge({
+        NODE_ENV = "production"
+        # Live markten en domeinen per land (ADR 0040): runtime, zodat één image op dev en prod past.
+        MARKETS         = var.markets
+        SITE_URL        = "https://${var.hosts.site}"
+        OIDC_ISSUER     = var.oidc.issuer
+        OIDC_CLIENT_ID  = var.oidc.web_client_id
+        OIDC_PROJECT_ID = var.oidc.project_id
+        OIDC_ORG_ID     = var.oidc.site_org_id
+        },
+        var.site_domains != "" ? { SITE_DOMAINS = var.site_domains } : {},
+      )
       secret_env = {
         INGEST_KEY            = random_password.secret["ingest-key"].result
         ANALYTICS_SALT_SECRET = random_password.secret["analytics-salt"].result

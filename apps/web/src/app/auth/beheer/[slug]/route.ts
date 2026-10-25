@@ -5,7 +5,7 @@ const API_URL = process.env.API_URL ?? "http://localhost:3001";
 const SLUG = /^[a-z0-9-]{2,32}$/;
 
 async function withSession(request: Request, work: (accessToken: string) => Promise<Response>) {
-  const bff = getBff();
+  const bff = getBff(request);
   if (!bff) return new Response(null, { status: 404 });
   const { session, setCookies } = await bff.session(request.headers.get("cookie"));
   if (!session) return withCookie(Response.json({ error: "niet ingelogd" }, { status: 401, headers: noStore }), setCookies);

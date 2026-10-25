@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { link } from "@/lib/sites";
 import type { DisclaimerProps } from "./types";
 
 /** Disclaimer in het Nederlands (ADR 0026). Vertalingen staan ernaast als <taal>.tsx, met dezelfde opbouw. */
-export function Disclaimer({ market, contact }: DisclaimerProps) {
+export function Disclaimer({ base, contact }: DisclaimerProps) {
   return (
     <>
       <p className="kh-meta">Laatst bijgewerkt op 24 oktober 2026.</p>
@@ -19,7 +20,7 @@ export function Disclaimer({ market, contact }: DisclaimerProps) {
       <p>Dit mag niet zonder onze schriftelijke toestemming: platen verkopen (los, in een boekje of als download), ze op een andere website, in een app of op sociale media zetten als eigen materiaal, of ze gebruiken in producten of reclame. Delen mag wel met een link naar de plaat op Kleurhoek.</p>
 
       <h2>Thema&apos;s bij de maker</h2>
-      <p>Kinderen zoeken vaak kleurplaten van figuren uit een tekenfilm, een pretpark of een boek. Die tekeningen zijn van de makers en die mogen wij niet zelf maken of kopiëren. Veel makers bieden ze wel gratis aan op hun eigen website. Onder <Link href={`/${market}/themas`}>Thema&apos;s bij de maker</Link> verzamelen we links naar die pagina&apos;s. Daarbij geldt:</p>
+      <p>Kinderen zoeken vaak kleurplaten van figuren uit een tekenfilm, een pretpark of een boek. Die tekeningen zijn van de makers en die mogen wij niet zelf maken of kopiëren. Veel makers bieden ze wel gratis aan op hun eigen website. Onder <Link href={link(base, "/themas")}>Thema&apos;s bij de maker</Link> verzamelen we links naar die pagina&apos;s. Daarbij geldt:</p>
       <ul>
         <li>We linken alleen naar de officiële website van de maker of rechthebbende, nooit naar sites die tekeningen van anderen overnemen.</li>
         <li>We tonen geen afbeeldingen, tekeningen of logo&apos;s van de maker en slaan ze ook niet op. Je ziet bij ons alleen een eigen beschrijving en een link. Alleen als een maker ons daar schriftelijk toestemming voor geeft, kan dat anders zijn; dat staat er dan bij.</li>

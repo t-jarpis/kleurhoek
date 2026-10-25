@@ -31,6 +31,11 @@ variable "login_base_uri" {
   default     = null
   description = "Eigen inlogpagina voor de website (login v2), bijvoorbeeld https://login.kleurhoek.nl. Leeg = de inlogpagina van Zitadel."
 }
+variable "site_aliases" {
+  type        = list(string)
+  default     = []
+  description = "Andere adressen van de website (ADR 0040), bijvoorbeeld https://www.kleurhoek.be: elk een eigen terugkeeradres."
+}
 variable "idp_ids" {
   type        = list(string)
   default     = []
@@ -93,8 +98,8 @@ resource "zitadel_application_oidc" "web" {
   auth_method_type          = "OIDC_AUTH_METHOD_TYPE_BASIC"
   grant_types               = ["OIDC_GRANT_TYPE_AUTHORIZATION_CODE", "OIDC_GRANT_TYPE_REFRESH_TOKEN"]
   response_types            = ["OIDC_RESPONSE_TYPE_CODE"]
-  redirect_uris             = ["${var.site_url}/auth/callback"]
-  post_logout_redirect_uris = ["${var.site_url}/"]
+  redirect_uris             = [for u in concat([var.site_url], var.site_aliases) : "${u}/auth/callback"]
+  post_logout_redirect_uris = [for u in concat([var.site_url], var.site_aliases) : "${u}/"]
 
   dynamic "login_version" {
     for_each = var.login_base_uri == null ? [] : [1]

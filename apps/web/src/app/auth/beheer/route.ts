@@ -4,7 +4,7 @@ const API_URL = process.env.API_URL ?? "http://localhost:3001";
 
 /** De organisaties die het ingelogde account mag beheren (ADR 0036). Niet ingelogd: lege lijst. */
 export async function GET(request: Request) {
-  const bff = getBff();
+  const bff = getBff(request);
   if (!bff) return Response.json({ organizations: [] }, { headers: noStore });
   const { session, setCookies } = await bff.session(request.headers.get("cookie"));
   if (!session) return withCookie(Response.json({ organizations: [] }, { headers: noStore }), setCookies);

@@ -54,6 +54,15 @@ const schema = z.object({
   MAIL_RATE_PER_MINUTE: z.coerce.number().int().min(1).max(10_000).default(120),
   /** Hoe vaak de wachtrij en workflows worden verwerkt. 0 = uit (tests). */
   MAIL_INTERVAL_MS: z.coerce.number().int().min(0).default(20_000),
+  // ---------- Zoekcijfers (ADR 0041) ----------
+  /** Domeinen waarvan we zoekcijfers ophalen, bijvoorbeeld "kleurhoek.nl,kleurhoek.be,kleurhoek.com". Leeg = uit. */
+  SEARCH_DOMAINS: z.string().default("").transform((v) => v.split(",").map((s) => s.trim().toLowerCase()).filter(Boolean)),
+  /** Sleutel (JSON) van het Google-serviceaccount met leesrecht in Search Console. */
+  GOOGLE_SEARCH_KEY: z.string().optional(),
+  /** API-sleutel van Bing Webmaster Tools. */
+  BING_WEBMASTER_KEY: z.string().optional(),
+  /** Hoe vaak de zoekcijfers worden opgehaald. 0 = uit. */
+  SEARCH_IMPORT_INTERVAL_MS: z.coerce.number().int().min(0).default(6 * 3_600_000),
 });
 
 export type Env = Omit<z.infer<typeof schema>, "MAIL_SECRET"> & { MAIL_SECRET: string };

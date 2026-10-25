@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { link } from "@/lib/sites";
 import type { DisclaimerProps } from "./types";
 
 /** Disclaimer in British English (ADR 0026). Same structure as nl.tsx. */
-export function Disclaimer({ market, contact }: DisclaimerProps) {
+export function Disclaimer({ base, contact }: DisclaimerProps) {
   return (
     <>
       <p className="kh-meta">Last updated on 24 October 2026.</p>
@@ -19,7 +20,7 @@ export function Disclaimer({ market, contact }: DisclaimerProps) {
       <p>The following is not allowed without our written permission: selling the pages (individually, in a booklet or as a download), putting them on another website, in an app or on social media as your own material, or using them in products or advertising. You are welcome to share a link to the page on Kleurhoek.</p>
 
       <h2>Themes from the makers</h2>
-      <p>Children often look for colouring pages of characters from a cartoon, a theme park or a book. Those drawings belong to their makers, and we are not allowed to make or copy them ourselves. But many makers offer them for free on their own websites. Under <Link href={`/${market}/themas`}>Themes from the makers</Link> we collect links to those pages. The following applies:</p>
+      <p>Children often look for colouring pages of characters from a cartoon, a theme park or a book. Those drawings belong to their makers, and we are not allowed to make or copy them ourselves. But many makers offer them for free on their own websites. Under <Link href={link(base, "/themas")}>Themes from the makers</Link> we collect links to those pages. The following applies:</p>
       <ul>
         <li>We only link to the official website of the maker or rights holder, never to sites that copy other people&apos;s drawings.</li>
         <li>We don&apos;t show or store any images, drawings or logos of the maker. All you see on our site is our own description and a link. This may be different only if a maker gives us written permission, in which case we say so.</li>

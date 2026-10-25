@@ -1,0 +1,1 @@
+ALTER TABLE "availability"."holidays" ADD COLUMN "overrides" jsonb DEFAULT '{}'::jsonb NOT NULL;

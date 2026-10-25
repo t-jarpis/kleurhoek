@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { baseFor } from "@/lib/base";
+import { link } from "@/lib/sites";
 import { notFound } from "next/navigation";
 import { Logo } from "@/components/Logo";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -31,12 +33,13 @@ export default async function ThemePage({ params }: { params: Promise<{ org: str
   const { org: orgSlug, market, slug } = await params;
   const org = await getOrg(orgSlug);
   if (!org) notFound();
+  const base = baseFor(org, market);
   const t = messages(marketLanguage(market));
   const th = await load(orgSlug, market, slug);
   return (
     <div className="wrap narrow" data-mode="ouder">
       <Track event={{ type: "page_view", market, page: "thema" }} />
-      <header className="mast"><Logo market={market} org={org} /><a className="btn" href={`/${market}/themas`}>{t.allThemes}</a></header>
+      <header className="mast"><Logo market={market} org={org} /><a className="btn" href={link(base, "/themas")}>{t.allThemes}</a></header>
       <h1 className="page-title">{th.name}</h1>
       {th.description && <p className="lede">{th.description}</p>}
       <ul className="kh-sources">
@@ -64,7 +67,7 @@ export default async function ThemePage({ params }: { params: Promise<{ org: str
           <p className="disclosure">{t.partnerDisclosure}</p>
         </section>
       )}
-      <SiteFooter market={market} t={t} own={org.isDefault} />
+      <SiteFooter base={base} t={t} own={org.isDefault} />
     </div>
   );
 }

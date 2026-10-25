@@ -8,6 +8,10 @@ import { LIVE_MARKETS, marketLanguage } from "@/lib/markets";
 import { getOrg } from "@/lib/org";
 import { messages } from "@/i18n/nl";
 import { hreflang, indexable, SITE } from "@/lib/seo";
+import { baseFor } from "@/lib/base";
+import { BaseProvider } from "@/components/Base";
+import { LangHint } from "@/components/MarketSwitch";
+import { siteDomains, siteEntries } from "@/lib/sites";
 
 type Params = Promise<{ org: string; market: string }>;
 
@@ -38,11 +42,12 @@ export default async function MarketLayout({ children, params }: { children: Rea
   const org = await getOrg(slug);
   if (!org || !LIVE_MARKETS.includes(market) || (org.offer.markets && !org.offer.markets.includes(market))) notFound();
   const css = brandCss(org.brand.colors);
+  const markets = LIVE_MARKETS.filter((m) => !org.offer.markets || org.offer.markets.includes(m));
   return (
     <html lang={marketLanguage(market)} {...(org.brand.theme ? { "data-kh-theme": org.brand.theme } : {})} {...(org.brand.font ? { "data-kh-font": org.brand.font } : {})}>
       {/* Nooit een lege string in <head>: browsers gooien tekst daar weg, dan klopt de hydratie niet en verdwijnt de CSS. */}
       <head>{css ? <style id="kh-brand">{css}</style> : null}</head>
-      <body>{children}</body>
+      <body><BaseProvider base={baseFor(org, market)} market={market} sites={siteEntries(markets, org.isDefault ? siteDomains() : null)}><LangHint />{children}</BaseProvider></body>
     </html>
   );
 }

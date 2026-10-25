@@ -12,7 +12,8 @@
     "approximate": false,
     "label": null,
     "countries": [
-      "NL"
+      "NL",
+      "BE"
     ],
     "i18n": {
       "nl": {
@@ -36,7 +37,8 @@
       "pl": {
         "name": "Sylwester i Nowy Rok"
       }
-    }
+    },
+    "overrides": {}
   },
   {
     "slug": "chinees",
@@ -51,7 +53,8 @@
     "approximate": false,
     "label": null,
     "countries": [
-      "NL"
+      "NL",
+      "BE"
     ],
     "i18n": {
       "nl": {
@@ -75,7 +78,8 @@
       "pl": {
         "name": "Chiński Nowy Rok"
       }
-    }
+    },
+    "overrides": {}
   },
   {
     "slug": "valentijn",
@@ -90,7 +94,8 @@
     "approximate": false,
     "label": null,
     "countries": [
-      "NL"
+      "NL",
+      "BE"
     ],
     "i18n": {
       "nl": {
@@ -114,7 +119,8 @@
       "pl": {
         "name": "Walentynki"
       }
-    }
+    },
+    "overrides": {}
   },
   {
     "slug": "carnaval",
@@ -129,7 +135,8 @@
     "approximate": false,
     "label": null,
     "countries": [
-      "NL"
+      "NL",
+      "BE"
     ],
     "i18n": {
       "nl": {
@@ -153,7 +160,8 @@
       "pl": {
         "name": "Karnawał"
       }
-    }
+    },
+    "overrides": {}
   },
   {
     "slug": "holi",
@@ -168,7 +176,8 @@
     "approximate": false,
     "label": null,
     "countries": [
-      "NL"
+      "NL",
+      "BE"
     ],
     "i18n": {
       "nl": {
@@ -192,7 +201,8 @@
       "pl": {
         "name": "Holi"
       }
-    }
+    },
+    "overrides": {}
   },
   {
     "slug": "suikerfeest",
@@ -207,7 +217,8 @@
     "approximate": true,
     "label": null,
     "countries": [
-      "NL"
+      "NL",
+      "BE"
     ],
     "i18n": {
       "nl": {
@@ -231,7 +242,8 @@
       "pl": {
         "name": "Święto Przerwania Postu"
       }
-    }
+    },
+    "overrides": {}
   },
   {
     "slug": "pasen",
@@ -246,7 +258,8 @@
     "approximate": false,
     "label": null,
     "countries": [
-      "NL"
+      "NL",
+      "BE"
     ],
     "i18n": {
       "nl": {
@@ -270,7 +283,8 @@
       "pl": {
         "name": "Wielkanoc"
       }
-    }
+    },
+    "overrides": {}
   },
   {
     "slug": "koningsdag",
@@ -309,7 +323,8 @@
       "pl": {
         "name": "Dzień Króla"
       }
-    }
+    },
+    "overrides": {}
   },
   {
     "slug": "bevrijding",
@@ -348,7 +363,8 @@
       "pl": {
         "name": "Dzień Wyzwolenia"
       }
-    }
+    },
+    "overrides": {}
   },
   {
     "slug": "moederdag",
@@ -363,7 +379,8 @@
     "approximate": false,
     "label": null,
     "countries": [
-      "NL"
+      "NL",
+      "BE"
     ],
     "i18n": {
       "nl": {
@@ -387,7 +404,8 @@
       "pl": {
         "name": "Dzień Matki"
       }
-    }
+    },
+    "overrides": {}
   },
   {
     "slug": "hemelvaart",
@@ -402,7 +420,8 @@
     "approximate": false,
     "label": null,
     "countries": [
-      "NL"
+      "NL",
+      "BE"
     ],
     "i18n": {
       "nl": {
@@ -426,7 +445,8 @@
       "pl": {
         "name": "Wniebowstąpienie"
       }
-    }
+    },
+    "overrides": {}
   },
   {
     "slug": "pinksteren",
@@ -441,7 +461,8 @@
     "approximate": false,
     "label": null,
     "countries": [
-      "NL"
+      "NL",
+      "BE"
     ],
     "i18n": {
       "nl": {
@@ -465,7 +486,8 @@
       "pl": {
         "name": "Zielone Świątki"
       }
-    }
+    },
+    "overrides": {}
   },
   {
     "slug": "offerfeest",
@@ -480,7 +502,8 @@
     "approximate": true,
     "label": null,
     "countries": [
-      "NL"
+      "NL",
+      "BE"
     ],
     "i18n": {
       "nl": {
@@ -504,7 +527,8 @@
       "pl": {
         "name": "Święto Ofiarowania"
       }
-    }
+    },
+    "overrides": {}
   },
   {
     "slug": "vaderdag",
@@ -519,7 +543,8 @@
     "approximate": false,
     "label": null,
     "countries": [
-      "NL"
+      "NL",
+      "BE"
     ],
     "i18n": {
       "nl": {
@@ -542,6 +567,14 @@
       },
       "pl": {
         "name": "Dzień Ojca"
+      }
+    },
+    "overrides": {
+      "BE": {
+        "dates": {
+          "2026": "2026-06-14",
+          "2027": "2027-06-13"
+        }
       }
     }
   },
@@ -582,11 +615,52 @@
       "pl": {
         "name": "Keti Koti"
       }
+    },
+    "overrides": {}
+  },
+  {
+    "slug": "nationale-feestdag",
+    "order": 15,
+    "fixed": [
+      7,
+      21
+    ],
+    "dates": null,
+    "leadDays": 7,
+    "afterDays": 0,
+    "approximate": false,
+    "label": null,
+    "countries": [
+      "BE"
+    ],
+    "overrides": {},
+    "i18n": {
+      "nl": {
+        "name": "Nationale feestdag"
+      },
+      "de": {
+        "name": "Belgischer Nationalfeiertag"
+      },
+      "fr": {
+        "name": "Fête nationale"
+      },
+      "en": {
+        "name": "Belgian National Day"
+      },
+      "es": {
+        "name": "Fiesta Nacional de Bélgica"
+      },
+      "it": {
+        "name": "Festa nazionale belga"
+      },
+      "pl": {
+        "name": "Święto Narodowe Belgii"
+      }
     }
   },
   {
     "slug": "school",
-    "order": 15,
+    "order": 16,
     "fixed": [
       8,
       31
@@ -597,7 +671,8 @@
     "approximate": false,
     "label": "eind augustus",
     "countries": [
-      "NL"
+      "NL",
+      "BE"
     ],
     "i18n": {
       "nl": {
@@ -621,11 +696,20 @@
       "pl": {
         "name": "Pierwszy dzień szkoły"
       }
+    },
+    "overrides": {
+      "BE": {
+        "fixed": [
+          9,
+          1
+        ],
+        "label": null
+      }
     }
   },
   {
     "slug": "dierendag",
-    "order": 16,
+    "order": 17,
     "fixed": [
       10,
       4
@@ -636,7 +720,8 @@
     "approximate": false,
     "label": null,
     "countries": [
-      "NL"
+      "NL",
+      "BE"
     ],
     "i18n": {
       "nl": {
@@ -660,11 +745,12 @@
       "pl": {
         "name": "Dzień Zwierząt"
       }
-    }
+    },
+    "overrides": {}
   },
   {
     "slug": "halloween",
-    "order": 17,
+    "order": 18,
     "fixed": [
       10,
       31
@@ -675,7 +761,8 @@
     "approximate": false,
     "label": null,
     "countries": [
-      "NL"
+      "NL",
+      "BE"
     ],
     "i18n": {
       "nl": {
@@ -699,11 +786,12 @@
       "pl": {
         "name": "Halloween"
       }
-    }
+    },
+    "overrides": {}
   },
   {
     "slug": "divali",
-    "order": 18,
+    "order": 19,
     "fixed": null,
     "dates": {
       "2026": "2026-11-08",
@@ -714,7 +802,8 @@
     "approximate": false,
     "label": null,
     "countries": [
-      "NL"
+      "NL",
+      "BE"
     ],
     "i18n": {
       "nl": {
@@ -738,11 +827,12 @@
       "pl": {
         "name": "Diwali"
       }
-    }
+    },
+    "overrides": {}
   },
   {
     "slug": "sintmaarten",
-    "order": 19,
+    "order": 20,
     "fixed": [
       11,
       11
@@ -753,7 +843,8 @@
     "approximate": false,
     "label": null,
     "countries": [
-      "NL"
+      "NL",
+      "BE"
     ],
     "i18n": {
       "nl": {
@@ -777,11 +868,12 @@
       "pl": {
         "name": "Dzień Świętego Marcina"
       }
-    }
+    },
+    "overrides": {}
   },
   {
     "slug": "sinterklaas",
-    "order": 20,
+    "order": 21,
     "fixed": [
       12,
       5
@@ -792,7 +884,8 @@
     "approximate": false,
     "label": null,
     "countries": [
-      "NL"
+      "NL",
+      "BE"
     ],
     "i18n": {
       "nl": {
@@ -816,11 +909,19 @@
       "pl": {
         "name": "Sinterklaas"
       }
+    },
+    "overrides": {
+      "BE": {
+        "fixed": [
+          12,
+          6
+        ]
+      }
     }
   },
   {
     "slug": "chanoeka",
-    "order": 21,
+    "order": 22,
     "fixed": null,
     "dates": {
       "2026": "2026-12-05",
@@ -831,7 +932,8 @@
     "approximate": false,
     "label": null,
     "countries": [
-      "NL"
+      "NL",
+      "BE"
     ],
     "i18n": {
       "nl": {
@@ -855,11 +957,12 @@
       "pl": {
         "name": "Chanuka"
       }
-    }
+    },
+    "overrides": {}
   },
   {
     "slug": "kerst",
-    "order": 22,
+    "order": 23,
     "fixed": [
       12,
       25
@@ -870,7 +973,8 @@
     "approximate": false,
     "label": null,
     "countries": [
-      "NL"
+      "NL",
+      "BE"
     ],
     "i18n": {
       "nl": {
@@ -894,11 +998,12 @@
       "pl": {
         "name": "Boże Narodzenie"
       }
-    }
+    },
+    "overrides": {}
   },
   {
     "slug": "verjaardag",
-    "order": 23,
+    "order": 24,
     "fixed": null,
     "dates": null,
     "leadDays": 0,
@@ -906,7 +1011,8 @@
     "approximate": false,
     "label": null,
     "countries": [
-      "NL"
+      "NL",
+      "BE"
     ],
     "i18n": {
       "nl": {
@@ -930,6 +1036,7 @@
       "pl": {
         "name": "Urodziny"
       }
-    }
+    },
+    "overrides": {}
   }
 ]

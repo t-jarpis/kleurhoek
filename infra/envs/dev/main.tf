@@ -79,6 +79,15 @@ variable "mail" {
   sensitive = true
   default   = { from = "Kleurhoek <hallo@kleurhoek.nl>" }
 }
+variable "search" {
+  type = object({
+    google_key_file = optional(string, "")
+    bing_api_key    = optional(string, "")
+  })
+  sensitive   = true
+  default     = {}
+  description = "Zoekcijfers (ADR 0041): pad naar de JSON-sleutel van het Google-serviceaccount (niet in git) en de Bing-API-sleutel. Alleen prod gebruikt ze."
+}
 variable "admin_bootstrap_subjects" {
   type    = list(string)
   default = []
@@ -118,6 +127,9 @@ module "site" {
   org_host_pattern         = "{slug}-dev.kleurhoek.nl"
   apps_enabled             = var.apps_enabled
   mail                     = var.mail
+  # Domeinen per land (ADR 0040), zodra ze in envs/zone bestaan.
+  market_domains = try(data.terraform_remote_state.zone.outputs.market_domains["dev"], [])
+  search         = var.search
   # Goedkoopste node (circa € 11 per maand), geen HA, back-up dagelijks (7 dagen) in een ander datacenter.
   # Niet beschikbaar in nl-ams? Dan DB-PLAY2-PICO (circa € 17). Controleer: scw rdb node-type list region=nl-ams.
   database = {

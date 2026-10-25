@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { baseFor } from "@/lib/base";
+import { link } from "@/lib/sites";
 import { notFound } from "next/navigation";
 import { ContactForm } from "@/components/ContactForm";
 import { Logo } from "@/components/Logo";
@@ -23,21 +25,22 @@ export default async function ContactPage({ params, searchParams }: { params: Pr
   const [{ org: slug, market }, { onderwerp }] = await Promise.all([params, searchParams]);
   const org = await getOrg(slug);
   if (!org) notFound();
+  const base = baseFor(org, market);
   const t = messages(marketLanguage(market));
   return (
     <div className="wrap narrow" data-mode="ouder">
       <Track event={{ type: "page_view", market, page: "contact" }} />
-      <header className="mast"><Logo market={market} org={org} /><a className="btn" href={`/${market}`}>{t.back}</a></header>
+      <header className="mast"><Logo market={market} org={org} /><a className="btn" href={link(base)}>{t.back}</a></header>
       <h1 className="page-title">{t.contactTitle}</h1>
       <p className="lede">{t.contactLede}</p>
-      {org.isDefault && <p className="lede">{t.ownHint} <a href={`/${market}/eigen-omgeving`}>{t.ownHintLink}</a>.</p>}
+      {org.isDefault && <p className="lede">{t.ownHint} <a href={link(base, "/eigen-omgeving")}>{t.ownHintLink}</a>.</p>}
       <ContactForm action={sendContact.bind(null, market)} initialTopic={TOPIC_PARAM[onderwerp ?? ""] ?? "question"} t={{
         contactTopic: t.contactTopic, contactTopics: t.contactTopics, contactName: t.contactName, contactNameHint: t.contactNameHint,
         contactEmail: t.contactEmail, contactEmailHint: t.contactEmailHint, contactMessage: t.contactMessage, contactSend: t.contactSend,
         contactSending: t.contactSending, contactPrivacy: t.contactPrivacy, contactThanks: t.contactThanks, contactThanksText: t.contactThanksText,
         contactError: t.contactError, contactTooMany: t.contactTooMany, contactClosed: t.contactClosed,
       }} />
-      <SiteFooter market={market} t={t} own={org.isDefault} />
+      <SiteFooter base={base} t={t} own={org.isDefault} />
     </div>
   );
 }

@@ -34,7 +34,8 @@ export class AdminSeoController {
       const [plates, themes] = await Promise.all([this.store.listPlates(market, {}), this.store.themes(market)]);
       markets.push({ market: market.code, language: market.language, plates: plates.length, themes: themes.length });
     }
-    return { settings: org.seo, markets, indexableHost: "www.kleurhoek.nl" };
+    // Per land een domein (ADR 0040): kleurhoek.nl, .be (nl en fr) en .com (overige markten).
+    return { settings: org.seo, markets, indexableHost: "www.kleurhoek.nl", indexableHosts: ["www.kleurhoek.nl", "www.kleurhoek.be", "www.kleurhoek.com"] };
   }
 
   @Put()

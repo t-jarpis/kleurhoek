@@ -1,4 +1,5 @@
 "use client";
+import { useHref } from "./Base";
 import { FavoriteButton } from "./FavoriteButton";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
@@ -16,6 +17,7 @@ function load(p: PlateDetail): Saved {
 }
 
 export function Studio({ plate, inner, ageWidth, market, language, accounts = false }: { plate: PlateDetail; inner: string; ageWidth: number; market: string; language: string; accounts?: boolean }) {
+  const href = useHref();
   const t = messages(language);
   const [mode, setMode] = useState<"free" | "num">("free");
   const [color, setColor] = useState(FREE_PALETTE[0]!);
@@ -74,7 +76,7 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
     <div className="wrap" data-mode="kind">
       <div className="studio">
         <div className="studio-top">
-          <Link href={`/${market}`} className="btn">{t.back}</Link>
+          <Link href={href()} className="btn">{t.back}</Link>
           <h1>{plate.name}</h1>
           <FavoriteButton slug={plate.slug} market={market} language={language} accounts={accounts} />
         </div>

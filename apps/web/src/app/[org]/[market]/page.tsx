@@ -1,4 +1,6 @@
 import { AccountButton } from "@/components/AccountButton";
+import { baseFor } from "@/lib/base";
+import { link } from "@/lib/sites";
 import { BookButton, PickBar } from "@/components/BookPicker";
 import { Fridge } from "@/components/Fridge";
 import { Suspense } from "react";
@@ -15,7 +17,7 @@ import { Track } from "@/components/Track";
 import { SubscribeForm } from "@/components/SubscribeForm";
 import { subscribe } from "./mail/actions";
 import { getOrg } from "@/lib/org";
-import { hreflang, indexable, jsonLd, pageMeta, SITE } from "@/lib/seo";
+import { hreflang, indexable, jsonLd, pageMeta, SITE, pageUrl } from "@/lib/seo";
 import type { Metadata } from "next";
 
 export const revalidate = 300;
@@ -36,6 +38,7 @@ export default async function Home({ params }: { params: Promise<{ org: string; 
   const { org: slug, market } = await params;
   const org = await getOrg(slug);
   if (!org) notFound();
+  const base = baseFor(org, market);
   const language = marketLanguage(market);
   const t = messages(language);
   const [plates, taxonomy, season] = await Promise.all([api.plates(market, slug), api.taxonomy(market, slug), api.season(market, slug)]).catch((e) => {
@@ -45,18 +48,18 @@ export default async function Home({ params }: { params: Promise<{ org: string; 
   return (
     <div className="wrap" data-mode="kind">
       {indexable(org) && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd({
-        "@context": "https://schema.org", "@type": "WebSite", name: "Kleurhoek", url: `${SITE}/${market}`, inLanguage: hreflang(market),
+        "@context": "https://schema.org", "@type": "WebSite", name: "Kleurhoek", url: pageUrl(market, ""), inLanguage: hreflang(market),
         description: org.seo?.home?.[hreflang(market)]?.description || t.lede, publisher: { "@type": "Organization", name: "Kleurhoek", url: SITE },
       }) }} />}
       <header className="mast">
         <div><Logo market={market} org={org} /><p className="lede">{t.lede}</p></div>
         <div className="row no-print"><BookButton language={language} /><Surprise market={market} slugs={plates.map((p) => p.slug)} label={t.surprise} />{org.features.accounts && <AccountButton market={market} t={{ login: t.login, account: t.account, logout: t.logout }} />}</div>
       </header>
-      <SeasonBand season={season} plates={plates} taxonomy={taxonomy} market={market} t={t} />
+      <SeasonBand season={season} plates={plates} taxonomy={taxonomy} market={market} base={base} t={t} />
       <Suspense fallback={null}><Browse plates={plates} taxonomy={taxonomy} market={market} language={language} /></Suspense>
       <Fridge market={market} plates={plates} language={language} />
       {org.isDefault && <SubscribeForm action={subscribe.bind(null, market)} language={language} />}
-      <SiteFooter market={market} t={t} own={org.isDefault} />
+      <SiteFooter base={base} t={t} own={org.isDefault} />
       <PickBar market={market} language={language} />
       <Track event={{ type: "page_view", market, page: "home" }} />
     </div>

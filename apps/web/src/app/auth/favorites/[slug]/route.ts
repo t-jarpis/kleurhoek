@@ -6,7 +6,7 @@ const SLUG = /^[a-z0-9-]{1,64}$/;
 async function change(request: Request, slug: string, method: "PUT" | "DELETE") {
   if (!sameOrigin(request)) return new Response("Niet toegestaan", { status: 403 });
   if (!SLUG.test(slug)) return new Response(null, { status: 404 });
-  const bff = getBff();
+  const bff = getBff(request);
   if (!bff) return new Response(null, { status: 401, headers: noStore });
   const { session, setCookies } = await bff.session(request.headers.get("cookie"));
   if (!session) return withCookie(new Response(null, { status: 401, headers: noStore }), setCookies);

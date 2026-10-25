@@ -1,4 +1,4 @@
-import { date, index, integer, jsonb, pgSchema, text, timestamp, uniqueIndex } from "drizzle-orm/pg-core";
+import { boolean, date, index, integer, jsonb, pgSchema, real, text, timestamp, uniqueIndex } from "drizzle-orm/pg-core";
 import { baseColumns } from "../../shared/columns";
 
 export const analyticsSchema = pgSchema("analytics");
@@ -113,3 +113,31 @@ export const goals = analyticsSchema.table("goals", {
   startMonth: text("start_month").notNull(),
   milestones: jsonb("milestones").$type<GoalMilestone[]>().notNull(),
 }, (t) => [uniqueIndex("goals_tenant_metric").on(t.tenantId, t.metric)]);
+
+/**
+ * Zoekcijfers uit Google Search Console en Bing Webmaster Tools (ADR 0041), per dag. `kind` = total (het hele
+ * domein), query (zoekterm) of page (adres zonder https://). Positie is het gemiddelde, gewogen naar vertoningen.
+ * Zoektermen zijn geen persoonsgegevens: zeldzame termen laten de zoekmachines zelf al weg.
+ */
+export const searchStats = analyticsSchema.table("search_stats", {
+  ...baseColumns(),
+  day: date("day", { mode: "string" }).notNull(),
+  engine: text("engine", { enum: ["google", "bing"] }).notNull(),
+  site: text("site").notNull(),
+  kind: text("kind", { enum: ["total", "query", "page"] }).notNull(),
+  key: text("key").notNull(),
+  clicks: integer("clicks").notNull().default(0),
+  impressions: integer("impressions").notNull().default(0),
+  position: real("position"),
+}, (t) => [uniqueIndex("search_stats_unique").on(t.tenantId, t.day, t.engine, t.site, t.kind, t.key), index("search_stats_day").on(t.tenantId, t.day)]);
+
+/** Laatste ophaalpoging per zoekmachine en domein: voor de stand in het admin panel. */
+export const searchSync = analyticsSchema.table("search_sync", {
+  ...baseColumns(),
+  engine: text("engine", { enum: ["google", "bing"] }).notNull(),
+  site: text("site").notNull(),
+  ok: boolean("ok").notNull(),
+  message: text("message"),
+  lastDay: date("last_day", { mode: "string" }),
+  runAt: timestamp("run_at", { withTimezone: true }).notNull().defaultNow(),
+}, (t) => [uniqueIndex("search_sync_unique").on(t.tenantId, t.engine, t.site)]);

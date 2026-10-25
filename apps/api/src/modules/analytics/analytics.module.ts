@@ -4,6 +4,7 @@ import { AdminAnalyticsController, EventIngestController } from "./analytics.con
 import { AggregationScheduler } from "./aggregation.scheduler";
 import { AnalyticsService } from "./analytics.service";
 import { GoalsService } from "./goals.service";
+import { SearchService } from "./search.service";
 
-@Module({ imports: [CatalogModule], controllers: [EventIngestController, AdminAnalyticsController], providers: [AnalyticsService, AggregationScheduler, GoalsService], exports: [AnalyticsService] })
+@Module({ imports: [CatalogModule], controllers: [EventIngestController, AdminAnalyticsController], providers: [AnalyticsService, AggregationScheduler, GoalsService, SearchService], exports: [AnalyticsService] })
 export class AnalyticsModule {}
