@@ -15,8 +15,9 @@ target "app" {
   target    = app
   platforms = ["linux/amd64"]
   args      = { NEXT_PUBLIC_MARKETS = MARKETS, BUILD_SHA = TAG }
-  # :latest is wat Terraform gebruikt bij het (her)aanmaken van een container; :<commit> rolt uit.
-  tags       = TAG == "" ? ["${REGISTRY}/kleurhoek-${app}:latest"] : ["${REGISTRY}/kleurhoek-${app}:${TAG}", "${REGISTRY}/kleurhoek-${app}:latest"]
+  # :<commit> rolt uit. :latest (wat Terraform gebruikt bij het (her)aanmaken van een container) zet de
+  # deploy pas na een geslaagde test, zodat :latest altijd de laatste goede versie is om naar terug te gaan.
+  tags       = TAG == "" ? ["${REGISTRY}/kleurhoek-${app}:latest"] : ["${REGISTRY}/kleurhoek-${app}:${TAG}"]
   cache-from = ["type=gha,scope=${app}"]
   cache-to   = ["type=gha,scope=${app},mode=max"]
 }
