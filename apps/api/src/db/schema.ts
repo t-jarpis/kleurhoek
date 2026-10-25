@@ -9,3 +9,4 @@ export * from "../modules/shop/shop.schema";
 export * from "../modules/organizations/organizations.schema";
 export * from "../modules/contact/contact.schema";
 export * from "../modules/sources/sources.schema";
+export * from "../modules/messaging/messaging.schema";

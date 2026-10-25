@@ -7,8 +7,8 @@ const SAFE = /^[a-z0-9-]{1,64}$/;
 
 export async function GET(request: Request, { params }: { params: Promise<{ path: string[] }> }) {
   const { path } = await params;
-  // Alleen /v1/assets/plates/<slug>/<versie>[.<taal>-<hash>].svg (ADR 0029); niets anders van de API is zo bereikbaar.
-  if (path.length !== 3 || path[0] !== "plates" || !SAFE.test(path[1] ?? "") || !/^\d{1,6}(\.[a-z]{2}-[0-9a-f]{8})?\.svg$/.test(path[2] ?? "")) {
+  // Alleen /v1/assets/plates/<slug>/<versie>[.<taal>-<hash>].svg (ADR 0029) of .png voor mails (ADR 0037); niets anders van de API is zo bereikbaar.
+  if (path.length !== 3 || path[0] !== "plates" || !SAFE.test(path[1] ?? "") || !/^\d{1,6}(\.[a-z]{2}-[0-9a-f]{8})?\.(svg|png)$/.test(path[2] ?? "")) {
     return new Response("Niet gevonden", { status: 404 });
   }
   // Het IP van de bezoeker gaat mee, zodat de rate limit van de API per bezoeker telt en niet per website-server.
@@ -18,7 +18,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ path
   return new Response(upstream.body, {
     status: 200,
     headers: {
-      "content-type": "image/svg+xml; charset=utf-8",
+      "content-type": path[2]!.endsWith(".png") ? "image/png" : "image/svg+xml; charset=utf-8",
       "cache-control": upstream.headers.get("cache-control") ?? "public, max-age=31536000, immutable",
       "x-content-type-options": "nosniff",
       "content-security-policy": upstream.headers.get("content-security-policy") ?? "default-src 'none'; style-src 'unsafe-inline'; sandbox",

@@ -70,6 +70,15 @@ variable "zitadel_idp_ids" {
   default = []
 }
 variable "admin_emails" { type = list(string) }
+variable "mail" {
+  type = object({
+    from                   = string
+    smtp_url               = optional(string, "")
+    transactional_smtp_url = optional(string, "")
+  })
+  sensitive = true
+  default   = { from = "Kleurhoek <hallo@kleurhoek.nl>" }
+}
 variable "admin_bootstrap_subjects" {
   type    = list(string)
   default = []
@@ -108,6 +117,7 @@ module "site" {
   org_worker_secret        = data.terraform_remote_state.zone.outputs.worker_secrets["prod"]
   org_host_pattern         = "{slug}.kleurhoek.nl"
   apps_enabled             = var.apps_enabled
+  mail                     = var.mail
   # Klein starten (circa € 20 per maand): één node, dagelijkse back-up 35 dagen in een ander datacenter.
   # Groeien = node_type ophogen (bijv. DB-PLAY2-NANO of DB-PRO2-XXS) en eventueel ha = true; kort onderbreking.
   database = {

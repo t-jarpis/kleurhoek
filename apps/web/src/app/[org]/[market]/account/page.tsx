@@ -25,6 +25,7 @@ export default async function AccountPage({ params }: { params: Promise<{ org: s
       <AccountPanel market={market} t={{
         login: t.login, logout: t.logout, loading: t.loading, accountError: t.accountError, name: t.name, email: t.email,
         memberSince: t.memberSince, accountPrivacy: t.accountPrivacy, deleteAccount: t.deleteAccount, deleteSure: t.deleteSure,
+        mlAccount: t.mlAccount, mlAccountHint: t.mlAccountHint, mlTopicNames: t.mlTopicNames, mlSave: t.mlSave, mlSaved: t.mlSaved, mlError: t.mlError,
       }} />
     </div>
   );

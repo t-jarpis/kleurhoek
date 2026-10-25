@@ -6,7 +6,8 @@ import { ShopModule } from "../shop/shop.module";
 import { SourcesModule } from "../sources/sources.module";
 import { AdminSeoController } from "./admin-seo.controller";
 import { StorefrontController } from "./storefront.controller";
+import { PlateImages } from "./plate-images";
 import { StorefrontService } from "./storefront.service";
 
-@Module({ imports: [CatalogModule, LocalizationModule, AvailabilityModule, ShopModule, SourcesModule], controllers: [StorefrontController, AdminSeoController], providers: [StorefrontService] })
+@Module({ imports: [CatalogModule, LocalizationModule, AvailabilityModule, ShopModule, SourcesModule], controllers: [StorefrontController, AdminSeoController], providers: [StorefrontService, PlateImages], exports: [StorefrontService] })
 export class StorefrontModule {}

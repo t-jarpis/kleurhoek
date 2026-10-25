@@ -1,0 +1,32 @@
+{
+  "theme": "studio",
+  "font": "\"Manrope\", system-ui, -apple-system, \"Segoe UI\", sans-serif",
+  "color": {
+    "color-bg": "#f6f6f4",
+    "color-surface": "#ffffff",
+    "color-text": "#18181b",
+    "color-text-muted": "#5c5c63",
+    "color-primary": "#18181b",
+    "color-text-on-primary": "#ffffff",
+    "color-border": "#e2e2de",
+    "color-accent": "#2f5bd3",
+    "color-paper": "#ffffff",
+    "krijt-rood": "#e2483d",
+    "krijt-amber": "#f2a516",
+    "krijt-groen": "#2fa45a",
+    "krijt-blauw": "#2f5bd3"
+  },
+  "radius": {
+    "control": "8px",
+    "card": "10px"
+  },
+  "logo": {
+    "word": "kleurhoek",
+    "blocks": [
+      "krijt-rood",
+      "krijt-amber",
+      "krijt-groen",
+      "krijt-blauw"
+    ]
+  }
+}

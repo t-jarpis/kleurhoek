@@ -9,6 +9,7 @@ export function SiteFooter({ market, t, own = false }: { market: string; t: Mess
       <nav aria-label="Over Kleurhoek">
         <Link href={`/${market}/themas`}>{t.themes}</Link>
         {own && <Link href={`/${market}/eigen-omgeving`}>{t.ownSpace}</Link>}
+        {own && <Link href={`/${market}/mail`}>{t.mlAccount}</Link>}
         <Link href={`/${market}/contact`}>{t.contact}</Link>
         <Link href={`/${market}/disclaimer`}>{t.disclaimer}</Link>
         {/* Op de site van een organisatie: ingang voor wie het aanbod beheert (ADR 0036). */}

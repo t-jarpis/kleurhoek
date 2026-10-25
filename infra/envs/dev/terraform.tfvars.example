@@ -10,3 +10,10 @@ cloudflare_account_id    = "<account-id>"
 cloudflare_zone_id       = "<zone-id van kleurhoek.nl>"
 admin_emails             = ["thijs@example.com"]
 admin_bootstrap_subjects = ["<jouw Zitadel-gebruikers-id>"]
+# Mail (ADR 0037). Leeg = versturen staat uit; mails wachten dan tot 3 dagen in de wachtrij.
+# smtp_url: nieuwsbrief en automatische mails (bulk); transactional_smtp_url: bevestigingsmails (leeg = smtp_url).
+# mail = {
+#   from                   = "Kleurhoek <hallo@kleurhoek.nl>"
+#   smtp_url               = "smtp://<gebruiker>:<wachtwoord>@<host>:587"
+#   transactional_smtp_url = "smtp://<project-id>:<sleutel>@smtp.tem.scaleway.com:587"
+# }

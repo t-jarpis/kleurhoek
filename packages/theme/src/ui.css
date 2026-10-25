@@ -427,3 +427,29 @@ a.ui-chip { text-decoration: none; }
 .ui-offer-row[data-off] span { color: var(--color-text-muted); }
 .ui-offer-bar { position: sticky; inset-block-end: 0; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-3) 0; background: var(--color-bg); border-block-start: var(--border-thin) solid var(--color-border); }
 .ui-offer-bar [role="status"] { font-weight: 600; color: var(--color-text-muted); }
+/* ---------- SubscribeForm en MailPreferences: mail op de site (ouderzone, ADR 0037) ---------- */
+.ui-subscribe { display: grid; gap: var(--space-3); max-inline-size: var(--container-narrow); margin-block: var(--space-8); }
+.ui-subscribe h2 { margin: 0; }
+.ui-subscribe-form { display: grid; gap: var(--space-3); }
+.ui-subscribe-topics { margin: 0; padding: 0; border: 0; display: grid; gap: var(--space-2); }
+.ui-subscribe-topics legend { padding: 0; margin-block-end: var(--space-1); font-weight: 700; color: var(--color-text); }
+
+/* ---------- Mail in beheer: blokken-editor, voorbeeld, workflowstappen (ADR 0037) ---------- */
+.ui-mailedit { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-5); align-items: start; }
+@media (max-width: 1024px) { .ui-mailedit { grid-template-columns: minmax(0, 1fr); } }
+.ui-blocks { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
+.ui-block { border: var(--border-thin) solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); padding: var(--space-3); display: grid; gap: var(--space-2); }
+.ui-block-head { display: flex; align-items: center; gap: var(--space-2); }
+.ui-block-head strong { flex: 1; }
+.ui-block textarea { min-block-size: 96px; }
+.ui-langtabs { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+.ui-langtabs button[data-missing] { border-style: dashed; color: var(--color-text-muted); }
+.ui-mailpreview { position: sticky; inset-block-start: var(--space-4); display: grid; gap: var(--space-2); }
+.ui-mailpreview iframe { inline-size: 100%; block-size: 720px; border: var(--border-thin) solid var(--color-border); border-radius: var(--radius-md); background: var(--color-paper); }
+.ui-mailpreview[data-width="mobiel"] iframe { inline-size: 380px; max-inline-size: 100%; }
+.ui-mailpreview-subject { margin: 0; font-weight: 700; overflow-wrap: anywhere; }
+.ui-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); counter-reset: step; }
+.ui-step { position: relative; border: var(--border-thin) solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); padding: var(--space-3) var(--space-3) var(--space-3) calc(var(--space-8) + var(--space-2)); display: grid; gap: var(--space-2); }
+.ui-step::before { counter-increment: step; content: counter(step); position: absolute; inset-inline-start: var(--space-3); inset-block-start: var(--space-3); inline-size: 24px; block-size: 24px; border-radius: var(--radius-full); background: var(--color-surface-sunken); border: var(--border-thin) solid var(--color-border-strong); display: grid; place-items: center; font: 700 13px var(--font-sans); }
+.ui-step[data-kind="trigger"]::before { content: "▶"; }
+.ui-step-row { display: flex; flex-wrap: wrap; align-items: end; gap: var(--space-2) var(--space-3); }

@@ -4,7 +4,8 @@ import type { NextConfig } from "next";
 const isDev = process.env.NODE_ENV === "development";
 const csp = [
   "default-src 'self'", `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`, "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data:", "font-src 'self'", "connect-src 'self'", "object-src 'none'", "base-uri 'self'", "form-action 'self'", "frame-ancestors 'none'",
+  // Platen in het voorbeeld van een mail komen van de website (ADR 0037).
+  `img-src 'self' data: https://www.kleurhoek.nl https://*.kleurhoek.nl${isDev ? " http://localhost:3000" : ""}`, "font-src 'self'", "connect-src 'self'", "object-src 'none'", "base-uri 'self'", "form-action 'self'", "frame-ancestors 'none'",
 ].join("; ");
 
 const nextConfig: NextConfig = {

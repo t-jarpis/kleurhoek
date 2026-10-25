@@ -30,4 +30,4 @@ export async function resolveOrg(host: string): Promise<ResolvedOrg> {
 }
 
 /** Paden die niet per organisatie zijn (routes, API-doorgifte, statische bestanden). */
-export const SHARED_PATH = /^\/(auth|e|ga|v1|merk|healthz|_next|favicon\.ico|robots\.txt|sitemap\.xml)(\/|$)/;
+export const SHARED_PATH = /^\/(auth|e|ga|v1|merk|healthz|_next|favicon\.ico|robots\.txt|sitemap\.xml|mail)(\/|$)/;

@@ -12,6 +12,8 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SeasonBand } from "@/components/SeasonBand";
 import { Surprise } from "@/components/Surprise";
 import { Track } from "@/components/Track";
+import { SubscribeForm } from "@/components/SubscribeForm";
+import { subscribe } from "./mail/actions";
 import { getOrg } from "@/lib/org";
 import { hreflang, indexable, jsonLd, pageMeta, SITE } from "@/lib/seo";
 import type { Metadata } from "next";
@@ -53,6 +55,7 @@ export default async function Home({ params }: { params: Promise<{ org: string; 
       <SeasonBand season={season} plates={plates} taxonomy={taxonomy} market={market} t={t} />
       <Suspense fallback={null}><Browse plates={plates} taxonomy={taxonomy} market={market} language={language} /></Suspense>
       <Fridge market={market} plates={plates} language={language} />
+      {org.isDefault && <SubscribeForm action={subscribe.bind(null, market)} language={language} />}
       <SiteFooter market={market} t={t} own={org.isDefault} />
       <PickBar market={market} language={language} />
       <Track event={{ type: "page_view", market, page: "home" }} />

@@ -26,7 +26,8 @@ export default async function PanelLayout({ children }: { children: React.ReactN
         {can("catalog.manage") && <NavLink href="/collecties" icon="collections">Collecties</NavLink>}
         {can("sources.read") && <NavLink href="/bronnen" icon="sources">Bronnengids</NavLink>}
         {can("seo.read") && <NavLink href="/seo" icon="seo">Vindbaarheid</NavLink>}
-        {(can("shop.read") || can("contact.read") || can("organizations.read")) && <span className="ui-sidenav-group">Klanten en partners</span>}
+        {(can("shop.read") || can("contact.read") || can("organizations.read") || can("mail.read")) && <span className="ui-sidenav-group">Klanten en partners</span>}
+        {can("mail.read") && <NavLink href="/mail" icon="mail">Mail</NavLink>}
         {can("shop.read") && <NavLink href="/winkel" icon="shop">Winkel</NavLink>}
         {can("contact.read") && <NavLink href="/contact" icon="contact">Contact{unread > 0 && <span className="ui-count" aria-label={`${unread} nieuw`}>{unread}</span>}</NavLink>}
         {can("organizations.read") && <NavLink href="/organisaties" icon="organizations">Organisaties</NavLink>}

@@ -52,7 +52,10 @@ describe("doelen (ADR 0022)", () => {
   });
   it("haalt na een periode op nul alle dagen in die nog niet zijn opgeteld (ADR 0021)", async () => {
     const analytics = ctx.app.get(AnalyticsService);
-    const old = new Date(Date.now() - 5 * 86_400_000), day = old.toISOString().slice(0, 10);
+    // Vijf dagen terug, maar nooit de vaste dag van de test hierboven (2026-10-20), anders telt die mee.
+    let old = new Date(Date.now() - 5 * 86_400_000);
+    if (old.toISOString().startsWith("2026-10-20")) old = new Date(old.getTime() - 86_400_000);
+    const day = old.toISOString().slice(0, 10);
     await ctx.http.inject({ method: "POST", url: "/v1/internal/events", headers: { "x-ingest-key": INGEST_KEY }, payload: [
       { type: "page_view", page: "home", market: "nl-NL", device: "mobile", visitorHash: "cccccccccccccccc", occurredAt: old.toISOString() },
     ] });

@@ -4,7 +4,7 @@ import { logout } from "@/lib/account";
 import type { Messages } from "@/i18n/nl";
 
 /** Alleen teksten: functies kunnen niet van server- naar clientcomponent. */
-export type AccountTexts = Pick<Messages, "login" | "logout" | "loading" | "accountError" | "name" | "email" | "memberSince" | "accountPrivacy" | "deleteAccount" | "deleteSure">;
+export type AccountTexts = Pick<Messages, "login" | "logout" | "loading" | "accountError" | "name" | "email" | "memberSince" | "accountPrivacy" | "deleteAccount" | "deleteSure" | "mlAccount" | "mlAccountHint" | "mlTopicNames" | "mlSave" | "mlSaved" | "mlError">;
 
 type Me = { displayName: string | null; email: string | null; createdAt: string };
 
@@ -40,12 +40,36 @@ export function AccountPanel({ market, t }: { market: string; t: AccountTexts })
         <dt>{t.email}</dt><dd>{me.email ?? "—"}</dd>
         <dt>{t.memberSince}</dt><dd>{since}</dd>
       </dl>
+      <MailTopics market={market} t={t} />
       <p className="muted">{t.accountPrivacy}</p>
       <div className="row">
         <button type="button" className="btn" onClick={() => void logout()}>{t.logout}</button>
         <button type="button" className="btn danger" disabled={busy} onClick={() => void remove()}>{confirm ? t.deleteSure : t.deleteAccount}</button>
       </div>
     </section>
+  );
+}
+
+/** Mail vanuit het account (ADR 0037): onderwerpen aan- en uitvinken. */
+function MailTopics({ market, t }: { market: string; t: AccountTexts }) {
+  const [state, setState] = useState<{ topics: string[]; all: string[] } | null>(null);
+  const [status, setStatus] = useState<string | null>(null);
+  useEffect(() => {
+    fetch("/auth/mail").then(async (r) => { if (r.ok) { const d = (await r.json()) as { topics: string[]; topicsAll: string[] }; setState({ topics: d.topics, all: d.topicsAll }); } }).catch(() => undefined);
+  }, []);
+  if (!state) return null;
+  const toggle = (k: string) => setState((s) => s && { ...s, topics: s.topics.includes(k) ? s.topics.filter((x) => x !== k) : [...s.topics, k] });
+  async function save() {
+    const r = await fetch("/auth/mail", { method: "PUT", headers: { "content-type": "application/json" }, body: JSON.stringify({ topics: state!.topics, market }) }).catch(() => null);
+    setStatus(r?.ok ? t.mlSaved : t.mlError);
+  }
+  return (
+    <fieldset className="ui-subscribe-topics">
+      <legend>{t.mlAccount}</legend>
+      <p className="ui-hint">{t.mlAccountHint}</p>
+      {state.all.map((k) => <label key={k} className="chk"><input type="checkbox" checked={state.topics.includes(k)} onChange={() => toggle(k)} /> {t.mlTopicNames[k] ?? k}</label>)}
+      <div className="row"><button type="button" className="btn" onClick={() => void save()}>{t.mlSave}</button><span role="status" className="muted">{status}</span></div>
+    </fieldset>
   );
 }
 

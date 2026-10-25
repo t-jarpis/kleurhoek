@@ -193,6 +193,42 @@ export class StorefrontService {
     };
   }
 
+  // ---------- Voor mails (ADR 0037) ----------
+
+  /**
+   * Platen voor een mail in een markt, met dezelfde regels als de site (vertaald, zichtbaar, in het aanbod).
+   * `slugs` in die volgorde; anders op holiday of nieuw sinds `since`. Geeft naam en afbeeldingsadres (PNG).
+   */
+  async mailPlates(code: string, pick: { slugs?: string[] | undefined; holiday?: string | undefined; since?: Date | undefined }, max: number, now = new Date()) {
+    const market = await this.market(code);
+    if (!market) return [];
+    const { plates, names, path } = await this.visible(market, now);
+    let list = plates;
+    if (pick.since) {
+      const order = await this.catalog.publishedSince(this.tenant, pick.since);
+      const bySlug = new Map(plates.map((p) => [p.slug, p]));
+      list = order.map((s) => bySlug.get(s)).filter((p): p is PlateSummary => !!p);
+    } else if (pick.slugs) {
+      const bySlug = new Map(plates.map((p) => [p.slug, p]));
+      list = pick.slugs.map((s) => bySlug.get(s)).filter((p): p is PlateSummary => !!p);
+    } else if (pick.holiday) list = plates.filter((p) => p.holiday === pick.holiday);
+    return list.slice(0, max).map((p) => ({ slug: p.slug, name: names.get(p.slug)!.name ?? p.slug, image: path(p).replace(/\.svg$/, ".png") }));
+  }
+
+  /** Feestdagen in een markt die binnen `days` dagen beginnen, met naam in de taal van de markt. */
+  async upcomingHolidays(code: string, days: number, now = new Date()) {
+    const market = await this.market(code);
+    if (!market) return [];
+    const today = todayIn(market.country, now);
+    const view = await this.availability.season(this.tenant, market.country, today);
+    const names = await this.i18n.translate(this.tenant, "holiday", market.language);
+    const limit = Date.parse(`${today}T00:00:00Z`) + days * 86_400_000;
+    const seen = new Set<string>();
+    return [...view.active, ...view.soon]
+      .filter((h) => h.date >= today && Date.parse(`${h.date}T00:00:00Z`) <= limit && !seen.has(h.slug) && seen.add(h.slug))
+      .map((h) => ({ slug: h.slug, date: h.date, name: names.get(h.slug)?.name ?? h.slug }));
+  }
+
   /**
    * Bronnengids (ADR 0025): thema's met links naar de makers. Alleen eigen tekst en links; nooit beeld
    * van de maker. Producten bij een thema alleen als de organisatie de winkel aan heeft.

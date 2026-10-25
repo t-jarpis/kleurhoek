@@ -1,3 +1,4 @@
+import { createHmac } from "node:crypto";
 import { isLocalUrl } from "@t-jarpis/auth";
 import { z } from "zod";
 
@@ -38,9 +39,24 @@ const schema = z.object({
   /** Commits van de build voor de releasenotes (gemaakt in de Deploy-workflow). */
   RELEASE_LOG_PATH: z.string().default("release-log.json"),
   AGGREGATE_INTERVAL_MS: z.coerce.number().int().min(0).default(600_000),
+  // ---------- Mail (ADR 0037) ----------
+  /** Adres van de website, voor links in mails (bevestigen, afmelden, platen). */
+  SITE_URL: z.string().url().default("http://localhost:3000"),
+  /** Afzender, bijvoorbeeld "Kleurhoek <hallo@kleurhoek.nl>". */
+  MAIL_FROM: z.string().min(3).default("Kleurhoek <hallo@kleurhoek.localhost>"),
+  /** SMTP voor nieuwsbrief en automatische mails: smtp(s)://gebruiker:wachtwoord@host:poort. Leeg = versturen staat uit. */
+  MAIL_SMTP_URL: z.string().regex(/^smtps?:\/\//).optional(),
+  /** SMTP voor bevestigingsmails (transactioneel). Leeg = dezelfde als MAIL_SMTP_URL. */
+  MAIL_TRANSACTIONAL_SMTP_URL: z.string().regex(/^smtps?:\/\//).optional(),
+  /** Geheim voor afmeldlinks (HMAC). Leeg = afgeleid van INGEST_KEY (dan werkt een nieuwe uitrol ook vóór Terraform). */
+  MAIL_SECRET: z.string().min(32).optional(),
+  /** Hoeveel mails per minuut hooguit. */
+  MAIL_RATE_PER_MINUTE: z.coerce.number().int().min(1).max(10_000).default(120),
+  /** Hoe vaak de wachtrij en workflows worden verwerkt. 0 = uit (tests). */
+  MAIL_INTERVAL_MS: z.coerce.number().int().min(0).default(20_000),
 });
 
-export type Env = z.infer<typeof schema>;
+export type Env = Omit<z.infer<typeof schema>, "MAIL_SECRET"> & { MAIL_SECRET: string };
 
 /** Inloggen staat aan als uitgever, publiek en beheerorganisatie bekend zijn. */
 export function oidcEnabled(env: Env): env is Env & { OIDC_ISSUER: string; OIDC_AUDIENCE: string; ADMIN_ORG_ID: string } {
@@ -48,7 +64,8 @@ export function oidcEnabled(env: Env): env is Env & { OIDC_ISSUER: string; OIDC_
 }
 
 export function loadEnv(source: NodeJS.ProcessEnv = process.env): Env {
-  const env = schema.parse(source);
+  const parsed = schema.parse(source);
+  const env = { ...parsed, MAIL_SECRET: parsed.MAIL_SECRET ?? createHmac("sha256", parsed.INGEST_KEY).update("kleurhoek-mail").digest("hex") };
   if (env.NODE_ENV === "production") {
     if (!env.DATABASE_URL) throw new Error("DATABASE_URL is verplicht in productie");
     if (env.INGEST_KEY.startsWith("dev-only")) throw new Error("INGEST_KEY moet in productie gezet zijn");

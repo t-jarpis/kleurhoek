@@ -8,7 +8,9 @@
     ".": "./src/index.ts",
     "./theme.css": "./generated/theme.css",
     "./ui.css": "./src/ui.css",
-    "./manifest.json": "./generated/manifest.json"
+    "./manifest.json": "./generated/manifest.json",
+    "./email.json": "./generated/email.json",
+    "./fonts/*": "./fonts/*"
   },
   "scripts": {
     "build": "node scripts/build.mjs",

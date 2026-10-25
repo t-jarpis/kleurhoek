@@ -1,6 +1,6 @@
 import { BadRequestException, Inject, Injectable, NotFoundException } from "@nestjs/common";
 import { GOALS, learningGoals, plateTexts, type LearningGoal } from "@kleurhoek/catalog-data";
-import { and, asc, eq, inArray } from "drizzle-orm";
+import { and, asc, desc, eq, gt, inArray } from "drizzle-orm";
 import { DB, type Database } from "../../db/database";
 import { withTenant } from "../../db/tenant";
 import { ages, categories, collections, continents, materials, plateMaterials, plates, plateVersions, type ColorByNumber, type PlateKind, type PlatePage } from "./catalog.schema";
@@ -99,6 +99,14 @@ export class CatalogService {
         .innerJoin(plates, eq(plates.id, plateMaterials.plateId))
         .where(and(eq(plates.tenantId, tenantId), eq(plates.slug, slug)))
         .orderBy(asc(plateMaterials.sortOrder)));
+  }
+
+  /** Platen die sinds een moment gepubliceerd zijn, nieuwste eerst (voor mails over nieuwe platen, ADR 0037). */
+  async publishedSince(tenantId: string, since: Date): Promise<string[]> {
+    return withTenant(this.db, tenantId, async (tx) =>
+      (await tx.select({ slug: plates.slug }).from(plates)
+        .where(and(eq(plates.tenantId, tenantId), eq(plates.status, "published"), gt(plates.createdAt, since)))
+        .orderBy(desc(plates.createdAt))).map((r) => r.slug));
   }
 
   /** Wanneer elke gepubliceerde plaat erbij kwam (voor de doelen in het admin panel, ADR 0022). */

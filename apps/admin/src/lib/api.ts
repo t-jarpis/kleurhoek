@@ -132,6 +132,30 @@ export interface Theme {
 export interface SeoSettings { googleVerification: string | null; bingVerification: string | null; home: Record<string, { title: string | null; description: string | null }> }
 export interface SeoOverview { settings: SeoSettings; markets: { market: string; language: string; plates: number; themes: number }[]; indexableHost: string }
 
+/** Mail (ADR 0037). */
+export type MailTopic = "nieuwe-platen" | "feestdagen" | "nieuwsbrief";
+export type I18nText = Record<string, string>;
+export type MailBlock =
+  | { id: string; type: "heading"; text: I18nText }
+  | { id: string; type: "text"; text: I18nText }
+  | { id: string; type: "button"; label: I18nText; url: string }
+  | { id: string; type: "plates"; source: "new" | "holiday" | "collection" | "selected"; collection?: string; slugs?: string[]; max: number; columns: 2 | 3 }
+  | { id: string; type: "divider" };
+export interface MailTemplate { slug: string; name: string; kind: "system" | "automation" | "campaign"; subject: I18nText; preheader: I18nText; blocks: MailBlock[]; updatedBy: string; updatedAt: string }
+export type MailTemplateInput = Pick<MailTemplate, "name" | "kind" | "subject" | "preheader" | "blocks">;
+export type MailTrigger = { type: "subscribed" } | { type: "schedule"; weekday: number; hour: number } | { type: "plates_published"; min: number } | { type: "holiday_soon"; days: number };
+export type MailStep = { type: "filter"; topics?: MailTopic[]; markets?: string[] } | { type: "require_plates"; min: number } | { type: "wait"; hours: number } | { type: "send"; template: string };
+export interface MailWorkflow { slug: string; name: string; enabled: boolean; trigger: MailTrigger; steps: MailStep[]; cursor: string | null; updatedBy: string; updatedAt: string }
+export interface MailCampaign { id: string; name: string; template: string; audience: { topics: MailTopic[]; markets: string[] | null }; status: "draft" | "scheduled" | "sending" | "sent" | "cancelled"; scheduledAt: string | null; sentAt: string | null; recipients: number; createdBy: string; createdAt: string; deliveries: Record<string, number> }
+export interface MailOptions { topics: MailTopic[]; markets: string[]; languages: string[]; templates: { slug: string; name: string; kind: string }[]; collections: { slug: string; name: string }[] }
+export interface MailOverview {
+  sending: { bulk: boolean; transactional: boolean };
+  subscribers: { active: number; pending: number; byTopic: Record<string, number>; byMarket: Record<string, number> };
+  queue: { queued?: number; sent?: number; failed?: number; expired?: number; errors: { error: string | null; n: number }[] };
+  runs: Record<string, Record<string, number>>; options: MailOptions;
+}
+export interface MailSubscriber { id: string; email: string; market: string; topics: MailTopic[]; status: "pending" | "active"; viaAccount: boolean; consentAt: string; confirmedAt: string | null }
+
 export interface SourceInput { title?: string; description?: string | null; basis?: "link" | "license"; licenseNote?: string | null; licenseDate?: string | null }
 
 export class ApiError extends Error {
@@ -203,6 +227,23 @@ export const adminApi = {
   saveCollection: (slug: string, body: { names: Record<string, string>; descriptions?: Record<string, string>; plates: string[]; sortOrder?: number }) =>
     call<Collection>(`/v1/admin/collections/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
   deleteCollection: (slug: string) => call<void>(`/v1/admin/collections/${encodeURIComponent(slug)}`, { method: "DELETE" }),
+  mailOverview: () => call<MailOverview>("/v1/admin/mail"),
+  mailSubscriber: (email: string) => call<{ subscriber: MailSubscriber | null }>(`/v1/admin/mail/subscribers?email=${encodeURIComponent(email)}`).then((r) => r.subscriber),
+  removeMailSubscriber: (id: string) => call<void>(`/v1/admin/mail/subscribers/${encodeURIComponent(id)}`, { method: "DELETE" }),
+  mailTemplates: () => call<{ templates: MailTemplate[]; options: MailOptions }>("/v1/admin/mail/templates"),
+  mailTemplate: (slug: string) => call<{ template: MailTemplate; options: MailOptions }>(`/v1/admin/mail/templates/${encodeURIComponent(slug)}`),
+  saveMailTemplate: (slug: string, body: MailTemplateInput) => call<MailTemplate>(`/v1/admin/mail/templates/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
+  deleteMailTemplate: (slug: string) => call<void>(`/v1/admin/mail/templates/${encodeURIComponent(slug)}`, { method: "DELETE" }),
+  previewMail: (template: MailTemplateInput, market: string) => call<{ subject: string; html: string; text: string; empty: boolean }>("/v1/admin/mail/preview", { method: "POST", body: JSON.stringify({ template, market }) }),
+  testMail: (template: MailTemplateInput, market: string, email: string) => call<{ ok: true }>("/v1/admin/mail/test", { method: "POST", body: JSON.stringify({ template, market, email }) }),
+  mailWorkflows: () => call<{ workflows: MailWorkflow[]; runs: Record<string, Record<string, number>>; options: MailOptions }>("/v1/admin/mail/workflows"),
+  saveMailWorkflow: (slug: string, body: Pick<MailWorkflow, "name" | "enabled" | "trigger" | "steps">) => call<MailWorkflow>(`/v1/admin/mail/workflows/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
+  deleteMailWorkflow: (slug: string) => call<void>(`/v1/admin/mail/workflows/${encodeURIComponent(slug)}`, { method: "DELETE" }),
+  mailCampaigns: () => call<{ campaigns: MailCampaign[]; options: MailOptions }>("/v1/admin/mail/campaigns"),
+  mailAudience: (audience: MailCampaign["audience"]) => call<{ size: number }>("/v1/admin/mail/campaigns/audience", { method: "POST", body: JSON.stringify(audience) }).then((r) => r.size),
+  createMailCampaign: (body: Pick<MailCampaign, "name" | "template" | "audience">) => call<MailCampaign>("/v1/admin/mail/campaigns", { method: "POST", body: JSON.stringify(body) }),
+  scheduleMailCampaign: (id: string, at: string | null) => call<MailCampaign>(`/v1/admin/mail/campaigns/${encodeURIComponent(id)}/schedule`, { method: "POST", body: JSON.stringify({ at }) }),
+  cancelMailCampaign: (id: string) => call<MailCampaign>(`/v1/admin/mail/campaigns/${encodeURIComponent(id)}/cancel`, { method: "POST" }),
   deleteOrganization: (slug: string) => call<void>(`/v1/admin/organizations/${encodeURIComponent(slug)}`, { method: "DELETE" }),
   removeOrganizationLogo: (slug: string) => call<Organization>(`/v1/admin/organizations/${encodeURIComponent(slug)}/logo`, { method: "DELETE" }),
   inbox: (q: { status?: ConversationStatus; page?: number }) => {

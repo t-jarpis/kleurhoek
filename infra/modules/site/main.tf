@@ -57,6 +57,16 @@ variable "markets" {
   default     = "nl-nl"
   description = "Markten die live staan, komma-gescheiden."
 }
+variable "mail" {
+  type = object({
+    from                   = string
+    smtp_url               = optional(string, "")
+    transactional_smtp_url = optional(string, "")
+  })
+  sensitive   = true
+  default     = { from = "Kleurhoek <hallo@kleurhoek.nl>" }
+  description = "Mail (ADR 0037): afzender en SMTP-adressen (smtp://gebruiker:wachtwoord@host:587). Leeg = versturen staat uit."
+}
 variable "org_host_pattern" {
   type        = string
   description = "Subdomein van een organisatie, met {slug} voor de code. Dev: {slug}-dev.kleurhoek.nl, prod: {slug}.kleurhoek.nl (ADR 0017)."
@@ -118,6 +128,7 @@ module "scaleway" {
   zitadel_login_token      = module.zitadel.login_token
   passkey_domain           = var.domain
   org_host_pattern         = var.org_host_pattern
+  mail                     = var.mail
   org_worker_secret        = var.org_worker_secret
   domain_records           = module.cloudflare.domain_records
 }

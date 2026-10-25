@@ -155,6 +155,13 @@
       "when": 1792879954758,
       "tag": "0021_organisatie_instellingen",
       "breakpoints": true
+    },
+    {
+      "idx": 22,
+      "version": "7",
+      "when": 1792918157733,
+      "tag": "0022_berichten",
+      "breakpoints": true
     }
   ]
 }

@@ -83,7 +83,17 @@ export const activeTheme = ${JSON.stringify({ id: theme.id, name: theme.meta.nam
 export const manifest = ${JSON.stringify(manifest, null, 2)} as const;
 `;
 
-const out = { "generated/theme.css": css, "generated/theme.ts": ts, "generated/manifest.json": `${JSON.stringify(manifest, null, 2)}\n` };
+// E-mail (ADR 0037): mailprogramma's kennen geen CSS-variabelen, dus de lichte waarden van het standaardthema
+// als vaste kleuren en maten. De e-mailrenderer van de API leest alleen dit bestand.
+const lightOf = (name) => { const t = [...theme.tokens.color.tokens].find((x) => x.name === name); if (!t) throw new Error(`Token ${name} ontbreekt`); return typeof t.value === "string" ? t.value : t.value.light; };
+const sizeOf = (group, name) => theme.tokens[group].tokens.find((x) => x.name === name)?.value;
+const email = {
+  theme: theme.id, font: fontStack(fonts.find((f) => f.id === defaultFont)),
+  color: Object.fromEntries(["color-bg", "color-surface", "color-text", "color-text-muted", "color-primary", "color-text-on-primary", "color-border", "color-accent", "color-paper", "krijt-rood", "krijt-amber", "krijt-groen", "krijt-blauw"].map((n) => [n, lightOf(n)])),
+  radius: { control: sizeOf("radius", "radius-md"), card: sizeOf("radius", "radius-lg") },
+  logo: theme.meta.logo,
+};
+const out = { "generated/theme.css": css, "generated/theme.ts": ts, "generated/manifest.json": `${JSON.stringify(manifest, null, 2)}\n`, "generated/email.json": `${JSON.stringify(email, null, 2)}\n` };
 if (process.argv.includes("--check")) {
   const stale = Object.entries(out).filter(([f, c]) => !existsSync(join(root, f)) || readFileSync(join(root, f), "utf8") !== c).map(([f]) => f);
   if (stale.length) { console.error(`Niet actueel: ${stale.join(", ")}. Draai: pnpm --filter @kleurhoek/theme build`); process.exit(1); }

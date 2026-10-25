@@ -70,6 +70,15 @@ variable "zitadel_idp_ids" {
   default = []
 }
 variable "admin_emails" { type = list(string) }
+variable "mail" {
+  type = object({
+    from                   = string
+    smtp_url               = optional(string, "")
+    transactional_smtp_url = optional(string, "")
+  })
+  sensitive = true
+  default   = { from = "Kleurhoek <hallo@kleurhoek.nl>" }
+}
 variable "admin_bootstrap_subjects" {
   type    = list(string)
   default = []
@@ -108,6 +117,7 @@ module "site" {
   org_worker_secret        = data.terraform_remote_state.zone.outputs.worker_secrets["dev"]
   org_host_pattern         = "{slug}-dev.kleurhoek.nl"
   apps_enabled             = var.apps_enabled
+  mail                     = var.mail
   # Goedkoopste node (circa € 11 per maand), geen HA, back-up dagelijks (7 dagen) in een ander datacenter.
   # Niet beschikbaar in nl-ams? Dan DB-PLAY2-PICO (circa € 17). Controleer: scw rdb node-type list region=nl-ams.
   database = {

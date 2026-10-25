@@ -116,3 +116,14 @@ variable "tags" {
   type    = list(string)
   default = []
 }
+
+variable "mail" {
+  type = object({
+    from                   = string
+    smtp_url               = optional(string, "")
+    transactional_smtp_url = optional(string, "")
+  })
+  sensitive   = true
+  default     = { from = "Kleurhoek <hallo@kleurhoek.nl>" }
+  description = "Mail (ADR 0037): afzender en SMTP-adressen (smtp://gebruiker:wachtwoord@host:587). Leeg = versturen staat uit."
+}

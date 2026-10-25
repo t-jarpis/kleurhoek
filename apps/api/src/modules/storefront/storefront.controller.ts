@@ -3,6 +3,7 @@ import type { FastifyReply } from "fastify";
 import { z } from "zod";
 import { RateLimit } from "../operations/rate-limit.guard";
 import { OrganizationsService, SLUG } from "../organizations/organizations.service";
+import { PlateImages } from "./plate-images";
 import { FULL_VIEW, StorefrontService, type View } from "./storefront.service";
 
 const Slug = z.string().regex(/^[a-z0-9-]{1,64}$/);
@@ -17,7 +18,7 @@ const PUBLIC_CACHE = "public, max-age=60, s-maxage=300, stale-while-revalidate=3
 @Controller("v1")
 @RateLimit("public-read")
 export class StorefrontController {
-  constructor(private readonly store: StorefrontService, private readonly orgs: OrganizationsService) {}
+  constructor(private readonly store: StorefrontService, private readonly orgs: OrganizationsService, private readonly images: PlateImages) {}
 
   /** Aanbod en functies van de organisatie (?org=code). Onbekend of uit: 404, zodat niets lekt. */
   private async view(org: string | undefined): Promise<View> {
@@ -108,11 +109,16 @@ export class StorefrontController {
   @Get("assets/plates/:slug/:file")
   @RateLimit("assets")
   async svg(@Param("slug") slug: string, @Param("file") file: string, @Res() res: FastifyReply) {
-    // <versie>.svg in de brontaal, <versie>.<taal>-<hash>.svg vertaald (ADR 0029).
-    const m = /^(\d{1,6})(?:\.([a-z]{2})-[0-9a-f]{8})?\.svg$/.exec(file);
+    // <versie>.svg in de brontaal, <versie>.<taal>-<hash>.svg vertaald (ADR 0029); .png voor mails (ADR 0037).
+    const m = /^(\d{1,6})(?:\.([a-z]{2})-[0-9a-f]{8})?\.(svg|png)$/.exec(file);
     if (!Slug.safeParse(slug).success || !m) throw new NotFoundException();
     const svg = await this.store.svg(slug, Number(m[1]), m[2]);
     if (!svg) throw new NotFoundException();
+    if (m[3] === "png") {
+      const png = await this.images.png(`${slug}/${file}`, svg);
+      void res.header("Content-Type", "image/png").header("Cache-Control", "public, max-age=31536000, immutable").send(png);
+      return;
+    }
     void res.header("Content-Type", "image/svg+xml; charset=utf-8")
       .header("Cache-Control", "public, max-age=31536000, immutable")
       .header("Content-Security-Policy", "default-src 'none'; style-src 'unsafe-inline'; sandbox")

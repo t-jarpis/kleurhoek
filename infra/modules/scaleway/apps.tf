@@ -36,11 +36,18 @@ locals {
         SEED_ON_START    = "true"
         DATABASE_CA      = scaleway_rdb_instance.main.certificate
         ORG_HOST_PATTERN = var.org_host_pattern
+        # Mail (ADR 0037): links in mails gaan naar de website.
+        SITE_URL  = "https://${var.hosts.site}"
+        MAIL_FROM = nonsensitive(var.mail.from)
       }
-      secret_env = {
+      secret_env = merge({
         DATABASE_URL = local.database_url
         INGEST_KEY   = random_password.secret["ingest-key"].result
-      }
+        MAIL_SECRET  = random_password.secret["mail-secret"].result
+        },
+        var.mail.smtp_url != "" ? { MAIL_SMTP_URL = var.mail.smtp_url } : {},
+        var.mail.transactional_smtp_url != "" ? { MAIL_TRANSACTIONAL_SMTP_URL = var.mail.transactional_smtp_url } : {},
+      )
     }
     web = {
       port    = 3000

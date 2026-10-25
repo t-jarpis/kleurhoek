@@ -1,5 +1,7 @@
 import { Controller, Delete, Get, HttpCode, Req, UseGuards } from "@nestjs/common";
 import type { FastifyRequest } from "fastify";
+import { ModuleRef } from "@nestjs/core";
+import { SubscribersService } from "../messaging/subscribers.service";
 import { OrganizationsService } from "../organizations/organizations.service";
 import { IdentityService } from "./identity.service";
 import { MemberGuard } from "./member.guard";
@@ -8,7 +10,7 @@ import { MemberGuard } from "./member.guard";
 @Controller("v1/me")
 @UseGuards(MemberGuard)
 export class MeController {
-  constructor(private readonly identity: IdentityService, private readonly orgs: OrganizationsService) {}
+  constructor(private readonly identity: IdentityService, private readonly orgs: OrganizationsService, private readonly modules: ModuleRef) {}
 
   @Get()
   async me(@Req() req: FastifyRequest) {
@@ -21,6 +23,8 @@ export class MeController {
   @HttpCode(204)
   async remove(@Req() req: FastifyRequest) {
     await this.orgs.forgetUser(req.member!.userId);
+    // Ook een mailabonnement via het account (domein Berichten, ADR 0037).
+    await this.modules.get(SubscribersService, { strict: false }).forgetUser(req.member!.userId);
     await this.identity.deleteSelf(req.member!.userId);
   }
 }
