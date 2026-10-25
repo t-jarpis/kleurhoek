@@ -80,13 +80,26 @@ form.roles label { display: inline-flex; gap: 6px; align-items: center; white-sp
 .grid-form .wide { grid-column: 1 / -1; }
 
 @media (max-width: 900px) { .grid-form { grid-template-columns: minmax(0, 1fr); } }
+/* Zijmenu: op een breed scherm een kolom; op een telefoon een balk met Menu (SideNav). */
+nav.side .side-top { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
+nav.side .side-toggle { display: none; }
+nav.side .side-items { display: flex; flex-direction: column; gap: 2px; flex: 1; }
 @media (max-width: 760px) {
-  .shell { grid-template-columns: 1fr; }
-  nav.side { flex-direction: row; flex-wrap: wrap; align-items: center; }
-  nav.side .brand { padding: 0 var(--space-3) 0 0; }
-  nav.side .ui-sidenav-group { display: none; }
-  nav.side .who { margin-top: 0; padding-top: 0; border-top: 0; flex-direction: row; align-items: center; }
+  .shell { grid-template-columns: minmax(0, 1fr); }
+  nav.side { position: sticky; top: 0; z-index: var(--z-sticky); padding: var(--space-2) var(--space-3); border-right: 0; border-bottom: var(--border-thin) solid var(--color-border); }
+  nav.side .brand { padding: 0; }
+  nav.side .side-toggle { display: inline-flex; }
+  nav.side .side-items { display: none; }
+  nav.side[data-open] .side-items { display: flex; max-height: calc(100dvh - 64px); overflow-y: auto; padding-block: var(--space-2) var(--space-3); }
+  nav.side .who { flex-direction: row; align-items: center; justify-content: space-between; }
+  main { padding: var(--space-5) var(--space-4); gap: var(--space-5); }
 }
+
+/* Tabbladen en balken nooit breder dan het scherm: zelf horizontaal scrollen. */
+.tabs { max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+.tabs::-webkit-scrollbar { display: none; }
+.toolbar > * { min-width: 0; }
+.cards { grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); }
 
 /* Organisaties: huisstijl naast het voorbeeld (ADR 0017). */
 .brand-editor { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: var(--space-6); align-items: start; }

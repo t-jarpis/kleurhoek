@@ -1,5 +1,6 @@
 import { Logo } from "@kleurhoek/theme";
 import { NavLink } from "@/components/NavLink";
+import { SideNav } from "@/components/SideNav";
 import { LogoutButton } from "@/components/LogoutButton";
 import { adminApi } from "@/lib/api";
 import { viewer } from "@/lib/session";
@@ -13,8 +14,7 @@ export default async function PanelLayout({ children }: { children: React.ReactN
   const unread = can("contact.read") ? await adminApi.unread().catch(() => 0) : 0;
   return (
     <div className="shell">
-      <nav className="side" aria-label="Beheer">
-        <div className="brand"><Logo suffix="beheer" size={20} /></div>
+      <SideNav brand={<Logo suffix="beheer" size={20} />}>
         {/* Groepen (design system: AdminNav): een groep verschijnt alleen als je er iets in mag zien. */}
         {can("analytics.read") && <>
           <span className="ui-sidenav-group">Overzicht</span>
@@ -40,7 +40,7 @@ export default async function PanelLayout({ children }: { children: React.ReactN
           <span>{who.name ?? who.email ?? "Beheerder"}</span>
           {who.dev ? <span className="pill off">lokaal</span> : <LogoutButton />}
         </div>
-      </nav>
+      </SideNav>
       <main>
         {me && me.permissions.length === 0 ? (
           <div className="err"><h1>Nog geen rol</h1><p>Je bent ingelogd, maar hebt nog geen rol. Vraag een platformbeheerder om je er een te geven.</p></div>

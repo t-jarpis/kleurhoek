@@ -473,3 +473,8 @@ a.ui-chip { text-decoration: none; }
 .ui-fav[aria-pressed="true"] .ui-icon path { fill: currentColor; }
 .ui-fav-hint { margin: 0; font-size: 14px; color: var(--color-text-muted); }
 .ui-fav-hint a { color: var(--color-accent); }
+
+/* Blokken-editor: kop en knoppen lopen door op een smal scherm; een los invoerveld in een blok krijgt de standaardstijl. */
+.ui-block-head { flex-wrap: wrap; }
+.ui-block-head strong { flex: 1 1 8em; }
+.ui-block > input { inline-size: 100%; min-height: var(--control-h); padding: 0 var(--space-3); border: var(--control-border, var(--border-thin)) solid var(--color-border-control); border-radius: var(--radius-control); background: var(--color-surface); color: var(--color-text); font: inherit; box-sizing: border-box; }
