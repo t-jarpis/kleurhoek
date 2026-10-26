@@ -27,6 +27,18 @@
       },
       "pt": {
         "name": "Animais"
+      },
+      "sv": {
+        "name": "Djur"
+      },
+      "da": {
+        "name": "Dyr"
+      },
+      "nb": {
+        "name": "Dyr"
+      },
+      "fi": {
+        "name": "Eläimet"
       }
     }
   },
@@ -58,6 +70,18 @@
       },
       "pt": {
         "name": "Veículos"
+      },
+      "sv": {
+        "name": "Fordon"
+      },
+      "da": {
+        "name": "Køretøjer"
+      },
+      "nb": {
+        "name": "Kjøretøy"
+      },
+      "fi": {
+        "name": "Kulkuneuvot"
       }
     }
   },
@@ -89,6 +113,18 @@
       },
       "pt": {
         "name": "Natureza"
+      },
+      "sv": {
+        "name": "Natur"
+      },
+      "da": {
+        "name": "Natur"
+      },
+      "nb": {
+        "name": "Natur"
+      },
+      "fi": {
+        "name": "Luonto"
       }
     }
   },
@@ -120,6 +156,18 @@
       },
       "pt": {
         "name": "Comidas deliciosas"
+      },
+      "sv": {
+        "name": "Gott att äta"
+      },
+      "da": {
+        "name": "Lækker mad"
+      },
+      "nb": {
+        "name": "God mat"
+      },
+      "fi": {
+        "name": "Herkkuja"
       }
     }
   },
@@ -151,6 +199,18 @@
       },
       "pt": {
         "name": "Espaço"
+      },
+      "sv": {
+        "name": "Rymden"
+      },
+      "da": {
+        "name": "Rummet"
+      },
+      "nb": {
+        "name": "Verdensrommet"
+      },
+      "fi": {
+        "name": "Avaruus"
       }
     }
   },
@@ -182,6 +242,18 @@
       },
       "pt": {
         "name": "Datas comemorativas"
+      },
+      "sv": {
+        "name": "Högtider"
+      },
+      "da": {
+        "name": "Højtider"
+      },
+      "nb": {
+        "name": "Høytider"
+      },
+      "fi": {
+        "name": "Juhlapäivät"
       }
     }
   },
@@ -213,6 +285,18 @@
       },
       "pt": {
         "name": "Mundo"
+      },
+      "sv": {
+        "name": "Världen"
+      },
+      "da": {
+        "name": "Verden"
+      },
+      "nb": {
+        "name": "Verden"
+      },
+      "fi": {
+        "name": "Maailma"
       }
     }
   },
@@ -244,6 +328,18 @@
       },
       "pt": {
         "name": "Padrões"
+      },
+      "sv": {
+        "name": "Mönster"
+      },
+      "da": {
+        "name": "Mønstre"
+      },
+      "nb": {
+        "name": "Mønstre"
+      },
+      "fi": {
+        "name": "Kuviot"
       }
     }
   },
@@ -275,6 +371,18 @@
       },
       "pt": {
         "name": "Fazenda"
+      },
+      "sv": {
+        "name": "Bondgården"
+      },
+      "da": {
+        "name": "Bondegården"
+      },
+      "nb": {
+        "name": "Bondegården"
+      },
+      "fi": {
+        "name": "Maatila"
       }
     }
   },
@@ -306,6 +414,18 @@
       },
       "pt": {
         "name": "Fundo do mar"
+      },
+      "sv": {
+        "name": "Under vattnet"
+      },
+      "da": {
+        "name": "Under vandet"
+      },
+      "nb": {
+        "name": "Under vann"
+      },
+      "fi": {
+        "name": "Veden alla"
       }
     }
   },
@@ -337,6 +457,18 @@
       },
       "pt": {
         "name": "Dinossauros"
+      },
+      "sv": {
+        "name": "Dinosaurier"
+      },
+      "da": {
+        "name": "Dinosaurer"
+      },
+      "nb": {
+        "name": "Dinosaurer"
+      },
+      "fi": {
+        "name": "Dinosaurukset"
       }
     }
   },
@@ -368,6 +500,18 @@
       },
       "pt": {
         "name": "Contos de fadas"
+      },
+      "sv": {
+        "name": "Sagor"
+      },
+      "da": {
+        "name": "Eventyr"
+      },
+      "nb": {
+        "name": "Eventyr"
+      },
+      "fi": {
+        "name": "Sadut"
       }
     }
   },
@@ -399,6 +543,18 @@
       },
       "pt": {
         "name": "Esportes e jogos"
+      },
+      "sv": {
+        "name": "Sport och lek"
+      },
+      "da": {
+        "name": "Sport og leg"
+      },
+      "nb": {
+        "name": "Sport og lek"
+      },
+      "fi": {
+        "name": "Urheilu ja leikit"
       }
     }
   },
@@ -430,6 +586,18 @@
       },
       "pt": {
         "name": "Profissões"
+      },
+      "sv": {
+        "name": "Yrken"
+      },
+      "da": {
+        "name": "Erhverv"
+      },
+      "nb": {
+        "name": "Yrker"
+      },
+      "fi": {
+        "name": "Ammatit"
       }
     }
   },
@@ -461,6 +629,18 @@
       },
       "pt": {
         "name": "Casa e brinquedos"
+      },
+      "sv": {
+        "name": "Hemma och leksaker"
+      },
+      "da": {
+        "name": "Hjemme og legetøj"
+      },
+      "nb": {
+        "name": "Hjemme og leker"
+      },
+      "fi": {
+        "name": "Koti ja lelut"
       }
     }
   },
@@ -492,6 +672,18 @@
       },
       "pt": {
         "name": "Formas e figuras"
+      },
+      "sv": {
+        "name": "Former och figurer"
+      },
+      "da": {
+        "name": "Former og figurer"
+      },
+      "nb": {
+        "name": "Former og figurer"
+      },
+      "fi": {
+        "name": "Muodot ja hahmot"
       }
     }
   },
@@ -523,6 +715,18 @@
       },
       "pt": {
         "name": "Letras, números e relógio"
+      },
+      "sv": {
+        "name": "Bokstäver, siffror och klocka"
+      },
+      "da": {
+        "name": "Bogstaver, tal og ur"
+      },
+      "nb": {
+        "name": "Bokstaver, tall og klokke"
+      },
+      "fi": {
+        "name": "Kirjaimet, numerot ja kello"
       }
     }
   }

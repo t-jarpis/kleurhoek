@@ -56,6 +56,11 @@ export async function seed(db: Database, tenantId: string): Promise<{ plates: nu
       { tenantId, code: "es-US", country: "US", language: "es", status: "live" as const, paperSize: "Letter" as const, minAccountAge: 13 },
       { tenantId, code: "pt-BR", country: "BR", language: "pt", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
       { tenantId, code: "pt-PT", country: "PT", language: "pt", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
+      // Scandinavië en Finland (ADR 0051).
+      { tenantId, code: "sv-SE", country: "SE", language: "sv", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
+      { tenantId, code: "da-DK", country: "DK", language: "da", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
+      { tenantId, code: "nb-NO", country: "NO", language: "nb", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
+      { tenantId, code: "fi-FI", country: "FI", language: "fi", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
     ]).onConflictDoNothing();
 
     const cats = source.categories();

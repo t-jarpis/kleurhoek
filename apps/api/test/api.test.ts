@@ -64,7 +64,7 @@ describe("website-API", () => {
   });
 
   it("weigert onbekende markten en ongeldige filters", async () => {
-    expect((await get("/v1/markets/sv-SE/plates")).statusCode).toBe(404);
+    expect((await get("/v1/markets/zz-ZZ/plates")).statusCode).toBe(404);
     expect((await get("/v1/markets/de-DE/plates")).statusCode).toBe(200);
     expect((await get("/v1/markets/nl-NL/plates?age=<script>")).statusCode).toBe(400);
     expect((await get("/v1/markets/nl-NL/plates?foo=1")).statusCode).toBe(400);

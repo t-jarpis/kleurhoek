@@ -33,7 +33,11 @@
       "CO",
       "LI",
       "BR",
-      "PT"
+      "PT",
+      "SE",
+      "DK",
+      "NO",
+      "FI"
     ],
     "i18n": {
       "nl": {
@@ -59,6 +63,18 @@
       },
       "pt": {
         "name": "Réveillon e Ano-Novo"
+      },
+      "sv": {
+        "name": "Nyårsafton"
+      },
+      "da": {
+        "name": "Nytårsaften"
+      },
+      "nb": {
+        "name": "Nyttårsaften"
+      },
+      "fi": {
+        "name": "Uudenvuodenaatto"
       }
     },
     "overrides": {}
@@ -89,7 +105,9 @@
       "AR",
       "CO",
       "PT",
-      "BR"
+      "BR",
+      "SE",
+      "FI"
     ],
     "overrides": {},
     "i18n": {
@@ -116,6 +134,18 @@
       },
       "pt": {
         "name": "Dia de Reis"
+      },
+      "sv": {
+        "name": "Trettondedag jul"
+      },
+      "da": {
+        "name": "Helligtrekonger"
+      },
+      "nb": {
+        "name": "Helligtrekongersdag"
+      },
+      "fi": {
+        "name": "Loppiainen"
       }
     }
   },
@@ -153,7 +183,11 @@
       "CO",
       "LI",
       "BR",
-      "PT"
+      "PT",
+      "SE",
+      "DK",
+      "NO",
+      "FI"
     ],
     "i18n": {
       "nl": {
@@ -179,6 +213,18 @@
       },
       "pt": {
         "name": "Ano-Novo Chinês"
+      },
+      "sv": {
+        "name": "Kinesiskt nyår"
+      },
+      "da": {
+        "name": "Kinesisk nytår"
+      },
+      "nb": {
+        "name": "Kinesisk nyttår"
+      },
+      "fi": {
+        "name": "Kiinalainen uusivuosi"
       }
     },
     "overrides": {}
@@ -217,7 +263,11 @@
       "CO",
       "LI",
       "BR",
-      "PT"
+      "PT",
+      "SE",
+      "DK",
+      "NO",
+      "FI"
     ],
     "i18n": {
       "nl": {
@@ -243,6 +293,18 @@
       },
       "pt": {
         "name": "Dia de São Valentim"
+      },
+      "sv": {
+        "name": "Alla hjärtans dag"
+      },
+      "da": {
+        "name": "Valentinsdag"
+      },
+      "nb": {
+        "name": "Valentinsdagen"
+      },
+      "fi": {
+        "name": "Ystävänpäivä"
       }
     },
     "overrides": {
@@ -313,6 +375,18 @@
       },
       "pt": {
         "name": "Carnaval"
+      },
+      "sv": {
+        "name": "Karneval"
+      },
+      "da": {
+        "name": "Fastelavn"
+      },
+      "nb": {
+        "name": "Karneval"
+      },
+      "fi": {
+        "name": "Karnevaali"
       }
     },
     "overrides": {}
@@ -351,7 +425,11 @@
       "CO",
       "LI",
       "BR",
-      "PT"
+      "PT",
+      "SE",
+      "DK",
+      "NO",
+      "FI"
     ],
     "i18n": {
       "nl": {
@@ -376,6 +454,18 @@
         "name": "Holi"
       },
       "pt": {
+        "name": "Holi"
+      },
+      "sv": {
+        "name": "Holi"
+      },
+      "da": {
+        "name": "Holi"
+      },
+      "nb": {
+        "name": "Holi"
+      },
+      "fi": {
         "name": "Holi"
       }
     },
@@ -425,6 +515,18 @@
       },
       "pt": {
         "name": "Dia de São Patrício"
+      },
+      "sv": {
+        "name": "S:t Patricks dag"
+      },
+      "da": {
+        "name": "Sankt Patricks dag"
+      },
+      "nb": {
+        "name": "St. Patricks dag"
+      },
+      "fi": {
+        "name": "Pyhän Patrickin päivä"
       }
     }
   },
@@ -462,7 +564,11 @@
       "CO",
       "LI",
       "BR",
-      "PT"
+      "PT",
+      "SE",
+      "DK",
+      "NO",
+      "FI"
     ],
     "i18n": {
       "nl": {
@@ -487,6 +593,18 @@
         "name": "Święto Przerwania Postu"
       },
       "pt": {
+        "name": "Eid al-Fitr"
+      },
+      "sv": {
+        "name": "Eid al-fitr"
+      },
+      "da": {
+        "name": "Eid al-fitr"
+      },
+      "nb": {
+        "name": "Id al-fitr"
+      },
+      "fi": {
         "name": "Eid al-Fitr"
       }
     },
@@ -526,7 +644,11 @@
       "CO",
       "LI",
       "BR",
-      "PT"
+      "PT",
+      "SE",
+      "DK",
+      "NO",
+      "FI"
     ],
     "i18n": {
       "nl": {
@@ -552,6 +674,18 @@
       },
       "pt": {
         "name": "Páscoa"
+      },
+      "sv": {
+        "name": "Påsk"
+      },
+      "da": {
+        "name": "Påske"
+      },
+      "nb": {
+        "name": "Påske"
+      },
+      "fi": {
+        "name": "Pääsiäinen"
       }
     },
     "overrides": {}
@@ -595,6 +729,18 @@
       },
       "pt": {
         "name": "Dia do Rei"
+      },
+      "sv": {
+        "name": "Kungens dag"
+      },
+      "da": {
+        "name": "Kongens dag"
+      },
+      "nb": {
+        "name": "Kongens dag"
+      },
+      "fi": {
+        "name": "Kuninkaanpäivä"
       }
     },
     "overrides": {}
@@ -638,6 +784,18 @@
       },
       "pt": {
         "name": "Dia da Libertação"
+      },
+      "sv": {
+        "name": "Befrielsedagen"
+      },
+      "da": {
+        "name": "Befrielsesdag"
+      },
+      "nb": {
+        "name": "Frigjøringsdagen"
+      },
+      "fi": {
+        "name": "Vapautuksen päivä"
       }
     },
     "overrides": {}
@@ -676,7 +834,11 @@
       "CO",
       "LI",
       "BR",
-      "PT"
+      "PT",
+      "SE",
+      "DK",
+      "NO",
+      "FI"
     ],
     "i18n": {
       "nl": {
@@ -702,6 +864,18 @@
       },
       "pt": {
         "name": "Dia das Mães"
+      },
+      "sv": {
+        "name": "Mors dag"
+      },
+      "da": {
+        "name": "Mors dag"
+      },
+      "nb": {
+        "name": "Morsdag"
+      },
+      "fi": {
+        "name": "Äitienpäivä"
       }
     },
     "overrides": {
@@ -764,6 +938,18 @@
           "2026": "2026-05-03",
           "2027": "2027-05-02"
         }
+      },
+      "SE": {
+        "dates": {
+          "2026": "2026-05-31",
+          "2027": "2027-05-30"
+        }
+      },
+      "NO": {
+        "dates": {
+          "2026": "2026-02-08",
+          "2027": "2027-02-14"
+        }
       }
     }
   },
@@ -787,7 +973,11 @@
       "CH",
       "FR",
       "LU",
-      "LI"
+      "LI",
+      "SE",
+      "DK",
+      "NO",
+      "FI"
     ],
     "i18n": {
       "nl": {
@@ -813,6 +1003,18 @@
       },
       "pt": {
         "name": "Ascensão"
+      },
+      "sv": {
+        "name": "Kristi himmelsfärdsdag"
+      },
+      "da": {
+        "name": "Kristi himmelfartsdag"
+      },
+      "nb": {
+        "name": "Kristi himmelfartsdag"
+      },
+      "fi": {
+        "name": "Helatorstai"
       }
     },
     "overrides": {}
@@ -838,7 +1040,11 @@
       "FR",
       "PL",
       "LU",
-      "LI"
+      "LI",
+      "SE",
+      "DK",
+      "NO",
+      "FI"
     ],
     "i18n": {
       "nl": {
@@ -864,6 +1070,18 @@
       },
       "pt": {
         "name": "Pentecostes"
+      },
+      "sv": {
+        "name": "Pingst"
+      },
+      "da": {
+        "name": "Pinse"
+      },
+      "nb": {
+        "name": "Pinse"
+      },
+      "fi": {
+        "name": "Helluntai"
       }
     },
     "overrides": {}
@@ -902,7 +1120,11 @@
       "CO",
       "LI",
       "BR",
-      "PT"
+      "PT",
+      "SE",
+      "DK",
+      "NO",
+      "FI"
     ],
     "i18n": {
       "nl": {
@@ -927,6 +1149,18 @@
         "name": "Święto Ofiarowania"
       },
       "pt": {
+        "name": "Eid al-Adha"
+      },
+      "sv": {
+        "name": "Eid al-adha"
+      },
+      "da": {
+        "name": "Eid al-adha"
+      },
+      "nb": {
+        "name": "Id al-adha"
+      },
+      "fi": {
         "name": "Eid al-Adha"
       }
     },
@@ -966,7 +1200,11 @@
       "CO",
       "LI",
       "BR",
-      "PT"
+      "PT",
+      "SE",
+      "DK",
+      "NO",
+      "FI"
     ],
     "i18n": {
       "nl": {
@@ -992,6 +1230,18 @@
       },
       "pt": {
         "name": "Dia dos Pais"
+      },
+      "sv": {
+        "name": "Fars dag"
+      },
+      "da": {
+        "name": "Fars dag"
+      },
+      "nb": {
+        "name": "Farsdag"
+      },
+      "fi": {
+        "name": "Isänpäivä"
       }
     },
     "overrides": {
@@ -1072,6 +1322,30 @@
           "2026": "2026-06-07",
           "2027": "2027-06-06"
         }
+      },
+      "SE": {
+        "dates": {
+          "2026": "2026-11-08",
+          "2027": "2027-11-14"
+        }
+      },
+      "NO": {
+        "dates": {
+          "2026": "2026-11-08",
+          "2027": "2027-11-14"
+        }
+      },
+      "FI": {
+        "dates": {
+          "2026": "2026-11-08",
+          "2027": "2027-11-14"
+        }
+      },
+      "DK": {
+        "fixed": [
+          6,
+          5
+        ]
       }
     }
   },
@@ -1113,6 +1387,18 @@
         "name": "Keti Koti"
       },
       "pt": {
+        "name": "Keti Koti"
+      },
+      "sv": {
+        "name": "Keti Koti"
+      },
+      "da": {
+        "name": "Keti Koti"
+      },
+      "nb": {
+        "name": "Keti Koti"
+      },
+      "fi": {
         "name": "Keti Koti"
       }
     },
@@ -1158,6 +1444,18 @@
       },
       "pt": {
         "name": "Dia da Independência (EUA)"
+      },
+      "sv": {
+        "name": "USA:s självständighetsdag"
+      },
+      "da": {
+        "name": "USA's uafhængighedsdag"
+      },
+      "nb": {
+        "name": "USAs uavhengighetsdag"
+      },
+      "fi": {
+        "name": "Yhdysvaltain itsenäisyyspäivä"
       }
     }
   },
@@ -1201,6 +1499,18 @@
       },
       "pt": {
         "name": "Festa Nacional da França"
+      },
+      "sv": {
+        "name": "Frankrikes nationaldag"
+      },
+      "da": {
+        "name": "Frankrigs nationaldag"
+      },
+      "nb": {
+        "name": "Frankrikes nasjonaldag"
+      },
+      "fi": {
+        "name": "Ranskan kansallispäivä"
       }
     }
   },
@@ -1244,6 +1554,18 @@
       },
       "pt": {
         "name": "Festa Nacional da Bélgica"
+      },
+      "sv": {
+        "name": "Belgiens nationaldag"
+      },
+      "da": {
+        "name": "Belgiens nationaldag"
+      },
+      "nb": {
+        "name": "Belgias nasjonaldag"
+      },
+      "fi": {
+        "name": "Belgian kansallispäivä"
       }
     }
   },
@@ -1281,7 +1603,11 @@
       "CO",
       "LI",
       "BR",
-      "PT"
+      "PT",
+      "SE",
+      "DK",
+      "NO",
+      "FI"
     ],
     "i18n": {
       "nl": {
@@ -1307,6 +1633,18 @@
       },
       "pt": {
         "name": "Primeiro dia de aula"
+      },
+      "sv": {
+        "name": "Första skoldagen"
+      },
+      "da": {
+        "name": "Første skoledag"
+      },
+      "nb": {
+        "name": "Første skoledag"
+      },
+      "fi": {
+        "name": "Ensimmäinen koulupäivä"
       }
     },
     "overrides": {
@@ -1456,6 +1794,34 @@
           14
         ],
         "label": null
+      },
+      "SE": {
+        "fixed": [
+          8,
+          18
+        ],
+        "label": null
+      },
+      "DK": {
+        "fixed": [
+          8,
+          10
+        ],
+        "label": null
+      },
+      "NO": {
+        "fixed": [
+          8,
+          17
+        ],
+        "label": null
+      },
+      "FI": {
+        "fixed": [
+          8,
+          12
+        ],
+        "label": null
       }
     }
   },
@@ -1479,7 +1845,11 @@
       "CH",
       "PL",
       "LU",
-      "LI"
+      "LI",
+      "SE",
+      "DK",
+      "NO",
+      "FI"
     ],
     "i18n": {
       "nl": {
@@ -1505,6 +1875,18 @@
       },
       "pt": {
         "name": "Dia dos Animais"
+      },
+      "sv": {
+        "name": "Djurens dag"
+      },
+      "da": {
+        "name": "Dyrenes dag"
+      },
+      "nb": {
+        "name": "Dyrenes dag"
+      },
+      "fi": {
+        "name": "Eläinten päivä"
       }
     },
     "overrides": {}
@@ -1543,7 +1925,11 @@
       "CO",
       "LI",
       "BR",
-      "PT"
+      "PT",
+      "SE",
+      "DK",
+      "NO",
+      "FI"
     ],
     "i18n": {
       "nl": {
@@ -1568,6 +1954,18 @@
         "name": "Halloween"
       },
       "pt": {
+        "name": "Halloween"
+      },
+      "sv": {
+        "name": "Halloween"
+      },
+      "da": {
+        "name": "Halloween"
+      },
+      "nb": {
+        "name": "Halloween"
+      },
+      "fi": {
         "name": "Halloween"
       }
     },
@@ -1613,6 +2011,18 @@
       },
       "pt": {
         "name": "Noite das Fogueiras"
+      },
+      "sv": {
+        "name": "Bonfire Night"
+      },
+      "da": {
+        "name": "Bonfire Night"
+      },
+      "nb": {
+        "name": "Bonfire Night"
+      },
+      "fi": {
+        "name": "Bonfire Night"
       }
     }
   },
@@ -1650,7 +2060,11 @@
       "CO",
       "LI",
       "BR",
-      "PT"
+      "PT",
+      "SE",
+      "DK",
+      "NO",
+      "FI"
     ],
     "i18n": {
       "nl": {
@@ -1676,6 +2090,18 @@
       },
       "pt": {
         "name": "Diwali"
+      },
+      "sv": {
+        "name": "Diwali"
+      },
+      "da": {
+        "name": "Diwali"
+      },
+      "nb": {
+        "name": "Diwali"
+      },
+      "fi": {
+        "name": "Diwali"
       }
     },
     "overrides": {}
@@ -1699,7 +2125,8 @@
       "AT",
       "CH",
       "LU",
-      "LI"
+      "LI",
+      "SE"
     ],
     "i18n": {
       "nl": {
@@ -1725,9 +2152,28 @@
       },
       "pt": {
         "name": "Dia de São Martinho"
+      },
+      "sv": {
+        "name": "Mårtensdagen"
+      },
+      "da": {
+        "name": "Mortensdag"
+      },
+      "nb": {
+        "name": "Martinsmesse"
+      },
+      "fi": {
+        "name": "Martinpäivä"
       }
     },
-    "overrides": {}
+    "overrides": {
+      "SE": {
+        "fixed": [
+          11,
+          10
+        ]
+      }
+    }
   },
   {
     "slug": "thanksgiving",
@@ -1777,6 +2223,18 @@
       },
       "pt": {
         "name": "Dia de Ação de Graças"
+      },
+      "sv": {
+        "name": "Thanksgiving"
+      },
+      "da": {
+        "name": "Thanksgiving"
+      },
+      "nb": {
+        "name": "Thanksgiving"
+      },
+      "fi": {
+        "name": "Kiitospäivä"
       }
     }
   },
@@ -1826,6 +2284,18 @@
       },
       "pt": {
         "name": "São Nicolau"
+      },
+      "sv": {
+        "name": "Sinterklaas"
+      },
+      "da": {
+        "name": "Sinterklaas"
+      },
+      "nb": {
+        "name": "Sinterklaas"
+      },
+      "fi": {
+        "name": "Sinterklaas"
       }
     },
     "overrides": {
@@ -1907,7 +2377,11 @@
       "CO",
       "LI",
       "BR",
-      "PT"
+      "PT",
+      "SE",
+      "DK",
+      "NO",
+      "FI"
     ],
     "i18n": {
       "nl": {
@@ -1933,6 +2407,18 @@
       },
       "pt": {
         "name": "Hanukkah"
+      },
+      "sv": {
+        "name": "Chanukka"
+      },
+      "da": {
+        "name": "Hanukka"
+      },
+      "nb": {
+        "name": "Hanukka"
+      },
+      "fi": {
+        "name": "Hanukka"
       }
     },
     "overrides": {}
@@ -1971,7 +2457,11 @@
       "CO",
       "LI",
       "BR",
-      "PT"
+      "PT",
+      "SE",
+      "DK",
+      "NO",
+      "FI"
     ],
     "i18n": {
       "nl": {
@@ -1997,6 +2487,18 @@
       },
       "pt": {
         "name": "Natal"
+      },
+      "sv": {
+        "name": "Jul"
+      },
+      "da": {
+        "name": "Jul"
+      },
+      "nb": {
+        "name": "Jul"
+      },
+      "fi": {
+        "name": "Joulu"
       }
     },
     "overrides": {}
@@ -2032,7 +2534,11 @@
       "CO",
       "LI",
       "BR",
-      "PT"
+      "PT",
+      "SE",
+      "DK",
+      "NO",
+      "FI"
     ],
     "i18n": {
       "nl": {
@@ -2058,6 +2564,18 @@
       },
       "pt": {
         "name": "Aniversário"
+      },
+      "sv": {
+        "name": "Födelsedag"
+      },
+      "da": {
+        "name": "Fødselsdag"
+      },
+      "nb": {
+        "name": "Bursdag"
+      },
+      "fi": {
+        "name": "Syntymäpäivä"
       }
     },
     "overrides": {}

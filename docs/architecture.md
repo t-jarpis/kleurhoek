@@ -45,3 +45,4 @@ Het volledige architectuurdocument met diagrammen staat hier: https://claude.ai/
 - Contactformulier zonder captcha: een spamscore zet verkooppraat zonder melding in een map Spam (30 dagen bewaard), en een onzichtbare rekenpuzzel (proof-of-work, eigen HMAC, geen externe dienst) maakt massaal versturen duur (ADR 0048).
 - Live markten komen alleen uit de code (`DEFAULT_MARKETS`); een bewuste beperking heet `MARKETS_ONLY` en staat standaard leeg in Terraform (ADR 0049).
 - Veertien markten erbij (Canada, Australië, Nieuw-Zeeland, Luxemburg, Liechtenstein, Italiaans Zwitserland, Mexico, Argentinië, Colombia, Spaans in de VS, Brazilië en Portugal), met Portugees als achtste taal. Er zijn Spaanse en Letter-varianten per markt en een herfst voor het zuidelijk halfrond. De sitemap is een index met per markt een eigen bestand (ADR 0050).
+- Scandinavië en Finland: sv-se, da-dk, nb-no en fi-fi, met vier nieuwe talen en een kalender per land (ADR 0051).

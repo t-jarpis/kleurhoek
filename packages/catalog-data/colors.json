@@ -26,6 +26,18 @@
       },
       "pt": {
         "name": "vermelho"
+      },
+      "sv": {
+        "name": "röd"
+      },
+      "da": {
+        "name": "rød"
+      },
+      "nb": {
+        "name": "rød"
+      },
+      "fi": {
+        "name": "punainen"
       }
     }
   },
@@ -56,6 +68,18 @@
       },
       "pt": {
         "name": "laranja"
+      },
+      "sv": {
+        "name": "orange"
+      },
+      "da": {
+        "name": "orange"
+      },
+      "nb": {
+        "name": "oransje"
+      },
+      "fi": {
+        "name": "oranssi"
       }
     }
   },
@@ -86,6 +110,18 @@
       },
       "pt": {
         "name": "amarelo"
+      },
+      "sv": {
+        "name": "gul"
+      },
+      "da": {
+        "name": "gul"
+      },
+      "nb": {
+        "name": "gul"
+      },
+      "fi": {
+        "name": "keltainen"
       }
     }
   },
@@ -116,6 +152,18 @@
       },
       "pt": {
         "name": "verde-claro"
+      },
+      "sv": {
+        "name": "ljusgrön"
+      },
+      "da": {
+        "name": "lysegrøn"
+      },
+      "nb": {
+        "name": "lysegrønn"
+      },
+      "fi": {
+        "name": "vaaleanvihreä"
       }
     }
   },
@@ -146,6 +194,18 @@
       },
       "pt": {
         "name": "verde"
+      },
+      "sv": {
+        "name": "grön"
+      },
+      "da": {
+        "name": "grøn"
+      },
+      "nb": {
+        "name": "grønn"
+      },
+      "fi": {
+        "name": "vihreä"
       }
     }
   },
@@ -176,6 +236,18 @@
       },
       "pt": {
         "name": "turquesa"
+      },
+      "sv": {
+        "name": "turkos"
+      },
+      "da": {
+        "name": "turkis"
+      },
+      "nb": {
+        "name": "turkis"
+      },
+      "fi": {
+        "name": "turkoosi"
       }
     }
   },
@@ -206,6 +278,18 @@
       },
       "pt": {
         "name": "azul-claro"
+      },
+      "sv": {
+        "name": "ljusblå"
+      },
+      "da": {
+        "name": "lyseblå"
+      },
+      "nb": {
+        "name": "lyseblå"
+      },
+      "fi": {
+        "name": "vaaleansininen"
       }
     }
   },
@@ -236,6 +320,18 @@
       },
       "pt": {
         "name": "azul"
+      },
+      "sv": {
+        "name": "blå"
+      },
+      "da": {
+        "name": "blå"
+      },
+      "nb": {
+        "name": "blå"
+      },
+      "fi": {
+        "name": "sininen"
       }
     }
   },
@@ -266,6 +362,18 @@
       },
       "pt": {
         "name": "roxo"
+      },
+      "sv": {
+        "name": "lila"
+      },
+      "da": {
+        "name": "lilla"
+      },
+      "nb": {
+        "name": "lilla"
+      },
+      "fi": {
+        "name": "violetti"
       }
     }
   },
@@ -296,6 +404,18 @@
       },
       "pt": {
         "name": "rosa"
+      },
+      "sv": {
+        "name": "rosa"
+      },
+      "da": {
+        "name": "pink"
+      },
+      "nb": {
+        "name": "rosa"
+      },
+      "fi": {
+        "name": "pinkki"
       }
     }
   },
@@ -326,6 +446,18 @@
       },
       "pt": {
         "name": "rosa-claro"
+      },
+      "sv": {
+        "name": "ljusrosa"
+      },
+      "da": {
+        "name": "lyserød"
+      },
+      "nb": {
+        "name": "lyserosa"
+      },
+      "fi": {
+        "name": "vaaleanpunainen"
       }
     }
   },
@@ -356,6 +488,18 @@
       },
       "pt": {
         "name": "marrom"
+      },
+      "sv": {
+        "name": "brun"
+      },
+      "da": {
+        "name": "brun"
+      },
+      "nb": {
+        "name": "brun"
+      },
+      "fi": {
+        "name": "ruskea"
       }
     }
   },
@@ -386,6 +530,18 @@
       },
       "pt": {
         "name": "cinza"
+      },
+      "sv": {
+        "name": "grå"
+      },
+      "da": {
+        "name": "grå"
+      },
+      "nb": {
+        "name": "grå"
+      },
+      "fi": {
+        "name": "harmaa"
       }
     }
   },
@@ -416,6 +572,18 @@
       },
       "pt": {
         "name": "preto"
+      },
+      "sv": {
+        "name": "svart"
+      },
+      "da": {
+        "name": "sort"
+      },
+      "nb": {
+        "name": "svart"
+      },
+      "fi": {
+        "name": "musta"
       }
     }
   }

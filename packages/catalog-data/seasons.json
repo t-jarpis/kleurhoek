@@ -32,7 +32,11 @@
       "MX",
       "CO",
       "LI",
-      "PT"
+      "PT",
+      "SE",
+      "DK",
+      "NO",
+      "FI"
     ],
     "i18n": {
       "nl": {
@@ -58,6 +62,18 @@
       },
       "pt": {
         "name": "Outono"
+      },
+      "sv": {
+        "name": "Höst"
+      },
+      "da": {
+        "name": "Efterår"
+      },
+      "nb": {
+        "name": "Høst"
+      },
+      "fi": {
+        "name": "Syksy"
       }
     }
   },
@@ -106,6 +122,18 @@
       },
       "pt": {
         "name": "Outono"
+      },
+      "sv": {
+        "name": "Höst"
+      },
+      "da": {
+        "name": "Efterår"
+      },
+      "nb": {
+        "name": "Høst"
+      },
+      "fi": {
+        "name": "Syksy"
       }
     }
   }

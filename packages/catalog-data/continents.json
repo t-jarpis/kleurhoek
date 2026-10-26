@@ -27,6 +27,18 @@
       },
       "pt": {
         "name": "Europa"
+      },
+      "sv": {
+        "name": "Europa"
+      },
+      "da": {
+        "name": "Europa"
+      },
+      "nb": {
+        "name": "Europa"
+      },
+      "fi": {
+        "name": "Eurooppa"
       }
     }
   },
@@ -58,6 +70,18 @@
       },
       "pt": {
         "name": "África"
+      },
+      "sv": {
+        "name": "Afrika"
+      },
+      "da": {
+        "name": "Afrika"
+      },
+      "nb": {
+        "name": "Afrika"
+      },
+      "fi": {
+        "name": "Afrikka"
       }
     }
   },
@@ -89,6 +113,18 @@
       },
       "pt": {
         "name": "Ásia"
+      },
+      "sv": {
+        "name": "Asien"
+      },
+      "da": {
+        "name": "Asien"
+      },
+      "nb": {
+        "name": "Asia"
+      },
+      "fi": {
+        "name": "Aasia"
       }
     }
   },
@@ -120,6 +156,18 @@
       },
       "pt": {
         "name": "América do Norte"
+      },
+      "sv": {
+        "name": "Nordamerika"
+      },
+      "da": {
+        "name": "Nordamerika"
+      },
+      "nb": {
+        "name": "Nord-Amerika"
+      },
+      "fi": {
+        "name": "Pohjois-Amerikka"
       }
     }
   },
@@ -151,6 +199,18 @@
       },
       "pt": {
         "name": "América do Sul"
+      },
+      "sv": {
+        "name": "Sydamerika"
+      },
+      "da": {
+        "name": "Sydamerika"
+      },
+      "nb": {
+        "name": "Sør-Amerika"
+      },
+      "fi": {
+        "name": "Etelä-Amerikka"
       }
     }
   },
@@ -182,6 +242,18 @@
       },
       "pt": {
         "name": "Oceania"
+      },
+      "sv": {
+        "name": "Oceanien"
+      },
+      "da": {
+        "name": "Oceanien"
+      },
+      "nb": {
+        "name": "Oseania"
+      },
+      "fi": {
+        "name": "Oseania"
       }
     }
   },
@@ -213,6 +285,18 @@
       },
       "pt": {
         "name": "Antártida"
+      },
+      "sv": {
+        "name": "Antarktis"
+      },
+      "da": {
+        "name": "Antarktis"
+      },
+      "nb": {
+        "name": "Antarktis"
+      },
+      "fi": {
+        "name": "Etelämanner"
       }
     }
   }

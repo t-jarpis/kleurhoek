@@ -34,6 +34,22 @@
       "pt": {
         "name": "Lápis de cor",
         "hint": "Para áreas pequenas e mãos pequenas"
+      },
+      "sv": {
+        "name": "Färgpennor",
+        "hint": "För små fält och små händer"
+      },
+      "da": {
+        "name": "Farveblyanter",
+        "hint": "Til små felter og små hænder"
+      },
+      "nb": {
+        "name": "Fargeblyanter",
+        "hint": "For små felt og små hender"
+      },
+      "fi": {
+        "name": "Värikynät",
+        "hint": "Pieniin alueisiin ja pieniin käsiin"
       }
     }
   },
@@ -72,6 +88,22 @@
       "pt": {
         "name": "Canetinhas hidrográficas",
         "hint": "Cores vivas; escolha as laváveis"
+      },
+      "sv": {
+        "name": "Tuschpennor",
+        "hint": "Klara färger; välj tvättbara"
+      },
+      "da": {
+        "name": "Tuscher",
+        "hint": "Klare farver; vælg nogle, der kan vaskes af"
+      },
+      "nb": {
+        "name": "Tusjer",
+        "hint": "Sterke farger; velg vaskbare"
+      },
+      "fi": {
+        "name": "Tussit",
+        "hint": "Kirkkaat värit; valitse pestävät"
       }
     }
   },
@@ -110,6 +142,22 @@
       "pt": {
         "name": "Giz de cera",
         "hint": "Grossos e resistentes, ótimos para os menores"
+      },
+      "sv": {
+        "name": "Vaxkritor",
+        "hint": "Tjocka och stadiga, bra för de minsta"
+      },
+      "da": {
+        "name": "Farvekridt",
+        "hint": "Tykke og solide, gode til de mindste"
+      },
+      "nb": {
+        "name": "Fargestifter",
+        "hint": "Tykke og solide, fine for de minste"
+      },
+      "fi": {
+        "name": "Vahaliidut",
+        "hint": "Paksuja ja tukevia, hyviä pienimmille"
       }
     }
   },
@@ -148,6 +196,22 @@
       "pt": {
         "name": "Tesoura infantil",
         "hint": "Com ponta arredondada; não deixe crianças pequenas recortarem sozinhas"
+      },
+      "sv": {
+        "name": "Barnsax",
+        "hint": "Med rundad spets; låt inte små barn klippa på egen hand"
+      },
+      "da": {
+        "name": "Børnesaks",
+        "hint": "Med afrundet spids; lad ikke små børn klippe alene"
+      },
+      "nb": {
+        "name": "Barnesaks",
+        "hint": "Med avrundet tupp; ikke la små barn klippe alene"
+      },
+      "fi": {
+        "name": "Lasten sakset",
+        "hint": "Pyöristetty kärki; älä anna pienten lasten leikata yksin"
       }
     }
   },
@@ -186,6 +250,22 @@
       "pt": {
         "name": "Cola em bastão",
         "hint": "Cola papel sem fazer sujeira"
+      },
+      "sv": {
+        "name": "Limstift",
+        "hint": "Limmar papper utan kladd"
+      },
+      "da": {
+        "name": "Limstift",
+        "hint": "Limer papir uden at grise"
+      },
+      "nb": {
+        "name": "Limstift",
+        "hint": "Limer papir uten søl"
+      },
+      "fi": {
+        "name": "Liimapuikko",
+        "hint": "Liimaa paperia sotkematta"
       }
     }
   },
@@ -217,6 +297,18 @@
       },
       "pt": {
         "name": "Fita adesiva"
+      },
+      "sv": {
+        "name": "Tejp"
+      },
+      "da": {
+        "name": "Tape"
+      },
+      "nb": {
+        "name": "Teip"
+      },
+      "fi": {
+        "name": "Teippi"
       }
     }
   },
@@ -255,6 +347,22 @@
       "pt": {
         "name": "Papel grosso (160 gramas)",
         "hint": "Para maquetes de papel e cartões que precisam ficar em pé"
+      },
+      "sv": {
+        "name": "Kraftigt papper (160 g)",
+        "hint": "För pappersmodeller och kort som ska kunna stå"
+      },
+      "da": {
+        "name": "Kraftigt papir (160 g)",
+        "hint": "Til papirmodeller og kort, der skal kunne stå"
+      },
+      "nb": {
+        "name": "Kraftig papir (160 g)",
+        "hint": "For papirmodeller og kort som skal kunne stå"
+      },
+      "fi": {
+        "name": "Paksu paperi (160 g)",
+        "hint": "Paperimalleihin ja kortteihin, joiden pitää pysyä pystyssä"
       }
     }
   },
@@ -293,6 +401,22 @@
       "pt": {
         "name": "Bastão de LED para lanterna",
         "hint": "Luz segura na sua lanterna de papel"
+      },
+      "sv": {
+        "name": "LED-lyktpinne",
+        "hint": "Säkert ljus i din lykta"
+      },
+      "da": {
+        "name": "LED-lygtepind",
+        "hint": "Sikkert lys i din lanterne"
+      },
+      "nb": {
+        "name": "LED-lyktestav",
+        "hint": "Trygt lys i lykta di"
+      },
+      "fi": {
+        "name": "LED-lyhtykeppi",
+        "hint": "Turvallinen valo lyhtyysi"
       }
     }
   },
@@ -331,6 +455,22 @@
       "pt": {
         "name": "Colchetes bailarina",
         "hint": "Para braços e pernas que se mexem"
+      },
+      "sv": {
+        "name": "Spretklämmor",
+        "hint": "För rörliga armar och ben"
+      },
+      "da": {
+        "name": "Splitter",
+        "hint": "Til arme og ben, der kan bevæge sig"
+      },
+      "nb": {
+        "name": "Splittbinders",
+        "hint": "For bevegelige armer og bein"
+      },
+      "fi": {
+        "name": "Haaraniitit",
+        "hint": "Liikkuviin käsiin ja jalkoihin"
       }
     }
   },
@@ -369,6 +509,22 @@
       "pt": {
         "name": "Lápis",
         "hint": "Para escrever, desenhar e cobrir linhas"
+      },
+      "sv": {
+        "name": "Blyertspenna",
+        "hint": "För att skriva, rita och följa linjer"
+      },
+      "da": {
+        "name": "Blyant",
+        "hint": "Til at skrive, tegne og tegne streger efter"
+      },
+      "nb": {
+        "name": "Blyant",
+        "hint": "For å skrive, tegne og følge streker"
+      },
+      "fi": {
+        "name": "Lyijykynä",
+        "hint": "Kirjoittamiseen, piirtämiseen ja viivojen jäljentämiseen"
       }
     }
   },
@@ -407,6 +563,22 @@
       "pt": {
         "name": "Elástico",
         "hint": "Elástico roliço, para prender uma máscara na cabeça"
+      },
+      "sv": {
+        "name": "Resår",
+        "hint": "Rund resår, för att hålla en mask på huvudet"
+      },
+      "da": {
+        "name": "Elastik",
+        "hint": "Rund elastik til at holde en maske på hovedet"
+      },
+      "nb": {
+        "name": "Strikk",
+        "hint": "Rund strikk, for å holde en maske på hodet"
+      },
+      "fi": {
+        "name": "Kuminauha",
+        "hint": "Pyöreä kuminauha, jolla naamari pysyy päässä"
       }
     }
   },
@@ -445,6 +617,22 @@
       "pt": {
         "name": "Cordão ou fita",
         "hint": "Para pendurar ou amarrar em um presente"
+      },
+      "sv": {
+        "name": "Snöre eller band",
+        "hint": "För att hänga upp eller knyta om en present"
+      },
+      "da": {
+        "name": "Snor eller bånd",
+        "hint": "Til at hænge op eller binde om en gave"
+      },
+      "nb": {
+        "name": "Hyssing eller bånd",
+        "hint": "For å henge opp eller knyte rundt en gave"
+      },
+      "fi": {
+        "name": "Naru tai nauha",
+        "hint": "Ripustamiseen tai lahjan ympärille sitomiseen"
       }
     }
   },
@@ -483,6 +671,22 @@
       "pt": {
         "name": "Tinta e uma esponjinha",
         "hint": "Guache ou aquarela, para carimbar ou pintar"
+      },
+      "sv": {
+        "name": "Färg och en svamp",
+        "hint": "Plakatfärg eller vattenfärg, för att badda eller måla"
+      },
+      "da": {
+        "name": "Maling og en svamp",
+        "hint": "Plakatmaling eller vandfarve til at duppe eller male med"
+      },
+      "nb": {
+        "name": "Maling og en svamp",
+        "hint": "Plakatmaling eller vannfarge, til å duppe eller male"
+      },
+      "fi": {
+        "name": "Maalia ja sieni",
+        "hint": "Peitevärejä tai vesivärejä taputteluun tai maalaamiseen"
       }
     }
   },
@@ -521,6 +725,22 @@
       "pt": {
         "name": "Carimbos e almofada de tinta",
         "hint": "Tinta lavável; você também pode fazer os seus com uma borracha ou uma batata"
+      },
+      "sv": {
+        "name": "Stämplar och stämpeldyna",
+        "hint": "Avtvättbart bläck; du kan också göra egna av ett suddgummi eller en potatis"
+      },
+      "da": {
+        "name": "Stempler og stempelpude",
+        "hint": "Afvaskeligt blæk; du kan også lave dine egne af et viskelæder eller en kartoffel"
+      },
+      "nb": {
+        "name": "Stempler og stempelpute",
+        "hint": "Vaskbart blekk; du kan også lage egne av et viskelær eller en potet"
+      },
+      "fi": {
+        "name": "Leimasimet ja leimasintyyny",
+        "hint": "Pestävää mustetta; voit myös tehdä omat pyyhekumista tai perunasta"
       }
     }
   }

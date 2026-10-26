@@ -7,8 +7,12 @@ import { Disclaimer as it } from "./it";
 import { Disclaimer as nl } from "./nl";
 import { Disclaimer as pl } from "./pl";
 import { Disclaimer as pt } from "./pt";
+import { Disclaimer as sv } from "./sv";
+import { Disclaimer as da } from "./da";
+import { Disclaimer as nb } from "./nb";
+import { Disclaimer as fi } from "./fi";
 import type { DisclaimerProps } from "./types";
 
-const all: Record<string, ComponentType<DisclaimerProps>> = { nl, de, en, es, fr, it, pl, pt };
+const all: Record<string, ComponentType<DisclaimerProps>> = { nl, de, en, es, fr, it, pl, pt, sv, da, nb, fi };
 /** De disclaimer in de taal van de markt; zonder vertaling de Nederlandse. */
 export const disclaimer = (language: string): ComponentType<DisclaimerProps> => all[language] ?? nl;

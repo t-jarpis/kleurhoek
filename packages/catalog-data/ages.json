@@ -36,6 +36,22 @@
       "pt": {
         "name": "2–4 anos",
         "hint": "Áreas grandes e linhas grossas. Ótimo para os primeiros gizes de cera."
+      },
+      "sv": {
+        "name": "2–4 år",
+        "hint": "Stora fält och tjocka linjer. Bra för de första kritorna."
+      },
+      "da": {
+        "name": "2–4 år",
+        "hint": "Store felter og tykke streger. Godt til de første farvekridt."
+      },
+      "nb": {
+        "name": "2–4 år",
+        "hint": "Store felt og tykke streker. Bra for de første fargestiftene."
+      },
+      "fi": {
+        "name": "2–4 vuotta",
+        "hint": "Isoja alueita ja paksuja viivoja. Hyvä ensimmäisille väriliiduille."
       }
     }
   },
@@ -76,6 +92,22 @@
       "pt": {
         "name": "4–6 anos",
         "hint": "Mais áreas, mas ainda amplas. Ótimo para a pré-escola."
+      },
+      "sv": {
+        "name": "4–6 år",
+        "hint": "Fler fält, fortfarande rymligt. Bra för förskolebarn."
+      },
+      "da": {
+        "name": "4–6 år",
+        "hint": "Flere felter, stadig god plads. Godt til børnehavebørn."
+      },
+      "nb": {
+        "name": "4–6 år",
+        "hint": "Flere felt, fortsatt god plass. Fint for barnehagebarn."
+      },
+      "fi": {
+        "name": "4–6 vuotta",
+        "hint": "Enemmän alueita, silti väljästi. Sopii leikki-ikäisille."
       }
     }
   },
@@ -116,6 +148,22 @@
       "pt": {
         "name": "6–9 anos",
         "hint": "Detalhes menores para colorir sem sair das linhas."
+      },
+      "sv": {
+        "name": "6–9 år",
+        "hint": "Mindre detaljer för att hålla sig snyggt innanför linjerna."
+      },
+      "da": {
+        "name": "6–9 år",
+        "hint": "Mindre detaljer, så man kan holde sig pænt inden for stregerne."
+      },
+      "nb": {
+        "name": "6–9 år",
+        "hint": "Mindre detaljer for å holde seg pent innenfor strekene."
+      },
+      "fi": {
+        "name": "6–9 vuotta",
+        "hint": "Pienempiä yksityiskohtia, jotta voi värittää siististi viivojen sisäpuolelle."
       }
     }
   },
@@ -156,6 +204,22 @@
       "pt": {
         "name": "9+ anos",
         "hint": "Muitas áreas pequenas e linhas finas. Divertido também para adultos."
+      },
+      "sv": {
+        "name": "9+ år",
+        "hint": "Många små fält och tunna linjer. Kul för vuxna också."
+      },
+      "da": {
+        "name": "9+ år",
+        "hint": "Mange små felter og tynde streger. Også sjovt for voksne."
+      },
+      "nb": {
+        "name": "9+ år",
+        "hint": "Mange små felt og tynne streker. Gøy for voksne også."
+      },
+      "fi": {
+        "name": "9+ vuotta",
+        "hint": "Paljon pieniä alueita ja ohuita viivoja. Hauskaa myös aikuisille."
       }
     }
   },
@@ -196,6 +260,22 @@
       "pt": {
         "name": "12+ anos",
         "hint": "Linhas finas e muitos detalhes. Para adolescentes, adultos e quem já tem prática em trabalhos manuais."
+      },
+      "sv": {
+        "name": "12+ år",
+        "hint": "Fina linjer och många detaljer. För tonåringar, vuxna och vana pysslare."
+      },
+      "da": {
+        "name": "12+ år",
+        "hint": "Fine streger og mange detaljer. Til teenagere, voksne og øvede hobbyfolk."
+      },
+      "nb": {
+        "name": "12+ år",
+        "hint": "Fine streker og mange detaljer. For tenåringer, voksne og øvede hobbyentusiaster."
+      },
+      "fi": {
+        "name": "12+ vuotta",
+        "hint": "Hienoja viivoja ja paljon yksityiskohtia. Nuorille, aikuisille ja kokeneille askartelijoille."
       }
     }
   }
