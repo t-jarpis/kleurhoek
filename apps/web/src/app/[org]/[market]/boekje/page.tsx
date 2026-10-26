@@ -10,7 +10,7 @@ import { messages } from "@/i18n/nl";
 import { getOrg } from "@/lib/org";
 
 export async function generateMetadata({ params }: { params: Promise<{ market: string }> }): Promise<Metadata> {
-  const t = messages(marketLanguage((await params).market));
+  const t = messages((await params).market);
   return { title: t.metaBook, robots: { index: false } };
 }
 
@@ -24,7 +24,7 @@ export default async function BookPage({ params, searchParams }: { params: Promi
   if (!org) notFound();
   const slugs = parseBook((await searchParams).platen);
   const language = marketLanguage(market);
-  const t = messages(language);
+  const t = messages(market);
 
   const taxonomy = await api.taxonomy(market, orgSlug).catch((e) => { if (e instanceof NotFound) notFound(); throw e; });
   const load = async (slug: string): Promise<BookPlate | null> => {

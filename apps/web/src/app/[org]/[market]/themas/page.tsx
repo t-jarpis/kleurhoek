@@ -15,7 +15,7 @@ import { pageMeta } from "@/lib/seo";
 export const revalidate = 300;
 export async function generateMetadata({ params }: { params: Promise<{ org: string; market: string }> }): Promise<Metadata> {
   const { org, market } = await params;
-  const t = messages(marketLanguage(market));
+  const t = messages(market);
   return { title: t.themesTitle, description: t.metaThemes, ...pageMeta(await getOrg(org), market, "/themas") };
 }
 
@@ -25,7 +25,7 @@ export default async function ThemesPage({ params }: { params: Promise<{ org: st
   const org = await getOrg(slug);
   if (!org) notFound();
   const base = baseFor(org, market);
-  const t = messages(marketLanguage(market));
+  const t = messages(market);
   const themes = await api.themes(market, slug).catch((e) => { if (e instanceof NotFound) notFound(); throw e; });
   return (
     <div className="wrap" data-mode="ouder">

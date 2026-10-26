@@ -40,7 +40,7 @@ export default async function Home({ params }: { params: Promise<{ org: string; 
   if (!org) notFound();
   const base = baseFor(org, market);
   const language = marketLanguage(market);
-  const t = messages(language);
+  const t = messages(market);
   const [plates, taxonomy, season] = await Promise.all([api.plates(market, slug), api.taxonomy(market, slug), api.season(market, slug)]).catch((e) => {
     if (e instanceof NotFound) notFound();
     throw e;

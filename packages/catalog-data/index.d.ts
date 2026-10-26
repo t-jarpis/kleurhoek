@@ -52,6 +52,7 @@ export function ages(): AgeSource[];
 export function continents(): ContinentSource[];
 export function holidays(): HolidaySource[];
 export function seasons(): SeasonSource[];
+export function seo(): Record<string, { title: string; description: string }>;
 export function colors(): ColorSource[];
 export function materials(): MaterialSource[];
 export function plateSvg(slug: string): string;

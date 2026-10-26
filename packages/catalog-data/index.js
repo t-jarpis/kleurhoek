@@ -28,6 +28,8 @@ module.exports = {
   continents: () => read("continents.json"),
   holidays: () => read("holidays.json"),
   seasons: () => read("seasons.json"),
+  /** Standaardtitel en -omschrijving van de voorpagina per markt voor zoekmachines (ADR 0047). */
+  seo: () => read("seo.json"),
   colors: () => read("colors.json"),
   materials: () => read("materials.json"),
   plateSvg: (slug) => fs.readFileSync(path.join(__dirname, "plates", `${slug}.svg`), "utf8").trim(),

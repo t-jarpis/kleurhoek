@@ -7,7 +7,7 @@ import { ENV, type Env } from "../../config/env";
 import { DB, type Database } from "../../db/database";
 import { withTenant } from "../../db/tenant";
 import { accentProblem, HEX, primaryProblem } from "../../shared/contrast";
-import { GOALS } from "@kleurhoek/catalog-data";
+import { GOALS, seo as seoDefaults } from "@kleurhoek/catalog-data";
 import { AuditService } from "../identity/audit.service";
 import { IdentityService } from "../identity/identity.service";
 import { CatalogService } from "../catalog/catalog.service";
@@ -75,6 +75,27 @@ export class OrganizationsService implements OnModuleInit {
       tenantId: this.tenant, slug: DEFAULT_SLUG, name: "Kleurhoek", kind: "platform", isDefault: true,
       brand: emptyBrand(), offer: allOffer(), features: defaultFeatures(),
     }).onConflictDoNothing());
+    await this.fillSeoDefaults();
+  }
+
+  /**
+   * Standaardtitel en -omschrijving van de voorpagina per markt (catalog-data/seo.json, ADR 0047). Alleen voor
+   * markten waar in het admin panel nog niets staat: wat daar is ingevuld, blijft staan. Beide velden leeg maken
+   * zet de standaard bij de volgende start terug.
+   */
+  async fillSeoDefaults(): Promise<void> {
+    await withTenant(this.db, this.tenant, async (tx) => {
+      const [org] = await tx.select({ id: organizations.id, seo: organizations.seo }).from(organizations)
+        .where(and(eq(organizations.tenantId, this.tenant), eq(organizations.isDefault, true))).limit(1);
+      if (!org) return;
+      const seo = { ...emptySeo(), ...(org.seo ?? {}) };
+      const missing = Object.entries(seoDefaults()).filter(([m]) => !seo.home[m]?.title && !seo.home[m]?.description);
+      if (!missing.length) return;
+      const next = { ...seo, home: { ...seo.home, ...Object.fromEntries(missing.map(([m, h]) => [m, { title: h.title, description: h.description }])) } };
+      await tx.update(organizations).set({ seo: next, updatedBy: "systeem", updatedAt: new Date() }).where(eq(organizations.id, org.id));
+      await this.audit.record(tx, this.tenant, { actor: "systeem", action: "seo.defaults", subject: `organization:${DEFAULT_SLUG}`, before: org.seo, after: next });
+    });
+    this.cache = null;
   }
 
   private toModel(r: typeof organizations.$inferSelect): Organization {

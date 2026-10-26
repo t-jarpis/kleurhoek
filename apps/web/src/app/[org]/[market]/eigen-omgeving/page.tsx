@@ -14,7 +14,7 @@ import { sendOrgRequest } from "./actions";
 
 export async function generateMetadata({ params }: { params: Promise<{ org: string; market: string }> }): Promise<Metadata> {
   const { org, market } = await params;
-  const t = messages(marketLanguage(market));
+  const t = messages(market);
   return { title: t.metaOwnTitle, description: t.metaOwn, ...pageMeta(await getOrg(org), market, "/eigen-omgeving") };
 }
 
@@ -24,7 +24,7 @@ export default async function OwnSpacePage({ params }: { params: Promise<{ org: 
   const org = await getOrg(slug);
   if (!org?.isDefault) notFound();
   const base = baseFor(org, market);
-  const t = messages(marketLanguage(market));
+  const t = messages(market);
   return (
     <div className="wrap narrow" data-mode="ouder">
       <Track event={{ type: "page_view", market, page: "eigen-omgeving" }} />

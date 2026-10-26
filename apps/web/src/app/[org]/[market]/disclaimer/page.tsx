@@ -14,7 +14,7 @@ import { pageMeta } from "@/lib/seo";
 export const revalidate = 3600;
 export async function generateMetadata({ params }: { params: Promise<{ org: string; market: string }> }): Promise<Metadata> {
   const { org, market } = await params;
-  const t = messages(marketLanguage(market));
+  const t = messages(market);
   return { title: t.disclaimer, description: t.metaDisclaimer, ...pageMeta(await getOrg(org), market, "/disclaimer") };
 }
 
@@ -24,7 +24,7 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ org
   const org = await getOrg(slug);
   if (!org) notFound();
   const base = baseFor(org, market);
-  const t = messages(marketLanguage(market));
+  const t = messages(market);
   const Disclaimer = disclaimer(marketLanguage(market));
   const contact = (topic?: string) => link(base, `/contact${topic ? `?onderwerp=${topic}` : ""}`);
   return (

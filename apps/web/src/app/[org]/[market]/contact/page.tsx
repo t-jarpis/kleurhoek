@@ -14,7 +14,7 @@ import { sendContact } from "./actions";
 
 export async function generateMetadata({ params }: { params: Promise<{ org: string; market: string }> }): Promise<Metadata> {
   const { org, market } = await params;
-  const t = messages(marketLanguage(market));
+  const t = messages(market);
   return { title: t.contact, description: t.metaContact, ...pageMeta(await getOrg(org), market, "/contact") };
 }
 
@@ -26,7 +26,7 @@ export default async function ContactPage({ params, searchParams }: { params: Pr
   const org = await getOrg(slug);
   if (!org) notFound();
   const base = baseFor(org, market);
-  const t = messages(marketLanguage(market));
+  const t = messages(market);
   return (
     <div className="wrap narrow" data-mode="ouder">
       <Track event={{ type: "page_view", market, page: "contact" }} />

@@ -11,7 +11,7 @@ import { notFound } from "next/navigation";
 import { getOrg } from "@/lib/org";
 
 export async function generateMetadata({ params }: { params: Promise<{ market: string }> }): Promise<Metadata> {
-  const t = messages(marketLanguage((await params).market));
+  const t = messages((await params).market);
   return { title: t.account, robots: { index: false } };
 }
 
@@ -20,7 +20,7 @@ export default async function AccountPage({ params }: { params: Promise<{ org: s
   const org = await getOrg(slug);
   if (!org?.features.accounts) notFound();
   const base = baseFor(org, market);
-  const t = messages(marketLanguage(market));
+  const t = messages(market);
   return (
     <div className="wrap narrow" data-mode="ouder">
       <Track event={{ type: "page_view", market, page: "account" }} />

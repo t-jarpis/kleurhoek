@@ -11,7 +11,7 @@ import { notFound } from "next/navigation";
 import { subscribe } from "./actions";
 
 export async function generateMetadata({ params }: { params: Promise<{ market: string }> }): Promise<Metadata> {
-  return { title: messages(marketLanguage((await params).market)).mlPrefsTitle, robots: { index: false, follow: false } };
+  return { title: messages((await params).market).mlPrefsTitle, robots: { index: false, follow: false } };
 }
 
 /** Mail (ADR 0037): met een link uit een mail de voorkeuren of afmelden, anders aanmelden. */
@@ -21,7 +21,7 @@ export default async function MailPage({ params, searchParams }: { params: Promi
   if (!org?.isDefault) notFound();
   const base = baseFor(org, market);
   const language = marketLanguage(market);
-  const t = messages(language);
+  const t = messages(market);
   return (
     <div className="wrap narrow" data-mode="ouder">
       <header className="mast"><Logo market={market} org={org} /><a className="btn" href={link(base)}>{t.back}</a></header>

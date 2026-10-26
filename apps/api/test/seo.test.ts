@@ -1,4 +1,5 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { OrganizationsService } from "../src/modules/organizations/organizations.service";
 import { createTestApp } from "./app";
 
 describe("vindbaarheid (ADR 0035)", () => {
@@ -6,6 +7,13 @@ describe("vindbaarheid (ADR 0035)", () => {
   const admin = { authorization: "Bearer beheerder" };
   beforeAll(async () => { ctx = await createTestApp(); });
   afterAll(async () => { await ctx.app.close(); });
+
+  it("vult de voorpagina per markt standaard in (ADR 0047)", async () => {
+    const r = (await ctx.http.inject({ method: "GET", url: "/v1/admin/seo", headers: admin })).json();
+    expect(r.settings.home["de-DE"].title).toContain("Ausmalbilder");
+    expect(r.settings.home["en-US"].title).toContain("coloring");
+    expect(Object.keys(r.settings.home)).toHaveLength(14);
+  });
 
   it("toont de stand per markt en bewaart instellingen; alleen Kleurhoek zelf deelt ze met de website", async () => {
     const r = (await ctx.http.inject({ method: "GET", url: "/v1/admin/seo", headers: admin })).json();
@@ -21,5 +29,12 @@ describe("vindbaarheid (ADR 0035)", () => {
     expect(ok.json()).toMatchObject({ googleVerification: "abcDEF123_-xyz", bingVerification: null });
     const analist = await ctx.http.inject({ method: "PUT", url: "/v1/admin/seo", headers: { authorization: "Bearer analist" }, payload: { googleVerification: null, bingVerification: null, home: {} } });
     expect(analist.statusCode).toBe(403);
+  });
+
+  it("laat ingevulde teksten staan bij een nieuwe start", async () => {
+    const orgs = ctx.app.get(OrganizationsService);
+    await orgs.fillSeoDefaults();
+    const r = (await ctx.http.inject({ method: "GET", url: "/v1/admin/seo", headers: admin })).json();
+    expect(r.settings.home["nl-NL"].title).toBe("Kleurplaten om te printen");
   });
 });

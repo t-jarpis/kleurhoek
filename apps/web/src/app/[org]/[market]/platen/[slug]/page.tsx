@@ -28,10 +28,12 @@ async function load(org: string, market: string, slug: string) {
 export async function generateMetadata({ params }: { params: Promise<{ org: string; market: string; slug: string }> }): Promise<Metadata> {
   const { org, market, slug } = await params;
   const { plate } = await load(org, market, slug);
-  const t = messages(marketLanguage(market));
-  const description = t.metaPlate(plate.name, t.kindNames[plate.kind] ?? t.kindNames.kleurplaat!);
+  const t = messages(market);
+  const kind = t.kindNames[plate.kind] ?? t.kindNames.kleurplaat!;
+  const description = t.metaPlate(plate.name, kind);
+  const title = t.metaPlateTitle(plate.name, kind);
   const o = await getOrg(org);
-  return { title: plate.name, description, ...pageMeta(o, market, `/platen/${slug}`, false), ...(indexable(o) ? { openGraph: { title: plate.name, description, type: "article" } } : {}) };
+  return { title, description, ...pageMeta(o, market, `/platen/${slug}`, false), ...(indexable(o) ? { openGraph: { title, description, type: "article" } } : {}) };
 }
 
 export default async function PlatePage({ params }: { params: Promise<{ org: string; market: string; slug: string }> }) {
@@ -41,7 +43,7 @@ export default async function PlatePage({ params }: { params: Promise<{ org: str
   const language = marketLanguage(market);
   const o = await getOrg(org);
   const base = baseFor(o, market);
-  const t = messages(language);
+  const t = messages(market);
   return (
     <>
       {indexable(o) && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd({
@@ -51,7 +53,7 @@ export default async function PlatePage({ params }: { params: Promise<{ org: str
       }) }} />}
       <Track event={{ type: "page_view", market, page: "plaat", plate: plate.slug }} />
       <Studio plate={plate} inner={inner} ageWidth={ageWidth} market={market} language={language} accounts={o?.features.accounts ?? false} />
-      <div className="wrap after-studio" data-mode="ouder"><ForParents plate={plate} market={market} t={messages(language)} /><SiteFooter base={base} t={messages(language)} own={o?.isDefault ?? false} /></div>
+      <div className="wrap after-studio" data-mode="ouder"><ForParents plate={plate} market={market} t={messages(market)} /><SiteFooter base={base} t={messages(market)} own={o?.isDefault ?? false} /></div>
     </>
   );
 }

@@ -7,7 +7,7 @@ import { getOrg } from "@/lib/org";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }: { params: Promise<{ market: string }> }): Promise<Metadata> {
-  return { title: messages(marketLanguage((await params).market)).mlConfirmed, robots: { index: false, follow: false } };
+  return { title: messages((await params).market).mlConfirmed, robots: { index: false, follow: false } };
 }
 
 export default async function ConfirmPage({ params, searchParams }: { params: Promise<{ org: string; market: string }>; searchParams: Promise<{ t?: string }> }) {
@@ -15,7 +15,7 @@ export default async function ConfirmPage({ params, searchParams }: { params: Pr
   const org = await getOrg(slug);
   if (!org?.isDefault) notFound();
   const language = marketLanguage(market);
-  const t = messages(language);
+  const t = messages(market);
   return (
     <div className="wrap narrow" data-mode="ouder">
       <header className="mast"><Logo market={market} org={org} /></header>

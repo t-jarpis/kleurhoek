@@ -20,7 +20,8 @@ async function load(org: string, market: string, slug: string) {
 export async function generateMetadata({ params }: { params: Promise<{ org: string; market: string; slug: string }> }): Promise<Metadata> {
   const { org, market, slug } = await params;
   const th = await load(org, market, slug);
-  return { title: `Kleurplaten ${th.name}`, description: th.description ?? `Kleurplaten van ${th.name}, gratis bij ${th.makerName}.`, ...pageMeta(await getOrg(org), market, `/themas/${slug}`, false) };
+  const t = messages(market);
+  return { title: t.metaThemeTitle(th.name), description: th.description ?? t.metaTheme(th.name, th.makerName), ...pageMeta(await getOrg(org), market, `/themas/${slug}`, false) };
 }
 
 const Arrow = () => <svg className="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>;
@@ -34,7 +35,7 @@ export default async function ThemePage({ params }: { params: Promise<{ org: str
   const org = await getOrg(orgSlug);
   if (!org) notFound();
   const base = baseFor(org, market);
-  const t = messages(marketLanguage(market));
+  const t = messages(market);
   const th = await load(orgSlug, market, slug);
   return (
     <div className="wrap narrow" data-mode="ouder">

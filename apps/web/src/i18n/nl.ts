@@ -90,6 +90,9 @@ export const nl = {
   orgName: "Naam van de organisatie", orgKind: "Soort organisatie",
   orgKinds: { school: "School", opvang: "Kinderopvang of bso", vereniging: "Vereniging", bedrijf: "Bedrijf", overig: "Anders" } as Record<string, string>,
   orgCode: "Gewenst adres", orgCodeHint: "Wordt {host}. Kleine letters, cijfers en streepjes.", orgCodeExample: "jouw-naam", and: "en",
+  metaPlateTitle: (name: string, kind: string) => `${name} – ${kind.toLowerCase()}`,
+  metaThemeTitle: (name: string) => `Kleurplaten ${name}`,
+  metaTheme: (name: string, maker: string) => `Kleurplaten van ${name}, gratis bij ${maker}.`,
   metaPlate: (name: string, kind: string) => `${kind} ${name}: gratis online inkleuren of printen op A4.`,
   mlTitle: "Mail mij als er iets nieuws is", mlIntro: "Nieuwe platen, op tijd voor een feestdag, of af en toe een nieuwsbrief. Afmelden kan met één klik.", mlEmail: "E-mailadres", mlTopics: "Waarover?", mlTopicNames: {"nieuwe-platen": "Nieuwe platen (hooguit één keer per week)", "feestdagen": "Platen voor een feestdag die eraan komt", "nieuwsbrief": "De nieuwsbrief (af en toe)"} as Record<string, string>, mlAdult: "Ik ben 16 jaar of ouder", mlSubmit: "Aanmelden", mlSending: "Aanmelden…", mlPrivacy: "We gebruiken je adres alleen voor deze mails.", mlCheckTitle: "Kijk in je mail", mlCheckText: "We hebben je een mail gestuurd. Klik op de knop daarin om je aanmelding te bevestigen.", mlError: "Dat lukte niet. Controleer je e-mailadres, kies een onderwerp en zet het vinkje.", mlBusy: "Even te vaak geprobeerd. Probeer het straks opnieuw.", mlConfirming: "Je aanmelding wordt bevestigd…", mlConfirmed: "Je bent aangemeld", mlConfirmedText: "Je krijgt voortaan onze mails. Afmelden kan onderaan elke mail.", mlConfirmInvalid: "Deze link werkt niet meer. Meld je opnieuw aan; de link in de mail werkt 7 dagen.", mlPrefsTitle: "Je mail-instellingen", mlPrefsFor: "Voor", mlSave: "Opslaan", mlSaved: "Opgeslagen.", mlUnsubscribe: "Afmelden voor alle mails", mlUnsubscribeSure: "Weet je het zeker? Klik nog een keer om je af te melden.", mlUnsubscribed: "Je bent afgemeld", mlUnsubscribedText: "Je krijgt geen mails meer van ons, en je adres is verwijderd.", mlLinkInvalid: "Deze link werkt niet meer. Gebruik de link onderaan je laatste mail.", mlAccount: "Mail", mlAccountHint: "Kies welke mails je op je e-mailadres wilt krijgen. Niets aangevinkt: geen mails.",
   favSave: "Bewaar", favSaved: "Favoriet", favorites: "Favorieten", favLoginLink: "Log in", favLoginHint: "om je favorieten op al je apparaten te bewaren.", accBenefitsTitle: "Wat je met een account kunt", accFavorites: "Bekijk je favorieten",
@@ -118,4 +121,27 @@ type Widen<T> = T extends string ? string
 export type Messages = Widen<typeof nl>;
 // Elke taal een eigen bestand met dezelfde sleutels (ADR 0029). Alleen type-imports terug naar nl.ts.
 const all: Record<string, Messages> = { nl, de, en, es, fr, it, pl };
-export const messages = (language: string): Messages => all[language] ?? nl;
+
+/** Zelfde teksten met een andere schrijfwijze: elke tekst (ook wat een functie teruggeeft) gaat door `fix`. */
+function variant<T>(value: T, fix: (s: string) => string): T {
+  if (typeof value === "string") return fix(value) as T;
+  if (typeof value === "function") return ((...a: unknown[]) => variant((value as (...a: unknown[]) => unknown)(...a), fix)) as T;
+  if (Array.isArray(value)) return value.map((v) => variant(v, fix)) as T;
+  if (value && typeof value === "object") return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, variant(v, fix)])) as T;
+  return value;
+}
+/** Amerikaanse spelling en Letter-papier voor en-US (ADR 0047). */
+export const usSpelling = (s: string) => s
+  .replace(/([Cc])olour/g, "$1olor").replace(/([Ff])avourite/g, "$1avorite").replace(/([Oo])rganisation/g, "$1rganization")
+  .replace(/on A4\b/g, "on letter paper").replace(/A4 sheet/g, "letter-size sheet").replace(/\bA4\b/g, "letter");
+/** Zwitsers Duits schrijft geen ß (ADR 0047). */
+export const swissSpelling = (s: string) => s.replace(/ß/g, "ss");
+// Varianten per markt: de sleutel is de marktcode, de taal is de terugval.
+all["en-us"] = variant(en, usSpelling);
+all["de-ch"] = variant(de, swissSpelling);
+
+/** Teksten voor een markt ("en-us") of een taal ("en"). Een markt zonder eigen variant krijgt zijn taal. */
+export const messages = (marketOrLanguage: string): Messages => {
+  const k = marketOrLanguage.toLowerCase();
+  return all[k] ?? all[k.slice(0, 2)] ?? nl;
+};
