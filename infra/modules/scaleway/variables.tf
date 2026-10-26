@@ -22,6 +22,13 @@ variable "hosts" {
   description = "Hostnamen, bijvoorbeeld www.kleurhoek.nl en admin.kleurhoek.nl. De API heeft geen publieke hostnaam."
 }
 
+# Bewuste uitzondering op de markten in de code (ADR 0049), komma-gescheiden. Leeg = de code beslist.
+variable "markets_only" {
+  type    = string
+  default = ""
+}
+
+# Alleen nog voor de rooktests in GitHub (MARKETS); de website leest dit niet.
 variable "markets" {
   type    = string
   default = "nl-nl,nl-be,fr-be,en-gb,de-de,de-at,de-ch,fr-fr,fr-ch,en-us,en-ie,es-es,it-it,pl-pl"

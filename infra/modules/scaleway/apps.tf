@@ -65,8 +65,8 @@ locals {
       timeout = 60
       env = merge({
         NODE_ENV = "production"
-        # Live markten staan in de code (ADR 0044); MARKETS_OVERRIDE alleen voor een bewuste uitzondering.
-        MARKETS_OVERRIDE = var.markets
+        # Live markten staan in de code (ADR 0044, 0049); MARKETS_ONLY alleen voor een bewuste uitzondering.
+        MARKETS_ONLY     = var.markets_only
         SITE_URL         = "https://${var.hosts.site}"
         OIDC_ISSUER      = var.oidc.issuer
         OIDC_CLIENT_ID   = var.oidc.web_client_id

@@ -1,11 +1,12 @@
 /**
  * Markten die live staan (ADR 0040, 0044): Nederland, België (Nederlands en Frans) en het Verenigd Koninkrijk
  * (Engels, op kleurhoek.com/en-gb). De code is de bron: een nieuwe markt gaat live met de release, zonder
- * infra-run. Alleen bij uitzondering te overschrijven met MARKETS_OVERRIDE (tijdens het draaien, niet bij het
- * bouwen: één image voor dev en prod). Het oude MARKETS uit Terraform wordt bewust niet meer gelezen.
+ * infra-run. Alleen bij uitzondering te beperken met MARKETS_ONLY (tijdens het draaien, niet bij het bouwen: één
+ * image voor dev en prod). MARKETS_OVERRIDE en MARKETS worden bewust niet gelezen: Terraform zette daar de oude lijst
+ * in, waardoor nieuwe markten op productie 404 gaven tot de volgende infra-run (ADR 0049).
  */
 export const DEFAULT_MARKETS = "nl-nl,nl-be,fr-be,en-gb,de-de,de-at,de-ch,fr-fr,fr-ch,en-us,en-ie,es-es,it-it,pl-pl";
-export const LIVE_MARKETS = (process.env.MARKETS_OVERRIDE || DEFAULT_MARKETS).split(",").map((m) => m.trim().toLowerCase()).filter(Boolean);
+export const LIVE_MARKETS = (process.env.MARKETS_ONLY || DEFAULT_MARKETS).split(",").map((m) => m.trim().toLowerCase()).filter(Boolean);
 
 export function bestMarket(country: string | null, acceptLanguage: string | null, live: string[] = LIVE_MARKETS): string {
   const LIVE = live.length ? live : LIVE_MARKETS;
