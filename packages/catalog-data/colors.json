@@ -38,6 +38,21 @@
       },
       "fi": {
         "name": "punainen"
+      },
+      "cs": {
+        "name": "červená"
+      },
+      "sk": {
+        "name": "červená"
+      },
+      "hu": {
+        "name": "piros"
+      },
+      "ro": {
+        "name": "roșu"
+      },
+      "el": {
+        "name": "κόκκινο"
       }
     }
   },
@@ -80,6 +95,21 @@
       },
       "fi": {
         "name": "oranssi"
+      },
+      "cs": {
+        "name": "oranžová"
+      },
+      "sk": {
+        "name": "oranžová"
+      },
+      "hu": {
+        "name": "narancssárga"
+      },
+      "ro": {
+        "name": "portocaliu"
+      },
+      "el": {
+        "name": "πορτοκαλί"
       }
     }
   },
@@ -122,6 +152,21 @@
       },
       "fi": {
         "name": "keltainen"
+      },
+      "cs": {
+        "name": "žlutá"
+      },
+      "sk": {
+        "name": "žltá"
+      },
+      "hu": {
+        "name": "sárga"
+      },
+      "ro": {
+        "name": "galben"
+      },
+      "el": {
+        "name": "κίτρινο"
       }
     }
   },
@@ -164,6 +209,21 @@
       },
       "fi": {
         "name": "vaaleanvihreä"
+      },
+      "cs": {
+        "name": "světle zelená"
+      },
+      "sk": {
+        "name": "svetlozelená"
+      },
+      "hu": {
+        "name": "világoszöld"
+      },
+      "ro": {
+        "name": "verde deschis"
+      },
+      "el": {
+        "name": "ανοιχτό πράσινο"
       }
     }
   },
@@ -206,6 +266,21 @@
       },
       "fi": {
         "name": "vihreä"
+      },
+      "cs": {
+        "name": "zelená"
+      },
+      "sk": {
+        "name": "zelená"
+      },
+      "hu": {
+        "name": "zöld"
+      },
+      "ro": {
+        "name": "verde"
+      },
+      "el": {
+        "name": "πράσινο"
       }
     }
   },
@@ -248,6 +323,21 @@
       },
       "fi": {
         "name": "turkoosi"
+      },
+      "cs": {
+        "name": "tyrkysová"
+      },
+      "sk": {
+        "name": "tyrkysová"
+      },
+      "hu": {
+        "name": "türkiz"
+      },
+      "ro": {
+        "name": "turcoaz"
+      },
+      "el": {
+        "name": "τιρκουάζ"
       }
     }
   },
@@ -290,6 +380,21 @@
       },
       "fi": {
         "name": "vaaleansininen"
+      },
+      "cs": {
+        "name": "světle modrá"
+      },
+      "sk": {
+        "name": "svetlomodrá"
+      },
+      "hu": {
+        "name": "világoskék"
+      },
+      "ro": {
+        "name": "albastru deschis"
+      },
+      "el": {
+        "name": "γαλάζιο"
       }
     }
   },
@@ -332,6 +437,21 @@
       },
       "fi": {
         "name": "sininen"
+      },
+      "cs": {
+        "name": "modrá"
+      },
+      "sk": {
+        "name": "modrá"
+      },
+      "hu": {
+        "name": "kék"
+      },
+      "ro": {
+        "name": "albastru"
+      },
+      "el": {
+        "name": "μπλε"
       }
     }
   },
@@ -374,6 +494,21 @@
       },
       "fi": {
         "name": "violetti"
+      },
+      "cs": {
+        "name": "fialová"
+      },
+      "sk": {
+        "name": "fialová"
+      },
+      "hu": {
+        "name": "lila"
+      },
+      "ro": {
+        "name": "mov"
+      },
+      "el": {
+        "name": "μωβ"
       }
     }
   },
@@ -416,6 +551,21 @@
       },
       "fi": {
         "name": "pinkki"
+      },
+      "cs": {
+        "name": "růžová"
+      },
+      "sk": {
+        "name": "ružová"
+      },
+      "hu": {
+        "name": "rózsaszín"
+      },
+      "ro": {
+        "name": "roz"
+      },
+      "el": {
+        "name": "ροζ"
       }
     }
   },
@@ -458,6 +608,21 @@
       },
       "fi": {
         "name": "vaaleanpunainen"
+      },
+      "cs": {
+        "name": "světle růžová"
+      },
+      "sk": {
+        "name": "svetloružová"
+      },
+      "hu": {
+        "name": "világos rózsaszín"
+      },
+      "ro": {
+        "name": "roz deschis"
+      },
+      "el": {
+        "name": "ανοιχτό ροζ"
       }
     }
   },
@@ -500,6 +665,21 @@
       },
       "fi": {
         "name": "ruskea"
+      },
+      "cs": {
+        "name": "hnědá"
+      },
+      "sk": {
+        "name": "hnedá"
+      },
+      "hu": {
+        "name": "barna"
+      },
+      "ro": {
+        "name": "maro"
+      },
+      "el": {
+        "name": "καφέ"
       }
     }
   },
@@ -542,6 +722,21 @@
       },
       "fi": {
         "name": "harmaa"
+      },
+      "cs": {
+        "name": "šedá"
+      },
+      "sk": {
+        "name": "sivá"
+      },
+      "hu": {
+        "name": "szürke"
+      },
+      "ro": {
+        "name": "gri"
+      },
+      "el": {
+        "name": "γκρι"
       }
     }
   },
@@ -584,6 +779,21 @@
       },
       "fi": {
         "name": "musta"
+      },
+      "cs": {
+        "name": "černá"
+      },
+      "sk": {
+        "name": "čierna"
+      },
+      "hu": {
+        "name": "fekete"
+      },
+      "ro": {
+        "name": "negru"
+      },
+      "el": {
+        "name": "μαύρο"
       }
     }
   }

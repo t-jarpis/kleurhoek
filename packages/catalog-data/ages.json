@@ -52,6 +52,26 @@
       "fi": {
         "name": "2–4 vuotta",
         "hint": "Isoja alueita ja paksuja viivoja. Hyvä ensimmäisille väriliiduille."
+      },
+      "cs": {
+        "name": "2–4 roky",
+        "hint": "Velké plochy a silné čáry. Ideální na první pastelky."
+      },
+      "sk": {
+        "name": "2–4 roky",
+        "hint": "Veľké plochy a hrubé čiary. Ideálne na prvé voskovky."
+      },
+      "hu": {
+        "name": "2–4 év",
+        "hint": "Nagy mezők és vastag vonalak. Jó az első zsírkrétákhoz."
+      },
+      "ro": {
+        "name": "2–4 ani",
+        "hint": "Zone mari și linii groase. Bune pentru primele creioane cerate."
+      },
+      "el": {
+        "name": "2–4 ετών",
+        "hint": "Μεγάλες επιφάνειες και χοντρές γραμμές. Ιδανικές για τις πρώτες κηρομπογιές."
       }
     }
   },
@@ -108,6 +128,26 @@
       "fi": {
         "name": "4–6 vuotta",
         "hint": "Enemmän alueita, silti väljästi. Sopii leikki-ikäisille."
+      },
+      "cs": {
+        "name": "4–6 let",
+        "hint": "Víc ploch, ale pořád dost prostoru. Skvělé pro předškoláky."
+      },
+      "sk": {
+        "name": "4–6 rokov",
+        "hint": "Viac plôch, ale stále dosť priestoru. Skvelé pre predškolákov."
+      },
+      "hu": {
+        "name": "4–6 év",
+        "hint": "Több mező, de még mindig tágas. Ovisoknak remek."
+      },
+      "ro": {
+        "name": "4–6 ani",
+        "hint": "Mai multe zone, dar tot încăpătoare. Potrivite pentru preșcolari."
+      },
+      "el": {
+        "name": "4–6 ετών",
+        "hint": "Περισσότερες επιφάνειες, αλλά ακόμα ευρύχωρες. Ωραίες για νήπια."
       }
     }
   },
@@ -164,6 +204,26 @@
       "fi": {
         "name": "6–9 vuotta",
         "hint": "Pienempiä yksityiskohtia, jotta voi värittää siististi viivojen sisäpuolelle."
+      },
+      "cs": {
+        "name": "6–9 let",
+        "hint": "Menší detaily, abys pěkně zůstal(a) v čarách."
+      },
+      "sk": {
+        "name": "6–9 rokov",
+        "hint": "Menšie detaily, aby si pekne zostal(a) v čiarach."
+      },
+      "hu": {
+        "name": "6–9 év",
+        "hint": "Kisebb részletek, hogy szépen a vonalakon belül maradj."
+      },
+      "ro": {
+        "name": "6–9 ani",
+        "hint": "Detalii mai mici, ca să colorezi frumos în interiorul liniilor."
+      },
+      "el": {
+        "name": "6–9 ετών",
+        "hint": "Μικρότερες λεπτομέρειες, για να χρωματίζεις προσεκτικά μέσα στις γραμμές."
       }
     }
   },
@@ -220,6 +280,26 @@
       "fi": {
         "name": "9+ vuotta",
         "hint": "Paljon pieniä alueita ja ohuita viivoja. Hauskaa myös aikuisille."
+      },
+      "cs": {
+        "name": "9+ let",
+        "hint": "Hodně malých ploch a tenké čáry. Baví i dospělé."
+      },
+      "sk": {
+        "name": "9+ rokov",
+        "hint": "Veľa malých plôch a tenké čiary. Baví aj dospelých."
+      },
+      "hu": {
+        "name": "9+ év",
+        "hint": "Sok apró mező és vékony vonalak. Felnőtteknek is jó móka."
+      },
+      "ro": {
+        "name": "9+ ani",
+        "hint": "Multe zone mici și linii subțiri. Plăcute și pentru adulți."
+      },
+      "el": {
+        "name": "9+ ετών",
+        "hint": "Πολλές μικρές επιφάνειες και λεπτές γραμμές. Ωραίες και για μεγάλους."
       }
     }
   },
@@ -276,6 +356,26 @@
       "fi": {
         "name": "12+ vuotta",
         "hint": "Hienoja viivoja ja paljon yksityiskohtia. Nuorille, aikuisille ja kokeneille askartelijoille."
+      },
+      "cs": {
+        "name": "12+ let",
+        "hint": "Jemné čáry a spousta detailů. Pro teenagery, dospělé a zkušené tvořitele."
+      },
+      "sk": {
+        "name": "12+ rokov",
+        "hint": "Jemné čiary a veľa detailov. Pre tínedžerov, dospelých a skúsených tvorcov."
+      },
+      "hu": {
+        "name": "12+ év",
+        "hint": "Finom vonalak és sok részlet. Tiniknek, felnőtteknek és gyakorlott barkácsolóknak."
+      },
+      "ro": {
+        "name": "12+ ani",
+        "hint": "Linii fine și multe detalii. Pentru adolescenți, adulți și pasionații de lucru manual."
+      },
+      "el": {
+        "name": "12+ ετών",
+        "hint": "Λεπτές γραμμές και πολλή λεπτομέρεια. Για εφήβους, ενήλικες και έμπειρους χειροτέχνες."
       }
     }
   }

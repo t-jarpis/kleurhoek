@@ -39,6 +39,21 @@
       },
       "fi": {
         "name": "Eläimet"
+      },
+      "cs": {
+        "name": "Zvířata"
+      },
+      "sk": {
+        "name": "Zvieratá"
+      },
+      "hu": {
+        "name": "Állatok"
+      },
+      "ro": {
+        "name": "Animale"
+      },
+      "el": {
+        "name": "Ζώα"
       }
     }
   },
@@ -82,6 +97,21 @@
       },
       "fi": {
         "name": "Kulkuneuvot"
+      },
+      "cs": {
+        "name": "Dopravní prostředky"
+      },
+      "sk": {
+        "name": "Dopravné prostriedky"
+      },
+      "hu": {
+        "name": "Járművek"
+      },
+      "ro": {
+        "name": "Vehicule"
+      },
+      "el": {
+        "name": "Οχήματα"
       }
     }
   },
@@ -125,6 +155,21 @@
       },
       "fi": {
         "name": "Luonto"
+      },
+      "cs": {
+        "name": "Příroda"
+      },
+      "sk": {
+        "name": "Príroda"
+      },
+      "hu": {
+        "name": "Természet"
+      },
+      "ro": {
+        "name": "Natură"
+      },
+      "el": {
+        "name": "Φύση"
       }
     }
   },
@@ -168,6 +213,21 @@
       },
       "fi": {
         "name": "Herkkuja"
+      },
+      "cs": {
+        "name": "Dobroty"
+      },
+      "sk": {
+        "name": "Dobroty"
+      },
+      "hu": {
+        "name": "Finomságok"
+      },
+      "ro": {
+        "name": "Mâncare gustoasă"
+      },
+      "el": {
+        "name": "Νόστιμο φαγητό"
       }
     }
   },
@@ -211,6 +271,21 @@
       },
       "fi": {
         "name": "Avaruus"
+      },
+      "cs": {
+        "name": "Vesmír"
+      },
+      "sk": {
+        "name": "Vesmír"
+      },
+      "hu": {
+        "name": "Világűr"
+      },
+      "ro": {
+        "name": "Spațiu"
+      },
+      "el": {
+        "name": "Διάστημα"
       }
     }
   },
@@ -254,6 +329,21 @@
       },
       "fi": {
         "name": "Juhlapäivät"
+      },
+      "cs": {
+        "name": "Svátky"
+      },
+      "sk": {
+        "name": "Sviatky"
+      },
+      "hu": {
+        "name": "Ünnepek"
+      },
+      "ro": {
+        "name": "Sărbători"
+      },
+      "el": {
+        "name": "Γιορτές"
       }
     }
   },
@@ -297,6 +387,21 @@
       },
       "fi": {
         "name": "Maailma"
+      },
+      "cs": {
+        "name": "Svět"
+      },
+      "sk": {
+        "name": "Svet"
+      },
+      "hu": {
+        "name": "Világ"
+      },
+      "ro": {
+        "name": "Lume"
+      },
+      "el": {
+        "name": "Κόσμος"
       }
     }
   },
@@ -340,6 +445,21 @@
       },
       "fi": {
         "name": "Kuviot"
+      },
+      "cs": {
+        "name": "Vzory"
+      },
+      "sk": {
+        "name": "Vzory"
+      },
+      "hu": {
+        "name": "Minták"
+      },
+      "ro": {
+        "name": "Modele"
+      },
+      "el": {
+        "name": "Μοτίβα"
       }
     }
   },
@@ -383,6 +503,21 @@
       },
       "fi": {
         "name": "Maatila"
+      },
+      "cs": {
+        "name": "Statek"
+      },
+      "sk": {
+        "name": "Farma"
+      },
+      "hu": {
+        "name": "Tanya"
+      },
+      "ro": {
+        "name": "Fermă"
+      },
+      "el": {
+        "name": "Φάρμα"
       }
     }
   },
@@ -426,6 +561,21 @@
       },
       "fi": {
         "name": "Veden alla"
+      },
+      "cs": {
+        "name": "Pod vodou"
+      },
+      "sk": {
+        "name": "Pod vodou"
+      },
+      "hu": {
+        "name": "A víz alatt"
+      },
+      "ro": {
+        "name": "Sub apă"
+      },
+      "el": {
+        "name": "Κάτω από τη θάλασσα"
       }
     }
   },
@@ -469,6 +619,21 @@
       },
       "fi": {
         "name": "Dinosaurukset"
+      },
+      "cs": {
+        "name": "Dinosauři"
+      },
+      "sk": {
+        "name": "Dinosaury"
+      },
+      "hu": {
+        "name": "Dínók"
+      },
+      "ro": {
+        "name": "Dinozauri"
+      },
+      "el": {
+        "name": "Δεινόσαυροι"
       }
     }
   },
@@ -512,6 +677,21 @@
       },
       "fi": {
         "name": "Sadut"
+      },
+      "cs": {
+        "name": "Pohádky"
+      },
+      "sk": {
+        "name": "Rozprávky"
+      },
+      "hu": {
+        "name": "Mesék"
+      },
+      "ro": {
+        "name": "Povești"
+      },
+      "el": {
+        "name": "Παραμύθια"
       }
     }
   },
@@ -555,6 +735,21 @@
       },
       "fi": {
         "name": "Urheilu ja leikit"
+      },
+      "cs": {
+        "name": "Sport a hry"
+      },
+      "sk": {
+        "name": "Šport a hry"
+      },
+      "hu": {
+        "name": "Sport és játék"
+      },
+      "ro": {
+        "name": "Sport și jocuri"
+      },
+      "el": {
+        "name": "Αθλητισμός και παιχνίδι"
       }
     }
   },
@@ -598,6 +793,21 @@
       },
       "fi": {
         "name": "Ammatit"
+      },
+      "cs": {
+        "name": "Povolání"
+      },
+      "sk": {
+        "name": "Povolania"
+      },
+      "hu": {
+        "name": "Foglalkozások"
+      },
+      "ro": {
+        "name": "Meserii"
+      },
+      "el": {
+        "name": "Επαγγέλματα"
       }
     }
   },
@@ -641,6 +851,21 @@
       },
       "fi": {
         "name": "Koti ja lelut"
+      },
+      "cs": {
+        "name": "Domov a hračky"
+      },
+      "sk": {
+        "name": "Domov a hračky"
+      },
+      "hu": {
+        "name": "Otthon és játékok"
+      },
+      "ro": {
+        "name": "Acasă și jucării"
+      },
+      "el": {
+        "name": "Σπίτι και παιχνίδια"
       }
     }
   },
@@ -684,6 +909,21 @@
       },
       "fi": {
         "name": "Muodot ja hahmot"
+      },
+      "cs": {
+        "name": "Tvary a obrazce"
+      },
+      "sk": {
+        "name": "Tvary a útvary"
+      },
+      "hu": {
+        "name": "Formák és alakzatok"
+      },
+      "ro": {
+        "name": "Forme și figuri"
+      },
+      "el": {
+        "name": "Σχήματα και φιγούρες"
       }
     }
   },
@@ -727,6 +967,21 @@
       },
       "fi": {
         "name": "Kirjaimet, numerot ja kello"
+      },
+      "cs": {
+        "name": "Písmena, čísla a hodiny"
+      },
+      "sk": {
+        "name": "Písmená, čísla a hodiny"
+      },
+      "hu": {
+        "name": "Betűk, számok és óra"
+      },
+      "ro": {
+        "name": "Litere, cifre și ceas"
+      },
+      "el": {
+        "name": "Γράμματα, αριθμοί και ρολόι"
       }
     }
   }

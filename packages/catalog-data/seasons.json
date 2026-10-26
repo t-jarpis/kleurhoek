@@ -36,7 +36,18 @@
       "SE",
       "DK",
       "NO",
-      "FI"
+      "FI",
+      "CZ",
+      "SK",
+      "HU",
+      "RO",
+      "MD",
+      "GR",
+      "CY",
+      "MT",
+      "MC",
+      "AD",
+      "SM"
     ],
     "i18n": {
       "nl": {
@@ -74,6 +85,21 @@
       },
       "fi": {
         "name": "Syksy"
+      },
+      "cs": {
+        "name": "Podzim"
+      },
+      "sk": {
+        "name": "Jeseň"
+      },
+      "hu": {
+        "name": "Ősz"
+      },
+      "ro": {
+        "name": "Toamnă"
+      },
+      "el": {
+        "name": "Φθινόπωρο"
       }
     }
   },
@@ -134,6 +160,21 @@
       },
       "fi": {
         "name": "Syksy"
+      },
+      "cs": {
+        "name": "Podzim"
+      },
+      "sk": {
+        "name": "Jeseň"
+      },
+      "hu": {
+        "name": "Ősz"
+      },
+      "ro": {
+        "name": "Toamnă"
+      },
+      "el": {
+        "name": "Φθινόπωρο"
       }
     }
   }

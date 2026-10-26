@@ -126,5 +126,49 @@
   "fi-FI": {
     "title": "Värityskuvat ilmaiseksi tulostettavaksi | Kleurhoek",
     "description": "Yli 1000 omaa värityskuvaa, askartelua ja tehtäväsivua lapsille. Tulosta ilmaiseksi tai väritä netissä, iän ja juhlan mukaan."
+  },
+  "cs-CZ": {
+    "title": "Omalovánky k vytisknutí zdarma | Kleurhoek",
+    "description": "Přes 1000 vlastních omalovánek, vystřihovánek a pracovních listů pro děti. Vytiskni zdarma nebo vybarvuj online, podle věku a svátků."
+  },
+  "sk-SK": {
+    "title": "Omaľovánky na vytlačenie zadarmo | Kleurhoek",
+    "description": "Viac ako 1000 vlastných omaľovánok, vystrihovačiek a pracovných listov pre deti. Vytlač zadarmo alebo vyfarbuj online, podľa veku a sviatkov."
+  },
+  "hu-HU": {
+    "title": "Ingyenes színezők nyomtatásra gyerekeknek | Kleurhoek",
+    "description": "Több mint 1000 saját színező, kivágós és feladatlap gyerekeknek. Nyomtasd ki ingyen vagy színezz online, kor és ünnep szerint."
+  },
+  "ro-RO": {
+    "title": "Planșe de colorat gratuite de printat | Kleurhoek",
+    "description": "Peste 1000 de planșe de colorat, decupaje și fișe de lucru pentru copii. Printează gratuit sau colorează online, după vârstă și sărbătoare."
+  },
+  "ro-MD": {
+    "title": "Desene de colorat gratuite de printat | Kleurhoek",
+    "description": "Peste 1000 de desene de colorat, decupaje și fișe de lucru pentru copii. Printează gratuit sau colorează online, după vârstă și sărbătoare."
+  },
+  "el-GR": {
+    "title": "Ζωγραφιές για ζωγραφική δωρεάν για εκτύπωση | Kleurhoek",
+    "description": "Πάνω από 1000 δικές μας ζωγραφιές, κατασκευές και φύλλα εργασίας για παιδιά. Εκτύπωσε δωρεάν ή ζωγράφισε online, ανά ηλικία και γιορτή."
+  },
+  "el-CY": {
+    "title": "Σελίδες ζωγραφικής δωρεάν για εκτύπωση | Kleurhoek",
+    "description": "Πάνω από 1000 δικές μας ζωγραφιές, κατασκευές και φύλλα εργασίας για παιδιά. Εκτύπωσε δωρεάν ή ζωγράφισε online, ανά ηλικία και γιορτή."
+  },
+  "en-MT": {
+    "title": "Free printable colouring pages for kids | Kleurhoek",
+    "description": "Over 1,000 original colouring pages, crafts and worksheets. Print them for free or colour in online, sorted by age and for every holiday."
+  },
+  "fr-MC": {
+    "title": "Coloriages gratuits à imprimer pour enfants | Kleurhoek",
+    "description": "Plus de 1000 coloriages, bricolages et fiches d'activités inédits pour enfants. À imprimer gratuitement ou à colorier en ligne, par âge et par fête."
+  },
+  "es-AD": {
+    "title": "Dibujos para colorear gratis para imprimir | Kleurhoek",
+    "description": "Más de 1000 dibujos para colorear, manualidades y fichas originales. Imprímelos gratis o coloréalos en línea, por edad y para cada fiesta."
+  },
+  "it-SM": {
+    "title": "Disegni da colorare gratis da stampare | Kleurhoek",
+    "description": "Oltre 1000 disegni da colorare, lavoretti e schede originali. Stampali gratis o colorali online, per età e per ogni festa."
   }
 }

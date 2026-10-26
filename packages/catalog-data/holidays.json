@@ -37,7 +37,18 @@
       "SE",
       "DK",
       "NO",
-      "FI"
+      "FI",
+      "CZ",
+      "SK",
+      "HU",
+      "RO",
+      "MD",
+      "GR",
+      "CY",
+      "MT",
+      "MC",
+      "AD",
+      "SM"
     ],
     "i18n": {
       "nl": {
@@ -75,6 +86,21 @@
       },
       "fi": {
         "name": "Uudenvuodenaatto"
+      },
+      "cs": {
+        "name": "Silvestr a Nový rok"
+      },
+      "sk": {
+        "name": "Silvester a Nový rok"
+      },
+      "hu": {
+        "name": "Szilveszter és újév"
+      },
+      "ro": {
+        "name": "Revelion"
+      },
+      "el": {
+        "name": "Παραμονή Πρωτοχρονιάς"
       }
     },
     "overrides": {}
@@ -107,7 +133,18 @@
       "PT",
       "BR",
       "SE",
-      "FI"
+      "FI",
+      "CZ",
+      "SK",
+      "HU",
+      "RO",
+      "MD",
+      "GR",
+      "CY",
+      "MT",
+      "MC",
+      "AD",
+      "SM"
     ],
     "overrides": {},
     "i18n": {
@@ -146,6 +183,21 @@
       },
       "fi": {
         "name": "Loppiainen"
+      },
+      "cs": {
+        "name": "Tři králové"
+      },
+      "sk": {
+        "name": "Traja králi"
+      },
+      "hu": {
+        "name": "Vízkereszt"
+      },
+      "ro": {
+        "name": "Boboteaza"
+      },
+      "el": {
+        "name": "Θεοφάνια"
       }
     }
   },
@@ -187,7 +239,18 @@
       "SE",
       "DK",
       "NO",
-      "FI"
+      "FI",
+      "CZ",
+      "SK",
+      "HU",
+      "RO",
+      "MD",
+      "GR",
+      "CY",
+      "MT",
+      "MC",
+      "AD",
+      "SM"
     ],
     "i18n": {
       "nl": {
@@ -225,6 +288,21 @@
       },
       "fi": {
         "name": "Kiinalainen uusivuosi"
+      },
+      "cs": {
+        "name": "Čínský Nový rok"
+      },
+      "sk": {
+        "name": "Čínsky Nový rok"
+      },
+      "hu": {
+        "name": "Kínai újév"
+      },
+      "ro": {
+        "name": "Anul Nou Chinezesc"
+      },
+      "el": {
+        "name": "Κινεζική Πρωτοχρονιά"
       }
     },
     "overrides": {}
@@ -267,7 +345,18 @@
       "SE",
       "DK",
       "NO",
-      "FI"
+      "FI",
+      "CZ",
+      "SK",
+      "HU",
+      "RO",
+      "MD",
+      "GR",
+      "CY",
+      "MT",
+      "MC",
+      "AD",
+      "SM"
     ],
     "i18n": {
       "nl": {
@@ -305,6 +394,21 @@
       },
       "fi": {
         "name": "Ystävänpäivä"
+      },
+      "cs": {
+        "name": "Valentýn"
+      },
+      "sk": {
+        "name": "Valentín"
+      },
+      "hu": {
+        "name": "Valentin-nap"
+      },
+      "ro": {
+        "name": "Ziua Îndrăgostiților"
+      },
+      "el": {
+        "name": "Ημέρα του Αγίου Βαλεντίνου"
       }
     },
     "overrides": {
@@ -349,7 +453,16 @@
       "PT",
       "MX",
       "CO",
-      "AR"
+      "AR",
+      "CZ",
+      "SK",
+      "HU",
+      "GR",
+      "CY",
+      "MT",
+      "MC",
+      "AD",
+      "SM"
     ],
     "i18n": {
       "nl": {
@@ -387,9 +500,37 @@
       },
       "fi": {
         "name": "Karnevaali"
+      },
+      "cs": {
+        "name": "Masopust"
+      },
+      "sk": {
+        "name": "Fašiangy"
+      },
+      "hu": {
+        "name": "Farsang"
+      },
+      "ro": {
+        "name": "Carnaval"
+      },
+      "el": {
+        "name": "Απόκριες"
       }
     },
-    "overrides": {}
+    "overrides": {
+      "GR": {
+        "dates": {
+          "2026": "2026-02-22",
+          "2027": "2027-03-14"
+        }
+      },
+      "CY": {
+        "dates": {
+          "2026": "2026-02-22",
+          "2027": "2027-03-14"
+        }
+      }
+    }
   },
   {
     "slug": "holi",
@@ -429,7 +570,18 @@
       "SE",
       "DK",
       "NO",
-      "FI"
+      "FI",
+      "CZ",
+      "SK",
+      "HU",
+      "RO",
+      "MD",
+      "GR",
+      "CY",
+      "MT",
+      "MC",
+      "AD",
+      "SM"
     ],
     "i18n": {
       "nl": {
@@ -467,6 +619,21 @@
       },
       "fi": {
         "name": "Holi"
+      },
+      "cs": {
+        "name": "Holi"
+      },
+      "sk": {
+        "name": "Holi"
+      },
+      "hu": {
+        "name": "Holi"
+      },
+      "ro": {
+        "name": "Holi"
+      },
+      "el": {
+        "name": "Χόλι"
       }
     },
     "overrides": {}
@@ -527,6 +694,21 @@
       },
       "fi": {
         "name": "Pyhän Patrickin päivä"
+      },
+      "cs": {
+        "name": "Den svatého Patrika"
+      },
+      "sk": {
+        "name": "Deň svätého Patrika"
+      },
+      "hu": {
+        "name": "Szent Patrik napja"
+      },
+      "ro": {
+        "name": "Ziua Sfântului Patrick"
+      },
+      "el": {
+        "name": "Ημέρα του Αγίου Πατρικίου"
       }
     }
   },
@@ -568,7 +750,18 @@
       "SE",
       "DK",
       "NO",
-      "FI"
+      "FI",
+      "CZ",
+      "SK",
+      "HU",
+      "RO",
+      "MD",
+      "GR",
+      "CY",
+      "MT",
+      "MC",
+      "AD",
+      "SM"
     ],
     "i18n": {
       "nl": {
@@ -606,6 +799,21 @@
       },
       "fi": {
         "name": "Eid al-Fitr"
+      },
+      "cs": {
+        "name": "Íd al-fitr"
+      },
+      "sk": {
+        "name": "Íd al-fitr"
+      },
+      "hu": {
+        "name": "Íd al-fitr"
+      },
+      "ro": {
+        "name": "Ramazan Bayram"
+      },
+      "el": {
+        "name": "Ιντ αλ-Φιτρ"
       }
     },
     "overrides": {}
@@ -648,7 +856,18 @@
       "SE",
       "DK",
       "NO",
-      "FI"
+      "FI",
+      "CZ",
+      "SK",
+      "HU",
+      "RO",
+      "MD",
+      "GR",
+      "CY",
+      "MT",
+      "MC",
+      "AD",
+      "SM"
     ],
     "i18n": {
       "nl": {
@@ -686,9 +905,49 @@
       },
       "fi": {
         "name": "Pääsiäinen"
+      },
+      "cs": {
+        "name": "Velikonoce"
+      },
+      "sk": {
+        "name": "Veľká noc"
+      },
+      "hu": {
+        "name": "Húsvét"
+      },
+      "ro": {
+        "name": "Paște"
+      },
+      "el": {
+        "name": "Πάσχα"
       }
     },
-    "overrides": {}
+    "overrides": {
+      "RO": {
+        "dates": {
+          "2026": "2026-04-12",
+          "2027": "2027-05-02"
+        }
+      },
+      "MD": {
+        "dates": {
+          "2026": "2026-04-12",
+          "2027": "2027-05-02"
+        }
+      },
+      "GR": {
+        "dates": {
+          "2026": "2026-04-12",
+          "2027": "2027-05-02"
+        }
+      },
+      "CY": {
+        "dates": {
+          "2026": "2026-04-12",
+          "2027": "2027-05-02"
+        }
+      }
+    }
   },
   {
     "slug": "koningsdag",
@@ -741,6 +1000,21 @@
       },
       "fi": {
         "name": "Kuninkaanpäivä"
+      },
+      "cs": {
+        "name": "Den krále (Nizozemsko)"
+      },
+      "sk": {
+        "name": "Deň kráľa (Holandsko)"
+      },
+      "hu": {
+        "name": "Királynap (Hollandia)"
+      },
+      "ro": {
+        "name": "Ziua Regelui"
+      },
+      "el": {
+        "name": "Ημέρα του Βασιλιά"
       }
     },
     "overrides": {}
@@ -796,6 +1070,21 @@
       },
       "fi": {
         "name": "Vapautuksen päivä"
+      },
+      "cs": {
+        "name": "Den osvobození (Nizozemsko)"
+      },
+      "sk": {
+        "name": "Deň oslobodenia (Holandsko)"
+      },
+      "hu": {
+        "name": "A felszabadulás napja (Hollandia)"
+      },
+      "ro": {
+        "name": "Ziua Eliberării"
+      },
+      "el": {
+        "name": "Ημέρα της Απελευθέρωσης"
       }
     },
     "overrides": {}
@@ -838,7 +1127,18 @@
       "SE",
       "DK",
       "NO",
-      "FI"
+      "FI",
+      "CZ",
+      "SK",
+      "HU",
+      "RO",
+      "MD",
+      "GR",
+      "CY",
+      "MT",
+      "MC",
+      "AD",
+      "SM"
     ],
     "i18n": {
       "nl": {
@@ -876,6 +1176,21 @@
       },
       "fi": {
         "name": "Äitienpäivä"
+      },
+      "cs": {
+        "name": "Den matek"
+      },
+      "sk": {
+        "name": "Deň matiek"
+      },
+      "hu": {
+        "name": "Anyák napja"
+      },
+      "ro": {
+        "name": "Ziua Mamei"
+      },
+      "el": {
+        "name": "Γιορτή της Μητέρας"
       }
     },
     "overrides": {
@@ -950,6 +1265,36 @@
           "2026": "2026-02-08",
           "2027": "2027-02-14"
         }
+      },
+      "HU": {
+        "dates": {
+          "2026": "2026-05-03",
+          "2027": "2027-05-02"
+        }
+      },
+      "RO": {
+        "dates": {
+          "2026": "2026-05-03",
+          "2027": "2027-05-02"
+        }
+      },
+      "MD": {
+        "dates": {
+          "2026": "2026-05-03",
+          "2027": "2027-05-02"
+        }
+      },
+      "AD": {
+        "dates": {
+          "2026": "2026-05-03",
+          "2027": "2027-05-02"
+        }
+      },
+      "MC": {
+        "dates": {
+          "2026": "2026-05-31",
+          "2027": "2027-05-30"
+        }
       }
     }
   },
@@ -977,7 +1322,9 @@
       "SE",
       "DK",
       "NO",
-      "FI"
+      "FI",
+      "MC",
+      "AD"
     ],
     "i18n": {
       "nl": {
@@ -1015,6 +1362,21 @@
       },
       "fi": {
         "name": "Helatorstai"
+      },
+      "cs": {
+        "name": "Nanebevstoupení Páně"
+      },
+      "sk": {
+        "name": "Nanebovstúpenie Pána"
+      },
+      "hu": {
+        "name": "Áldozócsütörtök"
+      },
+      "ro": {
+        "name": "Înălțarea Domnului"
+      },
+      "el": {
+        "name": "Ανάληψη"
       }
     },
     "overrides": {}
@@ -1044,7 +1406,10 @@
       "SE",
       "DK",
       "NO",
-      "FI"
+      "FI",
+      "HU",
+      "MC",
+      "AD"
     ],
     "i18n": {
       "nl": {
@@ -1082,6 +1447,21 @@
       },
       "fi": {
         "name": "Helluntai"
+      },
+      "cs": {
+        "name": "Letnice"
+      },
+      "sk": {
+        "name": "Turíce"
+      },
+      "hu": {
+        "name": "Pünkösd"
+      },
+      "ro": {
+        "name": "Rusalii"
+      },
+      "el": {
+        "name": "Πεντηκοστή"
       }
     },
     "overrides": {}
@@ -1124,7 +1504,18 @@
       "SE",
       "DK",
       "NO",
-      "FI"
+      "FI",
+      "CZ",
+      "SK",
+      "HU",
+      "RO",
+      "MD",
+      "GR",
+      "CY",
+      "MT",
+      "MC",
+      "AD",
+      "SM"
     ],
     "i18n": {
       "nl": {
@@ -1162,6 +1553,21 @@
       },
       "fi": {
         "name": "Eid al-Adha"
+      },
+      "cs": {
+        "name": "Íd al-adhá"
+      },
+      "sk": {
+        "name": "Íd al-adhá"
+      },
+      "hu": {
+        "name": "Áldozati ünnep"
+      },
+      "ro": {
+        "name": "Kurban Bayram"
+      },
+      "el": {
+        "name": "Ιντ αλ-Άντχα"
       }
     },
     "overrides": {}
@@ -1204,7 +1610,18 @@
       "SE",
       "DK",
       "NO",
-      "FI"
+      "FI",
+      "CZ",
+      "SK",
+      "HU",
+      "RO",
+      "MD",
+      "GR",
+      "CY",
+      "MT",
+      "MC",
+      "AD",
+      "SM"
     ],
     "i18n": {
       "nl": {
@@ -1242,6 +1659,21 @@
       },
       "fi": {
         "name": "Isänpäivä"
+      },
+      "cs": {
+        "name": "Den otců"
+      },
+      "sk": {
+        "name": "Deň otcov"
+      },
+      "hu": {
+        "name": "Apák napja"
+      },
+      "ro": {
+        "name": "Ziua Tatălui"
+      },
+      "el": {
+        "name": "Γιορτή του Πατέρα"
       }
     },
     "overrides": {
@@ -1346,6 +1778,24 @@
           6,
           5
         ]
+      },
+      "RO": {
+        "dates": {
+          "2026": "2026-05-10",
+          "2027": "2027-05-09"
+        }
+      },
+      "AD": {
+        "fixed": [
+          3,
+          19
+        ]
+      },
+      "SM": {
+        "fixed": [
+          3,
+          19
+        ]
       }
     }
   },
@@ -1400,6 +1850,21 @@
       },
       "fi": {
         "name": "Keti Koti"
+      },
+      "cs": {
+        "name": "Keti Koti"
+      },
+      "sk": {
+        "name": "Keti Koti"
+      },
+      "hu": {
+        "name": "Keti Koti"
+      },
+      "ro": {
+        "name": "Keti Koti"
+      },
+      "el": {
+        "name": "Κέτι Κότι"
       }
     },
     "overrides": {}
@@ -1456,6 +1921,21 @@
       },
       "fi": {
         "name": "Yhdysvaltain itsenäisyyspäivä"
+      },
+      "cs": {
+        "name": "Den nezávislosti (USA)"
+      },
+      "sk": {
+        "name": "Deň nezávislosti (USA)"
+      },
+      "hu": {
+        "name": "A függetlenség napja (USA)"
+      },
+      "ro": {
+        "name": "Ziua Independenței (SUA)"
+      },
+      "el": {
+        "name": "Ημέρα Ανεξαρτησίας (ΗΠΑ)"
       }
     }
   },
@@ -1511,6 +1991,21 @@
       },
       "fi": {
         "name": "Ranskan kansallispäivä"
+      },
+      "cs": {
+        "name": "Francouzský státní svátek"
+      },
+      "sk": {
+        "name": "Francúzsky štátny sviatok"
+      },
+      "hu": {
+        "name": "Francia nemzeti ünnep"
+      },
+      "ro": {
+        "name": "Ziua Națională a Franței"
+      },
+      "el": {
+        "name": "Εθνική εορτή της Γαλλίας"
       }
     }
   },
@@ -1566,6 +2061,21 @@
       },
       "fi": {
         "name": "Belgian kansallispäivä"
+      },
+      "cs": {
+        "name": "Belgický státní svátek"
+      },
+      "sk": {
+        "name": "Belgický štátny sviatok"
+      },
+      "hu": {
+        "name": "Belga nemzeti ünnep"
+      },
+      "ro": {
+        "name": "Ziua Națională a Belgiei"
+      },
+      "el": {
+        "name": "Εθνική εορτή του Βελγίου"
       }
     }
   },
@@ -1607,7 +2117,18 @@
       "SE",
       "DK",
       "NO",
-      "FI"
+      "FI",
+      "CZ",
+      "SK",
+      "HU",
+      "RO",
+      "MD",
+      "GR",
+      "CY",
+      "MT",
+      "MC",
+      "AD",
+      "SM"
     ],
     "i18n": {
       "nl": {
@@ -1645,6 +2166,21 @@
       },
       "fi": {
         "name": "Ensimmäinen koulupäivä"
+      },
+      "cs": {
+        "name": "První školní den"
+      },
+      "sk": {
+        "name": "Prvý školský deň"
+      },
+      "hu": {
+        "name": "Az első iskolanap"
+      },
+      "ro": {
+        "name": "Prima zi de școală"
+      },
+      "el": {
+        "name": "Πρώτη μέρα στο σχολείο"
       }
     },
     "overrides": {
@@ -1822,6 +2358,83 @@
           12
         ],
         "label": null
+      },
+      "CZ": {
+        "fixed": [
+          9,
+          1
+        ],
+        "label": null
+      },
+      "SK": {
+        "fixed": [
+          9,
+          1
+        ],
+        "label": null
+      },
+      "HU": {
+        "fixed": [
+          9,
+          1
+        ],
+        "label": null
+      },
+      "RO": {
+        "fixed": [
+          9,
+          8
+        ],
+        "label": null
+      },
+      "MD": {
+        "fixed": [
+          9,
+          1
+        ],
+        "label": null
+      },
+      "GR": {
+        "fixed": [
+          9,
+          11
+        ],
+        "label": null
+      },
+      "CY": {
+        "fixed": [
+          9,
+          10
+        ],
+        "label": null
+      },
+      "MT": {
+        "fixed": [
+          9,
+          28
+        ],
+        "label": null
+      },
+      "MC": {
+        "fixed": [
+          9,
+          1
+        ],
+        "label": null
+      },
+      "AD": {
+        "fixed": [
+          9,
+          7
+        ],
+        "label": null
+      },
+      "SM": {
+        "fixed": [
+          9,
+          14
+        ],
+        "label": null
       }
     }
   },
@@ -1849,7 +2462,10 @@
       "SE",
       "DK",
       "NO",
-      "FI"
+      "FI",
+      "CZ",
+      "SK",
+      "HU"
     ],
     "i18n": {
       "nl": {
@@ -1887,6 +2503,21 @@
       },
       "fi": {
         "name": "Eläinten päivä"
+      },
+      "cs": {
+        "name": "Světový den zvířat"
+      },
+      "sk": {
+        "name": "Svetový deň zvierat"
+      },
+      "hu": {
+        "name": "Az állatok világnapja"
+      },
+      "ro": {
+        "name": "Ziua Mondială a Animalelor"
+      },
+      "el": {
+        "name": "Παγκόσμια Ημέρα των Ζώων"
       }
     },
     "overrides": {}
@@ -1929,7 +2560,18 @@
       "SE",
       "DK",
       "NO",
-      "FI"
+      "FI",
+      "CZ",
+      "SK",
+      "HU",
+      "RO",
+      "MD",
+      "GR",
+      "CY",
+      "MT",
+      "MC",
+      "AD",
+      "SM"
     ],
     "i18n": {
       "nl": {
@@ -1967,6 +2609,21 @@
       },
       "fi": {
         "name": "Halloween"
+      },
+      "cs": {
+        "name": "Halloween"
+      },
+      "sk": {
+        "name": "Halloween"
+      },
+      "hu": {
+        "name": "Halloween"
+      },
+      "ro": {
+        "name": "Halloween"
+      },
+      "el": {
+        "name": "Χάλοουιν"
       }
     },
     "overrides": {}
@@ -2023,6 +2680,21 @@
       },
       "fi": {
         "name": "Bonfire Night"
+      },
+      "cs": {
+        "name": "Noc Guye Fawkese"
+      },
+      "sk": {
+        "name": "Noc Guya Fawkesa"
+      },
+      "hu": {
+        "name": "Guy Fawkes éjszakája"
+      },
+      "ro": {
+        "name": "Bonfire Night"
+      },
+      "el": {
+        "name": "Bonfire Night"
       }
     }
   },
@@ -2064,7 +2736,18 @@
       "SE",
       "DK",
       "NO",
-      "FI"
+      "FI",
+      "CZ",
+      "SK",
+      "HU",
+      "RO",
+      "MD",
+      "GR",
+      "CY",
+      "MT",
+      "MC",
+      "AD",
+      "SM"
     ],
     "i18n": {
       "nl": {
@@ -2102,6 +2785,21 @@
       },
       "fi": {
         "name": "Diwali"
+      },
+      "cs": {
+        "name": "Díválí"
+      },
+      "sk": {
+        "name": "Diválí"
+      },
+      "hu": {
+        "name": "Diváli"
+      },
+      "ro": {
+        "name": "Diwali"
+      },
+      "el": {
+        "name": "Ντιβάλι"
       }
     },
     "overrides": {}
@@ -2126,7 +2824,10 @@
       "CH",
       "LU",
       "LI",
-      "SE"
+      "SE",
+      "CZ",
+      "SK",
+      "HU"
     ],
     "i18n": {
       "nl": {
@@ -2164,6 +2865,21 @@
       },
       "fi": {
         "name": "Martinpäivä"
+      },
+      "cs": {
+        "name": "Svatý Martin"
+      },
+      "sk": {
+        "name": "Svätý Martin"
+      },
+      "hu": {
+        "name": "Márton-nap"
+      },
+      "ro": {
+        "name": "Ziua Sfântului Martin"
+      },
+      "el": {
+        "name": "Γιορτή του Αγίου Μαρτίνου"
       }
     },
     "overrides": {
@@ -2235,6 +2951,21 @@
       },
       "fi": {
         "name": "Kiitospäivä"
+      },
+      "cs": {
+        "name": "Den díkůvzdání"
+      },
+      "sk": {
+        "name": "Deň vďakyvzdania"
+      },
+      "hu": {
+        "name": "Hálaadás"
+      },
+      "ro": {
+        "name": "Ziua Recunoștinței"
+      },
+      "el": {
+        "name": "Ημέρα των Ευχαριστιών"
       }
     }
   },
@@ -2258,7 +2989,12 @@
       "CH",
       "PL",
       "LU",
-      "LI"
+      "LI",
+      "CZ",
+      "SK",
+      "HU",
+      "RO",
+      "MD"
     ],
     "i18n": {
       "nl": {
@@ -2296,6 +3032,21 @@
       },
       "fi": {
         "name": "Sinterklaas"
+      },
+      "cs": {
+        "name": "Mikuláš"
+      },
+      "sk": {
+        "name": "Mikuláš"
+      },
+      "hu": {
+        "name": "Mikulás"
+      },
+      "ro": {
+        "name": "Sinterklaas"
+      },
+      "el": {
+        "name": "Σίντερκλάας"
       }
     },
     "overrides": {
@@ -2336,6 +3087,30 @@
         ]
       },
       "LI": {
+        "fixed": [
+          12,
+          6
+        ]
+      },
+      "SK": {
+        "fixed": [
+          12,
+          6
+        ]
+      },
+      "HU": {
+        "fixed": [
+          12,
+          6
+        ]
+      },
+      "RO": {
+        "fixed": [
+          12,
+          6
+        ]
+      },
+      "MD": {
         "fixed": [
           12,
           6
@@ -2381,7 +3156,18 @@
       "SE",
       "DK",
       "NO",
-      "FI"
+      "FI",
+      "CZ",
+      "SK",
+      "HU",
+      "RO",
+      "MD",
+      "GR",
+      "CY",
+      "MT",
+      "MC",
+      "AD",
+      "SM"
     ],
     "i18n": {
       "nl": {
@@ -2419,6 +3205,21 @@
       },
       "fi": {
         "name": "Hanukka"
+      },
+      "cs": {
+        "name": "Chanuka"
+      },
+      "sk": {
+        "name": "Chanuka"
+      },
+      "hu": {
+        "name": "Hanuka"
+      },
+      "ro": {
+        "name": "Hanuka"
+      },
+      "el": {
+        "name": "Χανουκά"
       }
     },
     "overrides": {}
@@ -2461,7 +3262,18 @@
       "SE",
       "DK",
       "NO",
-      "FI"
+      "FI",
+      "CZ",
+      "SK",
+      "HU",
+      "RO",
+      "MD",
+      "GR",
+      "CY",
+      "MT",
+      "MC",
+      "AD",
+      "SM"
     ],
     "i18n": {
       "nl": {
@@ -2499,6 +3311,21 @@
       },
       "fi": {
         "name": "Joulu"
+      },
+      "cs": {
+        "name": "Vánoce"
+      },
+      "sk": {
+        "name": "Vianoce"
+      },
+      "hu": {
+        "name": "Karácsony"
+      },
+      "ro": {
+        "name": "Crăciun"
+      },
+      "el": {
+        "name": "Χριστούγεννα"
       }
     },
     "overrides": {}
@@ -2538,7 +3365,18 @@
       "SE",
       "DK",
       "NO",
-      "FI"
+      "FI",
+      "CZ",
+      "SK",
+      "HU",
+      "RO",
+      "MD",
+      "GR",
+      "CY",
+      "MT",
+      "MC",
+      "AD",
+      "SM"
     ],
     "i18n": {
       "nl": {
@@ -2576,6 +3414,21 @@
       },
       "fi": {
         "name": "Syntymäpäivä"
+      },
+      "cs": {
+        "name": "Narozeniny"
+      },
+      "sk": {
+        "name": "Narodeniny"
+      },
+      "hu": {
+        "name": "Születésnap"
+      },
+      "ro": {
+        "name": "Zi de naștere"
+      },
+      "el": {
+        "name": "Γενέθλια"
       }
     },
     "overrides": {}

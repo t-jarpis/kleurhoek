@@ -61,6 +61,18 @@ export async function seed(db: Database, tenantId: string): Promise<{ plates: nu
       { tenantId, code: "da-DK", country: "DK", language: "da", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
       { tenantId, code: "nb-NO", country: "NO", language: "nb", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
       { tenantId, code: "fi-FI", country: "FI", language: "fi", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
+      // Midden- en Zuidoost-Europa, Griekenland en Cyprus, en kleine landen in bestaande talen (ADR 0052).
+      { tenantId, code: "cs-CZ", country: "CZ", language: "cs", status: "live" as const, paperSize: "A4" as const, minAccountAge: 15 },
+      { tenantId, code: "sk-SK", country: "SK", language: "sk", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
+      { tenantId, code: "hu-HU", country: "HU", language: "hu", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
+      { tenantId, code: "ro-RO", country: "RO", language: "ro", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
+      { tenantId, code: "ro-MD", country: "MD", language: "ro", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
+      { tenantId, code: "el-GR", country: "GR", language: "el", status: "live" as const, paperSize: "A4" as const, minAccountAge: 15 },
+      { tenantId, code: "el-CY", country: "CY", language: "el", status: "live" as const, paperSize: "A4" as const, minAccountAge: 14 },
+      { tenantId, code: "en-MT", country: "MT", language: "en", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
+      { tenantId, code: "fr-MC", country: "MC", language: "fr", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
+      { tenantId, code: "es-AD", country: "AD", language: "es", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
+      { tenantId, code: "it-SM", country: "SM", language: "it", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
     ]).onConflictDoNothing();
 
     const cats = source.categories();

@@ -39,6 +39,21 @@
       },
       "fi": {
         "name": "Eurooppa"
+      },
+      "cs": {
+        "name": "Evropa"
+      },
+      "sk": {
+        "name": "Európa"
+      },
+      "hu": {
+        "name": "Európa"
+      },
+      "ro": {
+        "name": "Europa"
+      },
+      "el": {
+        "name": "Ευρώπη"
       }
     }
   },
@@ -82,6 +97,21 @@
       },
       "fi": {
         "name": "Afrikka"
+      },
+      "cs": {
+        "name": "Afrika"
+      },
+      "sk": {
+        "name": "Afrika"
+      },
+      "hu": {
+        "name": "Afrika"
+      },
+      "ro": {
+        "name": "Africa"
+      },
+      "el": {
+        "name": "Αφρική"
       }
     }
   },
@@ -125,6 +155,21 @@
       },
       "fi": {
         "name": "Aasia"
+      },
+      "cs": {
+        "name": "Asie"
+      },
+      "sk": {
+        "name": "Ázia"
+      },
+      "hu": {
+        "name": "Ázsia"
+      },
+      "ro": {
+        "name": "Asia"
+      },
+      "el": {
+        "name": "Ασία"
       }
     }
   },
@@ -168,6 +213,21 @@
       },
       "fi": {
         "name": "Pohjois-Amerikka"
+      },
+      "cs": {
+        "name": "Severní Amerika"
+      },
+      "sk": {
+        "name": "Severná Amerika"
+      },
+      "hu": {
+        "name": "Észak-Amerika"
+      },
+      "ro": {
+        "name": "America de Nord"
+      },
+      "el": {
+        "name": "Βόρεια Αμερική"
       }
     }
   },
@@ -211,6 +271,21 @@
       },
       "fi": {
         "name": "Etelä-Amerikka"
+      },
+      "cs": {
+        "name": "Jižní Amerika"
+      },
+      "sk": {
+        "name": "Južná Amerika"
+      },
+      "hu": {
+        "name": "Dél-Amerika"
+      },
+      "ro": {
+        "name": "America de Sud"
+      },
+      "el": {
+        "name": "Νότια Αμερική"
       }
     }
   },
@@ -254,6 +329,21 @@
       },
       "fi": {
         "name": "Oseania"
+      },
+      "cs": {
+        "name": "Oceánie"
+      },
+      "sk": {
+        "name": "Oceánia"
+      },
+      "hu": {
+        "name": "Óceánia"
+      },
+      "ro": {
+        "name": "Oceania"
+      },
+      "el": {
+        "name": "Ωκεανία"
       }
     }
   },
@@ -297,6 +387,21 @@
       },
       "fi": {
         "name": "Etelämanner"
+      },
+      "cs": {
+        "name": "Antarktida"
+      },
+      "sk": {
+        "name": "Antarktída"
+      },
+      "hu": {
+        "name": "Antarktisz"
+      },
+      "ro": {
+        "name": "Antarctica"
+      },
+      "el": {
+        "name": "Ανταρκτική"
       }
     }
   }

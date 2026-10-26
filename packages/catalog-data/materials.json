@@ -50,6 +50,26 @@
       "fi": {
         "name": "Värikynät",
         "hint": "Pieniin alueisiin ja pieniin käsiin"
+      },
+      "cs": {
+        "name": "Pastelky",
+        "hint": "Na jemné plochy a malé ruce"
+      },
+      "sk": {
+        "name": "Pastelky",
+        "hint": "Na jemné plochy a malé ruky"
+      },
+      "hu": {
+        "name": "Színes ceruzák",
+        "hint": "Finom mezőkhöz és kis kezekhez"
+      },
+      "ro": {
+        "name": "Creioane colorate",
+        "hint": "Pentru zone fine și mâini mici"
+      },
+      "el": {
+        "name": "Ξυλομπογιές",
+        "hint": "Για λεπτές επιφάνειες και μικρά χέρια"
       }
     }
   },
@@ -104,6 +124,26 @@
       "fi": {
         "name": "Tussit",
         "hint": "Kirkkaat värit; valitse pestävät"
+      },
+      "cs": {
+        "name": "Fixy",
+        "hint": "Zářivé barvy; vybírejte vypratelné"
+      },
+      "sk": {
+        "name": "Fixky",
+        "hint": "Žiarivé farby; vyberajte vyprateľné"
+      },
+      "hu": {
+        "name": "Filctollak",
+        "hint": "Élénk színek; válassz kimoshatót"
+      },
+      "ro": {
+        "name": "Carioci",
+        "hint": "Culori vii; alege-le pe cele lavabile"
+      },
+      "el": {
+        "name": "Μαρκαδόροι",
+        "hint": "Ζωηρά χρώματα· διάλεξε αυτούς που πλένονται"
       }
     }
   },
@@ -158,6 +198,26 @@
       "fi": {
         "name": "Vahaliidut",
         "hint": "Paksuja ja tukevia, hyviä pienimmille"
+      },
+      "cs": {
+        "name": "Voskovky",
+        "hint": "Silné a pevné, skvělé pro nejmenší"
+      },
+      "sk": {
+        "name": "Voskovky",
+        "hint": "Hrubé a pevné, skvelé pre najmenších"
+      },
+      "hu": {
+        "name": "Zsírkréták",
+        "hint": "Vastagok és strapabírók, a legkisebbeknek remek"
+      },
+      "ro": {
+        "name": "Creioane cerate",
+        "hint": "Groase și rezistente, bune pentru cei mai mici"
+      },
+      "el": {
+        "name": "Κηρομπογιές",
+        "hint": "Χοντρές και γερές, ιδανικές για τους πιο μικρούς"
       }
     }
   },
@@ -212,6 +272,26 @@
       "fi": {
         "name": "Lasten sakset",
         "hint": "Pyöristetty kärki; älä anna pienten lasten leikata yksin"
+      },
+      "cs": {
+        "name": "Dětské nůžky",
+        "hint": "S kulatou špičkou; malé děti nenechávejte stříhat samotné"
+      },
+      "sk": {
+        "name": "Detské nožnice",
+        "hint": "So zaobleným hrotom; malé deti nenechávajte strihať samé"
+      },
+      "hu": {
+        "name": "Gyerekolló",
+        "hint": "Lekerekített hegyű; kisgyereket ne hagyj egyedül vágni"
+      },
+      "ro": {
+        "name": "Foarfece pentru copii",
+        "hint": "Cu vârf rotunjit; nu-i lăsa pe copiii mici să taie singuri"
+      },
+      "el": {
+        "name": "Παιδικό ψαλίδι",
+        "hint": "Με στρογγυλή μύτη· μην αφήνετε τα μικρά παιδιά να κόβουν μόνα τους"
       }
     }
   },
@@ -266,6 +346,26 @@
       "fi": {
         "name": "Liimapuikko",
         "hint": "Liimaa paperia sotkematta"
+      },
+      "cs": {
+        "name": "Lepicí tyčinka",
+        "hint": "Lepí papír bez patlání"
+      },
+      "sk": {
+        "name": "Lepiaca tyčinka",
+        "hint": "Lepí papier bez mazania"
+      },
+      "hu": {
+        "name": "Ragasztóstift",
+        "hint": "Maszatolás nélkül ragasztja a papírt"
+      },
+      "ro": {
+        "name": "Lipici solid",
+        "hint": "Lipește hârtia fără mizerie"
+      },
+      "el": {
+        "name": "Κόλλα στικ",
+        "hint": "Κολλάει χαρτί χωρίς μουτζούρες"
       }
     }
   },
@@ -309,6 +409,21 @@
       },
       "fi": {
         "name": "Teippi"
+      },
+      "cs": {
+        "name": "Izolepa"
+      },
+      "sk": {
+        "name": "Lepiaca páska"
+      },
+      "hu": {
+        "name": "Ragasztószalag"
+      },
+      "ro": {
+        "name": "Bandă adezivă"
+      },
+      "el": {
+        "name": "Σελοτέιπ"
       }
     }
   },
@@ -363,6 +478,26 @@
       "fi": {
         "name": "Paksu paperi (160 g)",
         "hint": "Paperimalleihin ja kortteihin, joiden pitää pysyä pystyssä"
+      },
+      "cs": {
+        "name": "Silný papír (160 g/m²)",
+        "hint": "Na papírové modely a přáníčka, která mají stát"
+      },
+      "sk": {
+        "name": "Hrubý papier (160 g/m²)",
+        "hint": "Na papierové modely a pozdravy, ktoré majú stáť"
+      },
+      "hu": {
+        "name": "Vastag papír (160 g/m²)",
+        "hint": "Papírmodellekhez és képeslapokhoz, amelyeknek meg kell állniuk"
+      },
+      "ro": {
+        "name": "Hârtie groasă (160 g/m²)",
+        "hint": "Pentru machete și felicitări care trebuie să stea în picioare"
+      },
+      "el": {
+        "name": "Χοντρό χαρτί (160 γραμμάρια)",
+        "hint": "Για χάρτινες μακέτες και κάρτες που πρέπει να στέκονται όρθιες"
       }
     }
   },
@@ -417,6 +552,26 @@
       "fi": {
         "name": "LED-lyhtykeppi",
         "hint": "Turvallinen valo lyhtyysi"
+      },
+      "cs": {
+        "name": "LED hůlka na lampion",
+        "hint": "Bezpečné světlo do lampionu"
+      },
+      "sk": {
+        "name": "LED palička na lampión",
+        "hint": "Bezpečné svetlo do lampióna"
+      },
+      "hu": {
+        "name": "LED-es lámpásbot",
+        "hint": "Biztonságos fény a lámpásodba"
+      },
+      "ro": {
+        "name": "Băț cu LED pentru felinar",
+        "hint": "Lumină sigură pentru felinarul tău"
+      },
+      "el": {
+        "name": "Ραβδάκι LED για φαναράκι",
+        "hint": "Ασφαλές φως για το φαναράκι σου"
       }
     }
   },
@@ -471,6 +626,26 @@
       "fi": {
         "name": "Haaraniitit",
         "hint": "Liikkuviin käsiin ja jalkoihin"
+      },
+      "cs": {
+        "name": "Rozpěrné sponky",
+        "hint": "Na pohyblivé ruce a nohy"
+      },
+      "sk": {
+        "name": "Rozperné sponky",
+        "hint": "Na pohyblivé ruky a nohy"
+      },
+      "hu": {
+        "name": "Szétnyitható kapcsok",
+        "hint": "Mozgatható kezekhez és lábakhoz"
+      },
+      "ro": {
+        "name": "Agrafe cu două picioare",
+        "hint": "Pentru brațe și picioare mobile"
+      },
+      "el": {
+        "name": "Δίποδα καρφάκια",
+        "hint": "Για χέρια και πόδια που κουνιούνται"
       }
     }
   },
@@ -525,6 +700,26 @@
       "fi": {
         "name": "Lyijykynä",
         "hint": "Kirjoittamiseen, piirtämiseen ja viivojen jäljentämiseen"
+      },
+      "cs": {
+        "name": "Tužka",
+        "hint": "Na psaní, kreslení a obtahování čar"
+      },
+      "sk": {
+        "name": "Ceruzka",
+        "hint": "Na písanie, kreslenie a obťahovanie čiar"
+      },
+      "hu": {
+        "name": "Grafitceruza",
+        "hint": "Íráshoz, rajzoláshoz és vonalak átrajzolásához"
+      },
+      "ro": {
+        "name": "Creion",
+        "hint": "Pentru scris, desenat și trasat linii"
+      },
+      "el": {
+        "name": "Μολύβι",
+        "hint": "Για γράψιμο, σχέδιο και ξεσήκωμα γραμμών"
       }
     }
   },
@@ -579,6 +774,26 @@
       "fi": {
         "name": "Kuminauha",
         "hint": "Pyöreä kuminauha, jolla naamari pysyy päässä"
+      },
+      "cs": {
+        "name": "Gumička",
+        "hint": "Kulatá gumička, aby maska držela na hlavě"
+      },
+      "sk": {
+        "name": "Gumička",
+        "hint": "Okrúhla gumička, aby maska držala na hlave"
+      },
+      "hu": {
+        "name": "Gumizsinór",
+        "hint": "Kerek gumi, hogy a maszk a fejeden maradjon"
+      },
+      "ro": {
+        "name": "Elastic",
+        "hint": "Elastic rotund, ca să ții masca pe cap"
+      },
+      "el": {
+        "name": "Λάστιχο",
+        "hint": "Στρογγυλό λάστιχο, για να κρατάει η μάσκα στο κεφάλι"
       }
     }
   },
@@ -633,6 +848,26 @@
       "fi": {
         "name": "Naru tai nauha",
         "hint": "Ripustamiseen tai lahjan ympärille sitomiseen"
+      },
+      "cs": {
+        "name": "Provázek nebo stuha",
+        "hint": "Na zavěšení nebo převázání dárku"
+      },
+      "sk": {
+        "name": "Špagát alebo stuha",
+        "hint": "Na zavesenie alebo previazanie darčeka"
+      },
+      "hu": {
+        "name": "Zsineg vagy szalag",
+        "hint": "Felakasztáshoz vagy ajándék átkötéséhez"
+      },
+      "ro": {
+        "name": "Sfoară sau panglică",
+        "hint": "Ca să agăți ceva sau să legi un cadou"
+      },
+      "el": {
+        "name": "Σπάγκος ή κορδέλα",
+        "hint": "Για να κρεμάσεις κάτι ή να το δέσεις σε ένα δώρο"
       }
     }
   },
@@ -687,6 +922,26 @@
       "fi": {
         "name": "Maalia ja sieni",
         "hint": "Peitevärejä tai vesivärejä taputteluun tai maalaamiseen"
+      },
+      "cs": {
+        "name": "Barvy a houbička",
+        "hint": "Temperové nebo vodové barvy, na tupování nebo malování"
+      },
+      "sk": {
+        "name": "Farby a hubka",
+        "hint": "Temperové alebo vodové farby, na tupovanie alebo maľovanie"
+      },
+      "hu": {
+        "name": "Festék és szivacs",
+        "hint": "Tempera vagy vízfesték, nyomkodáshoz vagy festéshez"
+      },
+      "ro": {
+        "name": "Vopsea și un burete",
+        "hint": "Guașă sau acuarele, pentru tamponat sau pictat"
+      },
+      "el": {
+        "name": "Μπογιές και ένα σφουγγαράκι",
+        "hint": "Τέμπερες ή νερομπογιές, για ταμπονάρισμα ή ζωγραφική"
       }
     }
   },
@@ -741,6 +996,26 @@
       "fi": {
         "name": "Leimasimet ja leimasintyyny",
         "hint": "Pestävää mustetta; voit myös tehdä omat pyyhekumista tai perunasta"
+      },
+      "cs": {
+        "name": "Razítka a polštářek",
+        "hint": "Smývatelný inkoust; razítko si můžeš vyrobit i z gumy nebo brambory"
+      },
+      "sk": {
+        "name": "Pečiatky a poduška",
+        "hint": "Zmývateľný atrament; pečiatku si môžeš vyrobiť aj z gumy alebo zemiaka"
+      },
+      "hu": {
+        "name": "Nyomdák és festékpárna",
+        "hint": "Lemosható tinta; nyomdát radírból vagy krumpliból is készíthetsz"
+      },
+      "ro": {
+        "name": "Ștampile și tușieră",
+        "hint": "Tuș lavabil; le poți face și singur, dintr-o radieră sau un cartof"
+      },
+      "el": {
+        "name": "Σφραγίδες και ταμπόν",
+        "hint": "Μελάνι που πλένεται· μπορείς να τις φτιάξεις και μόνος σου από γόμα ή πατάτα"
       }
     }
   }

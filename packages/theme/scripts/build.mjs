@@ -52,8 +52,10 @@ function block(sel, tokens) {
 ${forcedDark} {\n${vars(dark)}\n  color-scheme: dark;\n}`;
 }
 
-const fontFaces = fonts.flatMap((f) => f.weights.map((w) =>
-  `@font-face { font-family: "${f.family}"; src: url("../fonts/${f.id}/${f.file.replace("{weight}", w)}") format("woff2"); font-weight: ${w}; font-style: normal; font-display: swap; }`)).join("\n");
+// Per tekenset een eigen bestand met unicode-range (ADR 0052): de browser laadt alleen wat een pagina gebruikt,
+// en Pools, Tsjechisch, Roemeens of Grieks valt niet terug op een ander lettertype.
+const fontFaces = fonts.flatMap((f) => Object.entries(f.subsets ?? { latin: null }).flatMap(([subset, range]) => f.weights.map((w) =>
+  `@font-face { font-family: "${f.family}"; src: url("../fonts/${f.id}/${f.file.replace("{subset}", subset).replace("{weight}", w)}") format("woff2"); font-weight: ${w}; font-style: normal; font-display: swap;${range ? ` unicode-range: ${range};` : ""} }`))).join("\n");
 
 // Variabelen die naar een kleur verwijzen (knoppen …) worden op :root uitgerekend. Binnen [data-kh-scope]
 // (een voorbeeld in beheer met eigen merkkleuren) rekent de browser ze opnieuw uit.
