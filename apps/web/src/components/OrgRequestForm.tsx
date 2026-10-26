@@ -1,6 +1,7 @@
 "use client";
 import { useActionState, useEffect, useState } from "react";
-import type { ContactState } from "@/app/[org]/[market]/contact/actions";
+import type { ContactState, PowChallenge } from "@/app/[org]/[market]/contact/actions";
+import { usePow } from "./usePow";
 
 export type OrgRequestTexts = {
   orgName: string; orgKind: string; orgKinds: Record<string, string>; orgCode: string; orgCodeHint: string; orgCodeExample: string;
@@ -12,8 +13,9 @@ export type OrgRequestTexts = {
 const slug = (s: string) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 32);
 
 /** Aanvraagformulier voor een eigen omgeving (ADR 0028). Zelfde spambescherming als het contactformulier. */
-export function OrgRequestForm({ action, t }: { action: (s: ContactState, f: FormData) => Promise<ContactState>; t: OrgRequestTexts }) {
+export function OrgRequestForm({ action, challenge, t }: { action: (s: ContactState, f: FormData) => Promise<ContactState>; challenge: () => Promise<PowChallenge | null>; t: OrgRequestTexts }) {
   const [state, submit, pending] = useActionState(action, { status: "idle" });
+  const pow = usePow(challenge, state.status);
   const [started, setStarted] = useState(0);
   const f = state.fields ?? {};
   const [name, setName] = useState(f.organization ?? "");
@@ -78,6 +80,7 @@ export function OrgRequestForm({ action, t }: { action: (s: ContactState, f: For
         <input id="o-website" name="website" tabIndex={-1} autoComplete="off" />
       </div>
       <input type="hidden" name="started" value={started || ""} />
+      <input type="hidden" name="pow" value={pow} />
       <p className="ui-hint">{t.contactPrivacy}</p>
       <button type="submit" className="ui-btn" data-variant="primary" disabled={pending}>{pending ? t.contactSending : t.orgSend}</button>
     </form>

@@ -1,6 +1,7 @@
 "use client";
 import { useActionState, useEffect, useState } from "react";
-import type { ContactState } from "@/app/[org]/[market]/contact/actions";
+import type { ContactState, PowChallenge } from "@/app/[org]/[market]/contact/actions";
+import { usePow } from "./usePow";
 
 type T = {
   contactTopic: string; contactTopics: Record<string, string>; contactName: string; contactNameHint: string; contactEmail: string; contactEmailHint: string;
@@ -8,10 +9,14 @@ type T = {
   contactError: string; contactTooMany: string; contactClosed: string;
 };
 
-/** Contactformulier (ADR 0024): geen captcha, wel een verborgen veld en een minimale invultijd tegen spam. */
-export function ContactForm({ action, t, initialTopic }: { action: (s: ContactState, f: FormData) => Promise<ContactState>; t: T; initialTopic: string }) {
+/**
+ * Contactformulier (ADR 0024, 0048): geen captcha. Wel een verborgen veld, een minimale invultijd en een
+ * onzichtbare rekenpuzzel die de browser op de achtergrond oplost. Verdachte berichten komen in Spam.
+ */
+export function ContactForm({ action, challenge, t, initialTopic }: { action: (s: ContactState, f: FormData) => Promise<ContactState>; challenge: () => Promise<PowChallenge | null>; t: T; initialTopic: string }) {
   const [state, submit, pending] = useActionState(action, { status: "idle" });
   const [started, setStarted] = useState(0);
+  const pow = usePow(challenge, state.status);
   useEffect(() => { setStarted(Date.now()); }, []);
 
   if (state.status === "sent") {
@@ -49,6 +54,7 @@ export function ContactForm({ action, t, initialTopic }: { action: (s: ContactSt
         <input id="c-website" name="website" tabIndex={-1} autoComplete="off" />
       </div>
       <input type="hidden" name="started" value={started || ""} />
+      <input type="hidden" name="pow" value={pow} />
       <p className="ui-hint">{t.contactPrivacy}</p>
       <button type="submit" className="ui-btn" data-variant="primary" disabled={pending}>{pending ? t.contactSending : t.contactSend}</button>
     </form>

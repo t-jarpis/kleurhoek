@@ -11,6 +11,7 @@ import { marketLanguage } from "@/lib/markets";
 import { getOrg } from "@/lib/org";
 import { pageMeta } from "@/lib/seo";
 import { sendOrgRequest } from "./actions";
+import { contactChallenge } from "../contact/actions";
 
 export async function generateMetadata({ params }: { params: Promise<{ org: string; market: string }> }): Promise<Metadata> {
   const { org, market } = await params;
@@ -52,7 +53,7 @@ export default async function OwnSpacePage({ params }: { params: Promise<{ org: 
 
       <section className="kh-pitch" id="aanvragen">
         <h2>{t.ownFormTitle}</h2>
-        <OrgRequestForm action={sendOrgRequest.bind(null, market)} t={{
+        <OrgRequestForm action={sendOrgRequest.bind(null, market)} challenge={contactChallenge} t={{
           orgName: t.orgName, orgKind: t.orgKind, orgKinds: t.orgKinds, orgCode: t.orgCode, orgCodeHint: t.orgCodeHint, orgCodeExample: t.orgCodeExample,
           orgChildren: t.orgChildren, orgChildrenHint: t.orgChildrenHint, orgSite: t.orgSite, contactName: t.contactName,
           contactEmail: t.contactEmail, contactEmailHint: t.contactEmailHint, orgMessage: t.orgMessage, orgMessagePlaceholder: t.orgMessagePlaceholder,

@@ -1,4 +1,6 @@
+import { createHash } from "node:crypto";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { spamScore } from "../src/modules/contact/spam";
 import { eq } from "drizzle-orm";
 import { DB, type Database } from "../src/db/database";
 import { withTenant } from "../src/db/tenant";
@@ -15,7 +17,17 @@ const form = (over: Record<string, unknown> = {}) => ({
   topic: "question", name: "Sam", email: "Sam@Example.nl", message: "Hoi! Kunnen jullie ook een plaat van een tractor maken?",
   org: "kleurhoek", market: "nl-nl", trap: "", elapsedMs: 12_000, ...over,
 });
-const send = (body: unknown, ip = "203.0.113.10") => ctx.http.inject({ method: "POST", url: "/v1/contact", payload: body as object, headers: { "cf-connecting-ip": ip } });
+/** Lost de rekenpuzzel op zoals de browser doet (ADR 0048). */
+async function solved(ip: string) {
+  const c = (await ctx.http.inject({ method: "GET", url: "/v1/contact/challenge", headers: { "cf-connecting-ip": ip } })).json();
+  for (let n = 0; n <= c.max; n++) if (createHash("sha256").update(`${c.salt}${n}`).digest("hex") === c.challenge) return { challenge: c.challenge, salt: c.salt, number: n, expires: c.expires, signature: c.signature };
+  throw new Error("geen oplossing");
+}
+/** Verstuurt het formulier met een opgeloste puzzel, tenzij `pow` al in het formulier staat (null = zonder). */
+const send = async (body: Record<string, unknown>, ip = "203.0.113.10") => {
+  const payload = "pow" in body ? Object.fromEntries(Object.entries(body).filter(([k, v]) => k !== "pow" || v !== null)) : { ...body, pow: await solved(ip) };
+  return ctx.http.inject({ method: "POST", url: "/v1/contact", payload, headers: { "cf-connecting-ip": ip } });
+};
 
 beforeAll(async () => { ctx = await createTestApp(); db = ctx.app.get(DB); });
 afterAll(async () => { await ctx.app.close(); });
@@ -129,5 +141,35 @@ describe("aanvraag eigen omgeving", () => {
     expect((await send(form({ topic: "organization" }), "203.0.113.21")).statusCode).toBe(400);
     expect((await send(form({ details }), "203.0.113.21")).statusCode).toBe(400);
     expect((await send(form({ topic: "organization", details: { ...details, code: "geen spaties" } }), "203.0.113.21")).statusCode).toBe(400);
+  });
+});
+
+describe("spammap (ADR 0048)", () => {
+  const pitch = "Hey team kleurhoek.com,\n\nI'd love to discuss your online visibility!\n\nWe help businesses rank not only on Google Search but also become discoverable on AI platforms through SEO, AEO and GEO.\n\nThis helps you generate more qualified traffic, leads, and brand visibility.\n\nMay I send you a quote & price list?";
+  it("herkent verkooppraat en laat gewone vragen door", () => {
+    expect(spamScore({ message: pitch, name: "Bakar", email: "b@x.com", pow: "ok" }).score).toBeGreaterThanOrEqual(3);
+    expect(spamScore({ message: "Hoi! Kunnen jullie ook een plaat van een tractor maken?", name: "Sam", email: "s@x.nl", pow: "ok" }).score).toBe(0);
+    expect(spamScore({ message: "Wij willen graag een offerte voor onze school, zie www.school.nl", name: "Juf Anna", email: "a@school.nl", pow: "ok" }).score).toBeLessThan(3);
+    expect(spamScore({ message: "Gewone vraag over een kleurplaat", name: null, email: "s@x.nl", pow: "missing" }).score).toBeGreaterThanOrEqual(3);
+  });
+  it("zet verkooppraat zonder melding in Spam, met de reden als notitie, en houdt die uit Alles", async () => {
+    expect((await send(form({ message: pitch, email: "pitch@example.com" }), "203.0.113.70")).statusCode).toBe(202);
+    const [c] = await withTenant(db, TENANT, (tx) => tx.select().from(conversations).where(eq(conversations.email, "pitch@example.com")));
+    expect(c!.status).toBe("spam");
+    const detail = (await ctx.http.inject({ method: "GET", url: `/v1/admin/contact/conversations/${c!.id}`, headers: admin })).json();
+    expect(detail.messages.find((m: { direction: string }) => m.direction === "note").body).toContain("SEO-aanbod");
+    const all = (await ctx.http.inject({ method: "GET", url: "/v1/admin/contact/conversations", headers: admin })).json();
+    expect(all.conversations.some((x: { id: string }) => x.id === c!.id)).toBe(false);
+    const spam = (await ctx.http.inject({ method: "GET", url: "/v1/admin/contact/conversations?status=spam", headers: admin })).json();
+    expect(spam.conversations.some((x: { id: string }) => x.id === c!.id)).toBe(true);
+  });
+  it("zonder of met een hergebruikte puzzel komt het bericht in Spam", async () => {
+    expect((await send(form({ email: "nopow@example.com", pow: null }), "203.0.113.71")).statusCode).toBe(202);
+    const pow = await solved("203.0.113.72");
+    await send(form({ email: "first@example.com", pow }), "203.0.113.72");
+    await send(form({ email: "again@example.com", pow }), "203.0.113.72");
+    const rows = await withTenant(db, TENANT, (tx) => tx.select({ email: conversations.email, status: conversations.status }).from(conversations));
+    const st = (e: string) => rows.find((r) => r.email === e)?.status;
+    expect([st("nopow@example.com"), st("first@example.com"), st("again@example.com")]).toEqual(["spam", "new", "spam"]);
   });
 });

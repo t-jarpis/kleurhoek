@@ -5,12 +5,12 @@ import { CHANNEL_LABEL, ContactNav, STATUS_LABEL, TOPIC_LABEL, when } from "./la
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Contact" };
 
-const FILTERS: (ConversationStatus | "alles")[] = ["new", "open", "answered", "closed", "alles"];
+const FILTERS: (ConversationStatus | "alles")[] = ["new", "open", "answered", "closed", "alles", "spam"];
 
 /** Inbox (ADR 0024): berichten van het contactformulier, later ook WhatsApp. */
 export default async function ContactInbox({ searchParams }: { searchParams: Promise<{ status?: string; pagina?: string; melding?: string; fout?: string }> }) {
   const q = await searchParams;
-  const status = (["new", "open", "answered", "closed"] as const).find((s) => s === q.status) ?? (q.status === "alles" ? undefined : "new");
+  const status = (["new", "open", "answered", "closed", "spam"] as const).find((s) => s === q.status) ?? (q.status === "alles" ? undefined : "new");
   const page = Math.max(1, Number(q.pagina) || 1);
   let inbox;
   try { inbox = await adminApi.inbox({ ...(status ? { status } : {}), page }); } catch (e) { const d = describe(e); return <div className="err"><h1>{d.title}</h1><p>{d.text}</p></div>; }
@@ -19,7 +19,7 @@ export default async function ContactInbox({ searchParams }: { searchParams: Pro
   return (
     <>
       <div className="row-between">
-        <div><h1>Contact</h1><p className="lead">Berichten via de website. Persoonsgegevens worden na 12 maanden vanzelf verwijderd.</p></div>
+        <div><h1>Contact</h1><p className="lead">Berichten via de website. Persoonsgegevens worden na 12 maanden vanzelf verwijderd. Verdachte berichten (verkooppraat, geen controle van de browser) staan zonder melding in Spam en worden daar na 30 dagen verwijderd.</p></div>
         <ContactNav active="inbox" unread={inbox.counts.new} />
       </div>
       {q.melding && <p className="note" role="status">{q.melding}</p>}

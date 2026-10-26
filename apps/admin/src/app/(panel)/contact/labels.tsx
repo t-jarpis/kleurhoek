@@ -4,7 +4,7 @@ import type { ContactTopic, ConversationStatus } from "@/lib/api";
 export const TOPIC_LABEL: Record<ContactTopic, string> = {
   question: "Vraag", idea: "Idee voor een plaat", bug: "Iets werkt niet", partnership: "Samenwerken", copyright: "Auteursrecht", privacy: "Privacy", organization: "Aanvraag eigen omgeving",
 };
-export const STATUS_LABEL: Record<ConversationStatus, string> = { new: "Nieuw", open: "Open", answered: "Beantwoord", closed: "Gesloten" };
+export const STATUS_LABEL: Record<ConversationStatus, string> = { new: "Nieuw", open: "Open", answered: "Beantwoord", closed: "Gesloten", spam: "Spam" };
 export const CHANNEL_LABEL = { web: "Website", whatsapp: "WhatsApp" } as const;
 
 export const back = (path: string, kind: "melding" | "fout", text: string) => `${path}${path.includes("?") ? "&" : "?"}${kind}=${encodeURIComponent(text)}`;

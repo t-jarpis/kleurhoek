@@ -16,6 +16,7 @@ export const DEFAULT_RULES: RateLimitRule[] = [
   { slug: "public-read", description: "Platen en pagina-data bekijken", limit: 300, windowSeconds: 60, keyBy: "ip", enabled: true },
   { slug: "assets", description: "SVG-bestanden van platen", limit: 600, windowSeconds: 60, keyBy: "ip", enabled: true },
   { slug: "events-ingest", description: "Analytics-events van de Cloudflare Worker", limit: 6000, windowSeconds: 60, keyBy: "client", enabled: true },
+  { slug: "contact-challenge", description: "Rekenpuzzel voor het contactformulier", limit: 30, windowSeconds: 3600, keyBy: "ip", enabled: true },
   { slug: "contact-submit", description: "Contactformulier versturen", limit: 5, windowSeconds: 3600, keyBy: "ip", enabled: true },
   { slug: "admin", description: "Admin panel", limit: 120, windowSeconds: 60, keyBy: "user", enabled: true },
   { slug: "api-default", description: "Overige API-verzoeken", limit: 120, windowSeconds: 60, keyBy: "ip", enabled: true },

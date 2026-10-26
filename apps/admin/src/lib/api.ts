@@ -104,7 +104,7 @@ export interface Overview {
 export interface AccountStats { total: number; created: number; createdBefore: number; active: number; returning: number; series: { date: string; count: number }[] }
 
 
-export type ConversationStatus = "new" | "open" | "answered" | "closed";
+export type ConversationStatus = "new" | "open" | "answered" | "closed" | "spam";
 export type ContactTopic = "question" | "idea" | "bug" | "partnership" | "copyright" | "privacy" | "organization";
 export interface OrgRequest { organization: string; kind: "school" | "opvang" | "vereniging" | "bedrijf" | "overig"; code: string | null; children: string | null; website: string | null }
 export interface ConversationSummary {

@@ -10,7 +10,7 @@ const message = (e: unknown, fallback: string) => (e instanceof ApiError ? e.mes
 
 export async function setStatus(formData: FormData) {
   const id = Id.parse(formData.get("id"));
-  const status = z.enum(["new", "open", "answered", "closed"]).parse(formData.get("status"));
+  const status = z.enum(["new", "open", "answered", "closed", "spam"]).parse(formData.get("status"));
   try { await adminApi.setConversationStatus(id, status); } catch (e) { redirect(back(`/contact/${id}`, "fout", message(e, "Opslaan mislukt"))); }
   revalidatePath("/contact", "layout");
   redirect(back(`/contact/${id}`, "melding", "Status bijgewerkt"));

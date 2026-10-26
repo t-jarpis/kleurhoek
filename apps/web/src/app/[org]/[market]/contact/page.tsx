@@ -10,7 +10,7 @@ import { messages } from "@/i18n/nl";
 import { marketLanguage } from "@/lib/markets";
 import { getOrg } from "@/lib/org";
 import { pageMeta } from "@/lib/seo";
-import { sendContact } from "./actions";
+import { contactChallenge, sendContact } from "./actions";
 
 export async function generateMetadata({ params }: { params: Promise<{ org: string; market: string }> }): Promise<Metadata> {
   const { org, market } = await params;
@@ -34,7 +34,7 @@ export default async function ContactPage({ params, searchParams }: { params: Pr
       <h1 className="page-title">{t.contactTitle}</h1>
       <p className="lede">{t.contactLede}</p>
       {org.isDefault && <p className="lede">{t.ownHint} <a href={link(base, "/eigen-omgeving")}>{t.ownHintLink}</a>.</p>}
-      <ContactForm action={sendContact.bind(null, market)} initialTopic={TOPIC_PARAM[onderwerp ?? ""] ?? "question"} t={{
+      <ContactForm action={sendContact.bind(null, market)} challenge={contactChallenge} initialTopic={TOPIC_PARAM[onderwerp ?? ""] ?? "question"} t={{
         contactTopic: t.contactTopic, contactTopics: t.contactTopics, contactName: t.contactName, contactNameHint: t.contactNameHint,
         contactEmail: t.contactEmail, contactEmailHint: t.contactEmailHint, contactMessage: t.contactMessage, contactSend: t.contactSend,
         contactSending: t.contactSending, contactPrivacy: t.contactPrivacy, contactThanks: t.contactThanks, contactThanksText: t.contactThanksText,

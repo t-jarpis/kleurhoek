@@ -1,6 +1,7 @@
 "use server";
 import { headers } from "next/headers";
 import type { ContactState } from "../contact/actions";
+import { powField } from "@/lib/pow";
 
 const API_URL = process.env.API_URL ?? "http://localhost:3001";
 const KINDS = new Set(["school", "opvang", "vereniging", "bedrijf", "overig"]);
@@ -27,7 +28,7 @@ export async function sendOrgRequest(market: string, _prev: ContactState, form: 
     headers: { "content-type": "application/json", ...(ip ? { "cf-connecting-ip": ip } : {}) },
     body: JSON.stringify({
       topic: "organization", ...(fields.name ? { name: fields.name } : {}), email: fields.email, message: fields.message,
-      org: "kleurhoek", market, trap: field("website"),
+      org: "kleurhoek", market, trap: field("website"), ...(powField(field("pow")) ? { pow: powField(field("pow")) } : {}),
       ...(Number.isFinite(started) && started > 0 ? { elapsedMs: Math.max(0, Date.now() - started) } : {}),
       details: {
         organization: fields.organization, kind: fields.kind,

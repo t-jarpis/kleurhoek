@@ -1,5 +1,5 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { and, asc, count, desc, eq, inArray, lt } from "drizzle-orm";
+import { and, asc, count, desc, eq, inArray, lt, ne, or } from "drizzle-orm";
 import { ENV, type Env } from "../../config/env";
 import { DB, type Database } from "../../db/database";
 import { withTenant } from "../../db/tenant";
@@ -12,6 +12,8 @@ export class ContactError extends Error {
 
 /** Bewaartermijn: 12 maanden na het laatste bericht (ADR 0024). */
 export const RETENTION_DAYS = 365;
+/** Spam bewaren we kort: lang genoeg om een vergissing terug te zetten (ADR 0048). */
+export const SPAM_RETENTION_DAYS = 30;
 const PAGE_SIZE = 50;
 
 export interface ChannelView { slug: Channel; enabled: boolean; connected: boolean; settings: Record<string, string>; updatedBy: string; updatedAt: string | null }
@@ -27,14 +29,16 @@ export class ContactService {
   private get tenant() { return this.env.TENANT_ID; }
 
   /** Een nieuw bericht via een kanaal. Geeft het id van het gesprek. */
-  async submit(channel: Channel, input: { topic: Topic; name: string | null; email: string | null; phone?: string | null; message: string; org: string; market: string; details?: OrgRequest | null }) {
+  async submit(channel: Channel, input: { topic: Topic; name: string | null; email: string | null; phone?: string | null; message: string; org: string; market: string; details?: OrgRequest | null; spam?: string[] }) {
     if (!(await this.channelEnabled(channel))) throw new ContactError("closed", "Dit kanaal staat uit");
     return withTenant(this.db, this.tenant, async (tx) => {
       const [c] = await tx.insert(conversations).values({
         tenantId: this.tenant, channel, topic: input.topic, name: input.name, email: input.email, phone: input.phone ?? null,
-        org: input.org, market: input.market, details: input.details ?? null,
+        org: input.org, market: input.market, details: input.details ?? null, ...(input.spam ? { status: "spam" as const, updatedBy: "systeem" } : {}),
       }).returning({ id: conversations.id });
       await tx.insert(messages).values({ tenantId: this.tenant, conversationId: c!.id, direction: "in", body: input.message });
+      // Waarom het in Spam staat, als interne notitie (ADR 0048).
+      if (input.spam) await tx.insert(messages).values({ tenantId: this.tenant, conversationId: c!.id, direction: "note", author: "systeem", body: `Automatisch in Spam gezet: ${input.spam.join(", ") || "verdacht"}.` });
       return c!.id;
     });
   }
@@ -42,14 +46,15 @@ export class ContactService {
   async inbox(filter: { status?: ConversationStatus | undefined; page?: number | undefined }) {
     const page = Math.max(1, filter.page ?? 1);
     return withTenant(this.db, this.tenant, async (tx) => {
-      const where = filter.status ? eq(conversations.status, filter.status) : undefined;
+      // "Alles" laat spam weg; die staat in zijn eigen map (ADR 0048).
+      const where = filter.status ? eq(conversations.status, filter.status) : ne(conversations.status, "spam");
       const rows = await tx.select().from(conversations).where(where).orderBy(desc(conversations.lastMessageAt)).limit(PAGE_SIZE).offset((page - 1) * PAGE_SIZE);
       const firsts = rows.length ? await tx.select({ conversationId: messages.conversationId, body: messages.body, createdAt: messages.createdAt })
         .from(messages).where(and(inArray(messages.conversationId, rows.map((r) => r.id)), eq(messages.direction, "in"))).orderBy(desc(messages.createdAt)) : [];
       const counts = await tx.select({ status: conversations.status, n: count() }).from(conversations).groupBy(conversations.status);
       const byStatus = Object.fromEntries(STATUSES.map((s) => [s, Number(counts.find((c) => c.status === s)?.n ?? 0)])) as Record<ConversationStatus, number>;
       return {
-        page, pageSize: PAGE_SIZE, total: filter.status ? byStatus[filter.status] : Object.values(byStatus).reduce((a, b) => a + b, 0), counts: byStatus,
+        page, pageSize: PAGE_SIZE, total: filter.status ? byStatus[filter.status] : Object.values(byStatus).reduce((a, b) => a + b, 0) - byStatus.spam, counts: byStatus,
         conversations: rows.map((r) => ({
           id: r.id, channel: r.channel, topic: r.topic, status: r.status, name: r.name, email: r.email, phone: r.phone, org: r.org, market: r.market,
           lastMessageAt: r.lastMessageAt.toISOString(), createdAt: r.createdAt.toISOString(),
@@ -117,8 +122,10 @@ export class ContactService {
   /** Verwijdert gesprekken waarvan het laatste bericht ouder is dan de bewaartermijn. */
   async purge(now = new Date()): Promise<number> {
     const before = new Date(now.getTime() - RETENTION_DAYS * 86_400_000);
+    const spamBefore = new Date(now.getTime() - SPAM_RETENTION_DAYS * 86_400_000);
     return withTenant(this.db, this.tenant, async (tx) => {
-      const old = await tx.select({ id: conversations.id }).from(conversations).where(lt(conversations.lastMessageAt, before));
+      const old = await tx.select({ id: conversations.id }).from(conversations)
+        .where(or(lt(conversations.lastMessageAt, before), and(eq(conversations.status, "spam"), lt(conversations.lastMessageAt, spamBefore))));
       if (!old.length) return 0;
       const ids = old.map((o) => o.id);
       await tx.delete(messages).where(inArray(messages.conversationId, ids));

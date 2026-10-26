@@ -84,8 +84,10 @@ export default async function ConversationPage({ params, searchParams }: { param
             <h2>Status</h2>
             <form action={setStatus} className="checks">
               <input type="hidden" name="id" value={c.id} />
-              {(["open", "answered", "closed", "new"] as const).filter((s) => s !== c.status).map((s) => (
-                <button key={s} type="submit" name="status" value={s} className="ghost">Zet op {STATUS_LABEL[s].toLowerCase()}</button>
+              {c.status === "spam" ? (
+                <button type="submit" name="status" value="new" className="ghost">Geen spam: terug naar de inbox</button>
+              ) : (["open", "answered", "closed", "new", "spam"] as const).filter((s) => s !== c.status).map((s) => (
+                <button key={s} type="submit" name="status" value={s} className="ghost">{s === "spam" ? "Markeer als spam" : `Zet op ${STATUS_LABEL[s].toLowerCase()}`}</button>
               ))}
             </form>
             <form action={deleteConversation} className="checks">

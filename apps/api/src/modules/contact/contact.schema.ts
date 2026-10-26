@@ -16,7 +16,8 @@ export const REQUEST_ORG_KINDS = ["school", "opvang", "vereniging", "bedrijf", "
 /** Extra gegevens bij een aanvraag voor een eigen omgeving (ADR 0028). Geen persoonsgegevens behalve wat al in het gesprek staat. */
 export interface OrgRequest { organization: string; kind: (typeof REQUEST_ORG_KINDS)[number]; code: string | null; children: string | null; website: string | null }
 
-export const STATUSES = ["new", "open", "answered", "closed"] as const;
+/** spam: automatisch apart gezet (ADR 0048), zonder melding; na 30 dagen verwijderd. */
+export const STATUSES = ["new", "open", "answered", "closed", "spam"] as const;
 export type ConversationStatus = (typeof STATUSES)[number];
 
 /**
