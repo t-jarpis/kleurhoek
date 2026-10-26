@@ -66,12 +66,12 @@ locals {
       env = merge({
         NODE_ENV = "production"
         # Live markten staan in de code (ADR 0044, 0049); MARKETS_ONLY alleen voor een bewuste uitzondering.
-        MARKETS_ONLY     = var.markets_only
-        SITE_URL         = "https://${var.hosts.site}"
-        OIDC_ISSUER      = var.oidc.issuer
-        OIDC_CLIENT_ID   = var.oidc.web_client_id
-        OIDC_PROJECT_ID  = var.oidc.project_id
-        OIDC_ORG_ID      = var.oidc.site_org_id
+        MARKETS_ONLY    = var.markets_only
+        SITE_URL        = "https://${var.hosts.site}"
+        OIDC_ISSUER     = var.oidc.issuer
+        OIDC_CLIENT_ID  = var.oidc.web_client_id
+        OIDC_PROJECT_ID = var.oidc.project_id
+        OIDC_ORG_ID     = var.oidc.site_org_id
         },
         var.site_domains != "" ? { SITE_DOMAINS = var.site_domains } : {},
       )
