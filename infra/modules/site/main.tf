@@ -54,7 +54,7 @@ variable "apps_enabled" {
 }
 variable "markets" {
   type        = string
-  default     = "nl-nl,nl-be,fr-be,en-gb,de-de,de-at,de-ch,fr-fr,fr-ch,en-us,en-ie,es-es,it-it,pl-pl"
+  default     = "nl-nl,nl-be,fr-be,en-gb,de-de,de-at,de-ch,fr-fr,fr-ch,en-us,en-ie,es-es,it-it,pl-pl,en-ca,en-au,en-nz,fr-ca,fr-lu,de-lu,de-li,it-ch,es-mx,es-ar,es-co,es-us,pt-br,pt-pt"
   description = "Markten die live staan, komma-gescheiden."
 }
 variable "market_domains" {

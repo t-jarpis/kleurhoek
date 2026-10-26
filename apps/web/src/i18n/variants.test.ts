@@ -18,4 +18,13 @@ describe("tekstvarianten per markt (ADR 0047)", () => {
     expect(de.metaPlateTitle("Katze", de.kindNames.kleurplaat!)).toBe("Katze – Malvorlage");
     expect(messages("fr-fr").metaThemeTitle("Paris")).toBe("Coloriages Paris");
   });
+  it("geeft Latijns-Amerika ustedes, celular en tamaño carta (ADR 0050)", () => {
+    const mx = messages("es-mx");
+    expect(mx.ownLede).not.toMatch(/vuestro|vais/);
+    expect(mx.metaPlate("Gato", "Dibujo")).toContain("tamaño carta");
+    expect(messages("es-ar").metaPlate("Gato", "Dibujo")).toContain("A4");
+    expect(messages("es-es").ownLede).toContain("vuestro");
+    expect(messages("fr-ca").metaPlate("Chat", "Coloriage")).toContain("format lettre");
+    expect(messages("pt-br")).toBe(messages("pt"));
+  });
 });

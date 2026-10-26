@@ -16,4 +16,13 @@ describe("beste markt (ADR 0040, 0044)", () => {
     expect(bestMarket("BE", "es", live)).toBe("nl-be");
     expect(bestMarket("ES", "es", ["nl-nl", "nl-be"])).toBe("nl-nl");
   });
+  it("kiest de thuismarkt van een taal in een land zonder eigen markt (ADR 0050)", () => {
+    const all = ["nl-nl", "fr-be", "en-gb", "fr-fr", "es-es", "es-mx", "es-us", "pt-br", "pt-pt"];
+    expect(bestMarket("SN", "fr", all)).toBe("fr-fr");
+    expect(bestMarket("CL", "es-CL,es", all)).toBe("es-mx");
+    expect(bestMarket("US", "es-US,es", all)).toBe("es-us");
+    expect(bestMarket("GQ", "es", all)).toBe("es-es");
+    expect(bestMarket("AO", "pt", all)).toBe("pt-br");
+    expect(bestMarket("PT", "pt-PT", all)).toBe("pt-pt");
+  });
 });

@@ -23,6 +23,9 @@
       },
       "pl": {
         "name": "czerwony"
+      },
+      "pt": {
+        "name": "vermelho"
       }
     }
   },
@@ -50,6 +53,9 @@
       },
       "pl": {
         "name": "pomarańczowy"
+      },
+      "pt": {
+        "name": "laranja"
       }
     }
   },
@@ -77,6 +83,9 @@
       },
       "pl": {
         "name": "żółty"
+      },
+      "pt": {
+        "name": "amarelo"
       }
     }
   },
@@ -104,6 +113,9 @@
       },
       "pl": {
         "name": "jasnozielony"
+      },
+      "pt": {
+        "name": "verde-claro"
       }
     }
   },
@@ -131,6 +143,9 @@
       },
       "pl": {
         "name": "zielony"
+      },
+      "pt": {
+        "name": "verde"
       }
     }
   },
@@ -158,6 +173,9 @@
       },
       "pl": {
         "name": "turkusowy"
+      },
+      "pt": {
+        "name": "turquesa"
       }
     }
   },
@@ -185,6 +203,9 @@
       },
       "pl": {
         "name": "jasnoniebieski"
+      },
+      "pt": {
+        "name": "azul-claro"
       }
     }
   },
@@ -212,6 +233,9 @@
       },
       "pl": {
         "name": "niebieski"
+      },
+      "pt": {
+        "name": "azul"
       }
     }
   },
@@ -239,6 +263,9 @@
       },
       "pl": {
         "name": "fioletowy"
+      },
+      "pt": {
+        "name": "roxo"
       }
     }
   },
@@ -266,6 +293,9 @@
       },
       "pl": {
         "name": "różowy"
+      },
+      "pt": {
+        "name": "rosa"
       }
     }
   },
@@ -293,6 +323,9 @@
       },
       "pl": {
         "name": "jasnoróżowy"
+      },
+      "pt": {
+        "name": "rosa-claro"
       }
     }
   },
@@ -320,6 +353,9 @@
       },
       "pl": {
         "name": "brązowy"
+      },
+      "pt": {
+        "name": "marrom"
       }
     }
   },
@@ -347,6 +383,9 @@
       },
       "pl": {
         "name": "szary"
+      },
+      "pt": {
+        "name": "cinza"
       }
     }
   },
@@ -374,6 +413,9 @@
       },
       "pl": {
         "name": "czarny"
+      },
+      "pt": {
+        "name": "preto"
       }
     }
   }

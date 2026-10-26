@@ -23,7 +23,17 @@
       "IE",
       "ES",
       "IT",
-      "PL"
+      "PL",
+      "CA",
+      "AU",
+      "NZ",
+      "LU",
+      "MX",
+      "AR",
+      "CO",
+      "LI",
+      "BR",
+      "PT"
     ],
     "i18n": {
       "nl": {
@@ -46,6 +56,9 @@
       },
       "pl": {
         "name": "Sylwester i Nowy Rok"
+      },
+      "pt": {
+        "name": "Réveillon e Ano-Novo"
       }
     },
     "overrides": {}
@@ -69,7 +82,14 @@
       "FR",
       "ES",
       "IT",
-      "PL"
+      "PL",
+      "LU",
+      "LI",
+      "MX",
+      "AR",
+      "CO",
+      "PT",
+      "BR"
     ],
     "overrides": {},
     "i18n": {
@@ -93,6 +113,9 @@
       },
       "pl": {
         "name": "Święto Trzech Króli"
+      },
+      "pt": {
+        "name": "Dia de Reis"
       }
     }
   },
@@ -120,7 +143,17 @@
       "IE",
       "ES",
       "IT",
-      "PL"
+      "PL",
+      "CA",
+      "AU",
+      "NZ",
+      "LU",
+      "MX",
+      "AR",
+      "CO",
+      "LI",
+      "BR",
+      "PT"
     ],
     "i18n": {
       "nl": {
@@ -143,6 +176,9 @@
       },
       "pl": {
         "name": "Chiński Nowy Rok"
+      },
+      "pt": {
+        "name": "Ano-Novo Chinês"
       }
     },
     "overrides": {}
@@ -171,7 +207,17 @@
       "IE",
       "ES",
       "IT",
-      "PL"
+      "PL",
+      "CA",
+      "AU",
+      "NZ",
+      "LU",
+      "MX",
+      "AR",
+      "CO",
+      "LI",
+      "BR",
+      "PT"
     ],
     "i18n": {
       "nl": {
@@ -194,9 +240,25 @@
       },
       "pl": {
         "name": "Walentynki"
+      },
+      "pt": {
+        "name": "Dia de São Valentim"
       }
     },
-    "overrides": {}
+    "overrides": {
+      "BR": {
+        "fixed": [
+          6,
+          12
+        ]
+      },
+      "CO": {
+        "dates": {
+          "2026": "2026-09-19",
+          "2027": "2027-09-18"
+        }
+      }
+    }
   },
   {
     "slug": "carnaval",
@@ -218,7 +280,14 @@
       "CH",
       "FR",
       "ES",
-      "IT"
+      "IT",
+      "LU",
+      "LI",
+      "BR",
+      "PT",
+      "MX",
+      "CO",
+      "AR"
     ],
     "i18n": {
       "nl": {
@@ -241,6 +310,9 @@
       },
       "pl": {
         "name": "Karnawał"
+      },
+      "pt": {
+        "name": "Carnaval"
       }
     },
     "overrides": {}
@@ -269,7 +341,17 @@
       "IE",
       "ES",
       "IT",
-      "PL"
+      "PL",
+      "CA",
+      "AU",
+      "NZ",
+      "LU",
+      "MX",
+      "AR",
+      "CO",
+      "LI",
+      "BR",
+      "PT"
     ],
     "i18n": {
       "nl": {
@@ -292,6 +374,9 @@
       },
       "pl": {
         "name": "Holi"
+      },
+      "pt": {
+        "name": "Holi"
       }
     },
     "overrides": {}
@@ -310,7 +395,10 @@
     "label": null,
     "countries": [
       "IE",
-      "US"
+      "US",
+      "CA",
+      "AU",
+      "NZ"
     ],
     "overrides": {},
     "i18n": {
@@ -334,6 +422,9 @@
       },
       "pl": {
         "name": "Dzień Świętego Patryka"
+      },
+      "pt": {
+        "name": "Dia de São Patrício"
       }
     }
   },
@@ -361,7 +452,17 @@
       "IE",
       "ES",
       "IT",
-      "PL"
+      "PL",
+      "CA",
+      "AU",
+      "NZ",
+      "LU",
+      "MX",
+      "AR",
+      "CO",
+      "LI",
+      "BR",
+      "PT"
     ],
     "i18n": {
       "nl": {
@@ -384,6 +485,9 @@
       },
       "pl": {
         "name": "Święto Przerwania Postu"
+      },
+      "pt": {
+        "name": "Eid al-Fitr"
       }
     },
     "overrides": {}
@@ -412,7 +516,17 @@
       "IE",
       "ES",
       "IT",
-      "PL"
+      "PL",
+      "CA",
+      "AU",
+      "NZ",
+      "LU",
+      "MX",
+      "AR",
+      "CO",
+      "LI",
+      "BR",
+      "PT"
     ],
     "i18n": {
       "nl": {
@@ -435,6 +549,9 @@
       },
       "pl": {
         "name": "Wielkanoc"
+      },
+      "pt": {
+        "name": "Páscoa"
       }
     },
     "overrides": {}
@@ -475,6 +592,9 @@
       },
       "pl": {
         "name": "Dzień Króla"
+      },
+      "pt": {
+        "name": "Dia do Rei"
       }
     },
     "overrides": {}
@@ -515,6 +635,9 @@
       },
       "pl": {
         "name": "Dzień Wyzwolenia"
+      },
+      "pt": {
+        "name": "Dia da Libertação"
       }
     },
     "overrides": {}
@@ -543,7 +666,17 @@
       "IE",
       "ES",
       "IT",
-      "PL"
+      "PL",
+      "CA",
+      "AU",
+      "NZ",
+      "LU",
+      "MX",
+      "AR",
+      "CO",
+      "LI",
+      "BR",
+      "PT"
     ],
     "i18n": {
       "nl": {
@@ -566,6 +699,9 @@
       },
       "pl": {
         "name": "Dzień Matki"
+      },
+      "pt": {
+        "name": "Dia das Mães"
       }
     },
     "overrides": {
@@ -598,6 +734,36 @@
           "2026": "2026-03-15",
           "2027": "2027-03-07"
         }
+      },
+      "LU": {
+        "dates": {
+          "2026": "2026-06-14",
+          "2027": "2027-06-13"
+        }
+      },
+      "MX": {
+        "fixed": [
+          5,
+          10
+        ]
+      },
+      "AR": {
+        "dates": {
+          "2026": "2026-10-18",
+          "2027": "2027-10-17"
+        }
+      },
+      "CO": {
+        "dates": {
+          "2026": "2026-05-31",
+          "2027": "2027-05-30"
+        }
+      },
+      "PT": {
+        "dates": {
+          "2026": "2026-05-03",
+          "2027": "2027-05-02"
+        }
       }
     }
   },
@@ -619,7 +785,9 @@
       "DE",
       "AT",
       "CH",
-      "FR"
+      "FR",
+      "LU",
+      "LI"
     ],
     "i18n": {
       "nl": {
@@ -642,6 +810,9 @@
       },
       "pl": {
         "name": "Wniebowstąpienie"
+      },
+      "pt": {
+        "name": "Ascensão"
       }
     },
     "overrides": {}
@@ -665,7 +836,9 @@
       "AT",
       "CH",
       "FR",
-      "PL"
+      "PL",
+      "LU",
+      "LI"
     ],
     "i18n": {
       "nl": {
@@ -688,6 +861,9 @@
       },
       "pl": {
         "name": "Zielone Świątki"
+      },
+      "pt": {
+        "name": "Pentecostes"
       }
     },
     "overrides": {}
@@ -716,7 +892,17 @@
       "IE",
       "ES",
       "IT",
-      "PL"
+      "PL",
+      "CA",
+      "AU",
+      "NZ",
+      "LU",
+      "MX",
+      "AR",
+      "CO",
+      "LI",
+      "BR",
+      "PT"
     ],
     "i18n": {
       "nl": {
@@ -739,6 +925,9 @@
       },
       "pl": {
         "name": "Święto Ofiarowania"
+      },
+      "pt": {
+        "name": "Eid al-Adha"
       }
     },
     "overrides": {}
@@ -767,7 +956,17 @@
       "IE",
       "ES",
       "IT",
-      "PL"
+      "PL",
+      "CA",
+      "AU",
+      "NZ",
+      "LU",
+      "MX",
+      "AR",
+      "CO",
+      "LI",
+      "BR",
+      "PT"
     ],
     "i18n": {
       "nl": {
@@ -790,6 +989,9 @@
       },
       "pl": {
         "name": "Dzień Ojca"
+      },
+      "pt": {
+        "name": "Dia dos Pais"
       }
     },
     "overrides": {
@@ -834,6 +1036,42 @@
           6,
           23
         ]
+      },
+      "AU": {
+        "dates": {
+          "2026": "2026-09-06",
+          "2027": "2027-09-05"
+        }
+      },
+      "NZ": {
+        "dates": {
+          "2026": "2026-09-06",
+          "2027": "2027-09-05"
+        }
+      },
+      "BR": {
+        "dates": {
+          "2026": "2026-08-09",
+          "2027": "2027-08-08"
+        }
+      },
+      "PT": {
+        "fixed": [
+          3,
+          19
+        ]
+      },
+      "LU": {
+        "dates": {
+          "2026": "2026-10-04",
+          "2027": "2027-10-03"
+        }
+      },
+      "LI": {
+        "dates": {
+          "2026": "2026-06-07",
+          "2027": "2027-06-06"
+        }
       }
     }
   },
@@ -872,6 +1110,9 @@
         "name": "Keti Koti"
       },
       "pl": {
+        "name": "Keti Koti"
+      },
+      "pt": {
         "name": "Keti Koti"
       }
     },
@@ -914,6 +1155,9 @@
       },
       "pl": {
         "name": "Dzień Niepodległości (USA)"
+      },
+      "pt": {
+        "name": "Dia da Independência (EUA)"
       }
     }
   },
@@ -954,6 +1198,9 @@
       },
       "pl": {
         "name": "Święto Narodowe Francji"
+      },
+      "pt": {
+        "name": "Festa Nacional da França"
       }
     }
   },
@@ -994,6 +1241,9 @@
       },
       "pl": {
         "name": "Święto Narodowe Belgii"
+      },
+      "pt": {
+        "name": "Festa Nacional da Bélgica"
       }
     }
   },
@@ -1021,7 +1271,17 @@
       "IE",
       "ES",
       "IT",
-      "PL"
+      "PL",
+      "CA",
+      "AU",
+      "NZ",
+      "LU",
+      "MX",
+      "AR",
+      "CO",
+      "LI",
+      "BR",
+      "PT"
     ],
     "i18n": {
       "nl": {
@@ -1044,6 +1304,9 @@
       },
       "pl": {
         "name": "Pierwszy dzień szkoły"
+      },
+      "pt": {
+        "name": "Primeiro dia de aula"
       }
     },
     "overrides": {
@@ -1123,6 +1386,76 @@
           1
         ],
         "label": null
+      },
+      "CA": {
+        "fixed": [
+          9,
+          2
+        ],
+        "label": null
+      },
+      "AU": {
+        "fixed": [
+          1,
+          28
+        ],
+        "label": null
+      },
+      "NZ": {
+        "fixed": [
+          2,
+          3
+        ],
+        "label": null
+      },
+      "LU": {
+        "fixed": [
+          9,
+          15
+        ],
+        "label": null
+      },
+      "MX": {
+        "fixed": [
+          8,
+          31
+        ],
+        "label": null
+      },
+      "AR": {
+        "fixed": [
+          3,
+          2
+        ],
+        "label": null
+      },
+      "CO": {
+        "fixed": [
+          1,
+          26
+        ],
+        "label": null
+      },
+      "LI": {
+        "fixed": [
+          8,
+          17
+        ],
+        "label": null
+      },
+      "BR": {
+        "fixed": [
+          2,
+          2
+        ],
+        "label": null
+      },
+      "PT": {
+        "fixed": [
+          9,
+          14
+        ],
+        "label": null
       }
     }
   },
@@ -1144,7 +1477,9 @@
       "DE",
       "AT",
       "CH",
-      "PL"
+      "PL",
+      "LU",
+      "LI"
     ],
     "i18n": {
       "nl": {
@@ -1167,6 +1502,9 @@
       },
       "pl": {
         "name": "Dzień Zwierząt"
+      },
+      "pt": {
+        "name": "Dia dos Animais"
       }
     },
     "overrides": {}
@@ -1195,7 +1533,17 @@
       "IE",
       "ES",
       "IT",
-      "PL"
+      "PL",
+      "CA",
+      "AU",
+      "NZ",
+      "LU",
+      "MX",
+      "AR",
+      "CO",
+      "LI",
+      "BR",
+      "PT"
     ],
     "i18n": {
       "nl": {
@@ -1217,6 +1565,9 @@
         "name": "Halloween"
       },
       "pl": {
+        "name": "Halloween"
+      },
+      "pt": {
         "name": "Halloween"
       }
     },
@@ -1259,6 +1610,9 @@
       },
       "pl": {
         "name": "Noc Guya Fawkesa"
+      },
+      "pt": {
+        "name": "Noite das Fogueiras"
       }
     }
   },
@@ -1286,7 +1640,17 @@
       "IE",
       "ES",
       "IT",
-      "PL"
+      "PL",
+      "CA",
+      "AU",
+      "NZ",
+      "LU",
+      "MX",
+      "AR",
+      "CO",
+      "LI",
+      "BR",
+      "PT"
     ],
     "i18n": {
       "nl": {
@@ -1309,6 +1673,9 @@
       },
       "pl": {
         "name": "Diwali"
+      },
+      "pt": {
+        "name": "Diwali"
       }
     },
     "overrides": {}
@@ -1330,7 +1697,9 @@
       "BE",
       "DE",
       "AT",
-      "CH"
+      "CH",
+      "LU",
+      "LI"
     ],
     "i18n": {
       "nl": {
@@ -1353,6 +1722,9 @@
       },
       "pl": {
         "name": "Dzień Świętego Marcina"
+      },
+      "pt": {
+        "name": "Dia de São Martinho"
       }
     },
     "overrides": {}
@@ -1370,9 +1742,17 @@
     "approximate": false,
     "label": null,
     "countries": [
-      "US"
+      "US",
+      "CA"
     ],
-    "overrides": {},
+    "overrides": {
+      "CA": {
+        "dates": {
+          "2026": "2026-10-12",
+          "2027": "2027-10-11"
+        }
+      }
+    },
     "i18n": {
       "nl": {
         "name": "Thanksgiving"
@@ -1394,6 +1774,9 @@
       },
       "pl": {
         "name": "Święto Dziękczynienia"
+      },
+      "pt": {
+        "name": "Dia de Ação de Graças"
       }
     }
   },
@@ -1415,7 +1798,9 @@
       "DE",
       "AT",
       "CH",
-      "PL"
+      "PL",
+      "LU",
+      "LI"
     ],
     "i18n": {
       "nl": {
@@ -1438,6 +1823,9 @@
       },
       "pl": {
         "name": "Mikołajki"
+      },
+      "pt": {
+        "name": "São Nicolau"
       }
     },
     "overrides": {
@@ -1470,6 +1858,18 @@
           12,
           6
         ]
+      },
+      "LU": {
+        "fixed": [
+          12,
+          6
+        ]
+      },
+      "LI": {
+        "fixed": [
+          12,
+          6
+        ]
       }
     }
   },
@@ -1497,7 +1897,17 @@
       "IE",
       "ES",
       "IT",
-      "PL"
+      "PL",
+      "CA",
+      "AU",
+      "NZ",
+      "LU",
+      "MX",
+      "AR",
+      "CO",
+      "LI",
+      "BR",
+      "PT"
     ],
     "i18n": {
       "nl": {
@@ -1520,6 +1930,9 @@
       },
       "pl": {
         "name": "Chanuka"
+      },
+      "pt": {
+        "name": "Hanukkah"
       }
     },
     "overrides": {}
@@ -1548,7 +1961,17 @@
       "IE",
       "ES",
       "IT",
-      "PL"
+      "PL",
+      "CA",
+      "AU",
+      "NZ",
+      "LU",
+      "MX",
+      "AR",
+      "CO",
+      "LI",
+      "BR",
+      "PT"
     ],
     "i18n": {
       "nl": {
@@ -1571,6 +1994,9 @@
       },
       "pl": {
         "name": "Boże Narodzenie"
+      },
+      "pt": {
+        "name": "Natal"
       }
     },
     "overrides": {}
@@ -1596,7 +2022,17 @@
       "IE",
       "ES",
       "IT",
-      "PL"
+      "PL",
+      "CA",
+      "AU",
+      "NZ",
+      "LU",
+      "MX",
+      "AR",
+      "CO",
+      "LI",
+      "BR",
+      "PT"
     ],
     "i18n": {
       "nl": {
@@ -1619,6 +2055,9 @@
       },
       "pl": {
         "name": "Urodziny"
+      },
+      "pt": {
+        "name": "Aniversário"
       }
     },
     "overrides": {}

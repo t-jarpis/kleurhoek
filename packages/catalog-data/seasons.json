@@ -26,7 +26,13 @@
       "IE",
       "ES",
       "IT",
-      "PL"
+      "PL",
+      "CA",
+      "LU",
+      "MX",
+      "CO",
+      "LI",
+      "PT"
     ],
     "i18n": {
       "nl": {
@@ -49,6 +55,57 @@
       },
       "pl": {
         "name": "Jesień"
+      },
+      "pt": {
+        "name": "Outono"
+      }
+    }
+  },
+  {
+    "slug": "herfst-zuid",
+    "from": [
+      3,
+      20
+    ],
+    "to": [
+      5,
+      20
+    ],
+    "plates": [
+      "egel",
+      "paddenstoel",
+      "boom"
+    ],
+    "countries": [
+      "AU",
+      "NZ",
+      "AR",
+      "BR"
+    ],
+    "i18n": {
+      "nl": {
+        "name": "Herfst"
+      },
+      "de": {
+        "name": "Herbst"
+      },
+      "fr": {
+        "name": "Automne"
+      },
+      "en": {
+        "name": "Autumn"
+      },
+      "es": {
+        "name": "Otoño"
+      },
+      "it": {
+        "name": "Autunno"
+      },
+      "pl": {
+        "name": "Jesień"
+      },
+      "pt": {
+        "name": "Outono"
       }
     }
   }

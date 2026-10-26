@@ -41,6 +41,21 @@ export async function seed(db: Database, tenantId: string): Promise<{ plates: nu
       { tenantId, code: "es-ES", country: "ES", language: "es", status: "live" as const, paperSize: "A4" as const, minAccountAge: 14 },
       { tenantId, code: "it-IT", country: "IT", language: "it", status: "live" as const, paperSize: "A4" as const, minAccountAge: 14 },
       { tenantId, code: "pl-PL", country: "PL", language: "pl", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
+      // Markten in bestaande talen en Portugees (ADR 0050). Letter in Noord-Amerika, Mexico en Colombia.
+      { tenantId, code: "en-CA", country: "CA", language: "en", status: "live" as const, paperSize: "Letter" as const, minAccountAge: 13 },
+      { tenantId, code: "fr-CA", country: "CA", language: "fr", status: "live" as const, paperSize: "Letter" as const, minAccountAge: 14 },
+      { tenantId, code: "en-AU", country: "AU", language: "en", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
+      { tenantId, code: "en-NZ", country: "NZ", language: "en", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
+      { tenantId, code: "fr-LU", country: "LU", language: "fr", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
+      { tenantId, code: "de-LU", country: "LU", language: "de", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
+      { tenantId, code: "de-LI", country: "LI", language: "de", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
+      { tenantId, code: "it-CH", country: "CH", language: "it", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
+      { tenantId, code: "es-MX", country: "MX", language: "es", status: "live" as const, paperSize: "Letter" as const, minAccountAge: 13 },
+      { tenantId, code: "es-AR", country: "AR", language: "es", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
+      { tenantId, code: "es-CO", country: "CO", language: "es", status: "live" as const, paperSize: "Letter" as const, minAccountAge: 14 },
+      { tenantId, code: "es-US", country: "US", language: "es", status: "live" as const, paperSize: "Letter" as const, minAccountAge: 13 },
+      { tenantId, code: "pt-BR", country: "BR", language: "pt", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
+      { tenantId, code: "pt-PT", country: "PT", language: "pt", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
     ]).onConflictDoNothing();
 
     const cats = source.categories();

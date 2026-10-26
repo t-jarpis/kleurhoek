@@ -30,6 +30,10 @@
       "pl": {
         "name": "Kredki",
         "hint": "Do drobnych pól i małych rączek"
+      },
+      "pt": {
+        "name": "Lápis de cor",
+        "hint": "Para áreas pequenas e mãos pequenas"
       }
     }
   },
@@ -64,6 +68,10 @@
       "pl": {
         "name": "Flamastry",
         "hint": "Żywe kolory, wybierz zmywalne"
+      },
+      "pt": {
+        "name": "Canetinhas hidrográficas",
+        "hint": "Cores vivas; escolha as laváveis"
       }
     }
   },
@@ -98,6 +106,10 @@
       "pl": {
         "name": "Kredki świecowe",
         "hint": "Grube i mocne, dobre dla najmłodszych"
+      },
+      "pt": {
+        "name": "Giz de cera",
+        "hint": "Grossos e resistentes, ótimos para os menores"
       }
     }
   },
@@ -132,6 +144,10 @@
       "pl": {
         "name": "Nożyczki dla dzieci",
         "hint": "Z zaokrąglonym czubkiem; nie zostawiaj małych dzieci samych przy wycinaniu"
+      },
+      "pt": {
+        "name": "Tesoura infantil",
+        "hint": "Com ponta arredondada; não deixe crianças pequenas recortarem sozinhas"
       }
     }
   },
@@ -166,6 +182,10 @@
       "pl": {
         "name": "Klej w sztyfcie",
         "hint": "Klei papier bez brudzenia"
+      },
+      "pt": {
+        "name": "Cola em bastão",
+        "hint": "Cola papel sem fazer sujeira"
       }
     }
   },
@@ -194,6 +214,9 @@
       },
       "pl": {
         "name": "Taśma klejąca"
+      },
+      "pt": {
+        "name": "Fita adesiva"
       }
     }
   },
@@ -228,6 +251,10 @@
       "pl": {
         "name": "Sztywny papier (160 g)",
         "hint": "Do modeli i kartek, które mają stać"
+      },
+      "pt": {
+        "name": "Papel grosso (160 gramas)",
+        "hint": "Para maquetes de papel e cartões que precisam ficar em pé"
       }
     }
   },
@@ -262,6 +289,10 @@
       "pl": {
         "name": "Pałeczka LED do lampionu",
         "hint": "Bezpieczne światło w twoim lampionie"
+      },
+      "pt": {
+        "name": "Bastão de LED para lanterna",
+        "hint": "Luz segura na sua lanterna de papel"
       }
     }
   },
@@ -296,6 +327,10 @@
       "pl": {
         "name": "Spinacze dwunożne",
         "hint": "Do ruchomych rąk i nóg"
+      },
+      "pt": {
+        "name": "Colchetes bailarina",
+        "hint": "Para braços e pernas que se mexem"
       }
     }
   },
@@ -330,6 +365,10 @@
       "pl": {
         "name": "Ołówek",
         "hint": "Do pisania, rysowania i obrysowywania linii"
+      },
+      "pt": {
+        "name": "Lápis",
+        "hint": "Para escrever, desenhar e cobrir linhas"
       }
     }
   },
@@ -364,6 +403,10 @@
       "pl": {
         "name": "Gumka kapeluszowa",
         "hint": "Okrągła gumka, żeby maska trzymała się na głowie"
+      },
+      "pt": {
+        "name": "Elástico",
+        "hint": "Elástico roliço, para prender uma máscara na cabeça"
       }
     }
   },
@@ -398,6 +441,10 @@
       "pl": {
         "name": "Sznurek lub wstążka",
         "hint": "Do powieszenia albo do przywiązania do prezentu"
+      },
+      "pt": {
+        "name": "Cordão ou fita",
+        "hint": "Para pendurar ou amarrar em um presente"
       }
     }
   },
@@ -432,6 +479,10 @@
       "pl": {
         "name": "Farby i gąbka",
         "hint": "Farby plakatowe lub akwarele, do stemplowania albo malowania"
+      },
+      "pt": {
+        "name": "Tinta e uma esponjinha",
+        "hint": "Guache ou aquarela, para carimbar ou pintar"
       }
     }
   },
@@ -466,6 +517,10 @@
       "pl": {
         "name": "Stemple i poduszka z tuszem",
         "hint": "Zmywalny tusz; można je też zrobić z gumki lub ziemniaka"
+      },
+      "pt": {
+        "name": "Carimbos e almofada de tinta",
+        "hint": "Tinta lavável; você também pode fazer os seus com uma borracha ou uma batata"
       }
     }
   }

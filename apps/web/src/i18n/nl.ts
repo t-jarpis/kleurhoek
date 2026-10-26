@@ -4,6 +4,8 @@ import { es } from "./es";
 import { fr } from "./fr";
 import { it } from "./it";
 import { pl } from "./pl";
+import { pt } from "./pt";
+import { latamSpanish } from "./es-419";
 
 /** Interfaceteksten. Andere talen staan als eigen bestand met dezelfde sleutels ernaast. */
 export const nl = {
@@ -120,7 +122,7 @@ type Widen<T> = T extends string ? string
   : T extends object ? { [K in keyof T]: Widen<T[K]> } : T;
 export type Messages = Widen<typeof nl>;
 // Elke taal een eigen bestand met dezelfde sleutels (ADR 0029). Alleen type-imports terug naar nl.ts.
-const all: Record<string, Messages> = { nl, de, en, es, fr, it, pl };
+const all: Record<string, Messages> = { nl, de, en, es, fr, it, pl, pt };
 
 /** Zelfde teksten met een andere schrijfwijze: elke tekst (ook wat een functie teruggeeft) gaat door `fix`. */
 function variant<T>(value: T, fix: (s: string) => string): T {
@@ -139,6 +141,15 @@ export const swissSpelling = (s: string) => s.replace(/ß/g, "ss");
 // Varianten per markt: de sleutel is de marktcode, de taal is de terugval.
 all["en-us"] = variant(en, usSpelling);
 all["de-ch"] = variant(de, swissSpelling);
+all["de-li"] = all["de-ch"];
+// Letter-papier in Canada (ADR 0050); Canadees Engels houdt de Britse spelling.
+all["en-ca"] = variant(en, (s) => s.replace(/on A4\b/g, "on letter paper").replace(/A4 sheet/g, "letter-size sheet").replace(/\bA4\b/g, "letter"));
+all["fr-ca"] = variant(fr, (s) => s.replace(/\bA4\b/g, "format lettre"));
+// Spaans voor Latijns-Amerika en de VS: ustedes in plaats van vosotros (ADR 0050).
+all["es-mx"] = latamSpanish(es, true);
+all["es-co"] = all["es-mx"];
+all["es-us"] = all["es-mx"];
+all["es-ar"] = latamSpanish(es, false);
 
 /** Teksten voor een markt ("en-us") of een taal ("en"). Een markt zonder eigen variant krijgt zijn taal. */
 export const messages = (marketOrLanguage: string): Messages => {

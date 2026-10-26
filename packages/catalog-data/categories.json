@@ -24,6 +24,9 @@
       },
       "pl": {
         "name": "Zwierzęta"
+      },
+      "pt": {
+        "name": "Animais"
       }
     }
   },
@@ -52,6 +55,9 @@
       },
       "pl": {
         "name": "Pojazdy"
+      },
+      "pt": {
+        "name": "Veículos"
       }
     }
   },
@@ -80,6 +86,9 @@
       },
       "pl": {
         "name": "Przyroda"
+      },
+      "pt": {
+        "name": "Natureza"
       }
     }
   },
@@ -108,6 +117,9 @@
       },
       "pl": {
         "name": "Pyszne jedzenie"
+      },
+      "pt": {
+        "name": "Comidas deliciosas"
       }
     }
   },
@@ -136,6 +148,9 @@
       },
       "pl": {
         "name": "Kosmos"
+      },
+      "pt": {
+        "name": "Espaço"
       }
     }
   },
@@ -164,6 +179,9 @@
       },
       "pl": {
         "name": "Święta"
+      },
+      "pt": {
+        "name": "Datas comemorativas"
       }
     }
   },
@@ -192,6 +210,9 @@
       },
       "pl": {
         "name": "Świat"
+      },
+      "pt": {
+        "name": "Mundo"
       }
     }
   },
@@ -220,6 +241,9 @@
       },
       "pl": {
         "name": "Wzory"
+      },
+      "pt": {
+        "name": "Padrões"
       }
     }
   },
@@ -248,6 +272,9 @@
       },
       "pl": {
         "name": "Wieś i farma"
+      },
+      "pt": {
+        "name": "Fazenda"
       }
     }
   },
@@ -276,6 +303,9 @@
       },
       "pl": {
         "name": "Pod wodą"
+      },
+      "pt": {
+        "name": "Fundo do mar"
       }
     }
   },
@@ -304,6 +334,9 @@
       },
       "pl": {
         "name": "Dinozaury"
+      },
+      "pt": {
+        "name": "Dinossauros"
       }
     }
   },
@@ -332,6 +365,9 @@
       },
       "pl": {
         "name": "Bajki"
+      },
+      "pt": {
+        "name": "Contos de fadas"
       }
     }
   },
@@ -360,6 +396,9 @@
       },
       "pl": {
         "name": "Sport i zabawa"
+      },
+      "pt": {
+        "name": "Esportes e jogos"
       }
     }
   },
@@ -388,6 +427,9 @@
       },
       "pl": {
         "name": "Zawody"
+      },
+      "pt": {
+        "name": "Profissões"
       }
     }
   },
@@ -416,6 +458,9 @@
       },
       "pl": {
         "name": "Dom i zabawki"
+      },
+      "pt": {
+        "name": "Casa e brinquedos"
       }
     }
   },
@@ -444,6 +489,9 @@
       },
       "pl": {
         "name": "Kształty i figury"
+      },
+      "pt": {
+        "name": "Formas e figuras"
       }
     }
   },
@@ -472,6 +520,9 @@
       },
       "pl": {
         "name": "Litery, cyfry i zegar"
+      },
+      "pt": {
+        "name": "Letras, números e relógio"
       }
     }
   }

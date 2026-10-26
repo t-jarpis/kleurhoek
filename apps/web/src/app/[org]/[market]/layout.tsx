@@ -4,7 +4,7 @@ import "../../globals.css";
 import { brandCss } from "@kleurhoek/theme";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { LIVE_MARKETS, marketLanguage } from "@/lib/markets";
+import { isLetter, LIVE_MARKETS, marketLanguage } from "@/lib/markets";
 import { getOrg } from "@/lib/org";
 import { messages } from "@/i18n/nl";
 import { hreflang, indexable, SITE } from "@/lib/seo";
@@ -44,7 +44,7 @@ export default async function MarketLayout({ children, params }: { children: Rea
   const css = brandCss(org.brand.colors);
   const markets = LIVE_MARKETS.filter((m) => !org.offer.markets || org.offer.markets.includes(m));
   return (
-    <html lang={hreflang(market)} {...(/-(us|ca)$/.test(market) ? { "data-paper": "letter" } : {})} {...(org.brand.theme ? { "data-kh-theme": org.brand.theme } : {})} {...(org.brand.font ? { "data-kh-font": org.brand.font } : {})}>
+    <html lang={hreflang(market)} {...(isLetter(market) ? { "data-paper": "letter" } : {})} {...(org.brand.theme ? { "data-kh-theme": org.brand.theme } : {})} {...(org.brand.font ? { "data-kh-font": org.brand.font } : {})}>
       {/* Nooit een lege string in <head>: browsers gooien tekst daar weg, dan klopt de hydratie niet en verdwijnt de CSS. */}
       <head>{css ? <style id="kh-brand">{css}</style> : null}</head>
       <body><BaseProvider base={baseFor(org, market)} market={market} sites={siteEntries(markets, org.isDefault ? siteDomains() : null)} mark={org.isDefault ? markFor(market, siteDomains()) : null}><LangHint />{children}</BaseProvider></body>
