@@ -47,7 +47,17 @@
       "MT",
       "MC",
       "AD",
-      "SM"
+      "SM",
+      "BG",
+      "HR",
+      "BA",
+      "ME",
+      "SI",
+      "EE",
+      "LV",
+      "LT",
+      "UA",
+      "TR"
     ],
     "i18n": {
       "nl": {
@@ -100,6 +110,30 @@
       },
       "el": {
         "name": "Φθινόπωρο"
+      },
+      "bg": {
+        "name": "Есен"
+      },
+      "hr": {
+        "name": "Jesen"
+      },
+      "sl": {
+        "name": "Jesen"
+      },
+      "et": {
+        "name": "Sügis"
+      },
+      "lv": {
+        "name": "Rudens"
+      },
+      "lt": {
+        "name": "Ruduo"
+      },
+      "uk": {
+        "name": "Осінь"
+      },
+      "tr": {
+        "name": "Sonbahar"
       }
     }
   },
@@ -175,6 +209,30 @@
       },
       "el": {
         "name": "Φθινόπωρο"
+      },
+      "bg": {
+        "name": "Есен"
+      },
+      "hr": {
+        "name": "Jesen"
+      },
+      "sl": {
+        "name": "Jesen"
+      },
+      "et": {
+        "name": "Sügis"
+      },
+      "lv": {
+        "name": "Rudens"
+      },
+      "lt": {
+        "name": "Ruduo"
+      },
+      "uk": {
+        "name": "Осінь"
+      },
+      "tr": {
+        "name": "Sonbahar"
       }
     }
   }

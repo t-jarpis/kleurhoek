@@ -54,6 +54,30 @@
       },
       "el": {
         "name": "Ευρώπη"
+      },
+      "bg": {
+        "name": "Европа"
+      },
+      "hr": {
+        "name": "Europa"
+      },
+      "sl": {
+        "name": "Evropa"
+      },
+      "et": {
+        "name": "Euroopa"
+      },
+      "lv": {
+        "name": "Eiropa"
+      },
+      "lt": {
+        "name": "Europa"
+      },
+      "uk": {
+        "name": "Європа"
+      },
+      "tr": {
+        "name": "Avrupa"
       }
     }
   },
@@ -112,6 +136,30 @@
       },
       "el": {
         "name": "Αφρική"
+      },
+      "bg": {
+        "name": "Африка"
+      },
+      "hr": {
+        "name": "Afrika"
+      },
+      "sl": {
+        "name": "Afrika"
+      },
+      "et": {
+        "name": "Aafrika"
+      },
+      "lv": {
+        "name": "Āfrika"
+      },
+      "lt": {
+        "name": "Afrika"
+      },
+      "uk": {
+        "name": "Африка"
+      },
+      "tr": {
+        "name": "Afrika"
       }
     }
   },
@@ -170,6 +218,30 @@
       },
       "el": {
         "name": "Ασία"
+      },
+      "bg": {
+        "name": "Азия"
+      },
+      "hr": {
+        "name": "Azija"
+      },
+      "sl": {
+        "name": "Azija"
+      },
+      "et": {
+        "name": "Aasia"
+      },
+      "lv": {
+        "name": "Āzija"
+      },
+      "lt": {
+        "name": "Azija"
+      },
+      "uk": {
+        "name": "Азія"
+      },
+      "tr": {
+        "name": "Asya"
       }
     }
   },
@@ -228,6 +300,30 @@
       },
       "el": {
         "name": "Βόρεια Αμερική"
+      },
+      "bg": {
+        "name": "Северна Америка"
+      },
+      "hr": {
+        "name": "Sjeverna Amerika"
+      },
+      "sl": {
+        "name": "Severna Amerika"
+      },
+      "et": {
+        "name": "Põhja-Ameerika"
+      },
+      "lv": {
+        "name": "Ziemeļamerika"
+      },
+      "lt": {
+        "name": "Šiaurės Amerika"
+      },
+      "uk": {
+        "name": "Північна Америка"
+      },
+      "tr": {
+        "name": "Kuzey Amerika"
       }
     }
   },
@@ -286,6 +382,30 @@
       },
       "el": {
         "name": "Νότια Αμερική"
+      },
+      "bg": {
+        "name": "Южна Америка"
+      },
+      "hr": {
+        "name": "Južna Amerika"
+      },
+      "sl": {
+        "name": "Južna Amerika"
+      },
+      "et": {
+        "name": "Lõuna-Ameerika"
+      },
+      "lv": {
+        "name": "Dienvidamerika"
+      },
+      "lt": {
+        "name": "Pietų Amerika"
+      },
+      "uk": {
+        "name": "Південна Америка"
+      },
+      "tr": {
+        "name": "Güney Amerika"
       }
     }
   },
@@ -344,6 +464,30 @@
       },
       "el": {
         "name": "Ωκεανία"
+      },
+      "bg": {
+        "name": "Океания"
+      },
+      "hr": {
+        "name": "Oceanija"
+      },
+      "sl": {
+        "name": "Oceanija"
+      },
+      "et": {
+        "name": "Okeaania"
+      },
+      "lv": {
+        "name": "Okeānija"
+      },
+      "lt": {
+        "name": "Okeanija"
+      },
+      "uk": {
+        "name": "Океанія"
+      },
+      "tr": {
+        "name": "Okyanusya"
       }
     }
   },
@@ -402,6 +546,30 @@
       },
       "el": {
         "name": "Ανταρκτική"
+      },
+      "bg": {
+        "name": "Антарктида"
+      },
+      "hr": {
+        "name": "Antarktika"
+      },
+      "sl": {
+        "name": "Antarktika"
+      },
+      "et": {
+        "name": "Antarktis"
+      },
+      "lv": {
+        "name": "Antarktīda"
+      },
+      "lt": {
+        "name": "Antarktida"
+      },
+      "uk": {
+        "name": "Антарктида"
+      },
+      "tr": {
+        "name": "Antarktika"
       }
     }
   }

@@ -16,8 +16,16 @@ import { Disclaimer as sk } from "./sk";
 import { Disclaimer as hu } from "./hu";
 import { Disclaimer as ro } from "./ro";
 import { Disclaimer as el } from "./el";
+import { Disclaimer as bg } from "./bg";
+import { Disclaimer as hr } from "./hr";
+import { Disclaimer as sl } from "./sl";
+import { Disclaimer as et } from "./et";
+import { Disclaimer as lv } from "./lv";
+import { Disclaimer as lt } from "./lt";
+import { Disclaimer as uk } from "./uk";
+import { Disclaimer as tr } from "./tr";
 import type { DisclaimerProps } from "./types";
 
-const all: Record<string, ComponentType<DisclaimerProps>> = { nl, de, en, es, fr, it, pl, pt, sv, da, nb, fi, cs, sk, hu, ro, el };
+const all: Record<string, ComponentType<DisclaimerProps>> = { nl, de, en, es, fr, it, pl, pt, sv, da, nb, fi, cs, sk, hu, ro, el, bg, hr, sl, et, lv, lt, uk, tr };
 /** De disclaimer in de taal van de markt; zonder vertaling de Nederlandse. */
 export const disclaimer = (language: string): ComponentType<DisclaimerProps> => all[language] ?? nl;

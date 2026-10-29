@@ -14,6 +14,14 @@ import { sk } from "./sk";
 import { hu } from "./hu";
 import { ro } from "./ro";
 import { el } from "./el";
+import { bg } from "./bg";
+import { hr } from "./hr";
+import { sl } from "./sl";
+import { et } from "./et";
+import { lv } from "./lv";
+import { lt } from "./lt";
+import { uk } from "./uk";
+import { tr } from "./tr";
 import { latamSpanish } from "./es-419";
 
 /** Interfaceteksten. Andere talen staan als eigen bestand met dezelfde sleutels ernaast. */
@@ -131,7 +139,7 @@ type Widen<T> = T extends string ? string
   : T extends object ? { [K in keyof T]: Widen<T[K]> } : T;
 export type Messages = Widen<typeof nl>;
 // Elke taal een eigen bestand met dezelfde sleutels (ADR 0029). Alleen type-imports terug naar nl.ts.
-const all: Record<string, Messages> = { nl, de, en, es, fr, it, pl, pt, sv, da, nb, fi, cs, sk, hu, ro, el };
+const all: Record<string, Messages> = { nl, de, en, es, fr, it, pl, pt, sv, da, nb, fi, cs, sk, hu, ro, el, bg, hr, sl, et, lv, lt, uk, tr };
 
 /** Zelfde teksten met een andere schrijfwijze: elke tekst (ook wat een functie teruggeeft) gaat door `fix`. */
 function variant<T>(value: T, fix: (s: string) => string): T {

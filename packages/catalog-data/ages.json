@@ -72,6 +72,38 @@
       "el": {
         "name": "2–4 ετών",
         "hint": "Μεγάλες επιφάνειες και χοντρές γραμμές. Ιδανικές για τις πρώτες κηρομπογιές."
+      },
+      "bg": {
+        "name": "2–4 години",
+        "hint": "Големи полета и дебели линии. Подходящо за първите пастели."
+      },
+      "hr": {
+        "name": "2–4 godine",
+        "hint": "Velika polja i debele linije. Dobro za prve bojice."
+      },
+      "sl": {
+        "name": "2–4 leta",
+        "hint": "Velika polja in debele črte. Primerno za prve voščenke."
+      },
+      "et": {
+        "name": "2–4 aastat",
+        "hint": "Suured alad ja paksud jooned. Hea esimeste kriitide jaoks."
+      },
+      "lv": {
+        "name": "2–4 gadi",
+        "hint": "Lieli laukumi un biezas līnijas. Piemērotas pirmajiem krītiņiem."
+      },
+      "lt": {
+        "name": "2–4 metai",
+        "hint": "Dideli plotai ir storos linijos. Tinka pirmosioms kreidelėms."
+      },
+      "uk": {
+        "name": "2–4 роки",
+        "hint": "Великі ділянки й товсті лінії. Добре для перших воскових олівців."
+      },
+      "tr": {
+        "name": "2–4 yaş",
+        "hint": "Büyük alanlar ve kalın çizgiler. İlk pastel boyalar için ideal."
       }
     }
   },
@@ -148,6 +180,38 @@
       "el": {
         "name": "4–6 ετών",
         "hint": "Περισσότερες επιφάνειες, αλλά ακόμα ευρύχωρες. Ωραίες για νήπια."
+      },
+      "bg": {
+        "name": "4–6 години",
+        "hint": "Повече полета, но все още просторни. Чудесно за деца в детската градина."
+      },
+      "hr": {
+        "name": "4–6 godina",
+        "hint": "Više polja, ali i dalje dosta prostora. Super za predškolce."
+      },
+      "sl": {
+        "name": "4–6 let",
+        "hint": "Več polj, a še vedno dovolj prostora. Super za predšolske otroke."
+      },
+      "et": {
+        "name": "4–6 aastat",
+        "hint": "Rohkem alasid, kuid ikka avar. Sobib lasteaialastele."
+      },
+      "lv": {
+        "name": "4–6 gadi",
+        "hint": "Vairāk laukumu, bet joprojām plaši. Labi pirmsskolēniem."
+      },
+      "lt": {
+        "name": "4–6 metai",
+        "hint": "Daugiau plotų, bet vis dar erdvu. Puikiai tinka darželinukams."
+      },
+      "uk": {
+        "name": "4–6 років",
+        "hint": "Більше ділянок, але все ще просторо. Чудово для дошкільнят."
+      },
+      "tr": {
+        "name": "4–6 yaş",
+        "hint": "Daha çok alan, ama hâlâ geniş. Okul öncesi çocuklar için harika."
       }
     }
   },
@@ -224,6 +288,38 @@
       "el": {
         "name": "6–9 ετών",
         "hint": "Μικρότερες λεπτομέρειες, για να χρωματίζεις προσεκτικά μέσα στις γραμμές."
+      },
+      "bg": {
+        "name": "6–9 години",
+        "hint": "По-малки детайли, за да оцветяваш внимателно в рамките на линиите."
+      },
+      "hr": {
+        "name": "6–9 godina",
+        "hint": "Sitniji detalji za uredno bojanje unutar linija."
+      },
+      "sl": {
+        "name": "6–9 let",
+        "hint": "Manjše podrobnosti za lepo barvanje znotraj črt."
+      },
+      "et": {
+        "name": "6–9 aastat",
+        "hint": "Väiksemad detailid, et joonte sees korralikult püsida."
+      },
+      "lv": {
+        "name": "6–9 gadi",
+        "hint": "Sīkākas detaļas, lai glīti krāsotu līniju robežās."
+      },
+      "lt": {
+        "name": "6–9 metai",
+        "hint": "Smulkesnės detalės, kad tvarkingai spalvintum neišlįsdamas už linijų."
+      },
+      "uk": {
+        "name": "6–9 років",
+        "hint": "Дрібніші деталі, щоб акуратно розфарбовувати, не виходячи за лінії."
+      },
+      "tr": {
+        "name": "6–9 yaş",
+        "hint": "Çizgilerin içinde düzgünce kalmak için daha küçük ayrıntılar."
       }
     }
   },
@@ -300,6 +396,38 @@
       "el": {
         "name": "9+ ετών",
         "hint": "Πολλές μικρές επιφάνειες και λεπτές γραμμές. Ωραίες και για μεγάλους."
+      },
+      "bg": {
+        "name": "9+ години",
+        "hint": "Много малки полета и тънки линии. Забавно и за възрастни."
+      },
+      "hr": {
+        "name": "9+ godina",
+        "hint": "Puno malih polja i tanke linije. Zabavno i za odrasle."
+      },
+      "sl": {
+        "name": "9+ let",
+        "hint": "Veliko majhnih polj in tanke črte. Zabavno tudi za odrasle."
+      },
+      "et": {
+        "name": "9+ aastat",
+        "hint": "Palju väikesi alasid ja peeneid jooni. Lõbus ka täiskasvanutele."
+      },
+      "lv": {
+        "name": "9+ gadi",
+        "hint": "Daudz mazu laukumu un plānas līnijas. Interesanti arī pieaugušajiem."
+      },
+      "lt": {
+        "name": "9+ metai",
+        "hint": "Daug mažų plotų ir plonų linijų. Smagu ir suaugusiesiems."
+      },
+      "uk": {
+        "name": "9+ років",
+        "hint": "Багато дрібних ділянок і тонкі лінії. Цікаво й для дорослих."
+      },
+      "tr": {
+        "name": "9+ yaş",
+        "hint": "Çok sayıda küçük alan ve ince çizgiler. Yetişkinler için de eğlenceli."
       }
     }
   },
@@ -376,6 +504,38 @@
       "el": {
         "name": "12+ ετών",
         "hint": "Λεπτές γραμμές και πολλή λεπτομέρεια. Για εφήβους, ενήλικες και έμπειρους χειροτέχνες."
+      },
+      "bg": {
+        "name": "12+ години",
+        "hint": "Фини линии и много детайли. За тийнейджъри, възрастни и опитни майстори."
+      },
+      "hr": {
+        "name": "12+ godina",
+        "hint": "Fine linije i puno detalja. Za tinejdžere, odrasle i iskusne kreativce."
+      },
+      "sl": {
+        "name": "12+ let",
+        "hint": "Fine črte in veliko podrobnosti. Za najstnike, odrasle in izkušene ustvarjalce."
+      },
+      "et": {
+        "name": "12+ aastat",
+        "hint": "Peened jooned ja palju detaile. Teismelistele, täiskasvanutele ja kogenud meisterdajatele."
+      },
+      "lv": {
+        "name": "12+ gadi",
+        "hint": "Smalkas līnijas un daudz detaļu. Pusaudžiem, pieaugušajiem un pieredzējušiem radošo darbu cienītājiem."
+      },
+      "lt": {
+        "name": "12+ metų",
+        "hint": "Plonos linijos ir daug detalių. Paaugliams, suaugusiesiems ir patyrusiems kūrybos mėgėjams."
+      },
+      "uk": {
+        "name": "12+ років",
+        "hint": "Тонкі лінії й багато деталей. Для підлітків, дорослих і досвідчених майстрів."
+      },
+      "tr": {
+        "name": "12+ yaş",
+        "hint": "İnce çizgiler ve bol ayrıntı. Gençler, yetişkinler ve deneyimli el işi meraklıları için."
       }
     }
   }

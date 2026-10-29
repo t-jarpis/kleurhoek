@@ -73,6 +73,17 @@ export async function seed(db: Database, tenantId: string): Promise<{ plates: nu
       { tenantId, code: "fr-MC", country: "MC", language: "fr", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
       { tenantId, code: "es-AD", country: "AD", language: "es", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
       { tenantId, code: "it-SM", country: "SM", language: "it", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
+      // Bulgarije, de Balkan, de Baltische staten, Oekraïne en Turkije (ADR 0053).
+      { tenantId, code: "bg-BG", country: "BG", language: "bg", status: "live" as const, paperSize: "A4" as const, minAccountAge: 14 },
+      { tenantId, code: "hr-HR", country: "HR", language: "hr", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
+      { tenantId, code: "hr-BA", country: "BA", language: "hr", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
+      { tenantId, code: "hr-ME", country: "ME", language: "hr", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
+      { tenantId, code: "sl-SI", country: "SI", language: "sl", status: "live" as const, paperSize: "A4" as const, minAccountAge: 15 },
+      { tenantId, code: "et-EE", country: "EE", language: "et", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
+      { tenantId, code: "lv-LV", country: "LV", language: "lv", status: "live" as const, paperSize: "A4" as const, minAccountAge: 13 },
+      { tenantId, code: "lt-LT", country: "LT", language: "lt", status: "live" as const, paperSize: "A4" as const, minAccountAge: 14 },
+      { tenantId, code: "uk-UA", country: "UA", language: "uk", status: "live" as const, paperSize: "A4" as const, minAccountAge: 16 },
+      { tenantId, code: "tr-TR", country: "TR", language: "tr", status: "live" as const, paperSize: "A4" as const, minAccountAge: 18 },
     ]).onConflictDoNothing();
 
     const cats = source.categories();

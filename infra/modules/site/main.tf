@@ -54,7 +54,7 @@ variable "apps_enabled" {
 }
 variable "markets" {
   type        = string
-  default     = "nl-nl,nl-be,fr-be,en-gb,de-de,de-at,de-ch,fr-fr,fr-ch,en-us,en-ie,es-es,it-it,pl-pl,en-ca,en-au,en-nz,fr-ca,fr-lu,de-lu,de-li,it-ch,es-mx,es-ar,es-co,es-us,pt-br,pt-pt,sv-se,da-dk,nb-no,fi-fi,cs-cz,sk-sk,hu-hu,ro-ro,ro-md,el-gr,el-cy,en-mt,fr-mc,es-ad,it-sm"
+  default     = "nl-nl,nl-be,fr-be,en-gb,de-de,de-at,de-ch,fr-fr,fr-ch,en-us,en-ie,es-es,it-it,pl-pl,en-ca,en-au,en-nz,fr-ca,fr-lu,de-lu,de-li,it-ch,es-mx,es-ar,es-co,es-us,pt-br,pt-pt,sv-se,da-dk,nb-no,fi-fi,cs-cz,sk-sk,hu-hu,ro-ro,ro-md,el-gr,el-cy,en-mt,fr-mc,es-ad,it-sm,bg-bg,hr-hr,hr-ba,hr-me,sl-si,et-ee,lv-lv,lt-lt,uk-ua,tr-tr"
   description = "Markten die live staan, komma-gescheiden."
 }
 variable "market_domains" {

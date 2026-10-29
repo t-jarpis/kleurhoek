@@ -12,7 +12,7 @@ describe("vindbaarheid (ADR 0035)", () => {
     const r = (await ctx.http.inject({ method: "GET", url: "/v1/admin/seo", headers: admin })).json();
     expect(r.settings.home["de-DE"].title).toContain("Ausmalbilder");
     expect(r.settings.home["en-US"].title).toContain("coloring");
-    expect(Object.keys(r.settings.home)).toHaveLength(43);
+    expect(Object.keys(r.settings.home)).toHaveLength(53);
   });
 
   it("toont de stand per markt en bewaart instellingen; alleen Kleurhoek zelf deelt ze met de website", async () => {

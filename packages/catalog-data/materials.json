@@ -70,6 +70,38 @@
       "el": {
         "name": "Ξυλομπογιές",
         "hint": "Για λεπτές επιφάνειες και μικρά χέρια"
+      },
+      "bg": {
+        "name": "Цветни моливи",
+        "hint": "За малки полета и малки ръце"
+      },
+      "hr": {
+        "name": "Drvene bojice",
+        "hint": "Za sitna polja i male ruke"
+      },
+      "sl": {
+        "name": "Barvice",
+        "hint": "Za drobna polja in majhne roke"
+      },
+      "et": {
+        "name": "Värvipliiatsid",
+        "hint": "Väikeste alade ja väikeste käte jaoks"
+      },
+      "lv": {
+        "name": "Krāsainie zīmuļi",
+        "hint": "Sīkiem laukumiem un mazām rokām"
+      },
+      "lt": {
+        "name": "Spalvoti pieštukai",
+        "hint": "Smulkiems plotams ir mažoms rankytėms"
+      },
+      "uk": {
+        "name": "Кольорові олівці",
+        "hint": "Для дрібних ділянок і маленьких рук"
+      },
+      "tr": {
+        "name": "Kuru boya kalemleri",
+        "hint": "İnce alanlar ve küçük eller için"
       }
     }
   },
@@ -144,6 +176,38 @@
       "el": {
         "name": "Μαρκαδόροι",
         "hint": "Ζωηρά χρώματα· διάλεξε αυτούς που πλένονται"
+      },
+      "bg": {
+        "name": "Флумастери",
+        "hint": "Ярки цветове; избери такива, които се отмиват"
+      },
+      "hr": {
+        "name": "Flomasteri",
+        "hint": "Žarke boje; odaberi perive"
+      },
+      "sl": {
+        "name": "Flomastri",
+        "hint": "Žive barve; izberi pralne"
+      },
+      "et": {
+        "name": "Viltpliiatsid",
+        "hint": "Erksad värvid; vali mahapestavad"
+      },
+      "lv": {
+        "name": "Flomāsteri",
+        "hint": "Spilgtas krāsas; izvēlies mazgājamus"
+      },
+      "lt": {
+        "name": "Flomasteriai",
+        "hint": "Ryškios spalvos; rinkis nuplaunamus"
+      },
+      "uk": {
+        "name": "Фломастери",
+        "hint": "Яскраві кольори; обирай ті, що відмиваються"
+      },
+      "tr": {
+        "name": "Keçeli kalemler",
+        "hint": "Canlı renkler; yıkanabilir olanları seç"
       }
     }
   },
@@ -218,6 +282,38 @@
       "el": {
         "name": "Κηρομπογιές",
         "hint": "Χοντρές και γερές, ιδανικές για τους πιο μικρούς"
+      },
+      "bg": {
+        "name": "Восъчни пастели",
+        "hint": "Дебели и здрави, чудесни за най-малките"
+      },
+      "hr": {
+        "name": "Voštane bojice",
+        "hint": "Debele i čvrste, odlične za najmlađe"
+      },
+      "sl": {
+        "name": "Voščenke",
+        "hint": "Debele in trpežne, odlične za najmlajše"
+      },
+      "et": {
+        "name": "Vahakriidid",
+        "hint": "Paksud ja tugevad, head kõige pisematele"
+      },
+      "lv": {
+        "name": "Vaska krītiņi",
+        "hint": "Biezi un izturīgi, piemēroti mazākajiem"
+      },
+      "lt": {
+        "name": "Vaškinės kreidelės",
+        "hint": "Storos ir tvirtos, tinka mažiausiesiems"
+      },
+      "uk": {
+        "name": "Воскові олівці",
+        "hint": "Товсті й міцні, чудові для найменших"
+      },
+      "tr": {
+        "name": "Pastel boyalar",
+        "hint": "Kalın ve sağlam, en küçükler için harika"
       }
     }
   },
@@ -292,6 +388,38 @@
       "el": {
         "name": "Παιδικό ψαλίδι",
         "hint": "Με στρογγυλή μύτη· μην αφήνετε τα μικρά παιδιά να κόβουν μόνα τους"
+      },
+      "bg": {
+        "name": "Детска ножица",
+        "hint": "Със заоблен връх; не оставяй малките деца да режат сами"
+      },
+      "hr": {
+        "name": "Dječje škarice",
+        "hint": "Sa zaobljenim vrhom; ne ostavljaj malu djecu da sama režu"
+      },
+      "sl": {
+        "name": "Otroške škarje",
+        "hint": "Z zaobljeno konico; majhnih otrok ne puščaj samih pri rezanju"
+      },
+      "et": {
+        "name": "Lastekäärid",
+        "hint": "Ümara otsaga; ära lase väikestel lastel üksi lõigata"
+      },
+      "lv": {
+        "name": "Bērnu šķēres",
+        "hint": "Ar noapaļotu galu; neļauj maziem bērniem griezt vieniem"
+      },
+      "lt": {
+        "name": "Vaikiškos žirklės",
+        "hint": "Užapvalintu galu; neleisk mažiems vaikams kirpti vieniems"
+      },
+      "uk": {
+        "name": "Дитячі ножиці",
+        "hint": "Із заокругленим кінчиком; не залишай малих дітей вирізати самих"
+      },
+      "tr": {
+        "name": "Çocuk makası",
+        "hint": "Ucu yuvarlak; küçük çocukların tek başına kesmesine izin verme"
       }
     }
   },
@@ -366,6 +494,38 @@
       "el": {
         "name": "Κόλλα στικ",
         "hint": "Κολλάει χαρτί χωρίς μουτζούρες"
+      },
+      "bg": {
+        "name": "Сухо лепило",
+        "hint": "Лепи хартия, без да цапа"
+      },
+      "hr": {
+        "name": "Ljepilo u stiku",
+        "hint": "Lijepi papir bez mrljanja"
+      },
+      "sl": {
+        "name": "Lepilo v stiku",
+        "hint": "Lepi papir brez packanja"
+      },
+      "et": {
+        "name": "Liimipulk",
+        "hint": "Liimib paberit ilma määrimata"
+      },
+      "lv": {
+        "name": "Līmes zīmulis",
+        "hint": "Salīmē papīru, nenosmērējot"
+      },
+      "lt": {
+        "name": "Klijų pieštukas",
+        "hint": "Klijuoja popierių nesitepant"
+      },
+      "uk": {
+        "name": "Клей-олівець",
+        "hint": "Клеїть папір без бруду"
+      },
+      "tr": {
+        "name": "Stick yapıştırıcı",
+        "hint": "Kâğıdı etrafı kirletmeden yapıştırır"
       }
     }
   },
@@ -424,6 +584,30 @@
       },
       "el": {
         "name": "Σελοτέιπ"
+      },
+      "bg": {
+        "name": "Тиксо"
+      },
+      "hr": {
+        "name": "Ljepljiva traka"
+      },
+      "sl": {
+        "name": "Lepilni trak"
+      },
+      "et": {
+        "name": "Kleeplint"
+      },
+      "lv": {
+        "name": "Līmlente"
+      },
+      "lt": {
+        "name": "Lipni juosta"
+      },
+      "uk": {
+        "name": "Скотч"
+      },
+      "tr": {
+        "name": "Bant"
       }
     }
   },
@@ -498,6 +682,38 @@
       "el": {
         "name": "Χοντρό χαρτί (160 γραμμάρια)",
         "hint": "Για χάρτινες μακέτες και κάρτες που πρέπει να στέκονται όρθιες"
+      },
+      "bg": {
+        "name": "Дебела хартия (160 г/м²)",
+        "hint": "За хартиени модели и картички, които трябва да стоят изправени"
+      },
+      "hr": {
+        "name": "Debeli papir (160 g/m²)",
+        "hint": "Za papirnate modele i čestitke koje trebaju stajati"
+      },
+      "sl": {
+        "name": "Debel papir (160 g/m²)",
+        "hint": "Za modele iz papirja in voščilnice, ki morajo stati"
+      },
+      "et": {
+        "name": "Paks paber (160 g)",
+        "hint": "Paberimudelite ja kaartide jaoks, mis peavad püsti seisma"
+      },
+      "lv": {
+        "name": "Biezs papīrs (160 g)",
+        "hint": "Papīra modeļiem un kartītēm, kam jāstāv"
+      },
+      "lt": {
+        "name": "Storas popierius (160 g)",
+        "hint": "Popieriniams modeliams ir atvirukams, kurie turi stovėti"
+      },
+      "uk": {
+        "name": "Щільний папір (160 г/м²)",
+        "hint": "Для паперових моделей і листівок, які мають стояти"
+      },
+      "tr": {
+        "name": "Kalın kâğıt (160 g/m²)",
+        "hint": "Ayakta durması gereken kâğıt maketler ve kartlar için"
       }
     }
   },
@@ -572,6 +788,38 @@
       "el": {
         "name": "Ραβδάκι LED για φαναράκι",
         "hint": "Ασφαλές φως για το φαναράκι σου"
+      },
+      "bg": {
+        "name": "LED пръчка за фенерче",
+        "hint": "Безопасна светлина за фенерчето ти"
+      },
+      "hr": {
+        "name": "LED štapić za lampion",
+        "hint": "Sigurno svjetlo u tvom lampionu"
+      },
+      "sl": {
+        "name": "Palčka z lučko LED za lampijon",
+        "hint": "Varna luč v tvojem lampijonu"
+      },
+      "et": {
+        "name": "LED-laternapulk",
+        "hint": "Ohutu valgus sinu laternas"
+      },
+      "lv": {
+        "name": "LED laternas kociņš",
+        "hint": "Droša gaisma tavā laternā"
+      },
+      "lt": {
+        "name": "LED žibinto lazdelė",
+        "hint": "Saugi šviesa tavo žibinte"
+      },
+      "uk": {
+        "name": "Світлодіодна паличка для ліхтарика",
+        "hint": "Безпечне світло для твого ліхтарика"
+      },
+      "tr": {
+        "name": "LED fener çubuğu",
+        "hint": "Fenerin için güvenli ışık"
       }
     }
   },
@@ -646,6 +894,38 @@
       "el": {
         "name": "Δίποδα καρφάκια",
         "hint": "Για χέρια και πόδια που κουνιούνται"
+      },
+      "bg": {
+        "name": "Метални кламери с крачета",
+        "hint": "За подвижни ръце и крака"
+      },
+      "hr": {
+        "name": "Rasklopne spojnice",
+        "hint": "Za pomične ruke i noge"
+      },
+      "sl": {
+        "name": "Razcepke",
+        "hint": "Za premične roke in noge"
+      },
+      "et": {
+        "name": "Kahepoolsed klambrid",
+        "hint": "Liikuvate käte ja jalgade jaoks"
+      },
+      "lv": {
+        "name": "Šķeltās kniedes",
+        "hint": "Kustīgām rokām un kājām"
+      },
+      "lt": {
+        "name": "Skeltinės kniedės",
+        "hint": "Judančioms rankoms ir kojoms"
+      },
+      "uk": {
+        "name": "Шпильки-розпірки",
+        "hint": "Для рухомих рук і ніг"
+      },
+      "tr": {
+        "name": "Kelebek çiviler",
+        "hint": "Hareketli kollar ve bacaklar için"
       }
     }
   },
@@ -720,6 +1000,38 @@
       "el": {
         "name": "Μολύβι",
         "hint": "Για γράψιμο, σχέδιο και ξεσήκωμα γραμμών"
+      },
+      "bg": {
+        "name": "Молив",
+        "hint": "За писане, рисуване и очертаване на линии"
+      },
+      "hr": {
+        "name": "Olovka",
+        "hint": "Za pisanje, crtanje i podebljavanje linija"
+      },
+      "sl": {
+        "name": "Svinčnik",
+        "hint": "Za pisanje, risanje in prevlačenje črt"
+      },
+      "et": {
+        "name": "Pliiats",
+        "hint": "Kirjutamiseks, joonistamiseks ja joonte jäljendamiseks"
+      },
+      "lv": {
+        "name": "Zīmulis",
+        "hint": "Rakstīšanai, zīmēšanai un līniju apvilkšanai"
+      },
+      "lt": {
+        "name": "Pieštukas",
+        "hint": "Rašyti, piešti ir apvedžioti linijas"
+      },
+      "uk": {
+        "name": "Простий олівець",
+        "hint": "Щоб писати, малювати й обводити лінії"
+      },
+      "tr": {
+        "name": "Kurşun kalem",
+        "hint": "Yazmak, çizmek ve çizgilerin üzerinden geçmek için"
       }
     }
   },
@@ -794,6 +1106,38 @@
       "el": {
         "name": "Λάστιχο",
         "hint": "Στρογγυλό λάστιχο, για να κρατάει η μάσκα στο κεφάλι"
+      },
+      "bg": {
+        "name": "Ластик",
+        "hint": "Кръгъл ластик, за да държи маската на главата"
+      },
+      "hr": {
+        "name": "Elastična vrpca",
+        "hint": "Okrugla elastična vrpca da ti maska ostane na glavi"
+      },
+      "sl": {
+        "name": "Elastika",
+        "hint": "Okrogla elastika, da maska ostane na glavi"
+      },
+      "et": {
+        "name": "Kummipael",
+        "hint": "Ümar kummipael, et mask peas püsiks"
+      },
+      "lv": {
+        "name": "Gumija",
+        "hint": "Apaļa gumija, lai maska turētos uz galvas"
+      },
+      "lt": {
+        "name": "Guminė juostelė",
+        "hint": "Apvali guminė juostelė, kad kaukė laikytųsi ant galvos"
+      },
+      "uk": {
+        "name": "Резинка",
+        "hint": "Кругла резинка, щоб маска трималася на голові"
+      },
+      "tr": {
+        "name": "Lastik",
+        "hint": "Maskeyi başında tutmak için yuvarlak lastik"
       }
     }
   },
@@ -868,6 +1212,38 @@
       "el": {
         "name": "Σπάγκος ή κορδέλα",
         "hint": "Για να κρεμάσεις κάτι ή να το δέσεις σε ένα δώρο"
+      },
+      "bg": {
+        "name": "Канап или панделка",
+        "hint": "За закачане или завързване към подарък"
+      },
+      "hr": {
+        "name": "Uzica ili vrpca",
+        "hint": "Za vješanje ili vezanje na poklon"
+      },
+      "sl": {
+        "name": "Vrvica ali trak",
+        "hint": "Za obešanje ali privezovanje na darilo"
+      },
+      "et": {
+        "name": "Nöör või pael",
+        "hint": "Üles riputamiseks või kingi ümber sidumiseks"
+      },
+      "lv": {
+        "name": "Aukla vai lente",
+        "hint": "Lai pakārtu vai apsietu ap dāvanu"
+      },
+      "lt": {
+        "name": "Virvelė ar kaspinas",
+        "hint": "Pakabinti arba aprišti dovaną"
+      },
+      "uk": {
+        "name": "Мотузка або стрічка",
+        "hint": "Щоб повісити або прив'язати до подарунка"
+      },
+      "tr": {
+        "name": "İp ya da kurdele",
+        "hint": "Asmak ya da bir hediyeye bağlamak için"
       }
     }
   },
@@ -942,6 +1318,38 @@
       "el": {
         "name": "Μπογιές και ένα σφουγγαράκι",
         "hint": "Τέμπερες ή νερομπογιές, για ταμπονάρισμα ή ζωγραφική"
+      },
+      "bg": {
+        "name": "Боя и гъбичка",
+        "hint": "Темперни или акварелни бои, за попиване или рисуване"
+      },
+      "hr": {
+        "name": "Boje i spužvica",
+        "hint": "Tempere ili vodene boje, za tapkanje ili slikanje"
+      },
+      "sl": {
+        "name": "Barve in gobica",
+        "hint": "Tempera ali vodene barvice, za tapkanje ali slikanje"
+      },
+      "et": {
+        "name": "Värv ja käsn",
+        "hint": "Guašš või akvarell, tupsutamiseks või maalimiseks"
+      },
+      "lv": {
+        "name": "Krāsas un sūklis",
+        "hint": "Guaša vai akvareļkrāsas, lai tamponētu vai gleznotu"
+      },
+      "lt": {
+        "name": "Dažai ir kempinėlė",
+        "hint": "Guašas ar akvarelė, tapšnoti ar tapyti"
+      },
+      "uk": {
+        "name": "Фарба й губка",
+        "hint": "Гуаш або акварель, щоб промокати чи малювати"
+      },
+      "tr": {
+        "name": "Boya ve sünger",
+        "hint": "Guaj ya da sulu boya; tamponlamak ya da boyamak için"
       }
     }
   },
@@ -1016,6 +1424,38 @@
       "el": {
         "name": "Σφραγίδες και ταμπόν",
         "hint": "Μελάνι που πλένεται· μπορείς να τις φτιάξεις και μόνος σου από γόμα ή πατάτα"
+      },
+      "bg": {
+        "name": "Печати и тампон с мастило",
+        "hint": "Мастило, което се отмива; можеш да си направиш печат и сам – от гума или картоф"
+      },
+      "hr": {
+        "name": "Pečati i jastučić s tintom",
+        "hint": "Periva tinta; pečat možeš napraviti i sam od gumice ili krumpira"
+      },
+      "sl": {
+        "name": "Štampiljke in blazinica",
+        "hint": "Pralno črnilo; štampiljko lahko narediš tudi sam iz radirke ali krompirja"
+      },
+      "et": {
+        "name": "Templid ja templipadi",
+        "hint": "Mahapestav tint; templi võid ise teha ka kustutuskummist või kartulist"
+      },
+      "lv": {
+        "name": "Zīmogi un zīmogu spilventiņš",
+        "hint": "Nomazgājama tinte; zīmogus vari izgatavot arī pats no dzēšgumijas vai kartupeļa"
+      },
+      "lt": {
+        "name": "Antspaudai ir antspaudų pagalvėlė",
+        "hint": "Nuplaunamas rašalas; antspaudą gali pasidaryti ir pats iš trintuko ar bulvės"
+      },
+      "uk": {
+        "name": "Штампи й штемпельна подушечка",
+        "hint": "Чорнило, що відмивається; штамп можна зробити й самому – з гумки чи картоплі"
+      },
+      "tr": {
+        "name": "Damgalar ve ıstampa",
+        "hint": "Yıkanabilir mürekkep; bir silgiden ya da patatesten kendin de yapabilirsin"
       }
     }
   }

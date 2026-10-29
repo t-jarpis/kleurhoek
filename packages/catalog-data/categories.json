@@ -54,6 +54,30 @@
       },
       "el": {
         "name": "Ζώα"
+      },
+      "bg": {
+        "name": "Животни"
+      },
+      "hr": {
+        "name": "Životinje"
+      },
+      "sl": {
+        "name": "Živali"
+      },
+      "et": {
+        "name": "Loomad"
+      },
+      "lv": {
+        "name": "Dzīvnieki"
+      },
+      "lt": {
+        "name": "Gyvūnai"
+      },
+      "uk": {
+        "name": "Тварини"
+      },
+      "tr": {
+        "name": "Hayvanlar"
       }
     }
   },
@@ -112,6 +136,30 @@
       },
       "el": {
         "name": "Οχήματα"
+      },
+      "bg": {
+        "name": "Превозни средства"
+      },
+      "hr": {
+        "name": "Vozila"
+      },
+      "sl": {
+        "name": "Vozila"
+      },
+      "et": {
+        "name": "Sõidukid"
+      },
+      "lv": {
+        "name": "Transportlīdzekļi"
+      },
+      "lt": {
+        "name": "Transporto priemonės"
+      },
+      "uk": {
+        "name": "Транспорт"
+      },
+      "tr": {
+        "name": "Taşıtlar"
       }
     }
   },
@@ -170,6 +218,30 @@
       },
       "el": {
         "name": "Φύση"
+      },
+      "bg": {
+        "name": "Природа"
+      },
+      "hr": {
+        "name": "Priroda"
+      },
+      "sl": {
+        "name": "Narava"
+      },
+      "et": {
+        "name": "Loodus"
+      },
+      "lv": {
+        "name": "Daba"
+      },
+      "lt": {
+        "name": "Gamta"
+      },
+      "uk": {
+        "name": "Природа"
+      },
+      "tr": {
+        "name": "Doğa"
       }
     }
   },
@@ -228,6 +300,30 @@
       },
       "el": {
         "name": "Νόστιμο φαγητό"
+      },
+      "bg": {
+        "name": "Вкусна храна"
+      },
+      "hr": {
+        "name": "Fina hrana"
+      },
+      "sl": {
+        "name": "Dobra hrana"
+      },
+      "et": {
+        "name": "Maitsev toit"
+      },
+      "lv": {
+        "name": "Gardi ēdieni"
+      },
+      "lt": {
+        "name": "Skanus maistas"
+      },
+      "uk": {
+        "name": "Смачна їжа"
+      },
+      "tr": {
+        "name": "Lezzetli yiyecekler"
       }
     }
   },
@@ -286,6 +382,30 @@
       },
       "el": {
         "name": "Διάστημα"
+      },
+      "bg": {
+        "name": "Космос"
+      },
+      "hr": {
+        "name": "Svemir"
+      },
+      "sl": {
+        "name": "Vesolje"
+      },
+      "et": {
+        "name": "Kosmos"
+      },
+      "lv": {
+        "name": "Kosmoss"
+      },
+      "lt": {
+        "name": "Kosmosas"
+      },
+      "uk": {
+        "name": "Космос"
+      },
+      "tr": {
+        "name": "Uzay"
       }
     }
   },
@@ -344,6 +464,30 @@
       },
       "el": {
         "name": "Γιορτές"
+      },
+      "bg": {
+        "name": "Празници"
+      },
+      "hr": {
+        "name": "Praznici"
+      },
+      "sl": {
+        "name": "Prazniki"
+      },
+      "et": {
+        "name": "Pühad"
+      },
+      "lv": {
+        "name": "Svētki"
+      },
+      "lt": {
+        "name": "Šventės"
+      },
+      "uk": {
+        "name": "Свята"
+      },
+      "tr": {
+        "name": "Bayramlar ve özel günler"
       }
     }
   },
@@ -402,6 +546,30 @@
       },
       "el": {
         "name": "Κόσμος"
+      },
+      "bg": {
+        "name": "Светът"
+      },
+      "hr": {
+        "name": "Svijet"
+      },
+      "sl": {
+        "name": "Svet"
+      },
+      "et": {
+        "name": "Maailm"
+      },
+      "lv": {
+        "name": "Pasaule"
+      },
+      "lt": {
+        "name": "Pasaulis"
+      },
+      "uk": {
+        "name": "Світ"
+      },
+      "tr": {
+        "name": "Dünya"
       }
     }
   },
@@ -460,6 +628,30 @@
       },
       "el": {
         "name": "Μοτίβα"
+      },
+      "bg": {
+        "name": "Шарки"
+      },
+      "hr": {
+        "name": "Uzorci"
+      },
+      "sl": {
+        "name": "Vzorci"
+      },
+      "et": {
+        "name": "Mustrid"
+      },
+      "lv": {
+        "name": "Raksti"
+      },
+      "lt": {
+        "name": "Raštai"
+      },
+      "uk": {
+        "name": "Візерунки"
+      },
+      "tr": {
+        "name": "Desenler"
       }
     }
   },
@@ -518,6 +710,30 @@
       },
       "el": {
         "name": "Φάρμα"
+      },
+      "bg": {
+        "name": "Ферма"
+      },
+      "hr": {
+        "name": "Farma"
+      },
+      "sl": {
+        "name": "Kmetija"
+      },
+      "et": {
+        "name": "Talu"
+      },
+      "lv": {
+        "name": "Lauku sēta"
+      },
+      "lt": {
+        "name": "Ūkis"
+      },
+      "uk": {
+        "name": "Ферма"
+      },
+      "tr": {
+        "name": "Çiftlik"
       }
     }
   },
@@ -576,6 +792,30 @@
       },
       "el": {
         "name": "Κάτω από τη θάλασσα"
+      },
+      "bg": {
+        "name": "Под водата"
+      },
+      "hr": {
+        "name": "Pod morem"
+      },
+      "sl": {
+        "name": "Pod morjem"
+      },
+      "et": {
+        "name": "Vee all"
+      },
+      "lv": {
+        "name": "Zem ūdens"
+      },
+      "lt": {
+        "name": "Po vandeniu"
+      },
+      "uk": {
+        "name": "Під водою"
+      },
+      "tr": {
+        "name": "Su altı"
       }
     }
   },
@@ -634,6 +874,30 @@
       },
       "el": {
         "name": "Δεινόσαυροι"
+      },
+      "bg": {
+        "name": "Динозаври"
+      },
+      "hr": {
+        "name": "Dinosauri"
+      },
+      "sl": {
+        "name": "Dinozavri"
+      },
+      "et": {
+        "name": "Dinosaurused"
+      },
+      "lv": {
+        "name": "Dinozauri"
+      },
+      "lt": {
+        "name": "Dinozaurai"
+      },
+      "uk": {
+        "name": "Динозаври"
+      },
+      "tr": {
+        "name": "Dinozorlar"
       }
     }
   },
@@ -692,6 +956,30 @@
       },
       "el": {
         "name": "Παραμύθια"
+      },
+      "bg": {
+        "name": "Приказки"
+      },
+      "hr": {
+        "name": "Bajke"
+      },
+      "sl": {
+        "name": "Pravljice"
+      },
+      "et": {
+        "name": "Muinasjutud"
+      },
+      "lv": {
+        "name": "Pasakas"
+      },
+      "lt": {
+        "name": "Pasakos"
+      },
+      "uk": {
+        "name": "Казки"
+      },
+      "tr": {
+        "name": "Masallar"
       }
     }
   },
@@ -750,6 +1038,30 @@
       },
       "el": {
         "name": "Αθλητισμός και παιχνίδι"
+      },
+      "bg": {
+        "name": "Спорт и игри"
+      },
+      "hr": {
+        "name": "Sport i igre"
+      },
+      "sl": {
+        "name": "Šport in igre"
+      },
+      "et": {
+        "name": "Sport ja mängud"
+      },
+      "lv": {
+        "name": "Sports un spēles"
+      },
+      "lt": {
+        "name": "Sportas ir žaidimai"
+      },
+      "uk": {
+        "name": "Спорт та ігри"
+      },
+      "tr": {
+        "name": "Spor ve oyun"
       }
     }
   },
@@ -808,6 +1120,30 @@
       },
       "el": {
         "name": "Επαγγέλματα"
+      },
+      "bg": {
+        "name": "Професии"
+      },
+      "hr": {
+        "name": "Zanimanja"
+      },
+      "sl": {
+        "name": "Poklici"
+      },
+      "et": {
+        "name": "Ametid"
+      },
+      "lv": {
+        "name": "Profesijas"
+      },
+      "lt": {
+        "name": "Profesijos"
+      },
+      "uk": {
+        "name": "Професії"
+      },
+      "tr": {
+        "name": "Meslekler"
       }
     }
   },
@@ -866,6 +1202,30 @@
       },
       "el": {
         "name": "Σπίτι και παιχνίδια"
+      },
+      "bg": {
+        "name": "Дом и играчки"
+      },
+      "hr": {
+        "name": "Dom i igračke"
+      },
+      "sl": {
+        "name": "Dom in igrače"
+      },
+      "et": {
+        "name": "Kodu ja mänguasjad"
+      },
+      "lv": {
+        "name": "Mājas un rotaļlietas"
+      },
+      "lt": {
+        "name": "Namai ir žaislai"
+      },
+      "uk": {
+        "name": "Дім та іграшки"
+      },
+      "tr": {
+        "name": "Ev ve oyuncaklar"
       }
     }
   },
@@ -924,6 +1284,30 @@
       },
       "el": {
         "name": "Σχήματα και φιγούρες"
+      },
+      "bg": {
+        "name": "Форми и фигури"
+      },
+      "hr": {
+        "name": "Oblici i likovi"
+      },
+      "sl": {
+        "name": "Oblike in liki"
+      },
+      "et": {
+        "name": "Kujundid ja figuurid"
+      },
+      "lv": {
+        "name": "Formas un figūras"
+      },
+      "lt": {
+        "name": "Formos ir figūros"
+      },
+      "uk": {
+        "name": "Форми та фігури"
+      },
+      "tr": {
+        "name": "Şekiller ve figürler"
       }
     }
   },
@@ -982,6 +1366,30 @@
       },
       "el": {
         "name": "Γράμματα, αριθμοί και ρολόι"
+      },
+      "bg": {
+        "name": "Букви, цифри и часовник"
+      },
+      "hr": {
+        "name": "Slova, brojke i sat"
+      },
+      "sl": {
+        "name": "Črke, številke in ura"
+      },
+      "et": {
+        "name": "Tähed, numbrid ja kell"
+      },
+      "lv": {
+        "name": "Burti, cipari un pulkstenis"
+      },
+      "lt": {
+        "name": "Raidės, skaičiai ir laikrodis"
+      },
+      "uk": {
+        "name": "Літери, цифри й годинник"
+      },
+      "tr": {
+        "name": "Harfler, sayılar ve saat"
       }
     }
   }
