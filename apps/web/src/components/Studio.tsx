@@ -9,13 +9,14 @@ import { messages } from "@/i18n/nl";
 import { track } from "@/lib/track";
 import { ERASER, FREE_PALETTE, progress, strokeWidth, type Fills, type Line } from "@/lib/studio";
 import {
-  BRUSHES, composeInner, EMPTY_ART, fillOp, gradientValue, normalizeArt, patternValue, pickColor, replay, roundPoint, strokePath, undoLast,
+  BRUSHES, composeInner, deriveShared, EMPTY_ART, fillOp, gradientValue, normalizeArt, patternValue, pickColor, replay, roundPoint, strokePath, toShared, undoLast,
   type Art, type Brush, type Pattern, type Stroke, type Tool,
 } from "@/lib/atelier";
 import { canvasSize, download, drawSvg, playFrames, snapshotSvg, videoType } from "@/lib/export";
 import { fridge } from "@/lib/local";
 import { ColorMixer, LinePicker, PatternPicker, Range, SunDial, ToolPicker } from "./Atelier";
 import { Sheet, sheetPlate } from "./Sheet";
+import { TogetherPanel, useTogether } from "./Together";
 
 interface Saved { fills: Fills; name: string; art: Art }
 const storageKey = (p: PlateDetail) => `kh:${p.slug}:v${p.version}`;
@@ -70,6 +71,22 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
 
   const flash = (text: string) => { setToast(text); setTimeout(() => setToast(null), 2600); };
 
+  // Samen kleuren (ADR 0060): in een kamer volgt de plaat uit de gedeelde lijst handelingen.
+  const together = useTogether({
+    onLog: (confirmed, pending) => {
+      const d = deriveShared([...confirmed, ...pending]);
+      setFills(d.fills);
+      setArt((a) => ({ ...a, ops: d.ops }));
+    },
+  });
+  const shared = together.active;
+  const startTogether = () => void together.start(market, plate.slug, plate.version, (id) => toShared(fills, art, id));
+  // Meedoen via een link (?samen=CODE).
+  useEffect(() => {
+    const code = new URLSearchParams(window.location.search).get("samen");
+    if (code && /^[A-Za-z]{4}$/.test(code)) together.join(code);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   // Werk van dit apparaat terugzetten (alleen in deze browser, geen account nodig).
   // Pas opslaan na het laden: anders overschrijft de lege beginstand het bewaarde werk.
   const [loaded, setLoaded] = useState<string | null>(null);
@@ -114,11 +131,11 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
     else if (tool === "patroon") value = patternValue(pattern, colorA, colorB);
     else value = colorA;
     const { fills: next, op } = fillOp(fills, region, value);
-    setFills(next);
-    setArt((a) => ({ ...a, ops: [...a.ops, op] }));
+    if (shared) together.emit(op);
+    else { setFills(next); setArt((a) => ({ ...a, ops: [...a.ops, op] })); }
     if (atelier) remember(colorA);
     markColored();
-  }, [atelier, color, tool, fills, well, prevTool, colorA, colorB, pattern, markColored, remember]);
+  }, [atelier, color, tool, fills, well, prevTool, colorA, colorB, pattern, markColored, remember, shared, together]);
 
   const chooseTool = (x: Tool) => { if (x === "pipet" && tool !== "pipet") setPrevTool(tool); setTool(x); };
   const switchMode = (m: "free" | "num") => {
@@ -142,8 +159,21 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
       new Intl.DateTimeFormat(market, { day: "numeric", month: "short" }).format(d));
     flash(t.onFridge);
   };
-  const undo = () => { const u = undoLast(art, fills); if (u) { setArt(u.art); setFills(u.fills); } };
-  const reset = () => { if (sure) { setFills({}); setArt((a) => ({ ...a, ops: [] })); setSure(false); } else { setSure(true); setTimeout(() => setSure(false), 2500); } };
+  const undo = () => {
+    if (shared) {
+      // Samen: alleen je eigen laatste handeling, niet die van de ander.
+      const own = [...art.ops].reverse().find((o) => together.mine(o.id));
+      if (own?.id) together.emit({ t: "x", ref: own.id });
+      return;
+    }
+    const u = undoLast(art, fills); if (u) { setArt(u.art); setFills(u.fills); }
+  };
+  const reset = () => {
+    if (!sure) { setSure(true); setTimeout(() => setSure(false), 2500); return; }
+    if (shared) together.emit({ t: "c" });
+    else { setFills({}); setArt((a) => ({ ...a, ops: [] })); }
+    setSure(false);
+  };
 
   /* ---------- Inzoomen en schuiven ---------- */
   const clamp = useCallback((v: View): View => {
@@ -255,7 +285,8 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
     if (!s) return;
     draw.current = null;
     if (s.pts.length >= 3) {
-      setArt((a) => ({ ...a, ops: [...a.ops, s] }));
+      if (shared) together.emit(s);
+      else setArt((a) => ({ ...a, ops: [...a.ops, s] }));
       if (s.b !== "gum") remember(s.c);
       markColored();
     }
@@ -366,9 +397,10 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
             {plate.word && <label className="chk"><input type="checkbox" checked={learn} onChange={(e) => setLearn(e.target.checked)} /> <span>{t.learn}</span></label>}
           </div>
           <div className="row">
-            <button type="button" className="btn" onClick={undo} disabled={!art.ops.length}>{t.undo}</button>
+            <button type="button" className="btn" onClick={undo} disabled={shared ? !art.ops.some((o) => together.mine(o.id)) : !art.ops.length}>{t.undo}</button>
             <button type="button" className="btn" onClick={reset}>{sure ? t.resetSure : t.reset}</button>
           </div>
+          <TogetherPanel t={t} together={together} onStart={startTogether} joinHref={href("/samen")} />
           {atelier && hasColor && (
             <div className="row">
               <button type="button" className="btn" onClick={() => setReplayOpen(true)}><Icon name="play" size={16} /> {t.atelier.replay}</button>

@@ -1,7 +1,7 @@
 "use client";
 
 /** Soort pagina bij page_view (ADR 0020): nooit het adres zelf. */
-export type PageKind = "home" | "plaat" | "boekje" | "account" | "niet-gevonden" | "disclaimer" | "contact" | "themas" | "thema" | "eigen-omgeving" | "onderwerp";
+export type PageKind = "home" | "plaat" | "boekje" | "account" | "niet-gevonden" | "disclaimer" | "contact" | "themas" | "thema" | "eigen-omgeving" | "onderwerp" | "aftelkalender" | "lespakket" | "samen";
 export type TrackEvent = { type: "page_view" | "plate_view" | "plate_colored" | "plate_completed" | "pdf_download" | "print" | "materials_view"; market: string; plate?: string; page?: PageKind };
 
 /** Codes van de binnenkomst: ?via= van de oude doorverwijzing (ADR 0032), anders het domein zelf (ADR 0040). */

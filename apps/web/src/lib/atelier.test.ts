@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { composeInner, EMPTY_ART, fillCss, fillOp, gradientValue, harmony, hexToHsl, hslToHex, normalizeArt, parseFill, patternValue, pickColor, replay, strokePath, undoLast, type Art, type Stroke } from "./atelier";
+import { composeInner, deriveShared, EMPTY_ART, toShared, type SharedOp, fillCss, fillOp, gradientValue, harmony, hexToHsl, hslToHex, normalizeArt, parseFill, patternValue, pickColor, replay, strokePath, undoLast, type Art, type Stroke } from "./atelier";
 
 const INNER = `<rect class="r" data-i="0" x="0" y="0" width="100" height="100"/><circle class="r" data-i="1" cx="50" cy="50" r="20"/><path class="l" d="M0 0 L10 10"/>`;
 const stroke = (r: number, b: Stroke["b"] = "potlood"): Stroke => ({ t: "s", r, b, c: "#ff0000", w: 1, pts: [10, 10, 0.5, 20, 20, 0.5, 30, 25, 0.5] });
@@ -74,6 +74,22 @@ describe("Atelier (ADR 0056)", () => {
     const grow = replay({ ...EMPTY_ART, ops: [long] }, {});
     expect(grow.length).toBeGreaterThan(3);
     expect((grow[1]!.art.ops[0] as Stroke).pts.length).toBeLessThan(long.pts.length);
+  });
+
+  it("bouwt een gedeelde plaat op uit de lijst van beide apparaten", () => {
+    const log: SharedOp[] = [
+      { t: "f", id: "a:1", r: 1, v: "#111111", p: null },
+      { ...stroke(1), id: "b:1" },
+      { t: "f", id: "b:2", r: 1, v: "#222222", p: null },
+      { t: "x", id: "b:3", ref: "b:2" },
+    ];
+    expect(deriveShared(log).fills).toEqual({ 1: "#111111" });
+    expect(deriveShared(log).ops).toHaveLength(2);
+    expect(deriveShared([...log, { t: "c", id: "a:2" }, { t: "f", id: "a:3", r: 2, v: "#333333", p: null }]).fills).toEqual({ 2: "#333333" });
+    let n = 0;
+    const start = toShared({ 4: "#444444" }, { ...EMPTY_ART, ops: [stroke(4), { t: "f", r: 4, v: "#444444", p: null }] }, () => `a:${++n}`);
+    expect(start.map((o) => o.t)).toEqual(["f", "s"]);
+    expect(deriveShared(start).fills).toEqual({ 4: "#444444" });
   });
 
   it("vertrouwt de opslag niet blind", () => {

@@ -5,16 +5,18 @@ import { hreflang, pageUrl } from "@/lib/seo";
 import { siteDomains } from "@/lib/sites";
 import { messages } from "@/i18n/nl";
 import { DIMENSIONS, topics } from "@/lib/topics";
+import { packs } from "@/lib/packs";
 
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 export const XML = { "content-type": "application/xml; charset=utf-8", "cache-control": "private, max-age=3600" };
 
-/** Paden van één markt: vaste pagina's, onderwerppagina's, platen en thema's (ADR 0035, 0055). */
+/** Paden van één markt: vaste pagina's, onderwerppagina's, lespakketten, platen en thema's (ADR 0035, 0055, 0059). */
 export async function paths(market: string): Promise<string[]> {
   const [plates, themes, taxonomy] = await Promise.all([api.plates(market, DEFAULT_ORG).catch(() => []), api.themes(market, DEFAULT_ORG).catch(() => []),
     api.taxonomy(market, DEFAULT_ORG).catch(() => null)]);
   const groups = taxonomy ? topics(plates, taxonomy, messages(market)) : null;
-  return [...["", "/themas", "/contact", "/disclaimer", "/eigen-omgeving"], ...(groups ? DIMENSIONS.flatMap((d) => groups[d].map((x) => x.path)) : []),
+  return [...["", "/themas", "/contact", "/disclaimer", "/eigen-omgeving", "/aftelkalender", "/lespakketten", "/samen"], ...(groups ? DIMENSIONS.flatMap((d) => groups[d].map((x) => x.path)) : []),
+    ...(taxonomy ? packs(plates, taxonomy).map((p) => `/lespakketten/${p.slug}`) : []),
     ...plates.map((p) => `/platen/${p.slug}`), ...themes.map((t) => `/themas/${t.slug}`)];
 }
 

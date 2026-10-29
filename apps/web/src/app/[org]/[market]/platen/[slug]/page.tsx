@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { api, NotFound } from "@/lib/api";
 import { marketLanguage } from "@/lib/markets";
 import { ForParents } from "@/components/ForParents";
+import { Icon } from "@kleurhoek/theme";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Studio } from "@/components/Studio";
 import { Track } from "@/components/Track";
@@ -76,6 +77,15 @@ export default async function PlatePage({ params }: { params: Promise<{ org: str
       <Studio plate={plate} inner={inner} ageWidth={ageWidth} market={market} language={language} accounts={o?.features.accounts ?? false} />
       <div className="wrap after-studio" data-mode="ouder">
         <Crumbs base={base} label={t.crumbs} items={[{ name: "Kleurhoek", path: "" }, ...(topicName ? [{ name: topicName, path: topicPath }] : []), { name: plate.name }]} />
+        {indexable(o) && (
+          <div className="kh-share no-print">
+            <a className="ui-btn" target="_blank" rel="noopener noreferrer"
+              href={`https://www.pinterest.com/pin/create/button/?${new URLSearchParams({ url: pageUrl(market, `/platen/${plate.slug}`), media: absolute(market, `/v1/pins/${market}/${plate.slug}.png`), description: t.metaPlateTitle(plate.name, kind) })}`}>
+              <Icon name="pin" size={16} /> {t.pinSave}
+            </a>
+            <span className="hint">{t.pinHint}</span>
+          </div>
+        )}
         <ForParents plate={plate} market={market} t={t} />
         {related.length > 0 && category && (
           <section className="no-print">

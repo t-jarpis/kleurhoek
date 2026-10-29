@@ -197,6 +197,13 @@
       "when": 1792935400335,
       "tag": "0027_inloggen_aan_uit",
       "breakpoints": true
+    },
+    {
+      "idx": 28,
+      "version": "7",
+      "when": 1793313370331,
+      "tag": "0028_samen_kleuren",
+      "breakpoints": true
     }
   ]
 }

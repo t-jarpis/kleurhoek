@@ -580,3 +580,44 @@ a.ui-chip { text-decoration: none; }
 .ui-tool .ui-icon { inline-size: 24px; block-size: 24px; }
 .ui-range { inline-size: 100%; }
 .ui-dialog-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--space-2); margin-block-start: var(--space-4); }
+/* ---------- ShareRow (ADR 0057): Bewaar op Pinterest onder de plaat ---------- */
+.kh-share { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin: 0 0 var(--space-6); }
+.kh-share .hint { color: var(--color-text-muted); font-size: 14px; }
+/* ---------- AdventCalendar (ADR 0058) ---------- */
+.kh-advent-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-2) var(--space-4); margin: var(--space-4) 0; }
+.kh-advent-count { font: var(--font-display-weight) 20px var(--font-display); color: var(--color-text); }
+.kh-advent { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--space-3); margin: 0 0 var(--space-8); padding: 0; list-style: none; }
+.kh-door { position: relative; aspect-ratio: 3 / 4; perspective: 900px; }
+.kh-door-inside { position: absolute; inset: 0; display: flex; flex-direction: column; gap: var(--space-1); padding: var(--space-2); border-radius: var(--radius-card); background: var(--color-paper); box-shadow: var(--shadow-card); color: var(--color-text); text-decoration: none; overflow: hidden; }
+.kh-door-inside img { flex: 1; min-block-size: 0; inline-size: 100%; object-fit: contain; }
+.kh-door-inside span { font: 700 14px/1.25 var(--font-sans); text-align: center; }
+.kh-door-inside b { position: absolute; inset-block-start: var(--space-1); inset-inline-start: var(--space-2); font: var(--font-display-weight) 16px var(--font-display); color: var(--color-text-muted); }
+.kh-door-front { all: unset; box-sizing: border-box; position: absolute; inset: 0; z-index: 1; display: grid; place-items: center; border-radius: var(--radius-card); background: var(--door, var(--krijt-rood-sterk)); color: var(--color-paper); font: var(--font-display-weight) clamp(36px, 7vw, 52px)/1 var(--font-display); box-shadow: var(--shadow-card); transform-origin: left center; transition: transform 700ms cubic-bezier(.3, .7, .3, 1); backface-visibility: hidden; cursor: pointer; }
+.kh-door-front::after { content: ""; position: absolute; inset: 8px; border: 2px dashed color-mix(in srgb, var(--color-paper) 55%, transparent); border-radius: calc(var(--radius-card) - 4px); }
+.kh-door-front:focus-visible { outline: var(--focus-width) solid var(--color-focus); outline-offset: var(--focus-offset); }
+.kh-door[data-open] .kh-door-front { transform: rotateY(-108deg); pointer-events: none; }
+.kh-door[data-locked] .kh-door-front { cursor: default; filter: saturate(.55); }
+.kh-door[data-today] .kh-door-front { box-shadow: 0 0 0 4px var(--color-focus), var(--shadow-card); }
+@media (prefers-reduced-motion: reduce) { .kh-door-front { transition: none; } }
+.kh-advent-teaser { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3); margin: var(--space-6) 0; padding: var(--space-4) var(--space-5); border-radius: var(--radius-card); background: var(--krijt-rood-zacht); color: var(--color-text); }
+.kh-advent-teaser p { margin: 0; font: 700 17px/1.35 var(--font-sans); }
+/* ---------- PackCard (ADR 0059) ---------- */
+.kh-packs { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--space-4); margin: 0 0 var(--space-8); padding: 0; list-style: none; }
+.kh-pack { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-3); border: var(--border-thin) solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); color: var(--color-text); text-decoration: none; }
+.kh-pack:hover { border-color: var(--color-border-strong); }
+.kh-pack-thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-1); }
+.kh-pack-thumbs img { inline-size: 100%; aspect-ratio: 1; object-fit: contain; background: var(--color-paper); border-radius: var(--radius-sm); }
+.kh-pack h3 { margin: 0; font-size: 17px; }
+.kh-pack p { margin: 0; font-size: 14px; color: var(--color-text-muted); }
+.kh-teacher { margin: var(--space-6) 0; padding: var(--space-4) var(--space-5); border-inline-start: 4px solid var(--color-accent); background: var(--color-surface); border-radius: var(--radius-md); }
+.kh-teacher h2 { margin: 0 0 var(--space-2); font-size: 18px; }
+.kh-teacher ul { margin: var(--space-2) 0 0; padding-inline-start: var(--space-5); }
+/* ---------- TogetherPanel (ADR 0060) ---------- */
+.kh-together { display: flex; flex-direction: column; gap: var(--space-2); }
+.kh-together-code { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; }
+.kh-together-code output, .kh-together-code input { font: 800 30px/1 var(--font-mono); letter-spacing: .25em; text-transform: uppercase; }
+.kh-together-code input { inline-size: 6.5ch; padding: var(--space-2) var(--space-3); border: var(--control-border) solid var(--color-border-control); border-radius: var(--radius-control); background: var(--color-surface); color: var(--color-text); }
+.kh-together-status { display: inline-flex; align-items: center; gap: var(--space-2); font: 600 14px var(--font-sans); color: var(--color-text-muted); }
+.kh-together-status::before { content: ""; inline-size: 10px; block-size: 10px; border-radius: var(--radius-full); background: var(--color-border-strong); }
+.kh-together-status[data-live]::before { background: var(--color-success); }
+.kh-steps-how { margin: var(--space-4) 0; padding-inline-start: var(--space-5); }

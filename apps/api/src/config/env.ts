@@ -54,6 +54,8 @@ const schema = z.object({
   MAIL_RATE_PER_MINUTE: z.coerce.number().int().min(1).max(10_000).default(120),
   /** Hoe vaak de wachtrij en workflows worden verwerkt. 0 = uit (tests). */
   MAIL_INTERVAL_MS: z.coerce.number().int().min(0).default(20_000),
+  /** Samen kleuren (ADR 0060): hoe vaak lege kamers worden opgeruimd; 0 = nooit (tests). */
+  TOGETHER_CLEANUP_MS: z.coerce.number().int().min(0).default(300_000),
   // ---------- Zoekcijfers (ADR 0041) ----------
   /** Domeinen waarvan we zoekcijfers ophalen, bijvoorbeeld "kleurhoek.nl,kleurhoek.be,kleurhoek.com". Leeg = uit. */
   SEARCH_DOMAINS: z.string().default("").transform((v) => v.split(",").map((s) => s.trim().toLowerCase()).filter(Boolean)),

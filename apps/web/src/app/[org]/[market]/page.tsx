@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AccountButton } from "@/components/AccountButton";
 import { baseFor } from "@/lib/base";
 import { link } from "@/lib/sites";
@@ -58,6 +59,13 @@ export default async function Home({ params }: { params: Promise<{ org: string; 
         <div className="row no-print"><BookButton language={language} /><Surprise market={market} slugs={plates.map((p) => p.slug)} label={t.surprise} />{org.features.accounts && <AccountButton market={market} t={{ login: t.login, account: t.account, logout: t.logout }} />}</div>
       </header>
       <SeasonBand season={season} plates={plates} taxonomy={taxonomy} market={market} base={base} t={t} />
+      {/* Aftelkalender (ADR 0058): in november en december op de voorpagina. */}
+      {["11", "12"].includes(season.today.slice(5, 7)) && (
+        <div className="kh-advent-teaser no-print">
+          <p>{t.advent.teaser}</p>
+          <Link className="ui-btn" data-variant="primary" href={link(base, "/aftelkalender")}>{t.advent.teaserCta}</Link>
+        </div>
+      )}
       <Suspense fallback={null}><Browse plates={plates} taxonomy={taxonomy} market={market} language={language} /></Suspense>
       <TopicLinks groups={topics(plates, taxonomy, t)} base={base} t={t} />
       <Fridge market={market} plates={plates} language={language} />

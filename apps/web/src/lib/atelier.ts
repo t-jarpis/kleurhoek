@@ -18,9 +18,9 @@ export const PATTERNS = ["stippen", "strepen", "ruitjes", "golfjes"] as const;
 export type Pattern = (typeof PATTERNS)[number];
 
 /** Een streek: in welk vlak hij begon (daar blijft hij binnen), penseel, kleur, dikte en punten x, y, druk. */
-export interface Stroke { t: "s"; r: number; b: Brush; c: string; w: number; pen?: boolean; pts: number[] }
+export interface Stroke { t: "s"; r: number; b: Brush; c: string; w: number; pen?: boolean; pts: number[]; id?: string }
 /** Een vlak vullen; `p` is wat er eerst stond, voor ongedaan maken en de time-lapse. */
-export interface FillOp { t: "f"; r: number; v: string | null; p: string | null }
+export interface FillOp { t: "f"; r: number; v: string | null; p: string | null; id?: string }
 export type Op = Stroke | FillOp;
 /** De zon: uit welke richting het licht komt (graden, 0 = rechts, 90 = onder) en hoe sterk (0–1). */
 export interface Sun { a: number; s: number }
@@ -287,6 +287,33 @@ export function replay(art: Art, fills: Fills, maxFrames = 180): { art: Art; fil
     out.push({ art: { ...art, ops: step.part ? [...ops, step.part] : ops }, fills: { ...cur } });
   }
   return out;
+}
+
+/* ---------- Samen kleuren (ADR 0060) ---------- */
+
+/** Een handeling in een gedeelde kamer: vullen of een streek, of iets ongedaan maken (x) of opnieuw beginnen (c). */
+export type SharedOp = (Op & { id: string }) | { t: "x"; id: string; ref: string } | { t: "c"; id: string };
+
+/** De plaat uit de gedeelde lijst: ongedaan gemaakte handelingen eruit, alles vóór "opnieuw" weg. */
+export function deriveShared(log: SharedOp[]): { ops: Op[]; fills: Fills } {
+  let ops: Op[] = [];
+  for (const op of log) {
+    if (op.t === "c") ops = [];
+    else if (op.t === "x") ops = ops.filter((o) => o.id !== op.ref);
+    else ops.push(op);
+  }
+  const fills: Fills = {};
+  for (const op of ops) if (op.t === "f") { if (op.v === null) delete fills[op.r]; else fills[op.r] = op.v; }
+  return { ops, fills };
+}
+
+/** Het werk dat er al was als handelingen, om een kamer mee te beginnen. */
+export function toShared(fills: Fills, art: Art, id: () => string): SharedOp[] {
+  const strokes = art.ops.filter((o): o is Stroke => o.t === "s");
+  return [
+    ...Object.entries(fills).filter(([, v]) => !!v).map(([r, v]) => ({ t: "f" as const, r: Number(r), v, p: null, id: id() })),
+    ...strokes.map((s) => ({ ...s, id: id() })),
+  ];
 }
 
 /* ---------- Opslag ---------- */

@@ -1,5 +1,11 @@
 import type { Messages } from "./nl";
 
+/** Litouwse meervoudsvormen: 1, 21, 31 … (niet 11) → one; 2–9, 22–29 … (niet 12–19) → few; 10–20, 30 … → many. */
+const plural = (n: number, one: string, few: string, many: string): string => {
+  const d = n % 10, h = n % 100;
+  return h >= 11 && h <= 19 ? many : d === 1 ? one : d === 0 ? many : few;
+};
+
 /** Interface texts in Lithuanian (Lithuania). Same keys as nl.ts. */
 export const lt: Messages = {
   lede: "Mūsų pačių spalvinimo paveikslėliai spausdinti arba spalvinti internete.",
@@ -117,6 +123,61 @@ export const lt: Messages = {
     replay: "Žiūrėti dar kartą", replayTitle: "Štai kaip tai sukūrei", saveVideo: "Išsaugoti kaip vaizdo įrašą", saveImage: "Išsaugoti kaip paveikslėlį", close: "Uždaryti",
     making: "Dirbama…", noVideo: "Šis įrenginys negali sukurti vaizdo įrašo. Išsaugoti kaip paveikslėlį galima.",
     full: "Šis darbas nebetelpa šiame įrenginyje. Išsaugok jį kaip paveikslėlį.",
+  },
+  pinSave: "Išsaugoti „Pinterest“",
+  pinHint: "Su nuspalvintu pavyzdžiu, kad vėliau lengvai jį rastum.",
+  advent: {
+    nav: "Advento kalendorius",
+    title: { kerst: "Advento kalendorius: atgalinis skaičiavimas iki Kalėdų", oudnieuw: "Atgalinis skaičiavimas iki Naujųjų metų" },
+    lede: "Kiekvieną gruodžio dieną atsidaro langelis su nauju paveikslėliu. Nuspalvink jį internete arba atsispausdink.",
+    meta: "Nemokamas advento kalendorius su spalvinimo paveikslėliais: kiekvieną gruodžio dieną naujas paveikslėlis spalvinti, kurti ar spausdinti.",
+    nights: { kerst: (n: number) => (n === 1 ? "Dar tik 1 naktis iki Kalėdų!" : `Dar ${n} ${plural(n, "naktis", "naktys", "naktų")} iki Kalėdų`), oudnieuw: (n: number) => (n === 1 ? "Dar tik 1 naktis iki Naujųjų metų!" : `Dar ${n} ${plural(n, "naktis", "naktys", "naktų")} iki Naujųjų metų`) },
+    startsIn: (n: number) => (n <= 1 ? "Rytoj atsidarys pirmasis langelis." : `Pirmasis langelis atsidarys po ${n} ${plural(n, "dienos", "dienų", "dienų")}.`),
+    archive: "Praėjusio gruodžio kalendorius: visi langeliai atidaryti.",
+    door: (d: number) => `Langelis ${d}`,
+    locked: (d: number) => `Langelis ${d}, uždarytas iki gruodžio ${d} d.`,
+    openDoor: (d: number) => `Atidaryti langelį ${d}`,
+    teaser: "Kiekvieną gruodžio dieną naujas paveikslėlis už langelio.",
+    teaserCta: "Į advento kalendorių",
+  },
+  packs: {
+    nav: "Pamokų rinkiniai",
+    title: "Pamokų rinkiniai",
+    lede: "Paruošti rinkiniai pagal temą ir amžių: pradžiai spalvinimo paveikslėliai, paskui užduočių lapai ir kas nors pasigaminti. Atsispausdink viską iš karto kaip knygelę.",
+    meta: "Nemokami pamokų rinkiniai su spalvinimo paveikslėliais, užduočių lapais ir darbeliais pagal temą ir amžių, mokyklai ir namams.",
+    packTitle: (topic: string, age: string) => `Pamokų rinkinys: ${topic.toLowerCase()}, ${age}`,
+    packMeta: (topic: string, age: string, n: number) => `Nemokamas pamokų rinkinys (${topic.toLowerCase()}, amžius: ${age}): ${n} ${plural(n, "lapas", "lapai", "lapų")} spalvinti, mokytis ir kurti. Viską galima atsispausdinti iš karto.`,
+    intro: (n: number) => `${n} ${plural(n, "lapas", "lapai", "lapų")} tokia tvarka: pirmiausia spalvinimas, paskui mokymasis ir darbeliai.`,
+    forTeacher: "Mokytojui",
+    teacherText: "Ramiai pradžiai tinka spalvinimo paveikslėlis. Užduočių lapai lavina toliau nurodytus mokymosi tikslus; darbelis skirtas pamokos pabaigai arba kūrybos kampeliui. Kiekvienas lapas savo puslapyje turi nurodymus ir reikalingų priemonių sąrašą.",
+    goals: "Mokymosi tikslai",
+    contents: "Šiame rinkinyje",
+    printAll: "Spausdinti visą rinkinį",
+    plates: (n: number) => `${n} ${plural(n, "lapas", "lapai", "lapų")}`,
+    forAge: (age: string) => `Amžius: ${age}`,
+  },
+  together: {
+    nav: "Spalvinkime kartu",
+    button: "Spalvinkime kartu",
+    title: "Spalvinkime kartu",
+    lede: "Spalvinkite tą patį paveikslėlį tuo pat metu dviejuose ekranuose, pavyzdžiui, su toli gyvenančiais seneliais. Paskyros nereikia, o mes nieko nesaugome.",
+    meta: "Spalvinkite tą patį paveikslėlį kartu dviejuose ekranuose, per atstumą ir be paskyros.",
+    start: "Pradėti kartu",
+    join: "Prisijungti",
+    code: "Kodas",
+    codeHint: "Įvesk keturių raidžių kodą, kurį mato kitas.",
+    share: "Duok šį kodą tam, kas prisijungia",
+    copyLink: "Kopijuoti nuorodą",
+    copied: "Nuoroda nukopijuota",
+    stop: "Baigti",
+    waiting: "Laukiame kito…",
+    others: (n: number) => `Kartu su tavimi spalvina dar ${n}`,
+    notFound: "Tokio kodo nėra (nebėra). Paprašyk naujo.",
+    expires: "Jei 30 minučių niekas nespalvina, bendras spalvinimas baigiasi savaime. Tavo darbas lieka šiame įrenginyje.",
+    offline: "Kurį laiką nėra ryšio. Bandome dar kartą.",
+    replace: "Prisijungi prie kito paveikslėlio. Tavo spalvinimas šiame paveikslėlyje bus pakeistas.",
+    howTitle: "Kaip tai veikia",
+    how: ["Atidaryk paveikslėlį ir paliesk Spalvinkime kartu.", "Duok kodą arba nuorodą tam, kas prisijungia.", "Tas įveda kodą čia arba atidaro nuorodą. Ką nuspalvina vienas, kitas iškart mato."],
   },
   metaPlateTitle: (name: string, kind: string) => `${name} – ${kind.toLowerCase()}`,
   metaThemeTitle: (name: string) => `${name} – spalvinimo paveikslėliai`,

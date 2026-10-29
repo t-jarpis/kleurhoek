@@ -4,6 +4,7 @@ import { z } from "zod";
 import { RateLimit } from "../operations/rate-limit.guard";
 import { OrganizationsService, SLUG } from "../organizations/organizations.service";
 import { PlateImages } from "./plate-images";
+import { colorIn, pinSvg } from "./pin";
 import { FULL_VIEW, StorefrontService, type View } from "./storefront.service";
 
 const Slug = z.string().regex(/^[a-z0-9-]{1,64}$/);
@@ -55,6 +56,25 @@ export class StorefrontController {
     if (!plate) throw new NotFoundException("Plaat niet gevonden");
     res.header("Cache-Control", PUBLIC_CACHE);
     return plate;
+  }
+
+  /**
+   * Staand plaatje voor Pinterest (ADR 0057): ingekleurd, met de naam in de taal van de markt. Het domein komt
+   * uit een vaste lijst, zodat er nooit willekeurige tekst op een plaatje van ons komt.
+   */
+  @Get("markets/:market/plates/:slug/pin.png")
+  @RateLimit("assets")
+  async pin(@Param("market") code: string, @Param("slug") slug: string, @Query("domain") domain: string | undefined, @Res() res: FastifyReply) {
+    if (!Slug.safeParse(slug).success) throw new NotFoundException();
+    const market = await this.market(code);
+    const plate = await this.store.plate(market, slug);
+    if (!plate) throw new NotFoundException("Plaat niet gevonden");
+    const m = /\/(\d{1,6})(?:\.([a-z]{2})-[0-9a-f]{8})?\.svg$/.exec(plate.svg);
+    const svg = m ? await this.store.svg(slug, Number(m[1]), m[2]) : null;
+    if (!svg) throw new NotFoundException();
+    const site = ["kleurhoek.nl", "kleurhoek.be", "kleurhoek.com"].includes(domain ?? "") ? domain! : "kleurhoek.nl";
+    const png = await this.images.png(`pin/${code}/${slug}/${plate.version}/${site}`, pinSvg(colorIn(svg, plate.colorByNumber.labels, plate.colorByNumber.palette), plate.name, site), 1000);
+    void res.header("Content-Type", "image/png").header("Cache-Control", "public, max-age=86400, s-maxage=604800").send(png);
   }
 
   /** Voor de website-route /ga/...: het adres van de partnerlink. De website telt de klik en stuurt door. */
