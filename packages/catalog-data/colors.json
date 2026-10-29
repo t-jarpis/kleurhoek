@@ -77,6 +77,18 @@
       },
       "tr": {
         "name": "kırmızı"
+      },
+      "sr": {
+        "name": "crvena"
+      },
+      "mk": {
+        "name": "црвена"
+      },
+      "sq": {
+        "name": "e kuqe"
+      },
+      "is": {
+        "name": "rauður"
       }
     }
   },
@@ -158,6 +170,18 @@
       },
       "tr": {
         "name": "turuncu"
+      },
+      "sr": {
+        "name": "narandžasta"
+      },
+      "mk": {
+        "name": "портокалова"
+      },
+      "sq": {
+        "name": "portokalli"
+      },
+      "is": {
+        "name": "appelsínugulur"
       }
     }
   },
@@ -239,6 +263,18 @@
       },
       "tr": {
         "name": "sarı"
+      },
+      "sr": {
+        "name": "žuta"
+      },
+      "mk": {
+        "name": "жолта"
+      },
+      "sq": {
+        "name": "e verdhë"
+      },
+      "is": {
+        "name": "gulur"
       }
     }
   },
@@ -320,6 +356,18 @@
       },
       "tr": {
         "name": "açık yeşil"
+      },
+      "sr": {
+        "name": "svetlozelena"
+      },
+      "mk": {
+        "name": "светлозелена"
+      },
+      "sq": {
+        "name": "jeshile e çelët"
+      },
+      "is": {
+        "name": "ljósgrænn"
       }
     }
   },
@@ -401,6 +449,18 @@
       },
       "tr": {
         "name": "yeşil"
+      },
+      "sr": {
+        "name": "zelena"
+      },
+      "mk": {
+        "name": "зелена"
+      },
+      "sq": {
+        "name": "jeshile"
+      },
+      "is": {
+        "name": "grænn"
       }
     }
   },
@@ -482,6 +542,18 @@
       },
       "tr": {
         "name": "turkuaz"
+      },
+      "sr": {
+        "name": "tirkizna"
+      },
+      "mk": {
+        "name": "тиркизна"
+      },
+      "sq": {
+        "name": "bruz"
+      },
+      "is": {
+        "name": "grænblár"
       }
     }
   },
@@ -563,6 +635,18 @@
       },
       "tr": {
         "name": "açık mavi"
+      },
+      "sr": {
+        "name": "svetloplava"
+      },
+      "mk": {
+        "name": "светлосина"
+      },
+      "sq": {
+        "name": "blu e çelët"
+      },
+      "is": {
+        "name": "ljósblár"
       }
     }
   },
@@ -644,6 +728,18 @@
       },
       "tr": {
         "name": "mavi"
+      },
+      "sr": {
+        "name": "plava"
+      },
+      "mk": {
+        "name": "сина"
+      },
+      "sq": {
+        "name": "blu"
+      },
+      "is": {
+        "name": "blár"
       }
     }
   },
@@ -725,6 +821,18 @@
       },
       "tr": {
         "name": "mor"
+      },
+      "sr": {
+        "name": "ljubičasta"
+      },
+      "mk": {
+        "name": "виолетова"
+      },
+      "sq": {
+        "name": "vjollcë"
+      },
+      "is": {
+        "name": "fjólublár"
       }
     }
   },
@@ -806,6 +914,18 @@
       },
       "tr": {
         "name": "pembe"
+      },
+      "sr": {
+        "name": "ružičasta"
+      },
+      "mk": {
+        "name": "розова"
+      },
+      "sq": {
+        "name": "rozë"
+      },
+      "is": {
+        "name": "bleikur"
       }
     }
   },
@@ -887,6 +1007,18 @@
       },
       "tr": {
         "name": "açık pembe"
+      },
+      "sr": {
+        "name": "svetloružičasta"
+      },
+      "mk": {
+        "name": "светлорозова"
+      },
+      "sq": {
+        "name": "rozë e çelët"
+      },
+      "is": {
+        "name": "ljósbleikur"
       }
     }
   },
@@ -968,6 +1100,18 @@
       },
       "tr": {
         "name": "kahverengi"
+      },
+      "sr": {
+        "name": "braon"
+      },
+      "mk": {
+        "name": "кафеава"
+      },
+      "sq": {
+        "name": "kafe"
+      },
+      "is": {
+        "name": "brúnn"
       }
     }
   },
@@ -1049,6 +1193,18 @@
       },
       "tr": {
         "name": "gri"
+      },
+      "sr": {
+        "name": "siva"
+      },
+      "mk": {
+        "name": "сива"
+      },
+      "sq": {
+        "name": "gri"
+      },
+      "is": {
+        "name": "grár"
       }
     }
   },
@@ -1130,6 +1286,18 @@
       },
       "tr": {
         "name": "siyah"
+      },
+      "sr": {
+        "name": "crna"
+      },
+      "mk": {
+        "name": "црна"
+      },
+      "sq": {
+        "name": "e zezë"
+      },
+      "is": {
+        "name": "svartur"
       }
     }
   }

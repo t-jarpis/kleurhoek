@@ -104,6 +104,22 @@
       "tr": {
         "name": "2–4 yaş",
         "hint": "Büyük alanlar ve kalın çizgiler. İlk pastel boyalar için ideal."
+      },
+      "sr": {
+        "name": "2–4 godine",
+        "hint": "Velika polja i debele linije. Dobro za prve bojice."
+      },
+      "mk": {
+        "name": "2–4 години",
+        "hint": "Големи полиња и дебели линии. Добро за првите боици."
+      },
+      "sq": {
+        "name": "2–4 vjeç",
+        "hint": "Sipërfaqe të mëdha dhe vija të trasha. Mirë për lapsat e parë me dyll."
+      },
+      "is": {
+        "name": "2–4 ára",
+        "hint": "Stórir fletir og þykkar línur. Gott fyrir fyrstu vaxlitina."
       }
     }
   },
@@ -212,6 +228,22 @@
       "tr": {
         "name": "4–6 yaş",
         "hint": "Daha çok alan, ama hâlâ geniş. Okul öncesi çocuklar için harika."
+      },
+      "sr": {
+        "name": "4–6 godina",
+        "hint": "Više polja, ali i dalje dosta prostora. Super za predškolce."
+      },
+      "mk": {
+        "name": "4–6 години",
+        "hint": "Повеќе полиња, но сè уште има доволно простор. Супер за предучилишни деца."
+      },
+      "sq": {
+        "name": "4–6 vjeç",
+        "hint": "Më shumë sipërfaqe, por ende me hapësirë. Shumë mirë për fëmijët e kopshtit."
+      },
+      "is": {
+        "name": "4–6 ára",
+        "hint": "Fleiri fletir en samt nóg pláss. Frábært fyrir leikskólabörn."
       }
     }
   },
@@ -320,6 +352,22 @@
       "tr": {
         "name": "6–9 yaş",
         "hint": "Çizgilerin içinde düzgünce kalmak için daha küçük ayrıntılar."
+      },
+      "sr": {
+        "name": "6–9 godina",
+        "hint": "Sitniji detalji za uredno bojenje unutar linija."
+      },
+      "mk": {
+        "name": "6–9 години",
+        "hint": "Поситни детали за уредно боење во рамките на линиите."
+      },
+      "sq": {
+        "name": "6–9 vjeç",
+        "hint": "Detaje më të vogla për të ngjyrosur me kujdes brenda vijave."
+      },
+      "is": {
+        "name": "6–9 ára",
+        "hint": "Minni smáatriði til að lita snyrtilega innan línanna."
       }
     }
   },
@@ -428,6 +476,22 @@
       "tr": {
         "name": "9+ yaş",
         "hint": "Çok sayıda küçük alan ve ince çizgiler. Yetişkinler için de eğlenceli."
+      },
+      "sr": {
+        "name": "9+ godina",
+        "hint": "Mnogo malih polja i tanke linije. Zabavno i za odrasle."
+      },
+      "mk": {
+        "name": "9+ години",
+        "hint": "Многу мали полиња и тенки линии. Забавно и за возрасни."
+      },
+      "sq": {
+        "name": "9+ vjeç",
+        "hint": "Shumë sipërfaqe të vogla dhe vija të holla. Argëtuese edhe për të rriturit."
+      },
+      "is": {
+        "name": "9+ ára",
+        "hint": "Margir litlir fletir og fínar línur. Líka skemmtilegt fyrir fullorðna."
       }
     }
   },
@@ -536,6 +600,22 @@
       "tr": {
         "name": "12+ yaş",
         "hint": "İnce çizgiler ve bol ayrıntı. Gençler, yetişkinler ve deneyimli el işi meraklıları için."
+      },
+      "sr": {
+        "name": "12+ godina",
+        "hint": "Fine linije i mnogo detalja. Za tinejdžere, odrasle i iskusne kreativce."
+      },
+      "mk": {
+        "name": "12+ години",
+        "hint": "Фини линии и многу детали. За тинејџери, возрасни и вешти креативци."
+      },
+      "sq": {
+        "name": "12+ vjeç",
+        "hint": "Vija të holla dhe shumë detaje. Për adoleshentë, të rritur dhe krijues të aftë."
+      },
+      "is": {
+        "name": "12+ ára",
+        "hint": "Fínar línur og mikið af smáatriðum. Fyrir unglinga, fullorðna og vant föndurfólk."
       }
     }
   }

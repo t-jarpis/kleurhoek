@@ -102,6 +102,22 @@
       "tr": {
         "name": "Kuru boya kalemleri",
         "hint": "İnce alanlar ve küçük eller için"
+      },
+      "sr": {
+        "name": "Drvene bojice",
+        "hint": "Za sitna polja i male ruke"
+      },
+      "mk": {
+        "name": "Дрвени боици",
+        "hint": "За ситни полиња и мали раце"
+      },
+      "sq": {
+        "name": "Lapsa me ngjyra",
+        "hint": "Për sipërfaqe të imta dhe duar të vogla"
+      },
+      "is": {
+        "name": "Trélitir",
+        "hint": "Fyrir fína fleti og litlar hendur"
       }
     }
   },
@@ -208,6 +224,22 @@
       "tr": {
         "name": "Keçeli kalemler",
         "hint": "Canlı renkler; yıkanabilir olanları seç"
+      },
+      "sr": {
+        "name": "Flomasteri",
+        "hint": "Jarke boje; izaberi one koje se peru"
+      },
+      "mk": {
+        "name": "Фломастери",
+        "hint": "Живи бои; избери такви што се перат"
+      },
+      "sq": {
+        "name": "Markera",
+        "hint": "Ngjyra të ndezura; zgjidh ato që lahen"
+      },
+      "is": {
+        "name": "Tússlitir",
+        "hint": "Skærir litir; veldu liti sem þvost af"
       }
     }
   },
@@ -314,6 +346,22 @@
       "tr": {
         "name": "Pastel boyalar",
         "hint": "Kalın ve sağlam, en küçükler için harika"
+      },
+      "sr": {
+        "name": "Voštane bojice",
+        "hint": "Debele i čvrste, odlične za najmlađe"
+      },
+      "mk": {
+        "name": "Восочни боици",
+        "hint": "Дебели и цврсти, одлични за најмалите"
+      },
+      "sq": {
+        "name": "Lapsa dylli",
+        "hint": "Të trashë dhe të fortë, shumë të mirë për më të vegjlit"
+      },
+      "is": {
+        "name": "Vaxlitir",
+        "hint": "Þykkir og sterkir, fínir fyrir þau yngstu"
       }
     }
   },
@@ -420,6 +468,22 @@
       "tr": {
         "name": "Çocuk makası",
         "hint": "Ucu yuvarlak; küçük çocukların tek başına kesmesine izin verme"
+      },
+      "sr": {
+        "name": "Dečje makazice",
+        "hint": "Sa zaobljenim vrhom; ne ostavljaj malu decu da sama seku"
+      },
+      "mk": {
+        "name": "Детски ножички",
+        "hint": "Со заоблен врв; не оставај ги малите деца сами да сечат"
+      },
+      "sq": {
+        "name": "Gërshërë për fëmijë",
+        "hint": "Me majë të rrumbullakët; mos i lër fëmijët e vegjël të presin vetëm"
+      },
+      "is": {
+        "name": "Barnaskæri",
+        "hint": "Með ávölum oddi; láttu ung börn ekki klippa ein"
       }
     }
   },
@@ -526,6 +590,22 @@
       "tr": {
         "name": "Stick yapıştırıcı",
         "hint": "Kâğıdı etrafı kirletmeden yapıştırır"
+      },
+      "sr": {
+        "name": "Lepak u stiku",
+        "hint": "Lepi papir bez mrljanja"
+      },
+      "mk": {
+        "name": "Лепило во стик",
+        "hint": "Лепи хартија без мачкање"
+      },
+      "sq": {
+        "name": "Ngjitës shkop",
+        "hint": "Ngjit letrën pa bërë pis"
+      },
+      "is": {
+        "name": "Límstifti",
+        "hint": "Límir pappír án þess að sulla"
       }
     }
   },
@@ -608,6 +688,18 @@
       },
       "tr": {
         "name": "Bant"
+      },
+      "sr": {
+        "name": "Selotejp"
+      },
+      "mk": {
+        "name": "Селотејп"
+      },
+      "sq": {
+        "name": "Shirit ngjitës"
+      },
+      "is": {
+        "name": "Límband"
       }
     }
   },
@@ -714,6 +806,22 @@
       "tr": {
         "name": "Kalın kâğıt (160 g/m²)",
         "hint": "Ayakta durması gereken kâğıt maketler ve kartlar için"
+      },
+      "sr": {
+        "name": "Debeli papir (160 g/m²)",
+        "hint": "Za papirne modele i čestitke koje treba da stoje"
+      },
+      "mk": {
+        "name": "Дебела хартија (160 г/м²)",
+        "hint": "За хартиени модели и честитки што треба да стојат исправено"
+      },
+      "sq": {
+        "name": "Letër e trashë (160 g/m²)",
+        "hint": "Për modele letre dhe kartolina që duhet të qëndrojnë në këmbë"
+      },
+      "is": {
+        "name": "Þykkur pappír (160 g/m²)",
+        "hint": "Fyrir pappírslíkön og kort sem eiga að standa upprétt"
       }
     }
   },
@@ -820,6 +928,22 @@
       "tr": {
         "name": "LED fener çubuğu",
         "hint": "Fenerin için güvenli ışık"
+      },
+      "sr": {
+        "name": "LED štapić za lampion",
+        "hint": "Bezbedno svetlo u tvom lampionu"
+      },
+      "mk": {
+        "name": "LED стапче за фенер",
+        "hint": "Безбедна светлина во твојот фенер"
+      },
+      "sq": {
+        "name": "Shkop LED për fener",
+        "hint": "Dritë e sigurt në fenerin tënd"
+      },
+      "is": {
+        "name": "LED-luktarstafur",
+        "hint": "Örugg birta í luktinni þinni"
       }
     }
   },
@@ -926,6 +1050,22 @@
       "tr": {
         "name": "Kelebek çiviler",
         "hint": "Hareketli kollar ve bacaklar için"
+      },
+      "sr": {
+        "name": "Rasklopne spajalice",
+        "hint": "Za pokretne ruke i noge"
+      },
+      "mk": {
+        "name": "Расклопни спојници",
+        "hint": "За подвижни раце и нозе"
+      },
+      "sq": {
+        "name": "Kapëse metalike me krahë",
+        "hint": "Për krahë dhe këmbë që lëvizin"
+      },
+      "is": {
+        "name": "Splittpinnar",
+        "hint": "Fyrir hreyfanlega handleggi og fótleggi"
       }
     }
   },
@@ -1032,6 +1172,22 @@
       "tr": {
         "name": "Kurşun kalem",
         "hint": "Yazmak, çizmek ve çizgilerin üzerinden geçmek için"
+      },
+      "sr": {
+        "name": "Olovka",
+        "hint": "Za pisanje, crtanje i prevlačenje linija"
+      },
+      "mk": {
+        "name": "Молив",
+        "hint": "За пишување, цртање и повлекување линии"
+      },
+      "sq": {
+        "name": "Laps",
+        "hint": "Për të shkruar, për të vizatuar dhe për të ndjekur vijat"
+      },
+      "is": {
+        "name": "Blýantur",
+        "hint": "Til að skrifa, teikna og draga eftir línum"
       }
     }
   },
@@ -1138,6 +1294,22 @@
       "tr": {
         "name": "Lastik",
         "hint": "Maskeyi başında tutmak için yuvarlak lastik"
+      },
+      "sr": {
+        "name": "Lastiš",
+        "hint": "Okrugli lastiš, da ti maska stoji na glavi"
+      },
+      "mk": {
+        "name": "Ластик",
+        "hint": "Тркалезен ластик, за маската да ти стои на главата"
+      },
+      "sq": {
+        "name": "Llastik",
+        "hint": "Llastik i rrumbullakët, që maska të të rrijë në kokë"
+      },
+      "is": {
+        "name": "Teygja",
+        "hint": "Sívöl teygja, til að halda grímunni á höfðinu"
       }
     }
   },
@@ -1244,6 +1416,22 @@
       "tr": {
         "name": "İp ya da kurdele",
         "hint": "Asmak ya da bir hediyeye bağlamak için"
+      },
+      "sr": {
+        "name": "Kanap ili traka",
+        "hint": "Za kačenje ili vezivanje za poklon"
+      },
+      "mk": {
+        "name": "Канап или панделка",
+        "hint": "За закачување или врзување на подарок"
+      },
+      "sq": {
+        "name": "Spango ose fjongo",
+        "hint": "Për ta varur ose për ta lidhur te një dhuratë"
+      },
+      "is": {
+        "name": "Band eða borði",
+        "hint": "Til að hengja upp eða binda við gjöf"
       }
     }
   },
@@ -1350,6 +1538,22 @@
       "tr": {
         "name": "Boya ve sünger",
         "hint": "Guaj ya da sulu boya; tamponlamak ya da boyamak için"
+      },
+      "sr": {
+        "name": "Boje i sunđerčić",
+        "hint": "Tempere ili vodene boje, za tapkanje ili slikanje"
+      },
+      "mk": {
+        "name": "Бои и сунѓерче",
+        "hint": "Темперни или водени бои, за тапкање или сликање"
+      },
+      "sq": {
+        "name": "Bojë dhe një sfungjer",
+        "hint": "Bojë tempera ose bojëra uji, për të prekur lehtë ose për të pikturuar"
+      },
+      "is": {
+        "name": "Málning og svampur",
+        "hint": "Þekjulitir eða vatnslitir, til að dúmpa með svampi eða mála"
       }
     }
   },
@@ -1456,6 +1660,22 @@
       "tr": {
         "name": "Damgalar ve ıstampa",
         "hint": "Yıkanabilir mürekkep; bir silgiden ya da patatesten kendin de yapabilirsin"
+      },
+      "sr": {
+        "name": "Pečati i jastučić s mastilom",
+        "hint": "Mastilo koje se pere; pečat možeš da napraviš i sam od gumice ili krompira"
+      },
+      "mk": {
+        "name": "Печати и перниче со мастило",
+        "hint": "Мастило што се пере; печат можеш да направиш и сам од гумичка или компир"
+      },
+      "sq": {
+        "name": "Vula dhe jastëk me bojë",
+        "hint": "Bojë që lahet; vulën mund ta bësh edhe vetë nga një gomë ose një patate"
+      },
+      "is": {
+        "name": "Stimplar og stimpilpúði",
+        "hint": "Blek sem þvæst af; þú getur líka búið til stimpil sjálf(ur) úr strokleðri eða kartöflu"
       }
     }
   }

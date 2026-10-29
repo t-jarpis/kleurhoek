@@ -78,6 +78,18 @@
       },
       "tr": {
         "name": "Avrupa"
+      },
+      "sr": {
+        "name": "Evropa"
+      },
+      "mk": {
+        "name": "Европа"
+      },
+      "sq": {
+        "name": "Evropa"
+      },
+      "is": {
+        "name": "Evrópa"
       }
     }
   },
@@ -160,6 +172,18 @@
       },
       "tr": {
         "name": "Afrika"
+      },
+      "sr": {
+        "name": "Afrika"
+      },
+      "mk": {
+        "name": "Африка"
+      },
+      "sq": {
+        "name": "Afrika"
+      },
+      "is": {
+        "name": "Afríka"
       }
     }
   },
@@ -242,6 +266,18 @@
       },
       "tr": {
         "name": "Asya"
+      },
+      "sr": {
+        "name": "Azija"
+      },
+      "mk": {
+        "name": "Азија"
+      },
+      "sq": {
+        "name": "Azia"
+      },
+      "is": {
+        "name": "Asía"
       }
     }
   },
@@ -324,6 +360,18 @@
       },
       "tr": {
         "name": "Kuzey Amerika"
+      },
+      "sr": {
+        "name": "Severna Amerika"
+      },
+      "mk": {
+        "name": "Северна Америка"
+      },
+      "sq": {
+        "name": "Amerika e Veriut"
+      },
+      "is": {
+        "name": "Norður-Ameríka"
       }
     }
   },
@@ -406,6 +454,18 @@
       },
       "tr": {
         "name": "Güney Amerika"
+      },
+      "sr": {
+        "name": "Južna Amerika"
+      },
+      "mk": {
+        "name": "Јужна Америка"
+      },
+      "sq": {
+        "name": "Amerika e Jugut"
+      },
+      "is": {
+        "name": "Suður-Ameríka"
       }
     }
   },
@@ -488,6 +548,18 @@
       },
       "tr": {
         "name": "Okyanusya"
+      },
+      "sr": {
+        "name": "Okeanija"
+      },
+      "mk": {
+        "name": "Океанија"
+      },
+      "sq": {
+        "name": "Oqeania"
+      },
+      "is": {
+        "name": "Eyjaálfa"
       }
     }
   },
@@ -570,6 +642,18 @@
       },
       "tr": {
         "name": "Antarktika"
+      },
+      "sr": {
+        "name": "Antarktik"
+      },
+      "mk": {
+        "name": "Антарктик"
+      },
+      "sq": {
+        "name": "Antarktida"
+      },
+      "is": {
+        "name": "Suðurskautslandið"
       }
     }
   }

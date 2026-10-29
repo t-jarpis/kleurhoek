@@ -57,7 +57,11 @@
       "LV",
       "LT",
       "UA",
-      "TR"
+      "TR",
+      "RS",
+      "MK",
+      "AL",
+      "IS"
     ],
     "i18n": {
       "nl": {
@@ -134,6 +138,18 @@
       },
       "tr": {
         "name": "Sonbahar"
+      },
+      "sr": {
+        "name": "Jesen"
+      },
+      "mk": {
+        "name": "Есен"
+      },
+      "sq": {
+        "name": "Vjeshta"
+      },
+      "is": {
+        "name": "Haust"
       }
     }
   },
@@ -233,6 +249,18 @@
       },
       "tr": {
         "name": "Sonbahar"
+      },
+      "sr": {
+        "name": "Jesen"
+      },
+      "mk": {
+        "name": "Есен"
+      },
+      "sq": {
+        "name": "Vjeshta"
+      },
+      "is": {
+        "name": "Haust"
       }
     }
   }

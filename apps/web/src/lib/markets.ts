@@ -5,11 +5,11 @@
  * image voor dev en prod). MARKETS_OVERRIDE en MARKETS worden bewust niet gelezen: Terraform zette daar de oude lijst
  * in, waardoor nieuwe markten op productie 404 gaven tot de volgende infra-run (ADR 0049).
  */
-export const DEFAULT_MARKETS = "nl-nl,nl-be,fr-be,en-gb,de-de,de-at,de-ch,fr-fr,fr-ch,en-us,en-ie,es-es,it-it,pl-pl,en-ca,en-au,en-nz,fr-ca,fr-lu,de-lu,de-li,it-ch,es-mx,es-ar,es-co,es-us,pt-br,pt-pt,sv-se,da-dk,nb-no,fi-fi,cs-cz,sk-sk,hu-hu,ro-ro,ro-md,el-gr,el-cy,en-mt,fr-mc,es-ad,it-sm,bg-bg,hr-hr,hr-ba,hr-me,sl-si,et-ee,lv-lv,lt-lt,uk-ua,tr-tr";
+export const DEFAULT_MARKETS = "nl-nl,nl-be,fr-be,en-gb,de-de,de-at,de-ch,fr-fr,fr-ch,en-us,en-ie,es-es,it-it,pl-pl,en-ca,en-au,en-nz,fr-ca,fr-lu,de-lu,de-li,it-ch,es-mx,es-ar,es-co,es-us,pt-br,pt-pt,sv-se,da-dk,nb-no,fi-fi,cs-cz,sk-sk,hu-hu,ro-ro,ro-md,el-gr,el-cy,en-mt,fr-mc,es-ad,it-sm,bg-bg,hr-hr,hr-ba,hr-me,sl-si,et-ee,lv-lv,lt-lt,uk-ua,tr-tr,sr-rs,mk-mk,sq-al,is-is";
 export const LIVE_MARKETS = (process.env.MARKETS_ONLY || DEFAULT_MARKETS).split(",").map((m) => m.trim().toLowerCase()).filter(Boolean);
 
 /** Markt voor een taal in een land zonder eigen markt (ADR 0050): Frans uit Senegal → fr-fr, Spaans uit Chili → es-mx. */
-const HOME_MARKET: Record<string, string> = { nl: "nl-nl", fr: "fr-fr", de: "de-de", en: "en-gb", es: "es-es", it: "it-it", pl: "pl-pl", pt: "pt-br", sv: "sv-se", da: "da-dk", nb: "nb-no", fi: "fi-fi", cs: "cs-cz", sk: "sk-sk", hu: "hu-hu", ro: "ro-ro", el: "el-gr", bg: "bg-bg", hr: "hr-hr", sl: "sl-si", et: "et-ee", lv: "lv-lv", lt: "lt-lt", uk: "uk-ua", tr: "tr-tr", bs: "hr-ba" };
+const HOME_MARKET: Record<string, string> = { nl: "nl-nl", fr: "fr-fr", de: "de-de", en: "en-gb", es: "es-es", it: "it-it", pl: "pl-pl", pt: "pt-br", sv: "sv-se", da: "da-dk", nb: "nb-no", fi: "fi-fi", cs: "cs-cz", sk: "sk-sk", hu: "hu-hu", ro: "ro-ro", el: "el-gr", bg: "bg-bg", hr: "hr-hr", sl: "sl-si", et: "et-ee", lv: "lv-lv", lt: "lt-lt", uk: "uk-ua", tr: "tr-tr", bs: "hr-ba", sr: "sr-rs", mk: "mk-mk", sq: "sq-al", is: "is-is" };
 const LATAM = new Set(["mx", "gt", "hn", "sv", "ni", "cr", "pa", "cu", "do", "pr", "ve", "co", "ec", "pe", "bo", "cl", "ar", "uy", "py"]);
 
 export function bestMarket(country: string | null, acceptLanguage: string | null, live: string[] = LIVE_MARKETS): string {

@@ -24,8 +24,12 @@ import { Disclaimer as lv } from "./lv";
 import { Disclaimer as lt } from "./lt";
 import { Disclaimer as uk } from "./uk";
 import { Disclaimer as tr } from "./tr";
+import { Disclaimer as sr } from "./sr";
+import { Disclaimer as mk } from "./mk";
+import { Disclaimer as sq } from "./sq";
+import { Disclaimer as is } from "./is";
 import type { DisclaimerProps } from "./types";
 
-const all: Record<string, ComponentType<DisclaimerProps>> = { nl, de, en, es, fr, it, pl, pt, sv, da, nb, fi, cs, sk, hu, ro, el, bg, hr, sl, et, lv, lt, uk, tr };
+const all: Record<string, ComponentType<DisclaimerProps>> = { nl, de, en, es, fr, it, pl, pt, sv, da, nb, fi, cs, sk, hu, ro, el, bg, hr, sl, et, lv, lt, uk, tr, sr, mk, sq, is };
 /** De disclaimer in de taal van de markt; zonder vertaling de Nederlandse. */
 export const disclaimer = (language: string): ComponentType<DisclaimerProps> => all[language] ?? nl;

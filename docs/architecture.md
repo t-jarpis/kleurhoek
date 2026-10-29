@@ -48,3 +48,4 @@ Het volledige architectuurdocument met diagrammen staat hier: https://claude.ai/
 - Scandinavië en Finland: sv-se, da-dk, nb-no en fi-fi, met vier nieuwe talen en een kalender per land (ADR 0051).
 - Lettertypen met tekensets per bestand (latin, latin-ext, Grieks, Cyrillisch) via unicode-range. Er komen markten bij in het Tsjechisch, Slowaaks, Hongaars, Roemeens (ook Moldavië) en Grieks (ook Cyprus), plus Malta, Monaco, Andorra en San Marino. Waar nodig gelden orthodoxe Pasen en carnaval (ADR 0052).
 - Bulgaars, Kroatisch (ook voor Bosnië en Montenegro), Sloveens, Ests, Lets, Litouws, Oekraïens en Turks: 53 markten in 25 talen, alle EU-landen gedekt (ADR 0053).
+- Europa compleet met Servisch (Latijns), Macedonisch, Albanees (ook Kosovo) en IJslands: 57 markten in 29 talen. Een test controleert dat elk land met een markt een tijdzone, een seizoen, een eerste schooldag en alle algemene feesten heeft (ADR 0054).

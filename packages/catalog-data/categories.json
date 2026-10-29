@@ -78,6 +78,18 @@
       },
       "tr": {
         "name": "Hayvanlar"
+      },
+      "sr": {
+        "name": "Životinje"
+      },
+      "mk": {
+        "name": "Животни"
+      },
+      "sq": {
+        "name": "Kafshët"
+      },
+      "is": {
+        "name": "Dýr"
       }
     }
   },
@@ -160,6 +172,18 @@
       },
       "tr": {
         "name": "Taşıtlar"
+      },
+      "sr": {
+        "name": "Vozila"
+      },
+      "mk": {
+        "name": "Возила"
+      },
+      "sq": {
+        "name": "Mjetet e transportit"
+      },
+      "is": {
+        "name": "Farartæki"
       }
     }
   },
@@ -242,6 +266,18 @@
       },
       "tr": {
         "name": "Doğa"
+      },
+      "sr": {
+        "name": "Priroda"
+      },
+      "mk": {
+        "name": "Природа"
+      },
+      "sq": {
+        "name": "Natyra"
+      },
+      "is": {
+        "name": "Náttúra"
       }
     }
   },
@@ -324,6 +360,18 @@
       },
       "tr": {
         "name": "Lezzetli yiyecekler"
+      },
+      "sr": {
+        "name": "Ukusna hrana"
+      },
+      "mk": {
+        "name": "Вкусна храна"
+      },
+      "sq": {
+        "name": "Ushqim i shijshëm"
+      },
+      "is": {
+        "name": "Góður matur"
       }
     }
   },
@@ -406,6 +454,18 @@
       },
       "tr": {
         "name": "Uzay"
+      },
+      "sr": {
+        "name": "Svemir"
+      },
+      "mk": {
+        "name": "Вселена"
+      },
+      "sq": {
+        "name": "Hapësira"
+      },
+      "is": {
+        "name": "Geimurinn"
       }
     }
   },
@@ -488,6 +548,18 @@
       },
       "tr": {
         "name": "Bayramlar ve özel günler"
+      },
+      "sr": {
+        "name": "Praznici"
+      },
+      "mk": {
+        "name": "Празници"
+      },
+      "sq": {
+        "name": "Festat"
+      },
+      "is": {
+        "name": "Hátíðir"
       }
     }
   },
@@ -570,6 +642,18 @@
       },
       "tr": {
         "name": "Dünya"
+      },
+      "sr": {
+        "name": "Svet"
+      },
+      "mk": {
+        "name": "Светот"
+      },
+      "sq": {
+        "name": "Bota"
+      },
+      "is": {
+        "name": "Heimurinn"
       }
     }
   },
@@ -652,6 +736,18 @@
       },
       "tr": {
         "name": "Desenler"
+      },
+      "sr": {
+        "name": "Šare"
+      },
+      "mk": {
+        "name": "Шари"
+      },
+      "sq": {
+        "name": "Motivet"
+      },
+      "is": {
+        "name": "Mynstur"
       }
     }
   },
@@ -734,6 +830,18 @@
       },
       "tr": {
         "name": "Çiftlik"
+      },
+      "sr": {
+        "name": "Farma"
+      },
+      "mk": {
+        "name": "Фарма"
+      },
+      "sq": {
+        "name": "Ferma"
+      },
+      "is": {
+        "name": "Sveitabærinn"
       }
     }
   },
@@ -816,6 +924,18 @@
       },
       "tr": {
         "name": "Su altı"
+      },
+      "sr": {
+        "name": "Pod vodom"
+      },
+      "mk": {
+        "name": "Под вода"
+      },
+      "sq": {
+        "name": "Nën ujë"
+      },
+      "is": {
+        "name": "Neðansjávar"
       }
     }
   },
@@ -898,6 +1018,18 @@
       },
       "tr": {
         "name": "Dinozorlar"
+      },
+      "sr": {
+        "name": "Dinosaurusi"
+      },
+      "mk": {
+        "name": "Диносауруси"
+      },
+      "sq": {
+        "name": "Dinosaurët"
+      },
+      "is": {
+        "name": "Risaeðlur"
       }
     }
   },
@@ -980,6 +1112,18 @@
       },
       "tr": {
         "name": "Masallar"
+      },
+      "sr": {
+        "name": "Bajke"
+      },
+      "mk": {
+        "name": "Бајки"
+      },
+      "sq": {
+        "name": "Përrallat"
+      },
+      "is": {
+        "name": "Ævintýri"
       }
     }
   },
@@ -1062,6 +1206,18 @@
       },
       "tr": {
         "name": "Spor ve oyun"
+      },
+      "sr": {
+        "name": "Sport i igre"
+      },
+      "mk": {
+        "name": "Спорт и игри"
+      },
+      "sq": {
+        "name": "Sport dhe lojëra"
+      },
+      "is": {
+        "name": "Íþróttir og leikir"
       }
     }
   },
@@ -1144,6 +1300,18 @@
       },
       "tr": {
         "name": "Meslekler"
+      },
+      "sr": {
+        "name": "Zanimanja"
+      },
+      "mk": {
+        "name": "Занимања"
+      },
+      "sq": {
+        "name": "Profesionet"
+      },
+      "is": {
+        "name": "Störf"
       }
     }
   },
@@ -1226,6 +1394,18 @@
       },
       "tr": {
         "name": "Ev ve oyuncaklar"
+      },
+      "sr": {
+        "name": "Dom i igračke"
+      },
+      "mk": {
+        "name": "Дом и играчки"
+      },
+      "sq": {
+        "name": "Shtëpia dhe lodrat"
+      },
+      "is": {
+        "name": "Heimilið og leikföng"
       }
     }
   },
@@ -1308,6 +1488,18 @@
       },
       "tr": {
         "name": "Şekiller ve figürler"
+      },
+      "sr": {
+        "name": "Oblici i figure"
+      },
+      "mk": {
+        "name": "Форми и фигури"
+      },
+      "sq": {
+        "name": "Format dhe figurat"
+      },
+      "is": {
+        "name": "Form og fígúrur"
       }
     }
   },
@@ -1390,6 +1582,18 @@
       },
       "tr": {
         "name": "Harfler, sayılar ve saat"
+      },
+      "sr": {
+        "name": "Slova, brojevi i sat"
+      },
+      "mk": {
+        "name": "Букви, бројки и часовник"
+      },
+      "sq": {
+        "name": "Shkronjat, numrat dhe ora"
+      },
+      "is": {
+        "name": "Stafir, tölur og klukka"
       }
     }
   }

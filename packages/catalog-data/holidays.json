@@ -58,7 +58,11 @@
       "LV",
       "LT",
       "UA",
-      "TR"
+      "TR",
+      "RS",
+      "MK",
+      "AL",
+      "IS"
     ],
     "i18n": {
       "nl": {
@@ -135,6 +139,18 @@
       },
       "tr": {
         "name": "Yılbaşı"
+      },
+      "sr": {
+        "name": "Doček Nove godine"
+      },
+      "mk": {
+        "name": "Дочек на Нова година"
+      },
+      "sq": {
+        "name": "Nata e Vitit të Ri"
+      },
+      "is": {
+        "name": "Gamlárskvöld"
       }
     },
     "overrides": {}
@@ -182,7 +198,8 @@
       "HR",
       "BA",
       "BG",
-      "UA"
+      "UA",
+      "IS"
     ],
     "overrides": {},
     "i18n": {
@@ -260,6 +277,18 @@
       },
       "tr": {
         "name": "Epifani"
+      },
+      "sr": {
+        "name": "Bogojavljenje"
+      },
+      "mk": {
+        "name": "Богојавление"
+      },
+      "sq": {
+        "name": "Dita e Tre Mbretërve"
+      },
+      "is": {
+        "name": "Þrettándinn"
       }
     }
   },
@@ -322,7 +351,11 @@
       "LV",
       "LT",
       "UA",
-      "TR"
+      "TR",
+      "RS",
+      "MK",
+      "AL",
+      "IS"
     ],
     "i18n": {
       "nl": {
@@ -399,6 +432,18 @@
       },
       "tr": {
         "name": "Çin Yeni Yılı"
+      },
+      "sr": {
+        "name": "Kineska Nova godina"
+      },
+      "mk": {
+        "name": "Кинеска Нова година"
+      },
+      "sq": {
+        "name": "Viti i Ri Kinez"
+      },
+      "is": {
+        "name": "Kínverska nýárið"
       }
     },
     "overrides": {}
@@ -462,7 +507,11 @@
       "LV",
       "LT",
       "UA",
-      "TR"
+      "TR",
+      "RS",
+      "MK",
+      "AL",
+      "IS"
     ],
     "i18n": {
       "nl": {
@@ -539,6 +588,18 @@
       },
       "tr": {
         "name": "Sevgililer Günü"
+      },
+      "sr": {
+        "name": "Dan zaljubljenih"
+      },
+      "mk": {
+        "name": "Свети Валентин"
+      },
+      "sq": {
+        "name": "Dita e Shën Valentinit"
+      },
+      "is": {
+        "name": "Valentínusardagurinn"
       }
     },
     "overrides": {
@@ -674,6 +735,18 @@
       },
       "tr": {
         "name": "Karnaval"
+      },
+      "sr": {
+        "name": "Karneval"
+      },
+      "mk": {
+        "name": "Карневал"
+      },
+      "sq": {
+        "name": "Karnavali"
+      },
+      "is": {
+        "name": "Kjötkveðjuhátíð"
       }
     },
     "overrides": {
@@ -750,7 +823,11 @@
       "LV",
       "LT",
       "UA",
-      "TR"
+      "TR",
+      "RS",
+      "MK",
+      "AL",
+      "IS"
     ],
     "i18n": {
       "nl": {
@@ -826,6 +903,18 @@
         "name": "Холі"
       },
       "tr": {
+        "name": "Holi"
+      },
+      "sr": {
+        "name": "Holi"
+      },
+      "mk": {
+        "name": "Холи"
+      },
+      "sq": {
+        "name": "Holi"
+      },
+      "is": {
         "name": "Holi"
       }
     },
@@ -926,6 +1015,18 @@
       },
       "tr": {
         "name": "Aziz Patrick Günü"
+      },
+      "sr": {
+        "name": "Dan Svetog Patrika"
+      },
+      "mk": {
+        "name": "Ден на Свети Патрик"
+      },
+      "sq": {
+        "name": "Dita e Shën Patrikut"
+      },
+      "is": {
+        "name": "Dagur heilags Patreks"
       }
     }
   },
@@ -988,7 +1089,11 @@
       "LV",
       "LT",
       "UA",
-      "TR"
+      "TR",
+      "RS",
+      "MK",
+      "AL",
+      "IS"
     ],
     "i18n": {
       "nl": {
@@ -1065,6 +1170,18 @@
       },
       "tr": {
         "name": "Ramazan Bayramı"
+      },
+      "sr": {
+        "name": "Ramazanski bajram"
+      },
+      "mk": {
+        "name": "Рамазан Бајрам"
+      },
+      "sq": {
+        "name": "Fitër Bajrami"
+      },
+      "is": {
+        "name": "Eid al-Fitr"
       }
     },
     "overrides": {}
@@ -1127,7 +1244,11 @@
       "EE",
       "LV",
       "LT",
-      "UA"
+      "UA",
+      "RS",
+      "MK",
+      "AL",
+      "IS"
     ],
     "i18n": {
       "nl": {
@@ -1204,6 +1325,18 @@
       },
       "tr": {
         "name": "Paskalya"
+      },
+      "sr": {
+        "name": "Uskrs"
+      },
+      "mk": {
+        "name": "Велигден"
+      },
+      "sq": {
+        "name": "Pashkët"
+      },
+      "is": {
+        "name": "Páskar"
       }
     },
     "overrides": {
@@ -1244,6 +1377,18 @@
         }
       },
       "ME": {
+        "dates": {
+          "2026": "2026-04-12",
+          "2027": "2027-05-02"
+        }
+      },
+      "RS": {
+        "dates": {
+          "2026": "2026-04-12",
+          "2027": "2027-05-02"
+        }
+      },
+      "MK": {
         "dates": {
           "2026": "2026-04-12",
           "2027": "2027-05-02"
@@ -1341,6 +1486,18 @@
       },
       "tr": {
         "name": "Kral Günü"
+      },
+      "sr": {
+        "name": "Kraljev dan (Holandija)"
+      },
+      "mk": {
+        "name": "Ден на кралот (Холандија)"
+      },
+      "sq": {
+        "name": "Dita e Mbretit (Holandë)"
+      },
+      "is": {
+        "name": "Konungsdagurinn (Holland)"
       }
     },
     "overrides": {}
@@ -1435,6 +1592,18 @@
       },
       "tr": {
         "name": "Kurtuluş Günü"
+      },
+      "sr": {
+        "name": "Dan oslobođenja (Holandija)"
+      },
+      "mk": {
+        "name": "Ден на ослободувањето (Холандија)"
+      },
+      "sq": {
+        "name": "Dita e Çlirimit (Holandë)"
+      },
+      "is": {
+        "name": "Frelsisdagurinn (Holland)"
       }
     },
     "overrides": {}
@@ -1498,7 +1667,11 @@
       "LV",
       "LT",
       "UA",
-      "TR"
+      "TR",
+      "RS",
+      "MK",
+      "AL",
+      "IS"
     ],
     "i18n": {
       "nl": {
@@ -1575,6 +1748,18 @@
       },
       "tr": {
         "name": "Anneler Günü"
+      },
+      "sr": {
+        "name": "Dan majki"
+      },
+      "mk": {
+        "name": "Ден на мајката"
+      },
+      "sq": {
+        "name": "Dita e Nënës"
+      },
+      "is": {
+        "name": "Mæðradagurinn"
       }
     },
     "overrides": {
@@ -1720,7 +1905,8 @@
       "NO",
       "FI",
       "MC",
-      "AD"
+      "AD",
+      "IS"
     ],
     "i18n": {
       "nl": {
@@ -1797,6 +1983,18 @@
       },
       "tr": {
         "name": "Göğe Yükseliş Günü"
+      },
+      "sr": {
+        "name": "Vaznesenje Gospodnje"
+      },
+      "mk": {
+        "name": "Спасовден"
+      },
+      "sq": {
+        "name": "Ngjitja në Qiell"
+      },
+      "is": {
+        "name": "Uppstigningardagur"
       }
     },
     "overrides": {}
@@ -1829,7 +2027,8 @@
       "FI",
       "HU",
       "MC",
-      "AD"
+      "AD",
+      "IS"
     ],
     "i18n": {
       "nl": {
@@ -1906,6 +2105,18 @@
       },
       "tr": {
         "name": "Pentekost"
+      },
+      "sr": {
+        "name": "Duhovi"
+      },
+      "mk": {
+        "name": "Духовден"
+      },
+      "sq": {
+        "name": "Rrëshajët"
+      },
+      "is": {
+        "name": "Hvítasunna"
       }
     },
     "overrides": {}
@@ -1969,7 +2180,11 @@
       "LV",
       "LT",
       "UA",
-      "TR"
+      "TR",
+      "RS",
+      "MK",
+      "AL",
+      "IS"
     ],
     "i18n": {
       "nl": {
@@ -2046,6 +2261,18 @@
       },
       "tr": {
         "name": "Kurban Bayramı"
+      },
+      "sr": {
+        "name": "Kurban-bajram"
+      },
+      "mk": {
+        "name": "Курбан Бајрам"
+      },
+      "sq": {
+        "name": "Kurban Bajrami"
+      },
+      "is": {
+        "name": "Eid al-Adha"
       }
     },
     "overrides": {}
@@ -2109,7 +2336,11 @@
       "LV",
       "LT",
       "UA",
-      "TR"
+      "TR",
+      "RS",
+      "MK",
+      "AL",
+      "IS"
     ],
     "i18n": {
       "nl": {
@@ -2186,6 +2417,18 @@
       },
       "tr": {
         "name": "Babalar Günü"
+      },
+      "sr": {
+        "name": "Dan očeva"
+      },
+      "mk": {
+        "name": "Ден на таткото"
+      },
+      "sq": {
+        "name": "Dita e Babait"
+      },
+      "is": {
+        "name": "Feðradagurinn"
       }
     },
     "overrides": {
@@ -2332,6 +2575,12 @@
           3,
           19
         ]
+      },
+      "IS": {
+        "dates": {
+          "2026": "2026-11-08",
+          "2027": "2027-11-14"
+        }
       }
     }
   },
@@ -2424,6 +2673,18 @@
         "name": "Кеті Коті"
       },
       "tr": {
+        "name": "Keti Koti"
+      },
+      "sr": {
+        "name": "Keti Koti"
+      },
+      "mk": {
+        "name": "Кети Коти"
+      },
+      "sq": {
+        "name": "Keti Koti"
+      },
+      "is": {
         "name": "Keti Koti"
       }
     },
@@ -2520,6 +2781,18 @@
       },
       "tr": {
         "name": "ABD Bağımsızlık Günü"
+      },
+      "sr": {
+        "name": "Dan nezavisnosti (SAD)"
+      },
+      "mk": {
+        "name": "Ден на независноста (САД)"
+      },
+      "sq": {
+        "name": "Dita e Pavarësisë (SHBA)"
+      },
+      "is": {
+        "name": "Þjóðhátíðardagur Bandaríkjanna"
       }
     }
   },
@@ -2614,6 +2887,18 @@
       },
       "tr": {
         "name": "Fransa Ulusal Günü"
+      },
+      "sr": {
+        "name": "Francuski nacionalni praznik"
+      },
+      "mk": {
+        "name": "Француски национален празник"
+      },
+      "sq": {
+        "name": "Festa kombëtare e Francës"
+      },
+      "is": {
+        "name": "Þjóðhátíðardagur Frakklands"
       }
     }
   },
@@ -2708,6 +2993,18 @@
       },
       "tr": {
         "name": "Belçika Ulusal Günü"
+      },
+      "sr": {
+        "name": "Belgijski nacionalni praznik"
+      },
+      "mk": {
+        "name": "Белгиски национален празник"
+      },
+      "sq": {
+        "name": "Festa kombëtare e Belgjikës"
+      },
+      "is": {
+        "name": "Þjóðhátíðardagur Belgíu"
       }
     }
   },
@@ -2770,7 +3067,11 @@
       "LV",
       "LT",
       "UA",
-      "TR"
+      "TR",
+      "RS",
+      "MK",
+      "AL",
+      "IS"
     ],
     "i18n": {
       "nl": {
@@ -2847,6 +3148,18 @@
       },
       "tr": {
         "name": "Okulun ilk günü"
+      },
+      "sr": {
+        "name": "Prvi školski dan"
+      },
+      "mk": {
+        "name": "Прв училишен ден"
+      },
+      "sq": {
+        "name": "Dita e parë e shkollës"
+      },
+      "is": {
+        "name": "Fyrsti skóladagurinn"
       }
     },
     "overrides": {
@@ -3171,6 +3484,34 @@
           14
         ],
         "label": null
+      },
+      "RS": {
+        "fixed": [
+          9,
+          1
+        ],
+        "label": null
+      },
+      "MK": {
+        "fixed": [
+          9,
+          1
+        ],
+        "label": null
+      },
+      "AL": {
+        "fixed": [
+          9,
+          7
+        ],
+        "label": null
+      },
+      "IS": {
+        "fixed": [
+          8,
+          22
+        ],
+        "label": null
       }
     }
   },
@@ -3278,6 +3619,18 @@
       },
       "tr": {
         "name": "Dünya Hayvanlar Günü"
+      },
+      "sr": {
+        "name": "Svetski dan životinja"
+      },
+      "mk": {
+        "name": "Светски ден на животните"
+      },
+      "sq": {
+        "name": "Dita Botërore e Kafshëve"
+      },
+      "is": {
+        "name": "Alþjóðlegi dýradagurinn"
       }
     },
     "overrides": {}
@@ -3341,7 +3694,11 @@
       "LV",
       "LT",
       "UA",
-      "TR"
+      "TR",
+      "RS",
+      "MK",
+      "AL",
+      "IS"
     ],
     "i18n": {
       "nl": {
@@ -3418,6 +3775,18 @@
       },
       "tr": {
         "name": "Cadılar Bayramı"
+      },
+      "sr": {
+        "name": "Noć veštica"
+      },
+      "mk": {
+        "name": "Ноќ на вештерките"
+      },
+      "sq": {
+        "name": "Halloween"
+      },
+      "is": {
+        "name": "Hrekkjavaka"
       }
     },
     "overrides": {}
@@ -3513,6 +3882,18 @@
       },
       "tr": {
         "name": "Şenlik Ateşi Gecesi"
+      },
+      "sr": {
+        "name": "Noć Gaja Foksa"
+      },
+      "mk": {
+        "name": "Ноќта на Гај Фокс"
+      },
+      "sq": {
+        "name": "Nata e Guy Fawkes"
+      },
+      "is": {
+        "name": "Bálkestakvöld (Guy Fawkes)"
       }
     }
   },
@@ -3575,7 +3956,11 @@
       "LV",
       "LT",
       "UA",
-      "TR"
+      "TR",
+      "RS",
+      "MK",
+      "AL",
+      "IS"
     ],
     "i18n": {
       "nl": {
@@ -3652,6 +4037,18 @@
       },
       "tr": {
         "name": "Divali"
+      },
+      "sr": {
+        "name": "Divali"
+      },
+      "mk": {
+        "name": "Дивали"
+      },
+      "sq": {
+        "name": "Divali"
+      },
+      "is": {
+        "name": "Diwali"
       }
     },
     "overrides": {}
@@ -3756,6 +4153,18 @@
       },
       "tr": {
         "name": "Aziz Martin Günü"
+      },
+      "sr": {
+        "name": "Dan Svetog Martina"
+      },
+      "mk": {
+        "name": "Ден на Свети Мартин"
+      },
+      "sq": {
+        "name": "Dita e Shën Martinit"
+      },
+      "is": {
+        "name": "Marteinsmessa"
       }
     },
     "overrides": {
@@ -3866,6 +4275,18 @@
       },
       "tr": {
         "name": "Şükran Günü"
+      },
+      "sr": {
+        "name": "Dan zahvalnosti"
+      },
+      "mk": {
+        "name": "Ден на благодарноста"
+      },
+      "sq": {
+        "name": "Dita e Falënderimeve"
+      },
+      "is": {
+        "name": "Þakkargjörðarhátíðin"
       }
     }
   },
@@ -3976,6 +4397,18 @@
       },
       "tr": {
         "name": "Sinterklaas"
+      },
+      "sr": {
+        "name": "Sveti Nikola"
+      },
+      "mk": {
+        "name": "Свети Никола"
+      },
+      "sq": {
+        "name": "Shën Nikolla"
+      },
+      "is": {
+        "name": "Heilagur Nikulás"
       }
     },
     "overrides": {
@@ -4136,7 +4569,11 @@
       "LV",
       "LT",
       "UA",
-      "TR"
+      "TR",
+      "RS",
+      "MK",
+      "AL",
+      "IS"
     ],
     "i18n": {
       "nl": {
@@ -4213,6 +4650,18 @@
       },
       "tr": {
         "name": "Hanuka"
+      },
+      "sr": {
+        "name": "Hanuka"
+      },
+      "mk": {
+        "name": "Ханука"
+      },
+      "sq": {
+        "name": "Hanukaja"
+      },
+      "is": {
+        "name": "Hanúkka"
       }
     },
     "overrides": {}
@@ -4275,7 +4724,11 @@
       "EE",
       "LV",
       "LT",
-      "UA"
+      "UA",
+      "RS",
+      "MK",
+      "AL",
+      "IS"
     ],
     "i18n": {
       "nl": {
@@ -4352,9 +4805,40 @@
       },
       "tr": {
         "name": "Noel"
+      },
+      "sr": {
+        "name": "Božić"
+      },
+      "mk": {
+        "name": "Божиќ"
+      },
+      "sq": {
+        "name": "Krishtlindjet"
+      },
+      "is": {
+        "name": "Jól"
       }
     },
-    "overrides": {}
+    "overrides": {
+      "RS": {
+        "fixed": [
+          1,
+          7
+        ]
+      },
+      "MK": {
+        "fixed": [
+          1,
+          7
+        ]
+      },
+      "ME": {
+        "fixed": [
+          1,
+          7
+        ]
+      }
+    }
   },
   {
     "slug": "verjaardag",
@@ -4412,7 +4896,11 @@
       "LV",
       "LT",
       "UA",
-      "TR"
+      "TR",
+      "RS",
+      "MK",
+      "AL",
+      "IS"
     ],
     "i18n": {
       "nl": {
@@ -4489,6 +4977,18 @@
       },
       "tr": {
         "name": "Doğum günü"
+      },
+      "sr": {
+        "name": "Rođendan"
+      },
+      "mk": {
+        "name": "Роденден"
+      },
+      "sq": {
+        "name": "Ditëlindja"
+      },
+      "is": {
+        "name": "Afmæli"
       }
     },
     "overrides": {}
