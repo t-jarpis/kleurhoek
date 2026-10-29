@@ -34,6 +34,7 @@ sheet=$(curl -fsS -H "x-ingest-key: $INGEST_KEY" "http://localhost:3001/v1/marke
   "http://localhost:3000/nl-nl" \
   "http://localhost:3000/nl-nl/platen/$plate" \
   ${sheet:+"http://localhost:3000/nl-nl/platen/$sheet"} \
+  "http://localhost:3000/nl-nl/onderwerp/dieren" \
   "http://localhost:3000/nl-nl/boekje" \
   "http://localhost:3000/nl-nl|e2e-school-dev.kleurhoek.nl" \
   "http://localhost:3003/inloggen" \

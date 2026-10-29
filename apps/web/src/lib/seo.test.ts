@@ -12,6 +12,13 @@ const org = (isDefault: boolean) => ({ isDefault }) as Parameters<Awaited<Return
 afterEach(() => vi.unstubAllEnvs());
 
 describe("vindbaarheid (ADR 0035)", () => {
+  it("maakt absolute adressen, ook zonder domeinen of site-URL (ADR 0055)", async () => {
+    const prod = await load("https://www.kleurhoek.nl");
+    expect(prod.absolute("de-de", "/v1/x.png")).toBe("https://www.kleurhoek.com/v1/x.png");
+    vi.resetModules(); vi.unstubAllEnvs(); vi.stubEnv("SITE_URL", ""); vi.stubEnv("SITE_DOMAINS", "");
+    const bare = await import("./seo");
+    expect(() => bare.absolute("nl-nl", "/v1/x.png")).not.toThrow();
+  });
   it("indexeert alleen Kleurhoek zelf op het productiedomein", async () => {
     const prod = await load("https://www.kleurhoek.nl");
     expect(prod.indexable(org(true))).toBe(true);
