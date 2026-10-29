@@ -85,6 +85,23 @@ export const hu: Messages = {
   orgName: "A szervezet neve", orgKind: "A szervezet fajtája",
   orgKinds: { school: "Iskola", opvang: "Óvoda vagy napközi", vereniging: "Egyesület vagy klub", bedrijf: "Cég", overig: "Egyéb" } as Record<string, string>,
   orgCode: "Kívánt cím", orgCodeHint: "Ez lesz: {host}. Kisbetűk, számok és kötőjelek.", orgCodeExample: "a-nevetek", and: "és",
+  // Onderwerppagina's en kruimelpad (ADR 0055).
+  crumbs: "Morzsamenü",
+  topicGroups: { onderwerp: "Téma szerint", feestdag: "Ünnep szerint", leeftijd: "Életkor szerint", soort: "Típus szerint", werelddeel: "Kontinens szerint" },
+  topicH1: {
+    onderwerp: (n: string) => `Színezők: ${n.toLowerCase()}`,
+    feestdag: (n: string) => `Színezők: ${n}`,
+    leeftijd: (n: string) => {
+      const a = n.replace(/ év$/, "");
+      return a.endsWith("+") ? `Színezők ${a.slice(0, -1)} éves kortól` : `Színezők ${a} éveseknek`;
+    },
+    werelddeel: (n: string) => `Színezők: ${n}`,
+  },
+  kindH1: { kleurplaat: "Színezők", knutselen: "Barkácsolás és papírmodellek", leren: "Feladatlapok és játékok", tekenen: "Rajzleckék és sablonok" },
+  topicIntro: (title: string, count: number) => `${title}: ${count} ingyenes lap A4-es nyomtatáshoz vagy online színezéshez. Minden lap kifejezetten a Kleurhoek számára készült.`,
+  topicMeta: (title: string, count: number) => `${title}: ${count} ingyenes lap nyomtatáshoz vagy online színezéshez, életkor szerint rendezve.`,
+  moreIn: (name: string) => `Még több: ${name.toLowerCase()}`,
+  seeAll: (n: number) => `Mind a ${n} megtekintése`,
   metaPlateTitle: (name: string, kind: string) => `${name} – ${kind.toLowerCase()}`,
   metaThemeTitle: (name: string) => `${name} színezők`,
   metaTheme: (name: string, maker: string) => `${name} színezők, ingyen a(z) ${maker} oldalán.`,

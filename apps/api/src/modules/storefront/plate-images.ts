@@ -16,8 +16,13 @@ export class PlateImages {
     this.fonts ??= (async () => {
       const req = createRequire(__filename);
       const woff2 = req("wawoff2") as { decompress: (b: Buffer) => Promise<Uint8Array> };
-      const dir = join(dirname(req.resolve("@kleurhoek/theme/manifest.json")), "..", "fonts", "nunito");
-      return Promise.all(["400", "600", "700"].map(async (w) => Buffer.from(await woff2.decompress(readFileSync(join(dir, `nunito-latin-${w}-normal.woff2`))))));
+      const fonts = join(dirname(req.resolve("@kleurhoek/theme/manifest.json")), "..", "fonts");
+      // Alle tekensets (ADR 0052): latin-ext voor Pools, Tsjechisch …, Cyrillisch, en Grieks uit Manrope (Nunito heeft geen Grieks).
+      const files = [
+        ...["latin", "latin-ext", "cyrillic"].flatMap((s) => ["400", "600", "700"].map((w) => join(fonts, "nunito", `nunito-${s}-${w}-normal.woff2`))),
+        ...["400", "700"].map((w) => join(fonts, "manrope", `manrope-greek-${w}-normal.woff2`)),
+      ];
+      return Promise.all(files.map(async (f) => Buffer.from(await woff2.decompress(readFileSync(f)))));
     })();
     return this.fonts;
   }

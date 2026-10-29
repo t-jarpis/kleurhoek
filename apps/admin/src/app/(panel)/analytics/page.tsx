@@ -19,7 +19,7 @@ type Tab = (typeof TABS)[number][0];
 const PERIODS = [["7", "7 dagen"], ["30", "30 dagen"], ["90", "90 dagen"], ["365", "12 maanden"]] as const;
 type Period = (typeof PERIODS)[number][0];
 const PERIOD_TEXT: Record<Period, string> = { "7": "vorige 7 dagen", "30": "vorige 30 dagen", "90": "vorige 90 dagen", "365": "vorige 12 maanden" };
-const PAGE_LABEL: Record<string, string> = { home: "Home", plaat: "Plaatpagina's", boekje: "Boekje", account: "Account", "niet-gevonden": "Niet gevonden", disclaimer: "Disclaimer", contact: "Contact", themas: "Thema's", thema: "Themapagina's", "eigen-omgeving": "Eigen omgeving" };
+const PAGE_LABEL: Record<string, string> = { home: "Home", plaat: "Plaatpagina's", boekje: "Boekje", account: "Account", "niet-gevonden": "Niet gevonden", disclaimer: "Disclaimer", contact: "Contact", themas: "Thema's", thema: "Themapagina's", "eigen-omgeving": "Eigen omgeving", onderwerp: "Onderwerppagina's" };
 const DEVICE_LABEL: Record<string, string> = { mobile: "Telefoon", tablet: "Tablet", desktop: "Computer", other: "Overig" };
 const ENTRY_LABEL: Record<string, string> = { nl: "kleurhoek.nl", be: "kleurhoek.be", com: "kleurhoek.com" };
 const iso = (d: Date) => d.toISOString().slice(0, 10);

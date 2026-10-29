@@ -17,6 +17,9 @@ export function indexable(org: Org | null): boolean {
 /** Volledig adres van een pagina in een markt, op het eigen domein van die markt (ADR 0040). */
 export const pageUrl = (market: string, path: string) => marketUrl(market, path, siteDomains(), SITE);
 
+/** Volledig adres van een bestand op het domein van een markt, bijvoorbeeld een plaat-PNG voor og:image (ADR 0055). */
+export const absolute = (market: string, path: string) => `${new URL(pageUrl(market, "")).origin}${path}`;
+
 /** Normale markt-code zoals in hreflang: nl-NL. */
 export const hreflang = (market: string) => `${market.slice(0, 2)}-${market.slice(3).toUpperCase()}`;
 

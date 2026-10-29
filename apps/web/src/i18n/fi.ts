@@ -85,6 +85,23 @@ export const fi: Messages = {
   orgName: "Organisaation nimi", orgKind: "Organisaation tyyppi",
   orgKinds: { school: "Koulu", opvang: "Päiväkoti tai iltapäiväkerho", vereniging: "Seura tai yhdistys", bedrijf: "Yritys", overig: "Muu" } as Record<string, string>,
   orgCode: "Toivottu osoite", orgCodeHint: "Osoitteeksi tulee {host}. Pieniä kirjaimia, numeroita ja yhdysmerkkejä.", orgCodeExample: "sinun-nimesi", and: "ja",
+  // Onderwerppagina's en kruimelpad (ADR 0055).
+  crumbs: "Murupolku",
+  topicGroups: { onderwerp: "Aiheittain", feestdag: "Juhlapyhittäin", leeftijd: "Iän mukaan", soort: "Tyypeittäin", werelddeel: "Maanosittain" },
+  topicH1: {
+    onderwerp: (n: string) => `Värityskuvat: ${n.toLowerCase()}`,
+    feestdag: (n: string) => `Värityskuvat: ${n}`,
+    leeftijd: (n: string) => {
+      const a = n.replace(/ vuotta$/, "");
+      return a.endsWith("+") ? `Värityskuvat ${a.slice(0, -1)}-vuotiaista ylöspäin` : `Värityskuvat ${a}-vuotiaille`;
+    },
+    werelddeel: (n: string) => `Värityskuvat: ${n}`,
+  },
+  kindH1: { kleurplaat: "Värityskuvat", knutselen: "Askartelut ja paperimallit", leren: "Tehtäväsivut ja pelit", tekenen: "Piirustustunnit ja sapluunat" },
+  topicIntro: (title: string, count: number) => `${title}: ${count} ilmaista sivua tulostettavaksi A4-koossa tai väritettäväksi verkossa. Kaikki sivut on tehty erityisesti Kleurhoekille.`,
+  topicMeta: (title: string, count: number) => `${title}: ${count} ilmaista sivua tulostettavaksi tai väritettäväksi verkossa, iän mukaan lajiteltuna.`,
+  moreIn: (name: string) => `Lisää: ${name.toLowerCase()}`,
+  seeAll: (n: number) => `Näytä kaikki (${n})`,
   metaPlateTitle: (name: string, kind: string) => `${name} – ${kind.toLowerCase()}`,
   metaThemeTitle: (name: string) => `${name} -värityskuvat`,
   metaTheme: (name: string, maker: string) => `${name} -värityskuvia ilmaiseksi, tekijä: ${maker}.`,

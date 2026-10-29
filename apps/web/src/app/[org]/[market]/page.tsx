@@ -14,6 +14,8 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SeasonBand } from "@/components/SeasonBand";
 import { Surprise } from "@/components/Surprise";
 import { Track } from "@/components/Track";
+import { TopicLinks } from "@/components/TopicLinks";
+import { topics } from "@/lib/topics";
 import { SubscribeForm } from "@/components/SubscribeForm";
 import { subscribe } from "./mail/actions";
 import { getOrg } from "@/lib/org";
@@ -49,14 +51,15 @@ export default async function Home({ params }: { params: Promise<{ org: string; 
     <div className="wrap" data-mode="kind">
       {indexable(org) && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd({
         "@context": "https://schema.org", "@type": "WebSite", name: "Kleurhoek", url: pageUrl(market, ""), inLanguage: hreflang(market),
-        description: org.seo?.home?.[hreflang(market)]?.description || t.lede, publisher: { "@type": "Organization", name: "Kleurhoek", url: SITE },
+        description: org.seo?.home?.[hreflang(market)]?.description || t.lede, publisher: { "@type": "Organization", name: "Kleurhoek", url: SITE},
       }) }} />}
       <header className="mast">
-        <div><Logo market={market} org={org} /><p className="lede">{t.lede}</p></div>
+        <div><Logo market={market} org={org} /><h1 className="lede">{t.lede}</h1></div>
         <div className="row no-print"><BookButton language={language} /><Surprise market={market} slugs={plates.map((p) => p.slug)} label={t.surprise} />{org.features.accounts && <AccountButton market={market} t={{ login: t.login, account: t.account, logout: t.logout }} />}</div>
       </header>
       <SeasonBand season={season} plates={plates} taxonomy={taxonomy} market={market} base={base} t={t} />
       <Suspense fallback={null}><Browse plates={plates} taxonomy={taxonomy} market={market} language={language} /></Suspense>
+      <TopicLinks groups={topics(plates, taxonomy, t)} base={base} t={t} />
       <Fridge market={market} plates={plates} language={language} />
       {org.isDefault && <SubscribeForm action={subscribe.bind(null, market)} language={language} />}
       <SiteFooter base={base} t={t} own={org.isDefault} />

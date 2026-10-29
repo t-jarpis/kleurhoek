@@ -3,15 +3,23 @@ import { LIVE_MARKETS } from "@/lib/markets";
 import { DEFAULT_ORG } from "@/lib/org-resolve";
 import { hreflang, pageUrl } from "@/lib/seo";
 import { siteDomains } from "@/lib/sites";
+import { messages } from "@/i18n/nl";
+import { DIMENSIONS, topics } from "@/lib/topics";
 
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 export const XML = { "content-type": "application/xml; charset=utf-8", "cache-control": "private, max-age=3600" };
 
-/** Paden van één markt: vaste pagina's, platen en thema's (ADR 0035). */
-async function paths(market: string): Promise<string[]> {
-  const [plates, themes] = await Promise.all([api.plates(market, DEFAULT_ORG).catch(() => []), api.themes(market, DEFAULT_ORG).catch(() => [])]);
-  return [...["", "/themas", "/contact", "/disclaimer", "/eigen-omgeving"], ...plates.map((p) => `/platen/${p.slug}`), ...themes.map((t) => `/themas/${t.slug}`)];
+/** Paden van één markt: vaste pagina's, onderwerppagina's, platen en thema's (ADR 0035, 0055). */
+export async function paths(market: string): Promise<string[]> {
+  const [plates, themes, taxonomy] = await Promise.all([api.plates(market, DEFAULT_ORG).catch(() => []), api.themes(market, DEFAULT_ORG).catch(() => []),
+    api.taxonomy(market, DEFAULT_ORG).catch(() => null)]);
+  const groups = taxonomy ? topics(plates, taxonomy, messages(market)) : null;
+  return [...["", "/themas", "/contact", "/disclaimer", "/eigen-omgeving"], ...(groups ? DIMENSIONS.flatMap((d) => groups[d].map((x) => x.path)) : []),
+    ...plates.map((p) => `/platen/${p.slug}`), ...themes.map((t) => `/themas/${t.slug}`)];
 }
+
+/** Feestdagpagina's bestaan alleen waar het feest gevierd wordt; geen taalversies, zoals op de pagina zelf (ADR 0055). */
+const ownLanguageOnly = (path: string) => path.startsWith("/feestdag/");
 
 /** Welke markten welk pad hebben; een uur bewaard, want elke marktsitemap heeft de taalversies van alle markten nodig. */
 let cache: { at: number; byPath: Promise<Map<string, string[]>> } | null = null;
@@ -36,7 +44,7 @@ export async function marketSitemap(market: string): Promise<string> {
   const urls: string[] = [];
   for (const [path, markets] of await byPath()) {
     if (!markets.includes(market)) continue;
-    const alts = markets.length > 1 ? markets.map((m) => `<xhtml:link rel="alternate" hreflang="${hreflang(m)}" href="${esc(pageUrl(m, path))}"/>`).join("")
+    const alts = markets.length > 1 && !ownLanguageOnly(path) ? markets.map((m) => `<xhtml:link rel="alternate" hreflang="${hreflang(m)}" href="${esc(pageUrl(m, path))}"/>`).join("")
       + `<xhtml:link rel="alternate" hreflang="x-default" href="${esc(path === "" && domains ? `${domains.com}/` : pageUrl(markets[0]!, path))}"/>` : "";
     urls.push(`<url><loc>${esc(pageUrl(market, path))}</loc>${alts}</url>`);
   }

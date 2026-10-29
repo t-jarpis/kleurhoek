@@ -527,3 +527,19 @@ a.ui-chip { text-decoration: none; }
 /* ---------- LoadMore: platenraster in porties ---------- */
 .ui-loadmore { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); margin: var(--space-6) 0 var(--space-4); }
 .ui-loadmore p { margin: 0; font-size: 14px; color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
+/* ---------- Breadcrumb (ADR 0055) ---------- */
+.ui-crumbs ol { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-2); margin: 0 0 var(--space-3); padding: 0; list-style: none; font-size: 14px; color: var(--color-text-muted); }
+.ui-crumbs li { display: inline-flex; align-items: center; gap: var(--space-2); max-inline-size: 100%; min-inline-size: 0; }
+.ui-crumbs li + li::before { content: "›"; color: var(--color-text-muted); }
+.ui-crumbs a { color: inherit; text-decoration: underline; text-underline-offset: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ui-crumbs [aria-current="page"] { color: var(--color-text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ---------- TopicLinks (ADR 0055) ---------- */
+.ui-topiclinks { margin: var(--space-8) 0 var(--space-6); }
+.ui-topiclinks h2 { margin: var(--space-6) 0 var(--space-3); font-size: 18px; }
+.ui-topiclinks ul { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: 0; padding: 0; list-style: none; }
+
+/* ---------- SectionHead (ADR 0055) ---------- */
+.ui-sectionhead { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-2) var(--space-4); margin: var(--space-8) 0 var(--space-4); }
+.ui-sectionhead h2 { margin: 0; font-size: 20px; }
+.ui-sectionhead a { font-weight: 700; color: var(--color-text); text-underline-offset: 3px; }
