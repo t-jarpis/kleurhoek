@@ -118,6 +118,18 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: var(--font-display-w
 .canvas svg { display: block; width: 100%; height: auto; }
 .canvas .r { cursor: pointer; }
 .canvas .r:hover { stroke-width: calc(var(--sw, 2.4) + 1px); }
+/* Atelier (ADR 0056): de streken liggen per vlak in de tekening; de lijn wordt erover opnieuw getekend. */
+.sheet .kh-ro { fill: none; stroke: var(--plate-ink); stroke-width: var(--sw, 2.4); stroke-linejoin: round; }
+.sheet .kh-sun { stroke: none; }
+.sheet[data-lines="geen"] .r, .sheet[data-lines="geen"] .kh-ro { stroke: none; }
+.sheet[data-lines="geen"] .l { display: none; }
+.zoomport { position: relative; overflow: hidden; border-radius: var(--radius-sm); }
+.zoomed { transform-origin: 0 0; }
+/* In het Atelier is de gereedschapskolom lang: het vel blijft in beeld. */
+@media (min-width: 900px) { .canvas[data-atelier] { position: sticky; top: var(--space-4); } }
+.canvas[data-atelier] .zoomport { touch-action: none; user-select: none; -webkit-user-select: none; }
+.canvas[data-atelier="penseel"] .r { cursor: crosshair; }
+.canvas[data-atelier="penseel"] .r:hover { stroke-width: var(--sw, 2.4); }
 .tools { display: flex; flex-direction: column; gap: var(--space-5); min-width: 0; }
 .tool { display: flex; flex-direction: column; gap: var(--space-2); align-items: flex-start; }
 .tool > * { max-width: 100%; }
@@ -159,6 +171,7 @@ html[data-paper="letter"] body { page: letter; }
   .studio { display: block; }
   .studio-top h1 { text-align: center; margin-bottom: 6mm; color: var(--print-ink); }
   .canvas { box-shadow: none; padding: 0; max-width: 170mm; margin: 0 auto; }
+  .zoomed { transform: none !important; }
   * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
 

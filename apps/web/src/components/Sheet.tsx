@@ -1,5 +1,6 @@
 "use client";
-import { useEffect, useRef, type CSSProperties, type MouseEvent } from "react";
+import { useEffect, useId, useMemo, useRef, type CSSProperties, type MouseEvent, type Ref } from "react";
+import { composeInner, EMPTY_ART, fillCss, hasArt, inkOf, type Art, type Brush } from "@/lib/atelier";
 import { layout, type Fills, type Label } from "@/lib/studio";
 import { useMark } from "./Base";
 
@@ -18,19 +19,30 @@ export interface SheetPlate {
  * Eén vel: de plaat met kleuren en wat er optioneel bij hoort (nummers, tekst, leerblad,
  * kleurenlijst). Gebruikt door de kleurstudio, de koelkast en het boekje.
  */
-export function Sheet({ plate, inner, fills = {}, sw, numbers = false, legend = false, name = "", learn = false, onPick, className = "sheet", marked = true }: {
+export function Sheet({ plate, inner, fills = {}, sw, numbers = false, legend = false, name = "", learn = false, onPick, className = "sheet", marked = true, art, live, svgRef }: {
   plate: SheetPlate; inner: string; fills?: Fills; sw: number; numbers?: boolean; legend?: boolean; name?: string; learn?: boolean;
   onPick?: (region: number) => void; className?: string; marked?: boolean;
+  /** Werk uit het Atelier (ADR 0056): streken, zon, lijnkleur, verlopen en patronen. */
+  art?: Art;
+  /** Het vlak waarin nu getekend wordt; de streek zelf zet de kleurstudio in `[data-live]`. */
+  live?: { region: number; brush: Brush; color: string } | null;
+  svgRef?: Ref<SVGSVGElement>;
 }) {
   const group = useRef<SVGGElement>(null);
+  const id = `kh${useId().replace(/[^a-zA-Z0-9]/g, "")}`;
+  const composed = useMemo(() => {
+    const a = art ?? EMPTY_ART;
+    return live || hasArt(a, fills) ? composeInner(inner, a, fills, id, live ?? undefined) : inner;
+  }, [inner, art, fills, id, live]);
+  const ink = art ? inkOf(art.lines) : null;
   // Herkomst onder het vel (PlateMark): een eigen strook, niet op een eigen omgeving van een organisatie.
   const site = useMark();
   const mark = marked ? site : null;
   const MARK_H = 8;
   // De plaat zelf is statische SVG; React raakt die niet aan, alleen de vulkleur van de vlakken.
   useEffect(() => {
-    group.current?.querySelectorAll<SVGElement>("[data-i]").forEach((el) => { el.style.fill = fills[Number(el.dataset.i)] ?? ""; });
-  }, [fills, inner]);
+    group.current?.querySelectorAll<SVGElement>("[data-i]").forEach((el) => { const i = Number(el.dataset.i); el.style.fill = fillCss(fills[i], id, i); });
+  }, [fills, composed, id]);
 
   const L = layout({ name, learn, word: plate.word, question: plate.countQuestion, legend: legend ? plate.palette.length : 0, height: plate.height ?? 200 });
   const hexByNumber = new Map(plate.palette.map((p) => [p.number, p.hex.toLowerCase()]));
@@ -41,8 +53,9 @@ export function Sheet({ plate, inner, fills = {}, sw, numbers = false, legend = 
   const x0 = 100 - (L.legendStep * (plate.palette.length - 1)) / 2;
 
   return (
-    <svg className={className} viewBox={`0 0 200 ${L.height + (mark ? MARK_H : 0)}`} style={{ "--sw": sw } as CSSProperties} onClick={click} role="img" aria-label={plate.name}>
-      <g ref={group} dangerouslySetInnerHTML={{ __html: inner }} />
+    <svg ref={svgRef} data-id={id} className={className} viewBox={`0 0 200 ${L.height + (mark ? MARK_H : 0)}`} style={{ "--sw": sw, ...(ink ? { "--plate-ink": ink } : {}) } as CSSProperties}
+      data-lines={art?.lines.kind === "geen" ? "geen" : undefined} onClick={click} role="img" aria-label={plate.name}>
+      <g ref={group} data-inner="" dangerouslySetInnerHTML={{ __html: composed }} />
       {numbers && (
         <g aria-hidden="true">
           {plate.labels.filter((l) => fills[l.region]?.toLowerCase() !== hexByNumber.get(l.number)).map((l) => (
@@ -51,7 +64,7 @@ export function Sheet({ plate, inner, fills = {}, sw, numbers = false, legend = 
         </g>
       )}
       {L.nameY !== null && (
-        <text className="r nm" data-i={plate.regionCount} x={100} y={L.nameY + 28} textAnchor="middle" fontSize={L.nameSize} style={{ fill: fills[plate.regionCount] ?? "" }}>{name}</text>
+        <text className="r nm" data-i={plate.regionCount} x={100} y={L.nameY + 28} textAnchor="middle" fontSize={L.nameSize} style={{ fill: fillCss(fills[plate.regionCount], id, plate.regionCount) }}>{name}</text>
       )}
       {L.learnY !== null && plate.word && (
         <g>

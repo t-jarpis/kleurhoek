@@ -48,14 +48,14 @@ export function useBook(): BookState {
 }
 
 export const fridge = {
-  hang(item: { slug: string; version: number; fills: Fills; name: string }, date: string) {
+  hang(item: { slug: string; version: number; fills: Fills; name: string; art?: unknown }, date: string) {
     const id = `${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
     write(FRIDGE, hang(read(FRIDGE, NO_ITEMS), { ...item, fills: { ...item.fills }, id, date }));
   },
   remove(id: string) { write(FRIDGE, read(FRIDGE, NO_ITEMS).filter((i) => i.id !== id)); },
   /** Verder kleuren: de kleuren van de koelkast worden het werk in de kleurstudio. */
   resume(item: FridgeItem) {
-    try { localStorage.setItem(`kh:${item.slug}:v${item.version}`, JSON.stringify({ fills: item.fills, name: item.name })); } catch { /* zie write */ }
+    try { localStorage.setItem(`kh:${item.slug}:v${item.version}`, JSON.stringify({ fills: item.fills, name: item.name, ...(item.art ? { art: item.art } : {}) })); } catch { /* zie write */ }
   },
 };
 

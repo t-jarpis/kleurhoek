@@ -43,8 +43,8 @@ export function layout(opts: { name: string; learn: boolean; word: string | null
   };
 }
 
-/** Werk dat op de koelkast hangt: een momentopname van de kleuren, alleen op dit apparaat. */
-export interface FridgeItem { id: string; slug: string; version: number; fills: Fills; name: string; date: string }
+/** Werk dat op de koelkast hangt: een momentopname van de kleuren (en het Atelier-werk), alleen op dit apparaat. */
+export interface FridgeItem { id: string; slug: string; version: number; fills: Fills; name: string; date: string; art?: unknown }
 export const FRIDGE_MAX = 24;
 
 /** Nieuw werk komt vooraan; de oudste valt eraf als de koelkast vol is. */
