@@ -204,6 +204,13 @@
       "when": 1793313370331,
       "tag": "0028_samen_kleuren",
       "breakpoints": true
+    },
+    {
+      "idx": 29,
+      "version": "7",
+      "when": 1793355247735,
+      "tag": "0029_social",
+      "breakpoints": true
     }
   ]
 }

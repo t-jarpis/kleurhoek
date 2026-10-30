@@ -39,15 +39,20 @@ locals {
         # Mail (ADR 0037): links in mails gaan naar de website.
         SITE_URL  = "https://${var.hosts.site}"
         MAIL_FROM = nonsensitive(var.mail.from)
+        # Social (ADR 0063): terugkeeradressen na het koppelen van kanalen beginnen hiermee.
+        ADMIN_URL = "https://${var.hosts.admin}"
         },
         # Zoekcijfers (ADR 0041): alleen in productie.
         length(var.search_domains) > 0 ? { SEARCH_DOMAINS = join(",", var.search_domains) } : {},
       )
       secret_env = merge({
-        DATABASE_URL = local.database_url
-        INGEST_KEY   = random_password.secret["ingest-key"].result
-        MAIL_SECRET  = random_password.secret["mail-secret"].result
+        DATABASE_URL  = local.database_url
+        INGEST_KEY    = random_password.secret["ingest-key"].result
+        MAIL_SECRET   = random_password.secret["mail-secret"].result
+        SOCIAL_SECRET = random_password.secret["social-secret"].result
         },
+        var.social.pinterest_app_id != "" ? { PINTEREST_APP_ID = var.social.pinterest_app_id, PINTEREST_APP_SECRET = var.social.pinterest_app_secret } : {},
+        var.social.meta_app_id != "" ? { META_APP_ID = var.social.meta_app_id, META_APP_SECRET = var.social.meta_app_secret } : {},
         var.mail.smtp_url != "" ? { MAIL_SMTP_URL = var.mail.smtp_url } : {},
         var.mail.transactional_smtp_url != "" ? { MAIL_TRANSACTIONAL_SMTP_URL = var.mail.transactional_smtp_url } : {},
         var.search.google_key != "" ? { GOOGLE_SEARCH_KEY = var.search.google_key } : {},

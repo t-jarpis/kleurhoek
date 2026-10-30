@@ -12,6 +12,7 @@ export default async function PanelLayout({ children }: { children: React.ReactN
   const [who, me] = await Promise.all([viewer(), adminApi.me().catch(() => null)]);
   const can = (p: string) => me?.permissions.includes(p) ?? false;
   const unread = can("contact.read") ? await adminApi.unread().catch(() => 0) : 0;
+  const social = can("social.read") ? await adminApi.social().then((o) => o.counts.filter((c) => c.status === "voorstel" && c.channel !== "delen").reduce((n, c) => n + c.n, 0)).catch(() => 0) : 0;
   return (
     <div className="shell">
       <SideNav brand={<Logo suffix="beheer" size={20} />}>
@@ -22,10 +23,11 @@ export default async function PanelLayout({ children }: { children: React.ReactN
           <NavLink href="/analytics" icon="analytics">Analytics</NavLink>
           <NavLink href="/doelen" icon="goals">Doelen</NavLink>
         </>}
-        {(can("catalog.manage") || can("sources.read") || can("seo.read")) && <span className="ui-sidenav-group">Inhoud</span>}
+        {(can("catalog.manage") || can("sources.read") || can("seo.read") || can("social.read")) && <span className="ui-sidenav-group">Inhoud</span>}
         {can("catalog.manage") && <NavLink href="/collecties" icon="collections">Collecties</NavLink>}
         {can("sources.read") && <NavLink href="/bronnen" icon="sources">Bronnengids</NavLink>}
         {can("seo.read") && <NavLink href="/seo" icon="seo">Vindbaarheid</NavLink>}
+        {can("social.read") && <NavLink href="/social" icon="megaphone">Social{social > 0 && <span className="ui-count" aria-label={`${social} ter goedkeuring`}>{social}</span>}</NavLink>}
         {(can("shop.read") || can("contact.read") || can("organizations.read") || can("mail.read")) && <span className="ui-sidenav-group">Klanten en partners</span>}
         {can("mail.read") && <NavLink href="/mail" icon="mail">Mail</NavLink>}
         {can("shop.read") && <NavLink href="/winkel" icon="shop">Winkel</NavLink>}

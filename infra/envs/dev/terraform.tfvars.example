@@ -17,3 +17,11 @@ admin_bootstrap_subjects = ["<jouw Zitadel-gebruikers-id>"]
 #   smtp_url               = "smtp://<gebruiker>:<wachtwoord>@<host>:587"
 #   transactional_smtp_url = "smtp://<project-id>:<sleutel>@smtp.tem.scaleway.com:587"
 # }
+# Social (ADR 0063): apps op developers.pinterest.com en developers.facebook.com. Terugkeeradressen:
+# https://<admin-host>/social/koppel/pinterest en https://<admin-host>/social/koppel/meta
+# social = {
+#   pinterest_app_id     = "<App ID>"
+#   pinterest_app_secret = "<App secret key>"
+#   meta_app_id          = "<App-ID>"
+#   meta_app_secret      = "<App-geheim>"
+# }

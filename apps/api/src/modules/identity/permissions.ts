@@ -27,6 +27,8 @@ export const PERMISSIONS = {
   "organizations.manage": "Organisaties, huisstijl, domeinen en aanbod wijzigen",
   "mail.read": "Mail bekijken: aantallen abonnees, templates, workflows en campagnes",
   "mail.manage": "Mail beheren: templates en workflows wijzigen, campagnes versturen, abonnees opzoeken en verwijderen",
+  "social.read": "Social media bekijken: voorstellen, geplande en geplaatste posts",
+  "social.manage": "Social media beheren: posts goedkeuren en aanpassen, kanalen koppelen",
 } as const;
 
 export type Permission = keyof typeof PERMISSIONS;
@@ -37,7 +39,7 @@ export interface BuiltInRole { slug: string; name: string; permissions: Permissi
 /** Ingebouwde rollen. Worden bij elke start bijgewerkt, zodat code en database niet uit elkaar lopen. */
 export const BUILT_IN_ROLES: BuiltInRole[] = [
   { slug: "platformbeheerder", name: "Platformbeheerder", permissions: ALL_PERMISSIONS },
-  { slug: "contentbeheerder", name: "Contentbeheerder", permissions: ["catalog.manage", "availability.manage", "analytics.read", "shop.read", "shop.manage", "organizations.read", "releases.read", "sources.read", "sources.manage", "seo.read", "seo.manage", "mail.read", "mail.manage"] },
-  { slug: "analist", name: "Analist", permissions: ["analytics.read", "operations.ratelimit.read", "operations.access.read", "shop.read", "releases.read", "seo.read", "mail.read"] },
+  { slug: "contentbeheerder", name: "Contentbeheerder", permissions: ["catalog.manage", "availability.manage", "analytics.read", "shop.read", "shop.manage", "organizations.read", "releases.read", "sources.read", "sources.manage", "seo.read", "seo.manage", "mail.read", "mail.manage", "social.read", "social.manage"] },
+  { slug: "analist", name: "Analist", permissions: ["analytics.read", "operations.ratelimit.read", "operations.access.read", "shop.read", "releases.read", "seo.read", "mail.read", "social.read"] },
   { slug: "support", name: "Support", permissions: ["identity.users.read", "identity.users.block", "releases.read", "contact.read", "contact.manage"] },
 ];

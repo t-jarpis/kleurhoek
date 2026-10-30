@@ -62,6 +62,17 @@ variable "market_domains" {
   default     = []
   description = "Domeinen per land naast het hoofddomein (ADR 0040), bijvoorbeeld [\"kleurhoek.be\", \"kleurhoek.com\"]. Leeg = alles op het hoofddomein met /<markt>."
 }
+variable "social" {
+  type = object({
+    pinterest_app_id     = optional(string, "")
+    pinterest_app_secret = optional(string, "")
+    meta_app_id          = optional(string, "")
+    meta_app_secret      = optional(string, "")
+  })
+  sensitive   = true
+  default     = {}
+  description = "Social (ADR 0063): app-ID's en -geheimen van Pinterest en Meta (Facebook en Instagram). Leeg = dat kanaal is niet te koppelen."
+}
 variable "search" {
   type = object({
     google_key_file = optional(string, "")
@@ -128,6 +139,7 @@ module "scaleway" {
   markets        = var.markets
   site_domains   = local.site_domains
   search_domains = var.environment == "prod" ? concat([var.domain], var.market_domains) : []
+  social         = var.social
   search = {
     google_key = nonsensitive(var.search.google_key_file) != "" ? file(pathexpand(var.search.google_key_file)) : ""
     bing_key   = var.search.bing_api_key

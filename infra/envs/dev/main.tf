@@ -79,6 +79,17 @@ variable "mail" {
   sensitive = true
   default   = { from = "Kleurhoek <hallo@kleurhoek.nl>" }
 }
+variable "social" {
+  type = object({
+    pinterest_app_id     = optional(string, "")
+    pinterest_app_secret = optional(string, "")
+    meta_app_id          = optional(string, "")
+    meta_app_secret      = optional(string, "")
+  })
+  sensitive   = true
+  default     = {}
+  description = "Social (ADR 0063): app-ID's en -geheimen van Pinterest en Meta (Facebook en Instagram). Leeg = dat kanaal is niet te koppelen."
+}
 variable "search" {
   type = object({
     google_key_file = optional(string, "")
@@ -130,6 +141,7 @@ module "site" {
   # Domeinen per land (ADR 0040), zodra ze in envs/zone bestaan.
   market_domains = try(data.terraform_remote_state.zone.outputs.market_domains["dev"], [])
   search         = var.search
+  social         = var.social
   # Goedkoopste node (circa € 11 per maand), geen HA, back-up dagelijks (7 dagen) in een ander datacenter.
   # Niet beschikbaar in nl-ams? Dan DB-PLAY2-PICO (circa € 17). Controleer: scw rdb node-type list region=nl-ams.
   database = {

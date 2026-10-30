@@ -12,3 +12,4 @@ export * from "../modules/sources/sources.schema";
 export * from "../modules/engagement/engagement.schema";
 export * from "../modules/messaging/messaging.schema";
 export * from "../modules/together/together.schema";
+export * from "../modules/social/social.schema";

@@ -191,6 +191,18 @@ export interface MailSubscriber { id: string; email: string; market: string; top
 
 export interface SourceInput { title?: string; description?: string | null; basis?: "link" | "license"; licenseNote?: string | null; licenseDate?: string | null }
 
+// ---------- Social (ADR 0063) ----------
+export type SocialChannel = "pinterest" | "facebook" | "instagram" | "delen";
+export type SocialStatus = "voorstel" | "goedgekeurd" | "geplaatst" | "mislukt" | "afgewezen";
+export interface SocialPost { id: string; channel: SocialChannel; status: SocialStatus; source: string; plateSlug: string | null; title: string; body: string; link: string; image: string; board: string | null; scheduledAt: string; publishedAt: string | null; externalUrl: string | null; error: string | null; attempts: number; decidedBy: string | null }
+export interface SocialSettings { notifyEmail: string | null; pinsPerDay: number; feedDays: number[]; feedTime: string }
+export interface SocialOverview {
+  channels: { kind: Exclude<SocialChannel, "delen">; available: boolean; connected: boolean; account: string | null; enabled: boolean; connectedAt: string | null; error: string | null }[];
+  counts: { status: SocialStatus; channel: SocialChannel; n: number }[];
+  settings: SocialSettings & { generatedOn: string | null; digestSentOn: string | null };
+  redirectBase: string;
+}
+
 export class ApiError extends Error {
   constructor(readonly status: number, message: string) { super(message); }
 }
@@ -262,6 +274,16 @@ export const adminApi = {
   saveCollection: (slug: string, body: { names: Record<string, string>; descriptions?: Record<string, string>; plates: string[]; sortOrder?: number }) =>
     call<Collection>(`/v1/admin/collections/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
   deleteCollection: (slug: string) => call<void>(`/v1/admin/collections/${encodeURIComponent(slug)}`, { method: "DELETE" }),
+  social: () => call<SocialOverview>("/v1/admin/social"),
+  socialPosts: (status: SocialStatus[], channel?: SocialChannel) => call<{ posts: SocialPost[] }>(`/v1/admin/social/posts?status=${status.join(",")}${channel ? `&channel=${channel}` : ""}`).then((r) => r.posts),
+  updateSocialPost: (id: string, body: { title?: string; body?: string; scheduledAt?: string }) => call(`/v1/admin/social/posts/${encodeURIComponent(id)}`, { method: "PUT", body: JSON.stringify(body) }),
+  decideSocial: (ids: string[], approve: boolean) => call<{ changed: number }>("/v1/admin/social/posts/decide", { method: "POST", body: JSON.stringify({ ids, approve }) }),
+  sharedSocial: (id: string) => call(`/v1/admin/social/posts/${encodeURIComponent(id)}/shared`, { method: "POST", body: "{}" }),
+  generateSocial: () => call<{ made: number }>("/v1/admin/social/generate", { method: "POST", body: "{}" }),
+  saveSocialSettings: (body: SocialSettings) => call<SocialSettings>("/v1/admin/social/settings", { method: "PUT", body: JSON.stringify(body) }),
+  socialConnectUrl: (kind: "pinterest" | "meta", redirectUri: string) => call<{ url: string }>(`/v1/admin/social/connect/${kind}?redirectUri=${encodeURIComponent(redirectUri)}`).then((r) => r.url),
+  socialConnect: (kind: "pinterest" | "meta", body: { code: string; state: string; redirectUri: string }) => call<{ connected: string[]; page?: string; instagram?: string | null }>(`/v1/admin/social/connect/${kind}`, { method: "POST", body: JSON.stringify(body) }),
+  socialChannel: (kind: string, body: { enabled?: boolean; connected?: false }) => call(`/v1/admin/social/channels/${kind}`, { method: "PUT", body: JSON.stringify(body) }),
   mailOverview: () => call<MailOverview>("/v1/admin/mail"),
   mailDeliverability: (days: number) => call<MailDeliverability>(`/v1/admin/mail/deliverability?days=${days}`),
   mailWebhooks: () => call<{ webhooks: Record<string, string> }>("/v1/admin/mail/deliverability/webhooks").then((r) => r.webhooks),

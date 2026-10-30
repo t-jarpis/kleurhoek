@@ -14,7 +14,7 @@ export const AUDIENCE = "project-kleurhoek";
 /** Nep-beheerders voor tests die niet over inloggen gaan. */
 export const fakeAdmins: AdminAuthenticator = {
   async authenticate({ authorization }) {
-    if (authorization === "Bearer beheerder") return { userId: "0192f6a0-0000-7000-8000-0000000000b1", subject: "user-beheerder", permissions: ["operations.ratelimit.read", "operations.ratelimit.manage", "operations.access.read", "operations.access.manage", "organizations.read", "organizations.manage", "analytics.read", "analytics.goals.manage", "shop.read", "shop.manage", "contact.read", "contact.manage", "sources.read", "sources.manage", "seo.read", "seo.manage", "mail.read", "mail.manage"] };
+    if (authorization === "Bearer beheerder") return { userId: "0192f6a0-0000-7000-8000-0000000000b1", subject: "user-beheerder", permissions: ["operations.ratelimit.read", "operations.ratelimit.manage", "operations.access.read", "operations.access.manage", "organizations.read", "organizations.manage", "analytics.read", "analytics.goals.manage", "shop.read", "shop.manage", "contact.read", "contact.manage", "sources.read", "sources.manage", "seo.read", "seo.manage", "mail.read", "mail.manage", "social.read", "social.manage"] };
     if (authorization === "Bearer analist") return { userId: "0192f6a0-0000-7000-8000-0000000000a1", subject: "user-analist", permissions: ["analytics.read", "operations.ratelimit.read", "releases.read"] };
     return null;
   },

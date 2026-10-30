@@ -22,3 +22,11 @@ admin_bootstrap_subjects = ["<jouw Zitadel-gebruikers-id>"]
 #   google_key_file = "~/.config/kleurhoek/search-console.json"
 #   bing_api_key    = "<Bing Webmaster Tools › Instellingen › API-toegang>"
 # }
+# Social (ADR 0063): apps op developers.pinterest.com en developers.facebook.com. Terugkeeradressen:
+# https://<admin-host>/social/koppel/pinterest en https://<admin-host>/social/koppel/meta
+# social = {
+#   pinterest_app_id     = "<App ID>"
+#   pinterest_app_secret = "<App secret key>"
+#   meta_app_id          = "<App-ID>"
+#   meta_app_secret      = "<App-geheim>"
+# }

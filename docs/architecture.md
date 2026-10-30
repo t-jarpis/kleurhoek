@@ -57,3 +57,4 @@ Het volledige architectuurdocument met diagrammen staat hier: https://claude.ai/
 - Nieuw domein Samen kleuren (schema `together`): kamers met een code van vier letters, handelingen via long polling, geen namen of accounts; een kamer verdwijnt na 30 minuten zonder iemand (ADR 0060).
 - IndexNow: na elke uitrol naar productie meldt de Deploy-workflow nieuwe adressen uit de sitemaps aan bij Bing, Yandex, Seznam en Naver; de sleutel staat op /indexnow.txt (ADR 0061).
 - PNG-plaatjes (mail, delen, Pinterest) gebruiken complete TTF-lettertypen uit apps/api/fonts; een controle bij het opstarten en in de tests ziet of er echte letters op komen (ADR 0062).
+- Nieuw domein Social (schema `social`): elke ochtend voorstellen voor Pinterest, Facebook, Instagram en teksten om zelf te delen; een mail en het admin panel om goed te keuren; goedgekeurde posts gaan op tijd online via de officiële API's; kanalen gekoppeld met OAuth, sleutels versleuteld (ADR 0063).

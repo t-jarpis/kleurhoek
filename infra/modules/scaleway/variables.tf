@@ -134,6 +134,17 @@ variable "search_domains" {
   default     = []
   description = "Domeinen waarvan de API zoekcijfers ophaalt (ADR 0041). Alleen productie."
 }
+variable "social" {
+  type = object({
+    pinterest_app_id     = optional(string, "")
+    pinterest_app_secret = optional(string, "")
+    meta_app_id          = optional(string, "")
+    meta_app_secret      = optional(string, "")
+  })
+  sensitive   = true
+  default     = {}
+  description = "Social (ADR 0063): app-ID's en -geheimen van Pinterest en Meta (Facebook en Instagram). Leeg = dat kanaal is niet te koppelen."
+}
 variable "search" {
   type = object({
     google_key = optional(string, "")

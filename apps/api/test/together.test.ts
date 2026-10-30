@@ -62,6 +62,11 @@ describe("Pinterest-plaatje (ADR 0057)", () => {
     expect(png.readUInt32BE(16)).toBe(1000);
     expect(png.readUInt32BE(20)).toBe(1500);
     expect((await req("GET", "/v1/markets/nl-NL/plates/bestaat-niet/pin.png")).statusCode).toBe(404);
+    // 4:5 als JPEG voor Instagram en Facebook (ADR 0063).
+    const jpg = await req("GET", `/v1/markets/nl-NL/plates/${slug}/post.jpg`);
+    expect(jpg.headers["content-type"]).toBe("image/jpeg");
+    expect(jpg.rawPayload.subarray(0, 3).toString("hex")).toBe("ffd8ff");
+    expect((await req("GET", `/v1/markets/nl-NL/plates/${slug}/iets.gif`)).statusCode).toBe(404);
     // De naam en het domein staan erop: resvg tekent tekst (in productie ging dat mis met de native versie).
     const images = ctx.app.get(PlateImages);
     expect(images.textWorks()).toBe(true);

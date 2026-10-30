@@ -17,6 +17,7 @@ import { WorkflowsService } from "./workflows.service";
   imports: [CatalogModule, LocalizationModule, StorefrontModule],
   controllers: [MailController, MailEventsController, MeMailController, AdminMailController],
   providers: [{ provide: MAIL_TRANSPORT, useClass: SmtpTransport }, DeliverabilityService, SubscribersService, TemplatesService, OutboxService, WorkflowsService, CampaignsService, MessagingScheduler],
-  exports: [SubscribersService],
+  // MAIL_TRANSPORT: andere domeinen (Social, ADR 0063) sturen er een melding aan beheerders mee.
+  exports: [SubscribersService, MAIL_TRANSPORT],
 })
 export class MessagingModule {}

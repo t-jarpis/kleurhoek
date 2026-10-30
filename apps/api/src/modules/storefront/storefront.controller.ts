@@ -62,10 +62,11 @@ export class StorefrontController {
    * Staand plaatje voor Pinterest (ADR 0057): ingekleurd, met de naam in de taal van de markt. Het domein komt
    * uit een vaste lijst, zodat er nooit willekeurige tekst op een plaatje van ons komt.
    */
-  @Get("markets/:market/plates/:slug/pin.png")
+  @Get("markets/:market/plates/:slug/:image")
   @RateLimit("assets")
-  async pin(@Param("market") code: string, @Param("slug") slug: string, @Query("domain") domain: string | undefined, @Res() res: FastifyReply) {
-    if (!Slug.safeParse(slug).success) throw new NotFoundException();
+  async pin(@Param("market") code: string, @Param("slug") slug: string, @Param("image") image: string, @Query("domain") domain: string | undefined, @Res() res: FastifyReply) {
+    // pin.png: staand 2:3 voor Pinterest (ADR 0057); post.jpg: 4:5 voor Instagram en Facebook (ADR 0063).
+    if (!Slug.safeParse(slug).success || !["pin.png", "post.jpg"].includes(image)) throw new NotFoundException();
     const market = await this.market(code);
     const plate = await this.store.plate(market, slug);
     if (!plate) throw new NotFoundException("Plaat niet gevonden");
@@ -73,8 +74,12 @@ export class StorefrontController {
     const svg = m ? await this.store.svg(slug, Number(m[1]), m[2]) : null;
     if (!svg) throw new NotFoundException();
     const site = ["kleurhoek.nl", "kleurhoek.be", "kleurhoek.com"].includes(domain ?? "") ? domain! : "kleurhoek.nl";
-    const png = await this.images.png(`pin/${code}/${slug}/${plate.version}/${site}`, pinSvg(colorIn(svg, plate.colorByNumber.labels, plate.colorByNumber.palette), plate.name, site), 1000);
-    void res.header("Content-Type", "image/png").header("Cache-Control", "public, max-age=86400, s-maxage=604800").send(png);
+    const colored = colorIn(svg, plate.colorByNumber.labels, plate.colorByNumber.palette);
+    const key = `${image}/${code}/${slug}/${plate.version}/${site}`;
+    const body = image === "pin.png"
+      ? await this.images.png(key, pinSvg(colored, plate.name, site), 1000)
+      : await this.images.jpeg(key, pinSvg(colored, plate.name, site, { w: 1080, h: 1350 }), 1080);
+    void res.header("Content-Type", image === "pin.png" ? "image/png" : "image/jpeg").header("Cache-Control", "public, max-age=86400, s-maxage=604800").send(body);
   }
 
   /** Voor de website-route /ga/...: het adres van de partnerlink. De website telt de klik en stuurt door. */

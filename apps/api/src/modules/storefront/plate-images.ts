@@ -2,6 +2,7 @@ import { readdirSync } from "node:fs";
 import { createRequire } from "node:module";
 import { join } from "node:path";
 import { Injectable, Logger, type OnModuleInit } from "@nestjs/common";
+import { encode as encodeJpeg } from "jpeg-js";
 
 type ResvgModule = typeof import("@resvg/resvg-js");
 
@@ -43,6 +44,18 @@ export class PlateImages implements OnModuleInit {
       try { if (!this.textWorks()) this.log.error("PNG-plaatjes tekenen geen tekst: lettertypen niet geladen"); }
       catch (e) { this.log.error(`PNG-plaatjes werken niet: ${e}`); }
     }, 0).unref();
+  }
+
+  /** JPEG voor Instagram, dat geen PNG aanneemt (ADR 0063). */
+  async jpeg(key: string, svg: string, width: number): Promise<Buffer> {
+    const hit = this.cache.get(`jpg:${key}`);
+    if (hit) return hit;
+    this.resvg ??= createRequire(__filename)("@resvg/resvg-js") as ResvgModule;
+    const img = new this.resvg.Resvg(svg, { fitTo: { mode: "width", value: width }, background: "#ffffff", font: { fontFiles: this.fonts, loadSystemFonts: false, defaultFontFamily: "Nunito" } }).render();
+    const jpg = Buffer.from(encodeJpeg({ data: Buffer.from(img.pixels), width: img.width, height: img.height }, 88).data);
+    if (this.cache.size > 200) this.cache.clear();
+    this.cache.set(`jpg:${key}`, jpg);
+    return jpg;
   }
 
   async png(key: string, svg: string, width = 400): Promise<Buffer> {

@@ -54,6 +54,18 @@ const schema = z.object({
   MAIL_RATE_PER_MINUTE: z.coerce.number().int().min(1).max(10_000).default(120),
   /** Hoe vaak de wachtrij en workflows worden verwerkt. 0 = uit (tests). */
   MAIL_INTERVAL_MS: z.coerce.number().int().min(0).default(20_000),
+  // ---------- Social (ADR 0063) ----------
+  /** Adres van het admin panel; terugkeeradressen voor het koppelen van kanalen moeten hiermee beginnen. */
+  ADMIN_URL: z.string().url().default("http://localhost:3002"),
+  /** App-sleutels van Pinterest en Meta (Facebook en Instagram). Leeg = dat kanaal is niet te koppelen. */
+  PINTEREST_APP_ID: z.string().min(1).optional(),
+  PINTEREST_APP_SECRET: z.string().min(1).optional(),
+  META_APP_ID: z.string().min(1).optional(),
+  META_APP_SECRET: z.string().min(1).optional(),
+  /** Geheim voor de versleutelde sleutels van gekoppelde kanalen. Leeg = afgeleid van INGEST_KEY. */
+  SOCIAL_SECRET: z.string().min(32).optional(),
+  /** Hoe vaak voorstellen worden gemaakt en goedgekeurde posts geplaatst. 0 = uit (tests). */
+  SOCIAL_INTERVAL_MS: z.coerce.number().int().min(0).default(300_000),
   /** Samen kleuren (ADR 0060): hoe vaak lege kamers worden opgeruimd; 0 = nooit (tests). */
   TOGETHER_CLEANUP_MS: z.coerce.number().int().min(0).default(300_000),
   // ---------- Zoekcijfers (ADR 0041) ----------
@@ -67,7 +79,7 @@ const schema = z.object({
   SEARCH_IMPORT_INTERVAL_MS: z.coerce.number().int().min(0).default(6 * 3_600_000),
 });
 
-export type Env = Omit<z.infer<typeof schema>, "MAIL_SECRET"> & { MAIL_SECRET: string };
+export type Env = Omit<z.infer<typeof schema>, "MAIL_SECRET" | "SOCIAL_SECRET"> & { MAIL_SECRET: string; SOCIAL_SECRET: string };
 
 /** Inloggen staat aan als uitgever, publiek en beheerorganisatie bekend zijn. */
 export function oidcEnabled(env: Env): env is Env & { OIDC_ISSUER: string; OIDC_AUDIENCE: string; ADMIN_ORG_ID: string } {
@@ -76,7 +88,8 @@ export function oidcEnabled(env: Env): env is Env & { OIDC_ISSUER: string; OIDC_
 
 export function loadEnv(source: NodeJS.ProcessEnv = process.env): Env {
   const parsed = schema.parse(source);
-  const env = { ...parsed, MAIL_SECRET: parsed.MAIL_SECRET ?? createHmac("sha256", parsed.INGEST_KEY).update("kleurhoek-mail").digest("hex") };
+  const env = { ...parsed, MAIL_SECRET: parsed.MAIL_SECRET ?? createHmac("sha256", parsed.INGEST_KEY).update("kleurhoek-mail").digest("hex"),
+    SOCIAL_SECRET: parsed.SOCIAL_SECRET ?? createHmac("sha256", parsed.INGEST_KEY).update("kleurhoek-social").digest("hex") };
   if (env.NODE_ENV === "production") {
     if (!env.DATABASE_URL) throw new Error("DATABASE_URL is verplicht in productie");
     if (env.INGEST_KEY.startsWith("dev-only")) throw new Error("INGEST_KEY moet in productie gezet zijn");
