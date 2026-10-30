@@ -10,7 +10,7 @@ import { adventDoors, doorOrder, openUntil } from "@/lib/advent";
 import { api, NotFound } from "@/lib/api";
 import { baseFor } from "@/lib/base";
 import { getOrg } from "@/lib/org";
-import { absolute, hreflang, indexable, jsonLd, pageMeta, pageUrl } from "@/lib/seo";
+import { absolute, hreflang, indexable, jsonLd, pageMeta, pageUrl, pngOf } from "@/lib/seo";
 
 export const revalidate = 300;
 type Params = { params: Promise<{ org: string; market: string }> };
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const o = await getOrg(org);
   return {
     title, description: t.advent.meta, ...pageMeta(o, market, "/aftelkalender"),
-    ...(indexable(o) && doors[0] ? { openGraph: { title, description: t.advent.meta, type: "website", images: [absolute(market, doors[0].plate.svg.replace(/\.svg$/, ".png"))] } } : {}),
+    ...(indexable(o) && doors[0] ? { openGraph: { title, description: t.advent.meta, type: "website", images: [absolute(market, pngOf(doors[0].plate.svg))] } } : {}),
   };
 }
 

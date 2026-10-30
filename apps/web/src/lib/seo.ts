@@ -17,6 +17,14 @@ export function indexable(org: Org | null): boolean {
 /** Volledig adres van een pagina in een markt, op het eigen domein van die markt (ADR 0040). */
 export const pageUrl = (market: string, path: string) => marketUrl(market, path, siteDomains(), SITE);
 
+/**
+ * Versie van de PNG-plaatjes (ADR 0062). Ophogen als de PNG's anders getekend worden: de adressen zijn verder per
+ * plaatversie eeuwig gecachet bij Cloudflare, en ?r= geeft dan een nieuw adres.
+ */
+export const PNG_REV = "2";
+export const pngOf = (svgPath: string) => `${svgPath.replace(/\.svg$/, ".png")}?r=${PNG_REV}`;
+export const pinOf = (market: string, slug: string) => `/v1/pins/${market}/${slug}.png?r=${PNG_REV}`;
+
 /** Volledig adres van een bestand op het domein van een markt, bijvoorbeeld een plaat-PNG voor og:image (ADR 0055). */
 export function absolute(market: string, path: string): string {
   const home = pageUrl(market, "");

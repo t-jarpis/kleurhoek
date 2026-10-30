@@ -215,7 +215,7 @@ export class StorefrontService {
       const bySlug = new Map(plates.map((p) => [p.slug, p]));
       list = pick.slugs.map((s) => bySlug.get(s)).filter((p): p is PlateSummary => !!p);
     } else if (pick.holiday) list = plates.filter((p) => p.holiday === pick.holiday);
-    return list.slice(0, max).map((p) => ({ slug: p.slug, name: names.get(p.slug)!.name ?? p.slug, image: path(p).replace(/\.svg$/, ".png") }));
+    return list.slice(0, max).map((p) => ({ slug: p.slug, name: names.get(p.slug)!.name ?? p.slug, image: `${path(p).replace(/\.svg$/, ".png")}?r=2` }));
   }
 
   /** Feestdagen in een markt die binnen `days` dagen beginnen, met naam in de taal van de markt. */

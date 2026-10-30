@@ -4,7 +4,7 @@ import { messages } from "@/i18n/nl";
 import { api, NotFound } from "@/lib/api";
 import { baseFor } from "@/lib/base";
 import { getOrg } from "@/lib/org";
-import { absolute, hreflang, indexable, jsonLd, pageMeta, pageUrl } from "@/lib/seo";
+import { absolute, hreflang, indexable, jsonLd, pageMeta, pageUrl, pngOf } from "@/lib/seo";
 import { inTopic, topicTitle, topics, type Dimension } from "@/lib/topics";
 import { Crumbs } from "./Crumbs";
 import { Logo } from "./Logo";
@@ -41,7 +41,7 @@ export function topicPage(dim: Dimension) {
     const first = plates[0];
     return {
       title, description, ...pageMeta(o, market, `/${dim}/${slug}`, dim !== "feestdag"),
-      ...(indexable(o) ? { openGraph: { title, description, type: "website", ...(first ? { images: [absolute(market, first.svg.replace(/\.svg$/, ".png"))] } : {}) } } : {}),
+      ...(indexable(o) ? { openGraph: { title, description, type: "website", ...(first ? { images: [absolute(market, pngOf(first.svg))] } : {}) } } : {}),
     };
   }
 

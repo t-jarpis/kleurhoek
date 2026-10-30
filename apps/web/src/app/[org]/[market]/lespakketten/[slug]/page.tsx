@@ -11,7 +11,7 @@ import { api, NotFound } from "@/lib/api";
 import { baseFor } from "@/lib/base";
 import { getOrg } from "@/lib/org";
 import { packs } from "@/lib/packs";
-import { absolute, hreflang, indexable, jsonLd, pageMeta, pageUrl } from "@/lib/seo";
+import { absolute, hreflang, indexable, jsonLd, pageMeta, pageUrl, pngOf } from "@/lib/seo";
 import { link } from "@/lib/sites";
 
 export const revalidate = 300;
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const o = await getOrg(org);
   return {
     title, description, ...pageMeta(o, market, `/lespakketten/${slug}`),
-    ...(indexable(o) ? { openGraph: { title, description, type: "website", images: [absolute(market, pack.plates[0]!.svg.replace(/\.svg$/, ".png"))] } } : {}),
+    ...(indexable(o) ? { openGraph: { title, description, type: "website", images: [absolute(market, pngOf(pack.plates[0]!.svg))] } } : {}),
   };
 }
 

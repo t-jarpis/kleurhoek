@@ -11,7 +11,7 @@ import { Studio } from "@/components/Studio";
 import { Track } from "@/components/Track";
 import { messages } from "@/i18n/nl";
 import { getOrg } from "@/lib/org";
-import { absolute, hreflang, indexable, jsonLd, pageMeta, SITE, pageUrl } from "@/lib/seo";
+import { SITE, absolute, hreflang, indexable, jsonLd, pageMeta, pageUrl, pinOf, pngOf } from "@/lib/seo";
 import Link from "next/link";
 import { Crumbs } from "@/components/Crumbs";
 import { PlateCard } from "@/components/PlateCard";
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: { params: Promise<{ org: stri
   const description = t.metaPlate(plate.name, kind);
   const title = t.metaPlateTitle(plate.name, kind);
   const o = await getOrg(org);
-  const image = absolute(market, plate.svg.replace(/\.svg$/, ".png"));
+  const image = absolute(market, pngOf(plate.svg));
   return { title, description, ...pageMeta(o, market, `/platen/${slug}`, false), ...(indexable(o) ? { openGraph: { title, description, type: "article", images: [image] }, twitter: { card: "summary_large_image", images: [image] } } : {}) };
 }
 
@@ -64,7 +64,7 @@ export default async function PlatePage({ params }: { params: Promise<{ org: str
           "@context": "https://schema.org", "@type": "CreativeWork", name: plate.name, url: pageUrl(market, `/platen/${plate.slug}`),
           description: t.metaPlate(plate.name, kind), inLanguage: hreflang(market), isAccessibleForFree: true,
           genre: kind, publisher: { "@type": "Organization", name: "Kleurhoek", url: SITE },
-          image: { "@type": "ImageObject", contentUrl: absolute(market, plate.svg.replace(/\.svg$/, ".png")), thumbnailUrl: absolute(market, plate.svg), caption: t.metaPlateTitle(plate.name, kind) },
+          image: { "@type": "ImageObject", contentUrl: absolute(market, pngOf(plate.svg)), thumbnailUrl: absolute(market, plate.svg), caption: t.metaPlateTitle(plate.name, kind) },
           ...(category ? { about: category.name } : {}),
         },
         {
@@ -80,7 +80,7 @@ export default async function PlatePage({ params }: { params: Promise<{ org: str
         {indexable(o) && (
           <div className="kh-share no-print">
             <a className="ui-btn" target="_blank" rel="noopener noreferrer"
-              href={`https://www.pinterest.com/pin/create/button/?${new URLSearchParams({ url: pageUrl(market, `/platen/${plate.slug}`), media: absolute(market, `/v1/pins/${market}/${plate.slug}.png`), description: t.metaPlateTitle(plate.name, kind) })}`}>
+              href={`https://www.pinterest.com/pin/create/button/?${new URLSearchParams({ url: pageUrl(market, `/platen/${plate.slug}`), media: absolute(market, pinOf(market, plate.slug)), description: t.metaPlateTitle(plate.name, kind) })}`}>
               <Icon name="pin" size={16} /> {t.pinSave}
             </a>
             <span className="hint">{t.pinHint}</span>
