@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 import { api, NotFound } from "@/lib/api";
 import { marketLanguage } from "@/lib/markets";
 import { ForParents } from "@/components/ForParents";
-import { Icon } from "@kleurhoek/theme";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Studio } from "@/components/Studio";
 import { Track } from "@/components/Track";
@@ -15,6 +14,7 @@ import { SITE, absolute, hreflang, indexable, jsonLd, pageMeta, pageUrl, pinOf, 
 import Link from "next/link";
 import { Crumbs } from "@/components/Crumbs";
 import { PlateCard } from "@/components/PlateCard";
+import { PinButton } from "@/components/PinButton";
 import { topicTitle } from "@/lib/topics";
 
 export const revalidate = 300;
@@ -79,10 +79,8 @@ export default async function PlatePage({ params }: { params: Promise<{ org: str
         <Crumbs base={base} label={t.crumbs} items={[{ name: "Kleurhoek", path: "" }, ...(topicName ? [{ name: topicName, path: topicPath }] : []), { name: plate.name }]} />
         {indexable(o) && (
           <div className="kh-share no-print">
-            <a className="ui-btn" target="_blank" rel="noopener noreferrer"
-              href={`https://www.pinterest.com/pin/create/button/?${new URLSearchParams({ url: pageUrl(market, `/platen/${plate.slug}`), media: absolute(market, pinOf(market, plate.slug)), description: t.metaPlateTitle(plate.name, kind) })}`}>
-              <Icon name="pin" size={16} /> {t.pinSave}
-            </a>
+            <PinButton label={t.pinSave} file={`${plate.slug}.png`} url={pageUrl(market, `/platen/${plate.slug}`)} image={pinOf(market, plate.slug)} text={t.metaPlateTitle(plate.name, kind)}
+              href={`https://www.pinterest.com/pin/create/button/?${new URLSearchParams({ url: pageUrl(market, `/platen/${plate.slug}`), media: absolute(market, pinOf(market, plate.slug)), description: t.metaPlateTitle(plate.name, kind) })}`} />
             <span className="hint">{t.pinHint}</span>
           </div>
         )}
