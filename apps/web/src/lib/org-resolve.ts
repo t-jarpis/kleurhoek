@@ -33,4 +33,4 @@ export async function resolveOrg(host: string): Promise<ResolvedOrg> {
  * Paden die niet per organisatie zijn (routes, API-doorgifte, statische bestanden). Van /mail alleen de routes:
  * /mail en /mail/bevestigen zijn pagina's (op kleurhoek.nl zonder marktvoorvoegsel, ADR 0040).
  */
-export const SHARED_PATH = /^\/(auth|e|ga|v1|merk|healthz|_next|favicon\.ico|robots\.txt|llms\.txt|sitemap\.xml|sitemap|mail\/(?:events|afmelden|voorkeuren|bevestig))(\/|$)/;
+export const SHARED_PATH = /^\/(auth|e|ga|v1|merk|healthz|_next|favicon\.ico|robots\.txt|llms\.txt|indexnow\.txt|sitemap\.xml|sitemap|mail\/(?:events|afmelden|voorkeuren|bevestig))(\/|$)/;

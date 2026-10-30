@@ -166,6 +166,26 @@ jobs:
           for app in api web admin login; do docker buildx imagetools create -t "$REGISTRY/kleurhoek-$app:latest" "$REGISTRY/kleurhoek-$app:$TAG" > /dev/null; done
           echo "Laatste goede versie: ${TAG:0:7}"
 
+      # IndexNow (ADR 0061): nieuwe pagina's van productie aanmelden bij Bing, Yandex, Seznam en Naver. De lijst van
+      # de vorige keer staat in de cache van GitHub; mislukt het, dan blijft de uitrol gewoon geslaagd.
+      - name: IndexNow-lijst van de vorige keer
+        if: env.TARGET_ENV == 'prod' && steps.rollout.outputs.skip != 'true'
+        uses: actions/cache/restore@v4
+        with:
+          path: indexnow-urls.txt
+          key: indexnow-${{ github.run_id }}
+          restore-keys: indexnow-
+      - name: Nieuwe pagina's aanmelden (IndexNow)
+        if: env.TARGET_ENV == 'prod' && steps.rollout.outputs.skip != 'true'
+        continue-on-error: true
+        run: node scripts/indexnow.mjs --previous indexnow-urls.txt --out indexnow-urls.next && mv indexnow-urls.next indexnow-urls.txt
+      - name: IndexNow-lijst bewaren
+        if: env.TARGET_ENV == 'prod' && steps.rollout.outputs.skip != 'true' && hashFiles('indexnow-urls.txt') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: indexnow-urls.txt
+          key: indexnow-${{ github.run_id }}
+
       - name: Terugdraaien naar de vorige versie
         # Rooktest of browsertest mislukt: de vorige images terug, dan blijft de omgeving bruikbaar.
         # Let op: databasemigraties gaan niet terug; die zijn daarom altijd uitbreidend (ADR 0019).
