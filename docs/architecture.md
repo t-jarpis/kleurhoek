@@ -56,3 +56,4 @@ Het volledige architectuurdocument met diagrammen staat hier: https://claude.ai/
 - Lespakketten per onderwerp en leeftijd, afgeleid uit de platen, met uitleg en leerdoelen voor de leerkracht en alles in één boekje (ADR 0059).
 - Nieuw domein Samen kleuren (schema `together`): kamers met een code van vier letters, handelingen via long polling, geen namen of accounts; een kamer verdwijnt na 30 minuten zonder iemand (ADR 0060).
 - IndexNow: na elke uitrol naar productie meldt de Deploy-workflow nieuwe adressen uit de sitemaps aan bij Bing, Yandex, Seznam en Naver; de sleutel staat op /indexnow.txt (ADR 0061).
+- PNG-plaatjes (mail, delen, Pinterest) gebruiken complete TTF-lettertypen uit apps/api/fonts; een controle bij het opstarten en in de tests ziet of er echte letters op komen (ADR 0062).

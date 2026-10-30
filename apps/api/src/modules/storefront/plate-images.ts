@@ -1,40 +1,54 @@
-import { readFileSync } from "node:fs";
+import { readdirSync } from "node:fs";
 import { createRequire } from "node:module";
-import { dirname, join } from "node:path";
-import { Injectable } from "@nestjs/common";
+import { join } from "node:path";
+import { Injectable, Logger, type OnModuleInit } from "@nestjs/common";
+
+type ResvgModule = typeof import("@resvg/resvg-js");
+
+/** Lettertypen voor de PNG's: Nunito (Latijn, Latijn-uitgebreid, Cyrillisch) en Grieks uit Manrope, als TTF. */
+const FONT_DIR = join(__dirname, "..", "..", "..", "fonts");
 
 /**
- * PNG van een plaat, voor mails (ADR 0037): mailprogramma's tonen geen SVG. Gemaakt met resvg, met het
- * lettertype van de platen (Nunito, uit packages/theme). Adres per versie en taal, dus eeuwig te cachen.
+ * PNG van een plaat, voor mails (ADR 0037), deelplaatjes (ADR 0055) en Pinterest (ADR 0057). Gemaakt met resvg,
+ * met het lettertype van de platen. De lettertypen staan als complete TTF-bestanden in apps/api/fonts, samengevoegd
+ * uit de subsets van packages/theme (ADR 0062). Losse subsets met dezelfde naam gaven in productie geen tekst of
+ * blokjes: resvg koos er één en vond daar de letters niet in. Adres per versie en taal, dus eeuwig te cachen.
  */
 @Injectable()
-export class PlateImages {
-  private fonts: Promise<Buffer[]> | null = null;
+export class PlateImages implements OnModuleInit {
+  private readonly log = new Logger(PlateImages.name);
+  private resvg: ResvgModule | null = null;
+  private readonly fonts = readdirSync(FONT_DIR).filter((f) => f.endsWith(".ttf")).map((f) => join(FONT_DIR, f));
   private readonly cache = new Map<string, Buffer>();
 
-  private loadFonts(): Promise<Buffer[]> {
-    this.fonts ??= (async () => {
-      const req = createRequire(__filename);
-      const woff2 = req("wawoff2") as { decompress: (b: Buffer) => Promise<Uint8Array> };
-      const fonts = join(dirname(req.resolve("@kleurhoek/theme/manifest.json")), "..", "fonts");
-      // Alle tekensets (ADR 0052): latin-ext voor Pools, Tsjechisch …, Cyrillisch, en Grieks uit Manrope (Nunito heeft geen Grieks).
-      const files = [
-        ...["latin", "latin-ext", "cyrillic"].flatMap((s) => ["400", "600", "700"].map((w) => join(fonts, "nunito", `nunito-${s}-${w}-normal.woff2`))),
-        ...["400", "700"].map((w) => join(fonts, "manrope", `manrope-greek-${w}-normal.woff2`)),
-      ];
-      return Promise.all(files.map(async (f) => Buffer.from(await woff2.decompress(readFileSync(f)))));
-    })();
-    return this.fonts;
+  private render(svg: string, width: number): Buffer {
+    this.resvg ??= createRequire(__filename)("@resvg/resvg-js") as ResvgModule;
+    const r = new this.resvg.Resvg(svg, { fitTo: { mode: "width", value: width }, background: "#ffffff", font: { fontFiles: this.fonts, loadSystemFonts: false, defaultFontFamily: "Nunito" } });
+    return Buffer.from(r.render().asPng());
+  }
+
+  /**
+   * Tekent resvg echt letters? Zonder lettertype komt er niets, met een verkeerd lettertype een rij blokjes. In
+   * beide gevallen zien "iiii", "WWWW" en niets er hetzelfde uit; met echte letters verschillen ze.
+   */
+  textWorks(sample = ["iiii", "WWWW"]): boolean {
+    const svg = (t: string) => `<svg xmlns="http://www.w3.org/2000/svg" width="120" height="30"><text x="4" y="22" font-family="Nunito" font-size="20" fill="#000">${t}</text></svg>`;
+    const [a, b, none] = [this.render(svg(sample[0]!), 120), this.render(svg(sample[1]!), 120), this.render(svg(""), 120)];
+    return !a.equals(none) && !b.equals(none) && !a.equals(b);
+  }
+
+  onModuleInit() {
+    // Melden als er geen tekst op de plaatjes komt (in de logs van de container).
+    setTimeout(() => {
+      try { if (!this.textWorks()) this.log.error("PNG-plaatjes tekenen geen tekst: lettertypen niet geladen"); }
+      catch (e) { this.log.error(`PNG-plaatjes werken niet: ${e}`); }
+    }, 0).unref();
   }
 
   async png(key: string, svg: string, width = 400): Promise<Buffer> {
     const hit = this.cache.get(key);
     if (hit) return hit;
-    const { Resvg } = createRequire(__filename)("@resvg/resvg-js") as typeof import("@resvg/resvg-js");
-    const fontBuffers = await this.loadFonts();
-    // fontBuffers werkt in resvg-js 2.6, maar staat (nog) niet in de typen.
-    const options = { fitTo: { mode: "width", value: width }, background: "#ffffff", font: { fontBuffers, loadSystemFonts: false, defaultFontFamily: "Nunito" } } as unknown as ConstructorParameters<typeof Resvg>[1];
-    const png = new Resvg(svg, options).render().asPng();
+    const png = this.render(svg, width);
     if (this.cache.size > 200) this.cache.clear();
     this.cache.set(key, png);
     return png;

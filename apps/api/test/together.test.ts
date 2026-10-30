@@ -1,6 +1,7 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { TogetherService } from "../src/modules/together/together.service";
 import { createTestApp } from "./app";
+import { PlateImages } from "../src/modules/storefront/plate-images";
 
 let ctx: Awaited<ReturnType<typeof createTestApp>>;
 beforeAll(async () => { process.env.TOGETHER_CLEANUP_MS = "0"; ctx = await createTestApp(); });
@@ -61,5 +62,11 @@ describe("Pinterest-plaatje (ADR 0057)", () => {
     expect(png.readUInt32BE(16)).toBe(1000);
     expect(png.readUInt32BE(20)).toBe(1500);
     expect((await req("GET", "/v1/markets/nl-NL/plates/bestaat-niet/pin.png")).statusCode).toBe(404);
+    // De naam en het domein staan erop: resvg tekent tekst (in productie ging dat mis met de native versie).
+    const images = ctx.app.get(PlateImages);
+    expect(images.textWorks()).toBe(true);
+    expect(images.textWorks(["ПППП", "дддд"])).toBe(true);
+    expect(images.textWorks(["ŁŁŁŁ", "őőőő"])).toBe(true);
+    expect(images.textWorks(["ΣΣΣΣ", "ωωωω"])).toBe(true);
   }, 30_000);
 });
