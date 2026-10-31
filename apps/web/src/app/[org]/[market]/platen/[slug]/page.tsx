@@ -79,7 +79,7 @@ export default async function PlatePage({ params }: { params: Promise<{ org: str
         <Crumbs base={base} label={t.crumbs} items={[{ name: "Kleurhoek", path: "" }, ...(topicName ? [{ name: topicName, path: topicPath }] : []), { name: plate.name }]} />
         {indexable(o) && (
           <div className="kh-share no-print">
-            <PinButton label={t.pinSave} file={`${plate.slug}.png`} url={pageUrl(market, `/platen/${plate.slug}`)} image={pinOf(market, plate.slug)} text={t.metaPlateTitle(plate.name, kind)}
+            <PinButton label={t.pinSave} url={pageUrl(market, `/platen/${plate.slug}`)} title={t.metaPlateTitle(plate.name, kind)}
               href={`https://www.pinterest.com/pin/create/button/?${new URLSearchParams({ url: pageUrl(market, `/platen/${plate.slug}`), media: absolute(market, pinOf(market, plate.slug)), description: t.metaPlateTitle(plate.name, kind) })}`} />
             <span className="hint">{t.pinHint}</span>
           </div>
