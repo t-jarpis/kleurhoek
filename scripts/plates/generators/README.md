@@ -16,3 +16,6 @@ Batch 1 staat in `batch1_*.py`; vanaf batch 2 gebruiken de batches de herbruikba
 
 ## Bouwplaten van veelvlakken (`polyhedra.py`)
 Een bouwplaat wordt uitgerekend uit een 3D-model (hoekpunten en vlakken): de uitslag ontstaat door de vlakken langs een boom van gedeelde randen plat te leggen. Elk randpaar dat na het vouwen samenkomt krijgt precies één lijmflap, en shapely controleert dat vlakken en flappen niet overlappen. Zo klopt de montage altijd. Nodig: `pip install shapely` (alleen voor de generators). Modellen: prisma, piramide, afgeknotte piramide, dubbele piramide, antiprisma, en via `hull_faces` elk klein convex veelvlak (kuboctaëder, afgeknot viervlak).
+
+## Drie lijndiktes (`ink.py`, ADR 0064)
+Gedetailleerde platen (12+) krijgen een dikke omtrek per onderwerp en middellijnen per groot deel. Zet in de generator `obj("uil")` vóór de vlakken van een onderwerp en `part()` vóór elk deel (vleugel, buik, oog); de achtergrond is `obj("bg")` of de stand aan het begin. `kp12` in `batch13e.py` zet de laag er daarna vanzelf in (`<g class="ink">`). Een bestaande plaat bijwerken: genereer opnieuw, controleer dat de vlakken gelijk zijn, en vervang alleen wat ná de vlakken staat; de seed maakt er bij de volgende start een nieuwe versie van.

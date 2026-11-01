@@ -35,6 +35,9 @@ export const PLATE_CSS = `
   svg .r { fill: #fff; stroke: #1d1d1f; stroke-width: var(--sw, 2.4); stroke-linejoin: round; }
   svg .l { fill: none; stroke: #1d1d1f; stroke-width: var(--sw, 2.4); stroke-linecap: round; stroke-linejoin: round; }
   svg .dot { fill: #1d1d1f; }
+  svg:has(.ink) .r { stroke-width: calc(var(--sw, 2.4) * .5); }
+  svg .ink .l2 { stroke-width: calc(var(--sw, 2.4) * .72); }
+  svg .ink .l3 { stroke-width: calc(var(--sw, 2.4) * 1.06); }
   svg .cut { fill: none; stroke: #1d1d1f; stroke-width: 1; stroke-dasharray: 4 3; }
   svg .fold { fill: none; stroke: #1d1d1f; stroke-width: .8; stroke-dasharray: 1 2.5; }
   svg .glue { fill: #e9e6df; stroke: #9a948a; stroke-width: .6; }

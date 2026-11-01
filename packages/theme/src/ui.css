@@ -638,3 +638,11 @@ a.ui-chip { text-decoration: none; }
 .ui-channel { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border: var(--border-thin) solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); }
 .ui-channel h3 { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); margin: 0; font-size: 17px; }
 .ui-channel p { margin: 0; font-size: 14px; color: var(--color-text-muted); }
+
+/* PlateInk (ADR 0064): drie lijndiktes in gedetailleerde platen. Factoren op de lijndikte van de leeftijd. */
+.sheet { --ink-fine: .5; --ink-mid: .72; --ink-bold: 1.06; }
+.sheet:has(.ink) .r, .sheet:has(.ink) .kh-ro { stroke-width: calc(var(--sw, 2.4) * var(--ink-fine)); }
+.sheet .ink { pointer-events: none; }
+.sheet .ink .l2 { stroke-width: calc(var(--sw, 2.4) * var(--ink-mid)); }
+.sheet .ink .l3 { stroke-width: calc(var(--sw, 2.4) * var(--ink-bold)); }
+.sheet:has(.ink) .r:hover { stroke-width: calc(var(--sw, 2.4) * var(--ink-mid)); }

@@ -1,4 +1,5 @@
 import * as source from "@kleurhoek/catalog-data";
+import { createHash } from "node:crypto";
 import { and, eq, inArray, sql } from "drizzle-orm";
 import type { Database, Tx } from "./database";
 import { withTenant } from "./tenant";
@@ -21,7 +22,7 @@ function chunks<T>(list: T[], size: number): T[][] {
   return out;
 }
 
-export async function seed(db: Database, tenantId: string): Promise<{ plates: number }> {
+export async function seed(db: Database, tenantId: string): Promise<{ plates: number; updated: number }> {
   return withTenant(db, tenantId, async (tx) => {
     // Nederland, België in het Nederlands en Frans (ADR 0040) en het Verenigd Koninkrijk (ADR 0044). Bestaande markten blijven zoals ze in het admin panel staan.
     await tx.insert(markets).values([
@@ -163,13 +164,45 @@ export async function seed(db: Database, tenantId: string): Promise<{ plates: nu
       }
       add("plate", p.slug, p.i18n);
     }
+    const updated = await refreshCatalogVersions(tx, tenantId, list, existing);
     // In blokken: één insert met duizenden rijen loopt tegen de parametergrens van Postgres aan,
     // en losse inserts per plaat maken elke koude start trager.
     for (const part of chunks(newMaterials, 2000)) await tx.insert(plateMaterials).values(part).onConflictDoNothing();
     for (const part of chunks(tr, 1000)) await tx.insert(translations).values(part.map((t) => ({ tenantId, ...t, status: "reviewed" as const }))).onConflictDoNothing();
     await syncGlossaries(tx, tenantId);
-    return { plates: added };
+    return { plates: added, updated };
   });
+}
+
+/**
+ * Een verbeterde tekening in catalog-data wordt een nieuwe versie van die plaat (ADR 0064), zodat het adres van
+ * de SVG en de PNG verandert en het CDN de nieuwe toont. Alleen als de huidige versie zelf uit catalog-data komt:
+ * een versie uit het admin panel wordt nooit overschreven. Vergelijken gaat op md5, zodat de SVG's niet bij elke
+ * start uit de database komen. Hetzelfde aantal vlakken is verplicht, anders klopt opgeslagen kleurwerk niet meer.
+ */
+async function refreshCatalogVersions(tx: Tx, tenantId: string, list: ReturnType<typeof source.plates>, existing: Map<string, string>) {
+  if (!existing.size) return 0;
+  const rows = await tx.select({
+    plateId: plates.id, slug: plates.slug, version: plateVersions.version, createdBy: plateVersions.createdBy,
+    regionCount: plateVersions.regionCount, hash: sql<string>`md5(${plateVersions.svg})`,
+    latest: sql<number>`(select max(v.version) from ${plateVersions} v where v.plate_id = ${plates.id})`,
+  }).from(plates).innerJoin(plateVersions, eq(plateVersions.id, plates.currentVersionId)).where(inArray(plates.id, [...existing.values()]));
+  const bySlug = new Map(rows.map((r) => [r.slug, r]));
+  let updated = 0;
+  for (const p of list) {
+    const cur = bySlug.get(p.slug);
+    if (!cur || cur.createdBy !== "catalog-data" || cur.regionCount !== p.regionCount) continue;
+    const svg = source.plateSvg(p.slug);
+    if (createHash("md5").update(svg).digest("hex") === cur.hash) continue;
+    const [version] = await tx.insert(plateVersions).values({
+      tenantId, plateId: cur.plateId, version: Number(cur.latest) + 1, svg, height: p.height,
+      regionCount: p.regionCount, colorByNumber: p.colorByNumber, createdBy: "catalog-data",
+      pages: p.pages.map((page, i) => ({ role: page.role, height: page.height, svg: source.pageSvg(p.slug, i + 2) })),
+    }).returning({ id: plateVersions.id });
+    await tx.update(plates).set({ currentVersionId: version!.id }).where(eq(plates.id, cur.plateId));
+    updated++;
+  }
+  return updated;
 }
 
 /**

@@ -23,6 +23,9 @@ export const FULL_VIEW: View = {
 const inView = (p: PlateSummary, view: View) => offerAllows(p, view.offer, view.allowed);
 
 /** Knip-, vouw- en lijmlijnen van knutselplaten. Zelfde afspraken als in de CSS van de website. */
+/** Factoren op de lijndikte van de leeftijd voor platen met drie lijndiktes; gelijk aan --ink-* in het design system (ADR 0064). */
+export const INK = { fine: 0.5, mid: 0.72, bold: 1.06 } as const;
+const round2 = (n: number) => Math.round(n * 100) / 100;
 export const CRAFT_STYLE = ".cut{fill:none;stroke:#1d1b22;stroke-width:1;stroke-dasharray:4 3}.fold{fill:none;stroke:#1d1b22;stroke-width:.8;stroke-dasharray:1 2.5}.glue{fill:#d5d9de;stroke:#9aa1a9;stroke-width:.6}.tip{font:600 6px Nunito,system-ui,sans-serif;fill:#4a5260}";
 
 export interface PlateFilter { kind?: string | undefined; category?: string | undefined; age?: string | undefined; continent?: string | undefined; country?: string | undefined; holiday?: string | undefined }
@@ -268,7 +271,11 @@ export class StorefrontService {
     // zo'n plaat is in die taal toch niet zichtbaar.
     const text = language === SOURCE_LANGUAGE ? raw : localizeSvg(raw, (t) => glossary!.get(t)).svg;
     const sw = taxonomy.ages.find((a) => a.slug === detail.age)?.strokeWidth ?? 2.4;
-    const style = `<style>.r{fill:#fff;stroke:#1d1b22;stroke-width:var(--sw,${sw});stroke-linejoin:round}.l{fill:none;stroke:#1d1b22;stroke-width:var(--sw,${sw});stroke-linecap:round;stroke-linejoin:round}.dot{fill:#1d1b22}${CRAFT_STYLE}</style>`;
+    // Gedetailleerde platen met drie lijndiktes (ADR 0064): vaste getallen, want resvg kent geen calc() of :has().
+    const ink = text.includes('class="ink"');
+    const rw = ink ? `${round2(sw * INK.fine)}` : `var(--sw,${sw})`;
+    const inkStyle = ink ? `.ink{pointer-events:none}.l2{stroke-width:${round2(sw * INK.mid)}}.l3{stroke-width:${round2(sw * INK.bold)}}` : "";
+    const style = `<style>.r{fill:#fff;stroke:#1d1b22;stroke-width:${rw};stroke-linejoin:round}.l{fill:none;stroke:#1d1b22;stroke-width:var(--sw,${sw});stroke-linecap:round;stroke-linejoin:round}${inkStyle}.dot{fill:#1d1b22}${CRAFT_STYLE}</style>`;
     return text.replace(/^(<svg[^>]*>)/, `$1${style}`);
   }
 }

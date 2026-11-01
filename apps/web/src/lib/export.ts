@@ -28,7 +28,9 @@ function styleFor(svg: SVGSVGElement): string {
     rules.push(`.${cls}{${decl}}`);
   }
   const lines = svg.dataset.lines === "geen";
-  rules.push(`.kh-ro{fill:none;stroke:${lines ? "none" : ink};stroke-width:${sw};stroke-linejoin:round}`, ".kh-sun{stroke:none}");
+  // Met drie lijndiktes (ADR 0064) volgt de omlijning de fijne lijn van de vlakken.
+  const roWidth = svg.querySelector(".ink") ? String((parseFloat(sw) || 2.4) * 0.5) : sw;
+  rules.push(`.kh-ro{fill:none;stroke:${lines ? "none" : ink};stroke-width:${roWidth};stroke-linejoin:round}`, ".kh-sun{stroke:none}");
   if (lines) rules.push(".r{stroke:none}", ".l{display:none}");
   return rules.join("");
 }

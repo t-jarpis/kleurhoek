@@ -32,7 +32,9 @@ describe("doelen (ADR 0022)", () => {
     expect(visits.months[0]).toMatchObject({ month: "2026-10", target: 500, stretch: 1000, actual: 2 });
     expect(visits.months[12]).toMatchObject({ month: "2027-10", target: 10000, actual: null });
     expect(visits.now).toMatchObject({ actual: 2, target: 500, expected: Math.round(500 * 20 / 31), onTrack: false });
-    const plates = g.metrics.find((m) => m.metric === "plates")!;
+    // Platen tellen vanaf de dag dat ze erbij kwamen; de testdatabase is vandaag gevuld, dus kijk naar nu.
+    const today = await ctx.app.get(GoalsService).get(TENANT, new Date());
+    const plates = today.metrics.find((m) => m.metric === "plates")!;
     expect(plates.now!.actual).toBeGreaterThan(0);
   });
 
