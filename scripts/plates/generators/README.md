@@ -19,3 +19,6 @@ Een bouwplaat wordt uitgerekend uit een 3D-model (hoekpunten en vlakken): de uit
 
 ## Drie lijndiktes (`ink.py`, ADR 0064)
 Gedetailleerde platen (12+) krijgen een dikke omtrek per onderwerp en middellijnen per groot deel. Zet in de generator `obj("uil")` vóór de vlakken van een onderwerp en `part()` vóór elk deel (vleugel, buik, oog); de achtergrond is `obj("bg")` of de stand aan het begin. `kp12` in `batch13e.py` zet de laag er daarna vanzelf in (`<g class="ink">`). Een bestaande plaat bijwerken: genereer opnieuw, controleer dat de vlakken gelijk zijn, en vervang alleen wat ná de vlakken staat; de seed maakt er bij de volgende start een nieuwe versie van.
+
+## Sinterklaas (`batch44_sint.py`, ADR 0065)
+Figuren `sint()` (mijter, baard, mantel, staf), `piet()` (Roetveegpiet: baret met veer, kraag, pofbroek, roetvegen op de wangen) en `horse()` (het paard). `OUT=/tmp/sint python3 batch44_sint.py`; de 12+-plaat staat in `batch13e.py` (`sinterklaas-glas-in-lood`).

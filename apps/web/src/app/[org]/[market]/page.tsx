@@ -22,6 +22,7 @@ import { subscribe } from "./mail/actions";
 import { getOrg } from "@/lib/org";
 import { hreflang, indexable, jsonLd, pageMeta, SITE, pageUrl } from "@/lib/seo";
 import type { Metadata } from "next";
+import { SINT_TEXT, sintTeaser } from "@/lib/sint";
 
 export const revalidate = 300;
 
@@ -60,7 +61,13 @@ export default async function Home({ params }: { params: Promise<{ org: string; 
       </header>
       <SeasonBand season={season} plates={plates} taxonomy={taxonomy} market={market} base={base} t={t} />
       {/* Aftelkalender (ADR 0058): in november en december op de voorpagina. */}
-      {["11", "12"].includes(season.today.slice(5, 7)) && (
+      {/* Sinterklaaskalender (ADR 0065) in nl-NL en nl-BE tot en met pakjesavond, daarna de aftelkalender. */}
+      {sintTeaser(season.today.slice(0, 10), market) ? (
+        <div className="kh-advent-teaser no-print">
+          <p>{SINT_TEXT.teaser}</p>
+          <Link className="ui-btn" data-variant="primary" href={link(base, "/sinterklaaskalender")}>{SINT_TEXT.teaserCta}</Link>
+        </div>
+      ) : ["11", "12"].includes(season.today.slice(5, 7)) && (
         <div className="kh-advent-teaser no-print">
           <p>{t.advent.teaser}</p>
           <Link className="ui-btn" data-variant="primary" href={link(base, "/aftelkalender")}>{t.advent.teaserCta}</Link>

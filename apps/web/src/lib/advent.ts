@@ -85,4 +85,4 @@ export function openUntil(today: string, target: AdventTarget = "kerst"): { year
 }
 
 /** De volgorde van de deurtjes op de kalender: door elkaar, zoals bij een echte aftelkalender. */
-export const doorOrder = (year: number) => seeded(Array.from({ length: 24 }, (_, i) => i + 1), year * 7 + 3);
+export const doorOrder = (year: number, total = 24) => seeded(Array.from({ length: total }, (_, i) => i + 1), year * 7 + 3);

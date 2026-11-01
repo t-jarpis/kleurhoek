@@ -5,6 +5,7 @@ import { pageUrl } from "@/lib/seo";
 import { marketLabel } from "@/lib/sites";
 import { DIMENSIONS, topics, topicTitle } from "@/lib/topics";
 import { packs } from "@/lib/packs";
+import { hasSintCalendar, SINT_TEXT } from "@/lib/sint";
 
 /**
  * llms.txt (ADR 0055): een korte kaart van de site voor AI-assistenten, volgens het voorstel op llmstxt.org.
@@ -18,6 +19,7 @@ export async function llmsTxt(markets: string[]): Promise<string> {
     const groups = taxonomy ? topics(plates, taxonomy, t) : null;
     const lines = [`## ${marketLabel(market)} (${market})`, "", `- [Kleurhoek](${pageUrl(market, "")}): ${t.lede}`];
     if (groups) for (const d of DIMENSIONS) for (const x of groups[d]) lines.push(`- [${topicTitle(t, x)}](${pageUrl(market, x.path)}): ${x.count}`);
+    if (hasSintCalendar(market)) lines.push(`- [${SINT_TEXT.nav}](${pageUrl(market, "/sinterklaaskalender")}): ${SINT_TEXT.lede}`);
     lines.push(`- [${t.advent.nav}](${pageUrl(market, "/aftelkalender")}): ${t.advent.lede}`, `- [${t.together.title}](${pageUrl(market, "/samen")}): ${t.together.lede}`);
     if (taxonomy) for (const p of packs(plates, taxonomy)) lines.push(`- [${t.packs.packTitle(p.category.name, p.age.name)}](${pageUrl(market, `/lespakketten/${p.slug}`)}): ${p.plates.length}`);
     return lines.join("\n");

@@ -976,3 +976,40 @@ def krans(sh):
     cv.put(circle(100, 100, 7, 24), "y")
     cv.finish(sh)
 kp12("bloemenkrans", "Bloemenkrans", "Een krans van takjes, blaadjes, bloemen en bessen rond een zonnig hart. Kies twee bloemkleuren en wissel ze af, en geef de blaadjes een lichte en een donkere helft.", krans, "natuur")
+
+# ================================================================ Sinterklaas (batch 44, ADR 0064)
+def sint_glas(sh):
+    """Sinterklaas als glas-in-lood: mijter, baard en mantel vol patronen, met staf, voor een raam van scherfjes."""
+    cv = Canvas()
+    cv.put_many(pat_voronoi(PAGE, 15, "nbp", 44))
+    obj("maan"); cv.put(circle(36, 34, 20, 64), "y")
+    obj("sint")
+    # mantel (twee panden) en albe
+    cape = P(bez((100, 96), (60, 104), (34, 150), (22, 200), 20) + [(178, 200)] + bez((178, 200), (166, 150), (140, 104), (100, 96), 20)[1:])
+    part(); cv.put_many(pat_scales(cape, 7, "rm"))
+    alb = P([(80, 120), (120, 120), (130, 200), (70, 200)])
+    part(); cv.put_many(pat_stripes(alb, 6, 0, "-k"))
+    for d in (-1, 1):
+        stola = P([(100 + d * 4, 122), (100 + d * 13, 122), (100 + d * 16, 200), (100 + d * 6, 200)])
+        part(); cv.put_many(pat_checker(stola, 5, 45, "yo"))
+    # staf rechts
+    part(); cv.put(box(160, 40, 166, 200), "y")
+    hook = circle(150, 40, 14, 48).difference(circle(150, 40, 8, 40)).difference(box(130, 40, 160, 60))
+    cv.put(unary_union([hook, circle(138, 42, 3.5, 16)]), "o")
+    # hand
+    part(); cv.put(circle(163, 140, 7, 24), "-")
+    # baard
+    beard = P(bez((78, 78), (70, 110), (86, 140), (100, 150), 16) + bez((100, 150), (114, 140), (130, 110), (122, 78), 16)[1:])
+    part(); cv.put_many(pat_waves(beard, 5, 1.6, 14, "-z", 90))
+    # gezicht en snor
+    part(); cv.put(ellipse(100, 74, 21, 22), "-")
+    part(); cv.put(unary_union([ellipse(91, 88, 10, 4.5, 12), ellipse(109, 88, 10, 4.5, -12)]), "-")
+    cv.put(circle(100, 82, 3.6, 16), "k")
+    for x in (92, 108): cv.put(circle(x, 72, 2.6, 16), "x")
+    # mijter
+    mit = P(bez((78, 58), (74, 30), (90, 12), (100, 2), 16) + bez((100, 2), (110, 12), (126, 30), (122, 58), 16)[1:])
+    part(); cv.put_many(pat_rays(mit, 100, 60, 14, "rm"))
+    part(); cv.put(box(76, 50, 124, 60), "y")
+    part(); cv.put(unary_union([box(97, 14, 103, 44), box(90, 22, 110, 28)]), "y")
+    cv.finish(sh)
+kp12("sinterklaas-glas-in-lood", "Sinterklaas als glas-in-lood", "Sinterklaas met mijter, baard en staf, opgebouwd uit honderden kleine vlakjes voor een raam van glasscherven. Kleur de mantel in twee roodtinten en laat de baard wit met lichtgrijze golfjes.", sint_glas, "feest", holiday="sinterklaas")
