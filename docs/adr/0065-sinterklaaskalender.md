@@ -17,6 +17,8 @@ In Nederland en Vlaanderen begint het feest al met de intocht, half november. De
 - **Voorpagina.** In nl-NL en nl-BE wijst de banner van 1 november tot en met pakjesavond naar de Sinterklaaskalender, daarna weer naar de aftelkalender.
 - **Vindbaarheid.** In de sitemap en `llms.txt` van die twee markten. Paginasoort `sinterklaaskalender` in de eigen telling.
 
+- **Rijker en meer (later op 1 november).** De platen tot 9 jaar kregen meer detail (gestreept pak en knoopjes bij Piet, gouden zoom bij Sint, zadeldek bij het paard, behang, vloer, vlaggetjes en pakjes met stippen) en er kwamen 8 platen voor jonge kinderen bij: 23 nieuwe Sinterklaasplaten in totaal. De seed maakt nu ook een nieuwe versie als het aantal vlakken verandert; opgeslagen kleurwerk blijft bij zijn eigen versie.
+
 ## Gevolgen
 - Volgend jaar schuift alles vanzelf mee: de intocht en het aantal deurtjes worden per jaar berekend.
 - Valt de echte intocht een keer anders, dan passen we alleen `intocht()` aan.

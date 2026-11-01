@@ -34,7 +34,9 @@ export function sintDates(year: number, market: string): string[] {
 export const dateLabel = (date: string) => `${Number(date.slice(8, 10))} ${MONTHS[Number(date.slice(5, 7)) - 1]}`;
 
 /** Deze platen eerst, in deze volgorde; de intocht vooraan en pakjesavond als laatste. */
-const FIRST = ["stoomboot-komt-aan", "intocht-van-sinterklaas", "sinterklaas-portret", "roetveegpiet-zwaait", "amerigo-en-de-wortel",
+const FIRST = ["stoomboot-komt-aan", "intocht-van-sinterklaas", "sint-en-piet-zwaaien", "sinterklaas-portret", "roetveegpiet-zwaait",
+  "pakjesboot-in-de-haven", "sint-rijdt-op-zijn-paard", "amerigo-en-de-wortel", "schoen-bij-de-kachel", "piet-maakt-muziek",
+  "stapel-cadeautjes", "sinterklaas-leest-voor", "warme-chocolademelk",
   "schoen-zetten", "piet-met-de-zak", "pepernotenbakkerij", "chocoladeletter", "sinterklaas-op-het-dak", "mijter-om-op-te-zetten",
   "piet-in-de-schoorsteen", "het-grote-boek", "pieten-op-het-dak", "surprise-maken", "schoen", "sinterklaas", "pakjesboot",
   "sinterklaas-glas-in-lood", "sinterklaaskaart-schoen", "surprise-mijterdoosje", "harmonica-uitnodiging-pakjesavond"];

@@ -515796,9 +515796,9 @@
         "optional": true
       }
     ],
-    "regionCount": 27,
+    "regionCount": 55,
     "colorByNumber": {
-      "codes": "b--wryyygz-z-z-z-z----zywog",
+      "codes": "b--wrgy-y--y-wmmm------------gyoyoz-z-z-z-z----zrywywog",
       "palette": [
         {
           "code": "b",
@@ -515813,20 +515813,24 @@
           "hex": "#e2483d"
         },
         {
-          "code": "y",
-          "hex": "#f2c618"
-        },
-        {
           "code": "g",
           "hex": "#2fa45a"
         },
         {
-          "code": "z",
-          "hex": "#7a7f87"
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
         },
         {
           "code": "o",
           "hex": "#ff8a3d"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
         }
       ],
       "labels": [
@@ -515840,111 +515844,195 @@
         {
           "region": 3,
           "number": 2,
-          "x": 173.1,
-          "y": 112.5,
+          "x": 181.1,
+          "y": 117.5,
           "size": 13
         },
         {
           "region": 4,
           "number": 3,
-          "x": 170.7,
-          "y": 59.8,
-          "size": 11.3
+          "x": 171.6,
+          "y": 59,
+          "size": 11.9
         },
         {
           "region": 5,
           "number": 4,
-          "x": 171.6,
+          "x": 173.6,
           "y": 139,
           "size": 8.7
         },
         {
           "region": 6,
-          "number": 4,
+          "number": 5,
+          "x": 177.9,
+          "y": 151.9,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 5,
           "x": 161.7,
           "y": 89.9,
           "size": 6.6
         },
         {
-          "region": 7,
-          "number": 4,
-          "x": 183.7,
+          "region": 11,
+          "number": 5,
+          "x": 185.7,
           "y": 89.9,
           "size": 6.6
         },
         {
-          "region": 8,
-          "number": 5,
-          "x": 185,
-          "y": 184.7,
-          "size": 13
-        },
-        {
-          "region": 9,
-          "number": 6,
-          "x": 159.4,
-          "y": 145.7,
-          "size": 6.7
-        },
-        {
-          "region": 11,
-          "number": 6,
-          "x": 140.8,
-          "y": 182.2,
+          "region": 13,
+          "number": 2,
+          "x": 158.9,
+          "y": 107.2,
           "size": 4.5
         },
         {
-          "region": 13,
+          "region": 14,
           "number": 6,
-          "x": 121.9,
-          "y": 182.2,
+          "x": 156.9,
+          "y": 101.9,
           "size": 4.5
         },
         {
           "region": 15,
           "number": 6,
+          "x": 162.9,
+          "y": 101.9,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 6,
+          "x": 168.9,
+          "y": 101.9,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 4,
+          "x": 165,
+          "y": 181.1,
+          "size": 12.4
+        },
+        {
+          "region": 30,
+          "number": 5,
+          "x": 155.9,
+          "y": 185.2,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 7,
+          "x": 157.9,
+          "y": 185.9,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 5,
+          "x": 185.9,
+          "y": 185.2,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 7,
+          "x": 187.9,
+          "y": 185.9,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 8,
+          "x": 159.4,
+          "y": 145.7,
+          "size": 6.7
+        },
+        {
+          "region": 36,
+          "number": 8,
+          "x": 140.8,
+          "y": 182.2,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 8,
+          "x": 121.9,
+          "y": 182.2,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 8,
           "x": 96.7,
           "y": 182.2,
           "size": 4.5
         },
         {
-          "region": 17,
-          "number": 6,
+          "region": 42,
+          "number": 8,
           "x": 77.8,
           "y": 182.2,
           "size": 4.5
         },
         {
-          "region": 22,
-          "number": 6,
+          "region": 47,
+          "number": 8,
           "x": 72.8,
           "y": 91.2,
           "size": 4.5
         },
         {
-          "region": 23,
-          "number": 4,
+          "region": 48,
+          "number": 3,
+          "x": 113.7,
+          "y": 132.8,
+          "size": 13
+        },
+        {
+          "region": 49,
+          "number": 5,
+          "x": 106.4,
+          "y": 146.3,
+          "size": 4.5
+        },
+        {
+          "region": 50,
+          "number": 2,
+          "x": 46.1,
+          "y": 92.2,
+          "size": 4.5
+        },
+        {
+          "region": 51,
+          "number": 5,
           "x": 42.8,
           "y": 185.6,
           "size": 11.5
         },
         {
-          "region": 24,
+          "region": 52,
           "number": 2,
           "x": 25.3,
           "y": 175.8,
           "size": 4.5
         },
         {
-          "region": 25,
+          "region": 53,
           "number": 7,
           "x": 36.8,
           "y": 146.3,
           "size": 4.5
         },
         {
-          "region": 26,
-          "number": 5,
+          "region": 54,
+          "number": 4,
           "x": 42.9,
           "y": 139.5,
           "size": 4.5
@@ -516125,10 +516213,14 @@
         "optional": true
       }
     ],
-    "regionCount": 12,
+    "regionCount": 15,
     "colorByNumber": {
-      "codes": "-bwwwwwwwwyy",
+      "codes": "-zb-wwwwwwwwyyy",
       "palette": [
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
         {
           "code": "b",
           "hex": "#4fa3f0"
@@ -516146,78 +516238,92 @@
         {
           "region": 1,
           "number": 1,
-          "x": 78.5,
-          "y": 175.2,
+          "x": 143.1,
+          "y": 66.1,
           "size": 13
         },
         {
           "region": 2,
           "number": 2,
+          "x": 23.5,
+          "y": 175.1,
+          "size": 10.3
+        },
+        {
+          "region": 4,
+          "number": 3,
           "x": 127.5,
           "y": 134.8,
           "size": 13
         },
         {
-          "region": 3,
-          "number": 2,
-          "x": 29.8,
-          "y": 139.8,
-          "size": 5.4
-        },
-        {
-          "region": 4,
-          "number": 2,
-          "x": 39.8,
-          "y": 149.8,
-          "size": 5.4
-        },
-        {
           "region": 5,
-          "number": 2,
-          "x": 23.8,
-          "y": 153.8,
+          "number": 3,
+          "x": 39.8,
+          "y": 171.8,
           "size": 5.4
         },
         {
           "region": 6,
-          "number": 2,
-          "x": 165.8,
-          "y": 145.8,
+          "number": 3,
+          "x": 51.8,
+          "y": 179.8,
           "size": 5.4
         },
         {
           "region": 7,
-          "number": 2,
-          "x": 175.8,
-          "y": 155.8,
+          "number": 3,
+          "x": 29.8,
+          "y": 181.8,
           "size": 5.4
         },
         {
           "region": 8,
-          "number": 2,
-          "x": 159.8,
-          "y": 159.8,
+          "number": 3,
+          "x": 155.8,
+          "y": 175.8,
           "size": 5.4
         },
         {
           "region": 9,
-          "number": 2,
-          "x": 181.8,
-          "y": 139.8,
+          "number": 3,
+          "x": 167.8,
+          "y": 181.8,
           "size": 5.4
         },
         {
           "region": 10,
           "number": 3,
-          "x": 29.5,
-          "y": 39.5,
-          "size": 5.2
+          "x": 147.8,
+          "y": 183.8,
+          "size": 5.4
         },
         {
           "region": 11,
           "number": 3,
-          "x": 171.6,
-          "y": 29.7,
+          "x": 175.8,
+          "y": 171.8,
+          "size": 5.4
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 19.5,
+          "y": 19.5,
+          "size": 5.2
+        },
+        {
+          "region": 13,
+          "number": 4,
+          "x": 183.6,
+          "y": 29.6,
+          "size": 4.6
+        },
+        {
+          "region": 14,
+          "number": 4,
+          "x": 183.6,
+          "y": 129.6,
           "size": 4.5
         }
       ]
@@ -516396,188 +516502,284 @@
         "optional": true
       }
     ],
-    "regionCount": 32,
+    "regionCount": 48,
     "colorByNumber": {
-      "codes": "pwny-rryyrr--ryy---kwwyyyyr---y-",
+      "codes": "pmwry-nrr-yw-rryyrr--yyryyng---kww--yyr---yy-gno",
       "palette": [
         {
           "code": "p",
           "hex": "#7b5bd6"
         },
         {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
           "code": "w",
           "hex": "#a0673d"
-        },
-        {
-          "code": "n",
-          "hex": "#2f5bd3"
-        },
-        {
-          "code": "y",
-          "hex": "#f2c618"
         },
         {
           "code": "r",
           "hex": "#e2483d"
         },
         {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
           "code": "k",
           "hex": "#f59fc4"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
         }
       ],
       "labels": [
         {
           "region": 0,
           "number": 1,
-          "x": 145,
-          "y": 45,
+          "x": 155,
+          "y": 26.3,
           "size": 13
         },
         {
           "region": 1,
           "number": 2,
-          "x": 25,
-          "y": 183.8,
-          "size": 13
+          "x": 179.6,
+          "y": 19.1,
+          "size": 6
         },
         {
           "region": 2,
           "number": 3,
-          "x": 33,
-          "y": 46.5,
+          "x": 15,
+          "y": 166.3,
           "size": 13
         },
         {
           "region": 3,
           "number": 4,
-          "x": 39.3,
-          "y": 24.5,
-          "size": 4.5
+          "x": 40.5,
+          "y": 181.4,
+          "size": 6.9
         },
         {
-          "region": 5,
+          "region": 4,
           "number": 5,
-          "x": 91.8,
-          "y": 85.3,
-          "size": 5.6
+          "x": 86.5,
+          "y": 181.6,
+          "size": 8.7
         },
         {
           "region": 6,
-          "number": 5,
-          "x": 116.2,
-          "y": 85.3,
-          "size": 5.6
+          "number": 6,
+          "x": 35.1,
+          "y": 47.7,
+          "size": 13
         },
         {
           "region": 7,
           "number": 4,
+          "x": 20,
+          "y": 21.5,
+          "size": 8.3
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 52,
+          "y": 18.8,
+          "size": 7.8
+        },
+        {
+          "region": 10,
+          "number": 5,
+          "x": 41.3,
+          "y": 28.5,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 3,
+          "x": 81.9,
+          "y": 44,
+          "size": 13
+        },
+        {
+          "region": 13,
+          "number": 4,
+          "x": 81.7,
+          "y": 87.2,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 4,
+          "x": 126.3,
+          "y": 89.2,
+          "size": 5.1
+        },
+        {
+          "region": 15,
+          "number": 5,
           "x": 100.8,
           "y": 84.4,
           "size": 4.5
         },
         {
-          "region": 8,
-          "number": 4,
+          "region": 16,
+          "number": 5,
           "x": 106.7,
           "y": 78.5,
           "size": 4.5
         },
         {
-          "region": 9,
-          "number": 5,
+          "region": 17,
+          "number": 4,
           "x": 88.7,
           "y": 72.4,
           "size": 4.7
         },
         {
-          "region": 10,
-          "number": 5,
+          "region": 18,
+          "number": 4,
           "x": 117,
           "y": 67.3,
           "size": 4.7
         },
         {
-          "region": 13,
-          "number": 5,
-          "x": 98.7,
-          "y": 34,
-          "size": 5
-        },
-        {
-          "region": 14,
-          "number": 4,
-          "x": 96.6,
-          "y": 41.6,
-          "size": 4.5
-        },
-        {
-          "region": 15,
-          "number": 4,
-          "x": 103.8,
-          "y": 27.3,
-          "size": 4.5
-        },
-        {
-          "region": 19,
-          "number": 6,
-          "x": 103.9,
-          "y": 50.6,
-          "size": 4.5
-        },
-        {
-          "region": 20,
-          "number": 2,
-          "x": 32,
-          "y": 124.6,
-          "size": 7.6
-        },
-        {
           "region": 21,
-          "number": 2,
-          "x": 89.5,
-          "y": 151,
-          "size": 13
+          "number": 5,
+          "x": 94.7,
+          "y": 85.7,
+          "size": 4.5
         },
         {
           "region": 22,
-          "number": 4,
-          "x": 41.8,
-          "y": 151.9,
+          "number": 5,
+          "x": 111.4,
+          "y": 72.8,
           "size": 4.5
         },
         {
           "region": 23,
           "number": 4,
-          "x": 69.8,
-          "y": 151.9,
-          "size": 4.5
+          "x": 98.7,
+          "y": 34,
+          "size": 5
         },
         {
           "region": 24,
-          "number": 4,
-          "x": 129.9,
-          "y": 151.9,
+          "number": 5,
+          "x": 95.7,
+          "y": 40.9,
           "size": 4.5
         },
         {
           "region": 25,
-          "number": 4,
-          "x": 157.9,
-          "y": 151.9,
+          "number": 5,
+          "x": 103.8,
+          "y": 27.3,
           "size": 4.5
         },
         {
           "region": 26,
+          "number": 6,
+          "x": 98.2,
+          "y": 41.2,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 7,
+          "x": 109.8,
+          "y": 41.2,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 8,
+          "x": 103.9,
+          "y": 50.6,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 3,
+          "x": 32,
+          "y": 124.6,
+          "size": 7.6
+        },
+        {
+          "region": 33,
+          "number": 3,
+          "x": 40.5,
+          "y": 143,
+          "size": 12.1
+        },
+        {
+          "region": 36,
           "number": 5,
+          "x": 69.8,
+          "y": 150.9,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 5,
+          "x": 129.9,
+          "y": 150.9,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 4,
           "x": 66,
           "y": 96.8,
           "size": 4.5
         },
         {
-          "region": 30,
-          "number": 4,
+          "region": 42,
+          "number": 5,
           "x": 164.9,
           "y": 79.6,
+          "size": 4.5
+        },
+        {
+          "region": 43,
+          "number": 5,
+          "x": 162,
+          "y": 117.8,
+          "size": 4.5
+        },
+        {
+          "region": 45,
+          "number": 7,
+          "x": 177.9,
+          "y": 63.8,
+          "size": 4.5
+        },
+        {
+          "region": 46,
+          "number": 6,
+          "x": 176.9,
+          "y": 55.8,
+          "size": 4.5
+        },
+        {
+          "region": 47,
+          "number": 9,
+          "x": 175.9,
+          "y": 47.8,
           "size": 4.5
         }
       ]
@@ -516756,9 +516958,9 @@
         "optional": true
       }
     ],
-    "regionCount": 154,
+    "regionCount": 162,
     "colorByNumber": {
-      "codes": "b--wwyyrwyyowyygwyywwyyrwyyznn-bbbbbrxrx-------znnxxyyyo-o--nnxxmmmxxxxxxxxxx-x--nnxxgggw-w--nnxxppp-y--yyy-rryyrr--xxryy---kyyxxrrr---xxxxy--gzzrnyrnyrny",
+      "codes": "b--wwyyrwyyowyygwyywwyyrwyyznn-bbbbbrxrx-------znnxxyyyo-o--nnxxmmmxxxxxxxxxx-x--nnxxgggw-w--nnxxppp-y--yyy-rryyrr--xxryy---kyyxxrrr---xxxxyyyyyywy--gyzzrnyrnyrny",
       "palette": [
         {
           "code": "b",
@@ -517296,8 +517498,8 @@
         {
           "region": 85,
           "number": 6,
-          "x": 138.1,
-          "y": 165.1,
+          "x": 136.2,
+          "y": 149.6,
           "size": 4.5
         },
         {
@@ -517527,16 +517729,16 @@
         {
           "region": 130,
           "number": 4,
-          "x": 136.7,
-          "y": 161.4,
+          "x": 139.2,
+          "y": 156.2,
           "size": 4.5
         },
         {
           "region": 131,
           "number": 4,
-          "x": 127.6,
-          "y": 171.5,
-          "size": 9.3
+          "x": 123.3,
+          "y": 172.5,
+          "size": 4.5
         },
         {
           "region": 135,
@@ -517570,88 +517772,144 @@
           "region": 139,
           "number": 3,
           "x": 122.5,
-          "y": 183.8,
+          "y": 184.2,
           "size": 4.9
         },
         {
+          "region": 140,
+          "number": 3,
+          "x": 120.3,
+          "y": 165.3,
+          "size": 4.5
+        },
+        {
+          "region": 141,
+          "number": 3,
+          "x": 135.3,
+          "y": 165.3,
+          "size": 4.5
+        },
+        {
           "region": 142,
+          "number": 3,
+          "x": 128,
+          "y": 168.5,
+          "size": 4.5
+        },
+        {
+          "region": 143,
+          "number": 3,
+          "x": 128,
+          "y": 172,
+          "size": 4.5
+        },
+        {
+          "region": 144,
+          "number": 3,
+          "x": 128,
+          "y": 175.5,
+          "size": 4.5
+        },
+        {
+          "region": 145,
+          "number": 2,
+          "x": 120.8,
+          "y": 178.7,
+          "size": 4.5
+        },
+        {
+          "region": 146,
+          "number": 3,
+          "x": 127.7,
+          "y": 178.7,
+          "size": 4.5
+        },
+        {
+          "region": 149,
           "number": 6,
           "x": 125.1,
           "y": 146.4,
           "size": 4.5
         },
         {
-          "region": 143,
+          "region": 150,
+          "number": 3,
+          "x": 131.4,
+          "y": 146.4,
+          "size": 4.5
+        },
+        {
+          "region": 151,
           "number": 7,
           "x": 122.8,
           "y": 158,
           "size": 4.5
         },
         {
-          "region": 144,
+          "region": 152,
           "number": 7,
           "x": 132.9,
           "y": 157.4,
           "size": 4.5
         },
         {
-          "region": 145,
+          "region": 153,
           "number": 4,
           "x": 11.7,
           "y": 37.1,
           "size": 4.5
         },
         {
-          "region": 146,
+          "region": 154,
           "number": 8,
           "x": 33.7,
           "y": 43.8,
           "size": 4.5
         },
         {
-          "region": 147,
+          "region": 155,
           "number": 3,
           "x": 55.7,
           "y": 48.6,
           "size": 4.5
         },
         {
-          "region": 148,
+          "region": 156,
           "number": 4,
           "x": 77.7,
           "y": 51.4,
           "size": 4.5
         },
         {
-          "region": 149,
+          "region": 157,
           "number": 8,
           "x": 99.7,
           "y": 52.4,
           "size": 4.5
         },
         {
-          "region": 150,
+          "region": 158,
           "number": 3,
           "x": 122.3,
           "y": 51.4,
           "size": 4.5
         },
         {
-          "region": 151,
+          "region": 159,
           "number": 4,
           "x": 143.7,
           "y": 48.6,
           "size": 4.5
         },
         {
-          "region": 152,
+          "region": 160,
           "number": 8,
           "x": 165.7,
           "y": 43.8,
           "size": 4.5
         },
         {
-          "region": 153,
+          "region": 161,
           "number": 3,
           "x": 187.7,
           "y": 37.1,
@@ -518403,9 +518661,9 @@
         "optional": true
       }
     ],
-    "regionCount": 48,
+    "regionCount": 98,
     "colorByNumber": {
-      "codes": "kwzxooo-rrrttt---xxxx--rzzwwwzwwwwwwwwwww-wwwwww",
+      "codes": "k-----------------------------------wywowbwwzxooo-rrrttt---xxxxnnyyywy--ryzzwwwzwwwwwwwwwww-y-wwww",
       "palette": [
         {
           "code": "k",
@@ -518416,6 +518674,18 @@
           "hex": "#a0673d"
         },
         {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
           "code": "z",
           "hex": "#7a7f87"
         },
@@ -518424,304 +518694,402 @@
           "hex": "#222222"
         },
         {
-          "code": "o",
-          "hex": "#ff8a3d"
-        },
-        {
           "code": "r",
           "hex": "#e2483d"
         },
         {
           "code": "t",
           "hex": "#3ec7c1"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
         }
       ],
       "labels": [
         {
           "region": 0,
           "number": 1,
-          "x": 25,
-          "y": 24.5,
-          "size": 13
+          "x": 15,
+          "y": 52.5,
+          "size": 11.5
         },
         {
-          "region": 1,
+          "region": 36,
+          "number": 2,
+          "x": 7,
+          "y": 23.9,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 3,
+          "x": 9.8,
+          "y": 13.3,
+          "size": 5.5
+        },
+        {
+          "region": 38,
+          "number": 2,
+          "x": 6.1,
+          "y": 6.9,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 4,
+          "x": 23.8,
+          "y": 13.3,
+          "size": 5.5
+        },
+        {
+          "region": 40,
+          "number": 2,
+          "x": 20.1,
+          "y": 6.9,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 5,
+          "x": 35.8,
+          "y": 13.3,
+          "size": 5.5
+        },
+        {
+          "region": 42,
+          "number": 2,
+          "x": 32.1,
+          "y": 6.9,
+          "size": 4.5
+        },
+        {
+          "region": 43,
           "number": 2,
           "x": 25,
           "y": 165.5,
           "size": 13
         },
         {
-          "region": 2,
-          "number": 3,
+          "region": 44,
+          "number": 6,
           "x": 136.3,
           "y": 117.5,
           "size": 11.5
         },
         {
-          "region": 3,
-          "number": 4,
+          "region": 45,
+          "number": 7,
           "x": 152.8,
           "y": 81,
           "size": 12.6
         },
         {
-          "region": 4,
-          "number": 5,
+          "region": 46,
+          "number": 4,
           "x": 145.7,
           "y": 103.9,
           "size": 6.7
         },
         {
-          "region": 5,
-          "number": 5,
+          "region": 47,
+          "number": 4,
           "x": 158.7,
           "y": 103.9,
           "size": 6.7
         },
         {
-          "region": 6,
-          "number": 5,
+          "region": 48,
+          "number": 4,
           "x": 171.7,
           "y": 103.9,
           "size": 6.7
         },
         {
-          "region": 8,
-          "number": 6,
+          "region": 50,
+          "number": 8,
           "x": 145.8,
           "y": 49.8,
           "size": 4.5
         },
         {
-          "region": 9,
-          "number": 6,
+          "region": 51,
+          "number": 8,
           "x": 159.8,
           "y": 49.8,
           "size": 4.5
         },
         {
-          "region": 10,
-          "number": 6,
+          "region": 52,
+          "number": 8,
           "x": 171.8,
           "y": 49.8,
           "size": 4.5
         },
         {
-          "region": 11,
-          "number": 7,
-          "x": 59.2,
-          "y": 79.4,
-          "size": 13
+          "region": 53,
+          "number": 9,
+          "x": 53.1,
+          "y": 75.6,
+          "size": 6.8
         },
         {
-          "region": 12,
-          "number": 7,
+          "region": 54,
+          "number": 9,
           "x": 37.1,
           "y": 91,
           "size": 5.7
         },
         {
-          "region": 13,
-          "number": 7,
-          "x": 73.8,
-          "y": 67.1,
+          "region": 55,
+          "number": 9,
+          "x": 75.2,
+          "y": 70.1,
           "size": 6.1
         },
         {
-          "region": 17,
-          "number": 4,
+          "region": 59,
+          "number": 7,
           "x": 46.3,
           "y": 38.4,
           "size": 4.5
         },
         {
-          "region": 18,
-          "number": 4,
+          "region": 60,
+          "number": 7,
           "x": 46.8,
           "y": 45.6,
           "size": 4.5
         },
         {
-          "region": 19,
-          "number": 4,
+          "region": 61,
+          "number": 7,
           "x": 73.7,
           "y": 38.4,
           "size": 4.5
         },
         {
-          "region": 20,
-          "number": 4,
+          "region": 62,
+          "number": 7,
           "x": 73.2,
           "y": 45.2,
           "size": 4.5
         },
         {
-          "region": 23,
-          "number": 6,
+          "region": 63,
+          "number": 10,
+          "x": 46.2,
+          "y": 60.8,
+          "size": 6.4
+        },
+        {
+          "region": 64,
+          "number": 10,
+          "x": 73.2,
+          "y": 60.8,
+          "size": 6.4
+        },
+        {
+          "region": 65,
+          "number": 3,
+          "x": 59.9,
+          "y": 66.4,
+          "size": 4.5
+        },
+        {
+          "region": 66,
+          "number": 3,
+          "x": 59.9,
+          "y": 72.7,
+          "size": 4.5
+        },
+        {
+          "region": 67,
+          "number": 3,
+          "x": 59.9,
+          "y": 79,
+          "size": 4.5
+        },
+        {
+          "region": 68,
+          "number": 2,
+          "x": 47,
+          "y": 84.8,
+          "size": 4.5
+        },
+        {
+          "region": 69,
+          "number": 3,
+          "x": 59.5,
+          "y": 84.8,
+          "size": 4.5
+        },
+        {
+          "region": 72,
+          "number": 8,
           "x": 54.7,
           "y": 26.8,
           "size": 5.5
         },
         {
-          "region": 24,
+          "region": 73,
           "number": 3,
+          "x": 66.2,
+          "y": 26.8,
+          "size": 4.5
+        },
+        {
+          "region": 74,
+          "number": 6,
           "x": 50.6,
           "y": 47.6,
           "size": 4.5
         },
         {
-          "region": 25,
-          "number": 3,
+          "region": 75,
+          "number": 6,
           "x": 68.3,
           "y": 46.4,
           "size": 4.5
         },
         {
-          "region": 26,
+          "region": 76,
           "number": 2,
           "x": 18.4,
           "y": 124.8,
           "size": 5.5
         },
         {
-          "region": 27,
+          "region": 77,
           "number": 2,
           "x": 19.8,
           "y": 136.3,
           "size": 4.5
         },
         {
-          "region": 28,
+          "region": 78,
           "number": 2,
           "x": 111.8,
           "y": 136.3,
           "size": 4.5
         },
         {
-          "region": 29,
-          "number": 3,
+          "region": 79,
+          "number": 6,
           "x": 40.8,
           "y": 114.8,
           "size": 5.5
         },
         {
-          "region": 30,
+          "region": 80,
           "number": 2,
           "x": 39.8,
           "y": 105.8,
           "size": 4.5
         },
         {
-          "region": 31,
+          "region": 81,
           "number": 2,
           "x": 48.2,
           "y": 105.8,
           "size": 4.5
         },
         {
-          "region": 32,
+          "region": 82,
           "number": 2,
           "x": 56.6,
           "y": 105.8,
           "size": 4.5
         },
         {
-          "region": 33,
+          "region": 83,
           "number": 2,
           "x": 65,
           "y": 105.8,
           "size": 4.5
         },
         {
-          "region": 34,
+          "region": 84,
           "number": 2,
           "x": 73.4,
           "y": 105.8,
           "size": 4.5
         },
         {
-          "region": 35,
+          "region": 85,
           "number": 2,
           "x": 81.8,
           "y": 105.8,
           "size": 4.5
         },
         {
-          "region": 36,
+          "region": 86,
           "number": 2,
           "x": 43.8,
           "y": 99.8,
           "size": 4.5
         },
         {
-          "region": 37,
+          "region": 87,
           "number": 2,
           "x": 52.2,
           "y": 99.8,
           "size": 4.5
         },
         {
-          "region": 38,
+          "region": 88,
           "number": 2,
           "x": 60.6,
           "y": 99.8,
           "size": 4.5
         },
         {
-          "region": 39,
+          "region": 89,
           "number": 2,
           "x": 69,
           "y": 99.8,
           "size": 4.5
         },
         {
-          "region": 40,
+          "region": 90,
           "number": 2,
           "x": 77.4,
           "y": 99.8,
           "size": 4.5
         },
         {
-          "region": 42,
-          "number": 2,
-          "x": 149.8,
-          "y": 159.8,
+          "region": 92,
+          "number": 3,
+          "x": 15.1,
+          "y": 116.4,
           "size": 4.5
         },
         {
-          "region": 43,
-          "number": 2,
-          "x": 161.8,
-          "y": 167.8,
-          "size": 4.5
-        },
-        {
-          "region": 44,
-          "number": 2,
-          "x": 173.8,
-          "y": 159.8,
-          "size": 4.5
-        },
-        {
-          "region": 45,
+          "region": 94,
           "number": 2,
           "x": 39.8,
           "y": 169.8,
           "size": 4.5
         },
         {
-          "region": 46,
+          "region": 95,
           "number": 2,
           "x": 51.8,
           "y": 175.8,
           "size": 4.5
         },
         {
-          "region": 47,
+          "region": 96,
           "number": 2,
           "x": 81.8,
           "y": 167.8,
+          "size": 4.5
+        },
+        {
+          "region": 97,
+          "number": 2,
+          "x": 93.8,
+          "y": 185.8,
           "size": 4.5
         }
       ]
@@ -518900,9 +519268,9 @@
         "optional": true
       }
     ],
-    "regionCount": 28,
+    "regionCount": 42,
     "colorByNumber": {
-      "codes": "nyyyyyrww--o-xygzzmmyyyggrrr",
+      "codes": "nyyyyyrwz-y-ww--o-xygyzzmmyyykkkkggrrrllll",
       "palette": [
         {
           "code": "n",
@@ -518921,6 +519289,10 @@
           "hex": "#a0673d"
         },
         {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
           "code": "o",
           "hex": "#ff8a3d"
         },
@@ -518933,12 +519305,16 @@
           "hex": "#2fa45a"
         },
         {
-          "code": "z",
-          "hex": "#7a7f87"
-        },
-        {
           "code": "m",
           "hex": "#d0479b"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
         }
       ],
       "labels": [
@@ -518980,141 +519356,225 @@
         {
           "region": 5,
           "number": 2,
-          "x": 179.7,
-          "y": 69.7,
+          "x": 183.7,
+          "y": 65.7,
           "size": 4.5
         },
         {
           "region": 6,
           "number": 3,
-          "x": 115.6,
-          "y": 164.3,
+          "x": 84.4,
+          "y": 105.8,
           "size": 13
         },
         {
           "region": 7,
+          "number": 4,
+          "x": 29,
+          "y": 131.8,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 5,
+          "x": 44.7,
+          "y": 122.3,
+          "size": 8.8
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 43,
+          "y": 142.6,
+          "size": 9.8
+        },
+        {
+          "region": 12,
           "number": 4,
           "x": 132.9,
           "y": 94.5,
           "size": 13
         },
         {
-          "region": 8,
+          "region": 13,
           "number": 4,
           "x": 112.8,
           "y": 62.6,
           "size": 4.5
         },
         {
-          "region": 11,
-          "number": 5,
+          "region": 16,
+          "number": 6,
           "x": 123,
           "y": 60.3,
           "size": 6
         },
         {
-          "region": 13,
-          "number": 6,
+          "region": 18,
+          "number": 7,
           "x": 136.3,
           "y": 36.1,
           "size": 4.5
         },
         {
-          "region": 14,
+          "region": 19,
           "number": 2,
           "x": 152.4,
           "y": 18.1,
           "size": 4.5
         },
         {
-          "region": 15,
-          "number": 7,
+          "region": 20,
+          "number": 8,
           "x": 128.2,
           "y": 29.8,
           "size": 6.1
         },
         {
-          "region": 16,
-          "number": 8,
+          "region": 21,
+          "number": 2,
+          "x": 140.9,
+          "y": 29.9,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 5,
           "x": 123.5,
           "y": 53,
           "size": 4.5
         },
         {
-          "region": 17,
-          "number": 8,
+          "region": 23,
+          "number": 5,
           "x": 143.3,
           "y": 51.6,
           "size": 4.5
         },
         {
-          "region": 18,
-          "number": 9,
-          "x": 47.7,
-          "y": 158.4,
-          "size": 7.8
-        },
-        {
-          "region": 19,
-          "number": 9,
-          "x": 42.8,
-          "y": 147.3,
-          "size": 4.5
-        },
-        {
-          "region": 20,
-          "number": 2,
-          "x": 56.8,
-          "y": 148,
-          "size": 4.5
-        },
-        {
-          "region": 21,
-          "number": 2,
-          "x": 50.9,
-          "y": 141.8,
-          "size": 4.5
-        },
-        {
-          "region": 22,
-          "number": 2,
-          "x": 63.1,
-          "y": 141.8,
-          "size": 4.5
-        },
-        {
-          "region": 23,
-          "number": 7,
-          "x": 155.9,
-          "y": 166.5,
-          "size": 6
-        },
-        {
           "region": 24,
-          "number": 7,
-          "x": 151.8,
-          "y": 157.3,
-          "size": 4.5
+          "number": 9,
+          "x": 114.1,
+          "y": 173.6,
+          "size": 4.9
         },
         {
           "region": 25,
-          "number": 3,
-          "x": 162.9,
+          "number": 9,
+          "x": 88.8,
           "y": 157.3,
           "size": 4.5
         },
         {
           "region": 26,
-          "number": 3,
-          "x": 156.9,
-          "y": 151.8,
+          "number": 2,
+          "x": 102.8,
+          "y": 158,
           "size": 4.5
         },
         {
           "region": 27,
+          "number": 2,
+          "x": 96.9,
+          "y": 151.8,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 2,
+          "x": 109.1,
+          "y": 151.8,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 10,
+          "x": 92.7,
+          "y": 167.7,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 10,
+          "x": 112.4,
+          "y": 167.2,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 10,
+          "x": 94.4,
+          "y": 179.4,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 10,
+          "x": 111.4,
+          "y": 178.6,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 8,
+          "x": 171.4,
+          "y": 176.5,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 8,
+          "x": 151.8,
+          "y": 163.3,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 3,
+          "x": 162.9,
+          "y": 163.3,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 3,
+          "x": 156.9,
+          "y": 157.8,
+          "size": 4.5
+        },
+        {
+          "region": 37,
           "number": 3,
           "x": 169.1,
-          "y": 151.8,
+          "y": 157.8,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 11,
+          "x": 155.1,
+          "y": 171.9,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 11,
+          "x": 170.2,
+          "y": 171.5,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 11,
+          "x": 156.4,
+          "y": 180.9,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 11,
+          "x": 169.4,
+          "y": 180.3,
           "size": 4.5
         }
       ]
@@ -519293,9 +519753,9 @@
         "optional": true
       }
     ],
-    "regionCount": 36,
+    "regionCount": 57,
     "colorByNumber": {
-      "codes": "nyyyygywrryyynnxxrrr---xxxxn-ygzzwww",
+      "codes": "nyyyyywwyyrwyywwgwyorryyynnxxrrr---xxxxnnnyyywy-ygyzzwwww",
       "palette": [
         {
           "code": "n",
@@ -519306,16 +519766,20 @@
           "hex": "#f2c618"
         },
         {
-          "code": "g",
-          "hex": "#2fa45a"
-        },
-        {
           "code": "w",
           "hex": "#a0673d"
         },
         {
           "code": "r",
           "hex": "#e2483d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
         },
         {
           "code": "x",
@@ -519352,203 +519816,350 @@
           "region": 3,
           "number": 2,
           "x": 39.8,
-          "y": 70.2,
+          "y": 64.2,
           "size": 4.5
         },
         {
           "region": 4,
           "number": 2,
-          "x": 183.8,
-          "y": 64.2,
+          "x": 119.8,
+          "y": 20.2,
           "size": 4.5
         },
         {
           "region": 5,
+          "number": 2,
+          "x": 160.6,
+          "y": 23,
+          "size": 4.5
+        },
+        {
+          "region": 6,
           "number": 3,
+          "x": 15,
+          "y": 164.5,
+          "size": 13
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 15,
+          "y": 121,
+          "size": 10.3
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 7.8,
+          "y": 143.9,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 23.8,
+          "y": 143.9,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 4,
+          "x": 175.6,
+          "y": 169.8,
+          "size": 13
+        },
+        {
+          "region": 11,
+          "number": 3,
+          "x": 184.5,
+          "y": 126.3,
+          "size": 10.8
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 165.9,
+          "y": 151.7,
+          "size": 5.9
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 187.5,
+          "y": 151.7,
+          "size": 5.9
+        },
+        {
+          "region": 14,
+          "number": 3,
+          "x": 176.8,
+          "y": 109.3,
+          "size": 5.5
+        },
+        {
+          "region": 15,
+          "number": 3,
+          "x": 175,
+          "y": 101.3,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 5,
           "x": 25,
           "y": 189.6,
           "size": 12
         },
         {
-          "region": 6,
-          "number": 2,
-          "x": 150.6,
-          "y": 23,
-          "size": 4.5
-        },
-        {
-          "region": 7,
-          "number": 4,
-          "x": 143.2,
-          "y": 102.8,
+          "region": 17,
+          "number": 3,
+          "x": 134.3,
+          "y": 88.8,
           "size": 13
         },
         {
-          "region": 8,
-          "number": 5,
+          "region": 18,
+          "number": 2,
+          "x": 145.9,
+          "y": 105.7,
+          "size": 6.6
+        },
+        {
+          "region": 19,
+          "number": 6,
+          "x": 128.8,
+          "y": 116.3,
+          "size": 4.9
+        },
+        {
+          "region": 20,
+          "number": 4,
           "x": 135.1,
           "y": 64.5,
           "size": 4.5
         },
         {
-          "region": 9,
-          "number": 5,
+          "region": 21,
+          "number": 4,
           "x": 133.9,
           "y": 57.3,
           "size": 4.5
         },
         {
-          "region": 10,
+          "region": 22,
           "number": 2,
           "x": 140.9,
           "y": 57.2,
           "size": 4.5
         },
         {
-          "region": 11,
+          "region": 23,
           "number": 2,
           "x": 134.9,
           "y": 51.8,
           "size": 4.5
         },
         {
-          "region": 12,
+          "region": 24,
           "number": 2,
           "x": 147.1,
           "y": 51.8,
           "size": 4.5
         },
         {
-          "region": 13,
+          "region": 25,
           "number": 1,
           "x": 76,
           "y": 166.2,
           "size": 7.6
         },
         {
-          "region": 14,
+          "region": 26,
           "number": 1,
           "x": 93.8,
           "y": 172,
           "size": 7.9
         },
         {
-          "region": 15,
-          "number": 6,
+          "region": 27,
+          "number": 7,
           "x": 71.4,
           "y": 187.1,
           "size": 5.5
         },
         {
-          "region": 16,
-          "number": 6,
+          "region": 28,
+          "number": 7,
           "x": 96,
           "y": 187.1,
           "size": 5.5
         },
         {
-          "region": 17,
-          "number": 5,
+          "region": 29,
+          "number": 4,
           "x": 110,
           "y": 82.1,
           "size": 5.9
         },
         {
-          "region": 18,
-          "number": 5,
+          "region": 30,
+          "number": 4,
           "x": 63.1,
           "y": 133.4,
           "size": 4.5
         },
         {
-          "region": 19,
-          "number": 5,
-          "x": 83.1,
-          "y": 120,
-          "size": 13
+          "region": 31,
+          "number": 4,
+          "x": 73.7,
+          "y": 122.4,
+          "size": 9.7
         },
         {
-          "region": 23,
-          "number": 6,
+          "region": 35,
+          "number": 7,
           "x": 67.2,
           "y": 79.1,
           "size": 5.3
         },
         {
-          "region": 24,
-          "number": 6,
+          "region": 36,
+          "number": 7,
           "x": 67.9,
           "y": 88,
           "size": 4.5
         },
         {
-          "region": 25,
-          "number": 6,
+          "region": 37,
+          "number": 7,
           "x": 100.8,
           "y": 79.1,
           "size": 5.3
         },
         {
-          "region": 26,
-          "number": 6,
+          "region": 38,
+          "number": 7,
           "x": 100.1,
           "y": 87.5,
           "size": 4.5
         },
         {
-          "region": 27,
+          "region": 39,
           "number": 1,
           "x": 72,
-          "y": 147.1,
+          "y": 148.1,
           "size": 10.8
         },
         {
-          "region": 29,
+          "region": 40,
+          "number": 1,
+          "x": 67.1,
+          "y": 106.5,
+          "size": 7.9
+        },
+        {
+          "region": 41,
+          "number": 1,
+          "x": 100.1,
+          "y": 106.5,
+          "size": 7.9
+        },
+        {
+          "region": 42,
+          "number": 2,
+          "x": 83.9,
+          "y": 113.4,
+          "size": 4.5
+        },
+        {
+          "region": 43,
+          "number": 2,
+          "x": 83.9,
+          "y": 121.1,
+          "size": 4.5
+        },
+        {
+          "region": 44,
+          "number": 2,
+          "x": 83.9,
+          "y": 128.8,
+          "size": 4.5
+        },
+        {
+          "region": 45,
+          "number": 3,
+          "x": 68.1,
+          "y": 135.9,
+          "size": 4.5
+        },
+        {
+          "region": 46,
+          "number": 2,
+          "x": 83.3,
+          "y": 135.9,
+          "size": 4.5
+        },
+        {
+          "region": 48,
           "number": 2,
           "x": 102.8,
           "y": 53,
           "size": 4.5
         },
         {
-          "region": 30,
-          "number": 3,
+          "region": 49,
+          "number": 5,
           "x": 77.6,
           "y": 64.9,
           "size": 6.7
         },
         {
-          "region": 31,
-          "number": 7,
+          "region": 50,
+          "number": 2,
+          "x": 91.6,
+          "y": 65,
+          "size": 4.5
+        },
+        {
+          "region": 51,
+          "number": 8,
           "x": 72.5,
           "y": 90.4,
           "size": 4.5
         },
         {
-          "region": 32,
-          "number": 7,
+          "region": 52,
+          "number": 8,
           "x": 94.2,
           "y": 88.9,
           "size": 4.5
         },
         {
-          "region": 33,
-          "number": 4,
+          "region": 53,
+          "number": 3,
           "x": 39.8,
-          "y": 185.8,
+          "y": 187.8,
           "size": 4.5
         },
         {
-          "region": 34,
-          "number": 4,
+          "region": 54,
+          "number": 3,
+          "x": 51.8,
+          "y": 187.8,
+          "size": 4.5
+        },
+        {
+          "region": 55,
+          "number": 3,
           "x": 149.8,
-          "y": 185.8,
+          "y": 187.8,
           "size": 4.5
         },
         {
-          "region": 35,
-          "number": 4,
+          "region": 56,
+          "number": 3,
           "x": 167.8,
-          "y": 185.8,
+          "y": 187.8,
           "size": 4.5
         }
       ]
@@ -520545,10 +521156,22 @@
         "optional": true
       }
     ],
-    "regionCount": 30,
+    "regionCount": 51,
     "colorByNumber": {
-      "codes": "lppxxooo---xxxxp-ynzzmmyyywwww",
+      "codes": "-oygoyglppxxooo---xxxxpppyyywy-ynyzzmmyyykkkkwwwwyy",
       "palette": [
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
         {
           "code": "l",
           "hex": "#9bd34a"
@@ -520562,12 +521185,8 @@
           "hex": "#222222"
         },
         {
-          "code": "o",
-          "hex": "#ff8a3d"
-        },
-        {
-          "code": "y",
-          "hex": "#f2c618"
+          "code": "w",
+          "hex": "#a0673d"
         },
         {
           "code": "n",
@@ -520582,192 +521201,332 @@
           "hex": "#d0479b"
         },
         {
-          "code": "w",
-          "hex": "#a0673d"
+          "code": "k",
+          "hex": "#f59fc4"
         }
       ],
       "labels": [
         {
-          "region": 0,
+          "region": 1,
           "number": 1,
+          "x": 16.3,
+          "y": 13.7,
+          "size": 5.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 49.6,
+          "y": 16.4,
+          "size": 5.5
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 82.9,
+          "y": 17.7,
+          "size": 5.5
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 116.3,
+          "y": 17.7,
+          "size": 5.2
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 149.6,
+          "y": 16.4,
+          "size": 5.5
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 182.9,
+          "y": 13.7,
+          "size": 5.5
+        },
+        {
+          "region": 7,
+          "number": 4,
           "x": 15,
           "y": 186.7,
           "size": 13
         },
         {
-          "region": 1,
-          "number": 2,
-          "x": 89.7,
-          "y": 172.8,
-          "size": 10.4
+          "region": 8,
+          "number": 5,
+          "x": 86,
+          "y": 164.8,
+          "size": 9.3
         },
         {
-          "region": 2,
-          "number": 2,
-          "x": 111.4,
-          "y": 166.1,
-          "size": 9.7
+          "region": 9,
+          "number": 5,
+          "x": 107.8,
+          "y": 168.2,
+          "size": 9.5
         },
         {
-          "region": 3,
-          "number": 3,
-          "x": 84,
-          "y": 190,
-          "size": 7.1
-        },
-        {
-          "region": 4,
-          "number": 3,
-          "x": 114.6,
-          "y": 190,
-          "size": 7.1
-        },
-        {
-          "region": 5,
-          "number": 4,
-          "x": 66.2,
-          "y": 54.6,
-          "size": 8.2
-        },
-        {
-          "region": 6,
-          "number": 4,
-          "x": 126.3,
-          "y": 98.9,
-          "size": 4.5
-        },
-        {
-          "region": 7,
-          "number": 4,
-          "x": 98.8,
-          "y": 109.9,
-          "size": 13
+          "region": 10,
+          "number": 6,
+          "x": 80.4,
+          "y": 189.8,
+          "size": 6.7
         },
         {
           "region": 11,
-          "number": 3,
-          "x": 77.9,
-          "y": 56,
-          "size": 7
+          "number": 6,
+          "x": 110.4,
+          "y": 189.8,
+          "size": 6.7
         },
         {
           "region": 12,
-          "number": 3,
-          "x": 78.8,
-          "y": 67.6,
-          "size": 6
+          "number": 1,
+          "x": 62.8,
+          "y": 59,
+          "size": 8.1
         },
         {
           "region": 13,
-          "number": 3,
-          "x": 122.1,
-          "y": 56,
-          "size": 7
+          "number": 1,
+          "x": 123.1,
+          "y": 103.7,
+          "size": 4.8
         },
         {
           "region": 14,
-          "number": 3,
-          "x": 121.2,
-          "y": 67,
-          "size": 5.5
-        },
-        {
-          "region": 15,
-          "number": 2,
-          "x": 84.1,
-          "y": 145.5,
-          "size": 13
-        },
-        {
-          "region": 17,
-          "number": 5,
-          "x": 126.6,
-          "y": 20.2,
-          "size": 5.2
+          "number": 1,
+          "x": 83.3,
+          "y": 111.6,
+          "size": 11.9
         },
         {
           "region": 18,
           "number": 6,
-          "x": 91.5,
-          "y": 37.2,
-          "size": 8.8
+          "x": 75.5,
+          "y": 58.6,
+          "size": 6.5
         },
         {
           "region": 19,
-          "number": 7,
-          "x": 85.2,
-          "y": 70.7,
-          "size": 4.5
+          "number": 6,
+          "x": 76.8,
+          "y": 68.8,
+          "size": 5.6
         },
         {
           "region": 20,
-          "number": 7,
-          "x": 113.4,
-          "y": 68.7,
-          "size": 4.5
+          "number": 6,
+          "x": 116.5,
+          "y": 58.6,
+          "size": 6.5
         },
         {
           "region": 21,
-          "number": 8,
-          "x": 134.8,
-          "y": 117.2,
-          "size": 6.9
+          "number": 6,
+          "x": 115.8,
+          "y": 68.8,
+          "size": 5.1
         },
         {
           "region": 22,
-          "number": 8,
-          "x": 130.3,
-          "y": 107.3,
-          "size": 4.5
+          "number": 5,
+          "x": 81.2,
+          "y": 143.2,
+          "size": 13
         },
         {
           "region": 23,
           "number": 5,
-          "x": 142.9,
-          "y": 108,
-          "size": 4.5
+          "x": 75.3,
+          "y": 92.3,
+          "size": 9.6
         },
         {
           "region": 24,
           "number": 5,
-          "x": 136.9,
-          "y": 101.8,
-          "size": 4.5
+          "x": 115.7,
+          "y": 92.3,
+          "size": 9.6
         },
         {
           "region": 25,
-          "number": 5,
-          "x": 149.1,
-          "y": 101.8,
+          "number": 2,
+          "x": 95.9,
+          "y": 100.7,
           "size": 4.5
         },
         {
           "region": 26,
-          "number": 9,
-          "x": 21.8,
-          "y": 159.8,
-          "size": 5.4
+          "number": 2,
+          "x": 95.9,
+          "y": 110.1,
+          "size": 4.5
         },
         {
           "region": 27,
-          "number": 9,
-          "x": 33.8,
-          "y": 167.8,
-          "size": 5.4
+          "number": 2,
+          "x": 95.9,
+          "y": 119.6,
+          "size": 4.5
         },
         {
           "region": 28,
-          "number": 9,
-          "x": 163.8,
-          "y": 163.8,
-          "size": 5.4
+          "number": 7,
+          "x": 76.4,
+          "y": 128.3,
+          "size": 4.5
         },
         {
           "region": 29,
+          "number": 2,
+          "x": 95.2,
+          "y": 128.2,
+          "size": 5.2
+        },
+        {
+          "region": 31,
+          "number": 2,
+          "x": 120.8,
+          "y": 25.2,
+          "size": 4.9
+        },
+        {
+          "region": 32,
+          "number": 8,
+          "x": 88.1,
+          "y": 41.1,
+          "size": 8.3
+        },
+        {
+          "region": 33,
+          "number": 2,
+          "x": 105.3,
+          "y": 41.1,
+          "size": 4.5
+        },
+        {
+          "region": 34,
           "number": 9,
-          "x": 177.8,
+          "x": 81.8,
+          "y": 72.3,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 9,
+          "x": 108.5,
+          "y": 70.5,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 10,
+          "x": 152.4,
+          "y": 125.6,
+          "size": 4.8
+        },
+        {
+          "region": 37,
+          "number": 10,
+          "x": 128.5,
+          "y": 109.3,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 2,
+          "x": 141.9,
+          "y": 110,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 2,
+          "x": 135.9,
+          "y": 103.8,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 2,
+          "x": 148.1,
+          "y": 103.8,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 11,
+          "x": 132.3,
+          "y": 119.7,
+          "size": 4.5
+        },
+        {
+          "region": 42,
+          "number": 11,
+          "x": 150.9,
+          "y": 119.2,
+          "size": 4.5
+        },
+        {
+          "region": 43,
+          "number": 11,
+          "x": 133.9,
+          "y": 131.4,
+          "size": 4.5
+        },
+        {
+          "region": 44,
+          "number": 11,
+          "x": 149.9,
+          "y": 130.6,
+          "size": 4.5
+        },
+        {
+          "region": 45,
+          "number": 7,
+          "x": 19.8,
           "y": 169.8,
           "size": 5.4
+        },
+        {
+          "region": 46,
+          "number": 7,
+          "x": 33.8,
+          "y": 175.8,
+          "size": 5.4
+        },
+        {
+          "region": 47,
+          "number": 7,
+          "x": 163.8,
+          "y": 175.8,
+          "size": 5.4
+        },
+        {
+          "region": 48,
+          "number": 7,
+          "x": 179.8,
+          "y": 171.8,
+          "size": 5.4
+        },
+        {
+          "region": 49,
+          "number": 2,
+          "x": 23.5,
+          "y": 59.5,
+          "size": 5.2
+        },
+        {
+          "region": 50,
+          "number": 2,
+          "x": 175.6,
+          "y": 69.6,
+          "size": 5.2
         }
       ]
     },
@@ -523243,9 +524002,9 @@
         "optional": true
       }
     ],
-    "regionCount": 82,
+    "regionCount": 99,
     "colorByNumber": {
-      "codes": "nyyyyyyywwyyowyyrwyygzyyrrz-rryyrr--ryy---kz-z-z-z-z----zmmxxbbb---xxxxm-yrzzmmyyy",
+      "codes": "nyyyyyyywwyyowyyrwyygzyywwwwrrzzxyxy-rryyrr--ryy---kz-z-z-z-z----zmmxxbbb---xxxxmmmyyywy-yryzzmmyyy",
       "palette": [
         {
           "code": "n",
@@ -523276,16 +524035,16 @@
           "hex": "#7a7f87"
         },
         {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
           "code": "k",
           "hex": "#f59fc4"
         },
         {
           "code": "m",
           "hex": "#d0479b"
-        },
-        {
-          "code": "x",
-          "hex": "#222222"
         },
         {
           "code": "b",
@@ -523352,9 +524111,9 @@
         {
           "region": 8,
           "number": 3,
-          "x": 8.3,
-          "y": 146.3,
-          "size": 13
+          "x": 5.7,
+          "y": 143.8,
+          "size": 12
         },
         {
           "region": 9,
@@ -523380,9 +524139,9 @@
         {
           "region": 12,
           "number": 4,
-          "x": 67.8,
+          "x": 54,
           "y": 151.9,
-          "size": 9.3
+          "size": 8.7
         },
         {
           "region": 13,
@@ -523401,16 +524160,16 @@
         {
           "region": 15,
           "number": 2,
-          "x": 78,
-          "y": 138.5,
-          "size": 5
+          "x": 78.9,
+          "y": 137.3,
+          "size": 4.5
         },
         {
           "region": 16,
           "number": 5,
-          "x": 118.6,
-          "y": 141.8,
-          "size": 13
+          "x": 104.6,
+          "y": 136.2,
+          "size": 11.6
         },
         {
           "region": 17,
@@ -523436,7 +524195,7 @@
         {
           "region": 20,
           "number": 6,
-          "x": 171.4,
+          "x": 194.4,
           "y": 147.9,
           "size": 13
         },
@@ -523463,279 +524222,398 @@
         },
         {
           "region": 24,
+          "number": 3,
+          "x": 21.7,
+          "y": 145.9,
+          "size": 6.6
+        },
+        {
+          "region": 25,
+          "number": 3,
+          "x": 71.7,
+          "y": 145.9,
+          "size": 6.6
+        },
+        {
+          "region": 26,
+          "number": 3,
+          "x": 117.7,
+          "y": 145.9,
+          "size": 6.6
+        },
+        {
+          "region": 27,
+          "number": 3,
+          "x": 167.7,
+          "y": 145.9,
+          "size": 6.6
+        },
+        {
+          "region": 28,
           "number": 5,
           "x": 69.7,
           "y": 109.2,
           "size": 6.6
         },
         {
-          "region": 25,
+          "region": 29,
           "number": 5,
           "x": 65.1,
           "y": 99.3,
           "size": 4.5
         },
         {
-          "region": 26,
+          "region": 30,
           "number": 7,
-          "x": 15,
-          "y": 192.6,
-          "size": 7.6
+          "x": 71.7,
+          "y": 87.3,
+          "size": 4.5
         },
         {
-          "region": 28,
+          "region": 31,
+          "number": 7,
+          "x": 25,
+          "y": 179,
+          "size": 13
+        },
+        {
+          "region": 32,
+          "number": 8,
+          "x": 39.9,
+          "y": 166.3,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 2,
+          "x": 39.7,
+          "y": 157.7,
+          "size": 6.5
+        },
+        {
+          "region": 34,
+          "number": 8,
+          "x": 159.9,
+          "y": 166.3,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 2,
+          "x": 159.7,
+          "y": 157.7,
+          "size": 6.5
+        },
+        {
+          "region": 37,
           "number": 5,
           "x": 172.2,
           "y": 74.9,
           "size": 4.5
         },
         {
-          "region": 29,
+          "region": 38,
           "number": 5,
           "x": 183.8,
           "y": 74.9,
           "size": 4.5
         },
         {
-          "region": 30,
+          "region": 39,
           "number": 2,
           "x": 176.3,
           "y": 76,
           "size": 4.5
         },
         {
-          "region": 31,
+          "region": 40,
           "number": 2,
           "x": 179.6,
           "y": 74.3,
           "size": 4.5
         },
         {
-          "region": 32,
+          "region": 41,
           "number": 5,
           "x": 169.1,
           "y": 70.8,
           "size": 4.5
         },
         {
-          "region": 33,
+          "region": 42,
           "number": 5,
           "x": 186.4,
           "y": 70.1,
           "size": 4.5
         },
         {
-          "region": 36,
+          "region": 45,
           "number": 5,
           "x": 174.9,
           "y": 48.4,
           "size": 4.5
         },
         {
-          "region": 37,
+          "region": 46,
           "number": 2,
           "x": 173.7,
           "y": 52.8,
           "size": 4.5
         },
         {
-          "region": 38,
+          "region": 47,
           "number": 2,
           "x": 177.9,
           "y": 44.5,
           "size": 4.5
         },
         {
-          "region": 42,
-          "number": 8,
+          "region": 51,
+          "number": 9,
           "x": 178,
           "y": 58.2,
           "size": 4.5
         },
         {
-          "region": 43,
+          "region": 52,
           "number": 7,
           "x": 204.1,
           "y": 91,
           "size": 4.5
         },
         {
-          "region": 45,
+          "region": 54,
           "number": 7,
           "x": 193.8,
           "y": 113.7,
           "size": 4.5
         },
         {
-          "region": 47,
+          "region": 56,
           "number": 7,
           "x": 182.6,
           "y": 113.7,
           "size": 4.5
         },
         {
-          "region": 49,
+          "region": 58,
           "number": 7,
           "x": 167.7,
           "y": 113.7,
           "size": 4.5
         },
         {
-          "region": 51,
+          "region": 60,
           "number": 7,
           "x": 156.6,
           "y": 113.7,
           "size": 4.5
         },
         {
-          "region": 56,
+          "region": 65,
           "number": 7,
           "x": 153.5,
           "y": 60,
           "size": 4.5
         },
         {
-          "region": 57,
-          "number": 9,
+          "region": 66,
+          "number": 10,
           "x": 32.5,
           "y": 116.6,
           "size": 4.5
         },
         {
-          "region": 58,
-          "number": 9,
+          "region": 67,
+          "number": 10,
           "x": 37.2,
           "y": 116.6,
           "size": 4.5
         },
         {
-          "region": 59,
-          "number": 10,
+          "region": 68,
+          "number": 8,
           "x": 27.9,
           "y": 118.1,
           "size": 4.5
         },
         {
-          "region": 60,
-          "number": 10,
+          "region": 69,
+          "number": 8,
           "x": 42.9,
           "y": 117.6,
           "size": 4.5
         },
         {
-          "region": 61,
+          "region": 70,
           "number": 11,
           "x": 23.9,
           "y": 104,
           "size": 4.5
         },
         {
-          "region": 62,
+          "region": 71,
           "number": 11,
-          "x": 44.7,
-          "y": 94.2,
+          "x": 47.7,
+          "y": 94.6,
           "size": 4.5
         },
         {
-          "region": 63,
+          "region": 72,
           "number": 11,
-          "x": 33.6,
-          "y": 99.5,
-          "size": 9.3
+          "x": 29.3,
+          "y": 100.5,
+          "size": 4.5
         },
         {
-          "region": 67,
-          "number": 10,
+          "region": 76,
+          "number": 8,
           "x": 26.4,
           "y": 80.9,
           "size": 4.5
         },
         {
-          "region": 68,
-          "number": 10,
+          "region": 77,
+          "number": 8,
           "x": 26.7,
           "y": 84.9,
           "size": 4.5
         },
         {
-          "region": 69,
-          "number": 10,
+          "region": 78,
+          "number": 8,
           "x": 41.6,
           "y": 80.9,
           "size": 4.5
         },
         {
-          "region": 70,
-          "number": 10,
+          "region": 79,
+          "number": 8,
           "x": 41.3,
           "y": 84.7,
           "size": 4.5
         },
         {
-          "region": 71,
-          "number": 9,
+          "region": 80,
+          "number": 10,
           "x": 28.5,
-          "y": 111.8,
+          "y": 112.2,
           "size": 4.9
         },
         {
-          "region": 73,
+          "region": 81,
+          "number": 10,
+          "x": 26.3,
+          "y": 93.3,
+          "size": 4.5
+        },
+        {
+          "region": 82,
+          "number": 10,
+          "x": 41.3,
+          "y": 93.3,
+          "size": 4.5
+        },
+        {
+          "region": 83,
+          "number": 2,
+          "x": 34,
+          "y": 96.5,
+          "size": 4.5
+        },
+        {
+          "region": 84,
+          "number": 2,
+          "x": 34,
+          "y": 100,
+          "size": 4.5
+        },
+        {
+          "region": 85,
+          "number": 2,
+          "x": 34,
+          "y": 103.5,
+          "size": 4.5
+        },
+        {
+          "region": 86,
+          "number": 3,
+          "x": 26.8,
+          "y": 106.7,
+          "size": 4.5
+        },
+        {
+          "region": 87,
+          "number": 2,
+          "x": 33.7,
+          "y": 106.7,
+          "size": 4.5
+        },
+        {
+          "region": 89,
           "number": 2,
           "x": 43.2,
           "y": 68.5,
           "size": 4.5
         },
         {
-          "region": 74,
+          "region": 90,
           "number": 5,
           "x": 31.1,
           "y": 74.4,
           "size": 4.5
         },
         {
-          "region": 75,
+          "region": 91,
+          "number": 2,
+          "x": 37.4,
+          "y": 74.4,
+          "size": 4.5
+        },
+        {
+          "region": 92,
           "number": 7,
           "x": 28.8,
           "y": 86,
           "size": 4.5
         },
         {
-          "region": 76,
+          "region": 93,
           "number": 7,
           "x": 38.9,
           "y": 85.4,
           "size": 4.5
         },
         {
-          "region": 77,
-          "number": 9,
+          "region": 94,
+          "number": 10,
           "x": 55.3,
           "y": 88.2,
           "size": 4.5
         },
         {
-          "region": 78,
-          "number": 9,
+          "region": 95,
+          "number": 10,
           "x": 54.5,
           "y": 82.3,
           "size": 4.5
         },
         {
-          "region": 79,
+          "region": 96,
           "number": 2,
           "x": 58.8,
           "y": 83.2,
           "size": 4.5
         },
         {
-          "region": 80,
+          "region": 97,
           "number": 2,
           "x": 52.9,
           "y": 77.8,
           "size": 4.5
         },
         {
-          "region": 81,
+          "region": 98,
           "number": 2,
           "x": 65.1,
           "y": 77.8,
@@ -523917,132 +524795,298 @@
         "optional": true
       }
     ],
-    "regionCount": 21,
+    "regionCount": 44,
     "colorByNumber": {
-      "codes": "byyyy-rryyrr--ryy---k",
+      "codes": "-rynrynbyyy-rryyrr--yyryyng---kggyyyyyyywwww",
       "palette": [
         {
-          "code": "b",
-          "hex": "#4fa3f0"
+          "code": "r",
+          "hex": "#e2483d"
         },
         {
           "code": "y",
           "hex": "#f2c618"
         },
         {
-          "code": "r",
-          "hex": "#e2483d"
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
         },
         {
           "code": "k",
           "hex": "#f59fc4"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
         }
       ],
       "labels": [
         {
-          "region": 0,
-          "number": 1,
-          "x": 15,
-          "y": 183.2,
-          "size": 13
-        },
-        {
           "region": 1,
-          "number": 2,
-          "x": 23.6,
-          "y": 29.6,
-          "size": 4.6
+          "number": 1,
+          "x": 16.3,
+          "y": 13.7,
+          "size": 5.5
         },
         {
           "region": 2,
           "number": 2,
-          "x": 175.6,
-          "y": 39.6,
-          "size": 4.6
+          "x": 49.6,
+          "y": 16.4,
+          "size": 5.5
         },
         {
           "region": 3,
-          "number": 2,
-          "x": 29.6,
-          "y": 109.6,
-          "size": 4.6
+          "number": 3,
+          "x": 82.9,
+          "y": 17.7,
+          "size": 5.5
         },
         {
           "region": 4,
+          "number": 1,
+          "x": 116.3,
+          "y": 17.7,
+          "size": 5.5
+        },
+        {
+          "region": 5,
           "number": 2,
-          "x": 169.6,
-          "y": 117.6,
-          "size": 4.6
+          "x": 149.6,
+          "y": 16.4,
+          "size": 5.5
         },
         {
           "region": 6,
           "number": 3,
-          "x": 52.7,
-          "y": 197.8,
-          "size": 13
+          "x": 182.9,
+          "y": 13.7,
+          "size": 5.5
         },
         {
           "region": 7,
-          "number": 3,
-          "x": 138.9,
-          "y": 197.8,
-          "size": 13
+          "number": 4,
+          "x": 165,
+          "y": 178.3,
+          "size": 9.5
         },
         {
           "region": 8,
           "number": 2,
-          "x": 91.3,
-          "y": 196,
-          "size": 5.8
+          "x": 144,
+          "y": 65.7,
+          "size": 4.5
         },
         {
           "region": 9,
           "number": 2,
-          "x": 108.7,
-          "y": 196,
-          "size": 5.8
+          "x": 125.8,
+          "y": 52.1,
+          "size": 4.6
         },
         {
           "region": 10,
-          "number": 3,
-          "x": 61.8,
-          "y": 151.1,
-          "size": 11.8
+          "number": 2,
+          "x": 129.4,
+          "y": 70.8,
+          "size": 4.5
         },
         {
-          "region": 11,
-          "number": 3,
-          "x": 136.2,
-          "y": 147.9,
-          "size": 11.8
+          "region": 12,
+          "number": 1,
+          "x": 60.3,
+          "y": 183.5,
+          "size": 13
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 135,
+          "y": 183.5,
+          "size": 13
         },
         {
           "region": 14,
-          "number": 3,
-          "x": 86.8,
-          "y": 54.9,
-          "size": 12.4
+          "number": 2,
+          "x": 92.7,
+          "y": 182,
+          "size": 4.8
         },
         {
           "region": 15,
           "number": 2,
-          "x": 81.7,
-          "y": 73.8,
-          "size": 5.9
+          "x": 107.3,
+          "y": 182,
+          "size": 4.8
         },
         {
           "region": 16,
-          "number": 2,
-          "x": 99.4,
-          "y": 38.3,
-          "size": 5.4
+          "number": 1,
+          "x": 71.2,
+          "y": 136.5,
+          "size": 9.7
+        },
+        {
+          "region": 17,
+          "number": 1,
+          "x": 127.2,
+          "y": 131.7,
+          "size": 10.8
         },
         {
           "region": 20,
-          "number": 4,
-          "x": 99.8,
-          "y": 96.6,
+          "number": 2,
+          "x": 78.3,
+          "y": 189.2,
           "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 2,
+          "x": 115.5,
+          "y": 145.2,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 1,
+          "x": 89,
+          "y": 63.7,
+          "size": 10.4
+        },
+        {
+          "region": 23,
+          "number": 2,
+          "x": 82.6,
+          "y": 78.1,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 2,
+          "x": 99.5,
+          "y": 51.1,
+          "size": 4.6
+        },
+        {
+          "region": 25,
+          "number": 3,
+          "x": 87.9,
+          "y": 78.9,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 5,
+          "x": 112.1,
+          "y": 78.9,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 6,
+          "x": 99.8,
+          "y": 98.6,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 5,
+          "x": 36.8,
+          "y": 173.6,
+          "size": 4.8
+        },
+        {
+          "region": 32,
+          "number": 5,
+          "x": 14.3,
+          "y": 157.3,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 2,
+          "x": 26.9,
+          "y": 158,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 2,
+          "x": 20.9,
+          "y": 151.8,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 2,
+          "x": 33.1,
+          "y": 151.8,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 2,
+          "x": 17.9,
+          "y": 167.7,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 2,
+          "x": 35.3,
+          "y": 167.2,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 2,
+          "x": 19.4,
+          "y": 179.4,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 2,
+          "x": 34.4,
+          "y": 178.6,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 7,
+          "x": 149.8,
+          "y": 185.8,
+          "size": 5.4
+        },
+        {
+          "region": 41,
+          "number": 7,
+          "x": 161.8,
+          "y": 189.8,
+          "size": 5.4
+        },
+        {
+          "region": 42,
+          "number": 7,
+          "x": 173.8,
+          "y": 185.8,
+          "size": 5.4
+        },
+        {
+          "region": 43,
+          "number": 7,
+          "x": 185.8,
+          "y": 190.8,
+          "size": 5.4
         }
       ]
     },
@@ -524220,10 +525264,30 @@
         "optional": true
       }
     ],
-    "regionCount": 57,
+    "regionCount": 69,
     "colorByNumber": {
-      "codes": "-bn-bbbbbrxrx-------yyy-rryyrr--ryy---kmmm---xxxx--gzzyyy",
+      "codes": "---owyygwyyzbntn-bbbbbrxrx-------ryyyy-rryyrr--ryy---kmmm---xxxx--gzz",
       "palette": [
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
         {
           "code": "b",
           "hex": "#4fa3f0"
@@ -524231,6 +525295,10 @@
         {
           "code": "n",
           "hex": "#2f5bd3"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
         },
         {
           "code": "r",
@@ -524241,284 +525309,342 @@
           "hex": "#222222"
         },
         {
-          "code": "y",
-          "hex": "#f2c618"
-        },
-        {
           "code": "k",
           "hex": "#f59fc4"
         },
         {
           "code": "m",
           "hex": "#d0479b"
-        },
-        {
-          "code": "g",
-          "hex": "#2fa45a"
-        },
-        {
-          "code": "z",
-          "hex": "#7a7f87"
         }
       ],
       "labels": [
         {
-          "region": 1,
+          "region": 3,
           "number": 1,
-          "x": 35,
-          "y": 170.1,
-          "size": 13
-        },
-        {
-          "region": 2,
-          "number": 2,
-          "x": 122.9,
-          "y": 133.7,
-          "size": 13
+          "x": 3.7,
+          "y": 120.8,
+          "size": 8.6
         },
         {
           "region": 4,
-          "number": 1,
-          "x": 59.9,
-          "y": 110.8,
-          "size": 4.5
+          "number": 2,
+          "x": 9.3,
+          "y": 83,
+          "size": 9.6
         },
         {
           "region": 5,
-          "number": 1,
-          "x": 76.7,
-          "y": 110.8,
+          "number": 3,
+          "x": 4.3,
+          "y": 104.7,
           "size": 4.5
         },
         {
           "region": 6,
-          "number": 1,
-          "x": 93.5,
-          "y": 110,
-          "size": 4.6
+          "number": 3,
+          "x": 15.5,
+          "y": 104.7,
+          "size": 4.5
         },
         {
           "region": 7,
-          "number": 1,
-          "x": 110.3,
-          "y": 110,
-          "size": 4.6
+          "number": 4,
+          "x": 29.4,
+          "y": 107,
+          "size": 5.8
         },
         {
           "region": 8,
-          "number": 1,
-          "x": 127.1,
-          "y": 110,
-          "size": 4.6
+          "number": 2,
+          "x": 35.3,
+          "y": 96.4,
+          "size": 6.3
         },
         {
           "region": 9,
           "number": 3,
-          "x": 111,
-          "y": 75.8,
+          "x": 31.1,
+          "y": 114.7,
           "size": 4.5
         },
         {
           "region": 10,
-          "number": 4,
-          "x": 109.6,
-          "y": 70.7,
+          "number": 3,
+          "x": 40.7,
+          "y": 114.7,
           "size": 4.5
         },
         {
           "region": 11,
-          "number": 3,
-          "x": 79.7,
-          "y": 79.5,
-          "size": 4.5
+          "number": 5,
+          "x": 45.5,
+          "y": 133.9,
+          "size": 6.4
         },
         {
           "region": 12,
-          "number": 4,
-          "x": 77.7,
-          "y": 74.9,
+          "number": 6,
+          "x": 55,
+          "y": 148,
+          "size": 10.9
+        },
+        {
+          "region": 13,
+          "number": 7,
+          "x": 25,
+          "y": 162.6,
+          "size": 8.7
+        },
+        {
+          "region": 14,
+          "number": 8,
+          "x": 25,
+          "y": 182.6,
+          "size": 8.7
+        },
+        {
+          "region": 15,
+          "number": 7,
+          "x": 140.7,
+          "y": 135,
+          "size": 13
+        },
+        {
+          "region": 17,
+          "number": 6,
+          "x": 83.3,
+          "y": 114.4,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 6,
+          "x": 98.5,
+          "y": 114.4,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 6,
+          "x": 114.1,
+          "y": 113.6,
           "size": 4.5
         },
         {
           "region": 20,
-          "number": 5,
-          "x": 84.3,
-          "y": 64.9,
+          "number": 6,
+          "x": 129.3,
+          "y": 113.6,
           "size": 4.5
         },
         {
           "region": 21,
-          "number": 5,
-          "x": 78.4,
-          "y": 60.4,
+          "number": 6,
+          "x": 144.5,
+          "y": 113.6,
           "size": 4.5
         },
         {
           "region": 22,
-          "number": 5,
-          "x": 79.5,
-          "y": 66.4,
+          "number": 9,
+          "x": 129.9,
+          "y": 97.5,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 10,
+          "x": 128.7,
+          "y": 78.1,
           "size": 4.5
         },
         {
           "region": 24,
-          "number": 3,
-          "x": 58.7,
-          "y": 100.3,
-          "size": 7.1
+          "number": 9,
+          "x": 103.9,
+          "y": 86,
+          "size": 4.5
         },
         {
           "region": 25,
-          "number": 3,
-          "x": 80.6,
-          "y": 102.8,
-          "size": 5.2
-        },
-        {
-          "region": 26,
-          "number": 5,
-          "x": 67.5,
-          "y": 102.4,
-          "size": 4.5
-        },
-        {
-          "region": 27,
-          "number": 5,
-          "x": 72,
-          "y": 96.4,
-          "size": 4.5
-        },
-        {
-          "region": 28,
-          "number": 3,
-          "x": 59.6,
-          "y": 81.1,
-          "size": 4.5
-        },
-        {
-          "region": 29,
-          "number": 3,
-          "x": 78.8,
-          "y": 86.1,
-          "size": 4.5
-        },
-        {
-          "region": 32,
-          "number": 3,
-          "x": 66.4,
-          "y": 64.2,
+          "number": 10,
+          "x": 100.6,
+          "y": 81.9,
           "size": 4.5
         },
         {
           "region": 33,
-          "number": 5,
-          "x": 65.1,
-          "y": 69.3,
+          "number": 9,
+          "x": 128.2,
+          "y": 85.8,
           "size": 4.5
         },
         {
           "region": 34,
-          "number": 5,
-          "x": 69.8,
-          "y": 59.7,
+          "number": 3,
+          "x": 68.2,
+          "y": 118.6,
           "size": 4.5
         },
         {
-          "region": 38,
-          "number": 6,
-          "x": 69.9,
-          "y": 75.4,
+          "region": 35,
+          "number": 3,
+          "x": 106.3,
+          "y": 68.9,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 3,
+          "x": 100.4,
+          "y": 64.4,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 3,
+          "x": 101.5,
+          "y": 70.4,
           "size": 4.5
         },
         {
           "region": 39,
-          "number": 7,
-          "x": 110.9,
-          "y": 87.7,
-          "size": 4.5
+          "number": 9,
+          "x": 80.7,
+          "y": 104.3,
+          "size": 7.1
         },
         {
           "region": 40,
-          "number": 7,
-          "x": 126.8,
-          "y": 100.7,
-          "size": 4.5
+          "number": 9,
+          "x": 102.6,
+          "y": 106.8,
+          "size": 5.2
         },
         {
           "region": 41,
-          "number": 7,
-          "x": 117.7,
-          "y": 94,
-          "size": 6.3
-        },
-        {
-          "region": 45,
-          "number": 4,
-          "x": 112.8,
-          "y": 80.7,
+          "number": 3,
+          "x": 89.5,
+          "y": 106.4,
           "size": 4.5
         },
         {
-          "region": 46,
-          "number": 4,
-          "x": 113.1,
-          "y": 83.3,
+          "region": 42,
+          "number": 3,
+          "x": 94,
+          "y": 100.4,
+          "size": 4.5
+        },
+        {
+          "region": 43,
+          "number": 9,
+          "x": 82.3,
+          "y": 85.8,
+          "size": 4.5
+        },
+        {
+          "region": 44,
+          "number": 9,
+          "x": 100.8,
+          "y": 90.1,
           "size": 4.5
         },
         {
           "region": 47,
-          "number": 4,
-          "x": 123,
-          "y": 80.7,
+          "number": 9,
+          "x": 88.4,
+          "y": 68.2,
           "size": 4.5
         },
         {
           "region": 48,
-          "number": 4,
-          "x": 123,
-          "y": 83.3,
+          "number": 3,
+          "x": 87.1,
+          "y": 73.3,
           "size": 4.5
         },
         {
-          "region": 51,
-          "number": 8,
-          "x": 117.3,
-          "y": 76.1,
-          "size": 4.5
-        },
-        {
-          "region": 52,
-          "number": 9,
-          "x": 114.4,
-          "y": 84.2,
+          "region": 49,
+          "number": 3,
+          "x": 91.8,
+          "y": 63.7,
           "size": 4.5
         },
         {
           "region": 53,
-          "number": 9,
-          "x": 121.2,
-          "y": 83.7,
+          "number": 11,
+          "x": 91.9,
+          "y": 79.4,
           "size": 4.5
         },
         {
           "region": 54,
-          "number": 5,
-          "x": 19.7,
-          "y": 23.7,
+          "number": 12,
+          "x": 130.9,
+          "y": 93.7,
           "size": 4.5
         },
         {
           "region": 55,
-          "number": 5,
-          "x": 43.7,
-          "y": 13.7,
+          "number": 12,
+          "x": 146.4,
+          "y": 104.6,
           "size": 4.5
         },
         {
           "region": 56,
+          "number": 12,
+          "x": 137.7,
+          "y": 100,
+          "size": 6.3
+        },
+        {
+          "region": 60,
+          "number": 10,
+          "x": 132.8,
+          "y": 86.7,
+          "size": 4.5
+        },
+        {
+          "region": 61,
+          "number": 10,
+          "x": 133.1,
+          "y": 89.3,
+          "size": 4.5
+        },
+        {
+          "region": 62,
+          "number": 10,
+          "x": 143,
+          "y": 86.7,
+          "size": 4.5
+        },
+        {
+          "region": 63,
+          "number": 10,
+          "x": 143,
+          "y": 89.3,
+          "size": 4.5
+        },
+        {
+          "region": 66,
+          "number": 4,
+          "x": 137.3,
+          "y": 82.1,
+          "size": 4.5
+        },
+        {
+          "region": 67,
           "number": 5,
-          "x": 159.7,
-          "y": 17.7,
+          "x": 134.4,
+          "y": 90.2,
+          "size": 4.5
+        },
+        {
+          "region": 68,
+          "number": 5,
+          "x": 141.2,
+          "y": 89.7,
           "size": 4.5
         }
       ]
@@ -524697,9 +525823,9 @@
         "optional": true
       }
     ],
-    "regionCount": 34,
+    "regionCount": 44,
     "colorByNumber": {
-      "codes": "tywwwooowwwwwwwwgggo-o--wrrny-r---",
+      "codes": "t----y-rywwwooowwwwwwwwgggo-o--rny-r---myyyy",
       "palette": [
         {
           "code": "t",
@@ -524708,6 +525834,10 @@
         {
           "code": "y",
           "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
         },
         {
           "code": "w",
@@ -524722,202 +525852,237 @@
           "hex": "#2fa45a"
         },
         {
-          "code": "r",
-          "hex": "#e2483d"
-        },
-        {
           "code": "n",
           "hex": "#2f5bd3"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
         }
       ],
       "labels": [
         {
           "region": 0,
           "number": 1,
-          "x": 105,
-          "y": 33.8,
+          "x": 175,
+          "y": 48.8,
           "size": 13
         },
         {
-          "region": 1,
+          "region": 5,
           "number": 2,
-          "x": 95,
-          "y": 173.8,
+          "x": 39.7,
+          "y": 32.3,
+          "size": 7.6
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 84.6,
+          "y": 33.2,
+          "size": 6.7
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 85,
+          "y": 171.3,
           "size": 13
         },
         {
-          "region": 2,
-          "number": 3,
+          "region": 9,
+          "number": 4,
           "x": 23.5,
           "y": 124.8,
           "size": 5.5
         },
         {
-          "region": 3,
-          "number": 3,
+          "region": 10,
+          "number": 4,
           "x": 23.8,
           "y": 134.8,
           "size": 4.5
         },
         {
-          "region": 4,
-          "number": 3,
+          "region": 11,
+          "number": 4,
           "x": 175.8,
           "y": 134.8,
           "size": 4.5
         },
         {
-          "region": 5,
-          "number": 4,
+          "region": 12,
+          "number": 5,
           "x": 143.9,
           "y": 106.3,
           "size": 13
         },
         {
-          "region": 6,
-          "number": 4,
+          "region": 13,
+          "number": 5,
           "x": 145.7,
           "y": 65.5,
           "size": 6.6
         },
         {
-          "region": 7,
-          "number": 4,
+          "region": 14,
+          "number": 5,
           "x": 143.8,
           "y": 16.4,
           "size": 8.5
         },
         {
-          "region": 8,
-          "number": 3,
+          "region": 15,
+          "number": 4,
           "x": 117.8,
           "y": 77.8,
           "size": 4.5
         },
         {
-          "region": 9,
-          "number": 3,
+          "region": 16,
+          "number": 4,
           "x": 129.8,
           "y": 95.8,
           "size": 4.5
         },
         {
-          "region": 10,
-          "number": 3,
+          "region": 17,
+          "number": 4,
           "x": 145.8,
           "y": 83.8,
           "size": 4.5
         },
         {
-          "region": 11,
-          "number": 3,
+          "region": 18,
+          "number": 4,
           "x": 119.8,
           "y": 103.8,
           "size": 4.5
         },
         {
-          "region": 12,
-          "number": 3,
+          "region": 19,
+          "number": 4,
           "x": 143.8,
           "y": 35.8,
           "size": 4.5
         },
         {
-          "region": 13,
-          "number": 3,
+          "region": 20,
+          "number": 4,
           "x": 141.8,
           "y": 55.8,
           "size": 4.5
         },
         {
-          "region": 14,
-          "number": 3,
+          "region": 21,
+          "number": 4,
           "x": 141.4,
           "y": 3.6,
           "size": 4.5
         },
         {
-          "region": 15,
-          "number": 3,
+          "region": 22,
+          "number": 4,
           "x": 151.4,
           "y": 3.6,
           "size": 4.5
         },
         {
-          "region": 16,
-          "number": 5,
+          "region": 23,
+          "number": 6,
           "x": 85.5,
           "y": 94.7,
           "size": 5.6
         },
         {
-          "region": 17,
-          "number": 5,
+          "region": 24,
+          "number": 6,
           "x": 78.9,
           "y": 85.5,
           "size": 4.5
         },
         {
-          "region": 18,
-          "number": 5,
+          "region": 25,
+          "number": 6,
           "x": 63.2,
           "y": 94.1,
           "size": 13
         },
         {
-          "region": 19,
-          "number": 4,
+          "region": 26,
+          "number": 5,
           "x": 82,
           "y": 62.1,
           "size": 5.1
         },
         {
-          "region": 21,
-          "number": 4,
+          "region": 28,
+          "number": 5,
           "x": 59.3,
           "y": 56.4,
           "size": 4.5
         },
         {
-          "region": 24,
+          "region": 31,
           "number": 3,
-          "x": 87.7,
-          "y": 77.7,
-          "size": 4.5
-        },
-        {
-          "region": 25,
-          "number": 6,
-          "x": 84.5,
-          "y": 72.3,
-          "size": 4.5
-        },
-        {
-          "region": 26,
-          "number": 6,
           "x": 29.8,
           "y": 113.1,
           "size": 5.5
         },
         {
-          "region": 27,
+          "region": 32,
           "number": 7,
           "x": 43.8,
           "y": 113.1,
           "size": 5.5
         },
         {
-          "region": 28,
+          "region": 33,
           "number": 2,
           "x": 57.8,
           "y": 113.1,
           "size": 5.5
         },
         {
-          "region": 30,
-          "number": 6,
+          "region": 35,
+          "number": 3,
           "x": 83.6,
           "y": 104.4,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 8,
+          "x": 115.8,
+          "y": 171.5,
+          "size": 8.4
+        },
+        {
+          "region": 40,
+          "number": 2,
+          "x": 109.9,
+          "y": 178.6,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 2,
+          "x": 123.8,
+          "y": 176.6,
+          "size": 4.5
+        },
+        {
+          "region": 42,
+          "number": 2,
+          "x": 137.6,
+          "y": 174.7,
+          "size": 4.5
+        },
+        {
+          "region": 43,
+          "number": 2,
+          "x": 151.5,
+          "y": 172.7,
           "size": 4.5
         }
       ]
@@ -525065,6 +526230,4459 @@
       },
       "is": {
         "name": "Búum til óvæntan glaðning",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "pakjesboot-in-de-haven",
+    "order": 1065,
+    "category": "feest",
+    "age": "6-9",
+    "world": null,
+    "holiday": "sinterklaas",
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 89,
+    "colorByNumber": {
+      "codes": "----wwyyrwyyowyygwyyznn-bbbbbrxrx-------xr-nnnxxyyyo-o--nnxxgggxxxxxxxxxx-x--nnxxmmmw-w--",
+      "palette": [
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        }
+      ],
+      "labels": [
+        {
+          "region": 4,
+          "number": 1,
+          "x": 7.3,
+          "y": 87.5,
+          "size": 12.1
+        },
+        {
+          "region": 5,
+          "number": 1,
+          "x": 10.3,
+          "y": 47,
+          "size": 9.8
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 4.9,
+          "y": 69.3,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 17.5,
+          "y": 67.5,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 39.7,
+          "y": 94.8,
+          "size": 6.5
+        },
+        {
+          "region": 9,
+          "number": 1,
+          "x": 33.4,
+          "y": 62.1,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 33.9,
+          "y": 78.7,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 43.3,
+          "y": 82.3,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 65.6,
+          "y": 75.8,
+          "size": 6.8
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 67.2,
+          "y": 37,
+          "size": 10
+        },
+        {
+          "region": 14,
+          "number": 2,
+          "x": 61.4,
+          "y": 59.3,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 2,
+          "x": 74.2,
+          "y": 59.3,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 5,
+          "x": 100.3,
+          "y": 93.1,
+          "size": 9.3
+        },
+        {
+          "region": 17,
+          "number": 1,
+          "x": 96.2,
+          "y": 55.9,
+          "size": 6.8
+        },
+        {
+          "region": 18,
+          "number": 2,
+          "x": 91.7,
+          "y": 74.7,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 2,
+          "x": 102.1,
+          "y": 74.7,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 6,
+          "x": 9,
+          "y": 104.8,
+          "size": 5.5
+        },
+        {
+          "region": 21,
+          "number": 7,
+          "x": 45,
+          "y": 152.8,
+          "size": 13
+        },
+        {
+          "region": 22,
+          "number": 7,
+          "x": 157,
+          "y": 159.3,
+          "size": 11.1
+        },
+        {
+          "region": 24,
+          "number": 8,
+          "x": 110.2,
+          "y": 141.7,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 8,
+          "x": 122.6,
+          "y": 141.7,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 8,
+          "x": 135.1,
+          "y": 141.7,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 8,
+          "x": 147.6,
+          "y": 141.7,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 8,
+          "x": 160.1,
+          "y": 141.7,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 3,
+          "x": 151.4,
+          "y": 120.4,
+          "size": 6
+        },
+        {
+          "region": 30,
+          "number": 9,
+          "x": 147.1,
+          "y": 112.6,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 3,
+          "x": 127.3,
+          "y": 122.6,
+          "size": 5.1
+        },
+        {
+          "region": 32,
+          "number": 9,
+          "x": 123.5,
+          "y": 115.7,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 9,
+          "x": 112.9,
+          "y": 41.5,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 3,
+          "x": 118.5,
+          "y": 45.7,
+          "size": 5
+        },
+        {
+          "region": 43,
+          "number": 7,
+          "x": 118.5,
+          "y": 69.7,
+          "size": 5
+        },
+        {
+          "region": 44,
+          "number": 7,
+          "x": 20.5,
+          "y": 97.4,
+          "size": 4.5
+        },
+        {
+          "region": 45,
+          "number": 7,
+          "x": 27.2,
+          "y": 97.4,
+          "size": 4.5
+        },
+        {
+          "region": 46,
+          "number": 9,
+          "x": 18.9,
+          "y": 107.6,
+          "size": 4.5
+        },
+        {
+          "region": 47,
+          "number": 9,
+          "x": 28.1,
+          "y": 107.6,
+          "size": 4.5
+        },
+        {
+          "region": 48,
+          "number": 2,
+          "x": 13.3,
+          "y": 66,
+          "size": 4.5
+        },
+        {
+          "region": 49,
+          "number": 2,
+          "x": 33.1,
+          "y": 84.5,
+          "size": 4.5
+        },
+        {
+          "region": 50,
+          "number": 2,
+          "x": 23.6,
+          "y": 84.5,
+          "size": 7.8
+        },
+        {
+          "region": 51,
+          "number": 4,
+          "x": 32.1,
+          "y": 68.2,
+          "size": 4.5
+        },
+        {
+          "region": 53,
+          "number": 4,
+          "x": 21.8,
+          "y": 66,
+          "size": 4.5
+        },
+        {
+          "region": 56,
+          "number": 7,
+          "x": 48.5,
+          "y": 97.4,
+          "size": 4.5
+        },
+        {
+          "region": 57,
+          "number": 7,
+          "x": 55.2,
+          "y": 97.4,
+          "size": 4.5
+        },
+        {
+          "region": 58,
+          "number": 9,
+          "x": 46.9,
+          "y": 107.6,
+          "size": 4.5
+        },
+        {
+          "region": 59,
+          "number": 9,
+          "x": 56.1,
+          "y": 107.6,
+          "size": 4.5
+        },
+        {
+          "region": 60,
+          "number": 5,
+          "x": 41.3,
+          "y": 66,
+          "size": 4.5
+        },
+        {
+          "region": 61,
+          "number": 5,
+          "x": 61.1,
+          "y": 84.5,
+          "size": 4.5
+        },
+        {
+          "region": 62,
+          "number": 5,
+          "x": 51.6,
+          "y": 84.5,
+          "size": 7.8
+        },
+        {
+          "region": 63,
+          "number": 9,
+          "x": 44.9,
+          "y": 73.7,
+          "size": 4.5
+        },
+        {
+          "region": 64,
+          "number": 9,
+          "x": 44.4,
+          "y": 70.5,
+          "size": 4.5
+        },
+        {
+          "region": 65,
+          "number": 9,
+          "x": 45,
+          "y": 67.2,
+          "size": 4.5
+        },
+        {
+          "region": 66,
+          "number": 9,
+          "x": 46.9,
+          "y": 64.5,
+          "size": 4.5
+        },
+        {
+          "region": 67,
+          "number": 9,
+          "x": 49.7,
+          "y": 62.8,
+          "size": 4.5
+        },
+        {
+          "region": 68,
+          "number": 9,
+          "x": 53.1,
+          "y": 62.7,
+          "size": 4.5
+        },
+        {
+          "region": 69,
+          "number": 9,
+          "x": 56,
+          "y": 63.9,
+          "size": 4.5
+        },
+        {
+          "region": 70,
+          "number": 9,
+          "x": 58.6,
+          "y": 66.3,
+          "size": 4.5
+        },
+        {
+          "region": 71,
+          "number": 9,
+          "x": 59.6,
+          "y": 69.2,
+          "size": 4.5
+        },
+        {
+          "region": 72,
+          "number": 9,
+          "x": 58.8,
+          "y": 73.8,
+          "size": 4.5
+        },
+        {
+          "region": 74,
+          "number": 9,
+          "x": 49.8,
+          "y": 66.1,
+          "size": 4.5
+        },
+        {
+          "region": 77,
+          "number": 7,
+          "x": 76.5,
+          "y": 97.4,
+          "size": 4.5
+        },
+        {
+          "region": 78,
+          "number": 7,
+          "x": 83.2,
+          "y": 97.4,
+          "size": 4.5
+        },
+        {
+          "region": 79,
+          "number": 9,
+          "x": 74.9,
+          "y": 107.6,
+          "size": 4.5
+        },
+        {
+          "region": 80,
+          "number": 9,
+          "x": 84.1,
+          "y": 107.6,
+          "size": 4.5
+        },
+        {
+          "region": 81,
+          "number": 10,
+          "x": 69.3,
+          "y": 66,
+          "size": 4.5
+        },
+        {
+          "region": 82,
+          "number": 10,
+          "x": 89.1,
+          "y": 84.5,
+          "size": 4.5
+        },
+        {
+          "region": 83,
+          "number": 10,
+          "x": 79.6,
+          "y": 88.1,
+          "size": 7.1
+        },
+        {
+          "region": 84,
+          "number": 1,
+          "x": 75.7,
+          "y": 78.9,
+          "size": 4.5
+        },
+        {
+          "region": 86,
+          "number": 1,
+          "x": 78.4,
+          "y": 65.4,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "De pakjesboot in de haven",
+        "word": null,
+        "countQuestion": null
+      },
+      "de": {
+        "name": "Das Geschenkeboot im Hafen",
+        "word": null,
+        "countQuestion": null
+      },
+      "fr": {
+        "name": "Le bateau des cadeaux au port",
+        "word": null,
+        "countQuestion": null
+      },
+      "en": {
+        "name": "The present boat in the harbour",
+        "word": null,
+        "countQuestion": null
+      },
+      "es": {
+        "name": "El barco de los regalos en el puerto",
+        "word": null,
+        "countQuestion": null
+      },
+      "it": {
+        "name": "La nave dei regali nel porto",
+        "word": null,
+        "countQuestion": null
+      },
+      "pl": {
+        "name": "Statek z prezentami w porcie",
+        "word": null,
+        "countQuestion": null
+      },
+      "pt": {
+        "name": "O barco dos presentes no porto",
+        "word": null,
+        "countQuestion": null
+      },
+      "sv": {
+        "name": "Paketbåten i hamnen",
+        "word": null,
+        "countQuestion": null
+      },
+      "da": {
+        "name": "Gavebåden i havnen",
+        "word": null,
+        "countQuestion": null
+      },
+      "nb": {
+        "name": "Gavebåten i havna",
+        "word": null,
+        "countQuestion": null
+      },
+      "fi": {
+        "name": "Lahjalaiva satamassa",
+        "word": null,
+        "countQuestion": null
+      },
+      "cs": {
+        "name": "Loď s dárky v přístavu",
+        "word": null,
+        "countQuestion": null
+      },
+      "sk": {
+        "name": "Loď s darčekmi v prístave",
+        "word": null,
+        "countQuestion": null
+      },
+      "hu": {
+        "name": "Az ajándékhajó a kikötőben",
+        "word": null,
+        "countQuestion": null
+      },
+      "ro": {
+        "name": "Vaporul cu cadouri în port",
+        "word": null,
+        "countQuestion": null
+      },
+      "el": {
+        "name": "Το καράβι με τα δώρα στο λιμάνι",
+        "word": null,
+        "countQuestion": null
+      },
+      "bg": {
+        "name": "Корабът с подаръци в пристанището",
+        "word": null,
+        "countQuestion": null
+      },
+      "hr": {
+        "name": "Brod s poklonima u luci",
+        "word": null,
+        "countQuestion": null
+      },
+      "sl": {
+        "name": "Ladja z darili v pristanišču",
+        "word": null,
+        "countQuestion": null
+      },
+      "et": {
+        "name": "Kingilaev sadamas",
+        "word": null,
+        "countQuestion": null
+      },
+      "lv": {
+        "name": "Dāvanu kuģis ostā",
+        "word": null,
+        "countQuestion": null
+      },
+      "lt": {
+        "name": "Dovanų laivas uoste",
+        "word": null,
+        "countQuestion": null
+      },
+      "uk": {
+        "name": "Корабель із подарунками в гавані",
+        "word": null,
+        "countQuestion": null
+      },
+      "tr": {
+        "name": "Limandaki hediye gemisi",
+        "word": null,
+        "countQuestion": null
+      },
+      "sr": {
+        "name": "Brod s poklonima u luci",
+        "word": null,
+        "countQuestion": null
+      },
+      "mk": {
+        "name": "Бродот со подароци во пристаништето",
+        "word": null,
+        "countQuestion": null
+      },
+      "sq": {
+        "name": "Anija e dhuratave në port",
+        "word": null,
+        "countQuestion": null
+      },
+      "is": {
+        "name": "Gjafaskipið í höfninni",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "piet-maakt-muziek",
+    "order": 1066,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": "sinterklaas",
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 57,
+    "colorByNumber": {
+      "codes": "bowyyrwyywwyyrynrynrzyyxxppp---xxxxyyyyyywy-rgyzz-rrw-xxx",
+      "palette": [
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 85,
+          "y": 35,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 15,
+          "y": 122,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 15,
+          "y": 71,
+          "size": 10.3
+        },
+        {
+          "region": 3,
+          "number": 4,
+          "x": 7.8,
+          "y": 93.9,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 23.8,
+          "y": 93.9,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 5,
+          "x": 53.1,
+          "y": 132.8,
+          "size": 13
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 53,
+          "y": 87.6,
+          "size": 9.2
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 46.6,
+          "y": 109.9,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 61,
+          "y": 109.9,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 186.4,
+          "y": 132.3,
+          "size": 13
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 175.6,
+          "y": 75.8,
+          "size": 11.6
+        },
+        {
+          "region": 11,
+          "number": 4,
+          "x": 165.9,
+          "y": 101.7,
+          "size": 5.9
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 187.5,
+          "y": 101.7,
+          "size": 5.9
+        },
+        {
+          "region": 13,
+          "number": 5,
+          "x": 14.7,
+          "y": 35.3,
+          "size": 4.7
+        },
+        {
+          "region": 14,
+          "number": 4,
+          "x": 42.5,
+          "y": 38.6,
+          "size": 4.7
+        },
+        {
+          "region": 15,
+          "number": 6,
+          "x": 71,
+          "y": 40.5,
+          "size": 4.7
+        },
+        {
+          "region": 16,
+          "number": 5,
+          "x": 99.6,
+          "y": 41.2,
+          "size": 4.7
+        },
+        {
+          "region": 17,
+          "number": 4,
+          "x": 128.2,
+          "y": 40.5,
+          "size": 4.7
+        },
+        {
+          "region": 18,
+          "number": 6,
+          "x": 156.7,
+          "y": 38.6,
+          "size": 4.7
+        },
+        {
+          "region": 19,
+          "number": 5,
+          "x": 185.3,
+          "y": 35.3,
+          "size": 4.7
+        },
+        {
+          "region": 20,
+          "number": 7,
+          "x": 25,
+          "y": 173.8,
+          "size": 13
+        },
+        {
+          "region": 21,
+          "number": 4,
+          "x": 90.1,
+          "y": 189.1,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 4,
+          "x": 106.3,
+          "y": 189.1,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 8,
+          "x": 88.1,
+          "y": 198.6,
+          "size": 4.7
+        },
+        {
+          "region": 24,
+          "number": 8,
+          "x": 109.7,
+          "y": 198.6,
+          "size": 4.7
+        },
+        {
+          "region": 25,
+          "number": 9,
+          "x": 80.1,
+          "y": 131.2,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 9,
+          "x": 118.7,
+          "y": 115.1,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 9,
+          "x": 91.1,
+          "y": 120.4,
+          "size": 8.4
+        },
+        {
+          "region": 31,
+          "number": 8,
+          "x": 85.6,
+          "y": 83.1,
+          "size": 4.6
+        },
+        {
+          "region": 32,
+          "number": 8,
+          "x": 86.1,
+          "y": 90.7,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 8,
+          "x": 114.4,
+          "y": 83.1,
+          "size": 4.6
+        },
+        {
+          "region": 34,
+          "number": 8,
+          "x": 113.9,
+          "y": 90.3,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 4,
+          "x": 87.7,
+          "y": 139.3,
+          "size": 5.9
+        },
+        {
+          "region": 36,
+          "number": 4,
+          "x": 85.5,
+          "y": 106.7,
+          "size": 6.8
+        },
+        {
+          "region": 37,
+          "number": 4,
+          "x": 113.9,
+          "y": 106.7,
+          "size": 6.8
+        },
+        {
+          "region": 38,
+          "number": 4,
+          "x": 99.9,
+          "y": 112.7,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 4,
+          "x": 99.9,
+          "y": 119.3,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 4,
+          "x": 99.9,
+          "y": 125.9,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 3,
+          "x": 86.2,
+          "y": 132.1,
+          "size": 4.5
+        },
+        {
+          "region": 42,
+          "number": 4,
+          "x": 99.4,
+          "y": 132,
+          "size": 4.5
+        },
+        {
+          "region": 44,
+          "number": 5,
+          "x": 116.2,
+          "y": 60.6,
+          "size": 4.5
+        },
+        {
+          "region": 45,
+          "number": 10,
+          "x": 94.5,
+          "y": 70.8,
+          "size": 5.8
+        },
+        {
+          "region": 46,
+          "number": 4,
+          "x": 106.6,
+          "y": 70.9,
+          "size": 4.5
+        },
+        {
+          "region": 47,
+          "number": 7,
+          "x": 90.3,
+          "y": 92.8,
+          "size": 4.5
+        },
+        {
+          "region": 48,
+          "number": 7,
+          "x": 108.8,
+          "y": 91.4,
+          "size": 4.5
+        },
+        {
+          "region": 50,
+          "number": 5,
+          "x": 88.3,
+          "y": 162.8,
+          "size": 13
+        },
+        {
+          "region": 51,
+          "number": 5,
+          "x": 93.5,
+          "y": 179.6,
+          "size": 7.6
+        },
+        {
+          "region": 52,
+          "number": 3,
+          "x": 123.4,
+          "y": 114.6,
+          "size": 4.5
+        },
+        {
+          "region": 54,
+          "number": 8,
+          "x": 39.8,
+          "y": 99.8,
+          "size": 4.5
+        },
+        {
+          "region": 55,
+          "number": 8,
+          "x": 159.8,
+          "y": 89.8,
+          "size": 4.5
+        },
+        {
+          "region": 56,
+          "number": 8,
+          "x": 171.8,
+          "y": 119.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Piet maakt muziek",
+        "word": null,
+        "countQuestion": null
+      },
+      "de": {
+        "name": "Piet macht Musik",
+        "word": null,
+        "countQuestion": null
+      },
+      "fr": {
+        "name": "Piet fait de la musique",
+        "word": null,
+        "countQuestion": null
+      },
+      "en": {
+        "name": "Piet makes music",
+        "word": null,
+        "countQuestion": null
+      },
+      "es": {
+        "name": "Piet toca música",
+        "word": null,
+        "countQuestion": null
+      },
+      "it": {
+        "name": "Piet suona",
+        "word": null,
+        "countQuestion": null
+      },
+      "pl": {
+        "name": "Piet gra muzykę",
+        "word": null,
+        "countQuestion": null
+      },
+      "pt": {
+        "name": "Piet faz música",
+        "word": null,
+        "countQuestion": null
+      },
+      "sv": {
+        "name": "Piet spelar musik",
+        "word": null,
+        "countQuestion": null
+      },
+      "da": {
+        "name": "Piet spiller musik",
+        "word": null,
+        "countQuestion": null
+      },
+      "nb": {
+        "name": "Piet spiller musikk",
+        "word": null,
+        "countQuestion": null
+      },
+      "fi": {
+        "name": "Piet soittaa",
+        "word": null,
+        "countQuestion": null
+      },
+      "cs": {
+        "name": "Piet hraje hudbu",
+        "word": null,
+        "countQuestion": null
+      },
+      "sk": {
+        "name": "Piet hrá hudbu",
+        "word": null,
+        "countQuestion": null
+      },
+      "hu": {
+        "name": "Piet zenél",
+        "word": null,
+        "countQuestion": null
+      },
+      "ro": {
+        "name": "Piet cântă",
+        "word": null,
+        "countQuestion": null
+      },
+      "el": {
+        "name": "Ο Πιτ παίζει μουσική",
+        "word": null,
+        "countQuestion": null
+      },
+      "bg": {
+        "name": "Пийт свири музика",
+        "word": null,
+        "countQuestion": null
+      },
+      "hr": {
+        "name": "Piet svira",
+        "word": null,
+        "countQuestion": null
+      },
+      "sl": {
+        "name": "Piet igra glasbo",
+        "word": null,
+        "countQuestion": null
+      },
+      "et": {
+        "name": "Piet teeb muusikat",
+        "word": null,
+        "countQuestion": null
+      },
+      "lv": {
+        "name": "Pīts spēlē mūziku",
+        "word": null,
+        "countQuestion": null
+      },
+      "lt": {
+        "name": "Pytas groja",
+        "word": null,
+        "countQuestion": null
+      },
+      "uk": {
+        "name": "Піт грає музику",
+        "word": null,
+        "countQuestion": null
+      },
+      "tr": {
+        "name": "Piet müzik yapıyor",
+        "word": null,
+        "countQuestion": null
+      },
+      "sr": {
+        "name": "Pit svira",
+        "word": null,
+        "countQuestion": null
+      },
+      "mk": {
+        "name": "Пит свири музика",
+        "word": null,
+        "countQuestion": null
+      },
+      "sq": {
+        "name": "Piet bën muzikë",
+        "word": null,
+        "countQuestion": null
+      },
+      "is": {
+        "name": "Piet spilar tónlist",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "schoen-bij-de-kachel",
+    "order": 1067,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": "sinterklaas",
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 32,
+    "colorByNumber": {
+      "codes": "gyyyyyyyywzxzxoooyyy-rxog-m---bt",
+      "palette": [
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "t",
+          "hex": "#3ec7c1"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 45,
+          "y": 73.5,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 19.6,
+          "y": 19.1,
+          "size": 6
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 39.6,
+          "y": 55.1,
+          "size": 6
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 19.6,
+          "y": 91.1,
+          "size": 6
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 39.6,
+          "y": 127.1,
+          "size": 6
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 159.6,
+          "y": 55.1,
+          "size": 6
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 159.6,
+          "y": 127.1,
+          "size": 6
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 179.6,
+          "y": 19.1,
+          "size": 6
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 179.6,
+          "y": 91.1,
+          "size": 6
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 105,
+          "y": 159.5,
+          "size": 13
+        },
+        {
+          "region": 10,
+          "number": 4,
+          "x": 78,
+          "y": 58.2,
+          "size": 13
+        },
+        {
+          "region": 11,
+          "number": 5,
+          "x": 59.2,
+          "y": 37.7,
+          "size": 6.6
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 99.5,
+          "y": 10.4,
+          "size": 10.9
+        },
+        {
+          "region": 13,
+          "number": 5,
+          "x": 94,
+          "y": 83,
+          "size": 8
+        },
+        {
+          "region": 14,
+          "number": 6,
+          "x": 87.6,
+          "y": 95.1,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 6,
+          "x": 99.6,
+          "y": 95.1,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 6,
+          "x": 111.6,
+          "y": 95.1,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 2,
+          "x": 87.8,
+          "y": 108.8,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 2,
+          "x": 99.8,
+          "y": 108.8,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 2,
+          "x": 111.8,
+          "y": 108.8,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 7,
+          "x": 57.3,
+          "y": 175.2,
+          "size": 13
+        },
+        {
+          "region": 22,
+          "number": 5,
+          "x": 28.2,
+          "y": 192.9,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 6,
+          "x": 41.4,
+          "y": 161.5,
+          "size": 5.2
+        },
+        {
+          "region": 24,
+          "number": 1,
+          "x": 19.9,
+          "y": 121.1,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 8,
+          "x": 66.2,
+          "y": 141.2,
+          "size": 5.5
+        },
+        {
+          "region": 30,
+          "number": 9,
+          "x": 162.5,
+          "y": 180.7,
+          "size": 13
+        },
+        {
+          "region": 31,
+          "number": 10,
+          "x": 162.5,
+          "y": 159.8,
+          "size": 5.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Je schoen bij de kachel",
+        "word": null,
+        "countQuestion": null
+      },
+      "de": {
+        "name": "Dein Schuh am Ofen",
+        "word": null,
+        "countQuestion": null
+      },
+      "fr": {
+        "name": "Ta chaussure près du poêle",
+        "word": null,
+        "countQuestion": null
+      },
+      "en": {
+        "name": "Your shoe by the stove",
+        "word": null,
+        "countQuestion": null
+      },
+      "es": {
+        "name": "Tu zapato junto a la estufa",
+        "word": null,
+        "countQuestion": null
+      },
+      "it": {
+        "name": "La tua scarpa vicino alla stufa",
+        "word": null,
+        "countQuestion": null
+      },
+      "pl": {
+        "name": "Twój but przy piecu",
+        "word": null,
+        "countQuestion": null
+      },
+      "pt": {
+        "name": "O teu sapato junto ao fogão",
+        "word": null,
+        "countQuestion": null
+      },
+      "sv": {
+        "name": "Din sko vid kaminen",
+        "word": null,
+        "countQuestion": null
+      },
+      "da": {
+        "name": "Din sko ved kaminen",
+        "word": null,
+        "countQuestion": null
+      },
+      "nb": {
+        "name": "Skoen din ved ovnen",
+        "word": null,
+        "countQuestion": null
+      },
+      "fi": {
+        "name": "Kenkäsi takan vieressä",
+        "word": null,
+        "countQuestion": null
+      },
+      "cs": {
+        "name": "Tvoje bota u kamen",
+        "word": null,
+        "countQuestion": null
+      },
+      "sk": {
+        "name": "Tvoja topánka pri peci",
+        "word": null,
+        "countQuestion": null
+      },
+      "hu": {
+        "name": "A cipőd a kályha mellett",
+        "word": null,
+        "countQuestion": null
+      },
+      "ro": {
+        "name": "Pantoful tău lângă sobă",
+        "word": null,
+        "countQuestion": null
+      },
+      "el": {
+        "name": "Το παπούτσι σου δίπλα στη σόμπα",
+        "word": null,
+        "countQuestion": null
+      },
+      "bg": {
+        "name": "Обувката ти до печката",
+        "word": null,
+        "countQuestion": null
+      },
+      "hr": {
+        "name": "Tvoja cipela kraj peći",
+        "word": null,
+        "countQuestion": null
+      },
+      "sl": {
+        "name": "Tvoj čevelj ob peči",
+        "word": null,
+        "countQuestion": null
+      },
+      "et": {
+        "name": "Sinu king ahju juures",
+        "word": null,
+        "countQuestion": null
+      },
+      "lv": {
+        "name": "Tava kurpe pie krāsns",
+        "word": null,
+        "countQuestion": null
+      },
+      "lt": {
+        "name": "Tavo batas prie krosnies",
+        "word": null,
+        "countQuestion": null
+      },
+      "uk": {
+        "name": "Твій черевик біля пічки",
+        "word": null,
+        "countQuestion": null
+      },
+      "tr": {
+        "name": "Sobanın yanındaki ayakkabın",
+        "word": null,
+        "countQuestion": null
+      },
+      "sr": {
+        "name": "Tvoja cipela pored peći",
+        "word": null,
+        "countQuestion": null
+      },
+      "mk": {
+        "name": "Твојот чевел до шпоретот",
+        "word": null,
+        "countQuestion": null
+      },
+      "sq": {
+        "name": "Këpuca jote pranë sobës",
+        "word": null,
+        "countQuestion": null
+      },
+      "is": {
+        "name": "Skórinn þinn við ofninn",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "sint-en-piet-zwaaien",
+    "order": 1068,
+    "category": "feest",
+    "age": "2-4",
+    "world": null,
+    "holiday": "sinterklaas",
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 64,
+    "colorByNumber": {
+      "codes": "-rnyrnylyyy-rryyrr--yyxxryyng---kooxxggg---xxxxoooyyywy-yryzzwww",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        }
+      ],
+      "labels": [
+        {
+          "region": 1,
+          "number": 1,
+          "x": 16.3,
+          "y": 11.7,
+          "size": 5.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 49.6,
+          "y": 14.4,
+          "size": 5.5
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 82.9,
+          "y": 15.7,
+          "size": 5.5
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 116.3,
+          "y": 15.7,
+          "size": 5.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 149.6,
+          "y": 14.4,
+          "size": 5.5
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 182.9,
+          "y": 11.7,
+          "size": 5.5
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 25,
+          "y": 188.6,
+          "size": 13
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 33.3,
+          "y": 58.2,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 20.7,
+          "y": 48.1,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 23.2,
+          "y": 61,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 1,
+          "x": 36.5,
+          "y": 154.3,
+          "size": 13
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 91.4,
+          "y": 154.3,
+          "size": 13
+        },
+        {
+          "region": 14,
+          "number": 3,
+          "x": 59,
+          "y": 163.2,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 3,
+          "x": 69,
+          "y": 163.2,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 1,
+          "x": 38.6,
+          "y": 114.8,
+          "size": 7.5
+        },
+        {
+          "region": 17,
+          "number": 1,
+          "x": 85,
+          "y": 93.6,
+          "size": 7.6
+        },
+        {
+          "region": 20,
+          "number": 3,
+          "x": 49,
+          "y": 168.2,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 3,
+          "x": 74.2,
+          "y": 111.4,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 5,
+          "x": 50.6,
+          "y": 176.6,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 5,
+          "x": 70.4,
+          "y": 176.6,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 1,
+          "x": 71.6,
+          "y": 56.1,
+          "size": 7.2
+        },
+        {
+          "region": 25,
+          "number": 3,
+          "x": 51.9,
+          "y": 66,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 3,
+          "x": 63.7,
+          "y": 46.5,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 2,
+          "x": 55.6,
+          "y": 66.6,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 6,
+          "x": 72.4,
+          "y": 66.6,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 7,
+          "x": 63.9,
+          "y": 80.3,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 8,
+          "x": 139.9,
+          "y": 151.3,
+          "size": 6.4
+        },
+        {
+          "region": 34,
+          "number": 8,
+          "x": 155.5,
+          "y": 151.3,
+          "size": 6.4
+        },
+        {
+          "region": 35,
+          "number": 5,
+          "x": 136.1,
+          "y": 190.6,
+          "size": 4.7
+        },
+        {
+          "region": 36,
+          "number": 5,
+          "x": 157.7,
+          "y": 190.6,
+          "size": 4.7
+        },
+        {
+          "region": 37,
+          "number": 6,
+          "x": 169.5,
+          "y": 77.3,
+          "size": 5.7
+        },
+        {
+          "region": 38,
+          "number": 6,
+          "x": 127.5,
+          "y": 126,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 6,
+          "x": 139.1,
+          "y": 116.4,
+          "size": 8.4
+        },
+        {
+          "region": 43,
+          "number": 5,
+          "x": 133.6,
+          "y": 79.1,
+          "size": 4.6
+        },
+        {
+          "region": 44,
+          "number": 5,
+          "x": 134.1,
+          "y": 86.7,
+          "size": 4.5
+        },
+        {
+          "region": 45,
+          "number": 5,
+          "x": 162.4,
+          "y": 79.1,
+          "size": 4.6
+        },
+        {
+          "region": 46,
+          "number": 5,
+          "x": 161.9,
+          "y": 86.3,
+          "size": 4.5
+        },
+        {
+          "region": 47,
+          "number": 8,
+          "x": 137.6,
+          "y": 138.7,
+          "size": 9.3
+        },
+        {
+          "region": 48,
+          "number": 8,
+          "x": 133.5,
+          "y": 102.7,
+          "size": 6.8
+        },
+        {
+          "region": 49,
+          "number": 8,
+          "x": 161.9,
+          "y": 102.7,
+          "size": 6.8
+        },
+        {
+          "region": 50,
+          "number": 3,
+          "x": 147.9,
+          "y": 108.7,
+          "size": 4.5
+        },
+        {
+          "region": 51,
+          "number": 3,
+          "x": 147.9,
+          "y": 115.3,
+          "size": 4.5
+        },
+        {
+          "region": 52,
+          "number": 3,
+          "x": 147.9,
+          "y": 121.9,
+          "size": 4.5
+        },
+        {
+          "region": 53,
+          "number": 9,
+          "x": 134.2,
+          "y": 128.1,
+          "size": 4.5
+        },
+        {
+          "region": 54,
+          "number": 3,
+          "x": 147.4,
+          "y": 128,
+          "size": 4.5
+        },
+        {
+          "region": 56,
+          "number": 3,
+          "x": 164.2,
+          "y": 56.6,
+          "size": 4.5
+        },
+        {
+          "region": 57,
+          "number": 1,
+          "x": 142.5,
+          "y": 66.8,
+          "size": 5.8
+        },
+        {
+          "region": 58,
+          "number": 3,
+          "x": 154.6,
+          "y": 66.9,
+          "size": 4.5
+        },
+        {
+          "region": 59,
+          "number": 10,
+          "x": 138,
+          "y": 88.8,
+          "size": 4.5
+        },
+        {
+          "region": 60,
+          "number": 10,
+          "x": 156.8,
+          "y": 87.4,
+          "size": 4.5
+        },
+        {
+          "region": 61,
+          "number": 9,
+          "x": 111.8,
+          "y": 185.8,
+          "size": 4.9
+        },
+        {
+          "region": 62,
+          "number": 9,
+          "x": 121.8,
+          "y": 189.8,
+          "size": 4.9
+        },
+        {
+          "region": 63,
+          "number": 9,
+          "x": 189.8,
+          "y": 189.8,
+          "size": 4.9
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Sinterklaas en Piet zwaaien",
+        "word": null,
+        "countQuestion": null
+      },
+      "de": {
+        "name": "Sinterklaas und Piet winken",
+        "word": null,
+        "countQuestion": null
+      },
+      "fr": {
+        "name": "Saint-Nicolas et Piet font coucou",
+        "word": null,
+        "countQuestion": null
+      },
+      "en": {
+        "name": "Sinterklaas and Piet wave hello",
+        "word": null,
+        "countQuestion": null
+      },
+      "es": {
+        "name": "Sinterklaas y Piet saludan",
+        "word": null,
+        "countQuestion": null
+      },
+      "it": {
+        "name": "Sinterklaas e Piet salutano",
+        "word": null,
+        "countQuestion": null
+      },
+      "pl": {
+        "name": "Sinterklaas i Piet machają",
+        "word": null,
+        "countQuestion": null
+      },
+      "pt": {
+        "name": "Sinterklaas e Piet acenam",
+        "word": null,
+        "countQuestion": null
+      },
+      "sv": {
+        "name": "Sinterklaas och Piet vinkar",
+        "word": null,
+        "countQuestion": null
+      },
+      "da": {
+        "name": "Sinterklaas og Piet vinker",
+        "word": null,
+        "countQuestion": null
+      },
+      "nb": {
+        "name": "Sinterklaas og Piet vinker",
+        "word": null,
+        "countQuestion": null
+      },
+      "fi": {
+        "name": "Sinterklaas ja Piet vilkuttavat",
+        "word": null,
+        "countQuestion": null
+      },
+      "cs": {
+        "name": "Sinterklaas a Piet mávají",
+        "word": null,
+        "countQuestion": null
+      },
+      "sk": {
+        "name": "Sinterklaas a Piet mávajú",
+        "word": null,
+        "countQuestion": null
+      },
+      "hu": {
+        "name": "Sinterklaas és Piet integet",
+        "word": null,
+        "countQuestion": null
+      },
+      "ro": {
+        "name": "Sinterklaas și Piet fac cu mâna",
+        "word": null,
+        "countQuestion": null
+      },
+      "el": {
+        "name": "Ο Σίντερκλάας και ο Πιτ χαιρετούν",
+        "word": null,
+        "countQuestion": null
+      },
+      "bg": {
+        "name": "Синтерклаас и Пийт махат",
+        "word": null,
+        "countQuestion": null
+      },
+      "hr": {
+        "name": "Sinterklaas i Piet mašu",
+        "word": null,
+        "countQuestion": null
+      },
+      "sl": {
+        "name": "Sinterklaas in Piet mahata",
+        "word": null,
+        "countQuestion": null
+      },
+      "et": {
+        "name": "Sinterklaas ja Piet lehvitavad",
+        "word": null,
+        "countQuestion": null
+      },
+      "lv": {
+        "name": "Sinterklāss un Pīts māj",
+        "word": null,
+        "countQuestion": null
+      },
+      "lt": {
+        "name": "Sinterklasas ir Pytas moja",
+        "word": null,
+        "countQuestion": null
+      },
+      "uk": {
+        "name": "Сінтерклаас і Піт махають",
+        "word": null,
+        "countQuestion": null
+      },
+      "tr": {
+        "name": "Sinterklaas ve Piet el sallıyor",
+        "word": null,
+        "countQuestion": null
+      },
+      "sr": {
+        "name": "Sinterklas i Pit mašu",
+        "word": null,
+        "countQuestion": null
+      },
+      "mk": {
+        "name": "Синтерклас и Пит мавтаат",
+        "word": null,
+        "countQuestion": null
+      },
+      "sq": {
+        "name": "Sinterklaas dhe Piet përshëndesin",
+        "word": null,
+        "countQuestion": null
+      },
+      "is": {
+        "name": "Sinterklaas og Piet veifa",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "sint-rijdt-op-zijn-paard",
+    "order": 1069,
+    "category": "feest",
+    "age": "2-4",
+    "world": null,
+    "holiday": "sinterklaas",
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 44,
+    "colorByNumber": {
+      "codes": "b--gyyy-rryyrr--yyryyng---kz-z-z-z-z----zryw",
+      "palette": [
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 35,
+          "y": 85,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 15,
+          "y": 186.7,
+          "size": 13
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 72.2,
+          "y": 63.7,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 64.1,
+          "y": 57.6,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 65.7,
+          "y": 66,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 78.5,
+          "y": 109.1,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 103.4,
+          "y": 107.3,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 89.2,
+          "y": 107.2,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 3,
+          "x": 94.6,
+          "y": 104.5,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 4,
+          "x": 75.8,
+          "y": 100.4,
+          "size": 4.7
+        },
+        {
+          "region": 13,
+          "number": 4,
+          "x": 104.2,
+          "y": 94.4,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 3,
+          "x": 84.1,
+          "y": 106.7,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 3,
+          "x": 98.9,
+          "y": 99.2,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 4,
+          "x": 87.1,
+          "y": 62.8,
+          "size": 4.6
+        },
+        {
+          "region": 19,
+          "number": 3,
+          "x": 84.3,
+          "y": 69.3,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 3,
+          "x": 91.8,
+          "y": 56.6,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 5,
+          "x": 86.6,
+          "y": 69.6,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 2,
+          "x": 97.4,
+          "y": 69.6,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 6,
+          "x": 91.9,
+          "y": 78.4,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 7,
+          "x": 36.8,
+          "y": 139.4,
+          "size": 8.2
+        },
+        {
+          "region": 29,
+          "number": 7,
+          "x": 53.3,
+          "y": 187.2,
+          "size": 5
+        },
+        {
+          "region": 31,
+          "number": 7,
+          "x": 76.7,
+          "y": 187.2,
+          "size": 5
+        },
+        {
+          "region": 33,
+          "number": 7,
+          "x": 107.9,
+          "y": 187.2,
+          "size": 5
+        },
+        {
+          "region": 35,
+          "number": 7,
+          "x": 131.4,
+          "y": 187.2,
+          "size": 5
+        },
+        {
+          "region": 40,
+          "number": 7,
+          "x": 121.2,
+          "y": 111.8,
+          "size": 5.6
+        },
+        {
+          "region": 41,
+          "number": 4,
+          "x": 90,
+          "y": 126.1,
+          "size": 13
+        },
+        {
+          "region": 42,
+          "number": 3,
+          "x": 77.4,
+          "y": 142.3,
+          "size": 4.7
+        },
+        {
+          "region": 43,
+          "number": 8,
+          "x": 166.4,
+          "y": 88.4,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Sint rijdt op zijn paard",
+        "word": null,
+        "countQuestion": null
+      },
+      "de": {
+        "name": "Sinterklaas reitet auf seinem Pferd",
+        "word": null,
+        "countQuestion": null
+      },
+      "fr": {
+        "name": "Saint-Nicolas sur son cheval",
+        "word": null,
+        "countQuestion": null
+      },
+      "en": {
+        "name": "Sinterklaas rides his horse",
+        "word": null,
+        "countQuestion": null
+      },
+      "es": {
+        "name": "Sinterklaas monta su caballo",
+        "word": null,
+        "countQuestion": null
+      },
+      "it": {
+        "name": "Sinterklaas cavalca il suo cavallo",
+        "word": null,
+        "countQuestion": null
+      },
+      "pl": {
+        "name": "Sinterklaas jedzie na koniu",
+        "word": null,
+        "countQuestion": null
+      },
+      "pt": {
+        "name": "Sinterklaas monta o seu cavalo",
+        "word": null,
+        "countQuestion": null
+      },
+      "sv": {
+        "name": "Sinterklaas rider på sin häst",
+        "word": null,
+        "countQuestion": null
+      },
+      "da": {
+        "name": "Sinterklaas rider på sin hest",
+        "word": null,
+        "countQuestion": null
+      },
+      "nb": {
+        "name": "Sinterklaas rir på hesten sin",
+        "word": null,
+        "countQuestion": null
+      },
+      "fi": {
+        "name": "Sinterklaas ratsastaa hevosellaan",
+        "word": null,
+        "countQuestion": null
+      },
+      "cs": {
+        "name": "Sinterklaas jede na koni",
+        "word": null,
+        "countQuestion": null
+      },
+      "sk": {
+        "name": "Sinterklaas jazdí na koni",
+        "word": null,
+        "countQuestion": null
+      },
+      "hu": {
+        "name": "Sinterklaas lovagol",
+        "word": null,
+        "countQuestion": null
+      },
+      "ro": {
+        "name": "Sinterklaas călare pe calul său",
+        "word": null,
+        "countQuestion": null
+      },
+      "el": {
+        "name": "Ο Σίντερκλάας καβάλα στο άλογό του",
+        "word": null,
+        "countQuestion": null
+      },
+      "bg": {
+        "name": "Синтерклаас язди коня си",
+        "word": null,
+        "countQuestion": null
+      },
+      "hr": {
+        "name": "Sinterklaas jaše na konju",
+        "word": null,
+        "countQuestion": null
+      },
+      "sl": {
+        "name": "Sinterklaas jaha konja",
+        "word": null,
+        "countQuestion": null
+      },
+      "et": {
+        "name": "Sinterklaas ratsutab hobusel",
+        "word": null,
+        "countQuestion": null
+      },
+      "lv": {
+        "name": "Sinterklāss jāj ar savu zirgu",
+        "word": null,
+        "countQuestion": null
+      },
+      "lt": {
+        "name": "Sinterklasas joja savo žirgu",
+        "word": null,
+        "countQuestion": null
+      },
+      "uk": {
+        "name": "Сінтерклаас їде на коні",
+        "word": null,
+        "countQuestion": null
+      },
+      "tr": {
+        "name": "Sinterklaas atına biniyor",
+        "word": null,
+        "countQuestion": null
+      },
+      "sr": {
+        "name": "Sinterklas jaše svog konja",
+        "word": null,
+        "countQuestion": null
+      },
+      "mk": {
+        "name": "Синтерклас јава на својот коњ",
+        "word": null,
+        "countQuestion": null
+      },
+      "sq": {
+        "name": "Sinterklaas kalëron kalin e tij",
+        "word": null,
+        "countQuestion": null
+      },
+      "is": {
+        "name": "Sinterklaas ríður hestinum sínum",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "sinterklaas-leest-voor",
+    "order": 1070,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": "sinterklaas",
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 85,
+    "colorByNumber": {
+      "codes": "oyyyyyyyyyyywgrr-rryyrr--yyryyng---ky--mmmo-o--nnnnxxyyyxxxxxxxxxx-x--zzzzxxnnyyybbbb",
+      "palette": [
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 45,
+          "y": 73.5,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 19.6,
+          "y": 19.1,
+          "size": 6
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 39.6,
+          "y": 55.1,
+          "size": 6
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 19.6,
+          "y": 91.1,
+          "size": 6
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 42.6,
+          "y": 129.8,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 59.6,
+          "y": 19.1,
+          "size": 6
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 99.6,
+          "y": 19.1,
+          "size": 6
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 139.6,
+          "y": 19.1,
+          "size": 6
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 159.6,
+          "y": 55.1,
+          "size": 6
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 154.4,
+          "y": 122.4,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 2,
+          "x": 179.6,
+          "y": 19.1,
+          "size": 6
+        },
+        {
+          "region": 11,
+          "number": 2,
+          "x": 179.6,
+          "y": 91.1,
+          "size": 6
+        },
+        {
+          "region": 12,
+          "number": 3,
+          "x": 15,
+          "y": 159.5,
+          "size": 12
+        },
+        {
+          "region": 13,
+          "number": 4,
+          "x": 77.5,
+          "y": 176.9,
+          "size": 13
+        },
+        {
+          "region": 14,
+          "number": 5,
+          "x": 74,
+          "y": 67.5,
+          "size": 13
+        },
+        {
+          "region": 15,
+          "number": 5,
+          "x": 64,
+          "y": 119.5,
+          "size": 10.9
+        },
+        {
+          "region": 17,
+          "number": 5,
+          "x": 77.7,
+          "y": 105.2,
+          "size": 5.1
+        },
+        {
+          "region": 18,
+          "number": 5,
+          "x": 122.3,
+          "y": 105.2,
+          "size": 5.1
+        },
+        {
+          "region": 19,
+          "number": 2,
+          "x": 96.8,
+          "y": 100.4,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 2,
+          "x": 102.7,
+          "y": 94.5,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 5,
+          "x": 84.7,
+          "y": 88.4,
+          "size": 4.7
+        },
+        {
+          "region": 22,
+          "number": 5,
+          "x": 113,
+          "y": 83.3,
+          "size": 4.7
+        },
+        {
+          "region": 25,
+          "number": 2,
+          "x": 90.7,
+          "y": 101.7,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 2,
+          "x": 107.4,
+          "y": 88.8,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 5,
+          "x": 94.7,
+          "y": 50,
+          "size": 5
+        },
+        {
+          "region": 28,
+          "number": 2,
+          "x": 91.7,
+          "y": 56.9,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 2,
+          "x": 99.8,
+          "y": 43.3,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 6,
+          "x": 94.2,
+          "y": 57.2,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 4,
+          "x": 105.8,
+          "y": 57.2,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 7,
+          "x": 99.9,
+          "y": 66.6,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 2,
+          "x": 81,
+          "y": 108.5,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 8,
+          "x": 22.8,
+          "y": 155.6,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 8,
+          "x": 45.2,
+          "y": 155.6,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 8,
+          "x": 33.6,
+          "y": 145.4,
+          "size": 9.6
+        },
+        {
+          "region": 42,
+          "number": 1,
+          "x": 44,
+          "y": 125.2,
+          "size": 4.5
+        },
+        {
+          "region": 44,
+          "number": 1,
+          "x": 31.3,
+          "y": 122.5,
+          "size": 4.5
+        },
+        {
+          "region": 47,
+          "number": 6,
+          "x": 28.7,
+          "y": 167.4,
+          "size": 4.5
+        },
+        {
+          "region": 48,
+          "number": 6,
+          "x": 39.3,
+          "y": 167.4,
+          "size": 4.5
+        },
+        {
+          "region": 49,
+          "number": 6,
+          "x": 22.9,
+          "y": 172.5,
+          "size": 4.5
+        },
+        {
+          "region": 50,
+          "number": 6,
+          "x": 45.1,
+          "y": 172.5,
+          "size": 4.5
+        },
+        {
+          "region": 51,
+          "number": 9,
+          "x": 38.7,
+          "y": 175.5,
+          "size": 4.5
+        },
+        {
+          "region": 52,
+          "number": 9,
+          "x": 28.3,
+          "y": 175.5,
+          "size": 4.5
+        },
+        {
+          "region": 53,
+          "number": 2,
+          "x": 154.8,
+          "y": 155.6,
+          "size": 4.5
+        },
+        {
+          "region": 54,
+          "number": 2,
+          "x": 177.2,
+          "y": 155.6,
+          "size": 4.5
+        },
+        {
+          "region": 55,
+          "number": 2,
+          "x": 165.6,
+          "y": 145.4,
+          "size": 9.6
+        },
+        {
+          "region": 56,
+          "number": 9,
+          "x": 157.2,
+          "y": 132,
+          "size": 4.5
+        },
+        {
+          "region": 57,
+          "number": 9,
+          "x": 156.6,
+          "y": 128.2,
+          "size": 4.5
+        },
+        {
+          "region": 58,
+          "number": 9,
+          "x": 157.3,
+          "y": 124.1,
+          "size": 4.5
+        },
+        {
+          "region": 59,
+          "number": 9,
+          "x": 159.6,
+          "y": 120.7,
+          "size": 4.5
+        },
+        {
+          "region": 60,
+          "number": 9,
+          "x": 163.2,
+          "y": 118.6,
+          "size": 4.5
+        },
+        {
+          "region": 61,
+          "number": 9,
+          "x": 167.4,
+          "y": 118.3,
+          "size": 4.5
+        },
+        {
+          "region": 62,
+          "number": 9,
+          "x": 170.9,
+          "y": 119.8,
+          "size": 4.5
+        },
+        {
+          "region": 63,
+          "number": 9,
+          "x": 173.9,
+          "y": 122.6,
+          "size": 4.5
+        },
+        {
+          "region": 64,
+          "number": 9,
+          "x": 175.4,
+          "y": 126.7,
+          "size": 4.5
+        },
+        {
+          "region": 65,
+          "number": 9,
+          "x": 174.5,
+          "y": 132.2,
+          "size": 4.5
+        },
+        {
+          "region": 67,
+          "number": 9,
+          "x": 166.4,
+          "y": 122.1,
+          "size": 4.5
+        },
+        {
+          "region": 70,
+          "number": 10,
+          "x": 160.7,
+          "y": 167.4,
+          "size": 4.5
+        },
+        {
+          "region": 71,
+          "number": 10,
+          "x": 171.3,
+          "y": 167.4,
+          "size": 4.5
+        },
+        {
+          "region": 72,
+          "number": 10,
+          "x": 154.9,
+          "y": 172.5,
+          "size": 4.5
+        },
+        {
+          "region": 73,
+          "number": 10,
+          "x": 177.1,
+          "y": 172.5,
+          "size": 4.5
+        },
+        {
+          "region": 74,
+          "number": 9,
+          "x": 170.7,
+          "y": 175.5,
+          "size": 4.5
+        },
+        {
+          "region": 75,
+          "number": 9,
+          "x": 160.3,
+          "y": 175.5,
+          "size": 4.5
+        },
+        {
+          "region": 76,
+          "number": 6,
+          "x": 91,
+          "y": 170.4,
+          "size": 4.5
+        },
+        {
+          "region": 77,
+          "number": 6,
+          "x": 89.5,
+          "y": 157.3,
+          "size": 4.5
+        },
+        {
+          "region": 78,
+          "number": 2,
+          "x": 99.8,
+          "y": 157,
+          "size": 4.5
+        },
+        {
+          "region": 79,
+          "number": 2,
+          "x": 93.9,
+          "y": 151.8,
+          "size": 4.5
+        },
+        {
+          "region": 80,
+          "number": 2,
+          "x": 106.1,
+          "y": 151.8,
+          "size": 4.5
+        },
+        {
+          "region": 81,
+          "number": 11,
+          "x": 92.7,
+          "y": 165.3,
+          "size": 4.5
+        },
+        {
+          "region": 82,
+          "number": 11,
+          "x": 106.6,
+          "y": 164.9,
+          "size": 4.5
+        },
+        {
+          "region": 83,
+          "number": 11,
+          "x": 93.9,
+          "y": 173.4,
+          "size": 4.5
+        },
+        {
+          "region": 84,
+          "number": 11,
+          "x": 105.9,
+          "y": 172.9,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Sinterklaas leest voor",
+        "word": null,
+        "countQuestion": null
+      },
+      "de": {
+        "name": "Sinterklaas liest vor",
+        "word": null,
+        "countQuestion": null
+      },
+      "fr": {
+        "name": "Saint-Nicolas raconte une histoire",
+        "word": null,
+        "countQuestion": null
+      },
+      "en": {
+        "name": "Sinterklaas reads a story",
+        "word": null,
+        "countQuestion": null
+      },
+      "es": {
+        "name": "Sinterklaas lee un cuento",
+        "word": null,
+        "countQuestion": null
+      },
+      "it": {
+        "name": "Sinterklaas legge una storia",
+        "word": null,
+        "countQuestion": null
+      },
+      "pl": {
+        "name": "Sinterklaas czyta bajkę",
+        "word": null,
+        "countQuestion": null
+      },
+      "pt": {
+        "name": "Sinterklaas lê uma história",
+        "word": null,
+        "countQuestion": null
+      },
+      "sv": {
+        "name": "Sinterklaas läser högt",
+        "word": null,
+        "countQuestion": null
+      },
+      "da": {
+        "name": "Sinterklaas læser højt",
+        "word": null,
+        "countQuestion": null
+      },
+      "nb": {
+        "name": "Sinterklaas leser høyt",
+        "word": null,
+        "countQuestion": null
+      },
+      "fi": {
+        "name": "Sinterklaas lukee ääneen",
+        "word": null,
+        "countQuestion": null
+      },
+      "cs": {
+        "name": "Sinterklaas čte pohádku",
+        "word": null,
+        "countQuestion": null
+      },
+      "sk": {
+        "name": "Sinterklaas číta rozprávku",
+        "word": null,
+        "countQuestion": null
+      },
+      "hu": {
+        "name": "Sinterklaas mesét olvas",
+        "word": null,
+        "countQuestion": null
+      },
+      "ro": {
+        "name": "Sinterklaas citește o poveste",
+        "word": null,
+        "countQuestion": null
+      },
+      "el": {
+        "name": "Ο Σίντερκλάας διαβάζει μια ιστορία",
+        "word": null,
+        "countQuestion": null
+      },
+      "bg": {
+        "name": "Синтерклаас чете приказка",
+        "word": null,
+        "countQuestion": null
+      },
+      "hr": {
+        "name": "Sinterklaas čita priču",
+        "word": null,
+        "countQuestion": null
+      },
+      "sl": {
+        "name": "Sinterklaas bere zgodbo",
+        "word": null,
+        "countQuestion": null
+      },
+      "et": {
+        "name": "Sinterklaas loeb ette",
+        "word": null,
+        "countQuestion": null
+      },
+      "lv": {
+        "name": "Sinterklāss lasa priekšā",
+        "word": null,
+        "countQuestion": null
+      },
+      "lt": {
+        "name": "Sinterklasas skaito pasaką",
+        "word": null,
+        "countQuestion": null
+      },
+      "uk": {
+        "name": "Сінтерклаас читає казку",
+        "word": null,
+        "countQuestion": null
+      },
+      "tr": {
+        "name": "Sinterklaas hikâye okuyor",
+        "word": null,
+        "countQuestion": null
+      },
+      "sr": {
+        "name": "Sinterklas čita priču",
+        "word": null,
+        "countQuestion": null
+      },
+      "mk": {
+        "name": "Синтерклас чита приказна",
+        "word": null,
+        "countQuestion": null
+      },
+      "sq": {
+        "name": "Sinterklaas lexon një përrallë",
+        "word": null,
+        "countQuestion": null
+      },
+      "is": {
+        "name": "Sinterklaas les sögu",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "stapel-cadeautjes",
+    "order": 1071,
+    "category": "feest",
+    "age": "2-4",
+    "world": null,
+    "holiday": "sinterklaas",
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 53,
+    "colorByNumber": {
+      "codes": "-ymymywrryyyyyyynnyyybbbbggrrrllllmmyyykkkkoonnnwwwyy",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 1,
+          "number": 1,
+          "x": 19.5,
+          "y": 13.4,
+          "size": 6.3
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 59.5,
+          "y": 17.2,
+          "size": 6.3
+        },
+        {
+          "region": 3,
+          "number": 1,
+          "x": 99.5,
+          "y": 18.5,
+          "size": 6.3
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 139.5,
+          "y": 17.2,
+          "size": 6.3
+        },
+        {
+          "region": 5,
+          "number": 1,
+          "x": 179.5,
+          "y": 13.4,
+          "size": 6.3
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 15,
+          "y": 187.4,
+          "size": 13
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 63.2,
+          "y": 148.7,
+          "size": 9.7
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 23.1,
+          "y": 121.3,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 1,
+          "x": 51.8,
+          "y": 122.3,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 1,
+          "x": 48.3,
+          "y": 117,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 1,
+          "x": 54.7,
+          "y": 117,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 1,
+          "x": 32.6,
+          "y": 139.4,
+          "size": 5.1
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 69.7,
+          "y": 138.4,
+          "size": 5.1
+        },
+        {
+          "region": 14,
+          "number": 1,
+          "x": 35.8,
+          "y": 162.8,
+          "size": 5.1
+        },
+        {
+          "region": 15,
+          "number": 1,
+          "x": 67.8,
+          "y": 161.2,
+          "size": 5.1
+        },
+        {
+          "region": 16,
+          "number": 5,
+          "x": 112.9,
+          "y": 155,
+          "size": 7.5
+        },
+        {
+          "region": 17,
+          "number": 5,
+          "x": 98.2,
+          "y": 133.3,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 1,
+          "x": 121.8,
+          "y": 133.4,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 1,
+          "x": 118.3,
+          "y": 129,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 1,
+          "x": 124.7,
+          "y": 129,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 6,
+          "x": 106.2,
+          "y": 147.8,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 6,
+          "x": 136.4,
+          "y": 147,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 6,
+          "x": 108.8,
+          "y": 165.8,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 6,
+          "x": 134.8,
+          "y": 164.6,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 7,
+          "x": 185,
+          "y": 163.6,
+          "size": 5.8
+        },
+        {
+          "region": 26,
+          "number": 7,
+          "x": 153.5,
+          "y": 147.3,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 4,
+          "x": 169.9,
+          "y": 148,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 4,
+          "x": 163.9,
+          "y": 141.8,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 4,
+          "x": 176.1,
+          "y": 141.8,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 8,
+          "x": 157.9,
+          "y": 157.7,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 8,
+          "x": 181.1,
+          "y": 157.2,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 8,
+          "x": 159.9,
+          "y": 169.4,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 8,
+          "x": 179.9,
+          "y": 168.6,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 2,
+          "x": 77,
+          "y": 100.8,
+          "size": 6
+        },
+        {
+          "region": 35,
+          "number": 2,
+          "x": 47.5,
+          "y": 81.3,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 1,
+          "x": 63.8,
+          "y": 80.8,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 1,
+          "x": 57.9,
+          "y": 75.8,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 1,
+          "x": 70.1,
+          "y": 75.8,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 9,
+          "x": 51.9,
+          "y": 93.5,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 9,
+          "x": 75.1,
+          "y": 92.9,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 9,
+          "x": 53.9,
+          "y": 107.9,
+          "size": 4.5
+        },
+        {
+          "region": 42,
+          "number": 9,
+          "x": 73.9,
+          "y": 106.9,
+          "size": 4.5
+        },
+        {
+          "region": 43,
+          "number": 10,
+          "x": 114.8,
+          "y": 107.7,
+          "size": 6.9
+        },
+        {
+          "region": 44,
+          "number": 10,
+          "x": 110.3,
+          "y": 97.3,
+          "size": 4.5
+        },
+        {
+          "region": 45,
+          "number": 5,
+          "x": 122.8,
+          "y": 98.3,
+          "size": 4.5
+        },
+        {
+          "region": 46,
+          "number": 5,
+          "x": 116.4,
+          "y": 91.5,
+          "size": 4.5
+        },
+        {
+          "region": 47,
+          "number": 5,
+          "x": 129.1,
+          "y": 91.8,
+          "size": 4.5
+        },
+        {
+          "region": 48,
+          "number": 3,
+          "x": 9.8,
+          "y": 189.8,
+          "size": 5.4
+        },
+        {
+          "region": 49,
+          "number": 3,
+          "x": 189.8,
+          "y": 119.8,
+          "size": 5.4
+        },
+        {
+          "region": 50,
+          "number": 3,
+          "x": 175.8,
+          "y": 131.8,
+          "size": 5.4
+        },
+        {
+          "region": 51,
+          "number": 1,
+          "x": 169.5,
+          "y": 59.5,
+          "size": 5.8
+        },
+        {
+          "region": 52,
+          "number": 1,
+          "x": 23.6,
+          "y": 59.6,
+          "size": 4.6
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Een stapel cadeautjes",
+        "word": null,
+        "countQuestion": null
+      },
+      "de": {
+        "name": "Ein Stapel Geschenke",
+        "word": null,
+        "countQuestion": null
+      },
+      "fr": {
+        "name": "Une pile de cadeaux",
+        "word": null,
+        "countQuestion": null
+      },
+      "en": {
+        "name": "A stack of presents",
+        "word": null,
+        "countQuestion": null
+      },
+      "es": {
+        "name": "Una pila de regalos",
+        "word": null,
+        "countQuestion": null
+      },
+      "it": {
+        "name": "Una pila di regali",
+        "word": null,
+        "countQuestion": null
+      },
+      "pl": {
+        "name": "Stos prezentów",
+        "word": null,
+        "countQuestion": null
+      },
+      "pt": {
+        "name": "Uma pilha de presentes",
+        "word": null,
+        "countQuestion": null
+      },
+      "sv": {
+        "name": "En hög med paket",
+        "word": null,
+        "countQuestion": null
+      },
+      "da": {
+        "name": "En stak gaver",
+        "word": null,
+        "countQuestion": null
+      },
+      "nb": {
+        "name": "En stabel gaver",
+        "word": null,
+        "countQuestion": null
+      },
+      "fi": {
+        "name": "Lahjakasa",
+        "word": null,
+        "countQuestion": null
+      },
+      "cs": {
+        "name": "Hromada dárků",
+        "word": null,
+        "countQuestion": null
+      },
+      "sk": {
+        "name": "Kopa darčekov",
+        "word": null,
+        "countQuestion": null
+      },
+      "hu": {
+        "name": "Egy halom ajándék",
+        "word": null,
+        "countQuestion": null
+      },
+      "ro": {
+        "name": "Un teanc de cadouri",
+        "word": null,
+        "countQuestion": null
+      },
+      "el": {
+        "name": "Μια στοίβα δώρα",
+        "word": null,
+        "countQuestion": null
+      },
+      "bg": {
+        "name": "Купчина подаръци",
+        "word": null,
+        "countQuestion": null
+      },
+      "hr": {
+        "name": "Hrpa poklona",
+        "word": null,
+        "countQuestion": null
+      },
+      "sl": {
+        "name": "Kup daril",
+        "word": null,
+        "countQuestion": null
+      },
+      "et": {
+        "name": "Kingihunnik",
+        "word": null,
+        "countQuestion": null
+      },
+      "lv": {
+        "name": "Dāvanu kaudze",
+        "word": null,
+        "countQuestion": null
+      },
+      "lt": {
+        "name": "Dovanų krūva",
+        "word": null,
+        "countQuestion": null
+      },
+      "uk": {
+        "name": "Купа подарунків",
+        "word": null,
+        "countQuestion": null
+      },
+      "tr": {
+        "name": "Bir yığın hediye",
+        "word": null,
+        "countQuestion": null
+      },
+      "sr": {
+        "name": "Gomila poklona",
+        "word": null,
+        "countQuestion": null
+      },
+      "mk": {
+        "name": "Куп подароци",
+        "word": null,
+        "countQuestion": null
+      },
+      "sq": {
+        "name": "Një grumbull dhuratash",
+        "word": null,
+        "countQuestion": null
+      },
+      "is": {
+        "name": "Stafli af gjöfum",
+        "word": null,
+        "countQuestion": null
+      }
+    }
+  },
+  {
+    "slug": "warme-chocolademelk",
+    "order": 1072,
+    "category": "feest",
+    "age": "6-9",
+    "world": null,
+    "holiday": "sinterklaas",
+    "kind": "kleurplaat",
+    "height": 200,
+    "minutes": null,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      },
+      {
+        "slug": "waskrijtjes",
+        "optional": true
+      }
+    ],
+    "regionCount": 45,
+    "colorByNumber": {
+      "codes": "b---wrwxooomgngg-rryyrr--yyryyng---k--wwoowww",
+      "palette": [
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 105,
+          "y": 41.3,
+          "size": 13
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 25,
+          "y": 176.3,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 32.8,
+          "y": 59.6,
+          "size": 13
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 10.1,
+          "y": 36.8,
+          "size": 5.5
+        },
+        {
+          "region": 7,
+          "number": 4,
+          "x": 44,
+          "y": 103.4,
+          "size": 13
+        },
+        {
+          "region": 8,
+          "number": 5,
+          "x": 33.7,
+          "y": 139.5,
+          "size": 6.3
+        },
+        {
+          "region": 9,
+          "number": 5,
+          "x": 44.7,
+          "y": 139.5,
+          "size": 6.3
+        },
+        {
+          "region": 10,
+          "number": 5,
+          "x": 55.7,
+          "y": 143.7,
+          "size": 6.7
+        },
+        {
+          "region": 11,
+          "number": 6,
+          "x": 19.8,
+          "y": 23.3,
+          "size": 5.5
+        },
+        {
+          "region": 12,
+          "number": 7,
+          "x": 45.8,
+          "y": 23.3,
+          "size": 5.5
+        },
+        {
+          "region": 13,
+          "number": 8,
+          "x": 69.8,
+          "y": 23.3,
+          "size": 5.5
+        },
+        {
+          "region": 14,
+          "number": 7,
+          "x": 118,
+          "y": 69.5,
+          "size": 13
+        },
+        {
+          "region": 15,
+          "number": 7,
+          "x": 108,
+          "y": 121.5,
+          "size": 10.9
+        },
+        {
+          "region": 17,
+          "number": 3,
+          "x": 130.6,
+          "y": 101.4,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 3,
+          "x": 162.9,
+          "y": 109.1,
+          "size": 7.7
+        },
+        {
+          "region": 19,
+          "number": 9,
+          "x": 140.3,
+          "y": 108.4,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 9,
+          "x": 146.7,
+          "y": 96.5,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 3,
+          "x": 128.7,
+          "y": 90.4,
+          "size": 4.7
+        },
+        {
+          "region": 22,
+          "number": 3,
+          "x": 157,
+          "y": 85.3,
+          "size": 4.7
+        },
+        {
+          "region": 25,
+          "number": 9,
+          "x": 134.4,
+          "y": 106.9,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 9,
+          "x": 151.4,
+          "y": 90.8,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 3,
+          "x": 138.7,
+          "y": 52,
+          "size": 5
+        },
+        {
+          "region": 28,
+          "number": 9,
+          "x": 135.7,
+          "y": 58.9,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 9,
+          "x": 143.8,
+          "y": 45.3,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 8,
+          "x": 138.2,
+          "y": 59.2,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 7,
+          "x": 149.8,
+          "y": 59.2,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 10,
+          "x": 143.9,
+          "y": 68.6,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 2,
+          "x": 95.8,
+          "y": 158.9,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 2,
+          "x": 116.8,
+          "y": 166.9,
+          "size": 5.5
+        },
+        {
+          "region": 40,
+          "number": 5,
+          "x": 103.2,
+          "y": 150.8,
+          "size": 5.5
+        },
+        {
+          "region": 41,
+          "number": 5,
+          "x": 123.2,
+          "y": 150.8,
+          "size": 5.5
+        },
+        {
+          "region": 42,
+          "number": 2,
+          "x": 159.8,
+          "y": 185.8,
+          "size": 4.5
+        },
+        {
+          "region": 43,
+          "number": 2,
+          "x": 169.8,
+          "y": 189.8,
+          "size": 4.5
+        },
+        {
+          "region": 44,
+          "number": 2,
+          "x": 179.8,
+          "y": 185.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Sinterklaas met warme chocolademelk",
+        "word": null,
+        "countQuestion": null
+      },
+      "de": {
+        "name": "Sinterklaas mit heißer Schokolade",
+        "word": null,
+        "countQuestion": null
+      },
+      "fr": {
+        "name": "Saint-Nicolas et son chocolat chaud",
+        "word": null,
+        "countQuestion": null
+      },
+      "en": {
+        "name": "Sinterklaas with hot chocolate",
+        "word": null,
+        "countQuestion": null
+      },
+      "es": {
+        "name": "Sinterklaas con chocolate caliente",
+        "word": null,
+        "countQuestion": null
+      },
+      "it": {
+        "name": "Sinterklaas con la cioccolata calda",
+        "word": null,
+        "countQuestion": null
+      },
+      "pl": {
+        "name": "Sinterklaas z gorącą czekoladą",
+        "word": null,
+        "countQuestion": null
+      },
+      "pt": {
+        "name": "Sinterklaas com chocolate quente",
+        "word": null,
+        "countQuestion": null
+      },
+      "sv": {
+        "name": "Sinterklaas med varm choklad",
+        "word": null,
+        "countQuestion": null
+      },
+      "da": {
+        "name": "Sinterklaas med varm kakao",
+        "word": null,
+        "countQuestion": null
+      },
+      "nb": {
+        "name": "Sinterklaas med varm sjokolade",
+        "word": null,
+        "countQuestion": null
+      },
+      "fi": {
+        "name": "Sinterklaas ja kuuma kaakao",
+        "word": null,
+        "countQuestion": null
+      },
+      "cs": {
+        "name": "Sinterklaas s horkou čokoládou",
+        "word": null,
+        "countQuestion": null
+      },
+      "sk": {
+        "name": "Sinterklaas s horúcou čokoládou",
+        "word": null,
+        "countQuestion": null
+      },
+      "hu": {
+        "name": "Sinterklaas forró csokival",
+        "word": null,
+        "countQuestion": null
+      },
+      "ro": {
+        "name": "Sinterklaas cu ciocolată caldă",
+        "word": null,
+        "countQuestion": null
+      },
+      "el": {
+        "name": "Ο Σίντερκλάας με ζεστή σοκολάτα",
+        "word": null,
+        "countQuestion": null
+      },
+      "bg": {
+        "name": "Синтерклаас с горещ шоколад",
+        "word": null,
+        "countQuestion": null
+      },
+      "hr": {
+        "name": "Sinterklaas s toplom čokoladom",
+        "word": null,
+        "countQuestion": null
+      },
+      "sl": {
+        "name": "Sinterklaas z vročo čokolado",
+        "word": null,
+        "countQuestion": null
+      },
+      "et": {
+        "name": "Sinterklaas kuuma šokolaadiga",
+        "word": null,
+        "countQuestion": null
+      },
+      "lv": {
+        "name": "Sinterklāss ar karstu šokolādi",
+        "word": null,
+        "countQuestion": null
+      },
+      "lt": {
+        "name": "Sinterklasas su karštu šokoladu",
+        "word": null,
+        "countQuestion": null
+      },
+      "uk": {
+        "name": "Сінтерклаас із гарячим шоколадом",
+        "word": null,
+        "countQuestion": null
+      },
+      "tr": {
+        "name": "Sıcak çikolatalı Sinterklaas",
+        "word": null,
+        "countQuestion": null
+      },
+      "sr": {
+        "name": "Sinterklas s toplom čokoladom",
+        "word": null,
+        "countQuestion": null
+      },
+      "mk": {
+        "name": "Синтерклас со топло чоколадо",
+        "word": null,
+        "countQuestion": null
+      },
+      "sq": {
+        "name": "Sinterklaas me çokollatë të ngrohtë",
+        "word": null,
+        "countQuestion": null
+      },
+      "is": {
+        "name": "Sinterklaas með heitt kakó",
         "word": null,
         "countQuestion": null
       }

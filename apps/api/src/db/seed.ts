@@ -178,20 +178,21 @@ export async function seed(db: Database, tenantId: string): Promise<{ plates: nu
  * Een verbeterde tekening in catalog-data wordt een nieuwe versie van die plaat (ADR 0064), zodat het adres van
  * de SVG en de PNG verandert en het CDN de nieuwe toont. Alleen als de huidige versie zelf uit catalog-data komt:
  * een versie uit het admin panel wordt nooit overschreven. Vergelijken gaat op md5, zodat de SVG's niet bij elke
- * start uit de database komen. Hetzelfde aantal vlakken is verplicht, anders klopt opgeslagen kleurwerk niet meer.
+ * start uit de database komen. Het aantal vlakken mag veranderen: opgeslagen kleurwerk hoort bij een versie
+ * (`kh:<plaat>:v<versie>` op het apparaat, de koelkast en samen kleuren bewaren de versie) en blijft bij de oude.
  */
 async function refreshCatalogVersions(tx: Tx, tenantId: string, list: ReturnType<typeof source.plates>, existing: Map<string, string>) {
   if (!existing.size) return 0;
   const rows = await tx.select({
     plateId: plates.id, slug: plates.slug, version: plateVersions.version, createdBy: plateVersions.createdBy,
-    regionCount: plateVersions.regionCount, hash: sql<string>`md5(${plateVersions.svg})`,
+    hash: sql<string>`md5(${plateVersions.svg})`,
     latest: sql<number>`(select max(v.version) from ${plateVersions} v where v.plate_id = ${plates.id})`,
   }).from(plates).innerJoin(plateVersions, eq(plateVersions.id, plates.currentVersionId)).where(inArray(plates.id, [...existing.values()]));
   const bySlug = new Map(rows.map((r) => [r.slug, r]));
   let updated = 0;
   for (const p of list) {
     const cur = bySlug.get(p.slug);
-    if (!cur || cur.createdBy !== "catalog-data" || cur.regionCount !== p.regionCount) continue;
+    if (!cur || cur.createdBy !== "catalog-data") continue;
     const svg = source.plateSvg(p.slug);
     if (createHash("md5").update(svg).digest("hex") === cur.hash) continue;
     const [version] = await tx.insert(plateVersions).values({
