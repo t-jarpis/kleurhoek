@@ -134,7 +134,8 @@ check_config() { # check_config <env>
   [ -f "$f" ]  || { problem "ontbreekt: infra/envs/$env/terraform.tfvars (kopieer terraform.tfvars.example)"; return; }
   ensure_project "$env" "$f"
   local bad
-  bad="$(grep -nE '^[^#]*<[^>]+>' "$f" "$zf" 2>/dev/null | sed "s|$INFRA/||")"
+  # Een open plek is <…> zonder @: "Kleurhoek <hallo@kleurhoek.nl>" is een ingevuld afzenderadres.
+  bad="$(grep -nE '^[^#]*<[^>@]+>' "$f" "$zf" 2>/dev/null | sed "s|$INFRA/||")"
   [ -z "$bad" ] && ok "geen open plekken (<…>) in tfvars" || problem "nog in te vullen:"$'\n'"$(printf '%s\n' "$bad" | sed 's/^/      /')"
 
   ORG_ID="$(tfvar "$f" scaleway_organization_id)"
