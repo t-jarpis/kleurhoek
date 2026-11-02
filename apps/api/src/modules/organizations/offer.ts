@@ -1,5 +1,8 @@
 import type { OrgOffer } from "./organizations.schema";
 
+/** Typen die andere domeinen nodig hebben, zonder het schema zelf te importeren (ADR 0001, AGENTS.md). */
+export type { OrgFeatures, OrgOffer } from "./organizations.schema";
+
 /** Wat een plaat moet hebben om te kunnen toetsen of hij in het aanbod valt. */
 export interface OfferPlate { slug: string; category: string; age: string; kind: string; goals: readonly string[] }
 

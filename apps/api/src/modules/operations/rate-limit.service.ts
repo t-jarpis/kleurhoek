@@ -2,9 +2,10 @@ import { createHash } from "node:crypto";
 import { Inject, Injectable, Logger, type OnApplicationShutdown, type OnModuleInit } from "@nestjs/common";
 import { and, asc, eq, gte, sql } from "drizzle-orm";
 import { ENV, type Env } from "../../config/env";
-import { DB, type Database } from "../../db/database";
+import { DB, type Database, type Tx } from "../../db/database";
 import { withTenant } from "../../db/tenant";
 import { AuditService } from "../identity/audit.service";
+import { UndoRegistry } from "../identity/undo";
 import { rateLimits, rateLimitStats } from "./operations.schema";
 import { RATE_LIMIT_STORE, type RateLimitStore } from "./rate-limit.store";
 
@@ -40,9 +41,20 @@ export class RateLimitService implements OnModuleInit, OnApplicationShutdown {
     @Inject(ENV) private readonly env: Env,
     @Inject(RATE_LIMIT_STORE) private readonly store: RateLimitStore,
     private readonly audit: AuditService,
+    private readonly undo: UndoRegistry,
   ) {}
 
   async onModuleInit() {
+    // Ongedaan maken (ADR 0066): een rate limit terugzetten.
+    this.undo.register("operations.ratelimit.update", {
+      permission: "operations.ratelimit.manage", label: "Rate limit",
+      apply: async (tx: Tx, tenantId: string, subject: string, before: unknown) => {
+        const b = before as { limit: number; windowSeconds: number; enabled: boolean };
+        await tx.update(rateLimits).set({ limit: b.limit, windowSeconds: b.windowSeconds, enabled: b.enabled, updatedAt: new Date() })
+          .where(and(eq(rateLimits.tenantId, tenantId), eq(rateLimits.slug, subject.replace(/^rate_limit:/, ""))));
+      },
+      afterCommit: () => this.refresh(),
+    });
     await this.ensureDefaults();
     await this.refresh();
     this.timer = setInterval(() => void this.flush().catch((e) => this.log.error(e)), FLUSH_MS);

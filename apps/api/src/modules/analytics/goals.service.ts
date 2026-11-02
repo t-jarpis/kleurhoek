@@ -1,10 +1,11 @@
-import { Inject, Injectable } from "@nestjs/common";
+import { Inject, Injectable, type OnModuleInit } from "@nestjs/common";
 import { and, eq, gte, lte, sql } from "drizzle-orm";
 import { z } from "zod";
-import { DB, type Database } from "../../db/database";
+import { DB, type Database, type Tx } from "../../db/database";
 import { withTenant } from "../../db/tenant";
 import { CatalogService } from "../catalog/catalog.service";
 import { AuditService } from "../identity/audit.service";
+import { UndoRegistry } from "../identity/undo";
 import { dailyProductClicks, dailyVisitors, goals, type GoalMilestone } from "./analytics.schema";
 import { ALL_ORGS } from "./analytics.service";
 
@@ -61,8 +62,20 @@ export function goalAt(milestones: GoalMilestone[], i: number): { target: number
 }
 
 @Injectable()
-export class GoalsService {
-  constructor(@Inject(DB) private readonly db: Database, private readonly catalog: CatalogService, private readonly audit: AuditService) {}
+export class GoalsService implements OnModuleInit {
+  constructor(@Inject(DB) private readonly db: Database, private readonly catalog: CatalogService, private readonly audit: AuditService, private readonly undo: UndoRegistry) {}
+
+  /** Ongedaan maken (ADR 0066): de vorige doelen terug; waren er geen, dan weer de standaard. */
+  onModuleInit() {
+    this.undo.register("analytics.goals.updated", {
+      permission: "analytics.goals.manage", label: "Doelen",
+      apply: async (tx: Tx, tenantId: string, _subject: string, before: unknown) => {
+        await tx.delete(goals).where(eq(goals.tenantId, tenantId));
+        const rows = (before as { metric: string; startMonth: string; milestones: GoalMilestone[] }[] | null) ?? [];
+        if (rows.length) await tx.insert(goals).values(rows.map((r) => ({ tenantId, metric: r.metric, startMonth: r.startMonth, milestones: r.milestones })));
+      },
+    });
+  }
 
   async get(tenantId: string, today = new Date()) {
     const current = today.toISOString().slice(0, 7);

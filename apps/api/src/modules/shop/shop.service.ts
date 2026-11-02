@@ -1,9 +1,10 @@
-import { Inject, Injectable } from "@nestjs/common";
+import { Inject, Injectable, type OnModuleInit } from "@nestjs/common";
 import { and, asc, eq, inArray } from "drizzle-orm";
 import { ENV, type Env } from "../../config/env";
-import { DB, type Database } from "../../db/database";
+import { DB, type Database, type Tx } from "../../db/database";
 import { withTenant } from "../../db/tenant";
 import { AuditService } from "../identity/audit.service";
+import { UndoRegistry } from "../identity/undo";
 import { LocalizationService } from "../localization/localization.service";
 import { AMAZON_STORES } from "./shop.defaults";
 import { materialProducts, partners, products } from "./shop.schema";
@@ -141,13 +142,26 @@ export interface ProductView {
  * hoort. Bouwt doorverwijzingen alleen uit opgeslagen gegevens: nooit uit invoer van bezoekers.
  */
 @Injectable()
-export class ShopService {
+export class ShopService implements OnModuleInit {
   constructor(
     @Inject(DB) private readonly db: Database,
     @Inject(ENV) private readonly env: Env,
     private readonly i18n: LocalizationService,
     private readonly audit: AuditService,
+    private readonly undo: UndoRegistry,
   ) {}
+
+  /** Ongedaan maken (ADR 0066): een winkelkoppeling terugzetten. */
+  onModuleInit() {
+    this.undo.register("shop.partner.updated", {
+      permission: "shop.manage", label: "Winkelkoppeling",
+      apply: async (tx: Tx, tenantId: string, subject: string, before: unknown) => {
+        const b = before as { enabled: boolean; linkTemplate: string; settings: Record<string, string> };
+        await tx.update(partners).set({ enabled: b.enabled, linkTemplate: b.linkTemplate, settings: b.settings, updatedAt: new Date() })
+          .where(and(eq(partners.tenantId, tenantId), eq(partners.slug, subject.replace(/^partner:/, ""))));
+      },
+    });
+  }
 
   private get tenant() { return this.env.TENANT_ID; }
 

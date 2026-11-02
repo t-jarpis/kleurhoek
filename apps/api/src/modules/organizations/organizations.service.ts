@@ -4,12 +4,13 @@ import { createRequire } from "node:module";
 import { BadRequestException, ConflictException, Inject, Injectable, Logger, NotFoundException, type OnModuleInit } from "@nestjs/common";
 import { and, asc, eq } from "drizzle-orm";
 import { ENV, type Env } from "../../config/env";
-import { DB, type Database } from "../../db/database";
+import { DB, type Database, type Tx } from "../../db/database";
 import { withTenant } from "../../db/tenant";
 import { accentProblem, HEX, primaryProblem } from "../../shared/contrast";
 import { GOALS, seo as seoDefaults } from "@kleurhoek/catalog-data";
 import { AuditService } from "../identity/audit.service";
 import { IdentityService } from "../identity/identity.service";
+import { UndoRegistry } from "../identity/undo";
 import { CatalogService } from "../catalog/catalog.service";
 import type { SelfOffer } from "./offer";
 import { organizationLogos, organizationManagers, organizations, type OrgBrand, type OrgFeatures, type OrgKind, type OrgOffer, type OrgSeo } from "./organizations.schema";
@@ -65,11 +66,23 @@ export class OrganizationsService implements OnModuleInit {
     private readonly audit: AuditService,
     private readonly identity: IdentityService,
     private readonly catalog: CatalogService,
+    private readonly undo: UndoRegistry,
   ) {}
 
   private get tenant() { return this.env.TENANT_ID; }
 
   async onModuleInit() {
+    // Ongedaan maken (ADR 0066): de vindbaarheid van een organisatie terugzetten.
+    const seoUndo = {
+      permission: "seo.manage" as const, label: "Vindbaarheid",
+      apply: async (tx: Tx, tenantId: string, subject: string, before: unknown) => {
+        await tx.update(organizations).set({ seo: before as OrgSeo, updatedAt: new Date() })
+          .where(and(eq(organizations.tenantId, tenantId), eq(organizations.slug, subject.replace(/^organization:/, ""))));
+      },
+      afterCommit: async () => { this.cache = null; },
+    };
+    this.undo.register("seo.update", seoUndo);
+    this.undo.register("seo.defaults", seoUndo);
     // Kleurhoek zelf bestaat altijd: de standaardorganisatie voor de eigen domeinen en onbekende hosts.
     await withTenant(this.db, this.tenant, (tx) => tx.insert(organizations).values({
       tenantId: this.tenant, slug: DEFAULT_SLUG, name: "Kleurhoek", kind: "platform", isDefault: true,

@@ -203,6 +203,12 @@ export interface SocialOverview {
   redirectBase: string;
 }
 
+/** Wijzigingen uit het auditlog (ADR 0066). `undo`: ja, geen-recht, verouderd (er is later nog iets gewijzigd) of nee. */
+export interface Change {
+  id: string; at: string; actor: string; action: string; subject: string; label: string | null;
+  before: unknown; after: unknown; undo: "ja" | "geen-recht" | "verouderd" | "nee";
+}
+
 export class ApiError extends Error {
   constructor(readonly status: number, message: string) { super(message); }
 }
@@ -221,6 +227,8 @@ async function call<T>(path: string, init: RequestInit = {}): Promise<T> {
 
 export const adminApi = {
   me: () => call<Me>("/v1/admin/me"),
+  changes: (before?: string) => call<{ items: Change[] }>(`/v1/admin/changes${before ? `?before=${encodeURIComponent(before)}` : ""}`).then((r) => r.items),
+  undoChange: (id: string) => call(`/v1/admin/changes/${encodeURIComponent(id)}/undo`, { method: "POST" }),
   rateLimits: () => call<{ rules: RateLimitRule[] }>("/v1/admin/rate-limits").then((r) => r.rules),
   updateRateLimit: (slug: string, body: { limit?: number; windowSeconds?: number; enabled?: boolean }) =>
     call(`/v1/admin/rate-limits/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),

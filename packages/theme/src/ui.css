@@ -646,3 +646,7 @@ a.ui-chip { text-decoration: none; }
 .sheet .ink .l2 { stroke-width: calc(var(--sw, 2.4) * var(--ink-mid)); }
 .sheet .ink .l3 { stroke-width: calc(var(--sw, 2.4) * var(--ink-bold)); }
 .sheet:has(.ink) .r:hover { stroke-width: calc(var(--sw, 2.4) * var(--ink-mid)); }
+
+/* ChangeLog (ADR 0066): wijzigingen met voor en na, en terugzetten. */
+.ui-changes pre { margin: var(--space-2) 0 0; padding: var(--space-2) var(--space-3); max-block-size: 240px; max-inline-size: 52ch; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; font: 12px/1.45 var(--font-mono, ui-monospace, monospace); color: var(--color-text-muted); background: var(--color-surface-sunken, var(--color-paper)); border-radius: var(--radius-sm); }
+.ui-changes code { font-size: 13px; overflow-wrap: anywhere; }

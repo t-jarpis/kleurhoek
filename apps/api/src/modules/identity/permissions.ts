@@ -10,6 +10,7 @@ export const PERMISSIONS = {
   "operations.ratelimit.manage": "Rate limits wijzigen",
   "operations.access.read": "Toegang tot de website (IP-lijst) bekijken",
   "operations.access.manage": "Toegang tot de website (IP-lijst) wijzigen",
+  "audit.read": "Wijzigingen bekijken en ongedaan maken (alleen waar je ook het recht voor die wijziging hebt)",
   "identity.users.read": "Gebruikers en rollen bekijken",
   "identity.users.block": "Gebruikers blokkeren en deblokkeren",
   "identity.roles.assign": "Rollen toekennen aan beheerders",
@@ -39,7 +40,7 @@ export interface BuiltInRole { slug: string; name: string; permissions: Permissi
 /** Ingebouwde rollen. Worden bij elke start bijgewerkt, zodat code en database niet uit elkaar lopen. */
 export const BUILT_IN_ROLES: BuiltInRole[] = [
   { slug: "platformbeheerder", name: "Platformbeheerder", permissions: ALL_PERMISSIONS },
-  { slug: "contentbeheerder", name: "Contentbeheerder", permissions: ["catalog.manage", "availability.manage", "analytics.read", "shop.read", "shop.manage", "organizations.read", "releases.read", "sources.read", "sources.manage", "seo.read", "seo.manage", "mail.read", "mail.manage", "social.read", "social.manage"] },
+  { slug: "contentbeheerder", name: "Contentbeheerder", permissions: ["audit.read", "catalog.manage", "availability.manage", "analytics.read", "shop.read", "shop.manage", "organizations.read", "releases.read", "sources.read", "sources.manage", "seo.read", "seo.manage", "mail.read", "mail.manage", "social.read", "social.manage"] },
   { slug: "analist", name: "Analist", permissions: ["analytics.read", "operations.ratelimit.read", "operations.access.read", "shop.read", "releases.read", "seo.read", "mail.read", "social.read"] },
   { slug: "support", name: "Support", permissions: ["identity.users.read", "identity.users.block", "releases.read", "contact.read", "contact.manage"] },
 ];

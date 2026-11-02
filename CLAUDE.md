@@ -3,7 +3,7 @@
 - Communiceer met Thijs in het Nederlands. Code, identifiers en commits in het Engels, documentatie en UI-teksten in het Nederlands (plus vertalingen).
 - **Architectuur bijhouden:** bij elke architectuurwijziging het architectuurdocument én de diagrammen bijwerken (https://claude.ai/artifact/NmTKCWCDF31b6H4RY4XcEQ) en een ADR toevoegen in `docs/adr/`.
 - Gedeelde code komt uit `@t-jarpis/*` (repo `t-jarpis/platform`). Kleurhoek-code gaat nooit naar het platform; iets verhuist pas als een tweede site het nodig heeft (platform ADR 0001).
-- Domeinen hebben harde grenzen (ADR 0001): eigen schema, geen imports van andermans internals.
+- Domeinen hebben harde grenzen (ADR 0001): eigen schema, geen imports van andermans internals. Lees eerst de `AGENTS.md` van een domein; andere domeinen importeren alleen wat daar onder Publiek staat (ADR 0066, `test/boundaries.test.ts`). Nieuwe beheerinstellingen: audit vastleggen en zo mogelijk ongedaan maken aanbieden via `UndoRegistry`.
 - **Design system eerst** (ADR 0012): een nieuwe of gewijzigde component, variant of staat komt eerst in het design system (https://claude.ai/artifact/L7Df2x1wNxdihbVvuKuRMt: spec, tokens, preview) en wordt pas daarna gebouwd. Geen losse hex-waarden of maten in componenten. Stijl zit in `packages/theme` (ADR 0016): componenten lezen alleen semantische variabelen; een nieuwe stijl is een nieuwe map in `themes/`.
 - Alle platen zijn eigen ontwerpen (gemaakt met hulp van AI, elke plaat nagekeken). Geen bekende figuren, merken of werk van anderen. Claim nergens dat ze met de hand of "zelf getekend" zijn.
 - Privacy: geen tracking-cookies, geen persoonsgegevens in analytics, kinderen zonder account (ADR 0002).

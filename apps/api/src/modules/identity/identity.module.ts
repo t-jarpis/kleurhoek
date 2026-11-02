@@ -3,6 +3,9 @@ import { ENV, oidcEnabled, type Env } from "../../config/env";
 import { ADMIN_AUTHENTICATOR, AdminGuard, DenyAllAuthenticator, DevTokenAuthenticator, type AdminAuthenticator } from "./admin.guard";
 import { AdminUsersController } from "./admin-users.controller";
 import { AuditService } from "./audit.service";
+import { ChangesController } from "./changes.controller";
+import { ChangesService } from "./changes.service";
+import { UndoRegistry } from "./undo";
 import { IdentityService } from "./identity.service";
 import { MeController } from "./me.controller";
 import { MemberGuard } from "./member.guard";
@@ -10,7 +13,7 @@ import { rejectAllTokens, TOKEN_CHECK, zitadelTokenCheck, ZitadelAdminAuthentica
 
 @Global()
 @Module({
-  controllers: [MeController, AdminUsersController],
+  controllers: [MeController, AdminUsersController, ChangesController],
   providers: [
     {
       provide: TOKEN_CHECK,
@@ -30,8 +33,8 @@ import { rejectAllTokens, TOKEN_CHECK, zitadelTokenCheck, ZitadelAdminAuthentica
         return new DenyAllAuthenticator();
       },
     },
-    AdminGuard, MemberGuard, AuditService, IdentityService,
+    AdminGuard, MemberGuard, AuditService, IdentityService, UndoRegistry, ChangesService,
   ],
-  exports: [ADMIN_AUTHENTICATOR, TOKEN_CHECK, AdminGuard, MemberGuard, AuditService, IdentityService],
+  exports: [ADMIN_AUTHENTICATOR, TOKEN_CHECK, AdminGuard, MemberGuard, AuditService, IdentityService, UndoRegistry],
 })
 export class IdentityModule {}

@@ -7,7 +7,7 @@ import { AvailabilityService } from "../availability/availability.service";
 import { CatalogService, GOALS, KIND_GROUPS, type PlateKind, type PlateSummary } from "../catalog/catalog.service";
 import { LocalizationService, type Market } from "../localization/localization.service";
 import { offerAllows } from "../organizations/offer";
-import type { OrgFeatures, OrgOffer } from "../organizations/organizations.schema";
+import type { OrgFeatures, OrgOffer } from "../organizations/offer";
 import { ShopService } from "../shop/shop.service";
 import { SourcesService } from "../sources/sources.service";
 
