@@ -50,7 +50,7 @@ export const sr: Messages = {
   atPartner: (p: string) => `u prodavnici ${p}`,
   partnerDisclosure: "Partnerski linkovi: ako nešto kupiš preko ovih linkova, Kleurhoek dobija malu naknadu od prodavnice. Ti plaćaš isto. Tako bojanke ostaju besplatne.",
   deleteAccount: "Obriši nalog", deleteSure: "Sigurno? Dodirni još jednom",
-  disclaimer: "Pravne napomene", contact: "Kontakt", themes: "Teme kod autora",
+  disclaimer: "Pravne napomene", privacy: "Privatnost", contact: "Kontakt", themes: "Teme kod autora",
   contactTitle: "Kontakt", contactLede: "Imaš pitanje, ideju za bojanku ili nešto ne radi? Javi nam. Obično odgovaramo u roku od nekoliko radnih dana.",
   contactTopic: "O čemu se radi?",
   contactTopics: { question: "Pitanje", idea: "Ideja za bojanku", bug: "Nešto ne radi", partnership: "Saradnja", copyright: "Autorska prava", privacy: "Privatnost i moji podaci" } as Record<string, string>,

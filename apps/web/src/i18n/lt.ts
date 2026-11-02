@@ -49,7 +49,7 @@ export const lt: Messages = {
   atPartner: (p: string) => `parduotuvėje ${p}`,
   partnerDisclosure: "Partnerių nuorodos: jei per šias nuorodas ką nors nusiperki, Kleurhoek gauna nedidelį atlygį iš parduotuvės. Tu moki tiek pat. Taip paveikslėliai lieka nemokami.",
   deleteAccount: "Ištrinti paskyrą", deleteSure: "Ar tikrai? Paliesk dar kartą",
-  disclaimer: "Teisinė informacija", contact: "Kontaktai", themes: "Temos iš kūrėjų",
+  disclaimer: "Teisinė informacija", privacy: "Privatumas", contact: "Kontaktai", themes: "Temos iš kūrėjų",
   contactTitle: "Kontaktai", contactLede: "Turi klausimą, idėją paveikslėliui ar kažkas neveikia? Parašyk mums. Paprastai atsakome per kelias darbo dienas.",
   contactTopic: "Dėl ko rašai?",
   contactTopics: { question: "Klausimas", idea: "Idėja paveikslėliui", bug: "Kažkas neveikia", partnership: "Bendradarbiavimas", copyright: "Autorių teisės", privacy: "Privatumas ir mano duomenys" } as Record<string, string>,

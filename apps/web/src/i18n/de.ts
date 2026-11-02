@@ -43,7 +43,7 @@ export const de: Messages = {
   atPartner: (p: string) => `bei ${p}`,
   partnerDisclosure: "Partnerlinks: Wenn du über diese Links etwas kaufst, bekommt Kleurhoek eine kleine Vergütung vom Shop. Du zahlst dasselbe. So bleiben die Vorlagen kostenlos.",
   deleteAccount: "Konto löschen", deleteSure: "Ganz sicher? Tippe noch einmal",
-  disclaimer: "Haftungsausschluss", contact: "Kontakt", themes: "Themen bei den Machern",
+  disclaimer: "Haftungsausschluss", privacy: "Datenschutz", contact: "Kontakt", themes: "Themen bei den Machern",
   contactTitle: "Kontakt", contactLede: "Eine Frage, eine Idee für eine Vorlage oder funktioniert etwas nicht? Sag uns Bescheid. Wir antworten meistens innerhalb weniger Werktage.",
   contactTopic: "Worum geht es?",
   contactTopics: { question: "Eine Frage", idea: "Idee für eine Vorlage", bug: "Etwas funktioniert nicht", partnership: "Zusammenarbeit", copyright: "Urheberrecht", privacy: "Datenschutz und meine Daten" } as Record<string, string>,

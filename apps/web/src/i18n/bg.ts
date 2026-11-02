@@ -43,7 +43,7 @@ export const bg: Messages = {
   atPartner: (p: string) => `в ${p}`,
   partnerDisclosure: "Партньорски връзки: ако купиш нещо чрез тези връзки, Kleurhoek получава малка комисиона от магазина. Ти плащаш същата цена. Така картинките остават безплатни.",
   deleteAccount: "Изтрий профила", deleteSure: "Сигурен ли си? Докосни отново",
-  disclaimer: "Правна информация", contact: "Контакт", themes: "Теми от създателите",
+  disclaimer: "Правна информация", privacy: "Поверителност", contact: "Контакт", themes: "Теми от създателите",
   contactTitle: "Контакт", contactLede: "Имаш въпрос, идея за картинка или нещо не работи? Пиши ни. Обикновено отговаряме до няколко работни дни.",
   contactTopic: "За какво става дума?",
   contactTopics: { question: "Въпрос", idea: "Идея за картинка", bug: "Нещо не работи", partnership: "Сътрудничество", copyright: "Авторски права", privacy: "Поверителност и моите данни" } as Record<string, string>,

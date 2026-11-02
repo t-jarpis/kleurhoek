@@ -3,7 +3,7 @@ import { link } from "@/lib/sites";
 import { MarketLinks } from "./MarketSwitch";
 import type { Messages } from "@/i18n/nl";
 
-/** Onderaan elke pagina: disclaimer, contact en de Bronnengids (ADR 0024, 0025, 0028). */
+/** Onderaan elke pagina: disclaimer, privacy, contact en de Bronnengids (ADR 0024, 0025, 0028). */
 /** `own` = link naar "Eigen omgeving" tonen; alleen op Kleurhoek zelf, niet op de site van een organisatie. */
 export function SiteFooter({ base, t, own = false }: { base: string; t: Messages; own?: boolean }) {
   return (
@@ -17,6 +17,7 @@ export function SiteFooter({ base, t, own = false }: { base: string; t: Messages
         {own && <Link href={link(base, "/mail")}>{t.mlAccount}</Link>}
         <Link href={link(base, "/contact")}>{t.contact}</Link>
         <Link href={link(base, "/disclaimer")}>{t.disclaimer}</Link>
+        <Link href={link(base, "/privacy")}>{t.privacy}</Link>
         {/* Op de site van een organisatie: ingang voor wie het aanbod beheert (ADR 0036). */}
         {!own && <Link href={link(base, "/beheer")} rel="nofollow">{t.mgFooter}</Link>}
       </nav>

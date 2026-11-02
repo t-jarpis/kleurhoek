@@ -47,7 +47,7 @@ export const mk: Messages = {
   atPartner: (p: string) => `кај ${p}`,
   partnerDisclosure: "Партнерски линкови: ако купиш нешто преку овие линкови, Kleurhoek добива мал надомест од продавницата. Ти плаќаш исто. Така боенките остануваат бесплатни.",
   deleteAccount: "Избриши профил", deleteSure: "Сигурно? Допри уште еднаш",
-  disclaimer: "Правни напомени", contact: "Контакт", themes: "Теми кај авторите",
+  disclaimer: "Правни напомени", privacy: "Приватност", contact: "Контакт", themes: "Теми кај авторите",
   contactTitle: "Контакт", contactLede: "Имаш прашање, идеја за боенка или нешто не работи? Јави ни. Обично одговараме во рок од неколку работни дена.",
   contactTopic: "За што станува збор?",
   contactTopics: { question: "Прашање", idea: "Идеја за боенка", bug: "Нешто не работи", partnership: "Соработка", copyright: "Авторски права", privacy: "Приватност и моите податоци" } as Record<string, string>,

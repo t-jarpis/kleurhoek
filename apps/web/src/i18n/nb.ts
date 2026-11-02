@@ -43,7 +43,7 @@ export const nb: Messages = {
   atPartner: (p: string) => `hos ${p}`,
   partnerDisclosure: "Partnerlenker: Hvis du kjøper noe via disse lenkene, får Kleurhoek en liten provisjon fra butikken. Du betaler det samme. Slik holder vi arkene gratis.",
   deleteAccount: "Slett konto", deleteSure: "Er du sikker? Trykk igjen",
-  disclaimer: "Ansvarsfraskrivelse", contact: "Kontakt", themes: "Temaer hos skaperne",
+  disclaimer: "Ansvarsfraskrivelse", privacy: "Personvern", contact: "Kontakt", themes: "Temaer hos skaperne",
   contactTitle: "Kontakt", contactLede: "Et spørsmål, en idé til et ark eller noe som ikke fungerer? Gi oss beskjed. Vi svarer vanligvis innen noen få virkedager.",
   contactTopic: "Hva gjelder det?",
   contactTopics: { question: "Et spørsmål", idea: "Idé til et ark", bug: "Noe fungerer ikke", partnership: "Samarbeid", copyright: "Opphavsrett", privacy: "Personvern og mine opplysninger" } as Record<string, string>,

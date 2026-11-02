@@ -43,7 +43,7 @@ export const et: Messages = {
   atPartner: (p: string) => `poes ${p}`,
   partnerDisclosure: "Partnerlingid: kui ostad midagi nende linkide kaudu, saab Kleurhoek poelt väikese tasu. Sina maksad sama palju. Nii jäävad pildid tasuta.",
   deleteAccount: "Kustuta konto", deleteSure: "Oled kindel? Puuduta uuesti",
-  disclaimer: "Õigusteave", contact: "Kontakt", themes: "Teemad tegijatelt",
+  disclaimer: "Õigusteave", privacy: "Privaatsus", contact: "Kontakt", themes: "Teemad tegijatelt",
   contactTitle: "Kontakt", contactLede: "Küsimus, idee uueks pildiks või midagi ei tööta? Anna meile teada. Tavaliselt vastame mõne tööpäeva jooksul.",
   contactTopic: "Millega on tegu?",
   contactTopics: { question: "Küsimus", idea: "Idee pildiks", bug: "Midagi ei tööta", partnership: "Koostöö", copyright: "Autoriõigus", privacy: "Privaatsus ja minu andmed" } as Record<string, string>,

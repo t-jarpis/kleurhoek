@@ -50,7 +50,7 @@ export const ro: Messages = {
   atPartner: (p: string) => `la ${p}`,
   partnerDisclosure: "Linkuri de partener: dacă cumperi ceva prin aceste linkuri, Kleurhoek primește un mic comision de la magazin. Tu plătești la fel. Așa planșele rămân gratuite.",
   deleteAccount: "Șterge contul", deleteSure: "Sigur? Mai atinge o dată",
-  disclaimer: "Mențiuni legale", contact: "Contact", themes: "Teme de la creatori",
+  disclaimer: "Mențiuni legale", privacy: "Confidențialitate", contact: "Contact", themes: "Teme de la creatori",
   contactTitle: "Contact", contactLede: "Ai o întrebare, o idee pentru o planșă sau ceva nu funcționează? Spune-ne. De obicei răspundem în câteva zile lucrătoare.",
   contactTopic: "Despre ce este vorba?",
   contactTopics: { question: "O întrebare", idea: "O idee pentru o planșă", bug: "Ceva nu funcționează", partnership: "Colaborare", copyright: "Drepturi de autor", privacy: "Confidențialitate și datele mele" } as Record<string, string>,

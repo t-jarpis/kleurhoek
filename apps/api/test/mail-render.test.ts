@@ -1,5 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { renderMail } from "../src/modules/messaging/render";
+import { DEFAULT_TEMPLATES } from "../src/modules/messaging/defaults";
+import { ROW_COUNT_OK } from "../src/modules/messaging/defaults-i18n";
+import { TEMPLATE_LANGUAGES } from "../src/modules/messaging/messaging.types";
+import { MAIL_LANGUAGES, renderMail } from "../src/modules/messaging/render";
 import { lastScheduled } from "../src/modules/messaging/workflows.service";
 import { preferenceToken, readPreferenceToken } from "../src/modules/messaging/tokens";
 
@@ -57,11 +60,7 @@ describe("links en planning", () => {
 });
 
 describe("mail in alle talen", () => {
-  it("elke standaardtemplate staat in elke taal van de site, behalve wat maar in één taal bestaat", async () => {
-    const { DEFAULT_TEMPLATES } = await import("../src/modules/messaging/defaults");
-    const { ROW_COUNT_OK } = await import("../src/modules/messaging/defaults-i18n");
-    const { TEMPLATE_LANGUAGES } = await import("../src/modules/messaging/messaging.types");
-    const { MAIL_LANGUAGES } = await import("../src/modules/messaging/render");
+  it("elke standaardtemplate staat in elke taal van de site, behalve wat maar in één taal bestaat", () => {
     expect(ROW_COUNT_OK()).toEqual([]);
     expect(MAIL_LANGUAGES).toHaveLength(29);
     for (const t of DEFAULT_TEMPLATES) {
