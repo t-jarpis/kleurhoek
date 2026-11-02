@@ -1,4 +1,5 @@
 "use client";
+import { ColorToggle } from "./ColorPreview";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { KIND_GROUP, type PlateItem, type Taxonomy } from "@/lib/types";
@@ -75,6 +76,7 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
   return (
     <>
       <div className="filters" id="platen">
+        <div className="frow frow-end"><ColorToggle label={t.colorPreview} /></div>
         {crafts > 0 && (
           <div className="frow"><span className="flabel">{t.kind}</span>
             <div className="seg seg-scroll" role="group" aria-label={t.kind}>

@@ -1,3 +1,4 @@
+import { colorIn } from "./pin";
 import { createHash } from "node:crypto";
 import { goalName, localizeSvg, SOURCE_LANGUAGE } from "@kleurhoek/catalog-data";
 import { Inject, Injectable } from "@nestjs/common";
@@ -259,7 +260,7 @@ export class StorefrontService {
    * De SVG als losse afbeelding: met een eigen stijlblok, zodat hij ook in een <img> en via het CDN
    * goed getoond wordt. De lijndikte past bij de leeftijd en is te overschrijven met de CSS-variabele --sw.
    */
-  async svg(slug: string, version: number, language: string = SOURCE_LANGUAGE) {
+  async svg(slug: string, version: number, language: string = SOURCE_LANGUAGE, colored = false) {
     const [raw, detail, taxonomy, glossary] = await Promise.all([
       this.catalog.getSvg(this.tenant, slug, version),
       this.catalog.getPublished(this.tenant, slug),
@@ -276,6 +277,8 @@ export class StorefrontService {
     const rw = ink ? `${round2(sw * INK.fine)}` : `var(--sw,${sw})`;
     const inkStyle = ink ? `.ink{pointer-events:none}.l2{stroke-width:${round2(sw * INK.mid)}}.l3{stroke-width:${round2(sw * INK.bold)}}` : "";
     const style = `<style>.r{fill:#fff;stroke:#1d1b22;stroke-width:${rw};stroke-linejoin:round}.l{fill:none;stroke:#1d1b22;stroke-width:var(--sw,${sw});stroke-linecap:round;stroke-linejoin:round}${inkStyle}.dot{fill:#1d1b22}${CRAFT_STYLE}</style>`;
-    return text.replace(/^(<svg[^>]*>)/, `$1${style}`);
+    const out = text.replace(/^(<svg[^>]*>)/, `$1${style}`);
+    // In kleur (ADR 0070): de vlakken in de kleuren van kleur-op-nummer, voor het platenraster.
+    return colored ? colorIn(out, detail.colorByNumber.labels, detail.colorByNumber.palette) : out;
   }
 }

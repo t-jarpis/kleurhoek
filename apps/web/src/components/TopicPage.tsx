@@ -1,3 +1,4 @@
+import { ColorToggle } from "./ColorPreview";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { messages } from "@/i18n/nl";
@@ -71,6 +72,7 @@ export function topicPage(dim: Dimension) {
         <Crumbs base={base} label={t.crumbs} items={[{ name: "Kleurhoek", path: "" }, { name: title }]} />
         <h1>{title}</h1>
         <p className="lede">{t.topicIntro(title, plates.length)}</p>
+        <div className="frow frow-end"><ColorToggle label={t.colorPreview} /></div>
         <main className="grid">
           {plates.map((p) => (
             <PlateCard key={p.slug} plate={p} base={base} taxonomy={taxonomy} view={dim === "onderwerp" ? slug : "alle"} yr={t.yr}

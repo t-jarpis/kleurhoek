@@ -47,7 +47,7 @@ export const is: Messages = {
   atPartner: (p: string) => `hjá ${p}`,
   partnerDisclosure: "Samstarfstenglar: ef þú kaupir eitthvað í gegnum þessa tengla fær Kleurhoek litla þóknun frá versluninni. Þú borgar það sama. Þannig höldum við myndunum ókeypis.",
   deleteAccount: "Eyða aðgangi", deleteSure: "Ertu viss? Ýttu aftur",
-  disclaimer: "Fyrirvari", privacy: "Persónuvernd", contact: "Hafa samband", themes: "Þemu frá höfundum",
+  disclaimer: "Fyrirvari", privacy: "Persónuvernd", colorPreview: "Í lit", contact: "Hafa samband", themes: "Þemu frá höfundum",
   contactTitle: "Hafa samband", contactLede: "Ertu með spurningu, hugmynd að mynd eða virkar eitthvað ekki? Láttu okkur vita. Við svörum yfirleitt innan nokkurra virkra daga.",
   contactTopic: "Um hvað snýst þetta?",
   contactTopics: { question: "Spurning", idea: "Hugmynd að mynd", bug: "Eitthvað virkar ekki", partnership: "Samstarf", copyright: "Höfundarréttur", privacy: "Persónuvernd og gögnin mín" } as Record<string, string>,

@@ -49,7 +49,7 @@ export const pl: Messages = {
   atPartner: (p: string) => `w sklepie ${p}`,
   partnerDisclosure: "Linki partnerskie: jeśli kupisz coś przez te linki, Kleurhoek dostaje od sklepu niewielkie wynagrodzenie. Ty płacisz tyle samo. Dzięki temu plansze pozostają darmowe.",
   deleteAccount: "Usuń konto", deleteSure: "Na pewno? Stuknij jeszcze raz",
-  disclaimer: "Zastrzeżenia prawne", privacy: "Prywatność", contact: "Kontakt", themes: "Motywy u twórców",
+  disclaimer: "Zastrzeżenia prawne", privacy: "Prywatność", colorPreview: "W kolorze", contact: "Kontakt", themes: "Motywy u twórców",
   contactTitle: "Kontakt", contactLede: "Masz pytanie, pomysł na planszę albo coś nie działa? Daj nam znać. Zwykle odpowiadamy w ciągu kilku dni roboczych.",
   contactTopic: "Czego dotyczy wiadomość?",
   contactTopics: { question: "Pytanie", idea: "Pomysł na planszę", bug: "Coś nie działa", partnership: "Współpraca", copyright: "Prawa autorskie", privacy: "Prywatność i moje dane" } as Record<string, string>,

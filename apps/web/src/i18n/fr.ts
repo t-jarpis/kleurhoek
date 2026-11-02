@@ -43,7 +43,7 @@ export const fr: Messages = {
   atPartner: (p: string) => `chez ${p}`,
   partnerDisclosure: "Liens partenaires : si vous achetez quelque chose via ces liens, Kleurhoek reçoit une petite commission du magasin. Vous payez le même prix. C'est ainsi que les coloriages restent gratuits.",
   deleteAccount: "Supprimer le compte", deleteSure: "Vous êtes sûr ? Appuyez encore une fois",
-  disclaimer: "Conditions d'utilisation", privacy: "Confidentialité", contact: "Contact", themes: "Thèmes chez les créateurs",
+  disclaimer: "Conditions d'utilisation", privacy: "Confidentialité", colorPreview: "En couleur", contact: "Contact", themes: "Thèmes chez les créateurs",
   contactTitle: "Contact", contactLede: "Une question, une idée de coloriage ou quelque chose qui ne marche pas ? Dites-le-nous. Nous répondons généralement en quelques jours ouvrables.",
   contactTopic: "De quoi s'agit-il ?",
   contactTopics: { question: "Une question", idea: "Une idée de coloriage", bug: "Quelque chose ne marche pas", partnership: "Partenariat", copyright: "Droit d'auteur", privacy: "Vie privée et mes données" } as Record<string, string>,

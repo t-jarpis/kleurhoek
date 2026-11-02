@@ -46,7 +46,7 @@ export const lv: Messages = {
   atPartner: (p: string) => `veikalā ${p}`,
   partnerDisclosure: "Partneru saites: ja tu kaut ko nopērc, izmantojot šīs saites, Kleurhoek no veikala saņem nelielu atlīdzību. Tu maksā tikpat. Tā lapas paliek bezmaksas.",
   deleteAccount: "Dzēst kontu", deleteSure: "Vai tiešām? Pieskaries vēlreiz",
-  disclaimer: "Atruna", privacy: "Privātums", contact: "Kontakti", themes: "Tēmas no veidotājiem",
+  disclaimer: "Atruna", privacy: "Privātums", colorPreview: "Krāsains", contact: "Kontakti", themes: "Tēmas no veidotājiem",
   contactTitle: "Kontakti", contactLede: "Jautājums, ideja jaunai lapai vai kaut kas nedarbojas? Pastāsti mums. Parasti atbildam dažu darba dienu laikā.",
   contactTopic: "Par ko ir runa?",
   contactTopics: { question: "Jautājums", idea: "Ideja lapai", bug: "Kaut kas nedarbojas", partnership: "Sadarbība", copyright: "Autortiesības", privacy: "Privātums un mani dati" } as Record<string, string>,

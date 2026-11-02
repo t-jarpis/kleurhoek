@@ -63,6 +63,16 @@ describe("website-API", () => {
     expect((await get("/v1/assets/plates/kat/2.svg")).statusCode).toBe(404);
   });
 
+  it("serveert ook een ingekleurde versie voor het raster (ADR 0070)", async () => {
+    const plain = await get("/v1/assets/plates/kat/1.svg");
+    const colored = await get("/v1/assets/plates/kat/1.kleur.svg");
+    expect(colored.statusCode).toBe(200);
+    expect(colored.headers["cache-control"]).toContain("immutable");
+    expect(plain.body).not.toContain('style="fill:#');
+    expect(colored.body).toMatch(/style="fill:#[0-9a-f]{6}"/i);
+    expect((await get("/v1/assets/plates/kat/1.kleur.png")).statusCode).toBe(404);
+  });
+
   it("weigert onbekende markten en ongeldige filters", async () => {
     expect((await get("/v1/markets/zz-ZZ/plates")).statusCode).toBe(404);
     expect((await get("/v1/markets/de-DE/plates")).statusCode).toBe(200);

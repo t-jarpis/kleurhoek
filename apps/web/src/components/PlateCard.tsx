@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import type { PlateItem, Taxonomy } from "@/lib/types";
 import { link } from "@/lib/sites";
+import { PlateImage } from "./ColorPreview";
 import { labelFor } from "./labels";
 
 /**
@@ -19,7 +20,7 @@ export function PlateCard({ plate, base, taxonomy, view = "alle", mini = false, 
     <>
       {pick && <span className="tick" aria-hidden="true">{pick.selected ? "✓" : ""}</span>}
       {kindLabel && <span className="kind-badge">{kindLabel}</span>}
-      <div className="paper"><img src={plate.svg} alt={alt ?? plate.name} loading={mini ? "eager" : "lazy"} width={200} height={200} /></div>
+      <div className="paper"><PlateImage src={plate.svg} alt={alt ?? plate.name} eager={mini} /></div>
       <b>{plate.name}</b>
       <em><i />{label.text}<span className="yr">{plate.age.replace("-", "–")} {yr}</span></em>
     </>

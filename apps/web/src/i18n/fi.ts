@@ -43,7 +43,7 @@ export const fi: Messages = {
   atPartner: (p: string) => `myyjä: ${p}`,
   partnerDisclosure: "Kumppanilinkit: jos ostat jotain näiden linkkien kautta, Kleurhoek saa kaupalta pienen palkkion. Sinä maksat saman verran. Näin pidämme kuvat ilmaisina.",
   deleteAccount: "Poista tili", deleteSure: "Oletko varma? Napauta uudelleen",
-  disclaimer: "Vastuuvapauslauseke", privacy: "Tietosuoja", contact: "Yhteystiedot", themes: "Teemat tekijöiltä",
+  disclaimer: "Vastuuvapauslauseke", privacy: "Tietosuoja", colorPreview: "Värillisenä", contact: "Yhteystiedot", themes: "Teemat tekijöiltä",
   contactTitle: "Ota yhteyttä", contactLede: "Kysymys, idea kuvaksi tai jokin ei toimi? Kerro meille. Vastaamme yleensä muutaman arkipäivän kuluessa.",
   contactTopic: "Mitä asia koskee?",
   contactTopics: { question: "Kysymys", idea: "Idea kuvaksi", bug: "Jokin ei toimi", partnership: "Yhteistyö", copyright: "Tekijänoikeus", privacy: "Tietosuoja ja omat tietoni" } as Record<string, string>,

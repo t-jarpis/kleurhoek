@@ -43,7 +43,7 @@ export const da: Messages = {
   atPartner: (p: string) => `hos ${p}`,
   partnerDisclosure: "Partnerlinks: Hvis du køber noget via disse links, får Kleurhoek et lille beløb fra butikken. Du betaler det samme. Sådan holder vi tegningerne gratis.",
   deleteAccount: "Slet konto", deleteSure: "Er du sikker? Tryk igen",
-  disclaimer: "Ansvarsfraskrivelse", privacy: "Privatliv", contact: "Kontakt", themes: "Temaer hos skaberne",
+  disclaimer: "Ansvarsfraskrivelse", privacy: "Privatliv", colorPreview: "I farver", contact: "Kontakt", themes: "Temaer hos skaberne",
   contactTitle: "Kontakt", contactLede: "Et spørgsmål, en idé til en tegning eller noget, der ikke virker? Skriv til os. Vi svarer som regel inden for et par hverdage.",
   contactTopic: "Hvad drejer det sig om?",
   contactTopics: { question: "Et spørgsmål", idea: "Idé til en tegning", bug: "Noget virker ikke", partnership: "Samarbejde", copyright: "Ophavsret", privacy: "Privatliv og mine data" } as Record<string, string>,

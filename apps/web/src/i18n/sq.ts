@@ -43,7 +43,7 @@ export const sq: Messages = {
   atPartner: (p: string) => `te ${p}`,
   partnerDisclosure: "Lidhje partnerësh: nëse blen diçka përmes këtyre lidhjeve, Kleurhoek merr një tarifë të vogël nga dyqani. Ti paguan njësoj. Kështu fletët mbeten falas.",
   deleteAccount: "Fshi llogarinë", deleteSure: "Je i sigurt? Prek përsëri",
-  disclaimer: "Mohim përgjegjësie", privacy: "Privatësia", contact: "Kontakt", themes: "Tema nga krijuesit",
+  disclaimer: "Mohim përgjegjësie", privacy: "Privatësia", colorPreview: "Me ngjyra", contact: "Kontakt", themes: "Tema nga krijuesit",
   contactTitle: "Kontakt", contactLede: "Ke një pyetje, një ide për një fletë apo diçka nuk funksionon? Na shkruaj. Zakonisht përgjigjemi brenda pak ditësh pune.",
   contactTopic: "Për çfarë bëhet fjalë?",
   contactTopics: { question: "Një pyetje", idea: "Ide për një fletë", bug: "Diçka nuk funksionon", partnership: "Bashkëpunim", copyright: "E drejta e autorit", privacy: "Privatësia dhe të dhënat e mia" } as Record<string, string>,

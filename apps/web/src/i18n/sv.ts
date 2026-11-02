@@ -43,7 +43,7 @@ export const sv: Messages = {
   atPartner: (p: string) => `hos ${p}`,
   partnerDisclosure: "Partnerlänkar: om du köper något via de här länkarna får Kleurhoek en liten ersättning från butiken. Du betalar samma pris. Så håller vi bilderna gratis.",
   deleteAccount: "Radera konto", deleteSure: "Är du säker? Tryck igen",
-  disclaimer: "Ansvarsfriskrivning", privacy: "Integritet", contact: "Kontakt", themes: "Teman hos skaparna",
+  disclaimer: "Ansvarsfriskrivning", privacy: "Integritet", colorPreview: "I färg", contact: "Kontakt", themes: "Teman hos skaparna",
   contactTitle: "Kontakt", contactLede: "En fråga, en idé till en bild eller något som inte fungerar? Hör av dig. Vi svarar oftast inom några arbetsdagar.",
   contactTopic: "Vad gäller det?",
   contactTopics: { question: "En fråga", idea: "Idé till en bild", bug: "Något fungerar inte", partnership: "Samarbete", copyright: "Upphovsrätt", privacy: "Integritet och mina uppgifter" } as Record<string, string>,
