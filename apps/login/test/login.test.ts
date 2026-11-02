@@ -8,7 +8,9 @@ describe("versleutelde stap-cookie", () => {
     const { seal, unseal } = await import("@/lib/state");
     const token = seal({ ar: "V2_1234567", org: "kleurhoek", back: "https://dev.kleurhoek.nl", step: "code", sid: "1", st: "geheim" });
     expect(unseal(token)).toMatchObject({ ar: "V2_1234567", step: "code", st: "geheim" });
-    const tampered = token.slice(0, -2) + (token.endsWith("A") ? "BB" : "AA");
+    // Een teken in het midden wijzigen: aan het eind kan een base64-teken alleen opvulbits dragen.
+    const mid = Math.floor(token.length / 2);
+    const tampered = token.slice(0, mid) + (token[mid] === "A" ? "B" : "A") + token.slice(mid + 1);
     expect(unseal(tampered)).toBeNull();
     vi.useFakeTimers(); vi.setSystemTime(Date.now() + 16 * 60_000);
     expect(unseal(token)).toBeNull();
