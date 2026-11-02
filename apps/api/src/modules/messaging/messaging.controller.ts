@@ -11,7 +11,7 @@ import { StorefrontService } from "../storefront/storefront.service";
 import { CampaignsService } from "./campaigns.service";
 import { DeliverabilityService } from "./deliverability/deliverability.service";
 import { PROVIDERS, type Provider } from "./deliverability/feedback";
-import { TOPICS } from "./messaging.types";
+import { TOPICS, topicsFor } from "./messaging.types";
 import { OutboxService } from "./outbox.service";
 import { maskEmail, SubscribersService } from "./subscribers.service";
 import { TemplatesService } from "./templates.service";
@@ -58,13 +58,13 @@ export class MailController {
   async preferences(@Query("t") t: string | undefined) {
     const sub = t && Token.safeParse(t).success ? await this.subs.byToken(t) : null;
     if (!sub) throw new NotFoundException("Deze link werkt niet meer");
-    return { email: maskEmail(sub.email), market: sub.market, topics: sub.topics, topicsAll: TOPICS };
+    return { email: maskEmail(sub.email), market: sub.market, topics: sub.topics, topicsAll: topicsFor(sub.market) };
   }
 
   @Put("preferences")
   @RateLimit("public-read")
   async update(@Body() body: unknown) {
-    const f = parse(z.object({ t: Token, topics: z.array(Topic).max(3), market: Market.optional() }).strict(), body);
+    const f = parse(z.object({ t: Token, topics: z.array(Topic).max(4), market: Market.optional() }).strict(), body);
     const sub = await this.subs.byToken(f.t);
     if (!sub) throw new NotFoundException("Deze link werkt niet meer");
     if (f.market && !(await this.store.market(f.market))) throw new NotFoundException("Onbekende markt");
@@ -92,18 +92,18 @@ export class MeMailController {
   @Get()
   async get(@Req() req: FastifyRequest) {
     const sub = await this.subs.forUser(req.member!.userId);
-    return { topics: sub?.topics ?? [], market: sub?.market ?? null, topicsAll: TOPICS };
+    return { topics: sub?.topics ?? [], market: sub?.market ?? null, topicsAll: topicsFor(sub?.market) };
   }
 
   @Put()
   async put(@Body() body: unknown, @Req() req: FastifyRequest) {
-    const f = parse(z.object({ topics: z.array(Topic).max(3), market: Market }).strict(), body);
+    const f = parse(z.object({ topics: z.array(Topic).max(4), market: Market }).strict(), body);
     const user = await this.identity.getUser(req.member!.userId);
     if (!user?.email) throw new NotFoundException("Geen e-mailadres bij dit account");
     if (!(await this.store.market(f.market))) throw new NotFoundException("Onbekende markt");
     const { subscriber, started } = await this.subs.setForUser(req.member!.userId, user.email, f.market, f.topics);
     if (subscriber && started) await this.workflows.onSubscribed(subscriber.id);
-    return { topics: subscriber?.topics ?? [], market: subscriber?.market ?? null, topicsAll: TOPICS };
+    return { topics: subscriber?.topics ?? [], market: subscriber?.market ?? null, topicsAll: topicsFor(subscriber?.market) };
   }
 }
 

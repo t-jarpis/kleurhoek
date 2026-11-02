@@ -6,6 +6,18 @@
   "type": "commonjs",
   "main": "./index.js",
   "types": "./index.d.ts",
-  "files": ["*.json", "plates", "texts", "index.js", "index.d.ts", "text-layer.js", "goals.js"],
-  "scripts": { "test": "node --test test/*.test.js" }
+  "files": [
+    "*.json",
+    "plates",
+    "texts",
+    "index.js",
+    "index.d.ts",
+    "text-layer.js",
+    "goals.js",
+    "calendar.js",
+    "calendar.d.ts"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  }
 }

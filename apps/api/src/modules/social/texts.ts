@@ -45,7 +45,7 @@ export function pinText(p: PlateInfo): { title: string; description: string; alt
 const pick = <T,>(list: T[], seed: number) => list[Math.abs(seed) % list.length]!;
 const hash = (s: string) => [...s].reduce((h, c) => (h * 31 + c.charCodeAt(0)) | 0, 7);
 
-export type FeedKind = "feestdag" | "aftelkalender" | "lespakket" | "knutselen" | "plaat";
+export type FeedKind = "feestdag" | "aftelkalender" | "sinterklaaskalender" | "lespakket" | "knutselen" | "plaat";
 export interface FeedText { facebook: string; instagram: string; share: string; title: string }
 
 /** Tekst voor Facebook (met link), Instagram (link in bio, hashtags) en om te delen in groepen en WhatsApp. */
@@ -73,6 +73,16 @@ export function feedText(kind: FeedKind, ctx: { day: string; link: string; plate
       ], seed);
       tags = ["aftelkalender", "adventskalender", "kleurplaat", "december", "kerst"];
       break;
+    case "sinterklaaskalender": {
+      const nights = ctx.days === 0 ? "Vanavond is het pakjesavond! 🎁" : ctx.days === 1 ? "Nog één nachtje slapen tot pakjesavond!" : `Nog ${ctx.days} nachtjes slapen tot pakjesavond.`;
+      title = `Sinterklaaskalender: deurtje ${ctx.door}`;
+      lead = pick([
+        `Deurtje ${ctx.door} van de Sinterklaaskalender is open! 🎁 Vandaag: '${p.name}'. ${nights} Gratis om te kleuren of te printen.`,
+        `${nights} 🐴 Achter deurtje ${ctx.door} zit vandaag '${p.name}'. Elke dag tot pakjesavond een nieuwe gratis plaat.`,
+      ], seed);
+      tags = ["sinterklaas", "sinterklaaskalender", "kleurplaat", "pakjesavond", "pepernoten"];
+      break;
+    }
     case "lespakket":
       title = `Lespakket ${p.categoryName.toLowerCase()}, ${p.ageName}`;
       lead = pick([

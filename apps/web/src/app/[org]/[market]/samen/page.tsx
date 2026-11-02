@@ -31,13 +31,15 @@ export default async function TogetherPage({ params, searchParams }: Params) {
     <div className="wrap" data-mode="ouder">
       <header className="mast"><div><Logo market={market} org={o} /></div></header>
       <Crumbs base={base} label={t.crumbs} items={[{ name: "Kleurhoek", path: "" }, { name: t.together.title }]} />
-      <h1 className="page-title">{t.together.title}</h1>
-      <p className="lede">{t.together.lede}</p>
-      {gone && <div className="ui-callout" role="alert"><p>{t.together.notFound}</p></div>}
-      <JoinTogether market={market} href={link(base, "/samen")} />
-      <h2 className="sec">{t.together.howTitle}</h2>
-      <ol className="kh-steps-how">{t.together.how.map((s) => <li key={s}>{s}</li>)}</ol>
-      <p className="hint">{t.together.expires}</p>
+      <main>
+        <h1 className="page-title">{t.together.title}</h1>
+        <p className="lede">{t.together.lede}</p>
+        {gone && <div className="ui-callout" role="alert"><p>{t.together.notFound}</p></div>}
+        <JoinTogether market={market} href={link(base, "/samen")} />
+        <h2 className="sec">{t.together.howTitle}</h2>
+        <ol className="kh-steps-how">{t.together.how.map((s) => <li key={s}>{s}</li>)}</ol>
+        <p className="hint">{t.together.expires}</p>
+      </main>
       <SiteFooter base={base} t={t} own={o.isDefault} />
       <Track event={{ type: "page_view", market, page: "samen" }} />
     </div>

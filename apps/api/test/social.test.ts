@@ -82,12 +82,26 @@ describe("social (ADR 0063)", () => {
     expect(new Date(feed[0]!.scheduledAt).toISOString()).toBe(atLocal("2026-11-02", "19:30").toISOString());
   });
 
+  it("maakt tijdens de Sinterklaaskalender elke dag een post met het deurtje van die dag", async () => {
+    const now = new Date("2026-11-14T04:30:00Z"); // zaterdag, de intocht
+    await social.generate(now);
+    const list = (await as("/v1/admin/social/posts?status=voorstel")).json().posts as { channel: string; source: string; title: string; body: string; link: string; scheduledAt: string }[];
+    const sint = list.filter((p) => p.source === "sinterklaaskalender");
+    const days = [...new Set(sint.map((p) => p.scheduledAt.slice(0, 10)))].sort();
+    expect(days).toEqual(["2026-11-14", "2026-11-15", "2026-11-16"]); // elke dag, ook in het weekend
+    const first = sint.find((p) => p.channel === "facebook" && p.scheduledAt.startsWith("2026-11-14"))!;
+    expect(first.title).toBe("Sinterklaaskalender: deurtje 1");
+    expect(first.body).toMatch(/Nog 21 nachtjes|deurtje 1/);
+    expect(first.link).toMatch(/\/sinterklaaskalender$/);
+  });
+
   it("mailt de voorstellen één keer per ochtend", async () => {
     await as("/v1/admin/social/settings", { notifyEmail: "thijs@example.test", pinsPerDay: 5, feedDays: [1, 3, 5], feedTime: "19:30" }, "PUT");
     expect(await social.digest(new Date("2026-11-02T05:30:00Z"))).toBe(false); // 6:30, nog te vroeg
     expect(await social.digest(new Date("2026-11-02T06:30:00Z"))).toBe(true);
     expect(await social.digest(new Date("2026-11-02T09:00:00Z"))).toBe(false);
-    expect(mail.sent.at(-1)!.subject).toMatch(/21 voorstellen/);
+    const open = (await as("/v1/admin/social/posts?status=voorstel")).json().posts.length as number;
+    expect(mail.sent.at(-1)!.subject).toMatch(new RegExp(`${open} voorstellen`));
     expect(mail.sent.at(-1)!.html).toContain(`${ADMIN}/social`);
   });
 

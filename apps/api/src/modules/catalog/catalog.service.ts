@@ -1,7 +1,10 @@
-import { BadRequestException, Inject, Injectable, NotFoundException } from "@nestjs/common";
+import { BadRequestException, Inject, Injectable, NotFoundException, type OnApplicationBootstrap } from "@nestjs/common";
 import { GOALS, learningGoals, plateTexts, type LearningGoal } from "@kleurhoek/catalog-data";
 import { and, asc, desc, eq, gt, inArray } from "drizzle-orm";
 import { DB, type Database } from "../../db/database";
+import { SEED_RESULT } from "../../db/database.module";
+import type { SeedResult } from "../../db/seed";
+import { DomainEvents } from "../../shared/events";
 import { withTenant } from "../../db/tenant";
 import { ages, categories, collections, continents, materials, plateMaterials, plates, plateVersions, type ColorByNumber, type PlateKind, type PlatePage } from "./catalog.schema";
 
@@ -34,8 +37,14 @@ export type { PlateKind } from "./catalog.schema";
 
 /** Publieke interface van het domein Catalogus. Andere domeinen gebruiken alleen deze service. */
 @Injectable()
-export class CatalogService {
-  constructor(@Inject(DB) private readonly db: Database) {}
+export class CatalogService implements OnApplicationBootstrap {
+  constructor(@Inject(DB) private readonly db: Database, @Inject(SEED_RESULT) private readonly seeded: SeedResult, private readonly events: DomainEvents) {}
+
+  /** Nieuwe of verbeterde platen uit catalog-data melden (ADR 0066), als alle domeinen klaar zijn om te luisteren. */
+  async onApplicationBootstrap() {
+    const { added, changed } = this.seeded;
+    if (added.length || changed.length) await this.events.emit("catalog.plates.published", { added, changed });
+  }
 
   private readonly summary = {
     slug: plates.slug, category: plates.categorySlug, age: plates.ageSlug,

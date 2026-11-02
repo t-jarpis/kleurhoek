@@ -6,6 +6,7 @@ import { withTenant } from "../../db/tenant";
 import { CatalogService } from "../catalog/catalog.service";
 import { StorefrontService } from "../storefront/storefront.service";
 import { deliveries, subscribers, templates, workflowRuns, workflows } from "./messaging.schema";
+import { sintDoorOn, sintDoorSlugs, SINT_MARKETS } from "@kleurhoek/catalog-data/calendar";
 import { TOPICS, type MailContext, type Step, type Trigger } from "./messaging.types";
 
 export type Workflow = typeof workflows.$inferSelect;
@@ -13,6 +14,12 @@ export interface WorkflowInput { name: string; enabled: boolean; trigger: Trigge
 const SLUG = /^[a-z0-9](?:[a-z0-9-]{0,62}[a-z0-9])?$/;
 /** Tijdzone van een vaste dag en tijd (alle markten nu in Midden-Europa). */
 const ZONE = "Europe/Amsterdam";
+
+/** Datum (JJJJ-MM-DD) en uur in Nederlandse tijd. */
+export function localNow(now: Date): { day: string; hour: number } {
+  const p = Object.fromEntries(new Intl.DateTimeFormat("en-GB", { timeZone: ZONE, year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", hourCycle: "h23" }).formatToParts(now).map((x) => [x.type, x.value]));
+  return { day: `${p.year}-${p.month}-${p.day}`, hour: Number(p.hour) };
+}
 
 /** Het laatste moment vóór `now` waarop een wekelijkse planning (weekdag 0 = zondag, uur in ZONE) viel. */
 export function lastScheduled(weekday: number, hour: number, now: Date): Date {
@@ -107,6 +114,17 @@ export class WorkflowsService {
             await this.start(w.slug, `platen:${now.toISOString()}`, { since: cursor.toISOString() }, {}, now);
             await this.setCursor(w.id, now);
           }
+        } else if (t.type === "sint_door") {
+          // Sinterklaaskalender (ADR 0065): elke dag op dit uur het deurtje van vandaag, per markt met de kalender.
+          const { day, hour } = localNow(now);
+          if (hour < t.hour) continue;
+          for (const market of Object.keys(SINT_MARKETS)) {
+            const door = sintDoorOn(day, market);
+            if (!door) continue;
+            const slugs = (await this.store.mailPlates(market, { holiday: "sinterklaas" }, 200, now)).map((p) => p.slug);
+            const slug = sintDoorSlugs(slugs, door.total).find((d) => d.day === door.door)?.slug;
+            if (slug) await this.start(w.slug, `sint:${day}`, { plates: [slug], door: door.door }, { market }, now);
+          }
         } else if (t.type === "holiday_soon") {
           const markets = await withTenant(this.db, this.tenant, (tx) => tx.selectDistinct({ market: subscribers.market }).from(subscribers).where(and(eq(subscribers.tenantId, this.tenant), eq(subscribers.status, "active"))));
           for (const { market } of markets) {
@@ -150,7 +168,7 @@ export class WorkflowsService {
             status = "waiting"; dueAt = new Date(now.getTime() + s.hours * 3_600_000); step++; break;
           } else if (s.type === "send") {
             await withTenant(this.db, this.tenant, (tx) => tx.insert(deliveries).values({
-              tenantId: this.tenant, subscriberId: sub.id, source: `wf:${w.slug}:${run.occasion}:${step}`, template: s.template, context: run.context,
+              tenantId: this.tenant, subscriberId: sub.id, source: `wf:${w.slug}:${run.occasion}:${step}`, template: s.template, context: run.context, createdAt: now,
             }).onConflictDoNothing());
           }
         }

@@ -4,8 +4,11 @@
  */
 
 /** Waar je je voor kunt aanmelden. */
-export const TOPICS = ["nieuwe-platen", "feestdagen", "nieuwsbrief"] as const;
+export const TOPICS = ["nieuwe-platen", "feestdagen", "nieuwsbrief", "sinterklaaskalender"] as const;
 export type Topic = (typeof TOPICS)[number];
+/** Onderwerpen die alleen in sommige markten bestaan: de Sinterklaaskalender alleen waar die kalender is (ADR 0065). */
+const ONLY_IN: Partial<Record<Topic, readonly string[]>> = { sinterklaaskalender: ["nl-nl", "nl-be"] };
+export const topicsFor = (market: string | null | undefined): Topic[] => TOPICS.filter((t) => !ONLY_IN[t] || (!!market && ONLY_IN[t]!.includes(market.toLowerCase())));
 
 /** Talen waarin mails kunnen; per tekst geldt: ontbreekt de taal, dan Nederlands. */
 export type I18nText = Record<string, string>;
@@ -35,8 +38,10 @@ export type Trigger =
   | { type: "subscribed" }
   | { type: "schedule"; weekday: number; hour: number }
   | { type: "plates_published"; min: number }
-  | { type: "holiday_soon"; days: number };
-export const TRIGGER_TYPES = ["subscribed", "schedule", "plates_published", "holiday_soon"] as const;
+  | { type: "holiday_soon"; days: number }
+  /** Elke dag van de Sinterklaaskalender (intocht tot pakjesavond) op dit uur, met de plaat achter het deurtje. */
+  | { type: "sint_door"; hour: number };
+export const TRIGGER_TYPES = ["subscribed", "schedule", "plates_published", "holiday_soon", "sint_door"] as const;
 
 /** Stappen van een workflow, van boven naar beneden. */
 export type Step =
@@ -47,6 +52,6 @@ export type Step =
 export const STEP_TYPES = ["filter", "require_plates", "wait", "send"] as const;
 
 /** Wat een mail meekrijgt van zijn aanleiding: sinds wanneer nieuw, welke feestdag. */
-export interface MailContext { since?: string | undefined; holiday?: string | undefined; plates?: string[] | undefined; /** Alleen in de wachtrij tot de bevestigingsmail weg is. */ token?: string | undefined }
+export interface MailContext { since?: string | undefined; holiday?: string | undefined; plates?: string[] | undefined; door?: number | undefined; /** Alleen in de wachtrij tot de bevestigingsmail weg is. */ token?: string | undefined }
 
 export interface Audience { topics: Topic[]; markets: string[] | null }

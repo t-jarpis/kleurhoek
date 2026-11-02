@@ -2,7 +2,7 @@
 import { headers } from "next/headers";
 import { api } from "@/lib/mail";
 
-const TOPICS = new Set(["nieuwe-platen", "feestdagen", "nieuwsbrief"]);
+const TOPICS = new Set(["nieuwe-platen", "feestdagen", "nieuwsbrief", "sinterklaaskalender"]);
 export type SubscribeState = { status: "idle" | "sent" | "invalid" | "busy" | "error"; email?: string };
 
 /** Aanmelden (ADR 0037): de API stuurt een bevestigingsmail. Zelfde antwoord, of het adres nu bekend is of niet. */

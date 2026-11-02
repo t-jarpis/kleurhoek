@@ -14,6 +14,7 @@ import { UndoRegistry } from "../identity/undo";
 import { CatalogService } from "../catalog/catalog.service";
 import type { SelfOffer } from "./offer";
 import { organizationLogos, organizationManagers, organizations, type OrgBrand, type OrgFeatures, type OrgKind, type OrgOffer, type OrgSeo } from "./organizations.schema";
+import { DomainEvents } from "../../shared/events";
 
 /** Thema's en lettertypen die @kleurhoek/theme levert (generated/manifest.json). */
 const manifest = JSON.parse(readFileSync(createRequire(__filename).resolve("@kleurhoek/theme/manifest.json"), "utf8")) as {
@@ -67,11 +68,14 @@ export class OrganizationsService implements OnModuleInit {
     private readonly identity: IdentityService,
     private readonly catalog: CatalogService,
     private readonly undo: UndoRegistry,
+    private readonly events: DomainEvents,
   ) {}
 
   private get tenant() { return this.env.TENANT_ID; }
 
   async onModuleInit() {
+    // Account weg: ook als beheerder van organisaties (ADR 0066).
+    this.events.on("identity.account.deleted", "organizations", ({ userId }) => this.forgetUser(userId));
     // Ongedaan maken (ADR 0066): de vindbaarheid van een organisatie terugzetten.
     const seoUndo = {
       permission: "seo.manage" as const, label: "Vindbaarheid",
@@ -83,6 +87,28 @@ export class OrganizationsService implements OnModuleInit {
     };
     this.undo.register("seo.update", seoUndo);
     this.undo.register("seo.defaults", seoUndo);
+    // Instellingen van een organisatie (naam, domeinen, huisstijl, aanbod, functies) en het aanbod dat een beheerder
+    // van de organisatie zelf instelt. Het logo staat apart (eigen auditactie) en blijft zoals het is.
+    const slugOf = (subject: string) => subject.replace(/^organization:/, "");
+    this.undo.register("organizations.update", {
+      permission: "organizations.manage", label: "Organisatie",
+      apply: async (tx: Tx, tenantId: string, subject: string, before: unknown) => {
+        const b = before as Organization;
+        const [now] = await tx.select({ brand: organizations.brand }).from(organizations).where(and(eq(organizations.tenantId, tenantId), eq(organizations.slug, slugOf(subject))));
+        if (!now) throw new NotFoundException("Deze organisatie bestaat niet meer");
+        await tx.update(organizations).set({ name: b.name, kind: b.kind, active: b.active, hosts: b.hosts, brand: { ...b.brand, logoVersion: now.brand.logoVersion }, offer: b.offer, features: b.features, updatedAt: new Date() })
+          .where(and(eq(organizations.tenantId, tenantId), eq(organizations.slug, slugOf(subject))));
+      },
+      afterCommit: async () => { this.cache = null; },
+    });
+    this.undo.register("organizations.offer.self", {
+      permission: "organizations.manage", label: "Aanbod (door de organisatie)",
+      apply: async (tx: Tx, tenantId: string, subject: string, before: unknown) => {
+        await tx.update(organizations).set({ offer: before as OrgOffer, updatedAt: new Date() })
+          .where(and(eq(organizations.tenantId, tenantId), eq(organizations.slug, slugOf(subject))));
+      },
+      afterCommit: async () => { this.cache = null; },
+    });
     // Kleurhoek zelf bestaat altijd: de standaardorganisatie voor de eigen domeinen en onbekende hosts.
     await withTenant(this.db, this.tenant, (tx) => tx.insert(organizations).values({
       tenantId: this.tenant, slug: DEFAULT_SLUG, name: "Kleurhoek", kind: "platform", isDefault: true,

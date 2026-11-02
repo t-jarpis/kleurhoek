@@ -12,7 +12,6 @@ Andere domeinen importeren alleen deze bestanden. De test `test/boundaries.test.
 
 - `mailer.ts` (gebruikt door: social)
 - `messaging.module.ts` (gebruikt door: social)
-- `subscribers.service.ts` (gebruikt door: identity)
 
 ## Endpoints
 - `/v1/admin/mail`
@@ -21,7 +20,8 @@ Andere domeinen importeren alleen deze bestanden. De test `test/boundaries.test.
 - `/v1/me/mail`
 
 ## Events
-- Nog geen. Nieuwe koppelingen tussen domeinen liefst als event (ADR 0066).
+- Reageert op `identity.account.deleted`: het mailabonnement van die gebruiker weg
+- Typen staan in `src/shared/events.ts`. Nieuwe koppelingen tussen domeinen liefst als event (ADR 0066).
 
 ## Regels
 - Wijzigingen door beheerders in dezelfde transactie vastleggen met `AuditService.record` (wie, wat, voor en na).

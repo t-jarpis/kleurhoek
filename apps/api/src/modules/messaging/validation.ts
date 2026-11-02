@@ -30,23 +30,24 @@ export const Trigger = z.discriminatedUnion("type", [
   z.object({ type: z.literal("schedule"), weekday: z.number().int().min(0).max(6), hour: z.number().int().min(0).max(23) }).strict(),
   z.object({ type: z.literal("plates_published"), min: z.number().int().min(1).max(100) }).strict(),
   z.object({ type: z.literal("holiday_soon"), days: z.number().int().min(1).max(60) }).strict(),
+  z.object({ type: z.literal("sint_door"), hour: z.number().int().min(0).max(23) }).strict(),
 ]);
 export const Step = z.discriminatedUnion("type", [
-  z.object({ type: z.literal("filter"), topics: z.array(Topic).max(3).optional(), markets: z.array(Market).max(40).optional() }).strict(),
+  z.object({ type: z.literal("filter"), topics: z.array(Topic).max(4).optional(), markets: z.array(Market).max(40).optional() }).strict(),
   z.object({ type: z.literal("require_plates"), min: z.number().int().min(1).max(100) }).strict(),
   z.object({ type: z.literal("wait"), hours: z.number().int().min(1).max(24 * 60) }).strict(),
   z.object({ type: z.literal("send"), template: z.string().regex(/^[a-z0-9-]{1,64}$/) }).strict(),
 ]);
 export const WorkflowBody = z.object({ name: z.string().trim().min(2).max(80), enabled: z.boolean(), trigger: Trigger, steps: z.array(Step).min(1).max(20) }).strict();
 
-export const Audience = z.object({ topics: z.array(Topic).min(1).max(3), markets: z.array(Market).max(40).nullable() }).strict();
+export const Audience = z.object({ topics: z.array(Topic).min(1).max(4), markets: z.array(Market).max(40).nullable() }).strict();
 export const CampaignBody = z.object({
   name: z.string().trim().min(2).max(120), template: z.string().regex(/^[a-z0-9-]{1,64}$/), audience: Audience,
   context: z.object({ holiday: z.string().max(64).optional(), plates: z.array(z.string().regex(/^[a-z0-9-]{1,64}$/)).max(30).optional() }).strict().optional(),
 }).strict();
 
 export const Subscribe = z.object({
-  email: z.string().trim().email().max(254), market: Market, topics: z.array(Topic).min(1).max(3),
+  email: z.string().trim().email().max(254), market: Market, topics: z.array(Topic).min(1).max(4),
   adult: z.literal(true, { error: "Bevestig dat je 16 jaar of ouder bent" }),
   trap: z.string().max(200).optional(), elapsedMs: z.number().int().min(0).optional(),
 }).strict();

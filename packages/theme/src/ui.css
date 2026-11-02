@@ -650,3 +650,23 @@ a.ui-chip { text-decoration: none; }
 /* ChangeLog (ADR 0066): wijzigingen met voor en na, en terugzetten. */
 .ui-changes pre { margin: var(--space-2) 0 0; padding: var(--space-2) var(--space-3); max-block-size: 240px; max-inline-size: 52ch; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; font: 12px/1.45 var(--font-mono, ui-monospace, monospace); color: var(--color-text-muted); background: var(--color-surface-sunken, var(--color-paper)); border-radius: var(--radius-sm); }
 .ui-changes code { font-size: 13px; overflow-wrap: anywhere; }
+
+/* GiftLabels (ADR 0067): cadeaulabels en naamkaartjes met eigen naam, A4 om te printen. */
+.kh-labels { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: var(--space-6); align-items: start; margin-block: var(--space-4) var(--space-8); }
+@media (max-width: 760px) { .kh-labels { grid-template-columns: minmax(0, 1fr); } }
+.kh-labels-form { display: flex; flex-direction: column; gap: var(--space-4); }
+.kh-labels-form .ui-seg { flex-wrap: wrap; }
+.kh-labels-form .ui-seg label { display: inline-flex; align-items: center; gap: var(--space-1); padding: var(--space-1) var(--space-3); cursor: pointer; }
+.kh-labels-form textarea { resize: vertical; min-block-size: 5lh; }
+.kh-labels-sheet { background: var(--color-paper); border-radius: var(--radius-paper); box-shadow: var(--shadow-paper); padding: var(--space-3); }
+.kh-labels-sheet svg { display: block; inline-size: 100%; block-size: auto; }
+.kh-labels-sheet .r { fill: var(--color-paper); stroke: var(--plate-ink); stroke-width: .6; stroke-linejoin: round; }
+.kh-labels-sheet .cut { fill: none; stroke: var(--plate-ink); stroke-width: .4; stroke-dasharray: 2 1.5; }
+.kh-labels-sheet .fold { stroke: var(--plate-ink); stroke-width: .3; stroke-dasharray: .6 1.4; }
+.kh-label-small { font: 600 4.2px var(--font-sans); fill: var(--color-text-muted); }
+.kh-label-name { font-family: var(--font-display); font-weight: 800; fill: var(--plate-ink); }
+@media print {
+  .kh-labels { display: block; margin: 0; }
+  .kh-labels-sheet { box-shadow: none; border-radius: 0; padding: 0; }
+  .kh-labels-sheet svg { inline-size: 190mm; margin: 0 auto; }
+}

@@ -74,7 +74,7 @@ export default async function PlatePage({ params }: { params: Promise<{ org: str
         },
       ]) }} />}
       <Track event={{ type: "page_view", market, page: "plaat", plate: plate.slug }} />
-      <Studio plate={plate} inner={inner} ageWidth={ageWidth} market={market} language={language} accounts={o?.features.accounts ?? false} />
+      <main><Studio plate={plate} inner={inner} ageWidth={ageWidth} market={market} language={language} accounts={o?.features.accounts ?? false} /></main>
       <div className="wrap after-studio" data-mode="ouder">
         <Crumbs base={base} label={t.crumbs} items={[{ name: "Kleurhoek", path: "" }, ...(topicName ? [{ name: topicName, path: topicPath }] : []), { name: plate.name }]} />
         {indexable(o) && (

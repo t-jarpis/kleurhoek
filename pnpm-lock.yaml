@@ -173,6 +173,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@kleurhoek/catalog-data':
+        specifier: workspace:*
+        version: link:../../packages/catalog-data
       '@kleurhoek/theme':
         specifier: workspace:*
         version: link:../../packages/theme

@@ -47,9 +47,9 @@ export class SocialController {
   @Put("posts/:id")
   @RequirePermission("social.manage")
   @HttpCode(204)
-  async update(@Param("id") id: string, @Body() body: unknown) {
+  async update(@Param("id") id: string, @Body() body: unknown, @Req() req: FastifyRequest) {
     const c = parse(Change, body);
-    await this.social.update(parse(z.string().uuid(), id), { title: c.title, body: c.body, scheduledAt: c.scheduledAt ? new Date(c.scheduledAt) : undefined }).catch(map);
+    await this.social.update(parse(z.string().uuid(), id), { title: c.title, body: c.body, scheduledAt: c.scheduledAt ? new Date(c.scheduledAt) : undefined }, req.admin!.subject).catch(map);
   }
 
   @Post("posts/decide")
@@ -72,7 +72,7 @@ export class SocialController {
 
   @Put("settings")
   @RequirePermission("social.manage")
-  saveSettings(@Body() body: unknown) { return this.social.saveSettings(parse(Settings, body)); }
+  saveSettings(@Body() body: unknown, @Req() req: FastifyRequest) { return this.social.saveSettings(parse(Settings, body), req.admin!.subject); }
 
   @Get("connect/:kind")
   @RequirePermission("social.manage")
@@ -91,10 +91,10 @@ export class SocialController {
   @Put("channels/:kind")
   @RequirePermission("social.manage")
   @HttpCode(204)
-  async channel(@Param("kind") kind: string, @Body() body: unknown) {
+  async channel(@Param("kind") kind: string, @Body() body: unknown, @Req() req: FastifyRequest) {
     const k = parse(z.enum(CHANNELS), kind);
     const b = parse(z.object({ enabled: z.boolean().optional(), connected: z.literal(false).optional() }).strict(), body);
-    if (b.connected === false) await this.social.disconnect(k);
-    if (b.enabled !== undefined) await this.social.setEnabled(k, b.enabled);
+    if (b.connected === false) await this.social.disconnect(k, req.admin!.subject);
+    if (b.enabled !== undefined) await this.social.setEnabled(k, b.enabled, req.admin!.subject);
   }
 }

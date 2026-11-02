@@ -99,6 +99,26 @@ describe("mail (ADR 0037)", () => {
     expect(overview.sending).toEqual({ bulk: true, transactional: true });
   });
 
+  it("stuurt tijdens de Sinterklaaskalender elke ochtend het deurtje van die dag (ADR 0065)", async () => {
+    const me = await as(PARENT, "PUT", "/v1/me/mail", { topics: ["nieuwsbrief", "sinterklaaskalender"], market: "nl-nl" });
+    expect(me.json()).toMatchObject({ topics: ["nieuwsbrief", "sinterklaaskalender"] });
+    expect(me.json().topicsAll).toContain("sinterklaaskalender");
+    const intocht = new Date("2026-11-14T06:30:00Z"); // 7:30 in Nederland
+    const before = mail.sent.length;
+    await run(new Date("2026-11-14T05:30:00Z")); // 6:30: nog niet
+    expect(mail.sent.slice(before).filter((m) => /Sinterklaaskalender/.test(m.subject))).toHaveLength(0);
+    await run(intocht);
+    await run(intocht);
+    const door = mail.sent.slice(before).filter((m) => /Sinterklaaskalender/.test(m.subject));
+    expect(door.map((m) => m.to)).toEqual(["ouder@example.test"]);
+    expect(door[0]!.html).toContain("/plates/stoomboot-komt-aan/");
+    expect(door[0]!.html).toContain("/sinterklaaskalender");
+    // Buiten de kalender niets.
+    await run(new Date("2026-12-10T08:00:00Z"));
+    expect(mail.sent.slice(before).filter((m) => /Sinterklaaskalender/.test(m.subject))).toHaveLength(1);
+    await as(PARENT, "PUT", "/v1/me/mail", { topics: ["nieuwsbrief"], market: "nl-nl" });
+  });
+
   it("bewaart templates en workflows met controle, en geeft een voorbeeld", async () => {
     const t = (await as(OWNER, "GET", "/v1/admin/mail/templates/nieuwe-platen")).json().template;
     const preview = await as(OWNER, "POST", "/v1/admin/mail/preview", { template: { name: t.name, kind: t.kind, subject: t.subject, preheader: t.preheader, blocks: t.blocks }, market: "nl-nl" });

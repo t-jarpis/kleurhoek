@@ -1,7 +1,7 @@
-import { Inject, Injectable, Logger } from "@nestjs/common";
+import { ConflictException, Inject, Injectable, Logger, type OnModuleInit } from "@nestjs/common";
 import { and, asc, desc, eq, gte, inArray, lte, lt, sql } from "drizzle-orm";
 import { ENV, type Env } from "../../config/env";
-import { DB, type Database } from "../../db/database";
+import { DB, type Database, type Tx } from "../../db/database";
 import { withTenant } from "../../db/tenant";
 import { MAIL_TRANSPORT, type MailTransport } from "../messaging/mailer";
 import { StorefrontService } from "../storefront/storefront.service";
@@ -9,6 +9,10 @@ import { ApiProblem, Meta, Pinterest, type Fetch, type Tokens } from "./adapters
 import { checkState, open, seal, signState } from "./crypto";
 import { socialChannels as channels, socialPosts as posts, socialSettings as settings } from "./social.schema";
 import { boardOf, feedText, HERFST, pinText, WINTER, type FeedKind, type PlateInfo } from "./texts";
+import { sintDoorOn, sintDoorSlugs } from "@kleurhoek/catalog-data/calendar";
+import { DomainEvents } from "../../shared/events";
+import { AuditService } from "../identity/audit.service";
+import { UndoRegistry } from "../identity/undo";
 
 export const CHANNELS = ["pinterest", "facebook", "instagram"] as const;
 export type ChannelKind = (typeof CHANNELS)[number];
@@ -59,7 +63,7 @@ const weekday = (day: string) => ((new Date(`${day}T12:00:00Z`).getUTCDay() + 6)
  * komen van de Etalage (StorefrontService), mail via de wachtrij van Berichten (MAIL_TRANSPORT).
  */
 @Injectable()
-export class SocialService {
+export class SocialService implements OnModuleInit {
   private readonly log = new Logger(SocialService.name);
   fetch: Fetch = (url, init) => fetch(url, init);
 
@@ -68,8 +72,73 @@ export class SocialService {
     @Inject(ENV) private readonly env: Env,
     @Inject(MAIL_TRANSPORT) private readonly mail: MailTransport,
     private readonly store: StorefrontService,
+    private readonly events: DomainEvents,
+    private readonly audit: AuditService,
+    private readonly undo: UndoRegistry,
   ) {}
   private get tenant() { return this.env.TENANT_ID; }
+
+  /** Nieuwe platen (event van de catalogus, ADR 0066) komen vooraan in de rij voor Pinterest. */
+  onModuleInit() {
+    this.events.on("catalog.plates.published", "social", async ({ added }) => {
+      if (!added.length) return;
+      const [row] = await this.tx((tx) => tx.select({ value: settings.value }).from(settings).where(eq(settings.tenantId, this.tenant)));
+      const before = Array.isArray(row?.value?.fresh) ? (row!.value.fresh as string[]) : [];
+      await this.setSettings({ value: { ...(row?.value ?? {}), fresh: [...new Set([...added, ...before])].slice(0, 200) } });
+    });
+    this.registerUndo();
+  }
+
+  /**
+   * Ongedaan maken (ADR 0066): instellingen, een kanaal aan of uit, en het goedkeuren, afwijzen of aanpassen van een
+   * post. Een post die al geplaatst is, gaat niet meer terug: die staat dan al op Pinterest of Facebook.
+   */
+  private registerUndo() {
+    const post = (subject: string) => subject.replace(/^social-post:/, "");
+    const notPublished = async (tx: Tx, tenantId: string, id: string) => {
+      const [p] = await tx.select({ status: posts.status }).from(posts).where(and(eq(posts.tenantId, tenantId), eq(posts.id, id)));
+      if (!p) throw new ConflictException("Deze post bestaat niet meer");
+      if (p.status === "geplaatst") throw new ConflictException("Deze post is al geplaatst; dat kan niet meer terug");
+    };
+    this.undo.register("social.settings", {
+      permission: "social.manage", label: "Social: instellingen",
+      apply: async (tx, tenantId, _subject, before) => {
+        const [row] = await tx.select({ value: settings.value }).from(settings).where(eq(settings.tenantId, tenantId));
+        await tx.update(settings).set({ value: { ...(row?.value ?? {}), ...(before as SocialSettings) }, updatedAt: new Date() }).where(eq(settings.tenantId, tenantId));
+      },
+    });
+    this.undo.register("social.channel", {
+      permission: "social.manage", label: "Social: kanaal aan of uit",
+      apply: async (tx, tenantId, subject, before) => {
+        await tx.update(channels).set({ enabled: (before as { enabled: boolean }).enabled ? 1 : 0, updatedAt: new Date() })
+          .where(and(eq(channels.tenantId, tenantId), eq(channels.kind, subject.replace(/^social-channel:/, ""))));
+      },
+    });
+    this.undo.register("social.post.decide", {
+      permission: "social.manage", label: "Social: post goedgekeurd of afgewezen",
+      apply: async (tx, tenantId, subject, before) => {
+        const b = before as { status: PostStatus; decidedBy: string | null; decidedAt: string | null };
+        await notPublished(tx, tenantId, post(subject));
+        await tx.update(posts).set({ status: b.status, decidedBy: b.decidedBy, decidedAt: b.decidedAt ? new Date(b.decidedAt) : null, updatedAt: new Date() })
+          .where(and(eq(posts.tenantId, tenantId), eq(posts.id, post(subject))));
+      },
+    });
+    this.undo.register("social.post.update", {
+      permission: "social.manage", label: "Social: post aangepast",
+      apply: async (tx, tenantId, subject, before) => {
+        const b = before as { title: string; body: string; scheduledAt: string };
+        await notPublished(tx, tenantId, post(subject));
+        await tx.update(posts).set({ title: b.title, body: b.body, scheduledAt: new Date(b.scheduledAt), updatedAt: new Date() })
+          .where(and(eq(posts.tenantId, tenantId), eq(posts.id, post(subject))));
+      },
+    });
+  }
+
+  /** Platen die net nieuw zijn, als laatste gemeld eerst. */
+  private async fresh(): Promise<Set<string>> {
+    const [row] = await this.tx((tx) => tx.select({ value: settings.value }).from(settings).where(eq(settings.tenantId, this.tenant)));
+    return new Set(Array.isArray(row?.value?.fresh) ? (row!.value.fresh as string[]) : []);
+  }
   private tx<T>(fn: Parameters<typeof withTenant<T>>[2]) { return withTenant(this.db, this.tenant, fn); }
 
   private pinterest() { return this.env.PINTEREST_APP_ID && this.env.PINTEREST_APP_SECRET ? new Pinterest(this.fetch, this.env.PINTEREST_APP_ID, this.env.PINTEREST_APP_SECRET) : null; }
@@ -87,9 +156,15 @@ export class SocialService {
     await this.tx((tx) => tx.insert(settings).values({ tenantId: this.tenant, value: patch.value ?? {}, ...patch }).onConflictDoUpdate({ target: settings.tenantId, set: { ...patch, updatedAt: new Date() } }));
   }
 
-  async saveSettings(s: SocialSettings) {
+  async saveSettings(s: SocialSettings, actor = "systeem") {
+    const [row] = await this.tx((tx) => tx.select({ value: settings.value }).from(settings).where(eq(settings.tenantId, this.tenant)));
     const { generatedOn: _g, digestSentOn: _d, ...current } = await this.settings();
-    await this.setSettings({ value: { ...current, ...s } });
+    const before: SocialSettings = { notifyEmail: current.notifyEmail, pinsPerDay: current.pinsPerDay, feedDays: current.feedDays, feedTime: current.feedTime };
+    await this.tx(async (tx) => {
+      await tx.insert(settings).values({ tenantId: this.tenant, value: { ...(row?.value ?? {}), ...s } })
+        .onConflictDoUpdate({ target: settings.tenantId, set: { value: { ...(row?.value ?? {}), ...s }, updatedAt: new Date() } });
+      await this.audit.record(tx, this.tenant, { actor, action: "social.settings", subject: "social:instellingen", before, after: s });
+    });
     return this.settings();
   }
 
@@ -153,13 +228,22 @@ export class SocialService {
     return { connected, page: page.name, instagram: page.instagram?.username ?? null };
   }
 
-  async disconnect(kind: ChannelKind) {
-    await this.tx((tx) => tx.update(channels).set({ token: null, account: null, externalId: null, connectedAt: null, updatedAt: new Date() }).where(and(eq(channels.tenantId, this.tenant), eq(channels.kind, kind))));
+  /** Ontkoppelen kan niet ongedaan worden gemaakt: de sleutels zijn dan weg. Opnieuw koppelen kan wel. */
+  async disconnect(kind: ChannelKind, actor = "systeem") {
+    await this.tx(async (tx) => {
+      const [c] = await tx.select({ account: channels.account }).from(channels).where(and(eq(channels.tenantId, this.tenant), eq(channels.kind, kind)));
+      await tx.update(channels).set({ token: null, account: null, externalId: null, connectedAt: null, updatedAt: new Date() }).where(and(eq(channels.tenantId, this.tenant), eq(channels.kind, kind)));
+      await this.audit.record(tx, this.tenant, { actor, action: "social.disconnect", subject: `social-channel:${kind}`, after: { account: c?.account ?? null } });
+    });
   }
 
-  async setEnabled(kind: ChannelKind, enabled: boolean) {
-    await this.tx((tx) => tx.insert(channels).values({ tenantId: this.tenant, kind, enabled: enabled ? 1 : 0 })
-      .onConflictDoUpdate({ target: [channels.tenantId, channels.kind], set: { enabled: enabled ? 1 : 0, updatedAt: new Date() } }));
+  async setEnabled(kind: ChannelKind, enabled: boolean, actor = "systeem") {
+    await this.tx(async (tx) => {
+      const [c] = await tx.select({ enabled: channels.enabled }).from(channels).where(and(eq(channels.tenantId, this.tenant), eq(channels.kind, kind)));
+      await tx.insert(channels).values({ tenantId: this.tenant, kind, enabled: enabled ? 1 : 0 })
+        .onConflictDoUpdate({ target: [channels.tenantId, channels.kind], set: { enabled: enabled ? 1 : 0, updatedAt: new Date() } });
+      if (c && (c.enabled === 1) !== enabled) await this.audit.record(tx, this.tenant, { actor, action: "social.channel", subject: `social-channel:${kind}`, before: { enabled: c.enabled === 1 }, after: { enabled } });
+    });
   }
 
   private async channel(kind: ChannelKind) {
@@ -184,18 +268,33 @@ export class SocialService {
     }));
   }
 
-  async update(id: string, patch: { title?: string | undefined; body?: string | undefined; scheduledAt?: Date | undefined }) {
-    const res = await this.tx((tx) => tx.update(posts).set({ ...patch, updatedAt: new Date() })
-      .where(and(eq(posts.tenantId, this.tenant), eq(posts.id, id), inArray(posts.status, ["voorstel", "goedgekeurd", "mislukt"]))).returning({ id: posts.id }));
-    if (!res.length) throw new ApiProblem("Post niet gevonden of al geplaatst", 404);
+  async update(id: string, patch: { title?: string | undefined; body?: string | undefined; scheduledAt?: Date | undefined }, actor = "systeem") {
+    await this.tx(async (tx) => {
+      const editable = and(eq(posts.tenantId, this.tenant), eq(posts.id, id), inArray(posts.status, ["voorstel", "goedgekeurd", "mislukt"]));
+      const [b] = await tx.select({ title: posts.title, body: posts.body, scheduledAt: posts.scheduledAt }).from(posts).where(editable);
+      if (!b) throw new ApiProblem("Post niet gevonden of al geplaatst", 404);
+      const [a] = await tx.update(posts).set({ ...patch, updatedAt: new Date() }).where(editable).returning({ title: posts.title, body: posts.body, scheduledAt: posts.scheduledAt });
+      await this.audit.record(tx, this.tenant, { actor, action: "social.post.update", subject: `social-post:${id}`,
+        before: { ...b, scheduledAt: b.scheduledAt.toISOString() }, after: { ...a!, scheduledAt: a!.scheduledAt.toISOString() } });
+    });
   }
 
   /** Goedkeuren of afwijzen. Een mislukte post opnieuw goedkeuren probeert hem opnieuw. */
   async decide(ids: string[], approve: boolean, actor: string) {
     if (!ids.length) return 0;
-    const res = await this.tx((tx) => tx.update(posts).set({ status: approve ? "goedgekeurd" : "afgewezen", decidedAt: new Date(), decidedBy: actor, attempts: 0, error: null, updatedAt: new Date() })
-      .where(and(eq(posts.tenantId, this.tenant), inArray(posts.id, ids), inArray(posts.status, ["voorstel", "goedgekeurd", "mislukt"]))).returning({ id: posts.id }));
-    return res.length;
+    const status: PostStatus = approve ? "goedgekeurd" : "afgewezen";
+    return this.tx(async (tx) => {
+      const undecided = and(eq(posts.tenantId, this.tenant), inArray(posts.id, ids), inArray(posts.status, ["voorstel", "goedgekeurd", "mislukt"]));
+      const before = await tx.select({ id: posts.id, status: posts.status, decidedBy: posts.decidedBy, decidedAt: posts.decidedAt }).from(posts).where(undecided);
+      const res = await tx.update(posts).set({ status, decidedAt: new Date(), decidedBy: actor, attempts: 0, error: null, updatedAt: new Date() }).where(undecided).returning({ id: posts.id });
+      // Per post in het auditlog, zodat elke post apart terug kan. Wat al zo stond, telt niet als wijziging.
+      for (const b of before) {
+        if (b.status === status) continue;
+        await this.audit.record(tx, this.tenant, { actor, action: "social.post.decide", subject: `social-post:${b.id}`,
+          before: { status: b.status, decidedBy: b.decidedBy, decidedAt: b.decidedAt?.toISOString() ?? null }, after: { status } });
+      }
+      return res.length;
+    });
   }
 
   /** Een tekst om te delen is gedeeld (dat doet Thijs zelf). */
@@ -248,7 +347,8 @@ export class SocialService {
       const month = Number(today.slice(5, 7));
       const seasonal = (p: PlateInfo) => (month >= 9 && month <= 11 && HERFST.has(p.slug)) || ((month === 12 || month <= 2) && WINTER.has(p.slug));
       const upcoming = new Set(soon.map((h) => h.slug));
-      const order = list.filter((p) => !done.has(p.slug)).map((p, i) => ({ p, rank: (p.holiday && upcoming.has(p.holiday) ? 0 : seasonal(p) ? 1 : p.holiday ? 3 : 2) * 10_000 + i }))
+      const fresh = await this.fresh();
+      const order = list.filter((p) => !done.has(p.slug)).map((p, i) => ({ p, rank: (p.holiday && upcoming.has(p.holiday) ? 0 : fresh.has(p.slug) ? 1 : seasonal(p) ? 2 : p.holiday ? 4 : 3) * 10_000 + i }))
         .sort((a, b) => a.rank - b.rank).map((x) => x.p);
       const existing = await this.tx((tx) => tx.select({ at: posts.scheduledAt }).from(posts).where(and(eq(posts.tenantId, this.tenant), eq(posts.channel, "pinterest"), gte(posts.scheduledAt, atLocal(days[0]!, "00:00")))));
       let k = 0;
@@ -269,7 +369,8 @@ export class SocialService {
     // Facebook, Instagram en delen: op de gekozen dagen één post, dezelfde inhoud in drie vormen.
     const recent = new Set((await this.tx((tx) => tx.select({ slug: posts.plateSlug }).from(posts).where(and(eq(posts.tenantId, this.tenant), inArray(posts.channel, ["facebook", "instagram", "delen"]), gte(posts.scheduledAt, new Date(now.getTime() - 60 * 86_400_000)))))).map((r) => r.slug).filter((x): x is string => !!x));
     for (const day of days) {
-      if (!s.feedDays.includes(weekday(day))) continue;
+      // In de Sinterklaaskalender (ADR 0065) elke dag een post met het deurtje van die dag, anders op de gekozen dagen.
+      if (!s.feedDays.includes(weekday(day)) && !sintDoorOn(day, MARKET)) continue;
       const at = atLocal(day, s.feedTime);
       if (at < now) continue;
       const choice = this.feedChoice(day, list, soon, recent);
@@ -289,6 +390,12 @@ export class SocialService {
 
   private feedChoice(day: string, list: PlateInfo[], soon: { slug: string; name: string; date?: string }[], recent: Set<string>): { kind: FeedKind; plate: PlateInfo; path: string; holidayName?: string; days?: number; door?: number } | null {
     const fresh = (pred: (p: PlateInfo) => boolean) => list.find((p) => pred(p) && !recent.has(p.slug)) ?? list.find(pred);
+    const sint = sintDoorOn(day, MARKET);
+    if (sint) {
+      const slug = sintDoorSlugs(list.filter((p) => p.holiday === "sinterklaas").map((p) => p.slug), sint.total).find((x) => x.day === sint.door)?.slug;
+      const plate = list.find((p) => p.slug === slug);
+      if (plate) return { kind: "sinterklaaskalender", plate, path: "/sinterklaaskalender", door: sint.door, days: sint.total - sint.door };
+    }
     const [, m, d] = day.split("-").map(Number) as [number, number, number];
     if (m === 12 && d <= 24) {
       const plate = fresh((p) => p.holiday === "kerst" || WINTER.has(p.slug));

@@ -2,7 +2,7 @@
 import { useActionState } from "react";
 import { createCampaign, type ActionResult } from "../actions";
 
-const TOPIC: Record<string, string> = { "nieuwe-platen": "Nieuwe platen", feestdagen: "Feestdagen", nieuwsbrief: "Nieuwsbrief" };
+const TOPIC: Record<string, string> = { "nieuwe-platen": "Nieuwe platen", feestdagen: "Feestdagen", nieuwsbrief: "Nieuwsbrief", sinterklaaskalender: "Sinterklaaskalender" };
 
 /** Nieuwe campagne: naam, template, onderwerpen en eventueel markten. Versturen gebeurt daarna in de lijst. */
 export function NewCampaign({ templates, topics, markets, counts }: { templates: { slug: string; name: string }[]; topics: string[]; markets: string[]; counts: Record<string, number> }) {

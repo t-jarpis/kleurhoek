@@ -50,6 +50,19 @@ export const DEFAULT_TEMPLATES: { slug: string; name: string; kind: TemplateKind
     ],
   },
   {
+    // Sinterklaaskalender (ADR 0065): alleen in het Nederlands, de kalender bestaat alleen in nl-NL en nl-BE.
+    slug: "sinterklaaskalender", name: "Sinterklaaskalender: deurtje van vandaag", kind: "automation",
+    subject: { nl: "Het deurtje van vandaag in de Sinterklaaskalender" },
+    preheader: { nl: "Een nieuwe Sinterklaasplaat om te kleuren of te printen." },
+    blocks: [
+      { id: "h", type: "heading", text: { nl: "Het deurtje van vandaag" } },
+      { id: "p", type: "text", text: { nl: "Achter het deurtje van vandaag zit deze plaat. Kleur hem online in of print hem, gratis en zonder account." } },
+      { id: "pl", type: "plates", source: "new", max: 1, columns: 2 },
+      { id: "b", type: "button", label: { nl: "Naar de Sinterklaaskalender" }, url: "{{site}}/sinterklaaskalender" },
+      { id: "q", type: "text", text: { nl: "Je krijgt deze mail elke ochtend tot pakjesavond. Daarna stopt hij vanzelf." } },
+    ],
+  },
+  {
     slug: "nieuwsbrief", name: "Nieuwsbrief (basis)", kind: "campaign",
     subject: t("Nieuws van Kleurhoek", "Neues von Kleurhoek", "News from Kleurhoek", "Des nouvelles de Kleurhoek", "Novedades de Kleurhoek", "Novità da Kleurhoek", "Wiadomości z Kleurhoek"),
     preheader: {},
@@ -67,6 +80,10 @@ export const DEFAULT_WORKFLOWS: { slug: string; name: string; enabled: boolean; 
   {
     slug: "nieuwe-platen-wekelijks", name: "Nieuwe platen, elke maandag", enabled: true, trigger: { type: "schedule", weekday: 1, hour: 8 },
     steps: [{ type: "filter", topics: ["nieuwe-platen"] }, { type: "require_plates", min: 3 }, { type: "send", template: "nieuwe-platen" }],
+  },
+  {
+    slug: "sinterklaaskalender", name: "Sinterklaaskalender, elke ochtend", enabled: true, trigger: { type: "sint_door", hour: 7 },
+    steps: [{ type: "filter", topics: ["sinterklaaskalender"] }, { type: "send", template: "sinterklaaskalender" }],
   },
   {
     slug: "feestdag", name: "Twee weken voor een feestdag", enabled: true, trigger: { type: "holiday_soon", days: 14 },

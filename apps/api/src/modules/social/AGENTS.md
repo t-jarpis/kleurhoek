@@ -16,7 +16,8 @@ Andere domeinen importeren alleen deze bestanden. De test `test/boundaries.test.
 - `/v1/admin/social`
 
 ## Events
-- Nog geen. Nieuwe koppelingen tussen domeinen liefst als event (ADR 0066).
+- Reageert op `catalog.plates.published`: nieuwe platen eerst in de Pinterest-volgorde
+- Typen staan in `src/shared/events.ts`. Nieuwe koppelingen tussen domeinen liefst als event (ADR 0066).
 
 ## Regels
 - Wijzigingen door beheerders in dezelfde transactie vastleggen met `AuditService.record` (wie, wat, voor en na).

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { PlateItem } from "./types";
-import { hasSintCalendar, intocht, sintDates, sintDoors, sintOpen, sintTeaser } from "./sint";
+import { hasSintCalendar, intocht, sintDates, sintDoors, sintBooks, sintOpen, sintTeaser } from "./sint";
 
 const plate = (slug: string, holiday: string | null = "sinterklaas") => ({ slug, holiday, name: slug, svg: `/v1/assets/plates/${slug}/1.svg` }) as unknown as PlateItem;
 
@@ -36,5 +36,17 @@ describe("Sinterklaaskalender (ADR 0065)", () => {
     expect(sintTeaser("2026-12-06", "nl-nl")).toBe(false);
     expect(sintTeaser("2026-12-06", "nl-be")).toBe(true);
     expect(sintTeaser("2026-11-02", "fr-fr")).toBe(false);
+  });
+});
+
+describe("sintBooks", () => {
+  const plate = (slug: string, age: string, holiday: string | null = "sinterklaas") => ({ slug, age, holiday }) as unknown as PlateItem;
+  const ages = [{ slug: "12+", level: 5, name: "12+ jaar" }, { slug: "2-4", level: 1, name: "2–4 jaar" }, { slug: "9+", level: 4, name: "9+ jaar" }];
+  it("een boekje per leeftijd; te weinig platen gaat op in de leeftijd eronder", () => {
+    const plates = [plate("a", "2-4"), plate("b", "2-4"), plate("c", "2-4"), plate("x", "2-4", null), plate("d", "9+"), plate("e", "9+"), plate("f", "9+"), plate("g", "12+")];
+    expect(sintBooks(plates, ages)).toEqual([
+      { label: "2–4 jaar", slugs: ["a", "b", "c"] },
+      { label: "Vanaf 9 jaar", slugs: ["d", "e", "f", "g"] },
+    ]);
   });
 });

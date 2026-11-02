@@ -1,5 +1,6 @@
 import { Module } from "@nestjs/common";
 import { DatabaseModule } from "./db/database.module";
+import { EventsModule } from "./shared/events";
 import { EngagementModule } from "./modules/engagement/engagement.module";
 import { TogetherModule } from "./modules/together/together.module";
 import { SocialModule } from "./modules/social/social.module";
@@ -15,7 +16,7 @@ import { SourcesModule } from "./modules/sources/sources.module";
 import { StorefrontModule } from "./modules/storefront/storefront.module";
 
 @Module({
-  imports: [DatabaseModule, IdentityModule, OperationsModule, OrganizationsModule, ShopModule, StorefrontModule, AnalyticsModule, ContactModule, SourcesModule, MessagingModule, EngagementModule, TogetherModule, SocialModule],
+  imports: [DatabaseModule, EventsModule, IdentityModule, OperationsModule, OrganizationsModule, ShopModule, StorefrontModule, AnalyticsModule, ContactModule, SourcesModule, MessagingModule, EngagementModule, TogetherModule, SocialModule],
   controllers: [HealthController],
 })
 export class AppModule {}

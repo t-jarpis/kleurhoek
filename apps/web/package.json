@@ -10,6 +10,7 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@kleurhoek/catalog-data": "workspace:*",
     "@kleurhoek/theme": "workspace:*",
     "@t-jarpis/auth": "file:../../vendor/t-jarpis-auth-0.3.0.tgz",
     "next": "16.4.2",

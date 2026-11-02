@@ -13,7 +13,7 @@ export const dynamic = "force-dynamic";
 const TABS = [["voorstellen", "Ter goedkeuring"], ["gepland", "Gepland"], ["delen", "Om te delen"], ["geplaatst", "Geplaatst"], ["kanalen", "Kanalen"], ["instellingen", "Instellingen"]] as const;
 type Tab = (typeof TABS)[number][0];
 const CHANNEL: Record<string, string> = { pinterest: "Pinterest", facebook: "Facebook", instagram: "Instagram", delen: "Om te delen" };
-const SOURCE: Record<string, string> = { plaat: "Plaat", feestdag: "Feestdag", aftelkalender: "Aftelkalender", lespakket: "Lespakket", knutselen: "Knutselen" };
+const SOURCE: Record<string, string> = { plaat: "Plaat", feestdag: "Feestdag", aftelkalender: "Aftelkalender", sinterklaaskalender: "Sinterklaaskalender", lespakket: "Lespakket", knutselen: "Knutselen" };
 const DAYS = [[1, "ma"], [2, "di"], [3, "wo"], [4, "do"], [5, "vr"], [6, "za"], [7, "zo"]] as const;
 const when = (iso: string) => new Intl.DateTimeFormat("nl-NL", { weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", timeZone: "Europe/Amsterdam" }).format(new Date(iso));
 const STATUS_FOR: Record<Tab, SocialStatus[]> = { voorstellen: ["voorstel"], gepland: ["goedgekeurd", "mislukt"], delen: ["voorstel", "goedgekeurd"], geplaatst: ["geplaatst"], kanalen: [], instellingen: [] };

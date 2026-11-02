@@ -1,9 +1,13 @@
 import { Global, Inject, Module, type OnApplicationShutdown } from "@nestjs/common";
 import { ENV, loadEnv, type Env } from "../config/env";
 import { connectInMemory, connectPostgres, DB, type DatabaseHandle } from "./database";
-import { seed } from "./seed";
+import { seed, type SeedResult } from "./seed";
 
 const HANDLE = Symbol("DB_HANDLE");
+/** Wat de seed bij deze start deed (leeg als een andere instance het al deed). */
+export const SEED_RESULT = Symbol("SEED_RESULT");
+const EMPTY: SeedResult = { plates: 0, updated: 0, added: [], changed: [] };
+let lastSeed: SeedResult = EMPTY;
 
 @Global()
 @Module({
@@ -19,7 +23,7 @@ const HANDLE = Symbol("DB_HANDLE");
             // Meerdere instances kunnen tegelijk starten; het slot laat ze na elkaar migreren.
             await handle.exclusive(async () => {
               if (env.MIGRATE_ON_START) await handle.migrate();
-              if (env.SEED_ON_START) await seed(handle.db, env.TENANT_ID);
+              if (env.SEED_ON_START) lastSeed = await seed(handle.db, env.TENANT_ID);
             });
           }
           return handle;
@@ -27,13 +31,14 @@ const HANDLE = Symbol("DB_HANDLE");
         // Lokaal zonder database: in het geheugen, gemigreerd en gevuld met de catalogus.
         const handle = connectInMemory();
         await handle.migrate();
-        await seed(handle.db, env.TENANT_ID);
+        lastSeed = await seed(handle.db, env.TENANT_ID);
         return handle;
       },
     },
     { provide: DB, inject: [HANDLE], useFactory: (h: DatabaseHandle) => h.db },
+    { provide: SEED_RESULT, inject: [HANDLE], useFactory: (): SeedResult => lastSeed },
   ],
-  exports: [ENV, DB, HANDLE],
+  exports: [ENV, DB, HANDLE, SEED_RESULT],
 })
 export class DatabaseModule implements OnApplicationShutdown {
   constructor(@Inject(HANDLE) private readonly handle: DatabaseHandle) {}

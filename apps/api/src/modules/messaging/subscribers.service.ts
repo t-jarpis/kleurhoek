@@ -1,17 +1,18 @@
-import { Inject, Injectable } from "@nestjs/common";
+import { Inject, Injectable, type OnModuleInit } from "@nestjs/common";
 import { and, count, eq, lt, sql } from "drizzle-orm";
 import { ENV, type Env } from "../../config/env";
 import { DB, type Database } from "../../db/database";
 import { withTenant } from "../../db/tenant";
 import { DeliverabilityService } from "./deliverability/deliverability.service";
 import { deliveries, subscribers } from "./messaging.schema";
-import { SYSTEM_TEMPLATES, TOPICS, type Topic } from "./messaging.types";
+import { SYSTEM_TEMPLATES, TOPICS, topicsFor, type Topic } from "./messaging.types";
 import { bump } from "./stats";
 import { hashToken, newConfirmToken, readPreferenceToken } from "./tokens";
+import { DomainEvents } from "../../shared/events";
 
 export type Subscriber = typeof subscribers.$inferSelect;
 export const normEmail = (e: string) => e.trim().toLowerCase();
-const onlyTopics = (t: string[]) => TOPICS.filter((x) => t.includes(x));
+const onlyTopics = (t: string[], market?: string) => (market ? topicsFor(market) : [...TOPICS]).filter((x) => t.includes(x));
 /** Zo lang mag een aanmelding onbevestigd blijven. */
 const PENDING_DAYS = 7;
 
@@ -23,8 +24,11 @@ export const maskEmail = (e: string) => e.replace(/^(.)[^@]*(@.*)$/, "$1***$2");
  * geldige voorkeurlink. Antwoorden verraden niet of een adres al bekend is.
  */
 @Injectable()
-export class SubscribersService {
-  constructor(@Inject(DB) private readonly db: Database, @Inject(ENV) private readonly env: Env, private readonly delivery: DeliverabilityService) {}
+export class SubscribersService implements OnModuleInit {
+  constructor(@Inject(DB) private readonly db: Database, @Inject(ENV) private readonly env: Env, private readonly delivery: DeliverabilityService, private readonly events: DomainEvents) {}
+
+  /** Account weg: ook het mailabonnement via dat account (ADR 0037, 0066). */
+  onModuleInit() { this.events.on("identity.account.deleted", "messaging", ({ userId }) => this.forgetUser(userId)); }
   private get tenant() { return this.env.TENANT_ID; }
 
   /**
@@ -33,7 +37,7 @@ export class SubscribersService {
    */
   async subscribe(input: { email: string; market: string; topics: Topic[] }, now = new Date()): Promise<void> {
     const email = normEmail(input.email);
-    const topics = onlyTopics(input.topics);
+    const topics = onlyTopics(input.topics, input.market);
     if (!topics.length) return;
     // Hard gebounced of gepauzeerd: een bevestigingsmail komt toch niet aan (ADR 0038). Na een klacht wel: wie zich
     // bewust opnieuw aanmeldt en bevestigt, komt van de lijst.
@@ -102,7 +106,7 @@ export class SubscribersService {
    * Geeft de abonnee terug als hij nieuw actief werd (voor de welkomstworkflow).
    */
   async setForUser(userId: string, email: string, market: string, topicsIn: Topic[], now = new Date()): Promise<{ subscriber: Subscriber | null; started: boolean }> {
-    const topics = onlyTopics(topicsIn);
+    const topics = onlyTopics(topicsIn, market);
     const mine = await this.forUser(userId);
     // Bewust aangezet vanuit het account, met een adres dat bij het inloggen werkte: van de blokkeerlijst af.
     if (topics.length) await this.delivery.unsuppress(email, ["hard_bounce", "soft_bounce", "complaint"]);

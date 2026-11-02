@@ -16,7 +16,7 @@ export async function paths(market: string): Promise<string[]> {
   const [plates, themes, taxonomy] = await Promise.all([api.plates(market, DEFAULT_ORG).catch(() => []), api.themes(market, DEFAULT_ORG).catch(() => []),
     api.taxonomy(market, DEFAULT_ORG).catch(() => null)]);
   const groups = taxonomy ? topics(plates, taxonomy, messages(market)) : null;
-  return [...["", "/themas", "/contact", "/disclaimer", "/eigen-omgeving", "/aftelkalender", "/lespakketten", "/samen", ...(hasSintCalendar(market) ? ["/sinterklaaskalender"] : [])], ...(groups ? DIMENSIONS.flatMap((d) => groups[d].map((x) => x.path)) : []),
+  return [...["", "/themas", "/contact", "/disclaimer", "/eigen-omgeving", "/aftelkalender", "/lespakketten", "/samen", ...(hasSintCalendar(market) ? ["/sinterklaaskalender", "/cadeaulabels"] : [])], ...(groups ? DIMENSIONS.flatMap((d) => groups[d].map((x) => x.path)) : []),
     ...(taxonomy ? packs(plates, taxonomy).map((p) => `/lespakketten/${p.slug}`) : []),
     ...plates.map((p) => `/platen/${p.slug}`), ...themes.map((t) => `/themas/${t.slug}`)];
 }

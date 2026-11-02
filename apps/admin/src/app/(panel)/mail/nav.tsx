@@ -9,5 +9,5 @@ export function MailNav({ active }: { active: "overzicht" | "templates" | "workf
   );
 }
 
-export const TOPIC_LABEL: Record<string, string> = { "nieuwe-platen": "Nieuwe platen", feestdagen: "Feestdagen", nieuwsbrief: "Nieuwsbrief" };
+export const TOPIC_LABEL: Record<string, string> = { "nieuwe-platen": "Nieuwe platen", feestdagen: "Feestdagen", nieuwsbrief: "Nieuwsbrief", sinterklaaskalender: "Sinterklaaskalender" };
 export const KIND_LABEL: Record<string, string> = { system: "Vast", automation: "Automatisch", campaign: "Campagne" };

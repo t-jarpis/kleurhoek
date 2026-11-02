@@ -11,13 +11,13 @@ Besluiten: ADR 0039. Grenzen tussen domeinen: ADR 0001.
 Andere domeinen importeren alleen deze bestanden. De test `test/boundaries.test.ts` controleert dat.
 
 - `engagement.module.ts` (gebruikt door: AppModule)
-- `engagement.service.ts` (gebruikt door: identity)
 
 ## Endpoints
 - `/v1/me/favorites`
 
 ## Events
-- Nog geen. Nieuwe koppelingen tussen domeinen liefst als event (ADR 0066).
+- Reageert op `identity.account.deleted`: favorieten weg
+- Typen staan in `src/shared/events.ts`. Nieuwe koppelingen tussen domeinen liefst als event (ADR 0066).
 
 ## Regels
 - Wijzigingen door beheerders in dezelfde transactie vastleggen met `AuditService.record` (wie, wat, voor en na).

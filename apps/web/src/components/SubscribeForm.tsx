@@ -3,27 +3,30 @@ import { useActionState, useEffect, useState } from "react";
 import type { SubscribeState } from "@/app/[org]/[market]/mail/actions";
 import { messages } from "@/i18n/nl";
 
-const TOPICS = ["nieuwe-platen", "feestdagen", "nieuwsbrief"] as const;
+const TOPICS = ["nieuwe-platen", "feestdagen", "nieuwsbrief"];
 
 /**
  * Aanmelden voor mail (design system: SubscribeForm, ADR 0037). Ouderzone; verklaring 16+ (ADR 0002); geen captcha,
  * wel een verborgen veld en een minimale invultijd. Na versturen: "kijk in je mail" (double opt-in).
  */
 /** `titled`: eigen kop tonen (uit op de mailpagina, die heeft dezelfde tekst al als paginatitel). */
-export function SubscribeForm({ action, language, titled = true }: { action: (s: SubscribeState, f: FormData) => Promise<SubscribeState>; language: string; titled?: boolean }) {
+/** `topics`/`checked`/`title`/`intro`: een eigen variant, zoals op de Sinterklaaskalender (ADR 0065). */
+export function SubscribeForm({ action, language, titled = true, topics = TOPICS, checked = ["nieuwe-platen", "feestdagen"], title, intro }: {
+  action: (s: SubscribeState, f: FormData) => Promise<SubscribeState>; language: string; titled?: boolean; topics?: string[]; checked?: string[]; title?: string; intro?: string;
+}) {
   const t = messages(language);
   const [state, submit, pending] = useActionState(action, { status: "idle" });
   const [started, setStarted] = useState(0);
   useEffect(() => { setStarted(Date.now()); }, []);
 
   return (
-    <section className="ui-subscribe panel no-print" data-mode="ouder" {...(titled ? { "aria-labelledby": "kh-sub-title" } : { "aria-label": t.mlTitle })}>
-      {titled && <h2 id="kh-sub-title">{t.mlTitle}</h2>}
+    <section className="ui-subscribe panel no-print" data-mode="ouder" {...(titled ? { "aria-labelledby": "kh-sub-title" } : { "aria-label": title ?? t.mlTitle })}>
+      {titled && <h2 id="kh-sub-title">{title ?? t.mlTitle}</h2>}
       {state.status === "sent" ? (
         <div className="ui-callout" data-tone="success" role="status"><div><strong>{t.mlCheckTitle}</strong>{t.mlCheckText}</div></div>
       ) : (
         <form action={submit} className="ui-subscribe-form">
-          <p className="ui-hint">{t.mlIntro}</p>
+          <p className="ui-hint">{intro ?? t.mlIntro}</p>
           {(state.status === "invalid" || state.status === "error" || state.status === "busy") && (
             <div className="ui-callout" data-tone="danger" role="alert"><div>{state.status === "busy" ? t.mlBusy : t.mlError}</div></div>
           )}
@@ -33,7 +36,7 @@ export function SubscribeForm({ action, language, titled = true }: { action: (s:
           </div>
           <fieldset className="ui-subscribe-topics">
             <legend>{t.mlTopics}</legend>
-            {TOPICS.map((k) => <label key={k} className="chk"><input type="checkbox" name="topics" value={k} defaultChecked={k !== "nieuwsbrief"} /> {t.mlTopicNames[k]}</label>)}
+            {topics.map((k) => <label key={k} className="chk"><input type="checkbox" name="topics" value={k} defaultChecked={checked.includes(k)} /> {t.mlTopicNames[k] ?? k}</label>)}
           </fieldset>
           <label className="chk"><input type="checkbox" name="adult" required /> {t.mlAdult}</label>
           <div className="ui-trap" aria-hidden="true"><label htmlFor="kh-sub-website">Website</label><input id="kh-sub-website" name="website" tabIndex={-1} autoComplete="off" /></div>

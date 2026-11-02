@@ -54,12 +54,14 @@ export default async function AdventPage({ params }: Params) {
       }) }} />}
       <header className="mast"><div><Logo market={market} org={o} /></div></header>
       <Crumbs base={base} label={t.crumbs} items={[{ name: "Kleurhoek", path: "" }, { name: title }]} />
-      <div className="kh-advent-head">
-        <h1 style={{ margin: 0 }}>{title}</h1>
-        {status && <span className="kh-advent-count" role="status">{status}</span>}
-      </div>
-      <p className="lede">{t.advent.lede}</p>
-      <AdventCalendar doors={doors} order={doorOrder(year)} open={open} today={day !== null && day <= 24 ? day : null} year={year} base={base} market={market} />
+      <main>
+        <div className="kh-advent-head">
+          <h1 style={{ margin: 0 }}>{title}</h1>
+          {status && <span className="kh-advent-count" role="status">{status}</span>}
+        </div>
+        <p className="lede">{t.advent.lede}</p>
+        <AdventCalendar doors={doors} order={doorOrder(year)} open={open} today={day !== null && day <= 24 ? day : null} year={year} base={base} market={market} />
+      </main>
       <SiteFooter base={base} t={t} own={o.isDefault} />
       <Track event={{ type: "page_view", market, page: "aftelkalender" }} />
     </div>

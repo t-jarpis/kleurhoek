@@ -1,4 +1,5 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { SocialService } from "../src/modules/social/social.service";
 import { createTestApp } from "./app";
 
 /** Wijzigingen en ongedaan maken (ADR 0066). */
@@ -33,5 +34,41 @@ describe("wijzigingen ongedaan maken", () => {
     const list = (await changes()).filter((c) => c.subject === "rate_limit:contact-challenge" && c.action === "operations.ratelimit.update");
     expect(list[0]!.undo).toBe("ja");
     expect(list[1]!.undo).toBe("verouderd");
+  });
+
+  const call = (method: "GET" | "PUT" | "POST", url: string, payload?: unknown) => ctx.http.inject({ method, url, headers: admin, ...(payload === undefined ? {} : { payload: payload as object }) });
+  const undo = async (action: string, subject: string) => {
+    const c = (await changes()).find((x) => x.action === action && x.subject === subject)!;
+    expect(c.undo).toBe("ja");
+    return call("POST", `/v1/admin/changes/${c.id}/undo`);
+  };
+
+  it("social: instellingen en een goedgekeurde post terug, een geplaatste post niet", async () => {
+    await call("PUT", "/v1/admin/social/settings", { notifyEmail: null, pinsPerDay: 5, feedDays: [1, 3, 5], feedTime: "19:30" });
+    await call("PUT", "/v1/admin/social/settings", { notifyEmail: null, pinsPerDay: 9, feedDays: [2], feedTime: "08:00" });
+    expect((await undo("social.settings", "social:instellingen")).statusCode).toBe(201);
+    expect(await ctx.app.get(SocialService).settings()).toMatchObject({ pinsPerDay: 5, feedDays: [1, 3, 5] });
+
+    await ctx.app.get(SocialService).generate(new Date("2026-03-02T06:00:00Z"));
+    const open = (await call("GET", "/v1/admin/social/posts?status=voorstel")).json().posts as { id: string; channel: string }[];
+    // Zonder gekoppelde kanalen worden het teksten om zelf te delen; die kun je als geplaatst markeren.
+    const [a, b] = open.filter((p) => p.channel === "delen");
+    await call("POST", "/v1/admin/social/posts/decide", { ids: [a!.id, b!.id], approve: true });
+    expect((await undo("social.post.decide", `social-post:${a!.id}`)).statusCode).toBe(201);
+    const status = async (id: string) => ((await call("GET", "/v1/admin/social/posts")).json().posts as { id: string; status: string }[]).find((p) => p.id === id)!.status;
+    expect(await status(a!.id)).toBe("voorstel");
+    expect(await status(b!.id)).toBe("goedgekeurd");
+    // Intussen geplaatst: terugzetten kan niet meer.
+    expect((await call("POST", `/v1/admin/social/posts/${b!.id}/shared`)).statusCode).toBe(204);
+    const c = (await changes()).find((x) => x.action === "social.post.decide" && x.subject === `social-post:${b!.id}`)!;
+    expect((await call("POST", `/v1/admin/changes/${c.id}/undo`)).statusCode).toBe(409);
+  });
+
+  it("organisatie: instellingen terug, het aanbod dat de organisatie zelf instelt ook", async () => {
+    await call("POST", "/v1/admin/organizations", { slug: "school-terug", name: "School Terug", kind: "school" });
+    await call("PUT", "/v1/admin/organizations/school-terug", { name: "Andere naam", hosts: ["platen.terug.nl"] });
+    expect((await undo("organizations.update", "organization:school-terug")).statusCode).toBe(201);
+    const org = (await call("GET", "/v1/admin/organizations")).json().organizations.find((o: { slug: string }) => o.slug === "school-terug");
+    expect(org).toMatchObject({ name: "School Terug", hosts: [] });
   });
 });

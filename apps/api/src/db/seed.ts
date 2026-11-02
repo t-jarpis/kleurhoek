@@ -22,7 +22,10 @@ function chunks<T>(list: T[], size: number): T[][] {
   return out;
 }
 
-export async function seed(db: Database, tenantId: string): Promise<{ plates: number; updated: number }> {
+/** Wat de seed deed; `added`/`changed` gaan als event naar andere domeinen (ADR 0066). */
+export interface SeedResult { plates: number; updated: number; added: string[]; changed: string[] }
+
+export async function seed(db: Database, tenantId: string): Promise<SeedResult> {
   return withTenant(db, tenantId, async (tx) => {
     // Nederland, België in het Nederlands en Frans (ADR 0040) en het Verenigd Koninkrijk (ADR 0044). Bestaande markten blijven zoals ze in het admin panel staan.
     await tx.insert(markets).values([
@@ -141,6 +144,7 @@ export async function seed(db: Database, tenantId: string): Promise<{ plates: nu
     const list = source.plates();
     const existing = new Map((await tx.select({ id: plates.id, slug: plates.slug }).from(plates).where(inArray(plates.slug, list.map((p) => p.slug)))).map((r) => [r.slug, r.id]));
     let added = 0;
+    const addedSlugs: string[] = [];
     const newMaterials: (typeof plateMaterials.$inferInsert)[] = [];
     for (const p of list) {
       let plateId = existing.get(p.slug);
@@ -159,18 +163,19 @@ export async function seed(db: Database, tenantId: string): Promise<{ plates: nu
         }).returning({ id: plateVersions.id });
         await tx.update(plates).set({ currentVersionId: version!.id }).where(inArray(plates.id, [plateId]));
         added++;
+        addedSlugs.push(p.slug);
         // Materialen alleen voor nieuwe platen: wat er in het admin panel is weggehaald, komt niet terug.
         newMaterials.push(...p.materials.map((m, i) => ({ tenantId, plateId: plateId!, materialSlug: m.slug, optional: m.optional, sortOrder: i })));
       }
       add("plate", p.slug, p.i18n);
     }
-    const updated = await refreshCatalogVersions(tx, tenantId, list, existing);
+    const changed = await refreshCatalogVersions(tx, tenantId, list, existing);
     // In blokken: één insert met duizenden rijen loopt tegen de parametergrens van Postgres aan,
     // en losse inserts per plaat maken elke koude start trager.
     for (const part of chunks(newMaterials, 2000)) await tx.insert(plateMaterials).values(part).onConflictDoNothing();
     for (const part of chunks(tr, 1000)) await tx.insert(translations).values(part.map((t) => ({ tenantId, ...t, status: "reviewed" as const }))).onConflictDoNothing();
     await syncGlossaries(tx, tenantId);
-    return { plates: added, updated };
+    return { plates: added, updated: changed.length, added: addedSlugs, changed };
   });
 }
 
@@ -182,14 +187,14 @@ export async function seed(db: Database, tenantId: string): Promise<{ plates: nu
  * (`kh:<plaat>:v<versie>` op het apparaat, de koelkast en samen kleuren bewaren de versie) en blijft bij de oude.
  */
 async function refreshCatalogVersions(tx: Tx, tenantId: string, list: ReturnType<typeof source.plates>, existing: Map<string, string>) {
-  if (!existing.size) return 0;
+  if (!existing.size) return [];
   const rows = await tx.select({
     plateId: plates.id, slug: plates.slug, version: plateVersions.version, createdBy: plateVersions.createdBy,
     hash: sql<string>`md5(${plateVersions.svg})`,
     latest: sql<number>`(select max(v.version) from ${plateVersions} v where v.plate_id = ${plates.id})`,
   }).from(plates).innerJoin(plateVersions, eq(plateVersions.id, plates.currentVersionId)).where(inArray(plates.id, [...existing.values()]));
   const bySlug = new Map(rows.map((r) => [r.slug, r]));
-  let updated = 0;
+  const changed: string[] = [];
   for (const p of list) {
     const cur = bySlug.get(p.slug);
     if (!cur || cur.createdBy !== "catalog-data") continue;
@@ -201,9 +206,9 @@ async function refreshCatalogVersions(tx: Tx, tenantId: string, list: ReturnType
       pages: p.pages.map((page, i) => ({ role: page.role, height: page.height, svg: source.pageSvg(p.slug, i + 2) })),
     }).returning({ id: plateVersions.id });
     await tx.update(plates).set({ currentVersionId: version!.id }).where(eq(plates.id, cur.plateId));
-    updated++;
+    changed.push(p.slug);
   }
-  return updated;
+  return changed;
 }
 
 /**

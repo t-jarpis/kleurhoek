@@ -1,3 +1,5 @@
+import { intocht, SINT_MARKETS, sintDates, sintDoorSlugs } from "@kleurhoek/catalog-data/calendar";
+
 import type { Door } from "./advent";
 import type { PlateItem } from "./types";
 
@@ -7,49 +9,18 @@ import type { PlateItem } from "./types";
  * want de pagina bestaat alleen in het Nederlands.
  */
 
-/** Pakjesavond per markt: in Nederland 5 december, in België de ochtend van 6 december. */
-export const SINT_MARKETS: Record<string, number> = { "nl-nl": 5, "nl-be": 6 };
+// Datums en volgorde van de deurtjes komen uit catalog-data, zodat Social en de mail hetzelfde deurtje kennen.
+export { intocht, SINT_MARKETS, sintDates };
 export const hasSintCalendar = (market: string) => market.toLowerCase() in SINT_MARKETS;
 
 const MONTHS = ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"];
 const DAY = 86_400_000;
-const utc = (y: number, m: number, d: number) => Date.UTC(y, m - 1, d);
-const iso = (t: number) => new Date(t).toISOString().slice(0, 10);
-
-/** De intocht: de eerste zaterdag na 11 november (Sint-Maarten). */
-export function intocht(year: number): string {
-  let t = utc(year, 11, 12);
-  while (new Date(t).getUTCDay() !== 6) t += DAY;
-  return iso(t);
-}
-
-/** Alle datums van de kalender, van de intocht tot en met pakjesavond. */
-export function sintDates(year: number, market: string): string[] {
-  const eve = utc(year, 12, SINT_MARKETS[market.toLowerCase()] ?? 5);
-  const out: string[] = [];
-  for (let t = Date.parse(intocht(year)); t <= eve; t += DAY) out.push(iso(t));
-  return out;
-}
 
 export const dateLabel = (date: string) => `${Number(date.slice(8, 10))} ${MONTHS[Number(date.slice(5, 7)) - 1]}`;
 
-/** Deze platen eerst, in deze volgorde; de intocht vooraan en pakjesavond als laatste. */
-const FIRST = ["stoomboot-komt-aan", "intocht-van-sinterklaas", "sint-en-piet-zwaaien", "sinterklaas-portret", "roetveegpiet-zwaait",
-  "pakjesboot-in-de-haven", "sint-rijdt-op-zijn-paard", "amerigo-en-de-wortel", "schoen-bij-de-kachel", "piet-maakt-muziek",
-  "stapel-cadeautjes", "sinterklaas-leest-voor", "warme-chocolademelk",
-  "schoen-zetten", "piet-met-de-zak", "pepernotenbakkerij", "chocoladeletter", "sinterklaas-op-het-dak", "mijter-om-op-te-zetten",
-  "piet-in-de-schoorsteen", "het-grote-boek", "pieten-op-het-dak", "surprise-maken", "schoen", "sinterklaas", "pakjesboot",
-  "sinterklaas-glas-in-lood", "sinterklaaskaart-schoen", "surprise-mijterdoosje", "harmonica-uitnodiging-pakjesavond"];
-const LAST = "pakjesavond";
-
 export function sintDoors(plates: PlateItem[], total: number): Door[] {
-  const sint = plates.filter((p) => p.holiday === "sinterklaas");
-  const rank = (s: string) => { const i = FIRST.indexOf(s); return i < 0 ? 99 : i; };
-  const last = sint.find((p) => p.slug === LAST);
-  const rest = sint.filter((p) => p !== last).sort((a, b) => rank(a.slug) - rank(b.slug));
-  const list = [...rest.slice(0, last ? total - 1 : total), ...(last ? [last] : [])];
-  // Te weinig platen: de laatste plek blijft pakjesavond, de rest schuift op.
-  return list.map((plate, i) => ({ day: i === list.length - 1 && last ? total : i + 1, plate }));
+  const bySlug = new Map(plates.filter((p) => p.holiday === "sinterklaas").map((p) => [p.slug, p]));
+  return sintDoorSlugs([...bySlug.keys()], total).map(({ day, slug }) => ({ day, plate: bySlug.get(slug)! }));
 }
 
 /** Welk seizoen, hoeveel deurtjes open, en hoe lang nog. `today` is JJJJ-MM-DD in de tijdzone van de markt. */
@@ -65,6 +36,26 @@ export function sintOpen(today: string, market: string) {
   const i = dates.indexOf(today);
   if (i < 0) return { year, dates, open: dates.length, today: null, nightsTo: null, daysToStart: null };
   return { year, dates, open: i + 1, today: i + 1, nightsTo: dates.length - 1 - i || null, daysToStart: null };
+}
+
+/**
+ * Sinterklaasboekjes: alle Sinterklaasplaten van één leeftijd in één boekje (de bestaande boekjespagina). Een
+ * leeftijd met minder dan drie platen gaat op in de leeftijd eronder, zodat er geen boekje van één plaat is.
+ */
+export function sintBooks(plates: PlateItem[], ages: { slug: string; level: number; name: string }[], max = 30) {
+  const sint = plates.filter((p) => p.holiday === "sinterklaas");
+  const groups: { ages: { slug: string; name: string }[]; slugs: string[] }[] = [];
+  for (const age of [...ages].sort((a, b) => a.level - b.level)) {
+    const slugs = sint.filter((p) => p.age === age.slug).map((p) => p.slug);
+    if (slugs.length) groups.push({ ages: [age], slugs });
+  }
+  for (let i = groups.length - 1; i > 0; i--) {
+    if (groups[i]!.slugs.length >= 3) continue;
+    groups[i - 1]!.ages.push(...groups[i]!.ages);
+    groups[i - 1]!.slugs.push(...groups[i]!.slugs);
+    groups.splice(i, 1);
+  }
+  return groups.map((g) => ({ label: g.ages.length > 1 ? `Vanaf ${parseInt(g.ages[0]!.slug, 10)} jaar` : g.ages[0]!.name, slugs: g.slugs.slice(0, max) }));
 }
 
 /** Op de voorpagina: van 1 november tot en met pakjesavond. */
@@ -85,5 +76,32 @@ export const SINT_TEXT = {
   archive: "De kalender van afgelopen Sinterklaas: alle deurtjes zijn open.",
   locked: (d: number, date: string) => `Deurtje ${d}, nog dicht tot ${date}`,
   teaser: "Van de intocht tot pakjesavond elke dag een nieuwe Sinterklaasplaat.",
+  mailTitle: "Elke ochtend het deurtje in je mail",
+  mailIntro: "Van de intocht tot pakjesavond sturen we je elke ochtend om 7 uur de plaat van die dag. Daarna stopt het vanzelf. Afmelden kan met één klik.",
   teaserCta: "Naar de Sinterklaaskalender",
+  bookTitle: "Sinterklaasboekje",
+  bookIntro: "Liever alles in één keer? Print alle Sinterklaasplaten voor één leeftijd als boekje, met een voorblad.",
+  book: (label: string, n: number) => `${label} (${n} platen)`,
 };
+
+/** Cadeaulabels en naamkaartjes (ADR 0067). Alleen Nederlands: de pagina is er alleen in nl-NL en nl-BE. */
+export const GIFT_TEXT = {
+  nav: "Cadeaulabels met naam",
+  title: "Cadeaulabels en naamkaartjes met eigen naam",
+  lede: "Typ de namen, kies labels voor de pakjes of naamkaartjes voor aan tafel en print het vel. Daarna kleuren, knippen en ophangen of neerzetten.",
+  meta: "Gratis cadeaulabels en naamkaartjes voor pakjesavond, met eigen naam en tekeningetjes om in te kleuren. Print op A4.",
+  kind: "Wat wil je maken?",
+  labels: "Labels voor de pakjes",
+  cards: "Naamkaartjes voor aan tafel",
+  names: "Namen",
+  namesPlaceholder: "Bijvoorbeeld:\nNoor\nSem",
+  namesHint: "Eén naam per regel (of met komma's). Leeg laten mag ook: dan schrijf je zelf.",
+  fromLabel: "Van",
+  defaultFrom: "Sint en Piet",
+  for: "Voor",
+  from: "Van",
+  print: "Printen",
+  privacy: "De namen blijven op dit apparaat: we sturen ze nergens heen en bewaren ze niet.",
+  teaser: "Labels voor de pakjes, met de naam erop",
+};
+

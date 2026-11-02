@@ -12,7 +12,7 @@ Andere domeinen importeren alleen deze bestanden. De test `test/boundaries.test.
 
 - `offer.ts` (gebruikt door: storefront)
 - `organizations.module.ts` (gebruikt door: AppModule)
-- `organizations.service.ts` (gebruikt door: catalog, identity, storefront)
+- `organizations.service.ts` (gebruikt door: catalog, storefront)
 
 ## Endpoints
 - `/v1`
@@ -20,7 +20,8 @@ Andere domeinen importeren alleen deze bestanden. De test `test/boundaries.test.
 - `/v1/me/organizations`
 
 ## Events
-- Nog geen. Nieuwe koppelingen tussen domeinen liefst als event (ADR 0066).
+- Reageert op `identity.account.deleted`: beheerrechten op organisaties weg
+- Typen staan in `src/shared/events.ts`. Nieuwe koppelingen tussen domeinen liefst als event (ADR 0066).
 
 ## Regels
 - Wijzigingen door beheerders in dezelfde transactie vastleggen met `AuditService.record` (wie, wat, voor en na).

@@ -1,10 +1,11 @@
-import { Inject, Injectable } from "@nestjs/common";
+import { Inject, Injectable, type OnModuleInit } from "@nestjs/common";
 import { and, asc, eq, inArray } from "drizzle-orm";
 import { ENV, type Env } from "../../config/env";
 import { DB, type Database } from "../../db/database";
 import { withTenant } from "../../db/tenant";
 import { CatalogService } from "../catalog/catalog.service";
 import { favorites } from "./engagement.schema";
+import { DomainEvents } from "../../shared/events";
 
 /** Zoveel favorieten per account; genoeg voor een jaar knutselen, en een grens tegen misbruik. */
 export const MAX_FAVORITES = 500;
@@ -14,8 +15,11 @@ export const MAX_FAVORITES = 500;
  * de volgorde is die van toevoegen.
  */
 @Injectable()
-export class EngagementService {
-  constructor(@Inject(DB) private readonly db: Database, @Inject(ENV) private readonly env: Env, private readonly catalog: CatalogService) {}
+export class EngagementService implements OnModuleInit {
+  constructor(@Inject(DB) private readonly db: Database, @Inject(ENV) private readonly env: Env, private readonly catalog: CatalogService, private readonly events: DomainEvents) {}
+
+  /** Account weg: ook de favorieten (ADR 0039, 0066). */
+  onModuleInit() { this.events.on("identity.account.deleted", "engagement", ({ userId }) => this.forgetUser(userId)); }
   private get tenant() { return this.env.TENANT_ID; }
 
   async favorites(userId: string): Promise<string[]> {

@@ -5,13 +5,14 @@ import { saveWorkflow } from "../../actions";
 import { DAYS } from "../labels";
 
 type Body = Pick<MailWorkflow, "name" | "enabled" | "trigger" | "steps">;
-const TOPIC: Record<MailTopic, string> = { "nieuwe-platen": "Nieuwe platen", feestdagen: "Feestdagen", nieuwsbrief: "Nieuwsbrief" };
+const TOPIC: Record<MailTopic, string> = { "nieuwe-platen": "Nieuwe platen", feestdagen: "Feestdagen", nieuwsbrief: "Nieuwsbrief", sinterklaaskalender: "Sinterklaaskalender" };
 const STEP_LABEL: Record<MailStep["type"], string> = { filter: "Filter", require_plates: "Alleen als er nieuwe platen zijn", wait: "Wachten", send: "Mail sturen" };
 const TRIGGERS: Record<MailTrigger["type"], { label: string; make: () => MailTrigger }> = {
   subscribed: { label: "Na aanmelden", make: () => ({ type: "subscribed" }) },
   schedule: { label: "Vaste dag en tijd", make: () => ({ type: "schedule", weekday: 1, hour: 8 }) },
   plates_published: { label: "Nieuwe platen gepubliceerd", make: () => ({ type: "plates_published", min: 5 }) },
   holiday_soon: { label: "Feestdag komt eraan", make: () => ({ type: "holiday_soon", days: 14 }) },
+  sint_door: { label: "Elke dag van de Sinterklaaskalender", make: () => ({ type: "sint_door", hour: 7 }) },
 };
 const num = (v: string, min: number, max: number) => Math.min(max, Math.max(min, Number(v) || min));
 
@@ -49,6 +50,7 @@ export function WorkflowEditor({ slug: initialSlug, initial, options, canManage 
               <label className="field"><span>Uur (Nederlandse tijd)</span><input type="number" min={0} max={23} value={t.hour} onChange={(e) => setW({ ...w, trigger: { ...t, hour: num(e.target.value, 0, 23) } })} /></label>
             </>}
             {t.type === "plates_published" && <label className="field"><span>Minstens zoveel nieuwe platen</span><input type="number" min={1} max={100} value={t.min} onChange={(e) => setW({ ...w, trigger: { ...t, min: num(e.target.value, 1, 100) } })} /></label>}
+            {t.type === "sint_door" && <label className="field"><span>Uur (Nederlandse tijd)</span><input type="number" min={0} max={23} value={t.hour} onChange={(e) => setW({ ...w, trigger: { ...t, hour: num(e.target.value, 0, 23) } })} /></label>}
             {t.type === "holiday_soon" && <label className="field"><span>Dagen van tevoren</span><input type="number" min={1} max={60} value={t.days} onChange={(e) => setW({ ...w, trigger: { ...t, days: num(e.target.value, 1, 60) } })} /></label>}
           </div>
           {t.type === "schedule" && <small>Met een stap &quot;Alleen als er nieuwe platen zijn&quot; gaat de mail alleen weg als er sinds de vorige keer genoeg nieuws is.</small>}

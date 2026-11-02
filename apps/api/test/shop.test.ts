@@ -81,20 +81,20 @@ describe("knutselwerk in de catalogus", () => {
   });
   it("de seed is aanvullend en draait veilig opnieuw", async () => {
     const db = ctx.app.get<Database>(DB);
-    expect(await seed(db, TENANT)).toEqual({ plates: 0, updated: 0 });
+    expect(await seed(db, TENANT)).toMatchObject({ plates: 0, updated: 0, added: [], changed: [] });
   });
   it("een verbeterde tekening in catalog-data wordt een nieuwe versie, behalve na een versie uit het admin panel", async () => {
     const db = ctx.app.get<Database>(DB);
     // Doen alsof de opgeslagen tekening een oudere is (zonder de lijnen van ADR 0064).
     await withTenant(db, TENANT, (tx) => tx.execute(sql`update catalog.plate_versions set svg = 'oud' where plate_id in (select id from catalog.plates where slug in ('uil-met-veren', 'vos-in-facetten'))`));
     await withTenant(db, TENANT, (tx) => tx.execute(sql`update catalog.plate_versions set created_by = 'beheerder' where plate_id = (select id from catalog.plates where slug = 'vos-in-facetten')`));
-    expect(await seed(db, TENANT)).toEqual({ plates: 0, updated: 1 });
+    expect(await seed(db, TENANT)).toMatchObject({ plates: 0, updated: 1, changed: ["uil-met-veren"] });
     const r = await ctx.http.inject({ method: "GET", url: "/v1/markets/nl-NL/plates/uil-met-veren" });
     expect(r.json().svg).toMatch(/\/2\.svg$/);
     const svg = await ctx.http.inject({ method: "GET", url: "/v1/assets/plates/uil-met-veren/2.svg" });
     expect(svg.body).toContain('class="ink"');
     expect(svg.body).toContain(".l3{stroke-width:1.7}");
-    expect(await seed(db, TENANT)).toEqual({ plates: 0, updated: 0 });
+    expect(await seed(db, TENANT)).toMatchObject({ plates: 0, updated: 0, added: [], changed: [] });
   });
   it("de SVG van een knutselplaat krijgt de stijl voor knip- en vouwlijnen", async () => {
     const r = await ctx.http.inject({ method: "GET", url: "/v1/assets/plates/lampion-maken/1.svg" });

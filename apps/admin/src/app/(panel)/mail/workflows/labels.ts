@@ -7,6 +7,7 @@ export function describeTrigger(t: MailTrigger): string {
   if (t.type === "subscribed") return "Na aanmelden";
   if (t.type === "schedule") return `Elke ${DAYS[t.weekday]} om ${t.hour}:00`;
   if (t.type === "plates_published") return `Zodra er ${t.min} nieuwe ${t.min === 1 ? "plaat is" : "platen zijn"}`;
+  if (t.type === "sint_door") return `Elke dag van de Sinterklaaskalender om ${t.hour}:00`;
   return `${t.days} dagen voor een feestdag`;
 }
 

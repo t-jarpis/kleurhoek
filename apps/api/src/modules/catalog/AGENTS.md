@@ -17,7 +17,8 @@ Andere domeinen importeren alleen deze bestanden. De test `test/boundaries.test.
 - `/v1/admin/collections`
 
 ## Events
-- Nog geen. Nieuwe koppelingen tussen domeinen liefst als event (ADR 0066).
+- Stuurt `catalog.plates.published` (na de seed bij het opstarten: nieuwe en gewijzigde platen)
+- Typen staan in `src/shared/events.ts`. Nieuwe koppelingen tussen domeinen liefst als event (ADR 0066).
 
 ## Regels
 - Wijzigingen door beheerders in dezelfde transactie vastleggen met `AuditService.record` (wie, wat, voor en na).

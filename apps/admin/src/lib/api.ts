@@ -149,7 +149,7 @@ export interface SearchReport {
 }
 
 /** Mail (ADR 0037). */
-export type MailTopic = "nieuwe-platen" | "feestdagen" | "nieuwsbrief";
+export type MailTopic = "nieuwe-platen" | "feestdagen" | "nieuwsbrief" | "sinterklaaskalender";
 export type I18nText = Record<string, string>;
 export type MailBlock =
   | { id: string; type: "heading"; text: I18nText }
@@ -161,7 +161,7 @@ export interface MailTemplate { slug: string; name: string; kind: "system" | "au
 export type MailTemplateInput = Pick<MailTemplate, "name" | "kind" | "subject" | "preheader" | "blocks">;
 /** Alleen de velden die de API aanneemt (een template uit de lijst heeft ook id, datums …). */
 const templateBody = (t: MailTemplateInput): MailTemplateInput => ({ name: t.name, kind: t.kind, subject: t.subject, preheader: t.preheader, blocks: t.blocks });
-export type MailTrigger = { type: "subscribed" } | { type: "schedule"; weekday: number; hour: number } | { type: "plates_published"; min: number } | { type: "holiday_soon"; days: number };
+export type MailTrigger = { type: "subscribed" } | { type: "schedule"; weekday: number; hour: number } | { type: "plates_published"; min: number } | { type: "holiday_soon"; days: number } | { type: "sint_door"; hour: number };
 export type MailStep = { type: "filter"; topics?: MailTopic[]; markets?: string[] } | { type: "require_plates"; min: number } | { type: "wait"; hours: number } | { type: "send"; template: string };
 export interface MailWorkflow { slug: string; name: string; enabled: boolean; trigger: MailTrigger; steps: MailStep[]; cursor: string | null; updatedBy: string; updatedAt: string }
 export interface MailCampaign { id: string; name: string; template: string; audience: { topics: MailTopic[]; markets: string[] | null }; status: "draft" | "scheduled" | "sending" | "sent" | "cancelled"; scheduledAt: string | null; sentAt: string | null; recipients: number; createdBy: string; createdAt: string; deliveries: Record<string, number> }
