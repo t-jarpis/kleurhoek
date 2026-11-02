@@ -14,6 +14,8 @@ De Sinterklaaskalender (ADR 0065) staat op de site, maar alleen wie hem zelf opz
 - **Cadeaulabels en naamkaartjes.** Pagina `/cadeaulabels`, alleen in nl-NL en nl-BE (elders 404). Ouders typen namen en printen een A4 met 8 labels voor de pakjes of 6 naamkaartjes om te vouwen, met tekeningetjes om in te kleuren. Alles gebeurt in de browser: de namen gaan niet naar de server en worden niet bewaard (ADR 0002). Design system: GiftLabels.
 - **Taalbanner.** Op pagina's die alleen in het Nederlands bestaan, biedt de taalbanner geen andere taal aan en wijst de taalkeuze onderaan naar de beginpagina van die markt.
 
+- **Mail in alle talen (later op 2 november).** De standaardtemplates en de voettekst van elke mail staan nu in alle 29 talen (`defaults-i18n.ts`, `footer-i18n.ts`). Ontbreekt een taal toch, dan krijgt de abonnee Engels in plaats van Nederlands. De Sinterklaasmail bestaat alleen in het Nederlands (`TEMPLATE_LANGUAGES`); het admin panel meldt hem daarom niet als onvolledig.
+
 ## Gevolgen
 - Volgend jaar werkt alles vanzelf: de datums worden per jaar berekend.
 - Een nieuwe Sinterklaasplaat komt automatisch in kalender, social, mail en boekje.

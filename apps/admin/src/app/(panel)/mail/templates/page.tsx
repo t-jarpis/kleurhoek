@@ -15,11 +15,11 @@ export default async function Templates({ searchParams }: { searchParams: Promis
     data = { ...list, canManage: me.permissions.includes("mail.manage") };
   } catch (e) { const d = describe(e); return <div className="err"><h1>{d.title}</h1><p>{d.text}</p></div>; }
   const { templates, options, canManage } = data;
-  /** Talen van de site waarin het onderwerp of een tekst nog ontbreekt. */
-  const missing = (t: (typeof templates)[number]) => options.languages.filter((l) => !t.subject[l] || t.blocks.some((b) => ("text" in b && !b.text[l]) || ("label" in b && !b.label[l])));
+  /** Talen van de site waarin het onderwerp of een tekst nog ontbreekt (alleen de talen waarin de template bestaat). */
+  const missing = (t: (typeof templates)[number]) => (options.templateLanguages?.[t.slug] ?? options.languages).filter((l) => !t.subject[l] || t.blocks.some((b) => ("text" in b && !b.text[l]) || ("label" in b && !b.label[l])));
   return (
     <>
-      <div><h1>Templates</h1><p className="lead">Waaruit een mail bestaat: kop, tekst, knoppen en platen, per taal. Ontbreekt een taal, dan krijgt die abonnee de Nederlandse tekst.</p></div>
+      <div><h1>Templates</h1><p className="lead">Waaruit een mail bestaat: kop, tekst, knoppen en platen, per taal. Ontbreekt een taal, dan krijgt die abonnee de Engelse tekst. De Sinterklaaskalender is er alleen in het Nederlands.</p></div>
       <div className="toolbar"><MailNav active="templates" />{canManage && <Link className="ui-btn" data-variant="primary" href="/mail/templates/nieuw">Nieuwe template</Link>}</div>
       {melding && <p className="note" role="status">{melding}</p>}
       <section className="panel">

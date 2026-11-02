@@ -1,12 +1,15 @@
-import type { Block, I18nText, Step, TemplateKind, Trigger } from "./messaging.types";
+import { complete } from "./defaults-i18n";
+import { TEMPLATE_LANGUAGES, type Block, type I18nText, type Step, type TemplateKind, type Trigger } from "./messaging.types";
 
 /**
  * Startinhoud (ADR 0037): de vaste templates en drie workflows. De seed zet ze alleen neer als ze nog niet bestaan;
- * daarna zijn ze van het admin panel. Teksten in alle talen van de site; ontbreekt een taal, dan Nederlands.
+ * daarna zijn ze van het admin panel. Teksten in alle talen van de site (de rest in defaults-i18n.ts); ontbreekt er
+ * toch een, dan Engels. De Sinterklaaskalender is alleen Nederlands (TEMPLATE_LANGUAGES).
  */
 const t = (nl: string, de: string, en: string, fr: string, es: string, it: string, pl: string): I18nText => ({ nl, de, en, fr, es, it, pl });
 
-export const DEFAULT_TEMPLATES: { slug: string; name: string; kind: TemplateKind; subject: I18nText; preheader: I18nText; blocks: Block[] }[] = [
+type DefaultTemplate = { slug: string; name: string; kind: TemplateKind; subject: I18nText; preheader: I18nText; blocks: Block[] };
+const BASE: DefaultTemplate[] = [
   {
     slug: "bevestigen", name: "Aanmelding bevestigen", kind: "system",
     subject: t("Bevestig je aanmelding bij Kleurhoek", "Bestätige deine Anmeldung bei Kleurhoek", "Confirm your Kleurhoek sign-up", "Confirmez votre inscription à Kleurhoek", "Confirma tu suscripción a Kleurhoek", "Conferma la tua iscrizione a Kleurhoek", "Potwierdź zapis do Kleurhoek"),
@@ -74,6 +77,17 @@ export const DEFAULT_TEMPLATES: { slug: string; name: string; kind: TemplateKind
     ],
   },
 ];
+
+/** Alle talen aangevuld; een template met een vaste taal (TEMPLATE_LANGUAGES) blijft zoals hij is. */
+export const DEFAULT_TEMPLATES: DefaultTemplate[] = BASE.map((d): DefaultTemplate => {
+  if (TEMPLATE_LANGUAGES[d.slug]) return d;
+  const blocks = d.blocks.map((b): Block => {
+    if ("text" in b) return { ...b, text: complete(b.text) } as Block;
+    if ("label" in b) return { ...b, label: complete(b.label) } as Block;
+    return b;
+  });
+  return { ...d, subject: complete(d.subject), preheader: complete(d.preheader), blocks };
+});
 
 export const DEFAULT_WORKFLOWS: { slug: string; name: string; enabled: boolean; trigger: Trigger; steps: Step[] }[] = [
   { slug: "welkom", name: "Welkom na aanmelden", enabled: true, trigger: { type: "subscribed" }, steps: [{ type: "send", template: "welkom" }] },

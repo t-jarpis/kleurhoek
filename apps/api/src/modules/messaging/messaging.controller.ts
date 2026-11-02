@@ -11,7 +11,7 @@ import { StorefrontService } from "../storefront/storefront.service";
 import { CampaignsService } from "./campaigns.service";
 import { DeliverabilityService } from "./deliverability/deliverability.service";
 import { PROVIDERS, type Provider } from "./deliverability/feedback";
-import { TOPICS, topicsFor } from "./messaging.types";
+import { TEMPLATE_LANGUAGES, TOPICS, topicsFor } from "./messaging.types";
 import { OutboxService } from "./outbox.service";
 import { maskEmail, SubscribersService } from "./subscribers.service";
 import { TemplatesService } from "./templates.service";
@@ -142,7 +142,7 @@ export class AdminMailController {
   private async options() {
     const [markets, templates, collections] = await Promise.all([this.i18n.liveMarkets(this.env.TENANT_ID), this.templates.list(), this.catalog.collections(this.env.TENANT_ID)]);
     return {
-      topics: TOPICS, markets, languages: [...new Set(markets.map((m) => m.slice(0, 2)))],
+      topics: TOPICS, markets, languages: [...new Set(markets.map((m) => m.slice(0, 2)))], templateLanguages: TEMPLATE_LANGUAGES,
       templates: templates.map((t) => ({ slug: t.slug, name: t.name, kind: t.kind })),
       collections: collections.map((c) => ({ slug: c.slug, name: c.names.nl ?? c.slug })),
     };

@@ -165,7 +165,7 @@ export type MailTrigger = { type: "subscribed" } | { type: "schedule"; weekday: 
 export type MailStep = { type: "filter"; topics?: MailTopic[]; markets?: string[] } | { type: "require_plates"; min: number } | { type: "wait"; hours: number } | { type: "send"; template: string };
 export interface MailWorkflow { slug: string; name: string; enabled: boolean; trigger: MailTrigger; steps: MailStep[]; cursor: string | null; updatedBy: string; updatedAt: string }
 export interface MailCampaign { id: string; name: string; template: string; audience: { topics: MailTopic[]; markets: string[] | null }; status: "draft" | "scheduled" | "sending" | "sent" | "cancelled"; scheduledAt: string | null; sentAt: string | null; recipients: number; createdBy: string; createdAt: string; deliveries: Record<string, number> }
-export interface MailOptions { topics: MailTopic[]; markets: string[]; languages: string[]; templates: { slug: string; name: string; kind: string }[]; collections: { slug: string; name: string }[] }
+export interface MailOptions { topics: MailTopic[]; markets: string[]; languages: string[]; templateLanguages?: Record<string, string[]>; templates: { slug: string; name: string; kind: string }[]; collections: { slug: string; name: string }[] }
 export interface MailOverview {
   sending: { bulk: boolean; transactional: boolean };
   subscribers: { active: number; pending: number; byTopic: Record<string, number>; byMarket: Record<string, number> };

@@ -12,6 +12,8 @@ export const topicsFor = (market: string | null | undefined): Topic[] => TOPICS.
 
 /** Talen waarin mails kunnen; per tekst geldt: ontbreekt de taal, dan Nederlands. */
 export type I18nText = Record<string, string>;
+/** Templates die maar in een paar talen bestaan, omdat hun onderwerp alleen daar is (ADR 0067). */
+export const TEMPLATE_LANGUAGES: Record<string, string[]> = { sinterklaaskalender: ["nl"] };
 
 /** Blokken van een template (design system: MailBlockEditor). Alles wat een mail toont, staat hierin. */
 export type Block =

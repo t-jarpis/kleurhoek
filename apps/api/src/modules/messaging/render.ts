@@ -1,3 +1,4 @@
+import { MORE_FOOTERS } from "./footer-i18n";
 import { createRequire } from "node:module";
 import type { Block, I18nText, Topic } from "./messaging.types";
 
@@ -23,7 +24,7 @@ export interface RenderInput {
 }
 export interface RenderedMail { subject: string; html: string; text: string }
 
-const FOOTER: Record<string, { why: (topics: string) => string; confirmWhy: string; prefs: string; unsubscribe: string; topics: Record<Topic, string> }> = {
+const FIRST: Record<string, { why: (topics: string) => string; confirmWhy: string; prefs: string; unsubscribe: string; topics: Record<Topic, string> }> = {
   nl: { why: (t) => `Je krijgt deze mail omdat je je hebt aangemeld voor ${t} bij Kleurhoek.`, confirmWhy: "Je krijgt deze mail omdat iemand dit adres heeft opgegeven bij Kleurhoek. Was jij dat niet? Dan hoef je niets te doen.", prefs: "Voorkeuren", unsubscribe: "Afmelden", topics: { "nieuwe-platen": "nieuwe platen", feestdagen: "feestdagen", nieuwsbrief: "de nieuwsbrief", sinterklaaskalender: "de Sinterklaaskalender" } },
   de: { why: (t) => `Du bekommst diese Mail, weil du dich bei Kleurhoek für ${t} angemeldet hast.`, confirmWhy: "Du bekommst diese Mail, weil jemand diese Adresse bei Kleurhoek angegeben hat. Warst du das nicht? Dann musst du nichts tun.", prefs: "Einstellungen", unsubscribe: "Abmelden", topics: { "nieuwe-platen": "neue Vorlagen", feestdagen: "Feiertage", nieuwsbrief: "den Newsletter", sinterklaaskalender: "den Sinterklaas-Kalender" } },
   en: { why: (t) => `You're getting this email because you signed up for ${t} at Kleurhoek.`, confirmWhy: "You're getting this email because someone entered this address at Kleurhoek. If that wasn't you, there's nothing you need to do.", prefs: "Preferences", unsubscribe: "Unsubscribe", topics: { "nieuwe-platen": "new pages", feestdagen: "holidays", nieuwsbrief: "the newsletter", sinterklaaskalender: "the Sinterklaas calendar" } },
@@ -32,10 +33,13 @@ const FOOTER: Record<string, { why: (topics: string) => string; confirmWhy: stri
   it: { why: (t) => `Ricevi questa email perché ti sei iscritto a ${t} su Kleurhoek.`, confirmWhy: "Ricevi questa email perché qualcuno ha inserito questo indirizzo su Kleurhoek. Se non sei stato tu, non devi fare nulla.", prefs: "Preferenze", unsubscribe: "Annulla iscrizione", topics: { "nieuwe-platen": "nuovi disegni", feestdagen: "feste", nieuwsbrief: "la newsletter", sinterklaaskalender: "il calendario di Sinterklaas" } },
   pl: { why: (t) => `Otrzymujesz tę wiadomość, ponieważ zapisałeś się na ${t} w Kleurhoek.`, confirmWhy: "Otrzymujesz tę wiadomość, ponieważ ktoś podał ten adres w Kleurhoek. Jeśli to nie ty, nie musisz nic robić.", prefs: "Ustawienia", unsubscribe: "Wypisz się", topics: { "nieuwe-platen": "nowe plansze", feestdagen: "święta", nieuwsbrief: "newsletter", sinterklaaskalender: "kalendarz Sinterklaasa" } },
 };
-const AND: Record<string, string> = { nl: "en", de: "und", en: "and", fr: "et", es: "y", it: "e", pl: "i" };
+const FOOTER = { ...FIRST, ...MORE_FOOTERS };
+/** Talen met een eigen voettekst: alle talen van de site. */
+export const MAIL_LANGUAGES = Object.keys(FOOTER);
+const AND: Record<string, string> = { nl: "en", de: "und", en: "and", fr: "et", es: "y", it: "e", pl: "i", ...Object.fromEntries(Object.entries(MORE_FOOTERS).map(([l, f]) => [l, f.and])) };
 
-/** Tekst in de taal van de mail, anders Nederlands, anders de eerste. */
-export const pick = (t: I18nText | undefined, lang: string) => (t ? t[lang] || t.nl || Object.values(t)[0] || "" : "");
+/** Tekst in de taal van de mail, anders Engels, anders Nederlands, anders de eerste. */
+export const pick = (t: I18nText | undefined, lang: string) => (t ? t[lang] || t.en || t.nl || Object.values(t)[0] || "" : "");
 
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
@@ -107,7 +111,7 @@ const logo = () => `<table role="presentation" cellspacing="0" cellpadding="0" b
   + `<td style="${font};font-size:24px;font-weight:800;letter-spacing:-0.03em;color:${C["color-text"]}">${esc(tokens.logo.word)}</td></tr></table>`;
 
 export function renderMail(input: RenderInput): RenderedMail {
-  const lang = FOOTER[input.language] ? input.language : "nl";
+  const lang = FOOTER[input.language] ? input.language : "en";
   const f = FOOTER[lang]!;
   const subject = fill(pick(input.subject, lang), input.links).slice(0, 200);
   const preheader = fill(pick(input.preheader, lang), input.links);

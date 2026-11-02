@@ -6,7 +6,7 @@ import { preferenceToken, readPreferenceToken } from "../src/modules/messaging/t
 const links = { site: "https://www.kleurhoek.test/nl-nl", preferences: "https://www.kleurhoek.test/nl-nl/mail?t=x", unsubscribe: "https://www.kleurhoek.test/nl-nl/mail?t=x&afmelden=1" };
 
 describe("mail opmaken (ADR 0037)", () => {
-  it("maakt HTML en tekst in de taal van de mail, met terugval op Nederlands en zonder losse scripts", () => {
+  it("maakt HTML en tekst in de taal van de mail, met terugval op Nederlands als er geen Engels is, en zonder losse scripts", () => {
     const m = renderMail({
       subject: { nl: "Hallo", de: "Hallo DE" }, preheader: {}, language: "de", links, topics: ["nieuwe-platen"],
       blocks: [
@@ -53,5 +53,29 @@ describe("links en planning", () => {
     expect(lastScheduled(1, 8, new Date("2026-10-19T05:00:00Z")).toISOString()).toBe("2026-10-12T06:00:00.000Z");
     // Winter: maandag 7 december 2026, 10:00 UTC.
     expect(lastScheduled(1, 8, new Date("2026-12-07T10:00:00Z")).toISOString()).toBe("2026-12-07T07:00:00.000Z");
+  });
+});
+
+describe("mail in alle talen", () => {
+  it("elke standaardtemplate staat in elke taal van de site, behalve wat maar in één taal bestaat", async () => {
+    const { DEFAULT_TEMPLATES } = await import("../src/modules/messaging/defaults");
+    const { ROW_COUNT_OK } = await import("../src/modules/messaging/defaults-i18n");
+    const { TEMPLATE_LANGUAGES } = await import("../src/modules/messaging/messaging.types");
+    const { MAIL_LANGUAGES } = await import("../src/modules/messaging/render");
+    expect(ROW_COUNT_OK()).toEqual([]);
+    expect(MAIL_LANGUAGES).toHaveLength(29);
+    for (const t of DEFAULT_TEMPLATES) {
+      const langs = TEMPLATE_LANGUAGES[t.slug] ?? MAIL_LANGUAGES;
+      const texts = [t.subject, ...t.blocks.flatMap((b) => ("text" in b ? [b.text] : "label" in b ? [b.label] : []))];
+      for (const text of texts) expect(langs.filter((l) => !text[l]), `${t.slug}: ${text.nl}`).toEqual([]);
+    }
+  });
+
+  it("ontbreekt een taal, dan Engels, ook in de voettekst", () => {
+    const m = renderMail({ subject: { nl: "Hallo", en: "Hello" }, preheader: {}, language: "xx", links, topics: ["nieuwe-platen"], plates: {}, blocks: [] });
+    expect(m.subject).toBe("Hello");
+    expect(m.text).toContain("Unsubscribe");
+    const sv = renderMail({ subject: { nl: "Hallo" }, preheader: {}, language: "sv", links, topics: ["nieuwe-platen", "feestdagen"], plates: {}, blocks: [] });
+    expect(sv.text).toContain("nya bilder och högtider");
   });
 });
