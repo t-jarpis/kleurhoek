@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ActivityHeatmap } from "@/components/charts/ActivityHeatmap";
 import { BarList } from "@/components/charts/BarList";
 import { num } from "@/components/charts/format";
 import { StatCard } from "@/components/charts/StatCard";
@@ -23,6 +24,8 @@ const PAGE_LABEL: Record<string, string> = { home: "Home", plaat: "Plaatpagina's
 const DEVICE_LABEL: Record<string, string> = { mobile: "Telefoon", tablet: "Tablet", desktop: "Computer", other: "Overig" };
 const ENTRY_LABEL: Record<string, string> = { nl: "kleurhoek.nl", be: "kleurhoek.be", com: "kleurhoek.com" };
 const iso = (d: Date) => d.toISOString().slice(0, 10);
+/** Tijdstip in Nederlandse tijd: "di 3 nov 14:05". */
+const when = (at: string) => new Intl.DateTimeFormat("nl-NL", { timeZone: "Europe/Amsterdam", weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }).format(new Date(at));
 const pct = (a: number, b: number) => (b ? `${Math.round((a / b) * 1000) / 10}%`.replace(".", ",") : "—");
 const countryName = (code: string) => { try { return code ? new Intl.DisplayNames(["nl"], { type: "region" }).of(code) ?? code : "Onbekend"; } catch { return code || "Onbekend"; } };
 
@@ -32,9 +35,9 @@ export default async function Analytics({ searchParams }: { searchParams: Promis
   const period: Period = PERIODS.some(([p]) => p === sp.periode) ? (sp.periode as Period) : "30";
   const to = new Date(), from = new Date(Date.now() - (Number(period) - 1) * 86_400_000);
   const href = (t: Tab, p: Period = period) => `/analytics?tab=${t}&periode=${p}`;
-  let o, live, orgNames = new Map<string, string>();
+  let o, live, act, orgNames = new Map<string, string>();
   try {
-    [o, live] = await Promise.all([adminApi.overview(iso(from), iso(to)), tab === "nu" ? adminApi.realtime() : Promise.resolve(null)]);
+    [o, live, act] = await Promise.all([adminApi.overview(iso(from), iso(to)), tab === "nu" ? adminApi.realtime() : Promise.resolve(null), tab === "inhoud" ? adminApi.activity(iso(from), iso(to)) : Promise.resolve(null)]);
     if (tab === "organisaties") orgNames = new Map((await adminApi.organizations().catch(() => ({ organizations: [] as { slug: string; name: string }[] }))).organizations.map((x) => [x.slug, x.name]));
   } catch (e) { const d = describe(e); return <div className="err"><h1>{d.title}</h1><p>{d.text}</p></div>; }
   const vs = PERIOD_TEXT[period];
@@ -106,6 +109,16 @@ export default async function Analytics({ searchParams }: { searchParams: Promis
           )}
           <p className="lead">"Gebruikt" = gedownload, geprint of helemaal ingekleurd, gedeeld door bekeken.</p>
         </section>
+        {act && <section className="panel">
+          <h2>Wanneer wordt er gedownload en geprint?</h2>
+          <p className="lead">Per weekdag en uur, Nederlandse tijd{act.limited ? `, vanaf ${act.from} (oudere tijdstippen bewaren we niet; de totalen hierboven gaan wel over de hele periode)` : ""}.</p>
+          <ActivityHeatmap grid={act.grid} caption="Downloads en prints per weekdag en uur" />
+          <h3>Laatste downloads en prints</h3>
+          {act.latest.length === 0 ? <p className="lead">Nog geen downloads of prints in deze periode.</p> : (
+            <table><thead><tr><th>Tijdstip</th><th>Wat</th><th>Plaat</th><th>Markt</th><th>Apparaat</th></tr></thead>
+              <tbody>{act.latest.map((e, i) => <tr key={`${e.at}-${i}`}><td>{when(e.at)}</td><td>{e.type === "print" ? "Geprint" : "Gedownload"}</td><td>{e.plate || "—"}</td><td>{e.market}</td><td>{DEVICE_LABEL[e.device] ?? e.device}</td></tr>)}</tbody></table>
+          )}
+        </section>}
       </>}
 
       {tab === "techniek" && <section className="panel stack">

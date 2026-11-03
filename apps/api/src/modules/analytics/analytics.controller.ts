@@ -57,6 +57,15 @@ export class AdminAnalyticsController {
     return this.analytics.overview(this.env.TENANT_ID, q.data.from, q.data.to);
   }
 
+  /** Wanneer er gedownload en geprint wordt, per weekdag en uur, en de laatste met tijdstip (ADR 0073). */
+  @Get("activity")
+  @RequirePermission("analytics.read")
+  async activity(@Query() query: unknown) {
+    const q = Range.safeParse(query);
+    if (!q.success || q.data.from > q.data.to) throw new BadRequestException("Geef from en to op als YYYY-MM-DD");
+    return this.analytics.activity(this.env.TENANT_ID, q.data.from, q.data.to);
+  }
+
   /** Nu op de site: laatste 30 minuten (ADR 0034). */
   @Get("realtime")
   @RequirePermission("analytics.read")

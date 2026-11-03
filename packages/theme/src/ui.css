@@ -670,3 +670,13 @@ a.ui-chip { text-decoration: none; }
   .kh-labels-sheet { box-shadow: none; border-radius: 0; padding: 0; }
   .kh-labels-sheet svg { inline-size: 190mm; margin: 0 auto; }
 }
+/* ActivityHeatmap (ADR 0073): downloads en prints per weekdag en uur, Nederlandse tijd. */
+.ui-heatmap { inline-size: 100%; border-collapse: separate; border-spacing: 2px; table-layout: fixed; font-size: 12px; }
+.ui-heatmap th { font-weight: 600; color: var(--color-text-muted); text-align: start; padding: 0 var(--space-1); white-space: nowrap; }
+.ui-heatmap thead th { text-align: center; padding: 0; font-variant-numeric: tabular-nums; }
+.ui-heatmap thead th:first-child, .ui-heatmap tbody th { inline-size: 3ch; }
+.ui-heatmap td { block-size: var(--space-5); border-radius: var(--radius-xs); background: color-mix(in srgb, var(--chart-1) calc(var(--heat, 0) * 100%), var(--chart-grid)); }
+.ui-heatmap td[data-zero] { background: var(--chart-grid); }
+.ui-heatmap-legend { display: flex; align-items: center; gap: var(--space-2); margin-block-start: var(--space-2); font-size: 12px; color: var(--color-text-muted); }
+.ui-heatmap-legend i { display: inline-block; inline-size: var(--space-4); block-size: var(--space-3); border-radius: var(--radius-xs); background: color-mix(in srgb, var(--chart-1) calc(var(--heat, 0) * 100%), var(--chart-grid)); }
+@media (max-width: 760px) { .ui-heatmap thead th:nth-child(odd):not(:first-child) { color: transparent; } }

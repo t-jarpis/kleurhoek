@@ -1,5 +1,5 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { and, desc, eq, gte, lt, lte, sql } from "drizzle-orm";
+import { and, desc, eq, gte, inArray, lt, lte, sql } from "drizzle-orm";
 import { z } from "zod";
 import { DB, type Database } from "../../db/database";
 import { withTenant } from "../../db/tenant";
@@ -22,6 +22,9 @@ export const EventInput = z.object({
   entry: z.enum(["nl", "be", "com"]).optional(),
   referrer: z.string().max(100).regex(/^$|^([a-z0-9-]{1,63}\.)+[a-z]{2,24}$/).optional(),
 }).strict();
+/** Tijdzone van het admin panel voor "wanneer" (ADR 0073). */
+const ACTIVITY_TZ = "Europe/Amsterdam";
+
 export const EventBatch = z.array(EventInput).min(1).max(100);
 export type EventInput = z.infer<typeof EventInput>;
 
@@ -177,6 +180,28 @@ export class AnalyticsService {
         totals: { visitors: visitorsNow, ...current }, previousTotals: { visitors: visitorsBefore, ...previous },
         series, pages, devices, organizations, entries, referrers, topPlates: topPlates.slice(0, 10), countries: byCountry,
       };
+    });
+  }
+
+  /**
+   * Wanneer er gedownload en geprint wordt (ADR 0073): aantallen per weekdag (1 = maandag) en uur in Nederlandse
+   * tijd, en de laatste 30 met tijdstip. Uit de ruwe events, dus hooguit de laatste 90 dagen (ADR 0002).
+   */
+  async activity(tenantId: string, from: string, to: string, now = new Date()) {
+    const earliest = shiftDay(now.toISOString().slice(0, 10), -(RAW_EVENT_DAYS - 1));
+    const since = from < earliest ? earliest : from;
+    const tz = sql.raw(`'${ACTIVITY_TZ}'`);
+    return withTenant(this.db, tenantId, async (tx) => {
+      const where = and(eq(events.tenantId, tenantId), inArray(events.type, ["pdf_download", "print"]),
+        gte(events.occurredAt, sql`(${since}::date)::timestamp at time zone ${tz}`), lt(events.occurredAt, sql`(${shiftDay(to, 1)}::date)::timestamp at time zone ${tz}`));
+      const grid = await tx.select({
+        weekday: sql<number>`extract(isodow from ${events.occurredAt} at time zone ${tz})::int`,
+        hour: sql<number>`extract(hour from ${events.occurredAt} at time zone ${tz})::int`,
+        count: sql<number>`count(*)::int`,
+      }).from(events).where(where).groupBy(sql`1, 2`);
+      const latest = await tx.select({ at: events.occurredAt, type: events.type, plate: sql<string>`coalesce(${events.plateSlug}, '')`, market: events.market, device: events.device })
+        .from(events).where(where).orderBy(desc(events.occurredAt)).limit(30);
+      return { from: since, to, limited: since !== from, timeZone: ACTIVITY_TZ, grid, latest: latest.map((r) => ({ ...r, at: r.at.toISOString() })) };
     });
   }
 

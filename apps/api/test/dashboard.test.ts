@@ -37,6 +37,19 @@ describe("dashboard: pagina's, tijdreeksen en accounts (ADR 0020)", () => {
     expect(o.organizations).toEqual(expect.arrayContaining([{ org: "kleurhoek", visitors: 1, views: 2 }, { org: "de-regenboog", visitors: 1, views: 2 }]));
   });
 
+  it("laat zien wanneer er gedownload wordt: weekdag en uur in Nederlandse tijd (ADR 0073)", async () => {
+    const svc = ctx.app.get(AnalyticsService);
+    // 2026-10-20 is een dinsdag; 09:00 UTC is 11:00 in Amsterdam (zomertijd).
+    const a = await svc.activity(TENANT, "2026-10-20", "2026-10-20", new Date("2026-10-21T12:00:00Z"));
+    expect(a.grid).toContainEqual({ weekday: 2, hour: 11, count: expect.any(Number) });
+    expect(a.latest[0]).toMatchObject({ type: "pdf_download", plate: "kat", market: "nl-NL", device: "mobile", at: "2026-10-20T09:00:00.000Z" });
+    expect(a.limited).toBe(false);
+    // Een periode van een jaar: alleen de laatste 90 dagen, want ouder bestaat niet meer.
+    const y = await svc.activity(TENANT, "2025-10-21", "2026-10-20", new Date("2026-10-21T12:00:00Z"));
+    expect(y).toMatchObject({ from: "2026-07-24", limited: true });
+    expect((await admin("/v1/admin/analytics/activity?from=2026-10-20&to=2026-10-20")).statusCode).toBe(200);
+  });
+
   it("groepeert per week bij een lange periode en vult lege weken", () => {
     expect(buckets("2026-10-01", "2026-10-20", "week")).toEqual(["2026-09-28", "2026-10-05", "2026-10-12", "2026-10-19"]);
     expect(buckets("2026-10-19", "2026-10-21", "day")).toEqual(["2026-10-19", "2026-10-20", "2026-10-21"]);

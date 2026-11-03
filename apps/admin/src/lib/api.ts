@@ -1,3 +1,4 @@
+import type { Activity } from "@/components/charts/ActivityHeatmap";
 import "server-only";
 import { adminToken } from "./session";
 
@@ -236,6 +237,7 @@ export const adminApi = {
   goals: () => call<Goals>("/v1/admin/analytics/goals"),
   saveGoals: (body: { start: string; metrics: Record<GoalMetric, GoalMilestone[]> }) => call<Goals>("/v1/admin/analytics/goals", { method: "PUT", body: JSON.stringify(body) }),
   realtime: () => call<Realtime>("/v1/admin/analytics/realtime"),
+  activity: (from: string, to: string) => call<Activity>(`/v1/admin/analytics/activity?from=${from}&to=${to}`),
   overview: (from: string, to: string) => call<Overview>(`/v1/admin/analytics/overview?from=${from}&to=${to}`),
   accountStats: (from: string, to: string) => call<AccountStats>(`/v1/admin/users/stats?from=${from}&to=${to}`),
   summary: (from: string, to: string) => call<Summary>(`/v1/admin/analytics/summary?from=${from}&to=${to}`),
