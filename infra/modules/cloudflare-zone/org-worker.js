@@ -4,7 +4,7 @@
 // is de gewone geheime header waarmee de container verkeer van buiten Cloudflare weigert.
 // Configuratie (ROUTES, als tekst): [{ "env": "dev", "suffix": "-dev.kleurhoek.nl", "origin": "dev.kleurhoek.nl" }, …]
 // De langste suffix wint, dus "-dev.kleurhoek.nl" vóór ".kleurhoek.nl".
-// Daarnaast de domeinen per land (ADR 0040): HOSTS (als tekst) koppelt een vaste host aan een omgeving,
+// Daarnaast vaste hosts (ADR 0040; de domeinen per land gaan sinds ADR 0071 rechtstreeks naar de website, HOSTS is leeg): HOSTS (als tekst) koppelt een vaste host aan een omgeving,
 // bijvoorbeeld { "www.kleurhoek.be": "prod", "dev.kleurhoek.com": "dev" }. Die gaan zonder code door.
 
 const CODE = /^[a-z0-9](?:[a-z0-9-]{0,30}[a-z0-9])?$/;

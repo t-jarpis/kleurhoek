@@ -119,6 +119,12 @@ variable "domain_records" {
   description = "Per app (web, admin) het ID van het CNAME-record in Cloudflare. Pas als dat bestaat, wordt het domein gekoppeld."
 }
 
+variable "market_domain_records" {
+  type        = map(string)
+  default     = {}
+  description = "Domeinen per land (ADR 0071): host → ID van het CNAME-record in Cloudflare. Elk wordt een eigen domein van de website."
+}
+
 variable "tags" {
   type    = list(string)
   default = []

@@ -140,8 +140,10 @@ module "site" {
   mail                     = var.mail
   # Domeinen per land (ADR 0040), zodra ze in envs/zone bestaan.
   market_domains = try(data.terraform_remote_state.zone.outputs.market_domains["prod"], [])
-  search         = var.search
-  social         = var.social
+  # Hun DNS-record en eigen domein op de website-container (ADR 0071).
+  market_zones = try(data.terraform_remote_state.zone.outputs.market_zones["prod"], {})
+  search       = var.search
+  social       = var.social
   # Klein starten (circa € 20 per maand): één node, dagelijkse back-up 35 dagen in een ander datacenter.
   # Groeien = node_type ophogen (bijv. DB-PLAY2-NANO of DB-PRO2-XXS) en eventueel ha = true; kort onderbreking.
   database = {

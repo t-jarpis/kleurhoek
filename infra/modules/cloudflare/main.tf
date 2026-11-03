@@ -27,6 +27,12 @@ variable "admin_emails" {
   description = "Wie langs Cloudflare Access naar het admin panel mag (daarna nog Zitadel met passkey)."
 }
 
+variable "market_zones" {
+  type        = map(string)
+  default     = {}
+  description = "Domeinen per land (ADR 0071): domein → zone-ID, bijvoorbeeld { \"kleurhoek.be\" = \"…\" }. Elk krijgt <site-subdomein>.<domein> naar de website."
+}
+
 locals {
   site_host  = "${var.subdomains.site}.${var.domain}"
   admin_host = "${var.subdomains.admin}.${var.domain}"
@@ -43,6 +49,19 @@ resource "cloudflare_dns_record" "app" {
   proxied  = true
   ttl      = 1
   comment  = "Kleurhoek ${each.key} (Terraform)"
+}
+
+# Domeinen per land (ADR 0071): www/dev.kleurhoek.be en .com rechtstreeks naar de website-container, net als
+# www.kleurhoek.nl. Vroeger liepen ze via de Worker (ADR 0040), die elk verzoek (ook elke afbeelding) meetelde.
+resource "cloudflare_dns_record" "market" {
+  for_each = contains(keys(var.origin_hosts), "web") ? var.market_zones : {}
+  zone_id  = each.value
+  name     = var.subdomains.site
+  type     = "CNAME"
+  content  = var.origin_hosts["web"]
+  proxied  = true
+  ttl      = 1
+  comment  = "Kleurhoek web (Terraform, ADR 0071)"
 }
 
 # ---------- Admin panel achter Cloudflare Access ----------
@@ -92,6 +111,11 @@ resource "cloudflare_zero_trust_access_application" "acme" {
 }
 
 output "site_host" { value = local.site_host }
+
+# Per domein per land: host → ID van het CNAME-record. Scaleway koppelt het domein pas als dit bestaat.
+output "market_records" {
+  value = { for d, r in cloudflare_dns_record.market : "${var.subdomains.site}.${d}" => r.id }
+}
 output "admin_host" { value = local.admin_host }
 
 # Per app het ID van het CNAME-record: Scaleway koppelt het domein pas als dit bestaat.

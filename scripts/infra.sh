@@ -269,26 +269,37 @@ tf_apply() { # tf_apply <map> [extra args…]
 # Scaleway haalt per eigen domein een certificaat (HTTP-01). Mislukt dat eenmaal (status error), dan
 # probeert Scaleway het niet opnieuw: het domein moet opnieuw worden aangemaakt. Dat doen we hier zelf.
 heal_domains() { # heal_domains <env>
-  local ids bad="" app id st i
-  ids="$(terraform -chdir="$INFRA/envs/$1" output -json container_ids 2>/dev/null || echo '{}')"
-  dom() { curl -s -H "X-Auth-Token: $SCW_SECRET_KEY" "https://api.scaleway.com/containers/v1/regions/$REGION/domains?container_id=$1" | jq -r '.domains[0].status // "geen"'; }
+  # Elk eigen domein van de containers: www/dev.kleurhoek.nl, admin, login en de domeinen per land (ADR 0071).
+  local env="$1" ids bad=() app id host st i
+  ids="$(terraform -chdir="$INFRA/envs/$env" output -json container_ids 2>/dev/null || echo '{}')"
+  doms() { curl -s -H "X-Auth-Token: $SCW_SECRET_KEY" "https://api.scaleway.com/containers/v1/regions/$REGION/domains?container_id=$1" | jq -r '.domains[] | "\(.hostname) \(.status)"'; }
+  status_of() { doms "$1" | awk -v h="$2" '$1 == h { print $2 }'; }
+  # Terraform-adres van het domein: de vaste hosts per app, de domeinen per land op de website.
+  address() { # address <app> <host>
+    case "$2" in
+      *.kleurhoek.nl) echo "module.site.module.scaleway.scaleway_container_domain.public[\"$1\"]" ;;
+      *) echo "module.site.module.scaleway.scaleway_container_domain.market[\"$2\"]" ;;
+    esac
+  }
   for app in web admin login; do
     id="$(jq -r --arg a "$app" '.[$a] // empty' <<<"$ids")"; [ -n "$id" ] || continue
-    st="$(dom "$id")"
-    case "$st" in
-      ready) ok "domein $app: certificaat in orde" ;;
-      error) warn "domein $app: geen certificaat (status error), wordt opnieuw aangemaakt"; bad="$bad $app" ;;
-      *) warn "domein $app: $st" ;;
-    esac
+    while read -r host st; do
+      [ -n "$host" ] || continue
+      case "$st" in
+        ready) ok "domein $host: certificaat in orde" ;;
+        error) warn "domein $host: geen certificaat (status error), wordt opnieuw aangemaakt"; bad+=("$app $id $host") ;;
+        *) warn "domein $host: $st" ;;
+      esac
+    done < <(doms "$id")
   done
-  [ -n "$bad" ] || return 0
+  [ ${#bad[@]} -gt 0 ] || return 0
   local args=()
-  for app in $bad; do args+=("-replace=module.site.module.scaleway.scaleway_container_domain.public[\"$app\"]"); done
-  AUTO_OK=1 tf_apply "$1" "${args[@]}"
-  for app in $bad; do
-    id="$(jq -r --arg a "$app" '.[$a] // empty' <<<"$ids")"
-    for i in $(seq 1 30); do st="$(dom "$id")"; [ "$st" = ready ] || [ "$st" = error ] && break; sleep 10; done
-    [ "$st" = ready ] && ok "domein $app: certificaat in orde" || problem "domein $app: nog steeds $st. Draai Diagnose voor de melding van Scaleway."
+  for i in "${bad[@]}"; do set -- $i; args+=("-replace=$(address "$1" "$3")"); done
+  AUTO_OK=1 tf_apply "$env" "${args[@]}"
+  for i in "${bad[@]}"; do
+    set -- $i; id="$2"; host="$3"
+    for _ in $(seq 1 30); do st="$(status_of "$id" "$host")"; [ "$st" = ready ] || [ "$st" = error ] && break; sleep 10; done
+    [ "$st" = ready ] && ok "domein $host: certificaat in orde" || problem "domein $host: nog steeds $st. Draai Diagnose voor de melding van Scaleway."
   done
 }
 
@@ -435,7 +446,7 @@ cmd_up() {
   echo; bold "Klaar: $(terraform -chdir="$INFRA/envs/$TARGET" output -raw site_url)"
 }
 
-# Live: kleurhoek.nl zonder www stuurt door naar www; kleurhoek.be en .com krijgen een eigen www (ADR 0040).
+# Live: kleurhoek.nl zonder www stuurt door naar www; kleurhoek.be en .com krijgen een eigen www (ADR 0040, 0071).
 go_live() {
   step "Live: www.kleurhoek.nl, .be en .com"
   local zf="$INFRA/envs/zone/terraform.tfvars" d id map=""

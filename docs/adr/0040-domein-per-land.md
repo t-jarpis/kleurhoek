@@ -1,6 +1,6 @@
 # 0040 · Een domein per land, en Belgische markten
 
-- Status: aangenomen
+- Status: aangenomen; de infrastructuur (de Worker voor .be en .com) is vervangen door ADR 0071
 - Datum: 2026-10-25
 - Vervangt deels: ADR 0013 (doorsturen van .be en .com), ADR 0032 (`?via=` als enige bron voor het domein)
 

@@ -4,7 +4,7 @@ Kleurhoek draait bij **Scaleway in Amsterdam** (`nl-ams`), achter **Cloudflare**
 
 | Configuratie | Wat |
 | --- | --- |
-| `envs/zone` | De zone kleurhoek.nl, gedeeld door dev en prod: TLS strict, CAA, redirects, cacheregel, rate limits en de geheime header per omgeving. Na de lancering ook `kleurhoek.be` en `kleurhoek.com` als doorstuur-domeinen. Eén keer vóór de omgevingen. |
+| `envs/zone` | De zone kleurhoek.nl, gedeeld door dev en prod: TLS strict, CAA, redirects, cacheregel, rate limits en de geheime header per omgeving. Na de lancering ook de zones `kleurhoek.be` en `kleurhoek.com` (domeinen per land, ADR 0040): TLS, HTTPS-regel, geheime header en rate limit. Hun `www`/`dev` wijzen rechtstreeks naar de website-container; die records en domeinen zet elke omgeving zelf (ADR 0071). Eén keer vóór de omgevingen. |
 | `envs/dev`, `envs/prod` | Eén omgeving via `modules/site`. |
 
 `modules/site` bestaat uit drie modules:
@@ -59,7 +59,7 @@ De eerste start van de API maakt de tabellen aan en vult de catalogus. Het eigen
 - **Deploy-sleutel roteren**: `terraform apply -replace=module.site.module.scaleway.scaleway_iam_api_key.deploy`, daarna `scripts/infra.sh up dev`; dat zet het nieuwe secret in GitHub.
 
 ## Organisaties en hun domeinen (ADR 0017)
-- **Subdomein: niets te doen.** Een organisatie die in het admin panel wordt aangemaakt, is meteen bereikbaar op `{code}.kleurhoek.nl` (prod) of `{code}-dev.kleurhoek.nl` (dev). Eén wildcard-record `*.kleurhoek.nl` wijst naar de Worker `kleurhoek-organisaties` (`modules/cloudflare-zone/org-worker.js`). Die stuurt door naar de website van de omgeving met de oorspronkelijke host, het IP-adres en het land, plus een eigen geheim (`ORG_WORKER_SECRET`). Zonder dat geheim negeert de website die headers. De vaste hosts (www, dev, admin, login …) slaan de Worker over. Universal SSL dekt `*.kleurhoek.nl`.
+- **Subdomein: niets te doen.** Een organisatie die in het admin panel wordt aangemaakt, is meteen bereikbaar op `{code}.kleurhoek.nl` (prod) of `{code}-dev.kleurhoek.nl` (dev). Eén wildcard-record `*.kleurhoek.nl` wijst naar de Worker `kleurhoek-organisaties` (`modules/cloudflare-zone/org-worker.js`). Die stuurt door naar de website van de omgeving met de oorspronkelijke host, het IP-adres en het land, plus een eigen geheim (`ORG_WORKER_SECRET`). Zonder dat geheim negeert de website die headers. De vaste hosts (www, dev, admin, login …) en de domeinen per land (www/dev.kleurhoek.be en .com, ADR 0071) slaan de Worker over: de Worker telt elk verzoek mee voor de daglimiet van Cloudflare (100.000 op het gratis plan). Universal SSL dekt `*.kleurhoek.nl`.
 - **Eigen domein van een school** (bijvoorbeeld `kleuren.deregenboog.nl`): vul het in bij de organisatie (Algemeen › Eigen domeinen). Een CNAME van een ander Cloudflare-account naar ons wordt door Cloudflare geweigerd (fout 1014), dus dit vraagt *Cloudflare for SaaS* (custom hostnames; de eerste 100 zijn gratis) met de Worker als fallback-origin. Dat staat nog niet in Terraform; tot dan is het subdomein de weg.
 
 ## Problemen zoeken

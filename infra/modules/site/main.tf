@@ -62,6 +62,11 @@ variable "market_domains" {
   default     = []
   description = "Domeinen per land naast het hoofddomein (ADR 0040), bijvoorbeeld [\"kleurhoek.be\", \"kleurhoek.com\"]. Leeg = alles op het hoofddomein met /<markt>."
 }
+variable "market_zones" {
+  type        = map(string)
+  default     = {}
+  description = "Domeinen per land met hun zone-ID (uit envs/zone, ADR 0071): de website krijgt daar zelf een eigen domein."
+}
 variable "social" {
   type = object({
     pinterest_app_id     = optional(string, "")
@@ -167,6 +172,7 @@ module "scaleway" {
   mail                     = var.mail
   org_worker_secret        = var.org_worker_secret
   domain_records           = module.cloudflare.domain_records
+  market_domain_records    = module.cloudflare.market_records
 }
 
 module "cloudflare" {
@@ -176,6 +182,7 @@ module "cloudflare" {
   domain       = var.domain
   subdomains   = var.subdomains
   origin_hosts = module.scaleway.public_hosts
+  market_zones = var.market_zones
   admin_emails = var.admin_emails
 }
 

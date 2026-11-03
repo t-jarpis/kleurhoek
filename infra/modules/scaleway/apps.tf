@@ -226,3 +226,11 @@ resource "scaleway_container_domain" "public" {
   container_id = scaleway_container.public[each.key].id
   hostname     = { web = var.hosts.site, admin = var.hosts.admin, login = var.hosts.login }[each.key]
 }
+
+# Domeinen per land (ADR 0071): www/dev.kleurhoek.be en .com als eigen domein van de website, net als
+# www.kleurhoek.nl. Zo gaat hun verkeer niet langs de Worker, die per verzoek meetelt.
+resource "scaleway_container_domain" "market" {
+  for_each     = contains(keys(scaleway_container.public), "web") ? var.market_domain_records : {}
+  container_id = scaleway_container.public["web"].id
+  hostname     = each.key
+}

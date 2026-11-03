@@ -83,8 +83,9 @@ module "zone" {
   apex_redirect    = var.prod_live
   login_cname      = var.zitadel_login_cname
   edge_rate_limits = var.edge_rate_limits
-  market_hosts     = local.market_hosts
-  block_ai_bots    = var.block_ai_bots
+  # De domeinen per land gaan niet meer via de Worker (ADR 0071); alleen de organisatiedomeinen nog.
+  market_hosts  = {}
+  block_ai_bots = var.block_ai_bots
 }
 
 # Verificatie van kleurhoek.nl zelf bij Search Console (de andere domeinen in hun eigen module).
@@ -99,22 +100,23 @@ resource "cloudflare_dns_record" "search_verification" {
 }
 
 # Domeinen per land (ADR 0040): www.kleurhoek.be en www.kleurhoek.com tonen de website van productie,
-# dev.kleurhoek.be en dev.kleurhoek.com die van dev. De website kiest op de host de markten.
+# dev.kleurhoek.be en dev.kleurhoek.com die van dev. De website kiest op de host de markten. Hun DNS-record
+# en eigen domein staan in de omgevingen (ADR 0071); hier de instellingen voor de hele zone.
 locals {
   market_subdomains = merge({ dev = "dev" }, var.prod_live ? { www = "prod" } : {})
-  market_hosts      = merge([for d, _ in var.redirect_zone_ids : { for sub, env in local.market_subdomains : "${sub}.${d}" => env }]...)
 }
 
 module "market_domain" {
-  source        = "../../modules/market-domain"
-  for_each      = var.redirect_zone_ids
-  zone_id       = each.value
-  domain        = each.key
-  hosts         = local.market_subdomains
-  worker        = module.zone.worker_name
-  apex_redirect = var.prod_live
-  txt_records   = lookup(var.search_verification, each.key, [])
-  block_ai_bots = var.block_ai_bots
+  source           = "../../modules/market-domain"
+  for_each         = var.redirect_zone_ids
+  zone_id          = each.value
+  domain           = each.key
+  hosts            = local.market_subdomains
+  edge_secrets     = module.zone.edge_secrets
+  edge_rate_limits = var.edge_rate_limits
+  apex_redirect    = var.prod_live
+  txt_records      = lookup(var.search_verification, each.key, [])
+  block_ai_bots    = var.block_ai_bots
 }
 
 # Van de oude doorstuurmodule (tot ADR 0040): zelfde resources, nu in market-domain.
@@ -136,4 +138,9 @@ output "edge_secrets" {
 # Domeinen per land die er per omgeving zijn (ADR 0040); de omgevingen lezen dit voor SITE_DOMAINS.
 output "market_domains" {
   value = { dev = keys(var.redirect_zone_ids), prod = var.prod_live ? keys(var.redirect_zone_ids) : [] }
+}
+
+# Hun zone-ID's per omgeving: de omgevingen zetten daar zelf het record naar de website (ADR 0071).
+output "market_zones" {
+  value = { dev = var.redirect_zone_ids, prod = var.prod_live ? var.redirect_zone_ids : {} }
 }

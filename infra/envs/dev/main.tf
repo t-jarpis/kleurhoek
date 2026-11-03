@@ -140,8 +140,10 @@ module "site" {
   mail                     = var.mail
   # Domeinen per land (ADR 0040), zodra ze in envs/zone bestaan.
   market_domains = try(data.terraform_remote_state.zone.outputs.market_domains["dev"], [])
-  search         = var.search
-  social         = var.social
+  # Hun DNS-record en eigen domein op de website-container (ADR 0071).
+  market_zones = try(data.terraform_remote_state.zone.outputs.market_zones["dev"], {})
+  search       = var.search
+  social       = var.social
   # Goedkoopste node (circa € 11 per maand), geen HA, back-up dagelijks (7 dagen) in een ander datacenter.
   # Niet beschikbaar in nl-ams? Dan DB-PLAY2-PICO (circa € 17). Controleer: scw rdb node-type list region=nl-ams.
   database = {
