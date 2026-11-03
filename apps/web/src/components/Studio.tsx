@@ -18,7 +18,7 @@ import { ColorMixer, LinePicker, PatternPicker, Range, SunDial, ToolPicker } fro
 import { Sheet, sheetPlate } from "./Sheet";
 import { TogetherPanel, useTogether } from "./Together";
 import { ShareButton } from "./Share";
-import { decodeFills, encodeFills, SHARE_PARAM, SHARED_FLAG } from "@/lib/share";
+import { decodeFills, encodeFills, SHARE_PARAM, SHARED_FLAG, shareUrl } from "@/lib/share";
 
 interface Saved { fills: Fills; name: string; art: Art }
 const storageKey = (p: PlateDetail) => `kh:${p.slug}:v${p.version}`;
@@ -455,7 +455,7 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
         </aside>
       </div>
       {replayOpen && svg.current && (
-        <Replay t={t} slug={plate.slug} paper={paper()} onClose={() => setReplayOpen(false)}
+        <Replay t={t} slug={plate.slug} market={market} title={plate.name} hasName={name.trim().length > 0} paper={paper()} onClose={() => setReplayOpen(false)}
           frames={() => replay(art, fills).map((st) => snapshotSvg(svg.current!, composeInner(inner, st.art, st.fills, svg.current!.dataset.id ?? "kh")))}
           size={canvasSize(svg.current, 800)} />
       )}
@@ -465,8 +465,8 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
 }
 
 /** Time-lapse: het werk speelt zich opnieuw af en wordt tegelijk opgenomen als filmpje (als het apparaat dat kan). */
-function Replay({ t, slug, paper, frames, size, onClose }: {
-  t: ReturnType<typeof messages>; slug: string; paper: string; frames: () => string[]; size: { width: number; height: number }; onClose: () => void;
+function Replay({ t, slug, market, title, hasName, paper, frames, size, onClose }: {
+  t: ReturnType<typeof messages>; slug: string; market: string; title: string; hasName: boolean; paper: string; frames: () => string[]; size: { width: number; height: number }; onClose: () => void;
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -482,18 +482,32 @@ function Replay({ t, slug, paper, frames, size, onClose }: {
     return () => abort.abort();
   }, [run]); // eslint-disable-line react-hooks/exhaustive-deps
   const ext = type?.includes("mp4") ? "mp4" : "webm";
+  // Delen (ADR 0074): het filmpje is al klaar, dus het deelmenu opent direct na de tik. Eigen tekst (vaak een
+  // naam) gaat nooit mee; staat er eigen tekst op de plaat, dan vragen we die eerst weg te halen.
+  const file = useMemo(() => (video ? new File([video], `kleurhoek-${slug}.${ext}`, { type: video.type.split(";")[0]! }) : null), [video, slug, ext]);
+  const canShare = !!file && typeof navigator.canShare === "function" && navigator.canShare({ files: [file] });
+  const shareVideo = async () => {
+    if (!file) return;
+    const url = shareUrl(window.location.href);
+    try { await navigator.share({ files: [file], title, text: `${t.shareKit.videoText} ${url}` }); track({ type: "share", market, plate: slug }); }
+    catch { /* geannuleerd of niet toegestaan */ }
+  };
   return (
     <dialog ref={dialog} className="ui-dialog" aria-labelledby="replay-title" onClose={onClose}>
       <h2 id="replay-title">{t.atelier.replayTitle}</h2>
       <canvas ref={canvas} width={size.width} height={size.height} />
       {!type && <p className="hint">{t.atelier.noVideo}</p>}
+      {canShare && hasName && <p className="hint">{t.shareKit.videoName}</p>}
       <div className="ui-dialog-actions">
         <button type="button" className="ui-btn" onClick={() => dialog.current?.close()}>{t.atelier.close}</button>
         {!busy && <button type="button" className="ui-btn" onClick={() => setRun((r) => r + 1)}><Icon name="play" size={16} /> {t.atelier.replay}</button>}
         {type && (
-          <button type="button" className="ui-btn" data-variant="primary" disabled={!video} onClick={() => video && download(video, `kleurhoek-${slug}.${ext}`)}>
+          <button type="button" className="ui-btn" data-variant={canShare && !hasName ? undefined : "primary"} disabled={!video} onClick={() => video && download(video, `kleurhoek-${slug}.${ext}`)}>
             {busy ? t.atelier.making : t.atelier.saveVideo}
           </button>
+        )}
+        {canShare && !hasName && (
+          <button type="button" className="ui-btn" data-variant="primary" onClick={() => void shareVideo()}><Icon name="share" size={16} /> {t.shareKit.video}</button>
         )}
       </div>
     </dialog>

@@ -174,6 +174,9 @@ export const cs: Messages = {
     note: "Tahy štětcem a vlastní text se do odkazu nepřenesou.",
     arrived: "Vybarvuješ dál sdílenou omalovánku.",
     close: "Zavřít",
+    video: "Sdílet video",
+    videoText: "Podívej se, jak vznikla tahle omalovánka! Vybarvíš ji taky?",
+    videoName: "Odstraň svůj vlastní text, pak můžeš video sdílet.",
   },
   together: {
     nav: "Vybarvujeme spolu",

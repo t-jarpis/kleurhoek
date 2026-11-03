@@ -176,6 +176,9 @@ export const fi: Messages = {
     note: "Siveltimenvedot ja oma tekstisi eivät tule linkin mukana.",
     arrived: "Jatkat jaetun kuvan värittämistä.",
     close: "Sulje",
+    video: "Jaa video",
+    videoText: "Katso, miten tämä värityskuva väritettiin! Väritätkö sinäkin?",
+    videoName: "Poista oma tekstisi, niin voit jakaa videon.",
   },
   together: {
     nav: "Väritetään yhdessä",

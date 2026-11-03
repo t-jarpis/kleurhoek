@@ -177,6 +177,9 @@ export const sr: Messages = {
     note: "Potezi četkicom i tvoj tekst ne idu uz link.",
     arrived: "Nastavljaš da bojiš podeljenu bojanku.",
     close: "Zatvori",
+    video: "Podeli video",
+    videoText: "Pogledaj kako je obojena ova bojanka! Hoćeš li i ti da je obojiš?",
+    videoName: "Ukloni svoj tekst pa možeš da podeliš video.",
   },
   together: {
     nav: "Bojimo zajedno",

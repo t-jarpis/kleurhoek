@@ -170,6 +170,9 @@ export const da: Messages = {
     note: "Penselstrøg og din egen tekst kommer ikke med i linket.",
     arrived: "Du farvelægger videre på en delt tegning.",
     close: "Luk",
+    video: "Del video",
+    videoText: "Se hvordan denne tegning blev farvelagt! Vil du også farvelægge den?",
+    videoName: "Fjern din egen tekst for at dele videoen.",
   },
   together: {
     nav: "Farvelæg sammen",

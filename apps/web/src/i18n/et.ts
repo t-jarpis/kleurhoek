@@ -170,6 +170,9 @@ export const et: Messages = {
     note: "Pintslitõmbed ja sinu oma tekst lingiga kaasa ei lähe.",
     arrived: "Värvid edasi jagatud pilti.",
     close: "Sulge",
+    video: "Jaga videot",
+    videoText: "Vaata, kuidas see värvimispilt värviti! Kas värvid ka?",
+    videoName: "Eemalda oma tekst, et videot jagada.",
   },
   together: {
     nav: "Värvime koos",

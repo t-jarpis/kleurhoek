@@ -173,6 +173,9 @@ export const lv: Messages = {
     note: "Otas triepieni un tavs teksts saitē netiek iekļauti.",
     arrived: "Tu turpini krāsot kopīgotu lapu.",
     close: "Aizvērt",
+    video: "Kopīgot video",
+    videoText: "Paskaties, kā šī krāsojamā lapa tika izkrāsota! Vai tu arī izkrāsosi?",
+    videoName: "Noņem savu tekstu, lai kopīgotu video.",
   },
   together: {
     nav: "Krāsojam kopā",

@@ -176,6 +176,9 @@ export const lt: Messages = {
     note: "Teptuko potėpiai ir tavo tekstas į nuorodą neįtraukiami.",
     arrived: "Tu toliau spalvini bendrinamą paveikslėlį.",
     close: "Uždaryti",
+    video: "Bendrinti vaizdo įrašą",
+    videoText: "Pažiūrėk, kaip buvo nuspalvinta ši spalvinimo knygelė! Ar ir tu nuspalvinsi?",
+    videoName: "Pašalink savo tekstą, kad galėtum bendrinti vaizdo įrašą.",
   },
   together: {
     nav: "Spalvinkime kartu",

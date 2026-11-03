@@ -176,6 +176,9 @@ export const pl: Messages = {
     note: "Pociągnięcia pędzla i twój własny tekst nie trafiają do linku.",
     arrived: "Kolorujesz dalej udostępnioną kolorowankę.",
     close: "Zamknij",
+    video: "Udostępnij film",
+    videoText: "Zobacz, jak pokolorowano tę kolorowankę! Pokolorujesz ją też?",
+    videoName: "Usuń swój tekst, aby udostępnić film.",
   },
   together: {
     nav: "Kolorujmy razem",

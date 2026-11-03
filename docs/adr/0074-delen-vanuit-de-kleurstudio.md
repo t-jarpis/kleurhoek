@@ -15,6 +15,8 @@ Thijs wil dat mensen vanuit de plaat zelf kunnen delen: een lege plaat, hun eige
 - **Kleuren in de link, niet op de server.** `?k=` bevat de vlakkleuren: de kleuren zonder #, gescheiden door punten, dan `~` en per vlak één teken. Er wordt niets bewaard. Hooguit 36 kleuren. Een verloop of patroon wordt de eerste kleur, net als bij de pipet. Een kapotte code wordt genegeerd.
 - **Penseelstreken en eigen tekst gaan nooit mee**, niet in de link en niet in het plaatje. De eigen tekst is vaak een naam (ADR 0002). De dialoog zegt dat in één regel.
 - **Delen gaat via het apparaat.** Eerst het deelmenu van het apparaat (`navigator.share`, met het plaatje als bestand als dat kan). Lukt dat niet, dan wordt het plaatje bewaard en verschijnen een gewone WhatsApp-link (`wa.me`) en "Kopieer link". Er zijn geen knoppen of scripts van sociale netwerken.
+- **Plaatje vooraf maken.** Het plaatje wordt al gemaakt als het venster opengaat. Telefoons (vooral iOS) staan het deelmenu alleen direct na een tik toe, en tekenen duurt daarvoor te lang.
+- **Filmpje delen.** In "Zo heb je het gemaakt" (Atelier) staat naast Opslaan de knop *Deel filmpje*: de time-lapse als mp4 of webm via het deelmenu, met een link naar de lege plaat. Alleen als het apparaat bestanden kan delen. Staat er eigen tekst op de plaat, dan vraagt het venster die eerst weg te halen, omdat het filmpje die tekst laat zien.
 - **Meten zonder cookies.** Een event `share` als iemand deelt of de link kopieert. Een event `shared_visit` als iemand binnenkomt via een link met `?d=1`. De parameters gaan daarna uit de adresbalk. In de dagtotalen komen `shares` en `shared_visits`, ook per plaat. Het dashboard toont "Gedeeld" met het aantal bezoeken via een gedeelde link.
 
 ## Gevolgen

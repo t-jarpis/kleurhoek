@@ -170,6 +170,9 @@ export const sv: Messages = {
     note: "Penseldrag och din egen text följer inte med i länken.",
     arrived: "Du målar vidare på en delad bild.",
     close: "Stäng",
+    video: "Dela video",
+    videoText: "Titta hur den här målarbilden målades! Målar du den också?",
+    videoName: "Ta bort din egen text för att dela videon.",
   },
   together: {
     nav: "Måla tillsammans",

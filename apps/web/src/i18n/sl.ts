@@ -177,6 +177,9 @@ export const sl: Messages = {
     note: "Poteze s čopičem in tvoje besedilo niso vključeni v povezavo.",
     arrived: "Nadaljuješ barvanje deljene pobarvanke.",
     close: "Zapri",
+    video: "Deli video",
+    videoText: "Poglej, kako je bila pobarvana ta pobarvanka! Jo pobarvaš tudi ti?",
+    videoName: "Odstrani svoje besedilo, da lahko deliš video.",
   },
   together: {
     nav: "Barvajmo skupaj",

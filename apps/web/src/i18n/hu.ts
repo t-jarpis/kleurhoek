@@ -176,6 +176,9 @@ export const hu: Messages = {
     note: "Az ecsetvonások és a saját szöveged nem kerülnek bele a linkbe.",
     arrived: "Egy megosztott lapot színezel tovább.",
     close: "Bezárás",
+    video: "Videó megosztása",
+    videoText: "Nézd meg, hogyan lett kiszínezve ez a kifestő! Te is kiszínezed?",
+    videoName: "Töröld a saját szövegedet, hogy megoszthasd a videót.",
   },
   together: {
     nav: "Közös színezés",

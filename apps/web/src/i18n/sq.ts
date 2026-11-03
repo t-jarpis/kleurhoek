@@ -170,6 +170,9 @@ export const sq: Messages = {
     note: "Penelatat dhe teksti yt nuk përfshihen në lidhje.",
     arrived: "Po vazhdon ngjyrosjen e një flete të ndarë.",
     close: "Mbyll",
+    video: "Ndaj videon",
+    videoText: "Shiko si u ngjyros kjo faqe ngjyrosjeje! Do ta ngjyrosësh edhe ti?",
+    videoName: "Hiq tekstin tënd që ta ndash videon.",
   },
   together: {
     nav: "Ngjyrosim së bashku",

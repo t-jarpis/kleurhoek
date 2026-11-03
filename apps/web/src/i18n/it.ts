@@ -170,6 +170,9 @@ export const it: Messages = {
     note: "Le pennellate e il tuo testo non sono inclusi nel link.",
     arrived: "Stai continuando un disegno condiviso.",
     close: "Chiudi",
+    video: "Condividi il video",
+    videoText: "Guarda come è stato colorato questo disegno! Lo colori anche tu?",
+    videoName: "Togli il tuo testo per condividere il video.",
   },
   together: {
     nav: "Colorare insieme",

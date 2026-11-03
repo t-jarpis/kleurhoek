@@ -174,6 +174,9 @@ export const is: Messages = {
     note: "Penslastrokur og þinn eigin texti fylgja ekki með tenglinum.",
     arrived: "Þú heldur áfram að lita mynd sem var deilt.",
     close: "Loka",
+    video: "Deila myndbandi",
+    videoText: "Sjáðu hvernig þessi litamynd var lituð! Litar þú hana líka?",
+    videoName: "Fjarlægðu þinn eigin texta til að deila myndbandinu.",
   },
   together: {
     nav: "Litum saman",

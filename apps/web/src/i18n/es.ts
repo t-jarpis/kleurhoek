@@ -170,6 +170,9 @@ export const es: Messages = {
     note: "Las pinceladas y tu propio texto no se incluyen en el enlace.",
     arrived: "Sigues coloreando un dibujo compartido.",
     close: "Cerrar",
+    video: "Compartir vídeo",
+    videoText: "¡Mira cómo se coloreó este dibujo! ¿Lo coloreas tú también?",
+    videoName: "Quita tu propio texto para compartir el vídeo.",
   },
   together: {
     nav: "Colorear juntos",

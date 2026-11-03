@@ -174,6 +174,9 @@ export const sk: Messages = {
     note: "Ťahy štetcom a vlastný text sa do odkazu neprenesú.",
     arrived: "Vyfarbuješ ďalej zdieľanú omaľovánku.",
     close: "Zavrieť",
+    video: "Zdieľať video",
+    videoText: "Pozri sa, ako vznikla táto omaľovánka! Vyfarbíš ju aj ty?",
+    videoName: "Odstráň svoj vlastný text, potom môžeš video zdieľať.",
   },
   together: {
     nav: "Vyfarbujeme spolu",

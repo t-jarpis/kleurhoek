@@ -177,6 +177,9 @@ export const ro: Messages = {
     note: "Tușele de pensulă și textul tău nu sunt incluse în link.",
     arrived: "Colorezi mai departe o planșă distribuită.",
     close: "Închide",
+    video: "Distribuie filmul",
+    videoText: "Uite cum a fost colorată această planșă! O colorezi și tu?",
+    videoName: "Șterge textul tău ca să poți distribui filmul.",
   },
   together: {
     nav: "Colorăm împreună",

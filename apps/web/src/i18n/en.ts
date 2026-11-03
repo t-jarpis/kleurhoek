@@ -170,6 +170,9 @@ export const en: Messages = {
     note: "Brush strokes and your own text are not included in the link.",
     arrived: "You're carrying on with a shared page.",
     close: "Close",
+    video: "Share video",
+    videoText: "Watch how this colouring page was coloured in! Will you colour one too?",
+    videoName: "Remove your own text to share the video.",
   },
   together: {
     nav: "Colour together",

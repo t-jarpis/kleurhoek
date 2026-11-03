@@ -170,6 +170,9 @@ export const tr: Messages = {
     note: "Fırça darbeleri ve kendi yazdığın metin bağlantıya dahil değil.",
     arrived: "Paylaşılan bir sayfayı boyamaya devam ediyorsun.",
     close: "Kapat",
+    video: "Videoyu paylaş",
+    videoText: "Bu boyama sayfasının nasıl boyandığına bak! Sen de boyar mısın?",
+    videoName: "Videoyu paylaşmak için kendi yazını kaldır.",
   },
   together: {
     nav: "Birlikte boya",

@@ -26,6 +26,16 @@ export function ShareButton({ t, market, slug, title, colored, code, image }: {
   const [busy, setBusy] = useState(false);
   const [saved, setSaved] = useState(false);
   useEffect(() => { if (open) dialog.current?.showModal(); }, [open]);
+  // Het plaatje maken we al bij het openen: telefoons (vooral iOS) staan het deelmenu alleen direct na een tik
+  // toe, en het tekenen van het plaatje duurt daarvoor te lang.
+  const ready = useRef<{ blob: Blob | null; k: string | null } | null>(null);
+  useEffect(() => {
+    ready.current = null;
+    if (!open || !colored) return;
+    let live = true;
+    void image().then((blob) => { if (live) ready.current = { blob, k: code() }; }).catch(() => undefined);
+    return () => { live = false; };
+  }, [open, colored]);
 
   const page = () => window.location.href;
   const counted = () => track({ type: "share", market, plate: slug });
@@ -41,17 +51,27 @@ export function ShareButton({ t, market, slug, title, colored, code, image }: {
   };
 
   const shareMine = async () => {
-    setBusy(true); setCopied(false); setSaved(false);
-    const k = code();
+    setCopied(false); setSaved(false);
+    const pre = ready.current;
+    const k = pre ? pre.k : code();
     const l = { text: t.mineText, url: shareUrl(page(), k) };
-    try {
-      const blob = await image();
-      const file = blob ? new File([blob], `kleurhoek-${slug}.png`, { type: "image/png" }) : null;
+    const name = `kleurhoek-${slug}.png`;
+    const tryShare = async (blob: Blob | null) => {
+      const file = blob ? new File([blob], name, { type: "image/png" }) : null;
       if (file && typeof navigator.canShare === "function" && navigator.canShare({ files: [file] })) {
-        try { await navigator.share({ files: [file], title, text: `${l.text} ${l.url}` }); counted(); return; }
-        catch (e) { if ((e as Error)?.name === "AbortError") return; }
+        try { await navigator.share({ files: [file], title, text: `${l.text} ${l.url}` }); counted(); return "done"; }
+        catch (e) { if ((e as Error)?.name === "AbortError") return "done"; }
       }
-      if (blob) { download(blob, `kleurhoek-${slug}.png`); setSaved(true); }
+      return "no";
+    };
+    // Klaar plaatje: meteen delen, zonder te wachten, zodat de tik nog geldt.
+    if (pre && (await tryShare(pre.blob)) === "done") return;
+    setBusy(true);
+    try {
+      const blob = pre ? pre.blob : await image();
+      if (!pre && (await tryShare(blob)) === "done") return;
+      // Lukt het deelmenu met plaatje niet: dan de link via het deelmenu, en het plaatje bewaren.
+      if (blob) { download(blob, name); setSaved(true); }
       setFallback(l);
     } finally { setBusy(false); }
   };

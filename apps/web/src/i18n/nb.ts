@@ -170,6 +170,9 @@ export const nb: Messages = {
     note: "Penselstrøk og din egen tekst blir ikke med i lenken.",
     arrived: "Du fargelegger videre på et delt ark.",
     close: "Lukk",
+    video: "Del video",
+    videoText: "Se hvordan denne fargeleggingstegningen ble fargelagt! Fargelegger du den også?",
+    videoName: "Fjern din egen tekst for å dele videoen.",
   },
   together: {
     nav: "Fargelegg sammen",

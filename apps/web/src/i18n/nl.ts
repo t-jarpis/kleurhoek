@@ -199,6 +199,9 @@ export const nl = {
     note: "Penseelstreken en je eigen tekst gaan niet mee in de link.",
     arrived: "Je kleurt verder op een gedeelde plaat.",
     close: "Sluiten",
+    video: "Deel filmpje",
+    videoText: "Kijk hoe deze kleurplaat werd ingekleurd! Kleur jij hem ook?",
+    videoName: "Haal je eigen tekst weg om het filmpje te delen.",
   },
   together: {
     nav: "Samen kleuren",

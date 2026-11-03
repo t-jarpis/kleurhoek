@@ -170,6 +170,9 @@ export const fr: Messages = {
     note: "Les coups de pinceau et ton propre texte ne sont pas inclus dans le lien.",
     arrived: "Tu continues un coloriage partagé.",
     close: "Fermer",
+    video: "Partager la vidéo",
+    videoText: "Regarde comment ce coloriage a été colorié ! Tu le colories aussi ?",
+    videoName: "Retire ton propre texte pour partager la vidéo.",
   },
   together: {
     nav: "Colorier ensemble",

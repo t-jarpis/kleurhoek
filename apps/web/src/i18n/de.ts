@@ -170,6 +170,9 @@ export const de: Messages = {
     note: "Pinselstriche und dein eigener Text sind nicht im Link enthalten.",
     arrived: "Du malst an einer geteilten Vorlage weiter.",
     close: "Schließen",
+    video: "Video teilen",
+    videoText: "Schau, wie dieses Ausmalbild ausgemalt wurde! Malst du es auch aus?",
+    videoName: "Entferne deinen eigenen Text, um das Video zu teilen.",
   },
   together: {
     nav: "Gemeinsam malen",
