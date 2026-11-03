@@ -10,7 +10,7 @@ export const et: Messages = {
   seasonNow: "Praegu hooajal", soon: "Varsti", almostParty: "Peagi pidu",
   emptyTitle: "Sjors alles otsib", emptyText: "Selle kombinatsiooni jaoks pole veel pilte. Vali mõni muu teema või vanus.", showAll: "Näita kõiki pilte",
   note: "Kõik pildid on tehtud spetsiaalselt Kleurhoekile.",
-  back: "← Kõik pildid", howToColor: "Kuidas värvida", free: "Vaba värvimine", byNumber: "Värvi numbrite järgi",
+  back: "← Kõik pildid", howToColor: "Kuidas värvida", free: "Vaba värvimine", byNumber: "Värvi numbrite järgi", drawLine: "Tõmba joon", drawLineHint: "Tõmba sõrme või hiirega joon, näiteks läbi labürindi.",
   colors: "Värvid", colorPerNumber: "Iga numbri värv", eraser: "Kustukumm", lines: "Jooned",
   lineAuto: "Sobiv", lineThin: "Peenike", lineNormal: "Tavaline", lineThick: "Paks",
   extra: "Lisaks pildil", nameHint: "Tekst mullitähtedega, mida saad ka värvida", namePlaceholder: "Nt Palju õnne, Sam!",

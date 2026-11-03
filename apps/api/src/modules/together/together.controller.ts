@@ -11,7 +11,7 @@ const Id = z.string().regex(/^[a-z0-9]{6,16}:\d{1,7}$/);
 /** Wat er in een kamer mag: vullen, een streek, iets ongedaan maken, of opnieuw beginnen. Niets anders. */
 const Op = z.discriminatedUnion("t", [
   z.object({ t: z.literal("f"), id: Id, r: z.number().int().min(0).max(5000), v: Fill.nullable(), p: Fill.nullable().optional() }).strict(),
-  z.object({ t: z.literal("s"), id: Id, r: z.number().int().min(0).max(5000), b: z.enum(["potlood", "stift", "waterverf", "airbrush", "gum"]), c: Hex, w: z.number().min(0.25).max(4), pen: z.boolean().optional(), pts: z.array(z.number().min(-100).max(3000)).max(6000) }).strict(),
+  z.object({ t: z.literal("s"), id: Id, r: z.number().int().min(-1).max(5000), b: z.enum(["potlood", "stift", "waterverf", "airbrush", "gum"]), c: Hex, w: z.number().min(0.25).max(4), pen: z.boolean().optional(), pts: z.array(z.number().min(-100).max(3000)).max(6000) }).strict(),
   z.object({ t: z.literal("x"), id: Id, ref: Id }).strict(),
   z.object({ t: z.literal("c"), id: Id }).strict(),
 ]);

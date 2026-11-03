@@ -10,7 +10,7 @@ export const en: Messages = {
   seasonNow: "In season now", soon: "Coming soon", almostParty: "Almost party time",
   emptyTitle: "Sjors is still looking", emptyText: "There are no pages for this combination yet. Pick another topic or a different age.", showAll: "Show all pages",
   note: "Every page is made especially for Kleurhoek.",
-  back: "← All pages", howToColor: "How to colour", free: "Free colouring", byNumber: "Colour by number",
+  back: "← All pages", howToColor: "How to colour", free: "Free colouring", byNumber: "Colour by number", drawLine: "Draw a line", drawLineHint: "Draw a line with your finger or the mouse, for example through the maze.",
   colors: "Colours", colorPerNumber: "Colour for each number", eraser: "Eraser", lines: "Lines",
   lineAuto: "Best fit", lineThin: "Thin", lineNormal: "Normal", lineThick: "Thick",
   extra: "Extra on the page", nameHint: "Text in bubble letters that you can colour in too", namePlaceholder: "E.g. Happy birthday, Sam!",

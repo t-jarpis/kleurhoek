@@ -14,7 +14,7 @@ export const sk: Messages = {
   seasonNow: "Práve v sezóne", soon: "Čoskoro", almostParty: "Čoskoro sa oslavuje",
   emptyTitle: "Sjors ešte hľadá", emptyText: "Pre túto kombináciu zatiaľ nemáme žiadne obrázky. Vyber inú tému alebo iný vek.", showAll: "Ukázať všetky obrázky",
   note: "Všetky obrázky vznikli špeciálne pre Kleurhoek.",
-  back: "← Všetky obrázky", howToColor: "Ako vyfarbovať", free: "Voľné vyfarbovanie", byNumber: "Vyfarbi podľa čísel",
+  back: "← Všetky obrázky", howToColor: "Ako vyfarbovať", free: "Voľné vyfarbovanie", byNumber: "Vyfarbi podľa čísel", drawLine: "Ťahať čiaru", drawLineHint: "Ťahaj čiaru prstom alebo myšou, napríklad bludiskom.",
   colors: "Farby", colorPerNumber: "Farba ku každému číslu", eraser: "Guma", lines: "Čiary",
   lineAuto: "Automaticky", lineThin: "Tenké", lineNormal: "Normálne", lineThick: "Hrubé",
   extra: "Niečo navyše na obrázku", nameHint: "Text veľkými bublinkovými písmenami, ktorý si môžeš tiež vyfarbiť", namePlaceholder: "Napr. Všetko najlepšie, Sára!",

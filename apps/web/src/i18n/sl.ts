@@ -17,7 +17,7 @@ export const sl: Messages = {
   seasonNow: "Zdaj aktualno", soon: "Kmalu", almostParty: "Kmalu bo praznik",
   emptyTitle: "Sjors še išče", emptyText: "Za to kombinacijo še ni pobarvank. Izberi drugo temo ali drugo starost.", showAll: "Pokaži vse pobarvanke",
   note: "Vsaka pobarvanka je narejena posebej za Kleurhoek.",
-  back: "← Vse pobarvanke", howToColor: "Tako barvaš", free: "Prosto barvanje", byNumber: "Barvanje po številkah",
+  back: "← Vse pobarvanke", howToColor: "Tako barvaš", free: "Prosto barvanje", byNumber: "Barvanje po številkah", drawLine: "Vleci črto", drawLineHint: "Povleci črto s prstom ali miško, na primer skozi labirint.",
   colors: "Barve", colorPerNumber: "Barva za vsako številko", eraser: "Radirka", lines: "Črte",
   lineAuto: "Prilagojeno", lineThin: "Tanke", lineNormal: "Običajne", lineThick: "Debele",
   extra: "Dodatno na strani", nameHint: "Besedilo z napihnjenimi črkami, ki ga lahko tudi pobarvaš", namePlaceholder: "Npr. Vse najboljše, Luka!",

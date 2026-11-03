@@ -38,7 +38,7 @@ export const nl = {
   seasonNow: "Nu in het seizoen", soon: "Binnenkort", almostParty: "Bijna feest",
   emptyTitle: "Sjors zoekt nog", emptyText: "Er zijn nog geen platen voor deze combinatie. Kies een ander onderwerp of een andere leeftijd.", showAll: "Toon alle platen",
   note: "Alle platen zijn speciaal voor Kleurhoek gemaakt.",
-  back: "← Alle platen", howToColor: "Zo kleur je", free: "Vrij kleuren", byNumber: "Kleur op nummer",
+  back: "← Alle platen", howToColor: "Zo kleur je", free: "Vrij kleuren", byNumber: "Kleur op nummer", drawLine: "Lijn trekken", drawLineHint: "Trek een lijn met je vinger of de muis, bijvoorbeeld door het doolhof.",
   colors: "Kleuren", colorPerNumber: "Kleur bij elk nummer", eraser: "Gum", lines: "Lijnen",
   lineAuto: "Passend", lineThin: "Dun", lineNormal: "Normaal", lineThick: "Dik",
   extra: "Extra op de plaat", nameHint: "Tekst in bolle letters, die je ook kunt inkleuren", namePlaceholder: "Bijv. Fijne verjaardag, Sam!",

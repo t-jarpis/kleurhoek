@@ -10,7 +10,7 @@ export const fr: Messages = {
   seasonNow: "De saison", soon: "Bientôt", almostParty: "Bientôt la fête",
   emptyTitle: "Sjors cherche encore", emptyText: "Il n'y a pas encore de coloriages pour cette combinaison. Choisis un autre thème ou un autre âge.", showAll: "Voir tous les coloriages",
   note: "Tous les coloriages sont créés spécialement pour Kleurhoek.",
-  back: "← Tous les coloriages", howToColor: "Comment colorier", free: "Coloriage libre", byNumber: "Coloriage magique",
+  back: "← Tous les coloriages", howToColor: "Comment colorier", free: "Coloriage libre", byNumber: "Coloriage magique", drawLine: "Tracer un trait", drawLineHint: "Trace un trait avec ton doigt ou la souris, par exemple dans le labyrinthe.",
   colors: "Couleurs", colorPerNumber: "Une couleur par numéro", eraser: "Gomme", lines: "Traits",
   lineAuto: "Adapté", lineThin: "Fin", lineNormal: "Normal", lineThick: "Épais",
   extra: "En plus sur le coloriage", nameHint: "Un texte en lettres rondes, que tu peux aussi colorier", namePlaceholder: "Ex. : Joyeux anniversaire, Sam !",

@@ -10,7 +10,7 @@ export const nb: Messages = {
   seasonNow: "Aktuelt nå", soon: "Snart", almostParty: "Snart fest",
   emptyTitle: "Sjors leter fortsatt", emptyText: "Det finnes ingen ark for denne kombinasjonen ennå. Velg et annet emne eller en annen alder.", showAll: "Vis alle ark",
   note: "Alle ark er laget spesielt for Kleurhoek.",
-  back: "← Alle ark", howToColor: "Slik fargelegger du", free: "Fri fargelegging", byNumber: "Fargelegg etter tall",
+  back: "← Alle ark", howToColor: "Slik fargelegger du", free: "Fri fargelegging", byNumber: "Fargelegg etter tall", drawLine: "Tegn en strek", drawLineHint: "Tegn en strek med fingeren eller musa, for eksempel gjennom labyrinten.",
   colors: "Farger", colorPerNumber: "Farge for hvert tall", eraser: "Viskelær", lines: "Streker",
   lineAuto: "Tilpasset", lineThin: "Tynn", lineNormal: "Normal", lineThick: "Tykk",
   extra: "Ekstra på arket", nameHint: "Tekst med boblebokstaver som du også kan fargelegge", namePlaceholder: "F.eks. Gratulerer med dagen, Sam!",

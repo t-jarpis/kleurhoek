@@ -10,7 +10,7 @@ export const hu: Messages = {
   seasonNow: "Most aktuális", soon: "Hamarosan", almostParty: "Mindjárt ünnep",
   emptyTitle: "Sjors még keres", emptyText: "Ehhez a kombinációhoz még nincs lap. Válassz másik témát vagy másik korosztályt.", showAll: "Az összes lap",
   note: "Minden lap kifejezetten a Kleurhoek számára készült.",
-  back: "← Az összes lap", howToColor: "Így színezz", free: "Szabad színezés", byNumber: "Színezés számok szerint",
+  back: "← Az összes lap", howToColor: "Így színezz", free: "Szabad színezés", byNumber: "Színezés számok szerint", drawLine: "Vonalat húzni", drawLineHint: "Húzz vonalat az ujjaddal vagy az egérrel, például a labirintuson át.",
   colors: "Színek", colorPerNumber: "Minden számhoz egy szín", eraser: "Radír", lines: "Vonalak",
   lineAuto: "Illeszkedő", lineThin: "Vékony", lineNormal: "Normál", lineThick: "Vastag",
   extra: "Extra a lapon", nameHint: "Felirat kövér betűkkel, amit ki is színezhetsz", namePlaceholder: "Pl. Boldog szülinapot, Panni!",

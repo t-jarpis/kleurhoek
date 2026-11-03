@@ -16,7 +16,7 @@ export const pl: Messages = {
   seasonNow: "Teraz w sezonie", soon: "Wkrótce", almostParty: "Zaraz święto",
   emptyTitle: "Sjors jeszcze szuka", emptyText: "Nie ma jeszcze plansz dla tego połączenia. Wybierz inny temat albo inny wiek.", showAll: "Pokaż wszystkie plansze",
   note: "Wszystkie plansze powstają specjalnie dla Kleurhoek.",
-  back: "← Wszystkie plansze", howToColor: "Sposób kolorowania", free: "Dowolnie", byNumber: "Koloruj według numerów",
+  back: "← Wszystkie plansze", howToColor: "Sposób kolorowania", free: "Dowolnie", byNumber: "Koloruj według numerów", drawLine: "Rysuj linię", drawLineHint: "Narysuj linię palcem lub myszką, na przykład przez labirynt.",
   colors: "Kolory", colorPerNumber: "Kolor dla każdego numeru", eraser: "Gumka", lines: "Linie",
   lineAuto: "Dopasowane", lineThin: "Cienkie", lineNormal: "Zwykłe", lineThick: "Grube",
   extra: "Dodatki na planszy", nameHint: "Napis grubymi literami, który też możesz pokolorować", namePlaceholder: "Np. Wszystkiego najlepszego, Zosiu!",

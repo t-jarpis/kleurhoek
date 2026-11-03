@@ -10,7 +10,7 @@ export const fi: Messages = {
   seasonNow: "Ajankohtaista nyt", soon: "Pian", almostParty: "Pian juhlitaan",
   emptyTitle: "Sjors etsii vielä", emptyText: "Tälle yhdistelmälle ei ole vielä kuvia. Valitse toinen aihe tai eri ikä.", showAll: "Näytä kaikki kuvat",
   note: "Jokainen kuva on tehty erityisesti Kleurhoekille.",
-  back: "← Kaikki kuvat", howToColor: "Näin värität", free: "Vapaa väritys", byNumber: "Väritä numeroiden mukaan",
+  back: "← Kaikki kuvat", howToColor: "Näin värität", free: "Vapaa väritys", byNumber: "Väritä numeroiden mukaan", drawLine: "Piirrä viiva", drawLineHint: "Piirrä viiva sormella tai hiirellä, esimerkiksi sokkelon läpi.",
   colors: "Värit", colorPerNumber: "Väri jokaiselle numerolle", eraser: "Pyyhekumi", lines: "Viivat",
   lineAuto: "Sopiva", lineThin: "Ohut", lineNormal: "Normaali", lineThick: "Paksu",
   extra: "Lisää kuvaan", nameHint: "Tekstiä kuplakirjaimin, joita voit myös värittää", namePlaceholder: "Esim. Hyvää syntymäpäivää, Sam!",

@@ -17,7 +17,7 @@ export const ro: Messages = {
   seasonNow: "Acum, în sezon", soon: "În curând", almostParty: "Aproape e sărbătoare",
   emptyTitle: "Sjors încă mai caută", emptyText: "Încă nu există planșe pentru această combinație. Alege altă temă sau altă vârstă.", showAll: "Arată toate planșele",
   note: "Toate planșele sunt create special pentru Kleurhoek.",
-  back: "← Toate planșele", howToColor: "Cum colorezi", free: "Colorare liberă", byNumber: "Colorează după numere",
+  back: "← Toate planșele", howToColor: "Cum colorezi", free: "Colorare liberă", byNumber: "Colorează după numere", drawLine: "Trage o linie", drawLineHint: "Trage o linie cu degetul sau cu mouse-ul, de exemplu prin labirint.",
   colors: "Culori", colorPerNumber: "Culoarea pentru fiecare număr", eraser: "Radieră", lines: "Linii",
   lineAuto: "Potrivite", lineThin: "Subțiri", lineNormal: "Normale", lineThick: "Groase",
   extra: "Extra pe planșă", nameHint: "Text cu litere rotunjite, pe care îl poți colora și pe el", namePlaceholder: "De ex. La mulți ani, Sam!",

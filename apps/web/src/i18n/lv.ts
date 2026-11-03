@@ -13,7 +13,7 @@ export const lv: Messages = {
   seasonNow: "Tagad sezonā", soon: "Drīzumā", almostParty: "Drīz svētki",
   emptyTitle: "Sjors vēl meklē", emptyText: "Šai kombinācijai vēl nav lapu. Izvēlies citu tēmu vai citu vecumu.", showAll: "Rādīt visas lapas",
   note: "Visas lapas ir veidotas īpaši Kleurhoek.",
-  back: "← Visas lapas", howToColor: "Kā krāsot", free: "Brīva krāsošana", byNumber: "Krāso pēc cipariem",
+  back: "← Visas lapas", howToColor: "Kā krāsot", free: "Brīva krāsošana", byNumber: "Krāso pēc cipariem", drawLine: "Vilkt līniju", drawLineHint: "Velc līniju ar pirkstu vai peli, piemēram, cauri labirintam.",
   colors: "Krāsas", colorPerNumber: "Krāsa katram ciparam", eraser: "Dzēšgumija", lines: "Līnijas",
   lineAuto: "Piemērotas", lineThin: "Plānas", lineNormal: "Parastas", lineThick: "Biezas",
   extra: "Papildus lapā", nameHint: "Teksts apaļos burtos, ko vari arī izkrāsot", namePlaceholder: "Piem., Daudz laimes, Sam!",

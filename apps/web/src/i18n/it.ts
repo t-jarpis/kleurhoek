@@ -10,7 +10,7 @@ export const it: Messages = {
   seasonNow: "Di stagione", soon: "Fra poco", almostParty: "Quasi festa",
   emptyTitle: "Sjors sta ancora cercando", emptyText: "Non ci sono ancora disegni per questa combinazione. Scegli un altro tema o un'altra età.", showAll: "Mostra tutti i disegni",
   note: "Tutti i disegni sono creati apposta per Kleurhoek.",
-  back: "← Tutti i disegni", howToColor: "Come colorare", free: "Colora libero", byNumber: "Colora con i numeri",
+  back: "← Tutti i disegni", howToColor: "Come colorare", free: "Colora libero", byNumber: "Colora con i numeri", drawLine: "Traccia una linea", drawLineHint: "Traccia una linea con il dito o il mouse, per esempio nel labirinto.",
   colors: "Colori", colorPerNumber: "Colore per ogni numero", eraser: "Gomma", lines: "Linee",
   lineAuto: "Adatte", lineThin: "Sottili", lineNormal: "Normali", lineThick: "Spesse",
   extra: "Extra sul disegno", nameHint: "Testo in lettere grandi e tonde, che puoi anche colorare", namePlaceholder: "Es. Buon compleanno, Sam!",

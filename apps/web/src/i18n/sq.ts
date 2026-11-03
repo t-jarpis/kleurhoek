@@ -10,7 +10,7 @@ export const sq: Messages = {
   seasonNow: "Tani në stinë", soon: "Së shpejti", almostParty: "Festa po vjen",
   emptyTitle: "Sjors ende po kërkon", emptyText: "Për këtë kombinim ende nuk ka fletë. Zgjidh një temë tjetër ose një moshë tjetër.", showAll: "Shfaq të gjitha fletët",
   note: "Çdo fletë është bërë posaçërisht për Kleurhoek.",
-  back: "← Të gjitha fletët", howToColor: "Si të ngjyrosësh", free: "Ngjyrosje e lirë", byNumber: "Ngjyrosje me numra",
+  back: "← Të gjitha fletët", howToColor: "Si të ngjyrosësh", free: "Ngjyrosje e lirë", byNumber: "Ngjyrosje me numra", drawLine: "Hiq një vijë", drawLineHint: "Hiq një vijë me gisht ose me maus, për shembull nëpër labirint.",
   colors: "Ngjyrat", colorPerNumber: "Një ngjyrë për çdo numër", eraser: "Gomë", lines: "Vijat",
   lineAuto: "Më e përshtatshmja", lineThin: "Të holla", lineNormal: "Normale", lineThick: "Të trasha",
   extra: "Shtesë në fletë", nameHint: "Tekst me shkronja të fryra që mund ta ngjyrosësh edhe atë", namePlaceholder: "P.sh. Gëzuar ditëlindjen, Arta!",

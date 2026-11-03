@@ -599,7 +599,7 @@ a.ui-chip { text-decoration: none; }
 .kh-door[data-locked] .kh-door-front { cursor: default; filter: saturate(.55); }
 .kh-door[data-today] .kh-door-front { box-shadow: 0 0 0 4px var(--color-focus), var(--shadow-card); }
 @media (prefers-reduced-motion: reduce) { .kh-door-front { transition: none; } }
-.kh-advent-teaser { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3); margin: var(--space-6) 0; padding: var(--space-4) var(--space-5); border-radius: var(--radius-card); background: var(--krijt-rood-zacht); color: var(--color-text); }
+.kh-advent-teaser { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3); margin: var(--space-6) 0; padding: var(--space-4) var(--space-5); border-radius: var(--radius-card); background: color-mix(in srgb, var(--krijt-rood) 16%, var(--color-surface)); color: var(--color-text); }
 .kh-advent-teaser p { margin: 0; font: 700 17px/1.35 var(--font-sans); }
 /* ---------- PackCard (ADR 0059) ---------- */
 .kh-packs { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--space-4); margin: 0 0 var(--space-8); padding: 0; list-style: none; }

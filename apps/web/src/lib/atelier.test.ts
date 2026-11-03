@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { composeInner, deriveShared, EMPTY_ART, toShared, type SharedOp, fillCss, fillOp, gradientValue, harmony, hexToHsl, hslToHex, normalizeArt, parseFill, patternValue, pickColor, replay, strokePath, undoLast, type Art, type Stroke } from "./atelier";
+import { composeInner, FREE_REGION, deriveShared, EMPTY_ART, toShared, type SharedOp, fillCss, fillOp, gradientValue, harmony, hexToHsl, hslToHex, normalizeArt, parseFill, patternValue, pickColor, replay, strokePath, undoLast, type Art, type Stroke } from "./atelier";
 
 const INNER = `<rect class="r" data-i="0" x="0" y="0" width="100" height="100"/><circle class="r" data-i="1" cx="50" cy="50" r="20"/><path class="l" d="M0 0 L10 10"/>`;
 const stroke = (r: number, b: Stroke["b"] = "potlood"): Stroke => ({ t: "s", r, b, c: "#ff0000", w: 1, pts: [10, 10, 0.5, 20, 20, 0.5, 30, 25, 0.5] });
@@ -13,6 +13,19 @@ describe("Atelier (ADR 0056)", () => {
     expect(parseFill("p:bom:#111111:#eeeeee")).toBeNull();
     expect(fillCss(gradientValue("#000000", "#ffffff"), "s1", 4)).toBe("url(#s1-f4)");
     expect(pickColor(patternValue("strepen", "#123456", "#eeeeee"))).toBe("#123456");
+  });
+
+  it("zet een vrije lijn boven de hele plaat, zonder clip (ADR 0075)", () => {
+    const art: Art = { ...EMPTY_ART, ops: [stroke(FREE_REGION), stroke(FREE_REGION, "gum")] };
+    const out = composeInner(INNER, art, {}, "s1");
+    const free = out.indexOf('class="kh-free"');
+    expect(free).toBeGreaterThan(out.lastIndexOf("data-i="));
+    expect(out.slice(free)).not.toContain("clip-path");
+    expect(out).toContain('<mask id="s1-m-1-1"');
+    // Vullen kan alleen in een vlak; een lijn mag ook buiten een vlak.
+    expect(normalizeArt({ ops: [stroke(FREE_REGION), { t: "f", r: -1, v: "#000000", p: null }, stroke(-2)] }).ops).toHaveLength(1);
+    // Tijdens het tekenen staat de lege streek ook bovenaan.
+    expect(composeInner(INNER, EMPTY_ART, {}, "s1", { region: FREE_REGION, brush: "potlood", color: "#000000" })).toMatch(/class="kh-free"[^>]*><path data-live="1"/);
   });
 
   it("zet streken direct na hun vlak, binnen dat vlak, met de lijn er weer over", () => {

@@ -10,7 +10,7 @@ export const tr: Messages = {
   seasonNow: "Şimdi mevsiminde", soon: "Yakında", almostParty: "Kutlama yaklaşıyor",
   emptyTitle: "Sjors hâlâ arıyor", emptyText: "Bu seçim için henüz boyama sayfası yok. Başka bir konu ya da başka bir yaş seç.", showAll: "Tüm sayfaları göster",
   note: "Her sayfa Kleurhoek için özel olarak hazırlandı.",
-  back: "← Tüm sayfalar", howToColor: "Nasıl boyanır", free: "Serbest boyama", byNumber: "Sayılarla boyama",
+  back: "← Tüm sayfalar", howToColor: "Nasıl boyanır", free: "Serbest boyama", byNumber: "Sayılarla boyama", drawLine: "Çizgi çek", drawLineHint: "Parmağınla ya da fareyle bir çizgi çek, örneğin labirentin içinden.",
   colors: "Renkler", colorPerNumber: "Her sayı için renk", eraser: "Silgi", lines: "Çizgiler",
   lineAuto: "En uygun", lineThin: "İnce", lineNormal: "Normal", lineThick: "Kalın",
   extra: "Sayfaya ekle", nameHint: "Senin de boyayabileceğin balon harflerle yazı", namePlaceholder: "Örn. İyi ki doğdun, Elif!",

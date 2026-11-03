@@ -10,7 +10,7 @@ export const sv: Messages = {
   seasonNow: "Aktuellt nu", soon: "Snart", almostParty: "Snart fest",
   emptyTitle: "Sjors letar fortfarande", emptyText: "Det finns inga bilder för den här kombinationen än. Välj ett annat ämne eller en annan ålder.", showAll: "Visa alla bilder",
   note: "Varje bild är gjord speciellt för Kleurhoek.",
-  back: "← Alla bilder", howToColor: "Så färglägger du", free: "Fri färgläggning", byNumber: "Måla efter nummer",
+  back: "← Alla bilder", howToColor: "Så färglägger du", free: "Fri färgläggning", byNumber: "Måla efter nummer", drawLine: "Dra ett streck", drawLineHint: "Dra ett streck med fingret eller musen, till exempel genom labyrinten.",
   colors: "Färger", colorPerNumber: "Färg för varje nummer", eraser: "Suddgummi", lines: "Linjer",
   lineAuto: "Anpassad", lineThin: "Tunn", lineNormal: "Normal", lineThick: "Tjock",
   extra: "Extra på bilden", nameHint: "Text med bubbelbokstäver som du också kan färglägga", namePlaceholder: "T.ex. Grattis på födelsedagen, Sam!",

@@ -10,7 +10,7 @@ export const de: Messages = {
   seasonNow: "Passend zur Jahreszeit", soon: "Demnächst", almostParty: "Bald wird gefeiert",
   emptyTitle: "Sjors sucht noch", emptyText: "Für diese Auswahl gibt es noch keine Vorlagen. Wähle ein anderes Thema oder ein anderes Alter.", showAll: "Alle Vorlagen zeigen",
   note: "Alle Vorlagen sind extra für Kleurhoek gemacht.",
-  back: "← Alle Vorlagen", howToColor: "So malst du", free: "Frei ausmalen", byNumber: "Malen nach Zahlen",
+  back: "← Alle Vorlagen", howToColor: "So malst du", free: "Frei ausmalen", byNumber: "Malen nach Zahlen", drawLine: "Linie ziehen", drawLineHint: "Zieh mit dem Finger oder der Maus eine Linie, zum Beispiel durch das Labyrinth.",
   colors: "Farben", colorPerNumber: "Farbe für jede Zahl", eraser: "Radiergummi", lines: "Linien",
   lineAuto: "Passend", lineThin: "Dünn", lineNormal: "Normal", lineThick: "Dick",
   extra: "Extras auf der Vorlage", nameHint: "Text in dicken Buchstaben, den du auch ausmalen kannst", namePlaceholder: "Z. B. Alles Gute zum Geburtstag, Sam!",

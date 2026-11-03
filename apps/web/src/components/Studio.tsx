@@ -11,6 +11,7 @@ import { ERASER, FREE_PALETTE, progress, strokeWidth, type Fills, type Line } fr
 import {
   BRUSHES, composeInner, deriveShared, EMPTY_ART, fillOp, gradientValue, normalizeArt, patternValue, pickColor, replay, roundPoint, strokePath, toShared, undoLast,
   type Art, type Brush, type Pattern, type Stroke, type Tool,
+  FREE_REGION,
 } from "@/lib/atelier";
 import { canvasSize, download, drawSvg, playFrames, snapshotSvg, videoType } from "@/lib/export";
 import { fridge } from "@/lib/local";
@@ -34,6 +35,10 @@ const RECENT = "kh:atelier:kleuren";
 const readLocal = <T,>(key: string, fallback: T): T => { try { const v = localStorage.getItem(key); return v ? (JSON.parse(v) as T) : fallback; } catch { return fallback; } };
 const writeLocal = (key: string, v: unknown) => { try { localStorage.setItem(key, JSON.stringify(v)); return true; } catch { return false; } };
 
+/** Soorten platen waarop je een lijn trekt: doolhof, verbinden, overtrekken (ADR 0075). */
+const LINE_KINDS = new Set(["werkblad", "spel", "tekenles"]);
+const LINE_FIRST = /^(doolhof|verbind|schrijven|woordzoeker)-/;
+type Mode = "free" | "num" | "lijn";
 const isBrush = (t: Tool): t is Brush => (BRUSHES as readonly string[]).includes(t);
 interface View { s: number; x: number; y: number }
 const NO_ZOOM: View = { s: 1, x: 0, y: 0 };
@@ -42,7 +47,9 @@ type Pt = { x: number; y: number };
 export function Studio({ plate, inner, ageWidth, market, language, accounts = false }: { plate: PlateDetail; inner: string; ageWidth: number; market: string; language: string; accounts?: boolean }) {
   const href = useHref();
   const t = messages(language);
-  const [mode, setMode] = useState<"free" | "num">("free");
+  const lineKind = LINE_KINDS.has(plate.kind);
+  // Waar tekenen het eerste is wat je doet (doolhof, verbinden, overtrekken, tekenlessen), staat lijn trekken meteen aan.
+  const [mode, setMode] = useState<Mode>(lineKind && (plate.kind === "tekenles" || LINE_FIRST.test(plate.slug)) ? "lijn" : "free");
   const [color, setColor] = useState(FREE_PALETTE[0]!);
   const [fills, setFills] = useState<Fills>({});
   const [art, setArt] = useState<Art>(EMPTY_ART);
@@ -57,6 +64,7 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
 
   // Atelier (ADR 0056).
   const [atelier, setAtelier] = useState(false);
+  const lining = !atelier && mode === "lijn";
   const [tool, setTool] = useState<Tool>("potlood");
   const [prevTool, setPrevTool] = useState<Tool>("potlood");
   const [size, setSize] = useState(1);
@@ -152,7 +160,7 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
   }, [atelier, color, tool, fills, well, prevTool, colorA, colorB, pattern, markColored, remember, shared, together]);
 
   const chooseTool = (x: Tool) => { if (x === "pipet" && tool !== "pipet") setPrevTool(tool); setTool(x); };
-  const switchMode = (m: "free" | "num") => {
+  const switchMode = (m: Mode) => {
     setMode(m);
     wasDone.current = m === "num" && progress(plate.colorByNumber.labels, plate.colorByNumber.palette, fills).done;
     if (m === "num") setColor(plate.colorByNumber.palette[0]?.hex ?? FREE_PALETTE[0]!);
@@ -251,7 +259,7 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
   const two = (): [Pt, Pt] => [...pointers.current.values()].slice(0, 2) as [Pt, Pt];
 
   const onDown = (e: ReactPointerEvent<HTMLDivElement>) => {
-    if (!atelier) return;
+    if (!atelier && !lining) return;
     pointers.current.set(e.pointerId, local(e));
     if (pointers.current.size === 2) {
       // Tweede vinger: geen streek maar zoomen en schuiven.
@@ -267,16 +275,19 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
       e.currentTarget.setPointerCapture(e.pointerId);
       return;
     }
-    if (!isBrush(tool) || e.button !== 0) return;
-    const region = regionAt(e.clientX, e.clientY);
-    if (region === null) return;
+    if (e.button !== 0) return;
+    // Lijn trekken (ADR 0075): een potloodlijn over de hele plaat; in het Atelier ook als je buiten een vlak begint.
+    const b: Brush | null = lining ? (color === ERASER ? "gum" : "stift") : isBrush(tool) ? tool : null;
+    if (!b) return;
+    const c = lining && color !== ERASER ? color : colorA; // de gum heeft geen kleur nodig
+    const region = lining ? FREE_REGION : regionAt(e.clientX, e.clientY) ?? FREE_REGION;
     e.currentTarget.setPointerCapture(e.pointerId);
-    draw.current = { t: "s", r: region, b: tool, c: colorA, w: size, ...(e.pointerType === "pen" ? { pen: true } : {}), pts: [] };
+    draw.current = { t: "s", r: region, b, c, w: lining ? 1.2 : size, ...(e.pointerType === "pen" ? { pen: true } : {}), pts: [] };
     addPoint(e.nativeEvent);
-    setLive({ region, brush: tool, color: colorA });
+    setLive({ region, brush: b, color: c });
   };
   const onMove = (e: ReactPointerEvent<HTMLDivElement>) => {
-    if (!atelier) return;
+    if (!atelier && !lining) return;
     if (pointers.current.has(e.pointerId)) pointers.current.set(e.pointerId, local(e));
     const g = gesture.current;
     if (g?.pan) { const p = local(e); setView(clamp({ ...g.view, x: g.view.x + p.x - g.mid.x, y: g.view.y + p.y - g.mid.y })); return; }
@@ -301,7 +312,7 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
     if (s.pts.length >= 3) {
       if (shared) together.emit(s);
       else setArt((a) => ({ ...a, ops: [...a.ops, s] }));
-      if (s.b !== "gum") remember(s.c);
+      if (s.b !== "gum" && atelier) remember(s.c);
       markColored();
     }
     setLive(null);
@@ -341,11 +352,11 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
           <h1>{plate.name}</h1>
           <FavoriteButton slug={plate.slug} market={market} language={language} accounts={accounts} />
         </div>
-        <div className="canvas" data-print={hasColor ? printWhat : "kleur"} data-atelier={atelier ? (brush ? "penseel" : "vullen") : undefined}>
+        <div className="canvas" data-print={hasColor ? printWhat : "kleur"} data-atelier={atelier ? (brush ? "penseel" : "vullen") : lining ? "penseel" : undefined}>
           <div ref={port} className="zoomport" onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp}>
             <div className="zoomed" style={view.s !== 1 ? { transform: `translate(${view.x}px, ${view.y}px) scale(${view.s})` } : undefined}>
               <Sheet className="sheet sheet-live" plate={sheet} inner={inner} fills={fills} sw={sw} numbers={numbers} name={name} learn={learn}
-                onPick={atelier && brush ? undefined : apply} art={art} live={live} svgRef={svg} />
+                onPick={(atelier && brush) || lining ? undefined : apply} art={art} live={live} svgRef={svg} />
             </div>
             {atelier && (
               <div className="ui-zoombar no-print">
@@ -393,7 +404,9 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
                 <div className="seg" role="group" aria-label={t.howToColor}>
                   <button type="button" aria-pressed={mode === "free"} onClick={() => switchMode("free")}>{t.free}</button>
                   <button type="button" aria-pressed={mode === "num"} onClick={() => switchMode("num")}>{t.byNumber}</button>
+                  {lineKind && <button type="button" aria-pressed={mode === "lijn"} onClick={() => switchMode("lijn")}>{t.drawLine}</button>}
                 </div>
+                {mode === "lijn" && <p className="hint">{t.drawLineHint}</p>}
                 {mode === "num" && (
                   <div className="prog"><span>{t.progress(prog.ok, prog.total)}</span><div className="bar"><i style={{ width: `${prog.total ? (prog.ok / prog.total) * 100 : 0}%` }} /></div></div>
                 )}

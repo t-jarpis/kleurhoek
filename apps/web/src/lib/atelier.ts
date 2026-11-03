@@ -19,6 +19,12 @@ export type Pattern = (typeof PATTERNS)[number];
 
 /** Een streek: in welk vlak hij begon (daar blijft hij binnen), penseel, kleur, dikte en punten x, y, druk. */
 export interface Stroke { t: "s"; r: number; b: Brush; c: string; w: number; pen?: boolean; pts: number[]; id?: string }
+/**
+ * Vrije lijn (ADR 0075): een streek met dit vlaknummer hoort bij geen vlak. Hij komt boven de hele plaat, ook over
+ * de lijnen heen, zodat je een weg door een doolhof kunt trekken of puntjes kunt verbinden.
+ */
+export const FREE_REGION = -1;
+
 /** Een vlak vullen; `p` is wat er eerst stond, voor ongedaan maken en de time-lapse. */
 export interface FillOp { t: "f"; r: number; v: string | null; p: string | null; id?: string }
 export type Op = Stroke | FillOp;
@@ -173,6 +179,13 @@ function regionArt(strokes: Stroke[], id: string, region: number): { markup: str
   return { markup: acc, defs };
 }
 
+/** De streek die nu getekend wordt; hij wordt tijdens het tekenen bijgewerkt. Gummen toont papierkleur. */
+function livePathOf(live: { brush: Brush; color: string }, id: string): string {
+  const spec = BRUSH[live.brush];
+  const gum = live.brush === "gum";
+  return `<path data-live="1" d="" fill="${gum ? "var(--color-paper)" : live.color}" fill-opacity="${gum ? 0.6 : spec.opacity}"${spec.fx && !gum ? ` filter="url(#${id}-fx-${spec.fx})"` : ""}/>`;
+}
+
 /** Een kopie van een vlak zonder nummer, id of klasse, voor de zon en de omlijning erboven. */
 const dup = (tag: string, cls: string, extra = "") => tag
   .replace(/\s(?:class|data-i|id|style)="[^"]*"/g, "")
@@ -205,20 +218,27 @@ export function composeInner(inner: string, art: Art, fills: Fills, id: string, 
     if (strokes.length || isLive) {
       const { markup, defs: d } = regionArt(strokes, id, region);
       defs += `<clipPath id="${id}-c${region}"><use href="#${id}-r${region}"/></clipPath>` + d;
-      const liveSpec = live && isLive ? BRUSH[live.brush] : null;
-      const livePath = liveSpec ? `<path data-live="1" d="" fill="${live!.brush === "gum" ? "var(--color-paper)" : live!.color}" fill-opacity="${live!.brush === "gum" ? 0.6 : liveSpec.opacity}"${liveSpec.fx && live!.brush !== "gum" ? ` filter="url(#${id}-fx-${liveSpec.fx})"` : ""}/>` : "";
+      const livePath = live && isLive ? livePathOf(live, id) : "";
       out += `<g clip-path="url(#${id}-c${region})" pointer-events="none">${markup}${livePath}</g>`;
     }
     if (lit) out += dup(tag, "kh-sun", ` fill="url(#${id}-sun)"`);
     out += dup(tag, "kh-ro");
     return out;
   });
+  // Vrije lijnen boven alles (ADR 0075), zonder clip.
+  const free = by.get(FREE_REGION) ?? [];
+  let top = "";
+  if (free.length || live?.region === FREE_REGION) {
+    const { markup, defs: d } = regionArt(free, id, FREE_REGION);
+    defs += d;
+    top = `<g class="kh-free" pointer-events="none">${markup}${live?.region === FREE_REGION ? livePathOf(live, id) : ""}</g>`;
+  }
   // Vlakken buiten de tekening zelf (de naam onder de plaat) met een verloop of patroon.
   for (const [k, v] of Object.entries(fills)) {
     const region = Number(k);
     if (needsDef(v) && !defs.includes(`id="${id}-f${region}"`)) defs += fillDef(parseFill(v)!, id, region, art.sun);
   }
-  return `<defs>${defs}</defs>${body}`;
+  return `<defs>${defs}</defs>${body}${top}`;
 }
 
 /** Heeft dit werk iets nodig dat de gewone plaat niet heeft? */
@@ -327,6 +347,7 @@ export function normalizeArt(raw: unknown): Art {
   const r = raw as Partial<Art>;
   const ops: Op[] = Array.isArray(r.ops) ? r.ops.filter((o): o is Op => {
     if (!o || typeof o !== "object" || !isNum((o as Op).r)) return false;
+    if (o.r < (o.t === "s" ? FREE_REGION : 0)) return false;
     if (o.t === "s") return (BRUSHES as readonly string[]).includes(o.b) && isColor(o.c) && isNum(o.w) && Array.isArray(o.pts) && o.pts.every(isNum);
     if (o.t === "f") return (o.v === null || typeof o.v === "string") && (o.p === null || typeof o.p === "string");
     return false;

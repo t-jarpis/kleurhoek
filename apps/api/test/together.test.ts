@@ -31,6 +31,15 @@ describe("samen kleuren (ADR 0060)", () => {
     expect(opa).toMatchObject({ ops: [], others: 1, last: got.last });
   });
 
+  it("deelt ook een vrije lijn over de hele plaat (ADR 0075), maar geen vulling buiten een vlak", async () => {
+    const line = { client: "opa12345", ops: [{ t: "s", id: "opa12345:9", r: -1, b: "potlood", c: "#1d1b22", w: 1, pts: [1, 2, 0.5, 3, 4, 0.5] }] };
+    expect((await req("POST", `/v1/together/rooms/${code}/ops`, line)).statusCode).toBe(200);
+    const fill = { client: "opa12345", ops: [{ t: "f", id: "opa12345:10", r: -1, v: "#000000", p: null }] };
+    expect((await req("POST", `/v1/together/rooms/${code}/ops`, fill)).statusCode).toBe(400);
+    const below = { client: "opa12345", ops: [{ t: "s", id: "opa12345:11", r: -2, b: "potlood", c: "#000000", w: 1, pts: [] }] };
+    expect((await req("POST", `/v1/together/rooms/${code}/ops`, below)).statusCode).toBe(400);
+  });
+
   it("weigert alles wat geen kleurhandeling is", async () => {
     const bad = [
       { client: "opa12345", ops: [{ t: "f", id: "opa12345:3", r: 1, v: "javascript:alert(1)" }] },

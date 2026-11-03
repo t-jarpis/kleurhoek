@@ -10,7 +10,7 @@ export const da: Messages = {
   seasonNow: "Aktuelt nu", soon: "Snart", almostParty: "Snart fest",
   emptyTitle: "Sjors leder stadig", emptyText: "Der er endnu ingen tegninger til denne kombination. Vælg et andet emne eller en anden alder.", showAll: "Vis alle tegninger",
   note: "Alle tegninger er lavet specielt til Kleurhoek.",
-  back: "← Alle tegninger", howToColor: "Sådan farvelægger du", free: "Fri farvelægning", byNumber: "Farvelæg efter tal",
+  back: "← Alle tegninger", howToColor: "Sådan farvelægger du", free: "Fri farvelægning", byNumber: "Farvelæg efter tal", drawLine: "Tegn en streg", drawLineHint: "Tegn en streg med fingeren eller musen, for eksempel gennem labyrinten.",
   colors: "Farver", colorPerNumber: "Farve til hvert tal", eraser: "Viskelæder", lines: "Streger",
   lineAuto: "Tilpasset", lineThin: "Tynd", lineNormal: "Normal", lineThick: "Tyk",
   extra: "Ekstra på tegningen", nameHint: "Tekst med boblebogstaver, som du også kan farvelægge", namePlaceholder: "F.eks. Tillykke med fødselsdagen, Sam!",

@@ -14,7 +14,7 @@ export const cs: Messages = {
   seasonNow: "Právě v sezóně", soon: "Brzy", almostParty: "Brzy se slaví",
   emptyTitle: "Sjors ještě hledá", emptyText: "Pro tuto kombinaci zatím nemáme žádné obrázky. Vyber jiné téma nebo jiný věk.", showAll: "Ukázat všechny obrázky",
   note: "Všechny obrázky vznikly speciálně pro Kleurhoek.",
-  back: "← Všechny obrázky", howToColor: "Jak vybarvovat", free: "Volné vybarvování", byNumber: "Vybarvi podle čísel",
+  back: "← Všechny obrázky", howToColor: "Jak vybarvovat", free: "Volné vybarvování", byNumber: "Vybarvi podle čísel", drawLine: "Táhnout čáru", drawLineHint: "Táhni čáru prstem nebo myší, třeba bludištěm.",
   colors: "Barvy", colorPerNumber: "Barva ke každému číslu", eraser: "Guma", lines: "Čáry",
   lineAuto: "Automaticky", lineThin: "Tenké", lineNormal: "Normální", lineThick: "Silné",
   extra: "Něco navíc na obrázku", nameHint: "Text velkými bublinkovými písmeny, který si můžeš také vybarvit", namePlaceholder: "Např. Všechno nejlepší, Ani!",

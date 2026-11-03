@@ -17,7 +17,7 @@ export const hr: Messages = {
   seasonNow: "Sada aktualno", soon: "Uskoro", almostParty: "Uskoro slavimo",
   emptyTitle: "Sjors još traži", emptyText: "Za ovu kombinaciju još nema bojanki. Odaberi drugu temu ili drugi uzrast.", showAll: "Prikaži sve bojanke",
   note: "Svaka je bojanka napravljena posebno za Kleurhoek.",
-  back: "← Sve bojanke", howToColor: "Ovako se boji", free: "Slobodno bojanje", byNumber: "Bojanje po brojevima",
+  back: "← Sve bojanke", howToColor: "Ovako se boji", free: "Slobodno bojanje", byNumber: "Bojanje po brojevima", drawLine: "Povuci crtu", drawLineHint: "Povuci crtu prstom ili mišem, na primjer kroz labirint.",
   colors: "Boje", colorPerNumber: "Boja za svaki broj", eraser: "Gumica", lines: "Linije",
   lineAuto: "Prilagođeno", lineThin: "Tanke", lineNormal: "Obične", lineThick: "Debele",
   extra: "Dodatno na stranici", nameHint: "Tekst napuhanim slovima koji možeš i obojiti", namePlaceholder: "Npr. Sretan rođendan, Luka!",

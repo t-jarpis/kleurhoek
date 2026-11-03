@@ -16,7 +16,7 @@ export const lt: Messages = {
   seasonNow: "Šį sezoną", soon: "Netrukus", almostParty: "Greitai šventė",
   emptyTitle: "Sjors dar ieško", emptyText: "Šiam deriniui paveikslėlių dar nėra. Pasirink kitą temą ar kitą amžių.", showAll: "Rodyti visus paveikslėlius",
   note: "Visi paveikslėliai sukurti specialiai Kleurhoek.",
-  back: "← Visi paveikslėliai", howToColor: "Kaip spalvinti", free: "Laisvas spalvinimas", byNumber: "Spalvink pagal skaičius",
+  back: "← Visi paveikslėliai", howToColor: "Kaip spalvinti", free: "Laisvas spalvinimas", byNumber: "Spalvink pagal skaičius", drawLine: "Brėžti liniją", drawLineHint: "Nubrėžk liniją pirštu ar pele, pavyzdžiui, per labirintą.",
   colors: "Spalvos", colorPerNumber: "Spalva kiekvienam skaičiui", eraser: "Trintukas", lines: "Linijos",
   lineAuto: "Tinkamos", lineThin: "Plonos", lineNormal: "Įprastos", lineThick: "Storos",
   extra: "Papildomai paveikslėlyje", nameHint: "Tekstas apvaliomis raidėmis, kurį taip pat gali nuspalvinti", namePlaceholder: "Pvz., Su gimtadieniu, Sam!",

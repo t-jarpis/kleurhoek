@@ -14,7 +14,7 @@ export const is: Messages = {
   seasonNow: "Á döfinni núna", soon: "Bráðum", almostParty: "Styttist í hátíð",
   emptyTitle: "Sjors er enn að leita", emptyText: "Það eru engar litamyndir fyrir þessa samsetningu enn. Veldu annað efni eða annan aldur.", showAll: "Sýna allar litamyndir",
   note: "Hver mynd er gerð sérstaklega fyrir Kleurhoek.",
-  back: "← Allar litamyndir", howToColor: "Hvernig á að lita", free: "Frjáls litun", byNumber: "Litað eftir tölum",
+  back: "← Allar litamyndir", howToColor: "Hvernig á að lita", free: "Frjáls litun", byNumber: "Litað eftir tölum", drawLine: "Draga línu", drawLineHint: "Dragðu línu með fingrinum eða músinni, til dæmis í gegnum völundarhúsið.",
   colors: "Litir", colorPerNumber: "Litur fyrir hverja tölu", eraser: "Strokleður", lines: "Línur",
   lineAuto: "Sjálfvirkt", lineThin: "Mjóar", lineNormal: "Venjulegar", lineThick: "Þykkar",
   extra: "Aukalega á síðunni", nameHint: "Texti með bólustöfum sem þú getur líka litað", namePlaceholder: "T.d. Til hamingju með afmælið, Sara!",
