@@ -4,6 +4,8 @@
 #   scripts/infra.sh check        controleert alles en meldt in één keer wat ontbreekt
 #   scripts/infra.sh up dev       controle + zone + omgeving + GitHub + eerste images + rooktest
 #   scripts/infra.sh up prod      idem voor productie (vraagt altijd bevestiging)
+#   scripts/infra.sh pause dev    dev uit: geen containers en geen database, vrijwel geen kosten (ADR 0072)
+#   scripts/infra.sh resume dev   dev weer aan: nieuwe lege database, containers, laatste versie van main
 #
 # Wat het zelf doet: tools installeren (Homebrew), sleutels veilig in de macOS-sleutelhanger
 # bewaren, de state-bucket aanmaken, Terraform draaien, de GitHub-omgeving vullen, de eerste
@@ -412,6 +414,8 @@ preflight() { # preflight <env>
 
 cmd_up() {
   TARGET="${1:-}"; [ "$TARGET" = dev ] || [ "$TARGET" = prod ] || die "gebruik: scripts/infra.sh up dev|prod"
+  [ "$TARGET" = dev ] && [ "$(sed -nE 's/^[[:space:]]*paused[[:space:]]*=[[:space:]]*([a-z]+).*/\1/p' "$INFRA/envs/dev/terraform.tfvars" 2>/dev/null)" = true ] \
+    && die "dev is gepauzeerd (ADR 0072); zet hem weer aan met: scripts/infra.sh resume dev"
   preflight "$TARGET"
   ensure_bucket
 
@@ -465,6 +469,35 @@ go_live() {
   warn "kleurhoek.nl stuurt nog niet door; DNS kan even duren. Controleer later: curl -I https://kleurhoek.nl"
 }
 
+# Dev pauzeren (ADR 0072): containers en database weg, de rest (registry, Zitadel, DNS, Access) blijft.
+# De database is daarna weg; resume maakt een nieuwe, lege (de catalogus komt bij de eerste start).
+set_tfvar() { # set_tfvar <bestand> <naam> <waarde>
+  if grep -qE "^[[:space:]]*$2[[:space:]]*=" "$1"; then sed -i '' -E "s|^([[:space:]]*$2[[:space:]]*=[[:space:]]*).*|\1$3|" "$1"
+  else printf '\n%s = %s\n' "$2" "$3" >> "$1"; fi
+}
+
+cmd_pause() {
+  [ "${1:-}" = dev ] || die "alleen dev kan gepauzeerd worden: scripts/infra.sh pause dev"
+  TARGET=dev
+  preflight dev
+  step "Dev pauzeren: containers en database gaan weg"
+  warn "de database van dev wordt verwijderd (accounts en instellingen op dev); productie blijft zoals hij is"
+  set_tfvar "$INFRA/envs/dev/terraform.tfvars" paused true
+  tf_init dev; tf_apply dev
+  github_sync dev
+  gh variable set DEV_PAUSED -R "$REPO" -b true >/dev/null
+  ok "dev staat uit; pushes naar main gaan niet meer naar dev, Deploy naar prod neemt de laatste groene commit op main"
+}
+
+cmd_resume() {
+  [ "${1:-}" = dev ] || die "gebruik: scripts/infra.sh resume dev"
+  set_tfvar "$INFRA/envs/dev/terraform.tfvars" paused false
+  gh variable set DEV_PAUSED -R "$REPO" -b false >/dev/null
+  cmd_up dev
+  run_deploy dev
+  ok "dev staat weer aan, met de laatste versie van main"
+}
+
 cmd_reset_keys() {
   for a in scw-access-key scw-secret-key cloudflare-api-token; do
     security delete-generic-password -s "$KEYCHAIN" -a "$a" >/dev/null 2>&1 || true
@@ -476,6 +509,8 @@ TARGET=""
 case "${1:-}" in
   check) preflight "${2:-dev}" ;;
   up) cmd_up "${2:-}" ;;
+  pause) cmd_pause "${2:-}" ;;
+  resume) cmd_resume "${2:-}" ;;
   reset-keys) cmd_reset_keys ;;
-  *) sed -n '2,9p' "$0" | sed 's/^# \{0,1\}//'; exit 1 ;;
+  *) sed -n '2,11p' "$0" | sed 's/^# \{0,1\}//'; exit 1 ;;
 esac

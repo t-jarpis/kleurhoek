@@ -20,7 +20,7 @@ output "public_hosts" {
 
 output "database" {
   value = {
-    id   = scaleway_rdb_instance.main.id
+    id   = one(scaleway_rdb_instance.main[*].id)
     host = local.db_endpoint.ip
     port = local.db_endpoint.port
   }

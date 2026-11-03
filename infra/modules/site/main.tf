@@ -62,6 +62,11 @@ variable "market_domains" {
   default     = []
   description = "Domeinen per land naast het hoofddomein (ADR 0040), bijvoorbeeld [\"kleurhoek.be\", \"kleurhoek.com\"]. Leeg = alles op het hoofddomein met /<markt>."
 }
+variable "paused" {
+  type        = bool
+  default     = false
+  description = "Omgeving gepauzeerd (ADR 0072): geen containers en geen database, dus vrijwel geen kosten. Weer aan met scripts/infra.sh resume."
+}
 variable "market_zones" {
   type        = map(string)
   default     = {}
@@ -164,7 +169,8 @@ module "scaleway" {
   admin_bootstrap_subjects = var.admin_bootstrap_subjects
   database                 = var.database
   scale                    = var.scale
-  apps_enabled             = var.apps_enabled
+  apps_enabled             = var.apps_enabled && !var.paused
+  database_enabled         = !var.paused
   edge_secret              = var.edge_secret
   zitadel_login_token      = module.zitadel.login_token
   passkey_domain           = var.domain
@@ -203,6 +209,7 @@ output "github" {
       CONTAINER_IDS  = jsonencode(module.scaleway.container_ids)
       SITE_URL       = local.site_url
       MARKETS        = var.markets
+      PAUSED         = tostring(var.paused)
     }
     secrets = {
       SCW_SECRET_KEY = module.scaleway.github_deploy.secret_key

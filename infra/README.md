@@ -56,6 +56,7 @@ De eerste start van de API maakt de tabellen aan en vult de catalogus. Het eigen
 ## Daarna
 - **Uitrollen**: push naar `main` gaat naar dev. Productie is een aparte actie: start *Deploy* met `environment=prod` (zet de versie live die op dev draait; vraagt één goedkeuring). De workflow bouwt, pusht, zet de image per container (eerst de API, die migreert) en doet een rooktest.
 - **Infra wijzigen**: `scripts/infra.sh up dev` (of `prod`). Terraform kijkt niet naar de image van de containers; die beheert GitHub.
+- **Dev pauzeren** (ADR 0072): `scripts/infra.sh pause dev` haalt de containers en de database van dev weg; registry, Zitadel, DNS-instellingen en Access blijven. `scripts/infra.sh resume dev` zet alles terug met een nieuwe, lege database en rolt de laatste versie van main uit. Zolang dev uit staat (`DEV_PAUSED`), gaat een push nergens heen en zet Deploy naar prod de laatste groene commit op main live.
 - **Deploy-sleutel roteren**: `terraform apply -replace=module.site.module.scaleway.scaleway_iam_api_key.deploy`, daarna `scripts/infra.sh up dev`; dat zet het nieuwe secret in GitHub.
 
 ## Organisaties en hun domeinen (ADR 0017)

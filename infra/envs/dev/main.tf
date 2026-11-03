@@ -57,6 +57,11 @@ variable "apps_enabled" {
   default     = true
   description = "Alleen bij de allereerste apply op false: dan bestaan de images nog niet."
 }
+variable "paused" {
+  type        = bool
+  default     = false
+  description = "Dev gepauzeerd (ADR 0072): geen containers en geen database. Zetten met scripts/infra.sh pause dev / resume dev."
+}
 variable "zitadel_domain" { type = string }
 variable "zitadel_key_file" {
   type        = string
@@ -137,6 +142,7 @@ module "site" {
   org_worker_secret        = data.terraform_remote_state.zone.outputs.worker_secrets["dev"]
   org_host_pattern         = "{slug}-dev.kleurhoek.nl"
   apps_enabled             = var.apps_enabled
+  paused                   = var.paused
   mail                     = var.mail
   # Domeinen per land (ADR 0040), zodra ze in envs/zone bestaan.
   market_domains = try(data.terraform_remote_state.zone.outputs.market_domains["dev"], [])

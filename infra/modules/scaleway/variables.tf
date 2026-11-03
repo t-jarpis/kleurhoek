@@ -87,6 +87,12 @@ variable "apps_enabled" {
   description = "False bij de allereerste apply: dan bestaan de images nog niet. Zie infra/README.md."
 }
 
+variable "database_enabled" {
+  type        = bool
+  default     = true
+  description = "False als de omgeving gepauzeerd is (ADR 0072): dan is er geen database. Weer aan = een nieuwe, lege database."
+}
+
 variable "org_host_pattern" {
   type        = string
   description = "Subdomein van een organisatie, met {slug} voor de code. Dev: {slug}-dev.kleurhoek.nl, prod: {slug}.kleurhoek.nl (ADR 0017)."

@@ -48,7 +48,9 @@ resource "random_password" "db" {
 }
 
 # Geen load_balancer-blok: dan heeft de database alleen een privé-endpoint.
+# Niet als de omgeving gepauzeerd is (database_enabled = false, ADR 0072).
 resource "scaleway_rdb_instance" "main" {
+  count                     = var.database_enabled ? 1 : 0
   name                      = local.name
   node_type                 = var.database.node_type
   engine                    = var.database.engine
@@ -71,20 +73,39 @@ resource "scaleway_rdb_instance" "main" {
 }
 
 resource "scaleway_rdb_database" "kleurhoek" {
-  instance_id = scaleway_rdb_instance.main.id
+  count       = var.database_enabled ? 1 : 0
+  instance_id = scaleway_rdb_instance.main[0].id
   name        = "kleurhoek"
 }
 
 resource "scaleway_rdb_privilege" "admin" {
-  instance_id   = scaleway_rdb_instance.main.id
-  user_name     = scaleway_rdb_instance.main.user_name
-  database_name = scaleway_rdb_database.kleurhoek.name
+  count         = var.database_enabled ? 1 : 0
+  instance_id   = scaleway_rdb_instance.main[0].id
+  user_name     = scaleway_rdb_instance.main[0].user_name
+  database_name = scaleway_rdb_database.kleurhoek[0].name
   permission    = "all"
 }
 
+# Van vóór de pauzeknop (ADR 0072): dezelfde database, nu met count. Zonder deze regels zou Terraform hem vervangen.
+moved {
+  from = scaleway_rdb_instance.main
+  to   = scaleway_rdb_instance.main[0]
+}
+moved {
+  from = scaleway_rdb_database.kleurhoek
+  to   = scaleway_rdb_database.kleurhoek[0]
+}
+moved {
+  from = scaleway_rdb_privilege.admin
+  to   = scaleway_rdb_privilege.admin[0]
+}
+
 locals {
-  db_endpoint  = scaleway_rdb_instance.main.private_network[0]
-  database_url = "postgres://${scaleway_rdb_instance.main.user_name}:${random_password.db.result}@${local.db_endpoint.ip}:${local.db_endpoint.port}/${scaleway_rdb_database.kleurhoek.name}"
+  db_endpoint = {
+    ip   = var.database_enabled ? scaleway_rdb_instance.main[0].private_network[0].ip : ""
+    port = var.database_enabled ? scaleway_rdb_instance.main[0].private_network[0].port : 0
+  }
+  database_url = var.database_enabled ? "postgres://${scaleway_rdb_instance.main[0].user_name}:${random_password.db.result}@${local.db_endpoint.ip}:${local.db_endpoint.port}/${scaleway_rdb_database.kleurhoek[0].name}" : ""
 }
 
 # ---------- Registry ----------

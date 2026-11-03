@@ -34,7 +34,7 @@ locals {
         MIGRATE_ON_START         = "true"
         # De seed is aanvullend (overschrijft niets uit het admin panel): ook in prod bij elke start.
         SEED_ON_START    = "true"
-        DATABASE_CA      = scaleway_rdb_instance.main.certificate
+        DATABASE_CA      = one(scaleway_rdb_instance.main[*].certificate)
         ORG_HOST_PATTERN = var.org_host_pattern
         # Mail (ADR 0037): links in mails gaan naar de website.
         SITE_URL  = "https://${var.hosts.site}"
