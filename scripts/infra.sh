@@ -335,6 +335,30 @@ adopt_dns() { # adopt_dns <env>
       || { tail -20 /tmp/kh-import.log; die "overnemen van $name.kleurhoek.nl mislukte"; }
     ok "$name.kleurhoek.nl overgenomen in Terraform"
   done
+  # Domeinen per land (ADR 0071): www/dev.kleurhoek.be en .com. Een record van vroeger (met de hand, of van voor
+  # Terraform) blokkeert het nieuwe; neem het over, dan zet de apply het goed.
+  local zones host domain mzone
+  zones="$(terraform -chdir="$INFRA/envs/zone" output -json market_zones 2>/dev/null | jq -c --arg e "$env" '.[$e] // {}')"
+  [ -n "$zones" ] || zones='{}'
+  [ "$env" = prod ] && host="www" || host="dev"
+  for domain in $(jq -r 'keys[]' <<<"$zones"); do
+    mzone="$(jq -r --arg d "$domain" '.[$d]' <<<"$zones")"
+    addr="module.site.module.cloudflare.cloudflare_dns_record.market[\"$domain\"]"
+    grep -qF "$addr" <<<"$state" && continue
+    rec="$(curl -s -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" "https://api.cloudflare.com/client/v4/zones/$mzone/dns_records?name=$host.$domain" \
+      | jq -c '[.result[]? | select(.type == "A" or .type == "AAAA" or .type == "CNAME")]')"
+    [ "$(jq length <<<"$rec")" -gt 0 ] || continue
+    info="$(jq -r '.[] | "\(.type) \(.content)"' <<<"$rec" | paste -sd ',' -)"
+    warn "$host.$domain bestaat al in Cloudflare buiten Terraform: $info"
+    if [ "$(jq length <<<"$rec")" -gt 1 ]; then
+      problem "$host.$domain heeft meerdere records; verwijder ze in Cloudflare ($domain › DNS › Records) en draai opnieuw"; continue
+    fi
+    if [ "$env" = prod ]; then read -rp "  Overnemen en laten wijzen naar de website? (ja/nee) " a; [ "$a" = ja ] || die "afgebroken"; fi
+    id="$(jq -r '.[0].id' <<<"$rec")"
+    terraform -chdir="$dir" import -input=false "$addr" "$mzone/$id" >/tmp/kh-import.log 2>&1 \
+      || { tail -20 /tmp/kh-import.log; die "overnemen van $host.$domain mislukte"; }
+    ok "$host.$domain overgenomen in Terraform"
+  done
   [ ${#PROBLEMS[@]} -eq 0 ] || die "eerst de DNS-records hierboven opruimen"
 }
 
