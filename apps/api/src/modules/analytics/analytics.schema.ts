@@ -7,6 +7,8 @@ export const EVENT_TYPES = [
   "page_view", "plate_view", "plate_colored", "plate_completed", "pdf_download", "print", "signup", "login",
   // Winkel: de lijst "Wat heb je nodig" is in beeld geweest, en iemand klikte door naar een product.
   "materials_view", "product_click",
+  // Delen vanuit de kleurstudio (ADR 0074): iemand deelde, en iemand kwam binnen via een gedeelde link (?d=1).
+  "share", "shared_visit",
 ] as const;
 export type EventType = (typeof EVENT_TYPES)[number];
 
@@ -44,6 +46,8 @@ export const dailyTotals = analyticsSchema.table("daily_totals", {
   downloads: integer("downloads").notNull().default(0),
   prints: integer("prints").notNull().default(0),
   completions: integer("completions").notNull().default(0),
+  shares: integer("shares").notNull().default(0),
+  sharedVisits: integer("shared_visits").notNull().default(0),
   materialsViews: integer("materials_views").notNull().default(0),
   productClicks: integer("product_clicks").notNull().default(0),
   uniqueVisitors: integer("unique_visitors").notNull().default(0),

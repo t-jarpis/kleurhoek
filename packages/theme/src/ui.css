@@ -680,3 +680,12 @@ a.ui-chip { text-decoration: none; }
 .ui-heatmap-legend { display: flex; align-items: center; gap: var(--space-2); margin-block-start: var(--space-2); font-size: 12px; color: var(--color-text-muted); }
 .ui-heatmap-legend i { display: inline-block; inline-size: var(--space-4); block-size: var(--space-3); border-radius: var(--radius-xs); background: color-mix(in srgb, var(--chart-1) calc(var(--heat, 0) * 100%), var(--chart-grid)); }
 @media (max-width: 760px) { .ui-heatmap thead th:nth-child(odd):not(:first-child) { color: transparent; } }
+
+/* ---------- ShareSheet (ADR 0074): delen vanuit de kleurstudio ---------- */
+.kh-sharesheet-options { display: grid; gap: var(--space-2); margin-block: var(--space-4); }
+.kh-sharesheet-options .ui-btn { justify-content: flex-start; inline-size: 100%; }
+.kh-sharesheet-options .hint { margin: calc(var(--space-1) * -1) 0 var(--space-2); color: var(--color-text-muted); font-size: 14px; }
+.kh-sharesheet-fallback { display: grid; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface-sunken); }
+.kh-sharesheet-fallback .hint { margin: 0; }
+.kh-sharesheet-link { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.kh-sharesheet > .hint { color: var(--color-text-muted); font-size: 14px; margin: 0; }

@@ -53,12 +53,13 @@ export class AnalyticsService {
         pageViews: count("page_view"), plateViews: count("plate_view"), downloads: count("pdf_download"),
         prints: count("print"), completions: count("plate_completed"),
         materialsViews: count("materials_view"), productClicks: count("product_click"),
+        shares: count("share"), sharedVisits: count("shared_visit"),
         uniqueVisitors: sql<number>`count(distinct ${events.visitorHash})::int`,
       }).from(events)
         .where(and(eq(events.tenantId, tenantId), gte(events.occurredAt, start), lt(events.occurredAt, end)))
         .groupBy(sql`1`, events.market, sql`3`);
       await tx.delete(dailyTotals).where(and(eq(dailyTotals.tenantId, tenantId), eq(dailyTotals.day, day)));
-      if (rows.length) await tx.insert(dailyTotals).values(rows.map((r) => ({ tenantId, day, plateSlug: r.plate, market: r.market, country: r.country, pageViews: r.pageViews, plateViews: r.plateViews, downloads: r.downloads, prints: r.prints, completions: r.completions, materialsViews: r.materialsViews, productClicks: r.productClicks, uniqueVisitors: r.uniqueVisitors })));
+      if (rows.length) await tx.insert(dailyTotals).values(rows.map((r) => ({ tenantId, day, plateSlug: r.plate, market: r.market, country: r.country, pageViews: r.pageViews, plateViews: r.plateViews, downloads: r.downloads, prints: r.prints, completions: r.completions, materialsViews: r.materialsViews, productClicks: r.productClicks, shares: r.shares, sharedVisits: r.sharedVisits, uniqueVisitors: r.uniqueVisitors })));
 
       const clicks = await tx.select({
         product: sql<string>`${events.productSlug}`, plate: sql<string>`coalesce(${events.plateSlug}, '')`, market: events.market,
@@ -138,6 +139,7 @@ export class AnalyticsService {
         prints: sql<number>`coalesce(sum(${dailyTotals.prints}), 0)::int`, pdfDownloads: sql<number>`coalesce(sum(${dailyTotals.downloads}), 0)::int`,
         materialsViews: sql<number>`coalesce(sum(${dailyTotals.materialsViews}), 0)::int`, productClicks: sql<number>`coalesce(sum(${dailyTotals.productClicks}), 0)::int`,
         downloads: sql<number>`coalesce(sum(${dailyTotals.downloads} + ${dailyTotals.prints}), 0)::int`, completions: sql<number>`coalesce(sum(${dailyTotals.completions}), 0)::int`,
+        shares: sql<number>`coalesce(sum(${dailyTotals.shares}), 0)::int`, sharedVisits: sql<number>`coalesce(sum(${dailyTotals.sharedVisits}), 0)::int`,
       }).from(dailyTotals).where(range(a, z)).then((r) => r[0]!);
       const visitors = (a: string, z: string) => tx.select({ visitors: sql<number>`coalesce(sum(${dailyVisitors.visitors}), 0)::int` })
         .from(dailyVisitors).where(and(eq(dailyVisitors.tenantId, tenantId), eq(dailyVisitors.org, ALL_ORGS), gte(dailyVisitors.day, a), lte(dailyVisitors.day, z))).then((r) => r[0]!.visitors);
@@ -233,6 +235,7 @@ export class AnalyticsService {
         plate: dailyTotals.plateSlug,
         views: sql<number>`sum(${dailyTotals.plateViews})::int`, downloads: sql<number>`sum(${dailyTotals.downloads})::int`,
         prints: sql<number>`sum(${dailyTotals.prints})::int`, completions: sql<number>`sum(${dailyTotals.completions})::int`,
+        shares: sql<number>`sum(${dailyTotals.shares})::int`, sharedVisits: sql<number>`sum(${dailyTotals.sharedVisits})::int`,
       }).from(dailyTotals).where(and(where, sql`${dailyTotals.plateSlug} <> ''`))
         .groupBy(dailyTotals.plateSlug).orderBy(desc(sql`sum(${dailyTotals.downloads}) + sum(${dailyTotals.prints})`)).limit(20),
       byCountry: await tx.select({ country: dailyTotals.country, pageViews: sql<number>`sum(${dailyTotals.pageViews})::int`, plateViews: sql<number>`sum(${dailyTotals.plateViews})::int` })

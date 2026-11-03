@@ -17,6 +17,8 @@ import { fridge } from "@/lib/local";
 import { ColorMixer, LinePicker, PatternPicker, Range, SunDial, ToolPicker } from "./Atelier";
 import { Sheet, sheetPlate } from "./Sheet";
 import { TogetherPanel, useTogether } from "./Together";
+import { ShareButton } from "./Share";
+import { decodeFills, encodeFills, SHARE_PARAM, SHARED_FLAG } from "@/lib/share";
 
 interface Saved { fills: Fills; name: string; art: Art }
 const storageKey = (p: PlateDetail) => `kh:${p.slug}:v${p.version}`;
@@ -91,7 +93,19 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
   // Pas opslaan na het laden: anders overschrijft de lege beginstand het bewaarde werk.
   const [loaded, setLoaded] = useState<string | null>(null);
   useEffect(() => {
-    const s = load(plate); setFills(s.fills); setName(s.name); setArt(s.art); setLoaded(storageKey(plate));
+    const s = load(plate);
+    // Via een gedeelde link (ADR 0074): ?k= zet de gedeelde kleuren klaar, ?d=1 tellen we één keer. Daarna weg uit
+    // de adresbalk, zodat herladen gewoon het eigen werk van dit apparaat laat zien.
+    const q = new URLSearchParams(window.location.search);
+    const linked = decodeFills(q.get(SHARE_PARAM), plate.regionCount);
+    if (q.get(SHARED_FLAG) === "1") track({ type: "shared_visit", market, plate: plate.slug });
+    if (q.has(SHARE_PARAM) || q.has(SHARED_FLAG)) {
+      q.delete(SHARE_PARAM); q.delete(SHARED_FLAG);
+      window.history.replaceState(null, "", `${window.location.pathname}${q.size ? `?${q}` : ""}${window.location.hash}`);
+    }
+    if (linked) { setFills(linked); setName(""); setArt(EMPTY_ART); flash(t.shareKit.arrived); }
+    else { setFills(s.fills); setName(s.name); setArt(s.art); }
+    setLoaded(storageKey(plate));
     setAtelier(readLocal<unknown>(ATELIER, false) === true);
     const r = readLocal<unknown>(RECENT, []);
     setRecent(Array.isArray(r) ? r.filter((x): x is string => typeof x === "string" && /^#[0-9a-f]{6}$/i.test(x)).slice(0, 8) : []);
@@ -303,6 +317,21 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
     canvas.toBlob((b) => b && download(b, `kleurhoek-${plate.slug}.png`), "image/png");
   };
 
+  /** Plaatje om te delen (ADR 0074): zonder de eigen tekst (vaak een naam), met het domein eronder. */
+  const shareImage = async (): Promise<Blob | null> => {
+    const s = svg.current; if (!s) return null;
+    const doc = new DOMParser().parseFromString(snapshotSvg(s), "image/svg+xml");
+    doc.querySelectorAll(".nm").forEach((n) => n.remove());
+    const text = new XMLSerializer().serializeToString(doc.documentElement);
+    // De plaat draagt zelf al het domein onderaan; alleen de eigen tekst (.nm) gaat eruit.
+    const size = canvasSize(s, 1200);
+    const canvas = document.createElement("canvas");
+    Object.assign(canvas, size);
+    await drawSvg(canvas, text, paper());
+    return new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
+  };
+  const shareCode = () => encodeFills(fills, plate.regionCount, pickColor);
+
   const brush = isBrush(tool);
   return (
     <div className="wrap" data-mode="kind">
@@ -399,6 +428,9 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
           <div className="row">
             <button type="button" className="btn" onClick={undo} disabled={shared ? !art.ops.some((o) => together.mine(o.id)) : !art.ops.length}>{t.undo}</button>
             <button type="button" className="btn" onClick={reset}>{sure ? t.resetSure : t.reset}</button>
+          </div>
+          <div className="row">
+            <ShareButton t={t.shareKit} market={market} slug={plate.slug} title={plate.name} colored={hasColor && !shared} code={shareCode} image={shareImage} />
           </div>
           <TogetherPanel t={t} together={together} onStart={startTogether} joinHref={href("/samen")} />
           {atelier && hasColor && (

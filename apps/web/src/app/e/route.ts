@@ -5,7 +5,7 @@ import { ingest, normalizeMarket } from "@/lib/ingest";
  * Analytics-ingang (zelfde contract als de Cloudflare Worker). Het IP-adres en de user agent
  * worden nergens opgeslagen; zie lib/ingest.ts. Doorkliks naar producten tellen we in /ga.
  */
-const TYPES = new Set(["page_view", "plate_view", "plate_colored", "plate_completed", "pdf_download", "print", "materials_view"]);
+const TYPES = new Set(["page_view", "plate_view", "plate_colored", "plate_completed", "pdf_download", "print", "materials_view", "share", "shared_visit"]);
 const PAGES = new Set(["home", "plaat", "boekje", "account", "niet-gevonden", "disclaimer", "privacy", "contact", "themas", "thema", "eigen-omgeving", "onderwerp", "aftelkalender", "sinterklaaskalender", "cadeaulabels", "lespakket", "samen"]);
 
 export async function POST(req: NextRequest) {

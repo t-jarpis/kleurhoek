@@ -1,0 +1,2 @@
+ALTER TABLE "analytics"."daily_totals" ADD COLUMN "shares" integer DEFAULT 0 NOT NULL;--> statement-breakpoint
+ALTER TABLE "analytics"."daily_totals" ADD COLUMN "shared_visits" integer DEFAULT 0 NOT NULL;

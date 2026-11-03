@@ -50,6 +50,19 @@ describe("dashboard: pagina's, tijdreeksen en accounts (ADR 0020)", () => {
     expect((await admin("/v1/admin/analytics/activity?from=2026-10-20&to=2026-10-20")).statusCode).toBe(200);
   });
 
+  it("telt delen en binnenkomen via een gedeelde link, per plaat (ADR 0074)", async () => {
+    const day = "2026-10-25", at = `${day}T12:00:00.000Z`;
+    expect((await ingest([
+      ev("share", { plate: "kat", org: "kleurhoek", visitorHash: "cccccccccccccccc", occurredAt: at }),
+      ev("share", { plate: "kat", org: "kleurhoek", visitorHash: "cccccccccccccccc", occurredAt: at }),
+      ev("shared_visit", { plate: "kat", org: "kleurhoek", visitorHash: "dddddddddddddddd", occurredAt: at }),
+    ])).statusCode).toBe(202);
+    await ctx.app.get(AnalyticsService).aggregateDay(TENANT, day);
+    const o = (await admin(`/v1/admin/analytics/overview?from=${day}&to=${day}`)).json();
+    expect(o.totals).toMatchObject({ shares: 2, sharedVisits: 1 });
+    expect(o.topPlates.find((p: { plate: string }) => p.plate === "kat")).toMatchObject({ shares: 2, sharedVisits: 1 });
+  });
+
   it("groepeert per week bij een lange periode en vult lege weken", () => {
     expect(buckets("2026-10-01", "2026-10-20", "week")).toEqual(["2026-09-28", "2026-10-05", "2026-10-12", "2026-10-19"]);
     expect(buckets("2026-10-19", "2026-10-21", "day")).toEqual(["2026-10-19", "2026-10-20", "2026-10-21"]);
