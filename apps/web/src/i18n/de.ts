@@ -28,6 +28,8 @@ export const de: Messages = {
   toFridge: "An den Kühlschrank", onFridge: "Am Kühlschrank aufgehängt",
   fridge: "Mein Kühlschrank", fridgeText: "Vorlagen, die du aufgehängt hast. Sie bleiben auf diesem Gerät. Tippe auf eine Vorlage, um weiterzumalen.",
   takeOff: "Abnehmen", takeOffSure: "Sicher?",
+  inBook: "In mein Malbuch", inBookOn: "In deinem Malbuch ✓", bookBar: (n: number) => `Mein Malbuch · ${n === 1 ? "1 Vorlage" : `${n} Vorlagen`}`, bookOpen: "Ansehen und drucken", bookClear: "Leeren", bookClearSure: "Sicher?",
+  moreTitle: "Noch eine dazu?", moreHint: "Such dir ein paar aus und druck sie auf einmal.", morePrint: (n: number) => `Zusammen drucken (${n})`, coverPrint: "Titelblatt mitdrucken",
   makeBook: "Malbuch machen", picking: "Vorlagen auswählen…", stop: "Fertig", viewBook: "Malbuch ansehen",
   picked: (n: number) => (n === 1 ? "1 Vorlage ausgewählt" : `${n} Vorlagen ausgewählt`), pickHint: "Tippe auf Vorlagen, um sie in dein Malbuch zu legen.",
   book: "Dein Malbuch", backToPicking: "← Vorlagen auswählen", cover: "Titelblatt", bookOwner: "Wem gehört das Malbuch?", bookOwnerPlaceholder: "Z. B. Sam",

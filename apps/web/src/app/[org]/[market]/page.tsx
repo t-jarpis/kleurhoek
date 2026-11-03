@@ -2,7 +2,7 @@ import Link from "next/link";
 import { AccountButton } from "@/components/AccountButton";
 import { baseFor } from "@/lib/base";
 import { link } from "@/lib/sites";
-import { BookButton, PickBar } from "@/components/BookPicker";
+import { BookButton } from "@/components/BookPicker";
 import { Fridge } from "@/components/Fridge";
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
@@ -78,7 +78,6 @@ export default async function Home({ params }: { params: Promise<{ org: string; 
       <Fridge market={market} plates={plates} language={language} />
       {org.isDefault && <SubscribeForm action={subscribe.bind(null, market)} language={language} />}
       <SiteFooter base={base} t={t} own={org.isDefault} />
-      <PickBar market={market} language={language} />
       <Track event={{ type: "page_view", market, page: "home" }} />
     </div>
   );

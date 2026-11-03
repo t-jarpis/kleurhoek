@@ -689,3 +689,15 @@ a.ui-chip { text-decoration: none; }
 .kh-sharesheet-fallback .hint { margin: 0; }
 .kh-sharesheet-link { display: flex; flex-wrap: wrap; gap: var(--space-2); }
 .kh-sharesheet > .hint { color: var(--color-text-muted); font-size: 14px; margin: 0; }
+
+/* ---------- PrintList (ADR 0076): boekje als printlijstje en "Nog eentje erbij?" na het printen ---------- */
+.kh-moreprint { display: grid; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface-sunken); }
+.kh-moreprint h2 { margin: 0; }
+.kh-moreprint .hint { margin: 0; color: var(--color-text-muted); font-size: 14px; }
+.kh-moreprint-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); }
+.kh-moreprint-list button { position: relative; display: grid; gap: var(--space-1); padding: var(--space-1); border: var(--border-thin) solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface); color: var(--color-text); font: 600 12px/1.25 var(--font-sans); text-align: center; cursor: pointer; }
+.kh-moreprint-list button[aria-pressed="true"] { border-color: var(--color-border-strong); box-shadow: inset 0 0 0 1px var(--color-border-strong); }
+.kh-moreprint-list .paper { aspect-ratio: 3 / 4; display: grid; place-items: center; overflow: hidden; border-radius: var(--radius-xs); background: var(--color-paper); }
+.kh-moreprint-list .paper img { inline-size: 100%; block-size: 100%; object-fit: contain; }
+.kh-moreprint-list .tick { position: absolute; inset-block-start: var(--space-1); inset-inline-end: var(--space-1); display: grid; place-items: center; inline-size: 20px; block-size: 20px; border-radius: 50%; background: var(--color-primary); color: var(--color-text-on-primary); font-size: 12px; }
+.pickbar-space { block-size: var(--space-24); }

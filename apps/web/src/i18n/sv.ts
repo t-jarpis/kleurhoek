@@ -28,6 +28,8 @@ export const sv: Messages = {
   toFridge: "Sätt upp på kylskåpet", onFridge: "Uppsatt på kylskåpet",
   fridge: "Mitt kylskåp", fridgeText: "Bilder som du har satt upp. De stannar på den här enheten. Tryck på en bild för att fortsätta färglägga.",
   takeOff: "Ta ner", takeOffSure: "Säker?",
+  inBook: "I mitt häfte", inBookOn: "I ditt häfte ✓", bookBar: (n: number) => `Mitt häfte · ${n === 1 ? "1 bild" : `${n} bilder`}`, bookOpen: "Visa och skriv ut", bookClear: "Töm", bookClearSure: "Säker?",
+  moreTitle: "En till?", moreHint: "Välj några och skriv ut dem på en gång.", morePrint: (n: number) => `Skriv ut tillsammans (${n})`, coverPrint: "Skriv ut framsidan också",
   makeBook: "Gör ett häfte", picking: "Väljer bilder…", stop: "Sluta", viewBook: "Visa häftet",
   picked: (n: number) => (n === 1 ? "1 bild vald" : `${n} bilder valda`), pickHint: "Tryck på bilder för att lägga dem i ditt häfte.",
   book: "Ditt målarhäfte", backToPicking: "← Välj bilder", cover: "Framsida", bookOwner: "Vems häfte är det?", bookOwnerPlaceholder: "T.ex. Sam",

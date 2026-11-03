@@ -28,6 +28,8 @@ export const en: Messages = {
   toFridge: "Put on the fridge", onFridge: "Hung on the fridge",
   fridge: "My fridge", fridgeText: "Pages you have hung up. They stay on this device. Tap a page to carry on colouring.",
   takeOff: "Take it down", takeOffSure: "Sure?",
+  inBook: "Add to my booklet", inBookOn: "In your booklet ✓", bookBar: (n: number) => `My booklet · ${n === 1 ? "1 page" : `${n} pages`}`, bookOpen: "View and print", bookClear: "Clear", bookClearSure: "Sure?",
+  moreTitle: "One more?", moreHint: "Pick a few and print them in one go.", morePrint: (n: number) => `Print them together (${n})`, coverPrint: "Print the cover too",
   makeBook: "Make a booklet", picking: "Choosing pages…", stop: "Stop", viewBook: "View booklet",
   picked: (n: number) => (n === 1 ? "1 page chosen" : `${n} pages chosen`), pickHint: "Tap pages to put them in your booklet.",
   book: "Your colouring booklet", backToPicking: "← Choose pages", cover: "Cover", bookOwner: "Whose booklet is it?", bookOwnerPlaceholder: "E.g. Sam",

@@ -35,6 +35,8 @@ export const ro: Messages = {
   toFridge: "Pune pe frigider", onFridge: "Pusă pe frigider",
   fridge: "Frigiderul meu", fridgeText: "Planșele pe care le-ai pus pe frigider. Rămân pe acest dispozitiv. Atinge o planșă ca să colorezi mai departe.",
   takeOff: "Dă-o jos", takeOffSure: "Sigur?",
+  inBook: "În cărticica mea", inBookOn: "În cărticica ta ✓", bookBar: (n: number) => `Cărticica mea · ${count(n, "planșă", "planșe")}`, bookOpen: "Vezi și printează", bookClear: "Golește", bookClearSure: "Sigur?",
+  moreTitle: "Încă una?", moreHint: "Alege câteva și printează-le pe toate odată.", morePrint: (n: number) => `Printează-le împreună (${n})`, coverPrint: "Printează și coperta",
   makeBook: "Fă o cărticică", picking: "Alegi planșe…", stop: "Gata", viewBook: "Vezi cărticica",
   picked: (n: number) => (n === 1 ? "1 planșă aleasă" : `${count(n, "planșă aleasă", "planșe alese")}`), pickHint: "Atinge planșele ca să le pui în cărticica ta.",
   book: "Cărticica ta de colorat", backToPicking: "← Alege planșe", cover: "Copertă", bookOwner: "A cui e cărticica?", bookOwnerPlaceholder: "De ex. Sam",

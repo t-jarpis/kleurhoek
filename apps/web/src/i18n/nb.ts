@@ -28,6 +28,8 @@ export const nb: Messages = {
   toFridge: "Heng på kjøleskapet", onFridge: "Hengt på kjøleskapet",
   fridge: "Mitt kjøleskap", fridgeText: "Ark du har hengt opp. De blir værende på denne enheten. Trykk på et ark for å fargelegge videre.",
   takeOff: "Ta ned", takeOffSure: "Sikker?",
+  inBook: "I heftet mitt", inBookOn: "I heftet ditt ✓", bookBar: (n: number) => `Heftet mitt · ${n} ark`, bookOpen: "Se og skriv ut", bookClear: "Tøm", bookClearSure: "Sikker?",
+  moreTitle: "Ett til?", moreHint: "Velg noen og skriv dem ut på én gang.", morePrint: (n: number) => `Skriv ut sammen (${n})`, coverPrint: "Skriv ut forsiden også",
   makeBook: "Lag et hefte", picking: "Velger ark…", stop: "Stopp", viewBook: "Se heftet",
   picked: (n: number) => (n === 1 ? "1 ark valgt" : `${n} ark valgt`), pickHint: "Trykk på ark for å legge dem i heftet ditt.",
   book: "Fargeleggingsheftet ditt", backToPicking: "← Velg ark", cover: "Forside", bookOwner: "Hvem sitt hefte er det?", bookOwnerPlaceholder: "F.eks. Sam",

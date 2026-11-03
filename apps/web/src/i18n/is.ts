@@ -32,6 +32,8 @@ export const is: Messages = {
   toFridge: "Hengja á ísskápinn", onFridge: "Hangir á ísskápnum",
   fridge: "Ísskápurinn minn", fridgeText: "Myndir sem þú hefur hengt upp. Þær haldast á þessu tæki. Ýttu á mynd til að halda áfram að lita.",
   takeOff: "Taka niður", takeOffSure: "Viss?",
+  inBook: "Í litabókina mína", inBookOn: "Í litabókinni þinni ✓", bookBar: (n: number) => `Litabókin mín · ${n} ${plates(n)}`, bookOpen: "Skoða og prenta", bookClear: "Tæma", bookClearSure: "Ertu viss?",
+  moreTitle: "Eina í viðbót?", moreHint: "Veldu nokkrar og prentaðu þær allar í einu.", morePrint: (n: number) => `Prenta saman (${n})`, coverPrint: "Prenta forsíðuna líka",
   makeBook: "Búa til litabók", picking: "Vel myndir…", stop: "Hætta", viewBook: "Skoða litabók",
   picked: (n: number) => `${n} ${plates(n)} ${plural(n, "valin", "valdar")}`, pickHint: "Ýttu á myndir til að setja þær í litabókina þína.",
   book: "Litabókin þín", backToPicking: "← Velja myndir", cover: "Forsíða", bookOwner: "Hver á litabókina?", bookOwnerPlaceholder: "T.d. Sara",

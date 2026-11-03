@@ -34,6 +34,8 @@ export const pl: Messages = {
   toFridge: "Na lodówkę", onFridge: "Wisi na lodówce",
   fridge: "Moja lodówka", fridgeText: "Plansze, które wiszą na twojej lodówce. Zostają na tym urządzeniu. Stuknij planszę, aby dalej kolorować.",
   takeOff: "Zdejmij", takeOffSure: "Na pewno?",
+  inBook: "Do mojej książeczki", inBookOn: "W twojej książeczce ✓", bookBar: (n: number) => `Moja książeczka · ${n} ${plural(n, "plansza", "plansze", "plansz")}`, bookOpen: "Zobacz i drukuj", bookClear: "Wyczyść", bookClearSure: "Na pewno?",
+  moreTitle: "Jeszcze jedna?", moreHint: "Wybierz kilka i wydrukuj je za jednym razem.", morePrint: (n: number) => `Wydrukuj je razem (${n})`, coverPrint: "Wydrukuj też okładkę",
   makeBook: "Zrób książeczkę", picking: "Wybieranie plansz…", stop: "Zakończ", viewBook: "Zobacz książeczkę",
   picked: (n: number) => `Wybrano ${n} ${plural(n, "planszę", "plansze", "plansz")}`, pickHint: "Stuknij plansze, aby dodać je do książeczki.",
   book: "Twoja książeczka do kolorowania", backToPicking: "← Wybieranie plansz", cover: "Okładka", bookOwner: "Czyja jest ta książeczka?", bookOwnerPlaceholder: "Np. Zosia",

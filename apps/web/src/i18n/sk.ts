@@ -32,6 +32,8 @@ export const sk: Messages = {
   toFridge: "Zavesiť na chladničku", onFridge: "Visí na chladničke",
   fridge: "Moja chladnička", fridgeText: "Obrázky, ktoré si si zavesil(a). Zostávajú v tomto zariadení. Ťukni na obrázok a vyfarbuj ďalej.",
   takeOff: "Zvesiť", takeOffSure: "Naozaj?",
+  inBook: "Do môjho zošita", inBookOn: "V tvojom zošite ✓", bookBar: (n: number) => `Môj zošit · ${n} ${plural(n, "obrázok", "obrázky", "obrázkov")}`, bookOpen: "Pozrieť a vytlačiť", bookClear: "Vyprázdniť", bookClearSure: "Naozaj?",
+  moreTitle: "Ešte jeden?", moreHint: "Vyber si pár a vytlač ich naraz.", morePrint: (n: number) => `Vytlačiť spolu (${n})`, coverPrint: "Vytlačiť aj obálku",
   makeBook: "Urobiť zošit", picking: "Vyberám obrázky…", stop: "Hotovo", viewBook: "Pozrieť zošit",
   picked: (n: number) => `${n} ${plural(n, "vybraný obrázok", "vybrané obrázky", "vybraných obrázkov")}`, pickHint: "Ťukni na obrázky, ktoré chceš dať do zošita.",
   book: "Tvoj zošit omaľovánok", backToPicking: "← Vybrať obrázky", cover: "Obálka", bookOwner: "Komu zošit patrí?", bookOwnerPlaceholder: "Napr. Sára",

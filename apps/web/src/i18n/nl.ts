@@ -56,6 +56,8 @@ export const nl = {
   toFridge: "Op de koelkast", onFridge: "Opgehangen op de koelkast",
   fridge: "Mijn koelkast", fridgeText: "Platen die je hebt opgehangen. Ze blijven op dit apparaat. Tik op een plaat om verder te kleuren.",
   takeOff: "Haal eraf", takeOffSure: "Zeker?",
+  inBook: "In mijn boekje", inBookOn: "In je boekje ✓", bookBar: (n: number) => `Mijn boekje · ${n === 1 ? "1 plaat" : `${n} platen`}`, bookOpen: "Bekijk en print", bookClear: "Leegmaken", bookClearSure: "Zeker?",
+  moreTitle: "Nog eentje erbij?", moreHint: "Kies er een paar en print ze in één keer.", morePrint: (n: number) => `Print ze samen (${n})`, coverPrint: "Voorblad meeprinten",
   makeBook: "Maak een boekje", picking: "Platen kiezen…", stop: "Stoppen", viewBook: "Bekijk boekje",
   picked: (n: number) => (n === 1 ? "1 plaat gekozen" : `${n} platen gekozen`), pickHint: "Tik op platen om ze in je boekje te zetten.",
   book: "Jouw kleurboekje", backToPicking: "← Platen kiezen", cover: "Voorblad", bookOwner: "Van wie is het boekje?", bookOwnerPlaceholder: "Bijv. Sam",

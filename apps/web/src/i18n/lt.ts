@@ -34,6 +34,8 @@ export const lt: Messages = {
   toFridge: "Ant šaldytuvo", onFridge: "Pakabinta ant šaldytuvo",
   fridge: "Mano šaldytuvas", fridgeText: "Paveikslėliai, kuriuos pakabinai. Jie lieka šiame įrenginyje. Paliesk paveikslėlį ir spalvink toliau.",
   takeOff: "Nuimti", takeOffSure: "Tikrai?",
+  inBook: "Į mano knygelę", inBookOn: "Tavo knygelėje ✓", bookBar: (n: number) => `Mano knygelė · ${n === 1 ? "1 paveikslėlis" : `paveikslėlių: ${n}`}`, bookOpen: "Peržiūrėti ir spausdinti", bookClear: "Išvalyti", bookClearSure: "Tikrai?",
+  moreTitle: "Dar vieną?", moreHint: "Išsirink kelis ir atspausdink juos iš karto.", morePrint: (n: number) => `Spausdinti kartu (${n})`, coverPrint: "Spausdinti ir viršelį",
   makeBook: "Sukurti knygelę", picking: "Renkami paveikslėliai…", stop: "Baigti", viewBook: "Peržiūrėti knygelę",
   picked: (n: number) => (n === 1 ? "Pasirinktas 1 paveikslėlis" : `Pasirinkta paveikslėlių: ${n}`), pickHint: "Paliesk paveikslėlius, kad įdėtum juos į savo knygelę.",
   book: "Tavo spalvinimo knygelė", backToPicking: "← Rinktis paveikslėlius", cover: "Viršelis", bookOwner: "Kieno ši knygelė?", bookOwnerPlaceholder: "Pvz., Sam",

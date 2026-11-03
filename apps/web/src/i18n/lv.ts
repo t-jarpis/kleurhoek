@@ -31,6 +31,8 @@ export const lv: Messages = {
   toFridge: "Uz ledusskapja", onFridge: "Piekārts uz ledusskapja",
   fridge: "Mans ledusskapis", fridgeText: "Lapas, ko esi piekāris. Tās paliek šajā ierīcē. Pieskaries lapai, lai krāsotu tālāk.",
   takeOff: "Noņemt", takeOffSure: "Droši?",
+  inBook: "Manā grāmatiņā", inBookOn: "Tavā grāmatiņā ✓", bookBar: (n: number) => `Mana grāmatiņa · ${n === 1 ? "1 lapa" : `${n} lapas`}`, bookOpen: "Skatīt un drukāt", bookClear: "Iztukšot", bookClearSure: "Tiešām?",
+  moreTitle: "Vēl vienu?", moreHint: "Izvēlies dažas un izdrukā tās visas reizē.", morePrint: (n: number) => `Drukāt kopā (${n})`, coverPrint: "Drukāt arī vāku",
   makeBook: "Izveidot grāmatiņu", picking: "Izvēlas lapas…", stop: "Beigt", viewBook: "Skatīt grāmatiņu",
   picked: (n: number) => (n === 1 ? "Izvēlēta 1 lapa" : `Izvēlētas ${n} lapas`), pickHint: "Pieskaries lapām, lai ieliktu tās savā grāmatiņā.",
   book: "Tava krāsojamā grāmatiņa", backToPicking: "← Izvēlēties lapas", cover: "Vāks", bookOwner: "Kam pieder grāmatiņa?", bookOwnerPlaceholder: "Piem., Sam",

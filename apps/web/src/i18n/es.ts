@@ -28,6 +28,8 @@ export const es: Messages = {
   toFridge: "A la nevera", onFridge: "Colgado en la nevera",
   fridge: "Mi nevera", fridgeText: "Los dibujos que has colgado. Se quedan en este dispositivo. Toca un dibujo para seguir coloreando.",
   takeOff: "Quitar", takeOffSure: "¿Seguro?",
+  inBook: "A mi cuadernito", inBookOn: "En tu cuadernito ✓", bookBar: (n: number) => `Mi cuadernito · ${n === 1 ? "1 dibujo" : `${n} dibujos`}`, bookOpen: "Ver e imprimir", bookClear: "Vaciar", bookClearSure: "¿De verdad?",
+  moreTitle: "¿Uno más?", moreHint: "Elige unos cuantos e imprímelos de una vez.", morePrint: (n: number) => `Imprímelos juntos (${n})`, coverPrint: "Imprimir también la portada",
   makeBook: "Haz un cuadernito", picking: "Eligiendo dibujos…", stop: "Parar", viewBook: "Ver cuadernito",
   picked: (n: number) => (n === 1 ? "1 dibujo elegido" : `${n} dibujos elegidos`), pickHint: "Toca los dibujos para ponerlos en tu cuadernito.",
   book: "Tu cuadernito para colorear", backToPicking: "← Elegir dibujos", cover: "Portada", bookOwner: "¿De quién es el cuadernito?", bookOwnerPlaceholder: "Ej.: Sam",

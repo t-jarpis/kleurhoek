@@ -32,6 +32,8 @@ export const cs: Messages = {
   toFridge: "Pověsit na lednici", onFridge: "Visí na lednici",
   fridge: "Moje lednice", fridgeText: "Obrázky, které sis pověsil(a). Zůstávají v tomto zařízení. Klepni na obrázek a vybarvuj dál.",
   takeOff: "Sundat", takeOffSure: "Opravdu?",
+  inBook: "Do mého sešitku", inBookOn: "V tvém sešitku ✓", bookBar: (n: number) => `Můj sešitek · ${n} ${plural(n, "obrázek", "obrázky", "obrázků")}`, bookOpen: "Prohlédnout a vytisknout", bookClear: "Vyprázdnit", bookClearSure: "Opravdu?",
+  moreTitle: "Ještě jeden?", moreHint: "Vyber si pár obrázků a vytiskni je najednou.", morePrint: (n: number) => `Vytisknout je společně (${n})`, coverPrint: "Vytisknout i obálku",
   makeBook: "Udělat sešitek", picking: "Vybírám obrázky…", stop: "Hotovo", viewBook: "Prohlédnout sešitek",
   picked: (n: number) => `${n} ${plural(n, "vybraný obrázek", "vybrané obrázky", "vybraných obrázků")}`, pickHint: "Klepni na obrázky, které chceš dát do sešitku.",
   book: "Tvůj sešitek omalovánek", backToPicking: "← Vybrat obrázky", cover: "Obálka", bookOwner: "Komu sešitek patří?", bookOwnerPlaceholder: "Např. Ája",

@@ -28,6 +28,8 @@ export const sq: Messages = {
   toFridge: "Vare në frigorifer", onFridge: "Varur në frigorifer",
   fridge: "Frigoriferi im", fridgeText: "Fletët që ke varur. Mbeten në këtë pajisje. Prek një fletë për të vazhduar ngjyrosjen.",
   takeOff: "Hiqe", takeOffSure: "Je i sigurt?",
+  inBook: "Në librthin tim", inBookOn: "Në librthin tënd ✓", bookBar: (n: number) => `Librthi im · ${n === 1 ? "1 fletë" : `${n} fletë`}`, bookOpen: "Shiko dhe printo", bookClear: "Zbraze", bookClearSure: "Vërtet?",
+  moreTitle: "Edhe një?", moreHint: "Zgjidh disa dhe printoji të gjitha njëherësh.", morePrint: (n: number) => `Printoji bashkë (${n})`, coverPrint: "Printo edhe kopertinën",
   makeBook: "Bëj një librth", picking: "Po zgjedh fletë…", stop: "Ndalo", viewBook: "Shiko librthin",
   picked: (n: number) => (n === 1 ? "1 fletë e zgjedhur" : `${n} fletë të zgjedhura`), pickHint: "Prek fletët për t'i vënë në librthin tënd.",
   book: "Librthi yt për ngjyrosje", backToPicking: "← Zgjidh fletë", cover: "Kopertina", bookOwner: "I kujt është librthi?", bookOwnerPlaceholder: "P.sh. Arta",

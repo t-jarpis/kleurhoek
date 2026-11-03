@@ -28,6 +28,8 @@ export const et: Messages = {
   toFridge: "Pane külmkapile", onFridge: "Külmkapil üleval",
   fridge: "Minu külmkapp", fridgeText: "Pildid, mille oled üles pannud. Need jäävad sellesse seadmesse. Puuduta pilti, et edasi värvida.",
   takeOff: "Võta maha", takeOffSure: "Kindel?",
+  inBook: "Minu raamatukesse", inBookOn: "Sinu raamatukeses ✓", bookBar: (n: number) => `Minu raamatuke · ${n === 1 ? "1 pilt" : `${n} pilti`}`, bookOpen: "Vaata ja prindi", bookClear: "Tühjenda", bookClearSure: "Kindel?",
+  moreTitle: "Veel üks?", moreHint: "Vali mõned ja prindi need korraga.", morePrint: (n: number) => `Prindi koos (${n})`, coverPrint: "Prindi ka kaas",
   makeBook: "Tee raamatuke", picking: "Piltide valimine…", stop: "Lõpeta", viewBook: "Vaata raamatukest",
   picked: (n: number) => (n === 1 ? "1 pilt valitud" : `${n} pilti valitud`), pickHint: "Puuduta pilte, et need raamatukesse panna.",
   book: "Sinu värvimisraamatuke", backToPicking: "← Vali pilte", cover: "Kaas", bookOwner: "Kelle raamatuke see on?", bookOwnerPlaceholder: "Nt Sam",

@@ -18,11 +18,14 @@ export async function generateMetadata({ params }: { params: Promise<{ market: s
  * Het boekje: voorblad plus de gekozen platen, elk op een eigen A4. De keuze staat in de URL
  * (`?platen=kat,vis`), zodat een boekje te delen is en er niets op de server bewaard hoeft te worden.
  */
-export default async function BookPage({ params, searchParams }: { params: Promise<{ org: string; market: string }>; searchParams: Promise<{ platen?: string | string[] }> }) {
+export default async function BookPage({ params, searchParams }: { params: Promise<{ org: string; market: string }>; searchParams: Promise<{ platen?: string | string[]; los?: string }> }) {
   const { org: orgSlug, market } = await params;
   const org = await getOrg(orgSlug);
   if (!org) notFound();
-  const slugs = parseBook((await searchParams).platen);
+  const sp = await searchParams;
+  const slugs = parseBook(sp.platen);
+  // ?los=1: losse platen na het printen (ADR 0076), zonder voorblad en zonder het eigen boekje te wijzigen.
+  const loose = sp.los === "1";
   const language = marketLanguage(market);
   const t = messages(market);
 
@@ -46,7 +49,7 @@ export default async function BookPage({ params, searchParams }: { params: Promi
   return (
     <>
       <Track event={{ type: "page_view", market, page: "boekje" }} />
-      <Booklet market={market} language={language} items={items.filter((i): i is BookPlate => i !== null)} mascots={mascots} title={t.book} />
+      <Booklet market={market} language={language} items={items.filter((i): i is BookPlate => i !== null)} mascots={mascots} title={t.book} loose={loose} />
     </>
   );
 }

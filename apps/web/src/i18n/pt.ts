@@ -28,6 +28,8 @@ export const pt: Messages = {
   toFridge: "Na geladeira", onFridge: "Pendurado na geladeira",
   fridge: "Minha geladeira", fridgeText: "Os desenhos que você pendurou. Eles ficam neste dispositivo. Toque em um desenho para continuar colorindo.",
   takeOff: "Tirar", takeOffSure: "Certeza?",
+  inBook: "No meu livrinho", inBookOn: "No seu livrinho ✓", bookBar: (n: number) => `Meu livrinho · ${n === 1 ? "1 desenho" : `${n} desenhos`}`, bookOpen: "Ver e imprimir", bookClear: "Esvaziar", bookClearSure: "Certeza?",
+  moreTitle: "Mais um?", moreHint: "Escolha alguns e imprima todos de uma vez.", morePrint: (n: number) => `Imprimir juntos (${n})`, coverPrint: "Imprimir a capa também",
   makeBook: "Monte um livrinho", picking: "Escolhendo desenhos…", stop: "Parar", viewBook: "Ver livrinho",
   picked: (n: number) => (n === 1 ? "1 desenho escolhido" : `${n} desenhos escolhidos`), pickHint: "Toque nos desenhos para colocá-los no seu livrinho.",
   book: "Seu livrinho para colorir", backToPicking: "← Escolher desenhos", cover: "Capa", bookOwner: "De quem é o livrinho?", bookOwnerPlaceholder: "Ex.: Sam",

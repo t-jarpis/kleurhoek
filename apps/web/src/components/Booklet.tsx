@@ -41,24 +41,26 @@ function Cover({ owner, count, mascots, t }: { owner: string; count: number; mas
   );
 }
 
-export function Booklet({ market, language, items, mascots, title }: { market: string; language: string; items: BookPlate[]; mascots: (string | null)[]; title: string }) {
+export function Booklet({ market, language, items, mascots, title, loose = false }: { market: string; language: string; items: BookPlate[]; mascots: (string | null)[]; title: string; loose?: boolean }) {
   const href = useHref();
   const t = messages(language);
   const router = useRouter();
   const [owner, setOwner] = useState("");
   const [numbers, setNumbers] = useState(false);
   const [learn, setLearn] = useState(false);
+  const [cover, setCover] = useState(!loose);
   const slugs = items.map((i) => i.plate.slug);
 
   // De URL is leidend; de keuze op de homepagina loopt mee, zodat verder kiezen gewoon werkt.
-  useEffect(() => { book.set(slugs); }, [slugs.join(",")]); // eslint-disable-line react-hooks/exhaustive-deps
+  // Losse platen (ADR 0076) laten het eigen boekje met rust.
+  useEffect(() => { if (!loose) book.set(slugs); }, [slugs.join(","), loose]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { try { setOwner(localStorage.getItem(OWNER) ?? ""); } catch { /* geen opslag */ } }, []);
   const changeOwner = (v: string) => { setOwner(v); try { localStorage.setItem(OWNER, v); } catch { /* geen opslag */ } };
 
   const remove = (slug: string) => {
     const next = slugs.filter((s) => s !== slug);
-    book.set(next);
-    router.replace(next.length ? href(`/boekje?platen=${next.join(",")}`) : href("/boekje"), { scroll: false });
+    if (!loose) book.set(next);
+    router.replace(next.length ? href(`/boekje?platen=${next.join(",")}${loose ? "&los=1" : ""}`) : href("/boekje"), { scroll: false });
   };
 
   return (
@@ -71,8 +73,13 @@ export function Booklet({ market, language, items, mascots, title }: { market: s
         <aside className="tools no-print">
           <div className="tool">
             <h2>{t.cover}</h2>
-            <label className="hint" htmlFor="owner">{t.bookOwner}</label>
-            <input id="owner" className="input" maxLength={16} placeholder={t.bookOwnerPlaceholder} autoComplete="off" value={owner} onChange={(e) => changeOwner(e.target.value)} />
+            <label className="chk"><input type="checkbox" checked={cover} onChange={(e) => setCover(e.target.checked)} /> <span>{t.coverPrint}</span></label>
+            {cover && (
+              <>
+                <label className="hint" htmlFor="owner">{t.bookOwner}</label>
+                <input id="owner" className="input" maxLength={16} placeholder={t.bookOwnerPlaceholder} autoComplete="off" value={owner} onChange={(e) => changeOwner(e.target.value)} />
+              </>
+            )}
           </div>
           <div className="tool">
             <h2>{t.sheetKind}</h2>
@@ -84,7 +91,7 @@ export function Booklet({ market, language, items, mascots, title }: { market: s
             onClick={() => { track({ type: "print", market }); window.print(); }}>{t.printBook}</button>
         </aside>
         <div className="sheets">
-          <div className="a4 cover"><Cover owner={owner} count={items.length} mascots={mascots} t={t} /><span className="pg">{t.cover}</span></div>
+          {cover && <div className="a4 cover"><Cover owner={owner} count={items.length} mascots={mascots} t={t} /><span className="pg">{t.cover}</span></div>}
           {items.map(({ plate, inner, ageWidth, foot }, k) => (
             <div className="a4" key={plate.slug}>
               <button type="button" className="x no-print" aria-label={t.remove(plate.name)} onClick={() => remove(plate.slug)}>×</button>

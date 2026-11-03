@@ -28,6 +28,8 @@ export const fi: Messages = {
   toFridge: "Ripusta jääkaapin oveen", onFridge: "Ripustettu jääkaapin oveen",
   fridge: "Oma jääkaappini", fridgeText: "Kuvat, jotka olet ripustanut. Ne pysyvät tällä laitteella. Napauta kuvaa jatkaaksesi värittämistä.",
   takeOff: "Ota pois", takeOffSure: "Varmasti?",
+  inBook: "Lisää vihkooni", inBookOn: "Vihkossasi ✓", bookBar: (n: number) => `Minun vihkoni · ${n === 1 ? "1 kuva" : `${n} kuvaa`}`, bookOpen: "Katso ja tulosta", bookClear: "Tyhjennä", bookClearSure: "Varmasti?",
+  moreTitle: "Vielä yksi?", moreHint: "Valitse muutama ja tulosta ne kerralla.", morePrint: (n: number) => `Tulosta yhdessä (${n})`, coverPrint: "Tulosta myös kansilehti",
   makeBook: "Tee vihko", picking: "Valitaan kuvia…", stop: "Lopeta", viewBook: "Katso vihko",
   picked: (n: number) => (n === 1 ? "1 kuva valittu" : `${n} kuvaa valittu`), pickHint: "Napauta kuvia lisätäksesi ne vihkoosi.",
   book: "Sinun väritysvihkosi", backToPicking: "← Valitse kuvia", cover: "Kansilehti", bookOwner: "Kenen vihko tämä on?", bookOwnerPlaceholder: "Esim. Sam",

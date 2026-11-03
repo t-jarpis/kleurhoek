@@ -4,7 +4,8 @@ import { FavoriteButton } from "./FavoriteButton";
 import Link from "next/link";
 import { Icon } from "@kleurhoek/theme";
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent as ReactPointerEvent } from "react";
-import type { PlateDetail } from "@/lib/types";
+import type { PlateDetail, PlateItem } from "@/lib/types";
+import { BookToggle, MoreToPrint } from "./BookPicker";
 import { messages } from "@/i18n/nl";
 import { track } from "@/lib/track";
 import { ERASER, FREE_PALETTE, progress, strokeWidth, type Fills, type Line } from "@/lib/studio";
@@ -44,7 +45,12 @@ interface View { s: number; x: number; y: number }
 const NO_ZOOM: View = { s: 1, x: 0, y: 0 };
 type Pt = { x: number; y: number };
 
-export function Studio({ plate, inner, ageWidth, market, language, accounts = false }: { plate: PlateDetail; inner: string; ageWidth: number; market: string; language: string; accounts?: boolean }) {
+export function Studio({ plate, inner, ageWidth, market, language, accounts = false, more = [] }: {
+  plate: PlateDetail; inner: string; ageWidth: number; market: string; language: string; accounts?: boolean;
+  /** Drie passende platen voor "Nog eentje erbij?" na het printen (ADR 0076). */
+  more?: PlateItem[];
+}) {
+  const [printed, setPrinted] = useState(false);
   const href = useHref();
   const t = messages(language);
   const lineKind = LINE_KINDS.has(plate.kind);
@@ -463,8 +469,10 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
           )}
           <div className="row">
             <button type="button" className="btn" onClick={toFridge}>{t.toFridge}</button>
-            <button type="button" className="btn primary" onClick={() => { track({ type: "print", market, plate: plate.slug }); window.print(); }}>{t.print}</button>
+            <BookToggle slug={plate.slug} language={language} />
+            <button type="button" className="btn primary" onClick={() => { track({ type: "print", market, plate: plate.slug }); window.print(); setPrinted(true); }}>{t.print}</button>
           </div>
+          {printed && <MoreToPrint plates={more} language={language} />}
         </aside>
       </div>
       {replayOpen && svg.current && (

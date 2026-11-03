@@ -35,6 +35,8 @@ export const sr: Messages = {
   toFridge: "Okači na frižider", onFridge: "Visi na frižideru",
   fridge: "Moj frižider", fridgeText: "Bojanke koje si okačio na frižider. Ostaju na ovom uređaju. Dodirni bojanku da nastaviš sa bojenjem.",
   takeOff: "Skini", takeOffSure: "Sigurno?",
+  inBook: "U moju knjižicu", inBookOn: "U tvojoj knjižici ✓", bookBar: (n: number) => `Moja knjižica · ${n} ${plates(n)}`, bookOpen: "Pogledaj i odštampaj", bookClear: "Isprazni", bookClearSure: "Sigurno?",
+  moreTitle: "Još jednu?", moreHint: "Izaberi nekoliko i odštampaj ih odjednom.", morePrint: (n: number) => `Odštampaj ih zajedno (${n})`, coverPrint: "Odštampaj i koricu",
   makeBook: "Napravi knjižicu", picking: "Biranje bojanki…", stop: "Prekini", viewBook: "Pogledaj knjižicu",
   picked: (n: number) => `Izabrano: ${n} ${plates(n)}`, pickHint: "Dodirni bojanke da ih staviš u svoju knjižicu.",
   book: "Tvoja knjižica za bojenje", backToPicking: "← Izaberi bojanke", cover: "Korica", bookOwner: "Čija je knjižica?", bookOwnerPlaceholder: "Npr. Luka",

@@ -11,6 +11,7 @@ import { hreflang, indexable, SITE } from "@/lib/seo";
 import { baseFor } from "@/lib/base";
 import { BaseProvider } from "@/components/Base";
 import { LangHint } from "@/components/MarketSwitch";
+import { PickBar } from "@/components/BookPicker";
 import { markFor, siteDomains, siteEntries } from "@/lib/sites";
 
 type Params = Promise<{ org: string; market: string }>;
@@ -47,7 +48,7 @@ export default async function MarketLayout({ children, params }: { children: Rea
     <html lang={hreflang(market)} {...(isLetter(market) ? { "data-paper": "letter" } : {})} {...(org.brand.theme ? { "data-kh-theme": org.brand.theme } : {})} {...(org.brand.font ? { "data-kh-font": org.brand.font } : {})}>
       {/* Nooit een lege string in <head>: browsers gooien tekst daar weg, dan klopt de hydratie niet en verdwijnt de CSS. */}
       <head>{css ? <style id="kh-brand">{css}</style> : null}</head>
-      <body><BaseProvider base={baseFor(org, market)} market={market} sites={siteEntries(markets, org.isDefault ? siteDomains() : null)} mark={org.isDefault ? markFor(market, siteDomains()) : null}><LangHint />{children}</BaseProvider></body>
+      <body><BaseProvider base={baseFor(org, market)} market={market} sites={siteEntries(markets, org.isDefault ? siteDomains() : null)} mark={org.isDefault ? markFor(market, siteDomains()) : null}><LangHint />{children}<PickBar language={marketLanguage(market)} /></BaseProvider></body>
     </html>
   );
 }

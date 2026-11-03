@@ -28,6 +28,8 @@ export const tr: Messages = {
   toFridge: "Buzdolabına as", onFridge: "Buzdolabında asılı",
   fridge: "Buzdolabım", fridgeText: "Astığın sayfalar. Bu cihazda kalırlar. Boyamaya devam etmek için bir sayfaya dokun.",
   takeOff: "İndir", takeOffSure: "Emin misin?",
+  inBook: "Kitapçığıma ekle", inBookOn: "Kitapçığında ✓", bookBar: (n: number) => `Kitapçığım · ${n} sayfa`, bookOpen: "Gör ve yazdır", bookClear: "Boşalt", bookClearSure: "Emin misin?",
+  moreTitle: "Bir tane daha?", moreHint: "Birkaç tane seç ve hepsini bir kerede yazdır.", morePrint: (n: number) => `Birlikte yazdır (${n})`, coverPrint: "Kapağı da yazdır",
   makeBook: "Kitapçık yap", picking: "Sayfalar seçiliyor…", stop: "Durdur", viewBook: "Kitapçığı gör",
   picked: (n: number) => `${n} sayfa seçildi`, pickHint: "Kitapçığına eklemek için sayfalara dokun.",
   book: "Boyama kitapçığın", backToPicking: "← Sayfa seç", cover: "Kapak", bookOwner: "Kitapçık kimin?", bookOwnerPlaceholder: "Örn. Elif",

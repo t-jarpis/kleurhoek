@@ -32,6 +32,8 @@ export const mk: Messages = {
   toFridge: "Закачи на фрижидер", onFridge: "Виси на фрижидерот",
   fridge: "Мој фрижидер", fridgeText: "Боенки што си ги закачил. Остануваат на овој уред. Допри боенка за да продолжиш со боење.",
   takeOff: "Симни", takeOffSure: "Сигурно?",
+  inBook: "Во мојата книшка", inBookOn: "Во твојата книшка ✓", bookBar: (n: number) => `Мојата книшка · ${n} ${plates(n)}`, bookOpen: "Види и печати", bookClear: "Испразни", bookClearSure: "Сигурно?",
+  moreTitle: "Уште една?", moreHint: "Избери неколку и печати ги одеднаш.", morePrint: (n: number) => `Печати ги заедно (${n})`, coverPrint: "Печати ја и корицата",
   makeBook: "Направи книшка", picking: "Избирање боенки…", stop: "Прекини", viewBook: "Види ја книшката",
   picked: (n: number) => `Избрано: ${n} ${plates(n)}`, pickHint: "Допри ги боенките за да ги ставиш во својата книшка.",
   book: "Твојата книшка за боење", backToPicking: "← Избери боенки", cover: "Корица", bookOwner: "Чија е книшката?", bookOwnerPlaceholder: "На пр. Марко",

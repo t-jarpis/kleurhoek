@@ -28,6 +28,8 @@ export const it: Messages = {
   toFridge: "Sul frigo", onFridge: "Appeso sul frigo",
   fridge: "Il mio frigo", fridgeText: "I disegni che hai appeso. Restano su questo dispositivo. Tocca un disegno per continuare a colorarlo.",
   takeOff: "Stacca", takeOffSure: "Sicuro?",
+  inBook: "Nel mio libretto", inBookOn: "Nel tuo libretto ✓", bookBar: (n: number) => `Il mio libretto · ${n === 1 ? "1 disegno" : `${n} disegni`}`, bookOpen: "Guarda e stampa", bookClear: "Svuota", bookClearSure: "Davvero?",
+  moreTitle: "Ancora uno?", moreHint: "Scegline qualcuno e stampali tutti insieme.", morePrint: (n: number) => `Stampali insieme (${n})`, coverPrint: "Stampa anche la copertina",
   makeBook: "Crea un libretto", picking: "Scegli i disegni…", stop: "Basta", viewBook: "Guarda il libretto",
   picked: (n: number) => (n === 1 ? "1 disegno scelto" : `${n} disegni scelti`), pickHint: "Tocca i disegni per metterli nel tuo libretto.",
   book: "Il tuo libretto da colorare", backToPicking: "← Scegli i disegni", cover: "Copertina", bookOwner: "Di chi è il libretto?", bookOwnerPlaceholder: "Es. Sam",

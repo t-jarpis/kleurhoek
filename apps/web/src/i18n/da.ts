@@ -28,6 +28,8 @@ export const da: Messages = {
   toFridge: "Sæt på køleskabet", onFridge: "Hængt op på køleskabet",
   fridge: "Mit køleskab", fridgeText: "Tegninger, du har hængt op. De bliver på denne enhed. Tryk på en tegning for at farvelægge videre.",
   takeOff: "Tag ned", takeOffSure: "Sikker?",
+  inBook: "Læg i mit hæfte", inBookOn: "I dit hæfte ✓", bookBar: (n: number) => `Mit hæfte · ${n === 1 ? "1 tegning" : `${n} tegninger`}`, bookOpen: "Se og print", bookClear: "Tøm", bookClearSure: "Sikker?",
+  moreTitle: "En mere?", moreHint: "Vælg et par stykker, og print dem på én gang.", morePrint: (n: number) => `Print dem sammen (${n})`, coverPrint: "Print også forsiden",
   makeBook: "Lav et hæfte", picking: "Vælger tegninger…", stop: "Stop", viewBook: "Se hæftet",
   picked: (n: number) => (n === 1 ? "1 tegning valgt" : `${n} tegninger valgt`), pickHint: "Tryk på tegninger for at sætte dem i dit hæfte.",
   book: "Dit malehæfte", backToPicking: "← Vælg tegninger", cover: "Forside", bookOwner: "Hvis hæfte er det?", bookOwnerPlaceholder: "F.eks. Sam",

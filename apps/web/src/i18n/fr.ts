@@ -28,6 +28,8 @@ export const fr: Messages = {
   toFridge: "Sur le frigo", onFridge: "Accroché sur le frigo",
   fridge: "Mon frigo", fridgeText: "Les coloriages que tu as accrochés. Ils restent sur cet appareil. Appuie sur un coloriage pour continuer à colorier.",
   takeOff: "Décrocher", takeOffSure: "Sûr ?",
+  inBook: "Dans mon cahier", inBookOn: "Dans ton cahier ✓", bookBar: (n: number) => `Mon cahier · ${n === 1 ? "1 coloriage" : `${n} coloriages`}`, bookOpen: "Voir et imprimer", bookClear: "Vider", bookClearSure: "Vraiment ?",
+  moreTitle: "Encore un ?", moreHint: "Choisis-en quelques-uns et imprime-les d'un coup.", morePrint: (n: number) => `Imprime-les ensemble (${n})`, coverPrint: "Imprimer aussi la couverture",
   makeBook: "Faire un cahier", picking: "Choix des coloriages…", stop: "Arrêter", viewBook: "Voir le cahier",
   picked: (n: number) => (n === 1 ? "1 coloriage choisi" : `${n} coloriages choisis`), pickHint: "Appuie sur des coloriages pour les mettre dans ton cahier.",
   book: "Ton cahier de coloriage", backToPicking: "← Choisir des coloriages", cover: "Couverture", bookOwner: "À qui est ce cahier ?", bookOwnerPlaceholder: "Ex. : Sam",

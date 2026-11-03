@@ -26,7 +26,10 @@ async function load(org: string, market: string, slug: string) {
     // Vergelijkbare platen (ADR 0055): zelfde onderwerp, eerst dezelfde leeftijd, hooguit 12.
     const same = all.filter((p) => p.category === plate.category && p.slug !== plate.slug);
     const related = [...same.filter((p) => p.age === plate.age), ...same.filter((p) => p.age !== plate.age)].slice(0, 12);
-    return { plate, taxonomy, inner, related, categoryCount: same.length + 1 };
+    // Nog eentje erbij? (ADR 0076): eerst dezelfde soort en leeftijd, dan dezelfde leeftijd, dan de rest.
+    const rank = (p: (typeof same)[number]) => (p.kind === plate.kind ? 0 : 2) + (p.age === plate.age ? 0 : 1);
+    const more = [...same].sort((a, b) => rank(a) - rank(b)).slice(0, 3);
+    return { plate, taxonomy, inner, related, more, categoryCount: same.length + 1 };
   } catch (e) {
     if (e instanceof NotFound) notFound();
     throw e;
@@ -47,7 +50,7 @@ export async function generateMetadata({ params }: { params: Promise<{ org: stri
 
 export default async function PlatePage({ params }: { params: Promise<{ org: string; market: string; slug: string }> }) {
   const { org, market, slug } = await params;
-  const { plate, taxonomy, inner, related, categoryCount } = await load(org, market, slug);
+  const { plate, taxonomy, inner, related, more, categoryCount } = await load(org, market, slug);
   const ageWidth = taxonomy.ages.find((a) => a.slug === plate.age)?.strokeWidth ?? 2.4;
   const language = marketLanguage(market);
   const o = await getOrg(org);
@@ -74,7 +77,7 @@ export default async function PlatePage({ params }: { params: Promise<{ org: str
         },
       ]) }} />}
       <Track event={{ type: "page_view", market, page: "plaat", plate: plate.slug }} />
-      <main><Studio plate={plate} inner={inner} ageWidth={ageWidth} market={market} language={language} accounts={o?.features.accounts ?? false} /></main>
+      <main><Studio plate={plate} inner={inner} ageWidth={ageWidth} market={market} language={language} accounts={o?.features.accounts ?? false} more={more} /></main>
       <div className="wrap after-studio" data-mode="ouder">
         <Crumbs base={base} label={t.crumbs} items={[{ name: "Kleurhoek", path: "" }, ...(topicName ? [{ name: topicName, path: topicPath }] : []), { name: plate.name }]} />
         {indexable(o) && (

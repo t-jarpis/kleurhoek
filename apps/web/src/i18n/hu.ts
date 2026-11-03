@@ -28,6 +28,8 @@ export const hu: Messages = {
   toFridge: "Fel a hűtőre", onFridge: "Kint van a hűtőn",
   fridge: "Az én hűtőm", fridgeText: "A lapok, amiket kitettél. Ezen az eszközön maradnak. Koppints egy lapra, és színezd tovább.",
   takeOff: "Levétel", takeOffSure: "Biztos?",
+  inBook: "A füzetembe", inBookOn: "A füzetedben ✓", bookBar: (n: number) => `A füzetem · ${n} lap`, bookOpen: "Megtekintés és nyomtatás", bookClear: "Ürítés", bookClearSure: "Biztos?",
+  moreTitle: "Még egyet?", moreHint: "Válassz ki néhányat, és nyomtasd ki őket egyszerre.", morePrint: (n: number) => `Nyomtasd ki együtt (${n})`, coverPrint: "A borítót is nyomtasd ki",
   makeBook: "Füzet készítése", picking: "Lapok kiválasztása…", stop: "Kész", viewBook: "Füzet megtekintése",
   picked: (n: number) => `${n} lap kiválasztva`, pickHint: "Koppints a lapokra, hogy bekerüljenek a füzetedbe.",
   book: "A színezőfüzeted", backToPicking: "← Lapok kiválasztása", cover: "Borító", bookOwner: "Kié a füzet?", bookOwnerPlaceholder: "Pl. Panni",
