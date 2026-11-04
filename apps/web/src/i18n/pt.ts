@@ -45,7 +45,7 @@ export const pt: Messages = {
   atPartner: (p: string) => `em ${p}`,
   partnerDisclosure: "Links de afiliado: se você comprar algo por esses links, a loja paga ao Kleurhoek uma pequena comissão. Você paga o mesmo. Assim os desenhos continuam grátis.",
   deleteAccount: "Excluir conta", deleteSure: "Certeza? Toque de novo",
-  disclaimer: "Aviso legal", privacy: "Privacidade", colorPreview: "Colorido", contact: "Contato", themes: "Temas dos criadores",
+  disclaimer: "Aviso legal", privacy: "Privacidade", colorPreview: "Colorido", newTitle: "Novidades", newLede: "Nossos desenhos mais novos, primeiro os mais recentes.", contact: "Contato", themes: "Temas dos criadores",
   contactTitle: "Contato", contactLede: "Tem uma pergunta, uma ideia para um desenho ou algo não está funcionando? Conte para a gente. Costumamos responder em poucos dias úteis.",
   contactTopic: "Sobre o que é?",
   contactTopics: { question: "Uma pergunta", idea: "Ideia para um desenho", bug: "Algo não funciona", partnership: "Parceria", copyright: "Direitos autorais", privacy: "Privacidade e meus dados" } as Record<string, string>,

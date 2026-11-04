@@ -20,7 +20,7 @@ export async function llmsTxt(markets: string[]): Promise<string> {
     const lines = [`## ${marketLabel(market)} (${market})`, "", `- [Kleurhoek](${pageUrl(market, "")}): ${t.lede}`];
     if (groups) for (const d of DIMENSIONS) for (const x of groups[d]) lines.push(`- [${topicTitle(t, x)}](${pageUrl(market, x.path)}): ${x.count}`);
     if (hasSintCalendar(market)) lines.push(`- [${SINT_TEXT.nav}](${pageUrl(market, "/sinterklaaskalender")}): ${SINT_TEXT.lede}`, `- [${GIFT_TEXT.nav}](${pageUrl(market, "/cadeaulabels")}): ${GIFT_TEXT.lede}`);
-    lines.push(`- [${t.advent.nav}](${pageUrl(market, "/aftelkalender")}): ${t.advent.lede}`, `- [${t.together.title}](${pageUrl(market, "/samen")}): ${t.together.lede}`);
+    lines.push(`- [${t.advent.nav}](${pageUrl(market, "/aftelkalender")}): ${t.advent.lede}`, `- [${t.together.title}](${pageUrl(market, "/samen")}): ${t.together.lede}`, `- [${t.newTitle}](${pageUrl(market, "/nieuw")}): ${t.newLede}`);
     if (taxonomy) for (const p of packs(plates, taxonomy)) lines.push(`- [${t.packs.packTitle(p.category.name, p.age.name)}](${pageUrl(market, `/lespakketten/${p.slug}`)}): ${p.plates.length}`);
     return lines.join("\n");
   }));

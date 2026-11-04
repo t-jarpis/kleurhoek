@@ -25,13 +25,15 @@ export default async function AccountPage({ params }: { params: Promise<{ org: s
     <div className="wrap narrow" data-mode="ouder">
       <Track event={{ type: "page_view", market, page: "account" }} />
       <header className="mast"><Logo market={market} org={org} /><a className="btn" href={link(base)}>{t.back}</a></header>
-      <h1 className="page-title">{t.account}</h1>
-      <AccountPanel market={market} t={{
-        login: t.login, logout: t.logout, loading: t.loading, accountError: t.accountError, name: t.name, email: t.email,
-        memberSince: t.memberSince, accountPrivacy: t.accountPrivacy, deleteAccount: t.deleteAccount, deleteSure: t.deleteSure,
-        mlAccount: t.mlAccount, mlAccountHint: t.mlAccountHint, mlTopicNames: t.mlTopicNames, mlSave: t.mlSave, mlSaved: t.mlSaved, mlError: t.mlError,
-      }} />
-      <AccountBenefits market={market} language={marketLanguage(market)} />
+      <main>
+        <h1 className="page-title">{t.account}</h1>
+        <AccountPanel market={market} t={{
+          login: t.login, logout: t.logout, loading: t.loading, accountError: t.accountError, name: t.name, email: t.email,
+          memberSince: t.memberSince, accountPrivacy: t.accountPrivacy, deleteAccount: t.deleteAccount, deleteSure: t.deleteSure,
+          mlAccount: t.mlAccount, mlAccountHint: t.mlAccountHint, mlTopicNames: t.mlTopicNames, mlSave: t.mlSave, mlSaved: t.mlSaved, mlError: t.mlError,
+        }} />
+        <AccountBenefits market={market} language={marketLanguage(market)} />
+      </main>
     </div>
   );
 }

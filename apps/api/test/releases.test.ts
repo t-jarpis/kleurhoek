@@ -34,6 +34,9 @@ describe("releasenotes (ADR 0023)", () => {
     expect(list[1]!.sha).toBe(LOG[0]!.sha);
     expect(list[1]!.notes.map((n) => n.text)).toEqual(["Doelen in het admin panel", "Terraform fmt"]);
     expect(list[0]!.notes).toEqual([]);
+    // Wat is er nieuw (ADR 0080): alleen de teksten voor bezoekers, één keer, publiek leesbaar.
+    const news = (await ctx.http.inject({ method: "GET", url: "/v1/news" })).json().items as { date: string; notes: string[] }[];
+    expect(news.flatMap((n) => n.notes)).toEqual(["Printen werkt weer op alle telefoons."]);
   });
 
   it("bewaart de publieke tekst bij de note (ADR 0030)", () => {

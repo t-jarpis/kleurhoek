@@ -63,6 +63,16 @@ describe("website-API", () => {
     expect((await get("/v1/assets/plates/kat/2.svg")).statusCode).toBe(404);
   });
 
+  it("geeft de nieuwste platen per markt en de teksten voor bezoekers (ADR 0080)", async () => {
+    const r = await get("/v1/markets/nl-nl/new");
+    expect(r.statusCode).toBe(200);
+    expect(r.json().slugs).toContain("kat");
+    expect((await get("/v1/markets/xx-xx/new")).statusCode).toBe(404);
+    const n = await get("/v1/news");
+    expect(n.statusCode).toBe(200);
+    expect(Array.isArray(n.json().items)).toBe(true);
+  });
+
   it("serveert ook een ingekleurde versie voor het raster (ADR 0070)", async () => {
     const plain = await get("/v1/assets/plates/kat/1.svg");
     const colored = await get("/v1/assets/plates/kat/1.kleur.svg");

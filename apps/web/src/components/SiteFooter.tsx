@@ -13,6 +13,7 @@ export function SiteFooter({ base, t, own = false }: { base: string; t: Messages
         <Link href={link(base, "/aftelkalender")}>{t.advent.nav}</Link>
         <Link href={link(base, "/lespakketten")}>{t.packs.nav}</Link>
         <Link href={link(base, "/samen")}>{t.together.nav}</Link>
+        <Link href={link(base, "/nieuw")}>{t.newTitle}</Link>
         {own && <Link href={link(base, "/eigen-omgeving")}>{t.ownSpace}</Link>}
         {own && <Link href={link(base, "/mail")}>{t.mlAccount}</Link>}
         <Link href={link(base, "/contact")}>{t.contact}</Link>

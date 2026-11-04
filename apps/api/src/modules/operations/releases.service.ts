@@ -64,4 +64,21 @@ export class ReleasesService implements OnApplicationBootstrap {
       tx.select({ sha: releases.sha, previousSha: releases.previousSha, kind: releases.kind, notes: releases.notes, startedAt: releases.startedAt })
         .from(releases).where(eq(releases.tenantId, this.env.TENANT_ID)).orderBy(desc(releases.startedAt)).limit(limit));
   }
+
+  /**
+   * Wat is er nieuw (ADR 0080): de Public-notes (ADR 0030) per uitrol in deze omgeving, nieuwste eerst, zonder
+   * herhalingen. Alleen de tekst voor bezoekers, geen commits of releasenotes voor beheer.
+   */
+  async publicNotes(limit = 20): Promise<{ date: string; notes: string[] }[]> {
+    const rows = await this.list(100);
+    const seen = new Set<string>();
+    const out: { date: string; notes: string[] }[] = [];
+    for (const r of rows) {
+      const notes = r.notes.map((n) => n.public?.trim() ?? "").filter((n) => n && !seen.has(n));
+      notes.forEach((n) => seen.add(n));
+      if (notes.length) out.push({ date: r.startedAt.toISOString().slice(0, 10), notes });
+      if (out.length >= limit) break;
+    }
+    return out;
+  }
 }

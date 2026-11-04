@@ -1,0 +1,76 @@
+name: Uptime
+
+# Storingsmelding (ADR 0079): elke 10 minuten kijken of de site in elk land werkt. Lukt het twee keer achter elkaar
+# niet, dan komt er een issue met het label "storing" dat de eigenaar noemt, zodat GitHub hem mailt. Eén issue
+# per storing: zolang het openstaat, komt er geen nieuw. Werkt alles weer, dan
+# sluit de controle het issue zelf, met de duur van de storing.
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+concurrency:
+  group: uptime
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Controleren
+        id: check
+        shell: bash
+        run: |
+          # Pagina, verwachte tekst. De voorpagina van elk domein, en de API achter de website (een plaat).
+          checks=(
+            "https://www.kleurhoek.nl/|kleurhoek"
+            "https://www.kleurhoek.be/nl|kleurhoek"
+            "https://www.kleurhoek.be/fr|kleurhoek"
+            "https://www.kleurhoek.com/en-gb|kleurhoek"
+            "https://kleurhoek.nl/|kleurhoek"
+            "https://www.kleurhoek.nl/v1/assets/plates/kat/1.svg|<svg"
+          )
+          failed=()
+          for c in "${checks[@]}"; do
+            url="${c%%|*}" want="${c#*|}" ok=""
+            # Twee pogingen met een pauze: een enkele hapering is geen storing.
+            for _ in 1 2; do
+              code=$(curl -sSL --max-time 20 -A "kleurhoek-uptime" -o body.txt -w '%{http_code}' "$url" || echo 000)
+              if [ "$code" = 200 ] && grep -qi -- "$want" body.txt; then ok=1; break; fi
+              sleep 20
+            done
+            if [ -n "$ok" ]; then echo "ok   $url"; else echo "FOUT $url (HTTP $code)"; failed+=("$url (HTTP $code)"); fi
+          done
+          {
+            echo "failed<<EOF"
+            [ ${#failed[@]} -eq 0 ] || printf -- '- %s\n' "${failed[@]}"
+            echo "EOF"
+            echo "count=${#failed[@]}"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Melden of afsluiten
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          COUNT: ${{ steps.check.outputs.count }}
+          FAILED: ${{ steps.check.outputs.failed }}
+        shell: bash
+        run: |
+          gh label create storing --repo "$REPO" --color B60205 --description "Site niet bereikbaar (Uptime)" 2>/dev/null || true
+          open=$(gh issue list --repo "$REPO" --label storing --state open --json number,createdAt --jq '.[0] // empty')
+          now=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          if [ "$COUNT" -gt 0 ]; then
+            if [ -z "$open" ]; then
+              gh issue create --repo "$REPO" --label storing --title "Storing: Kleurhoek niet goed bereikbaar" --body "$(printf 'De controle van %s (UTC) kon deze pagina'"'"'s twee keer niet goed laden:\n\n%s\n\n@t-jarpis De controle draait elke 10 minuten en sluit dit issue zelf zodra alles weer werkt.\n\nWorkflow: %s/%s/actions/runs/%s' "$now" "$FAILED" "$GITHUB_SERVER_URL" "$REPO" "$GITHUB_RUN_ID")"
+            else
+              echo "Storing loopt al: issue $(jq -r .number <<<"$open")"
+            fi
+          elif [ -n "$open" ]; then
+            n=$(jq -r .number <<<"$open"); since=$(jq -r .createdAt <<<"$open")
+            mins=$(( ($(date -u +%s) - $(date -u -d "$since" +%s)) / 60 ))
+            gh issue close "$n" --repo "$REPO" --comment "Alles werkt weer ($now UTC). De storing duurde ongeveer $mins minuten."
+          fi

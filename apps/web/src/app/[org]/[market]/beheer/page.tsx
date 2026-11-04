@@ -25,9 +25,11 @@ export default async function ManagePage({ params }: { params: Promise<{ org: st
   return (
     <div className="wrap" data-mode="ouder">
       <header className="mast"><Logo market={market} org={org} /><a className="btn" href={link(base)}>{t.back}</a></header>
-      <h1 className="page-title">{t.mgTitle(org.name)}</h1>
-      <p className="lede">{t.mgIntro}</p>
-      <OfferEditor org={org.slug} market={market} language={language} />
+      <main>
+        <h1 className="page-title">{t.mgTitle(org.name)}</h1>
+        <p className="lede">{t.mgIntro}</p>
+        <OfferEditor org={org.slug} market={market} language={language} />
+      </main>
     </div>
   );
 }

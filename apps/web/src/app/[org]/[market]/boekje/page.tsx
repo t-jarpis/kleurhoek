@@ -49,7 +49,7 @@ export default async function BookPage({ params, searchParams }: { params: Promi
   return (
     <>
       <Track event={{ type: "page_view", market, page: "boekje" }} />
-      <Booklet market={market} language={language} items={items.filter((i): i is BookPlate => i !== null)} mascots={mascots} title={t.book} loose={loose} />
+      <main><Booklet market={market} language={language} items={items.filter((i): i is BookPlate => i !== null)} mascots={mascots} title={t.book} loose={loose} /></main>
     </>
   );
 }

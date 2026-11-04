@@ -19,9 +19,11 @@ export default async function ConfirmPage({ params, searchParams }: { params: Pr
   return (
     <div className="wrap narrow" data-mode="ouder">
       <header className="mast"><Logo market={market} org={org} /></header>
-      <h1 className="page-title">{t.mlTitle}</h1>
-      {token && /^[A-Za-z0-9_-]{20,64}$/.test(token) ? <ConfirmMail token={token} language={language} market={market} />
-        : <div className="ui-callout" data-tone="warning" role="status"><div>{t.mlConfirmInvalid}</div></div>}
+      <main>
+        <h1 className="page-title">{t.mlTitle}</h1>
+        {token && /^[A-Za-z0-9_-]{20,64}$/.test(token) ? <ConfirmMail token={token} language={language} market={market} />
+          : <div className="ui-callout" data-tone="warning" role="status"><div>{t.mlConfirmInvalid}</div></div>}
+      </main>
     </div>
   );
 }

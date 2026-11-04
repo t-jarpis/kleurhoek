@@ -6,12 +6,12 @@ import { RateLimitService } from "./rate-limit.service";
 import { MemoryRateLimitStore, RATE_LIMIT_STORE } from "./rate-limit.store";
 import { AdminSiteAccessController, InternalSiteAccessController } from "./site-access.controller";
 import { SiteAccessService } from "./site-access.service";
-import { AdminReleasesController } from "./releases.controller";
+import { AdminReleasesController, PublicNewsController } from "./releases.controller";
 import { ReleasesService } from "./releases.service";
 
 @Global()
 @Module({
-  controllers: [AdminRateLimitsController, AdminSiteAccessController, InternalSiteAccessController, AdminReleasesController],
+  controllers: [AdminRateLimitsController, AdminSiteAccessController, InternalSiteAccessController, AdminReleasesController, PublicNewsController],
   providers: [
     { provide: RATE_LIMIT_STORE, useClass: MemoryRateLimitStore },
     RateLimitService,

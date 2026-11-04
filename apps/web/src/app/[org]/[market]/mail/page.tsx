@@ -25,10 +25,12 @@ export default async function MailPage({ params, searchParams }: { params: Promi
   return (
     <div className="wrap narrow" data-mode="ouder">
       <header className="mast"><Logo market={market} org={org} /><a className="btn" href={link(base)}>{t.back}</a></header>
-      <h1 className="page-title">{token ? t.mlPrefsTitle : t.mlTitle}</h1>
-      {token && /^[A-Za-z0-9_.-]{20,80}$/.test(token)
-        ? <MailPreferences token={token} language={language} unsubscribe={afmelden === "1"} />
-        : <SubscribeForm action={subscribe.bind(null, market)} language={language} titled={false} />}
+      <main>
+        <h1 className="page-title">{token ? t.mlPrefsTitle : t.mlTitle}</h1>
+        {token && /^[A-Za-z0-9_.-]{20,80}$/.test(token)
+          ? <MailPreferences token={token} language={language} unsubscribe={afmelden === "1"} />
+          : <SubscribeForm action={subscribe.bind(null, market)} language={language} titled={false} />}
+      </main>
     </div>
   );
 }

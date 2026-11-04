@@ -94,6 +94,15 @@ export class StorefrontController {
     return { url };
   }
 
+  /** Wat is er nieuw (ADR 0080): slugs van de nieuwste platen in deze markt. */
+  @Get("markets/:market/new")
+  async newest(@Param("market") code: string, @Res({ passthrough: true }) res: FastifyReply) {
+    const slugs = await this.store.newest(code);
+    if (!slugs) throw new NotFoundException("Onbekende markt");
+    res.header("Cache-Control", PUBLIC_CACHE);
+    return { slugs };
+  }
+
   @Get("markets/:market/taxonomy")
   async taxonomy(@Param("market") code: string, @Query("org") org: string | undefined, @Res({ passthrough: true }) res: FastifyReply) {
     const view = await this.view(org);

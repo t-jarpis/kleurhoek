@@ -31,10 +31,12 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ org
     <div className="wrap narrow" data-mode="ouder">
       <Track event={{ type: "page_view", market, page: "disclaimer" }} />
       <header className="mast"><Logo market={market} org={org} /><a className="btn" href={link(base)}>{t.back}</a></header>
-      <h1 className="page-title">{t.disclaimer}</h1>
-      <article className="kh-prose">
-        <Disclaimer base={base} contact={contact} />
-      </article>
+      <main>
+        <h1 className="page-title">{t.disclaimer}</h1>
+        <article className="kh-prose">
+          <Disclaimer base={base} contact={contact} />
+        </article>
+      </main>
       <SiteFooter base={base} t={t} own={org.isDefault} />
     </div>
   );

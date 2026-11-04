@@ -36,27 +36,29 @@ export default async function PacksPage({ params }: Params) {
     <div className="wrap" data-mode="ouder">
       <header className="mast"><div><Logo market={market} org={o} /></div></header>
       <Crumbs base={base} label={t.crumbs} items={[{ name: "Kleurhoek", path: "" }, { name: t.packs.title }]} />
-      <h1 className="page-title">{t.packs.title}</h1>
-      <p className="lede">{t.packs.lede}</p>
-      {ages.map((age) => (
-        <section key={age.slug} aria-labelledby={`age-${age.slug}`}>
-          <h2 id={`age-${age.slug}`} className="sec">{t.packs.forAge(age.name)}</h2>
-          <ul className="kh-packs">
-            {all.filter((p) => p.age.slug === age.slug).map((p) => (
-              <li key={p.slug}>
-                <Link className="kh-pack" href={link(base, `/lespakketten/${p.slug}`)}>
-                  <div className="kh-pack-thumbs">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    {p.plates.slice(0, 4).map((x) => <img key={x.slug} src={x.svg} alt="" loading="lazy" />)}
-                  </div>
-                  <h3>{t.packs.packTitle(p.category.name, p.age.name)}</h3>
-                  <p>{t.packs.plates(p.plates.length)}</p>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))}
+      <main>
+        <h1 className="page-title">{t.packs.title}</h1>
+        <p className="lede">{t.packs.lede}</p>
+        {ages.map((age) => (
+          <section key={age.slug} aria-labelledby={`age-${age.slug}`}>
+            <h2 id={`age-${age.slug}`} className="sec">{t.packs.forAge(age.name)}</h2>
+            <ul className="kh-packs">
+              {all.filter((p) => p.age.slug === age.slug).map((p) => (
+                <li key={p.slug}>
+                  <Link className="kh-pack" href={link(base, `/lespakketten/${p.slug}`)}>
+                    <div className="kh-pack-thumbs">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      {p.plates.slice(0, 4).map((x) => <img key={x.slug} src={x.svg} alt="" loading="lazy" />)}
+                    </div>
+                    <h3>{t.packs.packTitle(p.category.name, p.age.name)}</h3>
+                    <p>{t.packs.plates(p.plates.length)}</p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </main>
       <SiteFooter base={base} t={t} own={o.isDefault} />
       <Track event={{ type: "page_view", market, page: "lespakket" }} />
     </div>

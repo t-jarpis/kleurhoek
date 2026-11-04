@@ -222,6 +222,16 @@ export class StorefrontService {
     return list.slice(0, max).map((p) => ({ slug: p.slug, name: names.get(p.slug)!.name ?? p.slug, image: `${path(p).replace(/\.svg$/, ".png")}?r=2` }));
   }
 
+  /** Wat is er nieuw (ADR 0080): de nieuwste platen die in deze markt te zien zijn, nieuwste eerst. */
+  async newest(code: string, max = 36, now = new Date()): Promise<string[] | null> {
+    const market = await this.market(code);
+    if (!market) return null;
+    const { plates } = await this.visible(market, now);
+    const visible = new Set(plates.map((p) => p.slug));
+    const order = await this.catalog.publishedSince(this.tenant, new Date(now.getTime() - 365 * 86_400_000));
+    return order.filter((s) => visible.has(s)).slice(0, max);
+  }
+
   /** Feestdagen in een markt die binnen `days` dagen beginnen, met naam in de taal van de markt. */
   async upcomingHolidays(code: string, days: number, now = new Date()) {
     const market = await this.market(code);

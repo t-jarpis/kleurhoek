@@ -20,6 +20,10 @@ export const api = {
   plates: (market: string, org: string) => get<{ count: number; items: PlateItem[] }>(`/v1/markets/${market}/plates?${o(org)}`, 300, ["plates", `market:${market}`, `org:${org}`]).then((r) => r.items),
   plate: (market: string, slug: string, org: string) => get<PlateDetail>(`/v1/markets/${market}/plates/${encodeURIComponent(slug)}?${o(org)}`, 300, ["plates", `plate:${slug}`, `org:${org}`]),
   taxonomy: (market: string, org: string) => get<Taxonomy>(`/v1/markets/${market}/taxonomy?${o(org)}`, 3600, ["taxonomy", `market:${market}`, `org:${org}`]),
+  /** Wat is er nieuw (ADR 0080): slugs van de nieuwste platen, nieuwste eerst. */
+  newest: (market: string) => get<{ slugs: string[] }>(`/v1/markets/${market}/new`, 600, ["plates", `market:${market}`]).then((r) => r.slugs),
+  /** Teksten voor bezoekers per uitrol (Public-note, ADR 0030), Nederlands. */
+  news: () => get<{ items: { date: string; notes: string[] }[] }>("/v1/news", 600, ["news"]).then((r) => r.items),
   season: (market: string, org: string) => get<Season>(`/v1/markets/${market}/season?${o(org)}`, 900, ["season", `market:${market}`, `org:${org}`]),
   themes: (market: string, org: string) => get<{ themes: ThemeItem[] }>(`/v1/markets/${market}/themes?${o(org)}`, 300, ["themes", `market:${market}`, `org:${org}`]).then((r) => r.themes),
   theme: (market: string, slug: string, org: string) => get<ThemeDetail>(`/v1/markets/${market}/themes/${encodeURIComponent(slug)}?${o(org)}`, 300, ["themes", `theme:${slug}`, `org:${org}`]),

@@ -41,33 +41,35 @@ export default async function ThemePage({ params }: { params: Promise<{ org: str
     <div className="wrap narrow" data-mode="ouder">
       <Track event={{ type: "page_view", market, page: "thema" }} />
       <header className="mast"><Logo market={market} org={org} /><a className="btn" href={link(base, "/themas")}>{t.allThemes}</a></header>
-      <h1 className="page-title">{th.name}</h1>
-      {th.description && <p className="lede">{th.description}</p>}
-      <ul className="kh-sources">
-        {th.sources.map((s) => (
-          <li key={s.url} className="kh-source">
-            <div><b>{s.title}</b>{s.description && <span>{s.description}</span>}<span>{s.host}</span></div>
-            <a className="ui-btn" href={s.url} target="_blank" rel="noopener noreferrer nofollow">{t.toMaker} <Arrow /></a>
-          </li>
-        ))}
-      </ul>
-      <p className="disclosure">{t.themeNotice(th.makerName)}</p>
-      {th.products.length > 0 && (
-        <section className="parents kh-theme-products">
-          <h2>{t.themeProducts}</h2>
-          <ul className="kh-sources">
-            {th.products.map((p) => (
-              <li key={p.slug} className="kh-source">
-                <div><b>{p.name}</b>{p.note && <span>{p.note}</span>}</div>
-                <a className="offer" href={`/ga/${p.slug}?plaat=thema-${th.slug}&m=${market}`} rel="sponsored nofollow noopener" target="_blank">
-                  <span>{t.toShop}{p.priceHint ? ` · ${p.priceHint}` : ""}</span><small>{t.atPartner(p.partner)}</small>
-                </a>
-              </li>
-            ))}
-          </ul>
-          <p className="disclosure">{t.partnerDisclosure}</p>
-        </section>
-      )}
+      <main>
+        <h1 className="page-title">{th.name}</h1>
+        {th.description && <p className="lede">{th.description}</p>}
+        <ul className="kh-sources">
+          {th.sources.map((s) => (
+            <li key={s.url} className="kh-source">
+              <div><b>{s.title}</b>{s.description && <span>{s.description}</span>}<span>{s.host}</span></div>
+              <a className="ui-btn" href={s.url} target="_blank" rel="noopener noreferrer nofollow">{t.toMaker} <Arrow /></a>
+            </li>
+          ))}
+        </ul>
+        <p className="disclosure">{t.themeNotice(th.makerName)}</p>
+        {th.products.length > 0 && (
+          <section className="parents kh-theme-products">
+            <h2>{t.themeProducts}</h2>
+            <ul className="kh-sources">
+              {th.products.map((p) => (
+                <li key={p.slug} className="kh-source">
+                  <div><b>{p.name}</b>{p.note && <span>{p.note}</span>}</div>
+                  <a className="offer" href={`/ga/${p.slug}?plaat=thema-${th.slug}&m=${market}`} rel="sponsored nofollow noopener" target="_blank">
+                    <span>{t.toShop}{p.priceHint ? ` · ${p.priceHint}` : ""}</span><small>{t.atPartner(p.partner)}</small>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className="disclosure">{t.partnerDisclosure}</p>
+          </section>
+        )}
+      </main>
       <SiteFooter base={base} t={t} own={org.isDefault} />
     </div>
   );

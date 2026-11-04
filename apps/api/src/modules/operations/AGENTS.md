@@ -19,6 +19,7 @@ Andere domeinen importeren alleen deze bestanden. De test `test/boundaries.test.
 - `/v1/admin/releases`
 - `/v1/admin/site-access`
 - `/v1/internal/site-access`
+- `/v1/news`
 
 ## Events
 - Nog geen.

@@ -45,7 +45,7 @@ export const en: Messages = {
   atPartner: (p: string) => `at ${p}`,
   partnerDisclosure: "Partner links: if you buy something through these links, Kleurhoek gets a small fee from the shop. You pay the same. That's how we keep the pages free.",
   deleteAccount: "Delete account", deleteSure: "Are you sure? Tap again",
-  disclaimer: "Disclaimer", privacy: "Privacy", colorPreview: "In colour", contact: "Contact", themes: "Themes from the makers",
+  disclaimer: "Disclaimer", privacy: "Privacy", colorPreview: "In colour", newTitle: "What's new", newLede: "Our newest colouring pages, newest first.", contact: "Contact", themes: "Themes from the makers",
   contactTitle: "Contact", contactLede: "A question, an idea for a page or something that isn't working? Let us know. We usually reply within a few working days.",
   contactTopic: "What is it about?",
   contactTopics: { question: "A question", idea: "Idea for a page", bug: "Something isn't working", partnership: "Working together", copyright: "Copyright", privacy: "Privacy and my data" } as Record<string, string>,

@@ -31,24 +31,26 @@ export default async function ThemesPage({ params }: { params: Promise<{ org: st
     <div className="wrap" data-mode="ouder">
       <Track event={{ type: "page_view", market, page: "themas" }} />
       <header className="mast"><Logo market={market} org={org} /><a className="btn" href={link(base)}>{t.back}</a></header>
-      <h1 className="page-title">{t.themesTitle}</h1>
-      <p className="lede">{t.themesLede}</p>
-      {themes.length === 0 ? (
-        <div className="ui-empty"><p>{t.themesEmpty}</p></div>
-      ) : (
-        <div className="kh-themes">
-          {themes.map((th) => (
-            <Link key={th.slug} className="kh-theme-card" href={link(base, `/themas/${th.slug}`)}>
-              <span className="kh-theme-mark" aria-hidden="true">{th.name.slice(0, 1).toUpperCase()}</span>
-              <span>
-                <h3>{th.name}</h3>
-                {th.description && <p>{th.description}</p>}
-                <small>{t.byMaker(th.makerName)} · {t.themeSources(th.sourceCount)}</small>
-              </span>
-            </Link>
-          ))}
-        </div>
-      )}
+      <main>
+        <h1 className="page-title">{t.themesTitle}</h1>
+        <p className="lede">{t.themesLede}</p>
+        {themes.length === 0 ? (
+          <div className="ui-empty"><p>{t.themesEmpty}</p></div>
+        ) : (
+          <div className="kh-themes">
+            {themes.map((th) => (
+              <Link key={th.slug} className="kh-theme-card" href={link(base, `/themas/${th.slug}`)}>
+                <span className="kh-theme-mark" aria-hidden="true">{th.name.slice(0, 1).toUpperCase()}</span>
+                <span>
+                  <h3>{th.name}</h3>
+                  {th.description && <p>{th.description}</p>}
+                  <small>{t.byMaker(th.makerName)} · {t.themeSources(th.sourceCount)}</small>
+                </span>
+              </Link>
+            ))}
+          </div>
+        )}
+      </main>
       <SiteFooter base={base} t={t} own={org.isDefault} />
     </div>
   );
