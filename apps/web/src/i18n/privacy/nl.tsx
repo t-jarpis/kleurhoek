@@ -30,7 +30,7 @@ function Body({ contact }: PrivacyProps) {
       <p>De website draait bij Scaleway in Amsterdam. Cloudflare zorgt voor snelheid en beveiliging, Zitadel voor het inloggen en Brevo voor het versturen van mail. Zij verwerken gegevens alleen voor ons en alleen voor dat doel. Klik je op een link naar een winkel, zoals Amazon, dan geldt vanaf dat moment het privacybeleid van die winkel.</p>
 
       <h2>Je rechten</h2>
-      <p>Je mag vragen welke gegevens we van je hebben, ze laten verbeteren of laten verwijderen. Neem daarvoor <Link href={contact("privacy")}>contact</Link> met ons op. Ben je het niet eens met hoe we met je gegevens omgaan, dan kun je een klacht indienen bij de Autoriteit Persoonsgegevens.</p>
+      <p>Je mag vragen welke gegevens we van je hebben, ze laten verbeteren of laten verwijderen. Neem daarvoor <Link href={contact("privacy")}>contact</Link> met ons op. Ben je het niet eens met hoe we met je gegevens omgaan, dan kun je een klacht indienen bij de Autoriteit Persoonsgegevens of bij de toezichthouder in het land waar je woont.</p>
 
       <h2>Wijzigingen</h2>
       <p>Verandert er iets aan wat we bewaren, dan passen we deze pagina aan. De datum bovenaan laat zien wanneer dat voor het laatst gebeurde.</p>
