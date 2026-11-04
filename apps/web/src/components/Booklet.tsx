@@ -3,7 +3,8 @@ import { useHref } from "./Base";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { messages } from "@/i18n/nl";
+import type { Messages } from "@/i18n/nl-base";
+import { useT } from "./I18n";
 import { book } from "@/lib/local";
 import { track } from "@/lib/track";
 import type { PlateDetail } from "@/lib/types";
@@ -22,7 +23,7 @@ function star(cx: number, cy: number, outer: number, inner: number) {
 }
 
 /** Voorblad met de naam van het kind en Oki en Sjors. Ook in te kleuren. */
-function Cover({ owner, count, mascots, t }: { owner: string; count: number; mascots: (string | null)[]; t: ReturnType<typeof messages> }) {
+function Cover({ owner, count, mascots, t }: { owner: string; count: number; mascots: (string | null)[]; t: Messages }) {
   const size = owner ? Math.min(30, 300 / Math.max(owner.length + 4, 6)) : 0;
   const [uil, slak] = mascots;
   return (
@@ -43,7 +44,7 @@ function Cover({ owner, count, mascots, t }: { owner: string; count: number; mas
 
 export function Booklet({ market, language, items, mascots, title, loose = false }: { market: string; language: string; items: BookPlate[]; mascots: (string | null)[]; title: string; loose?: boolean }) {
   const href = useHref();
-  const t = messages(language);
+  const t = useT();
   const router = useRouter();
   const [owner, setOwner] = useState("");
   const [numbers, setNumbers] = useState(false);

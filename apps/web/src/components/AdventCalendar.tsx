@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState, type CSSProperties } from "react";
-import { messages } from "@/i18n/nl";
+import { useT } from "./I18n";
 import type { Door } from "@/lib/advent";
 import { link } from "@/lib/sites";
 
@@ -20,7 +20,7 @@ export function AdventCalendar({ doors, order, open, today, year, base, market, 
 }) {
   const key = (y: number) => `kh:${kind === "sint" ? "sinterklaaskalender" : "aftelkalender"}:${y}`;
   const colors = kind === "sint" ? SINT_COLORS : COLORS;
-  const t = messages(market);
+  const t = useT();
   const [opened, setOpened] = useState<number[]>([]);
   // Buiten december (archief) staan alle deurtjes open.
   const archive = open === total && today === null;

@@ -1,11 +1,11 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { messages } from "@/i18n/nl";
+import { useT } from "./I18n";
 
 /** Een code invullen om mee te doen (ADR 0060). */
 export function JoinTogether({ market, href }: { market: string; href: string }) {
-  const t = messages(market);
+  const t = useT();
   const [code, setCode] = useState("");
   const [error, setError] = useState(false);
   const router = useRouter();

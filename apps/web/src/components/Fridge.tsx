@@ -2,7 +2,7 @@
 import { useHref } from "./Base";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, type CSSProperties } from "react";
-import { messages } from "@/i18n/nl";
+import { useT } from "./I18n";
 import { fridge, useFridge } from "@/lib/local";
 import { svgHeight, svgInner } from "@/lib/svg";
 import type { PlateItem } from "@/lib/types";
@@ -21,7 +21,7 @@ const loadInner = (url: string) => {
 /** De koelkastdeur: eigen werk dat op dit apparaat is opgehangen. Niets gaat naar de server. */
 export function Fridge({ market, plates, language }: { market: string; plates: PlateItem[]; language: string }) {
   const href = useHref();
-  const t = messages(language);
+  const t = useT();
   const items = useFridge();
   const router = useRouter();
   const [inner, setInner] = useState<Record<string, Loaded>>({});

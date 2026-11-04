@@ -3,7 +3,7 @@ import { useHref } from "./Base";
 import { Icon } from "@kleurhoek/theme";
 import { useEffect, useState } from "react";
 import { favorites, useFavorites } from "@/lib/local";
-import { messages } from "@/i18n/nl";
+import { useT } from "./I18n";
 
 /**
  * Plaat bewaren als favoriet (design system: FavoriteButton, ADR 0039). Werkt zonder account; met `accounts` en
@@ -11,7 +11,7 @@ import { messages } from "@/i18n/nl";
  */
 export function FavoriteButton({ slug, market, language, accounts }: { slug: string; market: string; language: string; accounts: boolean }) {
   const href = useHref();
-  const t = messages(language);
+  const t = useT();
   const list = useFavorites();
   const on = list.includes(slug);
   const [linked, setLinked] = useState<boolean | null>(null);
