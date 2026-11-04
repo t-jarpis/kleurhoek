@@ -4,7 +4,7 @@ import type { PrivacyProps, PrivacyText } from "./types";
 function Body({ contact }: PrivacyProps) {
   return (
     <>
-      <p className="kh-meta">Last updated on 2 November 2026.</p>
+      <p className="kh-meta">Last updated on 4 November 2026.</p>
       <p>Kleurhoek (www.kleurhoek.nl, www.kleurhoek.be and www.kleurhoek.com) is a website with original colouring pages and craft sheets for children. We collect as little as possible. This page sets out exactly what we do keep, why, for how long and what your rights are.</p>
 
       <h2>Who we are</h2>
@@ -12,6 +12,7 @@ function Body({ contact }: PrivacyProps) {
 
       <h2>Visiting and colouring</h2>
       <p>We count visits anonymously: without cookies, without IP addresses and without anything that can be traced back to you. We do not use advertising or tracking scripts from anyone else, including Google, Meta or Pinterest. You can colour in, print and colour together without an account. What you colour stays on your own device. When you colour together, the strokes pass through our server to the others in the room, without any names; after 30 minutes without colouring, the room stops. Names you type for gift labels are never sent to our server.</p>
+      <p>To avoid counting visitors twice, we make a daily code from your IP address and browser, using a key that changes every day; we do not store the IP address itself. After 90 days we replace that code with a random one, so that not even we can link a count to a device any more. We keep the counts themselves (which page, which country, phone or computer, when), so we can see how the site is used over the years.</p>
 
       <h2>Account</h2>
       <p>Accounts are for adults only (16 or older). Children do not need an account and cannot create one. If you have an account, we keep your name, your email address and your favourites, so you can find them on all your devices. You can delete your account yourself; your favourites and email sign-up are deleted with it.</p>

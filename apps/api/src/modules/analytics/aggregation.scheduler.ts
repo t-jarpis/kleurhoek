@@ -28,7 +28,7 @@ export class AggregationScheduler implements OnModuleInit, OnApplicationShutdown
     try {
       const days = new Set([...(await this.analytics.staleDays(this.env.TENANT_ID)), today]);
       for (const day of [...days].sort()) await this.analytics.aggregateDay(this.env.TENANT_ID, day);
-      await this.analytics.purgeRawEvents(this.env.TENANT_ID, now);
+      await this.analytics.anonymizeRawEvents(this.env.TENANT_ID, now);
     } catch (e) { this.log.error(`Aggregeren mislukt: ${e}`); }
   }
 }

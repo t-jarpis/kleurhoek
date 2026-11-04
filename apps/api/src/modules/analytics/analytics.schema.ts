@@ -12,7 +12,7 @@ export const EVENT_TYPES = [
 ] as const;
 export type EventType = (typeof EVENT_TYPES)[number];
 
-/** Ruwe events zonder persoonsgegevens. Bewaartermijn 90 dagen (zie ADR 0002). */
+/** Ruwe events zonder persoonsgegevens. Blijven bewaard; na 90 dagen een willekeurige bezoekerscode (ADR 0002, 0078). */
 export const events = analyticsSchema.table("events", {
   ...baseColumns(),
   type: text("type", { enum: EVENT_TYPES }).notNull(),

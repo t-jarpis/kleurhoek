@@ -1,9 +1,9 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { AnalyticsService, buckets } from "../src/modules/analytics/analytics.service";
-import { and, eq } from "drizzle-orm";
+import { and, eq, sql } from "drizzle-orm";
 import { DB, type Database } from "../src/db/database";
 import { withTenant } from "../src/db/tenant";
-import { dailyTotals } from "../src/modules/analytics/analytics.schema";
+import { dailyTotals, events } from "../src/modules/analytics/analytics.schema";
 import { createTestApp, INGEST_KEY, TENANT } from "./app";
 
 describe("dashboard: pagina's, tijdreeksen en accounts (ADR 0020)", () => {
@@ -44,13 +44,13 @@ describe("dashboard: pagina's, tijdreeksen en accounts (ADR 0020)", () => {
   it("laat zien wanneer er gedownload wordt: weekdag en uur in Nederlandse tijd (ADR 0073)", async () => {
     const svc = ctx.app.get(AnalyticsService);
     // 2026-10-20 is een dinsdag; 09:00 UTC is 11:00 in Amsterdam (zomertijd).
-    const a = await svc.activity(TENANT, "2026-10-20", "2026-10-20", new Date("2026-10-21T12:00:00Z"));
+    const a = await svc.activity(TENANT, "2026-10-20", "2026-10-20");
     expect(a.grid).toContainEqual({ weekday: 2, hour: 11, count: expect.any(Number) });
     expect(a.latest[0]).toMatchObject({ type: "pdf_download", plate: "kat", market: "nl-NL", device: "mobile", at: "2026-10-20T09:00:00.000Z" });
     expect(a.limited).toBe(false);
-    // Een periode van een jaar: alleen de laatste 90 dagen, want ouder bestaat niet meer.
-    const y = await svc.activity(TENANT, "2025-10-21", "2026-10-20", new Date("2026-10-21T12:00:00Z"));
-    expect(y).toMatchObject({ from: "2026-07-24", limited: true });
+    // Een periode van een jaar: de ruwe events blijven bewaard (ADR 0078), dus de hele periode.
+    const y = await svc.activity(TENANT, "2025-10-21", "2026-10-20");
+    expect(y).toMatchObject({ from: "2025-10-21", limited: false });
     expect((await admin("/v1/admin/analytics/activity?from=2026-10-20&to=2026-10-20")).statusCode).toBe(200);
   });
 
@@ -129,11 +129,34 @@ describe("dashboard: pagina's, tijdreeksen en accounts (ADR 0020)", () => {
     expect(r).toMatchObject({ visitors: 1, pageViews: 1, pages: [{ page: "home", views: 1 }], plates: [{ plate: "kat", views: 1 }] });
   });
 
-  it("gooit ruwe events na 90 dagen weg, dagtotalen blijven", async () => {
+  it("bewaart ruwe events, maar maakt de bezoekerscode na 90 dagen onherleidbaar (ADR 0078)", async () => {
     const svc = ctx.app.get(AnalyticsService);
-    await svc.purgeRawEvents(TENANT, new Date("2027-02-01T00:00:00Z"));
-    await svc.aggregateDay(TENANT, "2026-10-21"); // andere dag: raakt 20 oktober niet
-    const o = (await admin("/v1/admin/analytics/overview?from=2026-10-20&to=2026-10-20")).json();
-    expect(o.totals.pageViews).toBe(4);
+    const db = ctx.app.get<Database>(DB);
+    const d1 = "2026-06-01", d2 = "2026-06-02";
+    await ingest([
+      ev("page_view", { page: "home", visitorHash: "hhhhhhhhhhhhhhhh", occurredAt: `${d1}T08:00:00.000Z` }),
+      ev("plate_view", { plate: "kat", visitorHash: "hhhhhhhhhhhhhhhh", occurredAt: `${d1}T08:05:00.000Z` }),
+      ev("page_view", { page: "home", visitorHash: "iiiiiiiiiiiiiiii", occurredAt: `${d1}T09:00:00.000Z` }),
+      ev("page_view", { page: "home", visitorHash: "hhhhhhhhhhhhhhhh", occurredAt: `${d2}T08:00:00.000Z` }),
+    ]);
+    await svc.aggregateDay(TENANT, d1);
+    const before = (await admin(`/v1/admin/analytics/overview?from=${d1}&to=${d1}`)).json().totals;
+    const hashes = (d: string) => withTenant(db, TENANT, (tx) => tx.select({ h: events.visitorHash }).from(events)
+      .where(and(eq(events.tenantId, TENANT), sql`${events.occurredAt}::date = ${d}::date`)));
+
+    // Nog geen 90 dagen oud: niets aan de hand.
+    expect(await svc.anonymizeRawEvents(TENANT, new Date("2026-08-01T12:00:00Z"))).toBe(0);
+    // Ruim daarna: beide dagen krijgen nieuwe codes, de events zelf blijven.
+    expect(await svc.anonymizeRawEvents(TENANT, new Date("2027-06-01T12:00:00Z"))).toBeGreaterThanOrEqual(2);
+    const h1 = (await hashes(d1)).map((r) => r.h!), h2 = (await hashes(d2)).map((r) => r.h!);
+    expect(h1).toHaveLength(3);
+    expect([...h1, ...h2].every((h) => h.startsWith("~") && !/hhhh|iiii/.test(h))).toBe(true);
+    expect(new Set(h1).size).toBe(2); // binnen de dag blijft hetzelfde apparaat herkenbaar
+    expect(h2[0]).not.toBe(h1[0]); // over dagen heen niet: elke dag een eigen, weggegooide sleutel
+    // Een tweede keer verandert niets meer, en opnieuw tellen geeft dezelfde cijfers.
+    expect(await svc.anonymizeRawEvents(TENANT, new Date("2027-06-02T12:00:00Z"))).toBe(0);
+    await svc.aggregateDay(TENANT, d1);
+    expect((await admin(`/v1/admin/analytics/overview?from=${d1}&to=${d1}`)).json().totals).toEqual(before);
+    expect(before).toMatchObject({ visitors: 2, pageViews: 2, plateViews: 1 });
   });
 });

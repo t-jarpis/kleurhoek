@@ -4,7 +4,7 @@ import type { PrivacyProps, PrivacyText } from "./types";
 function Body({ contact }: PrivacyProps) {
   return (
     <>
-      <p className="kh-meta">Bijgewerkt op 2 november 2026.</p>
+      <p className="kh-meta">Bijgewerkt op 4 november 2026.</p>
       <p>Kleurhoek (www.kleurhoek.nl, www.kleurhoek.be en www.kleurhoek.com) is een website met eigen kleurplaten en knutselplaten voor kinderen. We verzamelen zo weinig mogelijk. Hieronder staat precies wat we wel bewaren, waarom, hoe lang en wat je rechten zijn.</p>
 
       <h2>Wie we zijn</h2>
@@ -12,6 +12,7 @@ function Body({ contact }: PrivacyProps) {
 
       <h2>Bezoeken en kleuren</h2>
       <p>We tellen bezoeken anoniem: zonder cookies, zonder IP-adressen en zonder iets wat naar jou terug te leiden is. We gebruiken geen advertentie- of trackingscripts van anderen, ook niet van Google, Meta of Pinterest. Kleuren, printen en samen kleuren kan zonder account. Wat je kleurt, blijft op je eigen apparaat. Kleur je samen, dan gaan de streken via onze server naar de anderen in de kamer, zonder namen; kleurt er 30 minuten niemand, dan stopt de kamer. Namen die je intypt voor cadeaulabels gaan niet naar onze server.</p>
+      <p>Om bezoekers niet dubbel te tellen, maken we per dag een code van je IP-adres en browser, met een sleutel die elke dag wisselt; het IP-adres zelf slaan we niet op. Na 90 dagen vervangen we die code door een willekeurige, zodat ook wij een telling niet meer aan een apparaat kunnen koppelen. De tellingen zelf (welke plaat, welk land, telefoon of computer, wanneer) bewaren we, zodat we kunnen zien hoe de site door de jaren heen gebruikt wordt.</p>
 
       <h2>Account</h2>
       <p>Een account is alleen voor volwassenen (16 jaar of ouder). Kinderen hebben geen account nodig en kunnen er geen aanmaken. Met een account bewaren we je naam, je e-mailadres en je favorieten, zodat je ze op al je apparaten terugvindt. Je kunt je account zelf verwijderen; dan verdwijnen ook je favorieten en je aanmelding voor mail.</p>

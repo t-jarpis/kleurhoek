@@ -1,3 +1,4 @@
+import { randomBytes } from "node:crypto";
 import { Inject, Injectable } from "@nestjs/common";
 import { and, desc, eq, gte, inArray, lt, lte, sql } from "drizzle-orm";
 import { z } from "zod";
@@ -112,7 +113,7 @@ export class AnalyticsService {
       const done = new Map((await tx.select({ day: sql<string>`${dailyTotals.day}::text`, at: sql<Date>`max(${dailyTotals.createdAt})`, colored: sql<number>`sum(${dailyTotals.colored})::int` })
         .from(dailyTotals).where(and(eq(dailyTotals.tenantId, tenantId), gte(dailyTotals.day, raw.reduce((m, r) => (r.day < m ? r.day : m), raw[0]!.day))))
         .groupBy(dailyTotals.day)).map((r) => [r.day, { at: new Date(r.at).getTime(), colored: r.colored }]));
-      // Ook opnieuw: dagen van vóór de kolom "colored" (ADR 0077), zodat de laatste 90 dagen vanzelf worden aangevuld.
+      // Ook opnieuw: dagen van vóór de kolom "colored" (ADR 0077), zodat die vanzelf worden aangevuld.
       return raw.filter((r) => {
         const d = done.get(r.day);
         return !d || new Date(r.last).getTime() >= d.at || (r.colored > 0 && !d.colored);
@@ -120,10 +121,27 @@ export class AnalyticsService {
     });
   }
 
-  /** Ruwe events na 90 dagen weg; daarna bestaan alleen de dagtotalen nog (ADR 0002). */
-  async purgeRawEvents(tenantId: string, now = new Date()): Promise<void> {
-    const cutoff = new Date(now.getTime() - RAW_EVENT_DAYS * 86_400_000);
-    await withTenant(this.db, tenantId, (tx) => tx.delete(events).where(and(eq(events.tenantId, tenantId), lt(events.occurredAt, cutoff))));
+  /**
+   * Ruwe events blijven bewaard, voor de hele geschiedenis (ADR 0078). Na 90 dagen krijgt de bezoekerscode per dag een
+   * nieuwe, willekeurige code met een sleutel die direct wordt weggegooid. Binnen die dag blijft hetzelfde apparaat
+   * herkenbaar, zodat unieke bezoekers en "per bezoek" bij opnieuw tellen kloppen. Terug naar IP-adres en browser
+   * (de oorspronkelijke code) kan niemand meer, ook wij niet. Hele dagen (UTC), zodat een dag één sleutel heeft.
+   */
+  async anonymizeRawEvents(tenantId: string, now = new Date()): Promise<number> {
+    const cutoff = new Date(`${shiftDay(now.toISOString().slice(0, 10), -PSEUDONYM_DAYS)}T00:00:00Z`);
+    return withTenant(this.db, tenantId, async (tx) => {
+      const day = sql<string>`to_char(${events.occurredAt} at time zone 'UTC', 'YYYY-MM-DD')`;
+      const open = and(eq(events.tenantId, tenantId), lt(events.occurredAt, cutoff), sql`${events.visitorHash} is not null`, sql`${events.visitorHash} not like '~%'`);
+      const days = await tx.select({ day }).from(events).where(open).groupBy(sql`1`);
+      for (const { day: d } of days) {
+        const key = randomBytes(32).toString("base64url"); // alleen in het geheugen, nergens bewaard
+        const start = new Date(`${d}T00:00:00Z`), end = new Date(start.getTime() + 86_400_000);
+        await tx.update(events)
+          .set({ visitorHash: sql`'~' || substr(encode(sha256(convert_to(${key} || ${events.visitorHash}, 'UTF8')), 'base64'), 1, 22)` })
+          .where(and(open, gte(events.occurredAt, start), lt(events.occurredAt, end)));
+      }
+      return days.length;
+    });
   }
 
   /**
@@ -192,11 +210,10 @@ export class AnalyticsService {
 
   /**
    * Wanneer er gedownload en geprint wordt (ADR 0073): aantallen per weekdag (1 = maandag) en uur in Nederlandse
-   * tijd, en de laatste 30 met tijdstip. Uit de ruwe events, dus hooguit de laatste 90 dagen (ADR 0002).
+   * tijd, en de laatste 30 met tijdstip. Uit de ruwe events, die blijven bewaard (ADR 0078).
    */
-  async activity(tenantId: string, from: string, to: string, now = new Date()) {
-    const earliest = shiftDay(now.toISOString().slice(0, 10), -(RAW_EVENT_DAYS - 1));
-    const since = from < earliest ? earliest : from;
+  async activity(tenantId: string, from: string, to: string) {
+    const since = from;
     const tz = sql.raw(`'${ACTIVITY_TZ}'`);
     return withTenant(this.db, tenantId, async (tx) => {
       const where = and(eq(events.tenantId, tenantId), inArray(events.type, ["pdf_download", "print"]),
@@ -293,7 +310,8 @@ export class AnalyticsService {
   }
 }
 
-export const RAW_EVENT_DAYS = 90;
+/** Na zoveel dagen krijgt de bezoekerscode in de ruwe events een willekeurige vervanger (ADR 0078). */
+export const PSEUDONYM_DAYS = 90;
 export const DEFAULT_ORG = "kleurhoek";
 /** Rij met de unieke bezoekers van de hele site (alle organisaties samen). */
 export const ALL_ORGS = "*";
