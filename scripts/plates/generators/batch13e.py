@@ -1013,3 +1013,65 @@ def sint_glas(sh):
     part(); cv.put(unary_union([box(97, 14, 103, 44), box(90, 22, 110, 28)]), "y")
     cv.finish(sh)
 kp12("sinterklaas-glas-in-lood", "Sinterklaas als glas-in-lood", "Sinterklaas met mijter, baard en staf, opgebouwd uit honderden kleine vlakjes voor een raam van glasscherven. Kleur de mantel in twee roodtinten en laat de baard wit met lichtgrijze golfjes.", sint_glas, "feest", holiday="sinterklaas")
+
+
+# ================================================================ Kerst (batch 45, ADR 0064)
+def kerst_rendier(sh):
+    """Rendier in het winterbos: lijf en gewei vol patronen, sparren en sneeuw, voor een nachthemel van scherfjes."""
+    cv = Canvas()
+    cv.put_many(pat_voronoi(PAGE, 14, "nbp", 45))
+    obj("maan"); cv.put(circle(36, 32, 16, 64), "y")
+    for x, base, h in ((20, 150, 90), (64, 146, 64), (186, 150, 96)):
+        obj(f"spar{x}")
+        tree = unary_union([P([(x - h * (.42 - k * .1), base - k * h / 3.6), (x, base - k * h / 3.6 - h / 2.2), (x + h * (.42 - k * .1), base - k * h / 3.6)]) for k in range(3)])
+        cv.put_many(pat_checker(tree, 5, 45, "gl"))
+    obj("sneeuw"); cv.put_many(pat_waves(P([(0, 150), (200, 142), (200, 200), (0, 200)]), 6, 1.6, 18, "-b"))
+    obj("rendier")
+    bx, by = 92, 128
+    for lx, d in ((58, -3), (72, 3), (112, -3), (126, 3)):
+        part(); cv.put(P([(lx - 5, by + 4), (lx + 5, by + 4), (lx + 4 + d, 180), (lx - 4 + d, 180)]), "w"); cv.put(box(lx - 6 + d, 178, lx + 6 + d, 186), "x")
+    part(); cv.put(ellipse(48, 120, 7, 9), "-")
+    part(); cv.put_many(pat_scales(ellipse(bx, by, 44, 21), 6, "wo"))
+    neck = P([(108, 112), (126, 104), (154, 76), (142, 62), (120, 90), (104, 116)])
+    part(); cv.put_many(pat_stripes(neck, 5, 30, "wo"))
+    antlers = unary_union([LineString(c).buffer(3, cap_style=1) for c in (
+        [(148, 58), (142, 38), (130, 20)], [(144, 44), (154, 32)], [(138, 32), (124, 28)],
+        [(156, 58), (164, 36), (176, 18)], [(162, 42), (174, 38)], [(168, 28), (158, 18)])])
+    part(); cv.put_many(pat_stripes(antlers, 4, 0, "oy"))
+    part(); cv.put(P([(146, 60), (132, 50), (144, 66)]), "w")
+    head = ellipse(158, 68, 19, 10, 28)
+    part(); cv.put_many(pat_scales(head, 4, "wo"))
+    cv.put(circle(173, 77, 4, 24), "x")
+    cv.put(circle(152, 63, 2.4, 16), "x")
+    scarf = unary_union([P([(112, 104), (132, 96), (136, 106), (116, 114)]), P([(118, 110), (112, 140), (122, 140), (126, 110)])])
+    part(); cv.put_many(pat_checker(scarf, 4, 0, "rk"))
+    cv.finish(sh)
+
+
+def kerst_glas(sh):
+    """Kerstnacht als glas-in-lood: een grote ster, drie kaarsen, kerstballen en hulst."""
+    cv = Canvas()
+    cv.put_many(pat_voronoi(PAGE, 15, "npb", 46))
+    obj("ster")
+    star = Polygon([(100 + (58 if k % 2 == 0 else 22) * math.sin(math.pi * k / 8), 64 - (58 if k % 2 == 0 else 22) * math.cos(math.pi * k / 8)) for k in range(16)])
+    cv.put_many(pat_rays(star, 100, 64, 16, "yo"))
+    cv.put(circle(100, 64, 10, 32), "-")
+    for x, h, code in ((56, 60, "r"), (100, 76, "m"), (144, 60, "r")):
+        obj(f"kaars{x}")
+        part(); cv.put_many(pat_stripes(box(x - 10, 186 - h, x + 10, 186), 5, 0, code + "k"))
+        flame = P(bez((x, 186 - h - 26), (x + 12, 186 - h - 12), (x + 8, 186 - h), (x, 186 - h), 10) + bez((x, 186 - h), (x - 8, 186 - h), (x - 12, 186 - h - 12), (x, 186 - h - 26), 10)[1:])
+        part(); cv.put_many(pat_rings(flame, x, 186 - h - 8, 3, "yo"))
+    for x, y, r, codes in ((24, 120, 16, "tb"), (176, 120, 16, "gt"), (30, 168, 12, "my"), (170, 168, 12, "ym")):
+        obj(f"bal{x}{y}")
+        part(); cv.put_many(pat_rings(circle(x, y, r, 48), x, y, 3, codes))
+        cv.put(box(x - 4, y - r - 5, x + 4, y - r + 1), "z")
+    obj("hulst")
+    for x, a in ((76, -30), (124, 30), (100, 0)):
+        leaf = affinity.rotate(P(bez((x, 196), (x - 14, 186), (x - 8, 172), (x, 166), 10) + bez((x, 166), (x + 8, 172), (x + 14, 186), (x, 196), 10)[1:]), a, origin=(x, 196))
+        part(); cv.put_many(pat_stripes(leaf, 3, 90, "gl"))
+    for x, y in ((92, 190), (100, 196), (108, 190)): cv.put(circle(x, y, 4, 24), "r")
+    cv.finish(sh)
+
+
+kp12("rendier-in-het-winterbos", "Rendier in het winterbos", "Een rendier met een geruite sjaal tussen de sparren, met schubjes op zijn lijf en streepjes in zijn gewei. Kleur de lucht in nachtblauw en paars.", kerst_rendier, "feest", holiday="kerst")
+kp12("kerstnacht-glas-in-lood", "Kerstnacht als glas-in-lood", "Een grote ster met stralen, drie kaarsen, kerstballen en hulst, als een raam van gekleurd glas. Kleur de ster goud en de lucht in diepe blauwtinten.", kerst_glas, "feest", holiday="kerst")
