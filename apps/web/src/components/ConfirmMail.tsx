@@ -1,12 +1,12 @@
 "use client";
 import { useHref } from "./Base";
 import { useEffect, useState } from "react";
-import { messages } from "@/i18n/nl";
+import { useT } from "./I18n";
 
 /** Bevestigt een aanmelding zodra de pagina in een browser opent (niet bij het ophalen door een linkscanner). */
 export function ConfirmMail({ token, language, market }: { token: string; language: string; market: string }) {
   const href = useHref();
-  const t = messages(language);
+  const t = useT();
   const [status, setStatus] = useState<"busy" | "confirmed" | "invalid">("busy");
   useEffect(() => {
     fetch("/mail/bevestig", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ t: token }) })

@@ -4,14 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Icon } from "@kleurhoek/theme";
-import { messages } from "@/i18n/nl";
+import { useT } from "./I18n";
 import { book, useBook } from "@/lib/local";
 import type { PlateItem } from "@/lib/types";
 import { PlateImage } from "./ColorPreview";
 
 /** Knop in de kop: begin of stop met platen kiezen voor een boekje. */
 export function BookButton({ language }: { language: string }) {
-  const t = messages(language);
+  const t = useT();
   const { picking } = useBook();
   return <button type="button" className="btn" aria-pressed={picking} onClick={() => book.setPicking(!picking)}>{picking ? t.picking : t.makeBook}</button>;
 }
@@ -23,7 +23,7 @@ export function BookButton({ language }: { language: string }) {
 export function PickBar({ language }: { language: string }) {
   const href = useHref();
   const path = usePathname();
-  const t = messages(language);
+  const t = useT();
   const { picking, slugs } = useBook();
   const [sure, setSure] = useState(false);
   if (/\/boekje\/?$/.test(path ?? "") || (!picking && !slugs.length)) return null;
@@ -52,7 +52,7 @@ export function PickBar({ language }: { language: string }) {
 
 /** Een plaat in of uit het boekje zetten, vanaf de plaat zelf (ADR 0076). */
 export function BookToggle({ slug, language }: { slug: string; language: string }) {
-  const t = messages(language);
+  const t = useT();
   const { slugs } = useBook();
   const on = slugs.includes(slug);
   return <button type="button" className="btn" aria-pressed={on} onClick={() => book.toggle(slug)}><Icon name="book" size={16} /> {on ? t.inBookOn : t.inBook}</button>;
@@ -64,7 +64,7 @@ export function BookToggle({ slug, language }: { slug: string; language: string 
  */
 export function MoreToPrint({ plates, language }: { plates: PlateItem[]; language: string }) {
   const href = useHref();
-  const t = messages(language);
+  const t = useT();
   const [chosen, setChosen] = useState<string[]>([]);
   if (!plates.length) return null;
   const toggle = (slug: string) => setChosen((c) => (c.includes(slug) ? c.filter((s) => s !== slug) : [...c, slug]));

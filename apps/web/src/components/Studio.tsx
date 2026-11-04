@@ -6,7 +6,8 @@ import { Icon } from "@kleurhoek/theme";
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent as ReactPointerEvent } from "react";
 import type { PlateDetail, PlateItem } from "@/lib/types";
 import { BookToggle, MoreToPrint } from "./BookPicker";
-import { messages } from "@/i18n/nl";
+import type { Messages } from "@/i18n/nl-base";
+import { useT } from "./I18n";
 import { track } from "@/lib/track";
 import { ERASER, FREE_PALETTE, progress, strokeWidth, type Fills, type Line } from "@/lib/studio";
 import {
@@ -52,7 +53,7 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
 }) {
   const [printed, setPrinted] = useState(false);
   const href = useHref();
-  const t = messages(language);
+  const t = useT();
   const lineKind = LINE_KINDS.has(plate.kind);
   // Waar tekenen het eerste is wat je doet (doolhof, verbinden, overtrekken, tekenlessen), staat lijn trekken meteen aan.
   const [mode, setMode] = useState<Mode>(lineKind && (plate.kind === "tekenles" || LINE_FIRST.test(plate.slug)) ? "lijn" : "free");
@@ -487,7 +488,7 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
 
 /** Time-lapse: het werk speelt zich opnieuw af en wordt tegelijk opgenomen als filmpje (als het apparaat dat kan). */
 function Replay({ t, slug, market, title, hasName, paper, frames, size, onClose }: {
-  t: ReturnType<typeof messages>; slug: string; market: string; title: string; hasName: boolean; paper: string; frames: () => string[]; size: { width: number; height: number }; onClose: () => void;
+  t: Messages; slug: string; market: string; title: string; hasName: boolean; paper: string; frames: () => string[]; size: { width: number; height: number }; onClose: () => void;
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);

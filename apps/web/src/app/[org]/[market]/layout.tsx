@@ -10,7 +10,8 @@ import { messages } from "@/i18n/nl";
 import { hreflang, indexable, SITE } from "@/lib/seo";
 import { baseFor } from "@/lib/base";
 import { BaseProvider } from "@/components/Base";
-import { LangHint } from "@/components/MarketSwitch";
+import { I18nProvider } from "@/components/I18n";
+import { LangHint, type LangHints } from "@/components/MarketSwitch";
 import { PickBar } from "@/components/BookPicker";
 import { markFor, siteDomains, siteEntries } from "@/lib/sites";
 
@@ -44,11 +45,16 @@ export default async function MarketLayout({ children, params }: { children: Rea
   if (!org || !LIVE_MARKETS.includes(market) || (org.offer.markets && !org.offer.markets.includes(market))) notFound();
   const css = brandCss(org.brand.colors);
   const markets = LIVE_MARKETS.filter((m) => !org.offer.markets || org.offer.markets.includes(m));
+  // Taalbanner: alleen de vier teksten per taal mee naar de browser, niet alle talen (ADR 0081).
+  const hints: LangHints = Object.fromEntries([...new Set(markets.map(marketLanguage))].map((l) => {
+    const m = messages(l);
+    return [l, { langHint: m.langHint, langRead: m.langRead, marketsLabel: m.marketsLabel, close: m.close }];
+  }));
   return (
     <html lang={hreflang(market)} {...(isLetter(market) ? { "data-paper": "letter" } : {})} {...(org.brand.theme ? { "data-kh-theme": org.brand.theme } : {})} {...(org.brand.font ? { "data-kh-font": org.brand.font } : {})}>
       {/* Nooit een lege string in <head>: browsers gooien tekst daar weg, dan klopt de hydratie niet en verdwijnt de CSS. */}
       <head>{css ? <style id="kh-brand">{css}</style> : null}</head>
-      <body><BaseProvider base={baseFor(org, market)} market={market} sites={siteEntries(markets, org.isDefault ? siteDomains() : null)} mark={org.isDefault ? markFor(market, siteDomains()) : null}><LangHint />{children}<PickBar language={marketLanguage(market)} /></BaseProvider></body>
+      <body><BaseProvider base={baseFor(org, market)} market={market} sites={siteEntries(markets, org.isDefault ? siteDomains() : null)} mark={org.isDefault ? markFor(market, siteDomains()) : null}><I18nProvider market={market}><LangHint hints={hints} />{children}<PickBar language={marketLanguage(market)} /></I18nProvider></BaseProvider></body>
     </html>
   );
 }

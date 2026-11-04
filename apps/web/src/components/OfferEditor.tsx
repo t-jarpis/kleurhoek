@@ -1,7 +1,7 @@
 "use client";
 import { useHref } from "./Base";
 import { useEffect, useMemo, useState } from "react";
-import { messages } from "@/i18n/nl";
+import { useT } from "./I18n";
 
 interface Data {
   name: string;
@@ -19,7 +19,7 @@ const norm = (s: string) => s.toLocaleLowerCase().normalize("NFD").replace(/\p{D
  */
 export function OfferEditor({ org, market, language }: { org: string; market: string; language: string }) {
   const href = useHref();
-  const t = messages(language);
+  const t = useT();
   const [data, setData] = useState<Data | "anon" | "none" | "error" | null>(null);
   const [goals, setGoals] = useState<string[]>([]);
   const [collections, setCollections] = useState<string[]>([]);

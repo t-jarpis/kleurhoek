@@ -3,7 +3,7 @@ import { ColorToggle } from "./ColorPreview";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { KIND_GROUP, type PlateItem, type Taxonomy } from "@/lib/types";
-import { messages } from "@/i18n/nl";
+import { useT } from "./I18n";
 import { PlateCard } from "./PlateCard";
 import { useBase } from "./Base";
 import { book, favorites, useBook, useFavorites } from "@/lib/local";
@@ -16,7 +16,7 @@ type Key = "soort" | "leerdoel" | "onderwerp" | "werelddeel" | "land" | "feestda
 /** Filters en raster. De filterstand staat in de URL, zodat je hem kunt delen en de pagina zelf gecachet blijft. */
 export function Browse({ plates, taxonomy, market, language }: { plates: PlateItem[]; taxonomy: Taxonomy; market: string; language: string }) {
   const base = useBase();
-  const t = messages(language);
+  const t = useT();
   const router = useRouter();
   const pathname = usePathname();
   const params = useSearchParams();

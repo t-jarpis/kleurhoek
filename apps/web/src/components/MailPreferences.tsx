@@ -1,12 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
-import { messages } from "@/i18n/nl";
+import { useT } from "./I18n";
 
 type Prefs = { email: string; topics: string[]; topicsAll: string[] };
 
 /** Voorkeuren en afmelden met de link uit een mail (design system: MailPreferences, ADR 0037). */
 export function MailPreferences({ token, language, unsubscribe }: { token: string; language: string; unsubscribe: boolean }) {
-  const t = messages(language);
+  const t = useT();
   const [prefs, setPrefs] = useState<Prefs | "invalid" | "removed" | null>(null);
   const [topics, setTopics] = useState<string[]>([]);
   const [sure, setSure] = useState(false);

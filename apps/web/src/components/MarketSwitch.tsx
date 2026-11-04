@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import { messages } from "@/i18n/nl";
 import { hasSintCalendar } from "@/lib/sint";
 import { browserLanguages } from "@/lib/sites";
 import { useSites } from "./Base";
@@ -41,7 +40,10 @@ export function MarketLinks({ label }: { label: string }) {
  * Taalbanner (ADR 0040): spreekt de browser een andere taal die we ook hebben, dan een rustige hint in die taal.
  * Nooit automatisch doorsturen. Sluiten wordt op het apparaat onthouden.
  */
-export function LangHint() {
+/** De paar teksten van de taalbanner per taal, van de server (ADR 0081): de browser laadt alleen de eigen taal. */
+export type LangHints = Record<string, { langHint: string; langRead: string; marketsLabel: string; close: string }>;
+
+export function LangHint({ hints }: { hints: LangHints }) {
   const { market, sites } = useSites();
   const rest = useRest();
   const [target, setTarget] = useState<{ root: string; language: string } | null>(null);
@@ -56,7 +58,8 @@ export function LangHint() {
     setTarget(hit && restIn(hit.market, rest) === rest ? { root: hit.root, language: lang } : null);
   }, [market, sites, rest]);
   if (!target) return null;
-  const t = messages(target.language);
+  const t = hints[target.language];
+  if (!t) return null;
   const close = () => { try { localStorage.setItem(DISMISSED, "1"); } catch { /* niet onthouden */ } setTarget(null); };
   return (
     <div className="ui-lang-hint no-print" role="region" aria-label={t.marketsLabel} lang={target.language}>

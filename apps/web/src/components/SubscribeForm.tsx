@@ -1,7 +1,7 @@
 "use client";
 import { useActionState, useEffect, useState } from "react";
 import type { SubscribeState } from "@/app/[org]/[market]/mail/actions";
-import { messages } from "@/i18n/nl";
+import { useT } from "./I18n";
 
 const TOPICS = ["nieuwe-platen", "feestdagen", "nieuwsbrief"];
 
@@ -14,7 +14,7 @@ const TOPICS = ["nieuwe-platen", "feestdagen", "nieuwsbrief"];
 export function SubscribeForm({ action, language, titled = true, topics = TOPICS, checked = ["nieuwe-platen", "feestdagen"], title, intro }: {
   action: (s: SubscribeState, f: FormData) => Promise<SubscribeState>; language: string; titled?: boolean; topics?: string[]; checked?: string[]; title?: string; intro?: string;
 }) {
-  const t = messages(language);
+  const t = useT();
   const [state, submit, pending] = useActionState(action, { status: "idle" });
   const [started, setStarted] = useState(0);
   useEffect(() => { setStarted(Date.now()); }, []);
