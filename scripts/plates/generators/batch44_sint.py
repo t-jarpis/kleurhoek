@@ -99,13 +99,17 @@ def soot(sh, cx, hy, s):
         sh.raw("</g>")
 
 
-def piet(sh, cx, top, s=1, suit="o", trouser="g", cap="n", feather="y", hands=None, legs=None, draw_legs=True, arms_front=False, hair="x"):
-    """Roetveegpiet: baret met veer, witte kraag, pofbroek, roetvegen. Geeft de y van het gezicht terug."""
+def piet(sh, cx, top, s=1, suit="o", trouser="g", cap="n", feather="y", hands=None, legs=None, draw_legs=True, arms_front=False, hair="x", curls=True, light_soot=False):
+    """Roetveegpiet: baret met veer, witte kraag, pofbroek, roetvegen. Geeft de y van het gezicht terug.
+    curls=False: steil haar tot op de schouders (batch 46), zodat de Pieten verschillende kapsels hebben."""
     S = lambda v: v * s
     hy = person(sh, cx, top, suit, trouser, hands=hands, hair=None, style="short", legs=legs, s=s, draw_legs=draw_legs,
                 arms_front=arms_front, shoes="x")
-    for d in (-1, 1):  # krullen opzij, onder de baret
-        sh.circle_r(cx + d * S(15), hy - S(1), S(4.6), hair); sh.circle_r(cx + d * S(14), hy + S(7), S(4.2), hair)
+    for d in (-1, 1):  # haar opzij, onder de baret
+        if curls:
+            sh.circle_r(cx + d * S(15), hy - S(1), S(4.6), hair); sh.circle_r(cx + d * S(14), hy + S(7), S(4.2), hair)
+        else:
+            sh.region(f"M{f(cx + d * S(11))} {f(hy - S(8))}Q{f(cx + d * S(20))} {f(hy - S(4))} {f(cx + d * S(19))} {f(hy + S(12))}H{f(cx + d * S(13))}Q{f(cx + d * S(14))} {f(hy)} {f(cx + d * S(11))} {f(hy - S(8))}Z", hair)
     if draw_legs:  # pofbroek
         sh.region(f"M{f(cx - S(17))} {f(hy + S(52))}Q{f(cx - S(24))} {f(hy + S(66))} {f(cx - S(14))} {f(hy + S(70))}H{f(cx + S(14))}Q{f(cx + S(24))} {f(hy + S(66))} {f(cx + S(17))} {f(hy + S(52))}Z", trouser)
     if s >= .5:  # pofmouwen, knoopjes en riem met gesp
@@ -118,7 +122,11 @@ def piet(sh, cx, top, s=1, suit="o", trouser="g", cap="n", feather="y", hands=No
         sh.line(f"M{f(cx - S(8))} {f(hy + S(17))}L{f(cx - S(7))} {f(hy + S(21))}M{f(cx)} {f(hy + S(18))}V{f(hy + S(20))}M{f(cx + S(8))} {f(hy + S(17))}L{f(cx + S(7))} {f(hy + S(21))}", "l", "stroke-width:.8")
     beret(sh, cx, hy, s, cap, feather)
     if s >= .5: sh.circle_r(cx + S(7), hy - S(14), S(2.6), "y")
-    soot(sh, cx, hy, s)
+    if light_soot:  # één kleine roetveeg op de wang (batch 46): leest ook klein niet als snor of baard
+        x, y = cx - S(9), hy + S(7)
+        sh.region(f"M{f(x - S(2.6))} {f(y)}Q{f(x)} {f(y - S(1.8))} {f(x + S(2.6))} {f(y)}Q{f(x)} {f(y + S(1.2))} {f(x - S(2.6))} {f(y)}Z", "z")
+    else:
+        soot(sh, cx, hy, s)
     return hy
 
 
