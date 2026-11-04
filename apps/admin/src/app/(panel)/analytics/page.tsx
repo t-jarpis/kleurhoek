@@ -97,17 +97,18 @@ export default async function Analytics({ searchParams }: { searchParams: Promis
           <StatCard label="Platen bekeken" value={o.totals.plateViews} before={o.previousTotals.plateViews} period={vs} />
           <StatCard label="Geprint" value={o.totals.prints} before={o.previousTotals.prints} period={vs} />
           <StatCard label="Gedownload" value={o.totals.pdfDownloads} before={o.previousTotals.pdfDownloads} period={vs} />
-          <StatCard label="Helemaal ingekleurd" value={o.totals.completions} before={o.previousTotals.completions} period={vs} note={`${pct(o.totals.completions, o.totals.plateViews)} van de bekeken platen`} />
+          <StatCard label="Online gekleurd" value={o.totals.colored ?? 0} before={o.previousTotals.colored ?? 0} period={vs} note={`${pct(o.totals.colored ?? 0, o.totals.plateViews)} van de bekeken platen, ook deels`} />
+          <StatCard label="Af met kleur op nummer" value={o.totals.completions} before={o.previousTotals.completions} period={vs} />
           <StatCard label="'Wat heb je nodig' bekeken" value={o.totals.materialsViews} period={vs} />
           <StatCard label="Doorkliks naar winkels" value={o.totals.productClicks} period={vs} note={`${pct(o.totals.productClicks, o.totals.materialsViews)} klikratio`} />
         </div>
         <section className="panel">
           <h2>Populairste platen</h2>
           {o.topPlates.length === 0 ? <p className="lead">Nog geen platen bekeken in deze periode.</p> : (
-            <table><thead><tr><th>Plaat</th><th className="num">Bekeken</th><th className="num">Downloads</th><th className="num">Prints</th><th className="num">Ingekleurd</th><th className="num">Gebruikt</th></tr></thead>
-              <tbody>{o.topPlates.map((p) => <tr key={p.plate}><td>{p.plate}</td><td className="num">{num(p.views)}</td><td className="num">{num(p.downloads)}</td><td className="num">{num(p.prints)}</td><td className="num">{num(p.completions)}</td><td className="num">{pct(p.downloads + p.prints + p.completions, p.views)}</td></tr>)}</tbody></table>
+            <table><thead><tr><th>Plaat</th><th className="num">Bekeken</th><th className="num">Downloads</th><th className="num">Prints</th><th className="num">Gekleurd</th><th className="num">Gebruikt</th></tr></thead>
+              <tbody>{o.topPlates.map((p) => <tr key={p.plate}><td>{p.plate}</td><td className="num">{num(p.views)}</td><td className="num">{num(p.downloads)}</td><td className="num">{num(p.prints)}</td><td className="num">{num(p.colored ?? 0)}</td><td className="num">{pct(p.downloads + p.prints + (p.colored ?? 0), p.views)}</td></tr>)}</tbody></table>
           )}
-          <p className="lead">"Gebruikt" = gedownload, geprint of helemaal ingekleurd, gedeeld door bekeken.</p>
+          <p className="lead">"Gekleurd" = online begonnen met kleuren, ook als het niet af is. "Gebruikt" = gedownload, geprint of online gekleurd, gedeeld door bekeken.</p>
         </section>
         {act && <section className="panel">
           <h2>Wanneer wordt er gedownload en geprint?</h2>

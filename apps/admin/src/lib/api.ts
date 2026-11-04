@@ -9,7 +9,7 @@ export interface RateLimitRule {
   updatedBy: string; updatedAt: string; days: { day: string; allowed: number; blocked: number }[];
 }
 export interface Summary {
-  topPlates: { plate: string; views: number; downloads: number; prints: number; completions: number; shares?: number; sharedVisits?: number }[];
+  topPlates: { plate: string; views: number; downloads: number; prints: number; colored?: number; completions: number; shares?: number; sharedVisits?: number }[];
   byCountry: { country: string; pageViews: number; plateViews: number }[];
 }
 export interface AdminUser {
@@ -91,7 +91,7 @@ export interface OrgInput {
   offer?: Partial<OrgOffer>; features?: Partial<OrgFeatures>;
 }
 
-export interface OverviewTotals { visitors: number; pageViews: number; plateViews: number; downloads: number; completions: number; prints: number; pdfDownloads: number; materialsViews: number; productClicks: number; shares: number; sharedVisits: number }
+export interface OverviewTotals { visitors: number; pageViews: number; plateViews: number; downloads: number; colored: number; completions: number; prints: number; pdfDownloads: number; materialsViews: number; productClicks: number; shares: number; sharedVisits: number }
 export interface Realtime { since: string; visitors: number; pageViews: number; pages: { page: string; views: number }[]; plates: { plate: string; views: number }[] }
 export interface Overview {
   from: string; to: string; bucket: "day" | "week"; previous: { from: string; to: string };

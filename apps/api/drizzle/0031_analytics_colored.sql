@@ -1,0 +1,1 @@
+ALTER TABLE "analytics"."daily_totals" ADD COLUMN "colored" integer DEFAULT 0 NOT NULL;

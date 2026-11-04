@@ -41,7 +41,7 @@ export default async function Dashboard({ searchParams }: { searchParams: Promis
         <StatCard label="Bezoekers" value={o.totals.visitors} before={o.previousTotals.visitors} period={vs} note="Unieke bezoekers per dag, opgeteld" />
         <StatCard label="Paginaweergaven" value={o.totals.pageViews} before={o.previousTotals.pageViews} period={vs} />
         <StatCard label="Downloads en prints" value={o.totals.downloads} before={o.previousTotals.downloads} period={vs} />
-        <StatCard label="Platen ingekleurd" value={o.totals.completions} before={o.previousTotals.completions} period={vs} />
+        <StatCard label="Online gekleurd" value={o.totals.colored ?? 0} before={o.previousTotals.colored ?? 0} period={vs} note={`Ook deels; ${num(o.totals.completions)} helemaal af met kleur op nummer`} />
         <StatCard label="Gedeeld" value={o.totals.shares ?? 0} before={o.previousTotals.shares ?? 0} period={vs} note={`${num(o.totals.sharedVisits ?? 0)} bezoeken via een gedeelde link`} />
         <StatCard label="Nieuwe accounts" value={accounts.created} before={accounts.createdBefore} period={vs} note={`${num(accounts.total)} accounts in totaal`} />
         <StatCard label="Terugkerende accounts" value={accounts.returning} period={vs} note={`${num(accounts.active)} accounts logden in deze periode in`} />

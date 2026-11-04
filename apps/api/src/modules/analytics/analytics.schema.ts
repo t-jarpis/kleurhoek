@@ -45,6 +45,9 @@ export const dailyTotals = analyticsSchema.table("daily_totals", {
   plateViews: integer("plate_views").notNull().default(0),
   downloads: integer("downloads").notNull().default(0),
   prints: integer("prints").notNull().default(0),
+  /** Online begonnen met kleuren (plate_colored): elke keer dat iemand op een plaat de eerste kleur zet (ADR 0077). */
+  colored: integer("colored").notNull().default(0),
+  /** Helemaal af in Kleur op nummer (plate_completed). */
   completions: integer("completions").notNull().default(0),
   shares: integer("shares").notNull().default(0),
   sharedVisits: integer("shared_visits").notNull().default(0),

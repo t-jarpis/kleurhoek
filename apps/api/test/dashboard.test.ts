@@ -1,5 +1,9 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { AnalyticsService, buckets } from "../src/modules/analytics/analytics.service";
+import { and, eq } from "drizzle-orm";
+import { DB, type Database } from "../src/db/database";
+import { withTenant } from "../src/db/tenant";
+import { dailyTotals } from "../src/modules/analytics/analytics.schema";
 import { createTestApp, INGEST_KEY, TENANT } from "./app";
 
 describe("dashboard: pagina's, tijdreeksen en accounts (ADR 0020)", () => {
@@ -61,6 +65,28 @@ describe("dashboard: pagina's, tijdreeksen en accounts (ADR 0020)", () => {
     const o = (await admin(`/v1/admin/analytics/overview?from=${day}&to=${day}`)).json();
     expect(o.totals).toMatchObject({ shares: 2, sharedVisits: 1 });
     expect(o.topPlates.find((p: { plate: string }) => p.plate === "kat")).toMatchObject({ shares: 2, sharedVisits: 1 });
+  });
+
+  it("telt online gekleurd naast helemaal af, en vult oude dagen vanzelf aan (ADR 0077)", async () => {
+    const day = "2026-10-26", at = `${day}T12:00:00.000Z`;
+    const analytics = ctx.app.get(AnalyticsService);
+    await ingest([ev("plate_view", { plate: "kat", org: "kleurhoek", visitorHash: "eeeeeeeeeeeeeeee", occurredAt: at })]);
+    await analytics.aggregateDay(TENANT, day);
+    expect(await analytics.staleDays(TENANT)).not.toContain(day);
+    await ingest([
+      ev("plate_colored", { plate: "kat", org: "kleurhoek", visitorHash: "eeeeeeeeeeeeeeee", occurredAt: at }),
+      ev("plate_colored", { plate: "vis", org: "kleurhoek", visitorHash: "eeeeeeeeeeeeeeee", occurredAt: at }),
+      ev("plate_completed", { plate: "vis", org: "kleurhoek", visitorHash: "eeeeeeeeeeeeeeee", occurredAt: at }),
+    ]);
+    await analytics.aggregateDay(TENANT, day);
+    // Zoals een dag van vóór de kolom: wel kleurmeldingen, nog geen totaal. Die dag moet opnieuw.
+    await withTenant(ctx.app.get<Database>(DB), TENANT, (tx) => tx.update(dailyTotals).set({ colored: 0 }).where(and(eq(dailyTotals.tenantId, TENANT), eq(dailyTotals.day, day))));
+    expect(await analytics.staleDays(TENANT)).toContain(day);
+    await analytics.aggregateDay(TENANT, day);
+    expect(await analytics.staleDays(TENANT)).not.toContain(day);
+    const o = (await admin(`/v1/admin/analytics/overview?from=${day}&to=${day}`)).json();
+    expect(o.totals).toMatchObject({ colored: 2, completions: 1 });
+    expect(o.topPlates.find((p: { plate: string }) => p.plate === "kat")).toMatchObject({ colored: 1, completions: 0 });
   });
 
   it("groepeert per week bij een lange periode en vult lege weken", () => {

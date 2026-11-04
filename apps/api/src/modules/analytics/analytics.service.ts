@@ -51,7 +51,7 @@ export class AnalyticsService {
       const rows = await tx.select({
         plate: sql<string>`coalesce(${events.plateSlug}, '')`, market: events.market, country: sql<string>`coalesce(${events.country}, '')`,
         pageViews: count("page_view"), plateViews: count("plate_view"), downloads: count("pdf_download"),
-        prints: count("print"), completions: count("plate_completed"),
+        prints: count("print"), colored: count("plate_colored"), completions: count("plate_completed"),
         materialsViews: count("materials_view"), productClicks: count("product_click"),
         shares: count("share"), sharedVisits: count("shared_visit"),
         uniqueVisitors: sql<number>`count(distinct ${events.visitorHash})::int`,
@@ -59,7 +59,7 @@ export class AnalyticsService {
         .where(and(eq(events.tenantId, tenantId), gte(events.occurredAt, start), lt(events.occurredAt, end)))
         .groupBy(sql`1`, events.market, sql`3`);
       await tx.delete(dailyTotals).where(and(eq(dailyTotals.tenantId, tenantId), eq(dailyTotals.day, day)));
-      if (rows.length) await tx.insert(dailyTotals).values(rows.map((r) => ({ tenantId, day, plateSlug: r.plate, market: r.market, country: r.country, pageViews: r.pageViews, plateViews: r.plateViews, downloads: r.downloads, prints: r.prints, completions: r.completions, materialsViews: r.materialsViews, productClicks: r.productClicks, shares: r.shares, sharedVisits: r.sharedVisits, uniqueVisitors: r.uniqueVisitors })));
+      if (rows.length) await tx.insert(dailyTotals).values(rows.map((r) => ({ tenantId, day, plateSlug: r.plate, market: r.market, country: r.country, pageViews: r.pageViews, plateViews: r.plateViews, downloads: r.downloads, prints: r.prints, colored: r.colored, completions: r.completions, materialsViews: r.materialsViews, productClicks: r.productClicks, shares: r.shares, sharedVisits: r.sharedVisits, uniqueVisitors: r.uniqueVisitors })));
 
       const clicks = await tx.select({
         product: sql<string>`${events.productSlug}`, plate: sql<string>`coalesce(${events.plateSlug}, '')`, market: events.market,
@@ -106,12 +106,17 @@ export class AnalyticsService {
   async staleDays(tenantId: string): Promise<string[]> {
     return withTenant(this.db, tenantId, async (tx) => {
       const day = sql<string>`to_char(${events.occurredAt} at time zone 'UTC', 'YYYY-MM-DD')`;
-      const raw = await tx.select({ day, last: sql<Date>`max(${events.createdAt})` }).from(events).where(eq(events.tenantId, tenantId)).groupBy(sql`1`);
+      const raw = await tx.select({ day, last: sql<Date>`max(${events.createdAt})`, colored: sql<number>`count(*) filter (where ${events.type} = 'plate_colored')::int` })
+        .from(events).where(eq(events.tenantId, tenantId)).groupBy(sql`1`);
       if (!raw.length) return [];
-      const done = new Map((await tx.select({ day: sql<string>`${dailyTotals.day}::text`, at: sql<Date>`max(${dailyTotals.createdAt})` })
+      const done = new Map((await tx.select({ day: sql<string>`${dailyTotals.day}::text`, at: sql<Date>`max(${dailyTotals.createdAt})`, colored: sql<number>`sum(${dailyTotals.colored})::int` })
         .from(dailyTotals).where(and(eq(dailyTotals.tenantId, tenantId), gte(dailyTotals.day, raw.reduce((m, r) => (r.day < m ? r.day : m), raw[0]!.day))))
-        .groupBy(dailyTotals.day)).map((r) => [r.day, new Date(r.at).getTime()]));
-      return raw.filter((r) => !done.has(r.day) || new Date(r.last).getTime() >= done.get(r.day)!).map((r) => r.day).sort();
+        .groupBy(dailyTotals.day)).map((r) => [r.day, { at: new Date(r.at).getTime(), colored: r.colored }]));
+      // Ook opnieuw: dagen van vóór de kolom "colored" (ADR 0077), zodat de laatste 90 dagen vanzelf worden aangevuld.
+      return raw.filter((r) => {
+        const d = done.get(r.day);
+        return !d || new Date(r.last).getTime() >= d.at || (r.colored > 0 && !d.colored);
+      }).map((r) => r.day).sort();
     });
   }
 
@@ -138,7 +143,7 @@ export class AnalyticsService {
         pageViews: sql<number>`coalesce(sum(${dailyTotals.pageViews}), 0)::int`, plateViews: sql<number>`coalesce(sum(${dailyTotals.plateViews}), 0)::int`,
         prints: sql<number>`coalesce(sum(${dailyTotals.prints}), 0)::int`, pdfDownloads: sql<number>`coalesce(sum(${dailyTotals.downloads}), 0)::int`,
         materialsViews: sql<number>`coalesce(sum(${dailyTotals.materialsViews}), 0)::int`, productClicks: sql<number>`coalesce(sum(${dailyTotals.productClicks}), 0)::int`,
-        downloads: sql<number>`coalesce(sum(${dailyTotals.downloads} + ${dailyTotals.prints}), 0)::int`, completions: sql<number>`coalesce(sum(${dailyTotals.completions}), 0)::int`,
+        downloads: sql<number>`coalesce(sum(${dailyTotals.downloads} + ${dailyTotals.prints}), 0)::int`, colored: sql<number>`coalesce(sum(${dailyTotals.colored}), 0)::int`, completions: sql<number>`coalesce(sum(${dailyTotals.completions}), 0)::int`,
         shares: sql<number>`coalesce(sum(${dailyTotals.shares}), 0)::int`, sharedVisits: sql<number>`coalesce(sum(${dailyTotals.sharedVisits}), 0)::int`,
       }).from(dailyTotals).where(range(a, z)).then((r) => r[0]!);
       const visitors = (a: string, z: string) => tx.select({ visitors: sql<number>`coalesce(sum(${dailyVisitors.visitors}), 0)::int` })
@@ -234,7 +239,7 @@ export class AnalyticsService {
       topPlates: await tx.select({
         plate: dailyTotals.plateSlug,
         views: sql<number>`sum(${dailyTotals.plateViews})::int`, downloads: sql<number>`sum(${dailyTotals.downloads})::int`,
-        prints: sql<number>`sum(${dailyTotals.prints})::int`, completions: sql<number>`sum(${dailyTotals.completions})::int`,
+        prints: sql<number>`sum(${dailyTotals.prints})::int`, colored: sql<number>`sum(${dailyTotals.colored})::int`, completions: sql<number>`sum(${dailyTotals.completions})::int`,
         shares: sql<number>`sum(${dailyTotals.shares})::int`, sharedVisits: sql<number>`sum(${dailyTotals.sharedVisits})::int`,
       }).from(dailyTotals).where(and(where, sql`${dailyTotals.plateSlug} <> ''`))
         .groupBy(dailyTotals.plateSlug).orderBy(desc(sql`sum(${dailyTotals.downloads}) + sum(${dailyTotals.prints})`)).limit(20),
