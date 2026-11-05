@@ -4,7 +4,8 @@ import { num } from "./format";
 export interface Activity {
   from: string; to: string; limited: boolean; timeZone: string;
   grid: { weekday: number; hour: number; count: number }[];
-  latest: { at: string; type: "pdf_download" | "print"; plate: string; market: string; device: string }[];
+  /** `via`: binnenkomst van hetzelfde bezoek op dezelfde dag (ADR 0083); null als die er niet is. */
+  latest: { at: string; type: "pdf_download" | "print"; plate: string; market: string; device: string; via?: { referrer: string; page: string; entry: string } | null }[];
 }
 
 const DAYS = ["ma", "di", "wo", "do", "vr", "za", "zo"];

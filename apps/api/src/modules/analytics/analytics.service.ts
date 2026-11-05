@@ -223,9 +223,25 @@ export class AnalyticsService {
         hour: sql<number>`extract(hour from ${events.occurredAt} at time zone ${tz})::int`,
         count: sql<number>`count(*)::int`,
       }).from(events).where(where).groupBy(sql`1, 2`);
-      const latest = await tx.select({ at: events.occurredAt, type: events.type, plate: sql<string>`coalesce(${events.plateSlug}, '')`, market: events.market, device: events.device })
+      const latest = await tx.select({ at: events.occurredAt, type: events.type, plate: sql<string>`coalesce(${events.plateSlug}, '')`, market: events.market, device: events.device, hash: events.visitorHash })
         .from(events).where(where).orderBy(desc(events.occurredAt)).limit(30);
-      return { from: since, to, limited: since !== from, timeZone: ACTIVITY_TZ, grid, latest: latest.map((r) => ({ ...r, at: r.at.toISOString() })) };
+      // Kwam binnen via (ADR 0083): de binnenkomst van hetzelfde bezoek op dezelfde (UTC-)dag, want de bezoekerscode
+      // wisselt elke dag. Alleen de hostnaam van de verwijzer en de soort pagina; de code zelf gaat niet naar buiten.
+      const hashes = [...new Set(latest.map((r) => r.hash).filter((h): h is string => !!h))];
+      const landings = hashes.length ? await tx.select({ hash: events.visitorHash, at: events.occurredAt, referrer: events.referrer, page: events.page, entry: events.entryDomain })
+        .from(events).where(and(eq(events.tenantId, tenantId), eq(events.type, "page_view"), inArray(events.visitorHash, hashes), sql`${events.entryDomain} is not null`,
+          gte(events.occurredAt, new Date(Math.min(...latest.map((r) => r.at.getTime())) - 86_400_000))))
+        .orderBy(events.occurredAt) : [];
+      const utcDay = (d: Date) => d.toISOString().slice(0, 10);
+      const via = (r: (typeof latest)[number]) => {
+        // De laatste binnenkomst vóór de download, op dezelfde dag.
+        const l = landings.filter((x) => x.hash === r.hash && utcDay(x.at) === utcDay(r.at) && x.at <= r.at).at(-1);
+        return l ? { referrer: l.referrer ?? "", page: l.page ?? "", entry: l.entry ?? "" } : null;
+      };
+      return {
+        from: since, to, limited: since !== from, timeZone: ACTIVITY_TZ, grid,
+        latest: latest.map(({ hash: _h, ...r }) => ({ ...r, at: r.at.toISOString(), via: via({ ...r, hash: _h }) })),
+      };
     });
   }
 

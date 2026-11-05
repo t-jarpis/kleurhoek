@@ -24,6 +24,9 @@ const PAGE_LABEL: Record<string, string> = { home: "Home", plaat: "Plaatpagina's
 const DEVICE_LABEL: Record<string, string> = { mobile: "Telefoon", tablet: "Tablet", desktop: "Computer", other: "Overig" };
 const ENTRY_LABEL: Record<string, string> = { nl: "kleurhoek.nl", be: "kleurhoek.be", com: "kleurhoek.com" };
 const iso = (d: Date) => d.toISOString().slice(0, 10);
+/** Kwam binnen via (ADR 0083): "google.com → een plaat", "rechtstreeks → de voorpagina", of "—". */
+const ONE_PAGE: Record<string, string> = { plaat: "een plaat", onderwerp: "een onderwerppagina", thema: "een themapagina", lespakket: "een lespakket", home: "de voorpagina" };
+const viaText = (v: { referrer: string; page: string } | null | undefined) => (v ? `${v.referrer || "rechtstreeks"}${v.page ? ` → ${ONE_PAGE[v.page] ?? (PAGE_LABEL[v.page] ?? v.page).toLowerCase()}` : ""}` : "—");
 /** Tijdstip in Nederlandse tijd: "di 3 nov 14:05". */
 const when = (at: string) => new Intl.DateTimeFormat("nl-NL", { timeZone: "Europe/Amsterdam", weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }).format(new Date(at));
 const pct = (a: number, b: number) => (b ? `${Math.round((a / b) * 1000) / 10}%`.replace(".", ",") : "—");
@@ -117,8 +120,8 @@ export default async function Analytics({ searchParams }: { searchParams: Promis
           <ActivityHeatmap grid={act.grid} caption="Downloads en prints per weekdag en uur" />
           <h3>Laatste downloads en prints</h3>
           {act.latest.length === 0 ? <p className="lead">Nog geen downloads of prints in deze periode.</p> : (
-            <table><thead><tr><th>Tijdstip</th><th>Wat</th><th>Plaat</th><th>Markt</th><th>Apparaat</th></tr></thead>
-              <tbody>{act.latest.map((e, i) => <tr key={`${e.at}-${i}`}><td>{when(e.at)}</td><td>{e.type === "print" ? "Geprint" : "Gedownload"}</td><td>{e.plate || "—"}</td><td>{e.market}</td><td>{DEVICE_LABEL[e.device] ?? e.device}</td></tr>)}</tbody></table>
+            <table><thead><tr><th>Tijdstip</th><th>Wat</th><th>Plaat</th><th>Markt</th><th>Apparaat</th><th>Kwam binnen via</th></tr></thead>
+              <tbody>{act.latest.map((e, i) => <tr key={`${e.at}-${i}`}><td>{when(e.at)}</td><td>{e.type === "print" ? "Geprint" : "Gedownload"}</td><td>{e.plate || "—"}</td><td>{e.market}</td><td>{DEVICE_LABEL[e.device] ?? e.device}</td><td>{viaText(e.via)}</td></tr>)}</tbody></table>
           )}
         </section>}
       </>}

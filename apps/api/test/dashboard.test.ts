@@ -54,6 +54,19 @@ describe("dashboard: pagina's, tijdreeksen en accounts (ADR 0020)", () => {
     expect((await admin("/v1/admin/analytics/activity?from=2026-10-20&to=2026-10-20")).statusCode).toBe(200);
   });
 
+  it("toont per download hoe dat bezoek binnenkwam, alleen op dezelfde dag (ADR 0083)", async () => {
+    const h = "dddddddddddddddd", other = "eeeeeeeeeeeeeeee";
+    expect((await ingest([
+      ev("page_view", { page: "plaat", plate: "uil", entry: "be", referrer: "google.com", visitorHash: h, occurredAt: "2026-10-21T07:00:00.000Z" }),
+      ev("print", { plate: "uil", visitorHash: h, occurredAt: "2026-10-21T07:05:00.000Z" }),
+      ev("print", { plate: "kat", visitorHash: other, occurredAt: "2026-10-21T08:00:00.000Z" }),
+    ])).statusCode).toBe(202);
+    const a = await ctx.app.get(AnalyticsService).activity(TENANT, "2026-10-21", "2026-10-21");
+    expect(a.latest.find((e) => e.plate === "uil")).toMatchObject({ via: { referrer: "google.com", page: "plaat", entry: "be" } });
+    expect(a.latest.find((e) => e.plate === "kat")!.via).toBeNull();
+    expect(JSON.stringify(a)).not.toContain(h);
+  });
+
   it("telt delen en binnenkomen via een gedeelde link, per plaat (ADR 0074)", async () => {
     const day = "2026-10-25", at = `${day}T12:00:00.000Z`;
     expect((await ingest([
