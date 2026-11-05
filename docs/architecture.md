@@ -76,3 +76,4 @@ Het volledige architectuurdocument met diagrammen staat hier: https://claude.ai/
 - Storingsmelding: een GitHub-workflow controleert elke 10 minuten www.kleurhoek.nl, .be, .com en de API; bij een storing een issue met melding aan de eigenaar, dat vanzelf sluit als alles weer werkt (ADR 0079).
 - Pagina Wat is er nieuw (`/nieuw`): nieuwste platen per markt (`/v1/markets/:market/new`) en in het Nederlands de Public-notes (`/v1/news`); elke pagina heeft één `<main>`, onbekende adressen geven de 404 van de markt (ADR 0080).
 - Teksten in de browser per taal: client components lezen ze met `useT()` uit een provider die alleen de taal en marktvariant van de pagina laadt; de server houdt alle talen. Voorpagina van 350 naar 163 kB gecomprimeerde JavaScript (ADR 0081).
+- Tellingen: de website probeert een mislukte telling nog twee keer en logt het als het niet lukt; opslaan als afbeelding of filmpje telt als download, Bewaar op Pinterest als gedeeld (ADR 0082).

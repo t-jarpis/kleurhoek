@@ -40,7 +40,25 @@ export async function ingest(req: Request, event: { type: string; market: string
     ...(/^[a-z0-9-]{1,32}$/.test(req.headers.get("x-kh-org") ?? "") ? { org: req.headers.get("x-kh-org")! } : {}),
     ...(/^[A-Z]{2}$/.test(country) ? { country } : {}),
   };
-  try {
-    await fetch(`${API_URL}/v1/internal/events`, { method: "POST", headers: { "content-type": "application/json", "x-ingest-key": INGEST_KEY }, body: JSON.stringify([body]), signal: AbortSignal.timeout(2000) });
-  } catch { /* tellen mag nooit de site breken */ }
+  await send(JSON.stringify([body]), event.type);
+}
+
+/**
+ * Naar de API, met twee nieuwe pogingen als dat mislukt (ADR 0082): bij een hapering van de API (503, time-out)
+ * ging een telling anders stil verloren. Lukt het na drie keer niet, dan één regel in de log, zonder
+ * bezoekersgegevens. Een 4xx is een fout in het event zelf: niet opnieuw proberen.
+ */
+export async function send(json: string, type: string, waits = [300, 1200]): Promise<boolean> {
+  let last = "";
+  for (let attempt = 0; attempt <= waits.length; attempt++) {
+    if (attempt) await new Promise((r) => setTimeout(r, waits[attempt - 1]));
+    try {
+      const res = await fetch(`${API_URL}/v1/internal/events`, { method: "POST", headers: { "content-type": "application/json", "x-ingest-key": INGEST_KEY }, body: json, signal: AbortSignal.timeout(3000) });
+      if (res.ok) return true;
+      last = `HTTP ${res.status}`;
+      if (res.status >= 400 && res.status < 500 && res.status !== 429) break;
+    } catch (e) { last = (e as Error)?.name ?? "fout"; } // tellen mag nooit de site breken
+  }
+  console.warn(`Telling ${type} niet doorgegeven aan de API (${last})`);
+  return false;
 }

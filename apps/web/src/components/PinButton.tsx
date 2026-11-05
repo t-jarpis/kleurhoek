@@ -1,5 +1,6 @@
 "use client";
 import { Icon } from "@kleurhoek/theme";
+import { track } from "@/lib/track";
 
 /**
  * "Bewaar op Pinterest" (ADR 0057). Op de computer opent de gewone Pinterest-link een venster om een bord te kiezen.
@@ -7,15 +8,18 @@ import { Icon } from "@kleurhoek/theme";
  * alleen de link (zoals Safari doet): de app haalt de plaat zelf op via og:image. Een afbeelding plus tekst en link
  * delen gaf in de Pinterest-app een fout bij het maken van de pin.
  */
-export function PinButton({ href, url, title, label }: { href: string; url: string; title: string; label: string }) {
+export function PinButton({ href, url, title, label, market, plate }: { href: string; url: string; title: string; label: string; market: string; plate: string }) {
+  // Telt als gedeeld (ADR 0082): op de computer bij het openen van Pinterest, op een telefoon als het deelmenu lukt.
+  const counted = () => track({ type: "share", market, plate });
   const onClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
     const touch = typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches;
-    if (!touch || typeof navigator.share !== "function") return;
+    if (!touch || typeof navigator.share !== "function") { counted(); return; }
     e.preventDefault();
     try {
       await navigator.share({ title, url });
+      counted();
     } catch (err) {
-      if ((err as Error)?.name !== "AbortError") window.location.href = href;
+      if ((err as Error)?.name !== "AbortError") { counted(); window.location.href = href; }
     }
   };
   return (

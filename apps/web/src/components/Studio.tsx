@@ -332,7 +332,8 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
     const canvas = document.createElement("canvas");
     Object.assign(canvas, canvasSize(s, 2400));
     await drawSvg(canvas, snapshotSvg(s), paper());
-    canvas.toBlob((b) => b && download(b, `kleurhoek-${plate.slug}.png`), "image/png");
+    // Opslaan als afbeelding telt als download (ADR 0082): het is de download van nu, sinds de pdf-knop weg is.
+    canvas.toBlob((b) => { if (b) { download(b, `kleurhoek-${plate.slug}.png`); track({ type: "pdf_download", market, plate: plate.slug }); } }, "image/png");
   };
 
   /** Plaatje om te delen (ADR 0074): zonder de eigen tekst (vaak een naam), met het domein eronder. */
@@ -524,7 +525,7 @@ function Replay({ t, slug, market, title, hasName, paper, frames, size, onClose 
         <button type="button" className="ui-btn" onClick={() => dialog.current?.close()}>{t.atelier.close}</button>
         {!busy && <button type="button" className="ui-btn" onClick={() => setRun((r) => r + 1)}><Icon name="play" size={16} /> {t.atelier.replay}</button>}
         {type && (
-          <button type="button" className="ui-btn" data-variant={canShare && !hasName ? undefined : "primary"} disabled={!video} onClick={() => video && download(video, `kleurhoek-${slug}.${ext}`)}>
+          <button type="button" className="ui-btn" data-variant={canShare && !hasName ? undefined : "primary"} disabled={!video} onClick={() => { if (video) { download(video, `kleurhoek-${slug}.${ext}`); track({ type: "pdf_download", market, plate: slug }); } }}>
             {busy ? t.atelier.making : t.atelier.saveVideo}
           </button>
         )}
