@@ -4,7 +4,7 @@ import { bestMarket, LIVE_MARKETS } from "./lib/markets";
 import { DEFAULT_ORG, resolveOrg, SHARED_PATH } from "./lib/org-resolve";
 import { domainForHost, domainOf, routeFor, siteDomains } from "./lib/sites";
 import { blockedPage, CHECK_HEADER, checkKeyValid, currentPolicy, ipAllowed } from "./lib/site-access";
-import { hotlinkBlocked, PageLimiter } from "./lib/guard";
+import { hotlinkBlocked, legacyGone, PageLimiter } from "./lib/guard";
 
 const pages = new PageLimiter();
 
@@ -23,6 +23,9 @@ export async function proxy(request: NextRequest) {
     if (ip) headers.set("cf-connecting-ip", ip);
     if (country) headers.set("cf-ipcountry", country);
   }
+
+  // Adressen van een vorige eigenaar van het domein: 410, zonder doorverwijzing (ADR 0087).
+  if (legacyGone(path)) return new NextResponse("Deze pagina bestaat niet meer.", { status: 410, headers: { "cache-control": "public, max-age=86400", "content-type": "text/plain; charset=utf-8", "x-robots-tag": "noindex" } });
 
   // Afgeschermde website: alleen IP-adressen uit de lijst in het admin panel (ADR 0015).
   // Nooit een lijst kunnen ophalen: in productie dicht (503), lokaal open.

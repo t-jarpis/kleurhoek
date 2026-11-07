@@ -38,3 +38,12 @@ export class PageLimiter {
     return cur.n <= this.limit;
   }
 }
+
+/**
+ * Adressen van de vorige eigenaar van een domein (kleurhoek.be had tot 2025 een andere site, met honderd sitemaps
+ * en losse .html- en .php-pagina's). Die geven 410 ("verdwenen"), zodat Google ze sneller loslaat dan bij een 404
+ * via doorverwijzingen. Kleurhoek zelf gebruikt zulke adressen nooit.
+ */
+export function legacyGone(path: string): boolean {
+  return /^\/sitemap-\d+\.(xml|txt)$/i.test(path) || /\.(html?|php\d?|aspx?|jsp|cgi)$/i.test(path);
+}

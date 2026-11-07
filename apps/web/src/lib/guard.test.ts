@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { hotlinkBlocked, PageLimiter } from "./guard";
+import { hotlinkBlocked, legacyGone, PageLimiter } from "./guard";
 
 describe("tegen scrapers (ADR 0045)", () => {
   const svg = "/v1/assets/plates/kat/1.svg";
@@ -20,5 +20,14 @@ describe("tegen scrapers (ADR 0045)", () => {
     expect(l.allow("203.0.113.8", ua, 0)).toBe(true);
     expect(l.allow("203.0.113.7", ua, 61_000)).toBe(true);
     expect([1, 2, 3, 4, 5].every(() => l.allow("66.249.66.1", "Mozilla/5.0 (compatible; Googlebot/2.1)", 0))).toBe(true);
+  });
+});
+
+describe("oude adressen van een vorige eigenaar (410)", () => {
+  it("herkent oude sitemaps en .html/.php-pagina's", () => {
+    for (const p of ["/sitemap-99.xml", "/sitemap-100.txt", "/winkel/product-12.html", "/index.php", "/a/b.aspx"]) expect(legacyGone(p)).toBe(true);
+  });
+  it("laat de eigen adressen van Kleurhoek met rust", () => {
+    for (const p of ["/sitemap.xml", "/sitemap/nl-nl.xml", "/robots.txt", "/indexnow.txt", "/llms.txt", "/nl/platen/kat", "/v1/assets/plates/kat/1.png"]) expect(legacyGone(p)).toBe(false);
   });
 });
