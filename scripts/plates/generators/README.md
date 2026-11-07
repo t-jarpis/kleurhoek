@@ -25,3 +25,6 @@ Figuren `sint()` (mijter, baard, mantel, staf), `piet()` (Roetveegpiet: baret me
 
 ## Illustratiestijl (`illu.py`, ADR 0090)
 Schattige, getekende platen: `smooth(punten)` voor vloeiende vormen met een licht trillende lijn, `O(vorm, code)` voor hoofdvormen met een inktrand die rechtsonder dikker wordt, `L2(pad)` voor penseelstreken, en onderdelen als `eye`, `leaf`, `fern`, `tuft`, `cloud`, `flower` en `scales`. `R`/`C` nemen de kleurcode mee en `codes()` geeft de reeks voor de meta. Dino's: `OUT=/tmp/illu python3 illu_dinos.py`, daarna `node ../ingest.mjs /tmp/illu`. Stijlregels: PlateIllustration in het design system.
+
+## Lijntekening omzetten (`trace.py`, ADR 0091)
+`python3 trace.py bron.png uit.svg --kier 21 --nummers vlakken.png`: lijnen worden een inktlaag, witte gebieden gesloten vlakken (kiertjes gedicht). Met `--nummers` zie je het volgnummer per vlak om de kleurcodes te kiezen. Proefplaat: `OUT=/tmp/proef python3 beeldmodel_proef.py`. Nodig: `pip install opencv-python-headless numpy`.

@@ -556525,5 +556525,765 @@
         "countQuestion": "Hvað sérðu mörg lítil blóm?"
       }
     }
+  },
+  {
+    "slug": "dino-likt-aan-een-ijsje",
+    "order": 1110,
+    "category": "dinos",
+    "age": "6-9",
+    "world": null,
+    "holiday": null,
+    "regionCount": 82,
+    "colorByNumber": {
+      "codes": "blggzwgggmykkyyooooggzogzy-goozpprrorkkklloggkrpo-rpprkzggomzooooooooyyookll-okkok",
+      "palette": [
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "l",
+          "hex": "#9bd34a"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "m",
+          "hex": "#d0479b"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 25,
+          "y": 25.5,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 15,
+          "y": 152.8,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 77,
+          "y": 76.5,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 151.6,
+          "y": 114.2,
+          "size": 12.2
+        },
+        {
+          "region": 4,
+          "number": 4,
+          "x": 172.5,
+          "y": 26.4,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 5,
+          "x": 168.1,
+          "y": 93,
+          "size": 12.1
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 31.4,
+          "y": 117,
+          "size": 5.3
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 61.9,
+          "y": 155.1,
+          "size": 8.8
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 132,
+          "y": 164.2,
+          "size": 10.3
+        },
+        {
+          "region": 9,
+          "number": 6,
+          "x": 129.1,
+          "y": 90,
+          "size": 6.6
+        },
+        {
+          "region": 10,
+          "number": 7,
+          "x": 106.2,
+          "y": 142.9,
+          "size": 8.4
+        },
+        {
+          "region": 11,
+          "number": 8,
+          "x": 89.2,
+          "y": 167.9,
+          "size": 11.4
+        },
+        {
+          "region": 12,
+          "number": 8,
+          "x": 153.8,
+          "y": 161.1,
+          "size": 10.1
+        },
+        {
+          "region": 13,
+          "number": 7,
+          "x": 105.6,
+          "y": 129.2,
+          "size": 7.1
+        },
+        {
+          "region": 14,
+          "number": 7,
+          "x": 108.3,
+          "y": 155.4,
+          "size": 6.7
+        },
+        {
+          "region": 15,
+          "number": 9,
+          "x": 167.1,
+          "y": 63.7,
+          "size": 4.8
+        },
+        {
+          "region": 16,
+          "number": 9,
+          "x": 45,
+          "y": 50.1,
+          "size": 7.5
+        },
+        {
+          "region": 17,
+          "number": 9,
+          "x": 54.4,
+          "y": 27.3,
+          "size": 7.1
+        },
+        {
+          "region": 18,
+          "number": 9,
+          "x": 75.8,
+          "y": 11.9,
+          "size": 6.4
+        },
+        {
+          "region": 19,
+          "number": 3,
+          "x": 30.4,
+          "y": 88.7,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 3,
+          "x": 133.6,
+          "y": 116,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 4,
+          "x": 119.7,
+          "y": 185.8,
+          "size": 5.3
+        },
+        {
+          "region": 22,
+          "number": 9,
+          "x": 49.1,
+          "y": 72.8,
+          "size": 5.5
+        },
+        {
+          "region": 23,
+          "number": 3,
+          "x": 22.8,
+          "y": 85.9,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 4,
+          "x": 181.6,
+          "y": 142,
+          "size": 5.5
+        },
+        {
+          "region": 25,
+          "number": 7,
+          "x": 107.8,
+          "y": 166.7,
+          "size": 4.6
+        },
+        {
+          "region": 27,
+          "number": 3,
+          "x": 20.1,
+          "y": 79.6,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 9,
+          "x": 53.2,
+          "y": 119.1,
+          "size": 4.8
+        },
+        {
+          "region": 29,
+          "number": 9,
+          "x": 60.1,
+          "y": 88.9,
+          "size": 4.8
+        },
+        {
+          "region": 30,
+          "number": 4,
+          "x": 11.9,
+          "y": 187.2,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 10,
+          "x": 170.6,
+          "y": 186.5,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 10,
+          "x": 181.2,
+          "y": 186.3,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 11,
+          "x": 105.5,
+          "y": 77.2,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 11,
+          "x": 23.9,
+          "y": 176.6,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 9,
+          "x": 70.2,
+          "y": 100.5,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 11,
+          "x": 33.4,
+          "y": 174.4,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 8,
+          "x": 77.1,
+          "y": 159.1,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 8,
+          "x": 93.8,
+          "y": 152.5,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 8,
+          "x": 84.6,
+          "y": 153.2,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 2,
+          "x": 63.3,
+          "y": 128.6,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 2,
+          "x": 77.7,
+          "y": 27.1,
+          "size": 4.5
+        },
+        {
+          "region": 42,
+          "number": 9,
+          "x": 40.2,
+          "y": 125.9,
+          "size": 4.5
+        },
+        {
+          "region": 43,
+          "number": 3,
+          "x": 16.6,
+          "y": 73.1,
+          "size": 4.5
+        },
+        {
+          "region": 44,
+          "number": 3,
+          "x": 127.2,
+          "y": 127.6,
+          "size": 4.5
+        },
+        {
+          "region": 45,
+          "number": 8,
+          "x": 151.6,
+          "y": 146.6,
+          "size": 4.5
+        },
+        {
+          "region": 46,
+          "number": 11,
+          "x": 18.4,
+          "y": 170.3,
+          "size": 4.5
+        },
+        {
+          "region": 47,
+          "number": 10,
+          "x": 167.6,
+          "y": 179.1,
+          "size": 4.5
+        },
+        {
+          "region": 48,
+          "number": 9,
+          "x": 63.6,
+          "y": 111.6,
+          "size": 4.5
+        },
+        {
+          "region": 50,
+          "number": 11,
+          "x": 25.2,
+          "y": 164.6,
+          "size": 4.5
+        },
+        {
+          "region": 51,
+          "number": 10,
+          "x": 183.9,
+          "y": 178.9,
+          "size": 4.5
+        },
+        {
+          "region": 52,
+          "number": 10,
+          "x": 176.2,
+          "y": 175,
+          "size": 4.5
+        },
+        {
+          "region": 53,
+          "number": 11,
+          "x": 33.7,
+          "y": 167.4,
+          "size": 4.5
+        },
+        {
+          "region": 54,
+          "number": 8,
+          "x": 159.7,
+          "y": 146.1,
+          "size": 4.5
+        },
+        {
+          "region": 55,
+          "number": 4,
+          "x": 189.5,
+          "y": 146,
+          "size": 4.5
+        },
+        {
+          "region": 56,
+          "number": 3,
+          "x": 14.1,
+          "y": 66.1,
+          "size": 4.5
+        },
+        {
+          "region": 57,
+          "number": 3,
+          "x": 185.4,
+          "y": 127.9,
+          "size": 4.5
+        },
+        {
+          "region": 58,
+          "number": 9,
+          "x": 71.7,
+          "y": 92.5,
+          "size": 4.5
+        },
+        {
+          "region": 59,
+          "number": 6,
+          "x": 112.6,
+          "y": 96.3,
+          "size": 4.5
+        },
+        {
+          "region": 60,
+          "number": 4,
+          "x": 146.3,
+          "y": 189.6,
+          "size": 4.5
+        },
+        {
+          "region": 61,
+          "number": 9,
+          "x": 123,
+          "y": 107.7,
+          "size": 4.5
+        },
+        {
+          "region": 62,
+          "number": 9,
+          "x": 119.3,
+          "y": 103.2,
+          "size": 4.5
+        },
+        {
+          "region": 63,
+          "number": 9,
+          "x": 119.3,
+          "y": 112.2,
+          "size": 4.5
+        },
+        {
+          "region": 64,
+          "number": 9,
+          "x": 119.1,
+          "y": 121.2,
+          "size": 4.5
+        },
+        {
+          "region": 65,
+          "number": 9,
+          "x": 126.8,
+          "y": 103.3,
+          "size": 4.5
+        },
+        {
+          "region": 66,
+          "number": 9,
+          "x": 122.5,
+          "y": 116.7,
+          "size": 4.5
+        },
+        {
+          "region": 67,
+          "number": 9,
+          "x": 115.3,
+          "y": 125.6,
+          "size": 4.5
+        },
+        {
+          "region": 68,
+          "number": 9,
+          "x": 118.7,
+          "y": 130.2,
+          "size": 4.5
+        },
+        {
+          "region": 69,
+          "number": 7,
+          "x": 175.8,
+          "y": 181.2,
+          "size": 4.5
+        },
+        {
+          "region": 70,
+          "number": 7,
+          "x": 27.1,
+          "y": 170.5,
+          "size": 4.5
+        },
+        {
+          "region": 71,
+          "number": 9,
+          "x": 26.2,
+          "y": 125,
+          "size": 4.5
+        },
+        {
+          "region": 72,
+          "number": 9,
+          "x": 123.4,
+          "y": 97.7,
+          "size": 4.5
+        },
+        {
+          "region": 73,
+          "number": 8,
+          "x": 99.3,
+          "y": 158.3,
+          "size": 4.5
+        },
+        {
+          "region": 74,
+          "number": 2,
+          "x": 92,
+          "y": 20.2,
+          "size": 4.5
+        },
+        {
+          "region": 75,
+          "number": 2,
+          "x": 50.9,
+          "y": 134.9,
+          "size": 4.5
+        },
+        {
+          "region": 77,
+          "number": 9,
+          "x": 121.5,
+          "y": 125.9,
+          "size": 4.5
+        },
+        {
+          "region": 78,
+          "number": 8,
+          "x": 164.4,
+          "y": 150.4,
+          "size": 4.5
+        },
+        {
+          "region": 79,
+          "number": 8,
+          "x": 156,
+          "y": 141.3,
+          "size": 4.5
+        },
+        {
+          "region": 80,
+          "number": 9,
+          "x": 111.9,
+          "y": 101.5,
+          "size": 4.5
+        },
+        {
+          "region": 81,
+          "number": 8,
+          "x": 78.2,
+          "y": 152.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Dino likt aan een ijsje",
+        "word": "de dino",
+        "countQuestion": "Hoeveel bloemen zie je?"
+      },
+      "de": {
+        "name": "Dino schleckt ein Eis",
+        "word": "der Dino",
+        "countQuestion": "Wie viele Blumen siehst du?"
+      },
+      "fr": {
+        "name": "Dino qui lèche une glace",
+        "word": "le dino",
+        "countQuestion": "Combien de fleurs vois-tu ?"
+      },
+      "en": {
+        "name": "Dino licking an ice cream",
+        "word": "the dino",
+        "countQuestion": "How many flowers can you see?"
+      },
+      "es": {
+        "name": "Dino lamiendo un helado",
+        "word": "el dino",
+        "countQuestion": "¿Cuántas flores ves?"
+      },
+      "it": {
+        "name": "Dino che lecca un gelato",
+        "word": "il dino",
+        "countQuestion": "Quanti fiori vedi?"
+      },
+      "pl": {
+        "name": "Dinozaur liże loda",
+        "word": "dinozaur",
+        "countQuestion": "Ile kwiatów widzisz?"
+      },
+      "pt": {
+        "name": "Dino a lamber um gelado",
+        "word": "o dino",
+        "countQuestion": "Quantas flores vês?"
+      },
+      "sv": {
+        "name": "Dino som slickar på en glass",
+        "word": "en dino",
+        "countQuestion": "Hur många blommor ser du?"
+      },
+      "da": {
+        "name": "Dino slikker på en is",
+        "word": "dinoen",
+        "countQuestion": "Hvor mange blomster kan du se?"
+      },
+      "nb": {
+        "name": "Dino slikker på en is",
+        "word": "dinoen",
+        "countQuestion": "Hvor mange blomster ser du?"
+      },
+      "fi": {
+        "name": "Dino nuolee jäätelöä",
+        "word": "dino",
+        "countQuestion": "Montako kukkaa näet?"
+      },
+      "cs": {
+        "name": "Dino líže zmrzlinu",
+        "word": "dino",
+        "countQuestion": "Kolik kytek vidíš?"
+      },
+      "sk": {
+        "name": "Dino líže zmrzlinu",
+        "word": "dino",
+        "countQuestion": "Koľko kvetov vidíš?"
+      },
+      "hu": {
+        "name": "Dínó fagyit nyalogat",
+        "word": "a dínó",
+        "countQuestion": "Hány virágot látsz?"
+      },
+      "ro": {
+        "name": "Dino linge o înghețată",
+        "word": "dinozaurul",
+        "countQuestion": "Câte flori vezi?"
+      },
+      "el": {
+        "name": "Δεινοσαυράκι γλείφει παγωτό",
+        "word": "ο δεινόσαυρος",
+        "countQuestion": "Πόσα λουλούδια βλέπεις;"
+      },
+      "bg": {
+        "name": "Динозавърче ближе сладолед",
+        "word": "динозавърът",
+        "countQuestion": "Колко цветя виждаш?"
+      },
+      "hr": {
+        "name": "Dino liže sladoled",
+        "word": "dinosaur",
+        "countQuestion": "Koliko cvjetova vidiš?"
+      },
+      "sl": {
+        "name": "Dino liže sladoled",
+        "word": "dino",
+        "countQuestion": "Koliko rož vidiš?"
+      },
+      "et": {
+        "name": "Dino limpsib jäätist",
+        "word": "dino",
+        "countQuestion": "Mitu lille sa näed?"
+      },
+      "lv": {
+        "name": "Dinozaurs laiza saldējumu",
+        "word": "dinozaurs",
+        "countQuestion": "Cik ziedus tu redzi?"
+      },
+      "lt": {
+        "name": "Dinozauriukas laižo ledus",
+        "word": "dinozauras",
+        "countQuestion": "Kiek gėlių matai?"
+      },
+      "uk": {
+        "name": "Динозаврик лиже морозиво",
+        "word": "динозавр",
+        "countQuestion": "Скільки квітів ти бачиш?"
+      },
+      "tr": {
+        "name": "Dondurma yalayan dino",
+        "word": "dino",
+        "countQuestion": "Kaç tane çiçek görüyorsun?"
+      },
+      "sr": {
+        "name": "Dino liže sladoled",
+        "word": "dino",
+        "countQuestion": "Koliko cvetova vidiš?"
+      },
+      "mk": {
+        "name": "Диносаурус лиже сладолед",
+        "word": "диносаурусот",
+        "countQuestion": "Колку цвеќиња гледаш?"
+      },
+      "sq": {
+        "name": "Dinozauri lëpin akullore",
+        "word": "dinozauri",
+        "countQuestion": "Sa lule sheh?"
+      },
+      "is": {
+        "name": "Risaeðla sleikir ís",
+        "word": "risaeðlan",
+        "countQuestion": "Hvað sérðu mörg blóm?"
+      }
+    }
   }
 ]
