@@ -701,3 +701,9 @@ a.ui-chip { text-decoration: none; }
 .kh-moreprint-list .paper img { inline-size: 100%; block-size: 100%; object-fit: contain; }
 .kh-moreprint-list .tick { position: absolute; inset-block-start: var(--space-1); inset-inline-end: var(--space-1); display: grid; place-items: center; inline-size: 20px; block-size: 20px; border-radius: 50%; background: var(--color-primary); color: var(--color-text-on-primary); font-size: 12px; }
 .pickbar-space { block-size: var(--space-24); }
+/* PlateSearch (ADR 0084): zoeken in het platenraster, en een plaat aanvragen als er niets is. */
+.kh-search { display: flex; flex: 1; gap: var(--space-2); align-items: center; }
+.kh-search .ui-input { flex: 1; min-inline-size: 0; }
+.kh-request { display: grid; gap: var(--space-2); justify-items: center; text-align: center; }
+.kh-request [role="status"] { color: var(--color-text-muted); }
+.kh-theme-hint { grid-column: 1 / -1; margin: 0; font-weight: 700; }

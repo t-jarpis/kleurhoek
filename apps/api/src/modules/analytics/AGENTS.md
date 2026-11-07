@@ -2,7 +2,7 @@
 
 Eigen telling zonder cookies: events ontvangen, per dag samenvatten (bezoeken, platen, bronnen, apparaten), doelen en zoekcijfers van Google en Bing.
 
-Besluiten: ADR 0002, 0020, 0022, 0032, 0034, 0041. Grenzen tussen domeinen: ADR 0001.
+Besluiten: ADR 0002, 0020, 0022, 0032, 0034, 0041, 0084. Grenzen tussen domeinen: ADR 0001.
 
 ## Data
 - Schema: `analytics`. Alleen dit domein leest en schrijft deze tabellen (row-level security per tenant via `withTenant`).
@@ -15,6 +15,7 @@ Andere domeinen importeren alleen deze bestanden. De test `test/boundaries.test.
 ## Endpoints
 - `/v1/admin/analytics`
 - `/v1/internal/events`
+- `/v1/internal/wishes`
 
 ## Events
 - Nog geen.

@@ -8,6 +8,7 @@ import { RateLimit } from "../operations/rate-limit.guard";
 import { AnalyticsService, EventBatch } from "./analytics.service";
 import { GoalsInput, GoalsService } from "./goals.service";
 import { SearchService } from "./search.service";
+import { WishesService, WishInput, WishStatusInput } from "./wishes.service";
 
 function sameSecret(a: string | undefined, b: string): boolean {
   if (!a) return false;
@@ -31,13 +32,29 @@ export class EventIngestController {
   }
 }
 
+/** Zoekwoorden zonder resultaat en aanvragen van platen (ADR 0084), via de website (zelfde sleutel als events). */
+@Controller("v1/internal/wishes")
+export class WishIngestController {
+  constructor(private readonly wishes: WishesService, @Inject(ENV) private readonly env: Env) {}
+
+  @Post()
+  @HttpCode(202)
+  @RateLimit("events-ingest")
+  async ingest(@Headers("x-ingest-key") key: string | undefined, @Body() body: unknown) {
+    if (!sameSecret(key, this.env.INGEST_KEY)) throw new UnauthorizedException();
+    const parsed = WishInput.safeParse(body);
+    if (!parsed.success) throw new BadRequestException("Ongeldig zoekwoord");
+    return { stored: await this.wishes.record(this.env.TENANT_ID, parsed.data) };
+  }
+}
+
 const Range = z.object({ from: z.iso.date(), to: z.iso.date(), country: z.string().regex(/^[A-Z]{2}$/).optional() });
 
 @Controller("v1/admin/analytics")
 @UseGuards(AdminGuard)
 @RateLimit("admin")
 export class AdminAnalyticsController {
-  constructor(private readonly analytics: AnalyticsService, private readonly goals: GoalsService, private readonly search: SearchService, @Inject(ENV) private readonly env: Env) {}
+  constructor(private readonly analytics: AnalyticsService, private readonly goals: GoalsService, private readonly search: SearchService, private readonly wishes: WishesService, @Inject(ENV) private readonly env: Env) {}
 
   @Get("summary")
   @RequirePermission("analytics.read")
@@ -100,6 +117,22 @@ export class AdminAnalyticsController {
     if (!this.search.engines().length || !this.env.SEARCH_DOMAINS.length) throw new BadRequestException("Zoekcijfers zijn nog niet ingesteld");
     void this.search.run();
     return { started: true };
+  }
+
+  /** Gezocht (ADR 0084): wat bezoekers niet vonden en welke platen ze aanvroegen. */
+  @Get("wishes")
+  @RequirePermission("analytics.read")
+  listWishes(@Query("hidden") hidden?: string) {
+    return this.wishes.list(this.env.TENANT_ID, { hidden: hidden === "1" });
+  }
+
+  @Put("wishes/status")
+  @RequirePermission("analytics.wishes.manage")
+  async setWishStatus(@Body() body: unknown, @Req() req: FastifyRequest) {
+    const parsed = WishStatusInput.safeParse(body);
+    if (!parsed.success) throw new BadRequestException("Geef term en status (open, made of hidden) op");
+    await this.wishes.setStatus(this.env.TENANT_ID, req.admin!.subject, parsed.data.term, parsed.data.status);
+    return this.wishes.list(this.env.TENANT_ID);
   }
 
   /** Doelen per maand met de werkelijke cijfers ernaast (ADR 0022). */

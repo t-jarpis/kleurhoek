@@ -52,7 +52,7 @@ export const sl: Messages = {
   atPartner: (p: string) => `v trgovini ${p}`,
   partnerDisclosure: "Partnerske povezave: če prek teh povezav kaj kupiš, Kleurhoek od trgovine dobi majhno nadomestilo. Ti plačaš enako. Tako pobarvanke ostajajo brezplačne.",
   deleteAccount: "Izbriši račun", deleteSure: "Res? Tapni še enkrat",
-  disclaimer: "Pravno obvestilo", privacy: "Zasebnost", colorPreview: "Barvno", newTitle: "Novosti", newLede: "Naše najnovejše pobarvanke, najnovejše najprej.", contact: "Kontakt", themes: "Teme pri ustvarjalcih",
+  disclaimer: "Pravno obvestilo", privacy: "Zasebnost", colorPreview: "Barvno", newTitle: "Novosti", newLede: "Naše najnovejše pobarvanke, najnovejše najprej.", contact: "Kontakt", themes: "Teme pri ustvarjalcih", search: { label: "Iskanje", placeholder: "Poišči pobarvanko, npr. samorog", found: (n: number) => `Najdeno: ${n}`, noneTitle: "Te še nimamo", noneText: "Jo naredimo? Prosi zanjo in jo bomo dodali na naš seznam.", request: "Prosi za to pobarvanko", requested: "Poslano! Hvala.", notify: "Želiš e-pošto, ko bodo nove pobarvanke?", maker: (name: string) => "Uradne pobarvanke " + name + " najdeš pri njihovih ustvarjalcih" },
   contactTitle: "Kontakt", contactLede: "Imaš vprašanje, idejo za pobarvanko ali kaj ne deluje? Sporoči nam. Običajno odgovorimo v nekaj delovnih dneh.",
   contactTopic: "Za kaj gre?",
   contactTopics: { question: "Vprašanje", idea: "Ideja za pobarvanko", bug: "Nekaj ne deluje", partnership: "Sodelovanje", copyright: "Avtorske pravice", privacy: "Zasebnost in moji podatki" } as Record<string, string>,

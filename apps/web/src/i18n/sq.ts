@@ -45,7 +45,7 @@ export const sq: Messages = {
   atPartner: (p: string) => `te ${p}`,
   partnerDisclosure: "Lidhje partnerësh: nëse blen diçka përmes këtyre lidhjeve, Kleurhoek merr një tarifë të vogël nga dyqani. Ti paguan njësoj. Kështu fletët mbeten falas.",
   deleteAccount: "Fshi llogarinë", deleteSure: "Je i sigurt? Prek përsëri",
-  disclaimer: "Mohim përgjegjësie", privacy: "Privatësia", colorPreview: "Me ngjyra", newTitle: "Çfarë ka të re", newLede: "Fletët tona më të reja, më të rejat në fillim.", contact: "Kontakt", themes: "Tema nga krijuesit",
+  disclaimer: "Mohim përgjegjësie", privacy: "Privatësia", colorPreview: "Me ngjyra", newTitle: "Çfarë ka të re", newLede: "Fletët tona më të reja, më të rejat në fillim.", contact: "Kontakt", themes: "Tema nga krijuesit", search: { label: "Kërko", placeholder: "Kërko një vizatim, p.sh. njëbrirësh", found: (n: number) => `U gjetën: ${n}`, noneTitle: "Këtë nuk e kemi ende", noneText: "Ta bëjmë? Kërkoje dhe do ta vendosim në listën tonë.", request: "Kërko këtë vizatim", requested: "U kërkua! Faleminderit.", notify: "Dëshiron një email kur ka vizatime të reja?", maker: (name: string) => "Vizatimet zyrtare të " + name + " i gjen te krijuesit e tyre" },
   contactTitle: "Kontakt", contactLede: "Ke një pyetje, një ide për një fletë apo diçka nuk funksionon? Na shkruaj. Zakonisht përgjigjemi brenda pak ditësh pune.",
   contactTopic: "Për çfarë bëhet fjalë?",
   contactTopics: { question: "Një pyetje", idea: "Ide për një fletë", bug: "Diçka nuk funksionon", partnership: "Bashkëpunim", copyright: "E drejta e autorit", privacy: "Privatësia dhe të dhënat e mia" } as Record<string, string>,

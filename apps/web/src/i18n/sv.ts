@@ -45,7 +45,7 @@ export const sv: Messages = {
   atPartner: (p: string) => `hos ${p}`,
   partnerDisclosure: "Partnerlänkar: om du köper något via de här länkarna får Kleurhoek en liten ersättning från butiken. Du betalar samma pris. Så håller vi bilderna gratis.",
   deleteAccount: "Radera konto", deleteSure: "Är du säker? Tryck igen",
-  disclaimer: "Ansvarsfriskrivning", privacy: "Integritet", colorPreview: "I färg", newTitle: "Nyheter", newLede: "Våra nyaste bilder, de nyaste först.", contact: "Kontakt", themes: "Teman hos skaparna",
+  disclaimer: "Ansvarsfriskrivning", privacy: "Integritet", colorPreview: "I färg", newTitle: "Nyheter", newLede: "Våra nyaste bilder, de nyaste först.", contact: "Kontakt", themes: "Teman hos skaparna", search: { label: "Sök", placeholder: "Sök en målarbild, t.ex. enhörning", found: (n: number) => `Hittade: ${n}`, noneTitle: "Den har vi inte än", noneText: "Ska vi göra den? Önska den så sätter vi upp den på vår lista.", request: "Önska den här bilden", requested: "Önskad! Tack så mycket.", notify: "Vill du få ett mejl när det finns nya bilder?", maker: (name: string) => "Officiella målarbilder av " + name + " finns hos skaparna" },
   contactTitle: "Kontakt", contactLede: "En fråga, en idé till en bild eller något som inte fungerar? Hör av dig. Vi svarar oftast inom några arbetsdagar.",
   contactTopic: "Vad gäller det?",
   contactTopics: { question: "En fråga", idea: "Idé till en bild", bug: "Något fungerar inte", partnership: "Samarbete", copyright: "Upphovsrätt", privacy: "Integritet och mina uppgifter" } as Record<string, string>,

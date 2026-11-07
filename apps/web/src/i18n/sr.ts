@@ -52,7 +52,7 @@ export const sr: Messages = {
   atPartner: (p: string) => `u prodavnici ${p}`,
   partnerDisclosure: "Partnerski linkovi: ako nešto kupiš preko ovih linkova, Kleurhoek dobija malu naknadu od prodavnice. Ti plaćaš isto. Tako bojanke ostaju besplatne.",
   deleteAccount: "Obriši nalog", deleteSure: "Sigurno? Dodirni još jednom",
-  disclaimer: "Pravne napomene", privacy: "Privatnost", colorPreview: "U boji", newTitle: "Novosti", newLede: "Naše najnovije bojanke, najnovije prve.", contact: "Kontakt", themes: "Teme kod autora",
+  disclaimer: "Pravne napomene", privacy: "Privatnost", colorPreview: "U boji", newTitle: "Novosti", newLede: "Naše najnovije bojanke, najnovije prve.", contact: "Kontakt", themes: "Teme kod autora", search: { label: "Pretraga", placeholder: "Potraži bojanku, npr. jednorog", found: (n: number) => `Pronađeno: ${n}`, noneTitle: "To još nemamo", noneText: "Da je napravimo? Zatraži je i stavićemo je na naš spisak.", request: "Zatraži ovu bojanku", requested: "Zatraženo! Hvala.", notify: "Želiš li imejl kada stignu nove bojanke?", maker: (name: string) => "Zvanične bojanke " + name + " nalaze se kod njihovih autora" },
   contactTitle: "Kontakt", contactLede: "Imaš pitanje, ideju za bojanku ili nešto ne radi? Javi nam. Obično odgovaramo u roku od nekoliko radnih dana.",
   contactTopic: "O čemu se radi?",
   contactTopics: { question: "Pitanje", idea: "Ideja za bojanku", bug: "Nešto ne radi", partnership: "Saradnja", copyright: "Autorska prava", privacy: "Privatnost i moji podaci" } as Record<string, string>,

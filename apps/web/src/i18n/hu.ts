@@ -45,7 +45,7 @@ export const hu: Messages = {
   atPartner: (p: string) => `itt: ${p}`,
   partnerDisclosure: "Partnerlinkek: ha ezeken a linkeken keresztül vásárolsz valamit, a Kleurhoek kis jutalékot kap a bolttól. Te ugyanannyit fizetsz. Így maradhatnak ingyenesek a lapok.",
   deleteAccount: "Fiók törlése", deleteSure: "Biztos vagy benne? Koppints még egyszer",
-  disclaimer: "Jogi nyilatkozat", privacy: "Adatvédelem", colorPreview: "Színesben", newTitle: "Újdonságok", newLede: "A legújabb lapjaink, elöl a legfrissebbek.", contact: "Kapcsolat", themes: "Témák az alkotóktól",
+  disclaimer: "Jogi nyilatkozat", privacy: "Adatvédelem", colorPreview: "Színesben", newTitle: "Újdonságok", newLede: "A legújabb lapjaink, elöl a legfrissebbek.", contact: "Kapcsolat", themes: "Témák az alkotóktól", search: { label: "Keresés", placeholder: "Keress egy kifestőt, pl. egyszarvú", found: (n: number) => `Találat: ${n}`, noneTitle: "Ilyen még nincs nálunk", noneText: "Megrajzoljuk? Kérd, és felírjuk a listánkra.", request: "Kérem ezt a kifestőt", requested: "Elküldve! Köszönjük.", notify: "Kérsz e-mailt, ha új kifestők érkeznek?", maker: (name: string) => "A(z) " + name + " hivatalos kifestői az alkotóknál érhetők el" },
   contactTitle: "Kapcsolat", contactLede: "Kérdésed van, ötleted egy lapra, vagy valami nem működik? Írd meg nekünk. Általában néhány munkanapon belül válaszolunk.",
   contactTopic: "Miről van szó?",
   contactTopics: { question: "Kérdés", idea: "Ötlet egy lapra", bug: "Valami nem működik", partnership: "Együttműködés", copyright: "Szerzői jog", privacy: "Adatvédelem és az adataim" } as Record<string, string>,

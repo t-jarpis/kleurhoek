@@ -45,7 +45,7 @@ export const fi: Messages = {
   atPartner: (p: string) => `myyjä: ${p}`,
   partnerDisclosure: "Kumppanilinkit: jos ostat jotain näiden linkkien kautta, Kleurhoek saa kaupalta pienen palkkion. Sinä maksat saman verran. Näin pidämme kuvat ilmaisina.",
   deleteAccount: "Poista tili", deleteSure: "Oletko varma? Napauta uudelleen",
-  disclaimer: "Vastuuvapauslauseke", privacy: "Tietosuoja", colorPreview: "Värillisenä", newTitle: "Uutta", newLede: "Uusimmat kuvamme, uusimmat ensin.", contact: "Yhteystiedot", themes: "Teemat tekijöiltä",
+  disclaimer: "Vastuuvapauslauseke", privacy: "Tietosuoja", colorPreview: "Värillisenä", newTitle: "Uutta", newLede: "Uusimmat kuvamme, uusimmat ensin.", contact: "Yhteystiedot", themes: "Teemat tekijöiltä", search: { label: "Hae", placeholder: "Hae kuvaa, esim. yksisarvinen", found: (n: number) => `Löytyi: ${n}`, noneTitle: "Sitä meillä ei vielä ole", noneText: "Tehdäänkö se? Toivo sitä, niin lisäämme sen listallemme.", request: "Toivo tätä kuvaa", requested: "Toivottu! Kiitos paljon.", notify: "Haluatko sähköpostin, kun uusia kuvia tulee?", maker: (name: string) => "Virallisia " + name + " -kuvia löydät tekijöiltä" },
   contactTitle: "Ota yhteyttä", contactLede: "Kysymys, idea kuvaksi tai jokin ei toimi? Kerro meille. Vastaamme yleensä muutaman arkipäivän kuluessa.",
   contactTopic: "Mitä asia koskee?",
   contactTopics: { question: "Kysymys", idea: "Idea kuvaksi", bug: "Jokin ei toimi", partnership: "Yhteistyö", copyright: "Tekijänoikeus", privacy: "Tietosuoja ja omat tietoni" } as Record<string, string>,

@@ -49,7 +49,7 @@ export const cs: Messages = {
   atPartner: (p: string) => `v obchodě ${p}`,
   partnerDisclosure: "Partnerské odkazy: když přes tyto odkazy něco koupíš, dostane Kleurhoek od obchodu malou odměnu. Ty zaplatíš stejně. Díky tomu zůstávají obrázky zdarma.",
   deleteAccount: "Smazat účet", deleteSure: "Opravdu? Klepni ještě jednou",
-  disclaimer: "Právní upozornění", privacy: "Ochrana soukromí", colorPreview: "Barevně", newTitle: "Novinky", newLede: "Naše nejnovější obrázky, od nejnovějších.", contact: "Kontakt", themes: "Témata od autorů",
+  disclaimer: "Právní upozornění", privacy: "Ochrana soukromí", colorPreview: "Barevně", newTitle: "Novinky", newLede: "Naše nejnovější obrázky, od nejnovějších.", contact: "Kontakt", themes: "Témata od autorů", search: { label: "Hledat", placeholder: "Hledej obrázek, např. jednorožec", found: (n: number) => `Nalezeno: ${n}`, noneTitle: "Ten ještě nemáme", noneText: "Máme ho nakreslit? Požádej o něj a dáme ho na náš seznam.", request: "Požádat o tento obrázek", requested: "Odesláno! Děkujeme.", notify: "Chceš e-mail, až budou nové obrázky?", maker: (name: string) => "Oficiální omalovánky " + name + " najdeš u jejich tvůrců" },
   contactTitle: "Kontakt", contactLede: "Máš otázku, nápad na obrázek nebo ti něco nefunguje? Dej nám vědět. Obvykle odpovídáme do několika pracovních dnů.",
   contactTopic: "O co jde?",
   contactTopics: { question: "Otázka", idea: "Nápad na obrázek", bug: "Něco nefunguje", partnership: "Spolupráce", copyright: "Autorská práva", privacy: "Soukromí a moje údaje" } as Record<string, string>,

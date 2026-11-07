@@ -45,7 +45,7 @@ export const tr: Messages = {
   atPartner: (p: string) => `${p} mağazasında`,
   partnerDisclosure: "İş ortağı bağlantıları: Bu bağlantılar üzerinden bir şey satın alırsan Kleurhoek mağazadan küçük bir komisyon alır. Sen aynı fiyatı ödersin. Sayfaları bu sayede ücretsiz tutuyoruz.",
   deleteAccount: "Hesabı sil", deleteSure: "Emin misin? Tekrar dokun",
-  disclaimer: "Yasal uyarı", privacy: "Gizlilik", colorPreview: "Renkli", newTitle: "Yenilikler", newLede: "En yeni sayfalarımız, en yeniler önce.", contact: "İletişim", themes: "Yapımcılardan temalar",
+  disclaimer: "Yasal uyarı", privacy: "Gizlilik", colorPreview: "Renkli", newTitle: "Yenilikler", newLede: "En yeni sayfalarımız, en yeniler önce.", contact: "İletişim", themes: "Yapımcılardan temalar", search: { label: "Ara", placeholder: "Bir boyama ara, ör. tek boynuzlu at", found: (n: number) => `Bulunan: ${n}`, noneTitle: "Bu henüz bizde yok", noneText: "Yapalım mı? İste, listemize ekleyelim.", request: "Bu boyamayı iste", requested: "İstendi! Teşekkürler.", notify: "Yeni boyamalar geldiğinde e-posta ister misin?", maker: (name: string) => "Resmî " + name + " boyamaları yapımcılarında bulabilirsin" },
   contactTitle: "İletişim", contactLede: "Bir sorun, bir sayfa fikrin mi var ya da bir şey mi çalışmıyor? Bize yaz. Genellikle birkaç iş günü içinde yanıt veririz.",
   contactTopic: "Konu nedir?",
   contactTopics: { question: "Bir soru", idea: "Sayfa fikri", bug: "Bir şey çalışmıyor", partnership: "İş birliği", copyright: "Telif hakkı", privacy: "Gizlilik ve verilerim" } as Record<string, string>,

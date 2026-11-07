@@ -51,7 +51,7 @@ export const pl: Messages = {
   atPartner: (p: string) => `w sklepie ${p}`,
   partnerDisclosure: "Linki partnerskie: jeśli kupisz coś przez te linki, Kleurhoek dostaje od sklepu niewielkie wynagrodzenie. Ty płacisz tyle samo. Dzięki temu plansze pozostają darmowe.",
   deleteAccount: "Usuń konto", deleteSure: "Na pewno? Stuknij jeszcze raz",
-  disclaimer: "Zastrzeżenia prawne", privacy: "Prywatność", colorPreview: "W kolorze", newTitle: "Co nowego", newLede: "Najnowsze plansze, od najnowszych.", contact: "Kontakt", themes: "Motywy u twórców",
+  disclaimer: "Zastrzeżenia prawne", privacy: "Prywatność", colorPreview: "W kolorze", newTitle: "Co nowego", newLede: "Najnowsze plansze, od najnowszych.", contact: "Kontakt", themes: "Motywy u twórców", search: { label: "Szukaj", placeholder: "Szukaj kolorowanki, np. jednorożec", found: (n: number) => `Znaleziono: ${n}`, noneTitle: "Jeszcze tego nie mamy", noneText: "Zrobić ją? Poproś, a dopiszemy ją do naszej listy.", request: "Poproś o tę kolorowankę", requested: "Wysłano! Dziękujemy.", notify: "Chcesz dostać e-mail, gdy pojawią się nowe kolorowanki?", maker: (name: string) => "Oficjalne kolorowanki " + name + " znajdziesz u twórców" },
   contactTitle: "Kontakt", contactLede: "Masz pytanie, pomysł na planszę albo coś nie działa? Daj nam znać. Zwykle odpowiadamy w ciągu kilku dni roboczych.",
   contactTopic: "Czego dotyczy wiadomość?",
   contactTopics: { question: "Pytanie", idea: "Pomysł na planszę", bug: "Coś nie działa", partnership: "Współpraca", copyright: "Prawa autorskie", privacy: "Prywatność i moje dane" } as Record<string, string>,

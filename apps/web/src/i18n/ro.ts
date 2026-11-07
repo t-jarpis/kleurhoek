@@ -52,7 +52,7 @@ export const ro: Messages = {
   atPartner: (p: string) => `la ${p}`,
   partnerDisclosure: "Linkuri de partener: dacă cumperi ceva prin aceste linkuri, Kleurhoek primește un mic comision de la magazin. Tu plătești la fel. Așa planșele rămân gratuite.",
   deleteAccount: "Șterge contul", deleteSure: "Sigur? Mai atinge o dată",
-  disclaimer: "Mențiuni legale", privacy: "Confidențialitate", colorPreview: "Color", newTitle: "Noutăți", newLede: "Cele mai noi planșe, cele mai recente primele.", contact: "Contact", themes: "Teme de la creatori",
+  disclaimer: "Mențiuni legale", privacy: "Confidențialitate", colorPreview: "Color", newTitle: "Noutăți", newLede: "Cele mai noi planșe, cele mai recente primele.", contact: "Contact", themes: "Teme de la creatori", search: { label: "Caută", placeholder: "Caută o planșă, de ex. unicorn", found: (n: number) => `Găsite: ${n}`, noneTitle: "Pe aceasta nu o avem încă", noneText: "O facem? Cere-o și o punem pe lista noastră.", request: "Cere această planșă", requested: "Cerută! Mulțumim.", notify: "Vrei un e-mail când apar planșe noi?", maker: (name: string) => "Planșele oficiale " + name + " le găsești la creatorii lor" },
   contactTitle: "Contact", contactLede: "Ai o întrebare, o idee pentru o planșă sau ceva nu funcționează? Spune-ne. De obicei răspundem în câteva zile lucrătoare.",
   contactTopic: "Despre ce este vorba?",
   contactTopics: { question: "O întrebare", idea: "O idee pentru o planșă", bug: "Ceva nu funcționează", partnership: "Colaborare", copyright: "Drepturi de autor", privacy: "Confidențialitate și datele mele" } as Record<string, string>,

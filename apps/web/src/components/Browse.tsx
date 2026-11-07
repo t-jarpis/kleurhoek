@@ -7,14 +7,18 @@ import { useT } from "./I18n";
 import { PlateCard } from "./PlateCard";
 import { useBase } from "./Base";
 import { book, favorites, useBook, useFavorites } from "@/lib/local";
+import { link } from "@/lib/sites";
+import Link from "next/link";
+import { matcher, worthKeeping } from "@/lib/search";
+import { asked, sendWish } from "@/lib/wish";
 
 /** Platenraster in porties (LoadMore): zoveel kaartjes per keer, de volgende automatisch bij het scrollen. */
 const BATCH = 60;
 
-type Key = "soort" | "leerdoel" | "onderwerp" | "werelddeel" | "land" | "feestdag" | "leeftijd";
+type Key = "soort" | "leerdoel" | "onderwerp" | "werelddeel" | "land" | "feestdag" | "leeftijd" | "q";
 
 /** Filters en raster. De filterstand staat in de URL, zodat je hem kunt delen en de pagina zelf gecachet blijft. */
-export function Browse({ plates, taxonomy, market, language }: { plates: PlateItem[]; taxonomy: Taxonomy; market: string; language: string }) {
+export function Browse({ plates, taxonomy, market, language, themes = [], subscribe = false }: { plates: PlateItem[]; taxonomy: Taxonomy; market: string; language: string; themes?: { slug: string; name: string }[]; subscribe?: boolean }) {
   const base = useBase();
   const t = useT();
   const router = useRouter();
@@ -35,10 +39,30 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
     router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
   };
 
+  // Zoeken (ADR 0084): het zoekwoord staat in ?q=, het veld loopt voor op de URL zodat typen niet hapert.
+  const q = params.get("q") ?? "";
+  const [text, setText] = useState(q);
+  const typed = useRef(q);
+  useEffect(() => { if (q !== typed.current) { typed.current = q; setText(q); } }, [q]);
+  const searchTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const onSearch = (v: string) => {
+    setText(v); typed.current = v.trim();
+    clearTimeout(searchTimer.current);
+    searchTimer.current = setTimeout(() => set({ q: v.trim() }), 250);
+  };
+  const haystack = useMemo(() => new Map(plates.map((p) => [p.slug, [
+    p.name, taxonomy.categories.find((c) => c.slug === p.category)?.name, taxonomy.holidays.find((h) => h.slug === p.holiday)?.name,
+    taxonomy.continents.find((c) => c.slug === p.world?.continent)?.name, p.world?.country, p.kind !== "kleurplaat" ? t.kindNames[p.kind] : "",
+    ...p.goals.map((g) => taxonomy.goals.find((x) => x.slug === g)?.name),
+  ].filter(Boolean).join(" ")])), [plates, taxonomy, t]);
+  const match = useMemo(() => { const m = matcher(q); return m ? (p: PlateItem) => m(haystack.get(p.slug) ?? "") : null; }, [q, haystack]);
+  const anywhere = useMemo(() => (match ? plates.filter(match).length : plates.length), [match, plates]);
+  const theme = useMemo(() => { const m = matcher(q); return q.length >= 3 && m ? themes.find((x) => m(x.name) || matcher(x.name)!(q)) : undefined; }, [q, themes]);
+
   const inCat = (p: PlateItem, c: string) => c === "alle" || (c === "favorieten" ? favs.includes(p.slug) : c === "wereld" ? !!p.world : c === "feest" ? !!p.holiday : p.category === c);
   const ofKind = (p: PlateItem, k: string) => k === "alle" || KIND_GROUP[p.kind] === k || p.kind === k;
   const hasGoal = (p: PlateItem, g: string) => g === "alle" || p.goals.includes(g);
-  const kinded = plates.filter((p) => (f.age === "alle" || p.age === f.age) && ofKind(p, f.kind));
+  const kinded = plates.filter((p) => (f.age === "alle" || p.age === f.age) && ofKind(p, f.kind) && (!match || match(p)));
   const aged = kinded.filter((p) => hasGoal(p, f.goal));
   const crafts = plates.filter((p) => p.kind !== "kleurplaat").length;
   const groups = new Set(plates.map((p) => KIND_GROUP[p.kind]));
@@ -50,7 +74,7 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
     && (f.cat !== "feest" || f.hol === "alle" || p.holiday === f.hol)), [aged, f.cat, f.cont, f.land, f.hol, favs]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Porties: een ander filter begint weer bij de eerste portie.
-  const filterKey = `${f.kind}|${f.goal}|${f.cat}|${f.cont}|${f.land}|${f.hol}|${f.age}`;
+  const filterKey = `${f.kind}|${f.goal}|${f.cat}|${f.cont}|${f.land}|${f.hol}|${f.age}|${q}`;
   const [limit, setLimit] = useState({ key: filterKey, n: BATCH });
   const shown = limit.key === filterKey ? limit.n : BATCH;
   const more = () => setLimit({ key: filterKey, n: shown + BATCH });
@@ -62,6 +86,17 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
     io.observe(el);
     return () => io.disconnect();
   }, [filterKey, shown, visible.length]);
+
+  // Niets gevonden in alle platen: het zoekwoord als gemist doorgeven (eén keer per woord), en aanvragen kan.
+  const missing = !!match && anywhere === 0 && worthKeeping(q);
+  useEffect(() => {
+    if (!missing) return;
+    const timer = setTimeout(() => sendWish(q, market, "miss"), 1500);
+    return () => clearTimeout(timer);
+  }, [missing, q, market]);
+  const [requested, setRequested] = useState<string | null>(null);
+  const isRequested = missing && (requested === q || asked(q));
+  const request = () => { sendWish(q, market, "request"); setRequested(q); };
 
   const cont = taxonomy.continents.find((c) => c.slug === f.cont);
   const lands = cont ? [...new Set(aged.filter((p) => p.world?.continent === cont.slug && p.world.country).map((p) => p.world!.country!))].sort((a, b) => a.localeCompare(b, language)) : [];
@@ -76,7 +111,15 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
   return (
     <>
       <div className="filters" id="platen">
-        <div className="frow frow-end"><ColorToggle label={t.colorPreview} /></div>
+        <div className="frow">
+          <div className="kh-search" role="search">
+            <label className="flabel" htmlFor="kh-zoek">{t.search.label}</label>
+            <input id="kh-zoek" type="search" className="ui-input" value={text} placeholder={t.search.placeholder} maxLength={60} autoComplete="off" enterKeyHint="search"
+              onChange={(e) => onSearch(e.target.value)} onKeyDown={(e) => { if (e.key === "Escape") onSearch(""); }} />
+          </div>
+          <ColorToggle label={t.colorPreview} />
+        </div>
+        {match && <p className="visually-hidden" aria-live="polite">{t.search.found(visible.length)}</p>}
         {crafts > 0 && (
           <div className="frow"><span className="flabel">{t.kind}</span>
             <div className="seg seg-scroll" role="group" aria-label={t.kind}>
@@ -139,9 +182,16 @@ export function Browse({ plates, taxonomy, market, language }: { plates: PlateIt
         </div>
       </div>
       <main className={`grid${picks.picking ? " picking" : ""}`}>
-        {visible.length === 0 ? (
+        {theme && <p className="kh-theme-hint"><Link href={link(base, `/themas/${theme.slug}`)}>{t.search.maker(theme.name)} →</Link></p>}
+        {visible.length === 0 && missing ? (
+          <div className="empty kh-request"><b>{t.search.noneTitle}</b><span>{t.search.noneText}</span>
+            {isRequested
+              ? <p role="status">{t.search.requested}{subscribe && <> <a href="#kh-sub-email">{t.search.notify}</a></>}</p>
+              : <button type="button" className="ui-btn" data-variant="primary" onClick={request}>{t.search.request}</button>}
+          </div>
+        ) : visible.length === 0 ? (
           <div className="empty"><b>{t.emptyTitle}</b><span>{t.emptyText}</span>
-            <button type="button" className="btn" onClick={() => router.replace(pathname, { scroll: false })}>{t.showAll}</button></div>
+            <button type="button" className="btn" onClick={() => router.replace(q && anywhere > 0 ? `${pathname}?q=${encodeURIComponent(q)}` : pathname, { scroll: false })}>{t.showAll}</button></div>
         ) : visible.slice(0, shown).map((p) => (
           <PlateCard key={p.slug} plate={p} base={base} taxonomy={taxonomy} view={f.cat} yr={t.yr} kindLabel={p.kind !== "kleurplaat" ? t.kindNames[p.kind] : undefined}
             {...(picks.picking ? { pick: { selected: picks.slugs.includes(p.slug), onToggle: () => book.toggle(p.slug) } } : {})} />

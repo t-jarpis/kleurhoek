@@ -45,7 +45,7 @@ export const da: Messages = {
   atPartner: (p: string) => `hos ${p}`,
   partnerDisclosure: "Partnerlinks: Hvis du køber noget via disse links, får Kleurhoek et lille beløb fra butikken. Du betaler det samme. Sådan holder vi tegningerne gratis.",
   deleteAccount: "Slet konto", deleteSure: "Er du sikker? Tryk igen",
-  disclaimer: "Ansvarsfraskrivelse", privacy: "Privatliv", colorPreview: "I farver", newTitle: "Nyheder", newLede: "Vores nyeste tegninger, de nyeste først.", contact: "Kontakt", themes: "Temaer hos skaberne",
+  disclaimer: "Ansvarsfraskrivelse", privacy: "Privatliv", colorPreview: "I farver", newTitle: "Nyheder", newLede: "Vores nyeste tegninger, de nyeste først.", contact: "Kontakt", themes: "Temaer hos skaberne", search: { label: "Søg", placeholder: "Søg efter en tegning, fx enhjørning", found: (n: number) => `Fundet: ${n}`, noneTitle: "Den har vi ikke endnu", noneText: "Skal vi lave den? Ønsk den, så sætter vi den på vores liste.", request: "Ønsk denne tegning", requested: "Ønsket! Mange tak.", notify: "Vil du have en mail, når der er nye tegninger?", maker: (name: string) => "Officielle tegninger af " + name + " finder du hos skaberne" },
   contactTitle: "Kontakt", contactLede: "Et spørgsmål, en idé til en tegning eller noget, der ikke virker? Skriv til os. Vi svarer som regel inden for et par hverdage.",
   contactTopic: "Hvad drejer det sig om?",
   contactTopics: { question: "Et spørgsmål", idea: "Idé til en tegning", bug: "Noget virker ikke", partnership: "Samarbejde", copyright: "Ophavsret", privacy: "Privatliv og mine data" } as Record<string, string>,

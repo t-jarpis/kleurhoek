@@ -5,7 +5,8 @@ import { num } from "@/components/charts/format";
 import { StatCard } from "@/components/charts/StatCard";
 import { TimeChart } from "@/components/charts/TimeChart";
 import { WorldMap } from "@/components/charts/WorldMap";
-import { adminApi, describe } from "@/lib/api";
+import { adminApi, describe, type Wishes } from "@/lib/api";
+import { setWishStatus } from "./actions";
 import { REF_KIND_LABEL, refKind, type RefKind } from "@/lib/referrers";
 
 export const dynamic = "force-dynamic";
@@ -15,7 +16,7 @@ export const metadata = { title: "Analytics" };
  * Analytics (ADR 0034): eigen telling zonder cookies, IP-adres of profielen, in de geest van Matomo. Tabs voor
  * bezoekers, bronnen, inhoud, techniek en locatie, organisaties en "nu op de site". Het dashboard houdt de kern.
  */
-const TABS = [["bezoekers", "Bezoekers"], ["bronnen", "Bronnen"], ["inhoud", "Inhoud"], ["techniek", "Apparaten en landen"], ["organisaties", "Organisaties"], ["nu", "Nu op de site"]] as const;
+const TABS = [["bezoekers", "Bezoekers"], ["bronnen", "Bronnen"], ["inhoud", "Inhoud"], ["techniek", "Apparaten en landen"], ["organisaties", "Organisaties"], ["gezocht", "Gezocht"], ["nu", "Nu op de site"]] as const;
 type Tab = (typeof TABS)[number][0];
 const PERIODS = [["7", "7 dagen"], ["30", "30 dagen"], ["90", "90 dagen"], ["365", "12 maanden"]] as const;
 type Period = (typeof PERIODS)[number][0];
@@ -23,6 +24,8 @@ const PERIOD_TEXT: Record<Period, string> = { "7": "vorige 7 dagen", "30": "vori
 const PAGE_LABEL: Record<string, string> = { home: "Home", plaat: "Plaatpagina's", boekje: "Boekje", account: "Account", "niet-gevonden": "Niet gevonden", disclaimer: "Disclaimer", contact: "Contact", themas: "Thema's", thema: "Themapagina's", "eigen-omgeving": "Eigen omgeving", onderwerp: "Onderwerppagina's", aftelkalender: "Aftelkalender", lespakket: "Lespakketten", samen: "Samen kleuren" };
 const DEVICE_LABEL: Record<string, string> = { mobile: "Telefoon", tablet: "Tablet", desktop: "Computer", other: "Overig" };
 const ENTRY_LABEL: Record<string, string> = { nl: "kleurhoek.nl", be: "kleurhoek.be", com: "kleurhoek.com" };
+const WISH_LABEL = { open: "Open", made: "Gemaakt", hidden: "Verborgen" } as const;
+const WISH_ACTION = { open: "Weer open", made: "Gemaakt", hidden: "Verbergen" } as const;
 const iso = (d: Date) => d.toISOString().slice(0, 10);
 /** Kwam binnen via (ADR 0083): "google.com → een plaat", "rechtstreeks → de voorpagina", of "—". */
 const ONE_PAGE: Record<string, string> = { plaat: "een plaat", onderwerp: "een onderwerppagina", thema: "een themapagina", lespakket: "een lespakket", home: "de voorpagina" };
@@ -32,15 +35,19 @@ const when = (at: string) => new Intl.DateTimeFormat("nl-NL", { timeZone: "Europ
 const pct = (a: number, b: number) => (b ? `${Math.round((a / b) * 1000) / 10}%`.replace(".", ",") : "—");
 const countryName = (code: string) => { try { return code ? new Intl.DisplayNames(["nl"], { type: "region" }).of(code) ?? code : "Onbekend"; } catch { return code || "Onbekend"; } };
 
-export default async function Analytics({ searchParams }: { searchParams: Promise<{ tab?: string; periode?: string }> }) {
+export default async function Analytics({ searchParams }: { searchParams: Promise<{ tab?: string; periode?: string; verborgen?: string; melding?: string }> }) {
   const sp = await searchParams;
   const tab: Tab = TABS.some(([t]) => t === sp.tab) ? (sp.tab as Tab) : "bezoekers";
   const period: Period = PERIODS.some(([p]) => p === sp.periode) ? (sp.periode as Period) : "30";
   const to = new Date(), from = new Date(Date.now() - (Number(period) - 1) * 86_400_000);
   const href = (t: Tab, p: Period = period) => `/analytics?tab=${t}&periode=${p}`;
-  let o, live, act, orgNames = new Map<string, string>();
+  let o, live, act, wishes: Wishes | null = null, canManageWishes = false, orgNames = new Map<string, string>();
   try {
     [o, live, act] = await Promise.all([adminApi.overview(iso(from), iso(to)), tab === "nu" ? adminApi.realtime() : Promise.resolve(null), tab === "inhoud" ? adminApi.activity(iso(from), iso(to)) : Promise.resolve(null)]);
+    if (tab === "gezocht") {
+      const [w, me] = await Promise.all([adminApi.wishes(sp.verborgen === "1"), adminApi.me()]);
+      wishes = w; canManageWishes = me.permissions.includes("analytics.wishes.manage");
+    }
     if (tab === "organisaties") orgNames = new Map((await adminApi.organizations().catch(() => ({ organizations: [] as { slug: string; name: string }[] }))).organizations.map((x) => [x.slug, x.name]));
   } catch (e) { const d = describe(e); return <div className="err"><h1>{d.title}</h1><p>{d.text}</p></div>; }
   const vs = PERIOD_TEXT[period];
@@ -144,6 +151,21 @@ export default async function Analytics({ searchParams }: { searchParams: Promis
         )}
       </section>}
 
+      {sp.melding && <p className="note" role="status">{sp.melding}</p>}
+      {tab === "gezocht" && wishes && <section className="panel stack">
+        <div className="row-between"><h2>Gezocht op de site</h2>
+          <Link href={`/analytics?tab=gezocht${sp.verborgen === "1" ? "" : "&verborgen=1"}`}>{sp.verborgen === "1" ? "Verborgen woorden niet tonen" : "Ook verborgen woorden tonen"}</Link></div>
+        <p className="lead">Wat bezoekers zochten zonder resultaat (vanaf {wishes.threshold} bezoekers) en welke platen ze aanvroegen, over de hele periode. Alleen het zoekwoord wordt bewaard. Merken en bekende figuren maken we niet: zet die op verborgen.</p>
+        {wishes.terms.length === 0 ? <p className="lead">Nog niets gezocht dat we niet hebben.</p> : (
+          <div className="ui-table-wrap"><table><thead><tr><th>Zoekwoord</th><th className="num">Gemist</th><th className="num">Gevraagd</th><th>Markten</th><th>Laatst</th><th>Status</th>{canManageWishes && <th><span className="visually-hidden">Acties</span></th>}</tr></thead>
+            <tbody>{wishes.terms.map((w) => <tr key={w.term}><td>{w.term}</td><td className="num">{num(w.missed)}</td><td className="num">{num(w.requested)}</td><td>{w.markets.join(", ")}</td><td>{w.last}</td>
+              <td><span className="ui-badge" data-tone={w.status === "made" ? "success" : undefined}>{WISH_LABEL[w.status]}</span></td>
+              {canManageWishes && <td><form action={setWishStatus} className="ui-post-actions">
+                <input type="hidden" name="term" value={w.term} />
+                {(["open", "made", "hidden"] as const).filter((st) => st !== w.status).map((st) => <button key={st} className="ui-btn" data-variant="quiet" name="status" value={st}>{WISH_ACTION[st]}</button>)}
+              </form></td>}</tr>)}</tbody></table></div>
+        )}
+      </section>}
       {tab === "nu" && live && <>
         <div className="ui-stats dash-stats">
           <StatCard label="Bezoekers, laatste 30 minuten" value={live.visitors} period="" />

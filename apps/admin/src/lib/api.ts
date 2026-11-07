@@ -214,6 +214,10 @@ export class ApiError extends Error {
   constructor(readonly status: number, message: string) { super(message); }
 }
 
+/** Gezocht (ADR 0084): zoekwoorden zonder resultaat en aangevraagde platen. */
+export type WishStatus = "open" | "made" | "hidden";
+export interface Wishes { threshold: number; terms: { term: string; missed: number; requested: number; markets: string[]; last: string; status: WishStatus }[] }
+
 async function call<T>(path: string, init: RequestInit = {}): Promise<T> {
   const res = await fetch(`${API_URL}${path}`, { ...init, cache: "no-store", signal: AbortSignal.timeout(15_000), headers: { ...init.headers, authorization: `Bearer ${await adminToken()}`, ...(init.body ? { "content-type": "application/json" } : {}) } });
   if (!res.ok) {
@@ -238,6 +242,8 @@ export const adminApi = {
   saveGoals: (body: { start: string; metrics: Record<GoalMetric, GoalMilestone[]> }) => call<Goals>("/v1/admin/analytics/goals", { method: "PUT", body: JSON.stringify(body) }),
   realtime: () => call<Realtime>("/v1/admin/analytics/realtime"),
   activity: (from: string, to: string) => call<Activity>(`/v1/admin/analytics/activity?from=${from}&to=${to}`),
+  wishes: (hidden = false) => call<Wishes>(`/v1/admin/analytics/wishes${hidden ? "?hidden=1" : ""}`),
+  setWishStatus: (term: string, status: WishStatus) => call<Wishes>("/v1/admin/analytics/wishes/status", { method: "PUT", body: JSON.stringify({ term, status }) }),
   overview: (from: string, to: string) => call<Overview>(`/v1/admin/analytics/overview?from=${from}&to=${to}`),
   accountStats: (from: string, to: string) => call<AccountStats>(`/v1/admin/users/stats?from=${from}&to=${to}`),
   summary: (from: string, to: string) => call<Summary>(`/v1/admin/analytics/summary?from=${from}&to=${to}`),

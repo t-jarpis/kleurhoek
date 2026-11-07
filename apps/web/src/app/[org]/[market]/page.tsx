@@ -45,10 +45,13 @@ export default async function Home({ params }: { params: Promise<{ org: string; 
   const base = baseFor(org, market);
   const language = marketLanguage(market);
   const t = messages(market);
+  // Thema's uit de Bronnengids (ADR 0084): zoekt iemand een thema, dan een link naar de officiële platen. Mag nooit de voorpagina breken.
+  const themes = api.themes(market, slug).then((r) => r.map(({ slug: s, name }) => ({ slug: s, name }))).catch(() => []);
   const [plates, taxonomy, season] = await Promise.all([api.plates(market, slug), api.taxonomy(market, slug), api.season(market, slug)]).catch((e) => {
     if (e instanceof NotFound) notFound();
     throw e;
   });
+  const themeList = await themes;
   return (
     <div className="wrap" data-mode="kind">
       {indexable(org) && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd({
@@ -73,7 +76,7 @@ export default async function Home({ params }: { params: Promise<{ org: string; 
           <Link className="ui-btn" data-variant="primary" href={link(base, "/aftelkalender")}>{t.advent.teaserCta}</Link>
         </div>
       )}
-      <Suspense fallback={null}><Browse plates={plates} taxonomy={taxonomy} market={market} language={language} /></Suspense>
+      <Suspense fallback={null}><Browse plates={plates} taxonomy={taxonomy} market={market} language={language} themes={themeList} subscribe={org.isDefault} /></Suspense>
       <TopicLinks groups={topics(plates, taxonomy, t)} base={base} t={t} />
       <Fridge market={market} plates={plates} language={language} />
       {org.isDefault && <SubscribeForm action={subscribe.bind(null, market)} language={language} />}

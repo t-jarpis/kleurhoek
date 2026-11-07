@@ -148,3 +148,24 @@ export const searchSync = analyticsSchema.table("search_sync", {
   lastDay: date("last_day", { mode: "string" }),
   runAt: timestamp("run_at", { withTimezone: true }).notNull().defaultNow(),
 }, (t) => [uniqueIndex("search_sync_unique").on(t.tenantId, t.engine, t.site)]);
+
+/**
+ * Zoeken op de site (ADR 0084): een zoekwoord zonder resultaat (miss) of een aanvraag voor een plaat (request).
+ * Eén rij per dag, zoekwoord, markt, soort en bezoek: het aantal rijen is het aantal bezoekers. Alleen het
+ * genormaliseerde woord (hooguit 40 tekens); de bezoekerscode gaat na 90 dagen weg (ADR 0078).
+ */
+export const searchWishes = analyticsSchema.table("search_wishes", {
+  ...baseColumns(),
+  day: date("day", { mode: "string" }).notNull(),
+  term: text("term").notNull(),
+  market: text("market").notNull(),
+  kind: text("kind", { enum: ["miss", "request"] }).notNull(),
+  visitorHash: text("visitor_hash"),
+}, (t) => [uniqueIndex("search_wishes_unique").on(t.tenantId, t.day, t.term, t.market, t.kind, t.visitorHash), index("search_wishes_term").on(t.tenantId, t.term)]);
+
+/** Wat de beheerder met een zoekwoord deed: open (geen rij), gemaakt of verborgen (ADR 0084). */
+export const searchWishStatus = analyticsSchema.table("search_wish_status", {
+  ...baseColumns(),
+  term: text("term").notNull(),
+  status: text("status", { enum: ["made", "hidden"] }).notNull(),
+}, (t) => [uniqueIndex("search_wish_status_term").on(t.tenantId, t.term)]);

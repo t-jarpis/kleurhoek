@@ -45,7 +45,7 @@ export const et: Messages = {
   atPartner: (p: string) => `poes ${p}`,
   partnerDisclosure: "Partnerlingid: kui ostad midagi nende linkide kaudu, saab Kleurhoek poelt väikese tasu. Sina maksad sama palju. Nii jäävad pildid tasuta.",
   deleteAccount: "Kustuta konto", deleteSure: "Oled kindel? Puuduta uuesti",
-  disclaimer: "Õigusteave", privacy: "Privaatsus", colorPreview: "Värviline", newTitle: "Mis on uut", newLede: "Meie uusimad pildid, uusimad eespool.", contact: "Kontakt", themes: "Teemad tegijatelt",
+  disclaimer: "Õigusteave", privacy: "Privaatsus", colorPreview: "Värviline", newTitle: "Mis on uut", newLede: "Meie uusimad pildid, uusimad eespool.", contact: "Kontakt", themes: "Teemad tegijatelt", search: { label: "Otsi", placeholder: "Otsi pilti, nt ükssarvik", found: (n: number) => `Leitud: ${n}`, noneTitle: "Seda meil veel pole", noneText: "Kas teeme selle? Soovi seda ja paneme selle oma nimekirja.", request: "Soovi seda pilti", requested: "Soovitud! Aitäh.", notify: "Kas soovid e-kirja, kui tuleb uusi pilte?", maker: (name: string) => "Ametlikud " + name + " pildid leiad nende loojatelt" },
   contactTitle: "Kontakt", contactLede: "Küsimus, idee uueks pildiks või midagi ei tööta? Anna meile teada. Tavaliselt vastame mõne tööpäeva jooksul.",
   contactTopic: "Millega on tegu?",
   contactTopics: { question: "Küsimus", idea: "Idee pildiks", bug: "Midagi ei tööta", partnership: "Koostöö", copyright: "Autoriõigus", privacy: "Privaatsus ja minu andmed" } as Record<string, string>,

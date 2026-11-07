@@ -47,7 +47,7 @@ export const nl = {
   atPartner: (p: string) => `bij ${p}`,
   partnerDisclosure: "Partnerlinks: als je via deze links iets koopt, krijgt Kleurhoek een kleine vergoeding van de winkel. Jij betaalt hetzelfde. Zo blijven de platen gratis.",
   deleteAccount: "Account verwijderen", deleteSure: "Zeker weten? Tik nog eens",
-  disclaimer: "Disclaimer", privacy: "Privacy", colorPreview: "In kleur", newTitle: "Wat is er nieuw", newLede: "De nieuwste platen, de nieuwste bovenaan.", contact: "Contact", themes: "Thema's bij de maker",
+  disclaimer: "Disclaimer", privacy: "Privacy", colorPreview: "In kleur", newTitle: "Wat is er nieuw", newLede: "De nieuwste platen, de nieuwste bovenaan.", contact: "Contact", themes: "Thema's bij de maker", search: { label: "Zoeken", placeholder: "Zoek een plaat, bv. eenhoorn", found: (n: number) => `Gevonden: ${n}`, noneTitle: "Die hebben we nog niet", noneText: "Zullen we hem maken? Vraag hem aan, dan zetten we hem op ons lijstje.", request: "Vraag deze plaat aan", requested: "Gevraagd! Dank je wel.", notify: "Wil je een mail als er nieuwe platen zijn?", maker: (name: string) => "Officiële platen van " + name + " vind je bij de makers" },
   contactTitle: "Contact", contactLede: "Een vraag, een idee voor een plaat of iets wat niet werkt? Laat het ons weten. We reageren meestal binnen een paar werkdagen.",
   contactTopic: "Waar gaat het over?",
   contactTopics: { question: "Een vraag", idea: "Idee voor een plaat", bug: "Er werkt iets niet", partnership: "Samenwerken", copyright: "Auteursrecht", privacy: "Privacy en mijn gegevens" } as Record<string, string>,

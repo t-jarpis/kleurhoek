@@ -45,7 +45,7 @@ export const it: Messages = {
   atPartner: (p: string) => `da ${p}`,
   partnerDisclosure: "Link partner: se compri qualcosa tramite questi link, il negozio dà a Kleurhoek un piccolo compenso. Tu paghi lo stesso prezzo. Così i disegni restano gratis.",
   deleteAccount: "Elimina account", deleteSure: "Sei sicuro? Tocca di nuovo",
-  disclaimer: "Note legali", privacy: "Privacy", colorPreview: "A colori", newTitle: "Novità", newLede: "I nostri disegni più nuovi, prima i più recenti.", contact: "Contatti", themes: "Temi dagli autori",
+  disclaimer: "Note legali", privacy: "Privacy", colorPreview: "A colori", newTitle: "Novità", newLede: "I nostri disegni più nuovi, prima i più recenti.", contact: "Contatti", themes: "Temi dagli autori", search: { label: "Cerca", placeholder: "Cerca un disegno, ad es. unicorno", found: (n: number) => `Trovati: ${n}`, noneTitle: "Non ce l'abbiamo ancora", noneText: "Lo facciamo? Chiedilo e lo mettiamo nella nostra lista.", request: "Chiedi questo disegno", requested: "Richiesto! Grazie mille.", notify: "Vuoi un'e-mail quando ci sono nuovi disegni?", maker: (name: string) => "I disegni ufficiali di " + name + " si trovano presso i creatori" },
   contactTitle: "Contatti", contactLede: "Hai una domanda, un'idea per un disegno o qualcosa non funziona? Scrivici. Di solito rispondiamo entro pochi giorni lavorativi.",
   contactTopic: "Di cosa si tratta?",
   contactTopics: { question: "Una domanda", idea: "Idea per un disegno", bug: "Qualcosa non funziona", partnership: "Collaborazione", copyright: "Diritto d'autore", privacy: "Privacy e i miei dati" } as Record<string, string>,

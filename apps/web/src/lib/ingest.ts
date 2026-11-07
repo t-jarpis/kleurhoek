@@ -23,16 +23,23 @@ export function normalizeMarket(value: unknown): string | null {
   return typeof value === "string" && /^[a-z]{2}-[a-z]{2}$/i.test(value) ? `${value.slice(0, 2).toLowerCase()}-${value.slice(3).toUpperCase()}` : null;
 }
 
-export async function ingest(req: Request, event: { type: string; market: string; plate?: string | undefined; product?: string | undefined; page?: string | undefined; entry?: string | undefined; ref?: string | undefined }) {
+/** Bezoekershash met het zout van vandaag (UTC); null voor bots. Het IP-adres en de browser zelf gaan nergens heen. */
+export function visitorHash(req: Request): string | null {
   const ua = req.headers.get("user-agent") ?? "";
-  if (isBot(ua)) return;
+  if (isBot(ua)) return null;
   const ip = req.headers.get("cf-connecting-ip") ?? req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "";
-  const country = (req.headers.get("cf-ipcountry") ?? process.env.DEV_COUNTRY ?? "").toUpperCase();
   const day = new Date().toISOString().slice(0, 10);
   const salt = createHmac("sha256", SALT_SECRET).update(day).digest();
-  const visitorHash = createHash("sha256").update(salt).update(ip).update(ua).digest("base64url").slice(0, 32);
+  return createHash("sha256").update(salt).update(ip).update(ua).digest("base64url").slice(0, 32);
+}
+
+export async function ingest(req: Request, event: { type: string; market: string; plate?: string | undefined; product?: string | undefined; page?: string | undefined; entry?: string | undefined; ref?: string | undefined }) {
+  const ua = req.headers.get("user-agent") ?? "";
+  const hash = visitorHash(req);
+  if (!hash) return;
+  const country = (req.headers.get("cf-ipcountry") ?? process.env.DEV_COUNTRY ?? "").toUpperCase();
   const body = {
-    type: event.type, market: event.market, device: device(ua), visitorHash,
+    type: event.type, market: event.market, device: device(ua), visitorHash: hash,
     ...(event.plate ? { plate: event.plate } : {}), ...(event.product ? { product: event.product } : {}),
     ...(event.page ? { page: event.page } : {}),
     ...(event.entry ? { entry: event.entry, referrer: event.ref ?? "" } : {}),
@@ -48,12 +55,12 @@ export async function ingest(req: Request, event: { type: string; market: string
  * ging een telling anders stil verloren. Lukt het na drie keer niet, dan één regel in de log, zonder
  * bezoekersgegevens. Een 4xx is een fout in het event zelf: niet opnieuw proberen.
  */
-export async function send(json: string, type: string, waits = [300, 1200]): Promise<boolean> {
+export async function send(json: string, type: string, waits = [300, 1200], path = "/v1/internal/events"): Promise<boolean> {
   let last = "";
   for (let attempt = 0; attempt <= waits.length; attempt++) {
     if (attempt) await new Promise((r) => setTimeout(r, waits[attempt - 1]));
     try {
-      const res = await fetch(`${API_URL}/v1/internal/events`, { method: "POST", headers: { "content-type": "application/json", "x-ingest-key": INGEST_KEY }, body: json, signal: AbortSignal.timeout(3000) });
+      const res = await fetch(`${API_URL}${path}`, { method: "POST", headers: { "content-type": "application/json", "x-ingest-key": INGEST_KEY }, body: json, signal: AbortSignal.timeout(3000) });
       if (res.ok) return true;
       last = `HTTP ${res.status}`;
       if (res.status >= 400 && res.status < 500 && res.status !== 429) break;
@@ -61,4 +68,11 @@ export async function send(json: string, type: string, waits = [300, 1200]): Pro
   }
   console.warn(`Telling ${type} niet doorgegeven aan de API (${last})`);
   return false;
+}
+
+/** Zoekwoord zonder resultaat of aanvraag van een plaat (ADR 0084). Zelfde hash en retries als events. */
+export async function wish(req: Request, w: { term: string; market: string; kind: "miss" | "request" }): Promise<void> {
+  const hash = visitorHash(req);
+  if (!hash) return;
+  await send(JSON.stringify({ ...w, visitorHash: hash }), `zoekwoord (${w.kind})`, [300, 1200], "/v1/internal/wishes");
 }

@@ -49,7 +49,7 @@ export const sk: Messages = {
   atPartner: (p: string) => `v obchode ${p}`,
   partnerDisclosure: "Partnerské odkazy: keď cez tieto odkazy niečo kúpiš, Kleurhoek dostane od obchodu malú odmenu. Ty zaplatíš rovnako. Vďaka tomu zostávajú obrázky zadarmo.",
   deleteAccount: "Vymazať účet", deleteSure: "Naozaj? Ťukni ešte raz",
-  disclaimer: "Právne upozornenie", privacy: "Ochrana súkromia", colorPreview: "Farebne", newTitle: "Novinky", newLede: "Naše najnovšie obrázky, od najnovších.", contact: "Kontakt", themes: "Témy od autorov",
+  disclaimer: "Právne upozornenie", privacy: "Ochrana súkromia", colorPreview: "Farebne", newTitle: "Novinky", newLede: "Naše najnovšie obrázky, od najnovších.", contact: "Kontakt", themes: "Témy od autorov", search: { label: "Hľadať", placeholder: "Hľadaj obrázok, napr. jednorožec", found: (n: number) => `Nájdené: ${n}`, noneTitle: "Ten ešte nemáme", noneText: "Máme ho nakresliť? Požiadaj oň a dáme ho na náš zoznam.", request: "Požiadať o tento obrázok", requested: "Odoslané! Ďakujeme.", notify: "Chceš e-mail, keď budú nové obrázky?", maker: (name: string) => "Oficiálne omaľovánky " + name + " nájdeš u ich tvorcov" },
   contactTitle: "Kontakt", contactLede: "Máš otázku, nápad na obrázok alebo ti niečo nefunguje? Daj nám vedieť. Zvyčajne odpovedáme do niekoľkých pracovných dní.",
   contactTopic: "O čo ide?",
   contactTopics: { question: "Otázka", idea: "Nápad na obrázok", bug: "Niečo nefunguje", partnership: "Spolupráca", copyright: "Autorské práva", privacy: "Súkromie a moje údaje" } as Record<string, string>,
