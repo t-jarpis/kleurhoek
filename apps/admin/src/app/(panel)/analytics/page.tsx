@@ -155,7 +155,7 @@ export default async function Analytics({ searchParams }: { searchParams: Promis
       {tab === "gezocht" && wishes && <section className="panel stack">
         <div className="row-between"><h2>Gezocht op de site</h2>
           <Link href={`/analytics?tab=gezocht${sp.verborgen === "1" ? "" : "&verborgen=1"}`}>{sp.verborgen === "1" ? "Verborgen woorden niet tonen" : "Ook verborgen woorden tonen"}</Link></div>
-        <p className="lead">Wat bezoekers zochten zonder resultaat (vanaf {wishes.threshold} bezoekers) en welke platen ze aanvroegen, over de hele periode. Alleen het zoekwoord wordt bewaard. Merken en bekende figuren maken we niet: zet die op verborgen.</p>
+        <p className="lead">Wat bezoekers zochten zonder resultaat{wishes.threshold > 1 ? ` (vanaf ${wishes.threshold} bezoekers)` : ""} en welke platen ze aanvroegen, over de hele periode. Alleen het zoekwoord wordt bewaard. Namen, tikfouten, merken en bekende figuren: zet die op verborgen.</p>
         {wishes.terms.length === 0 ? <p className="lead">Nog niets gezocht dat we niet hebben.</p> : (
           <div className="ui-table-wrap"><table><thead><tr><th>Zoekwoord</th><th className="num">Gemist</th><th className="num">Gevraagd</th><th>Markten</th><th>Laatst</th><th>Status</th>{canManageWishes && <th><span className="visually-hidden">Acties</span></th>}</tr></thead>
             <tbody>{wishes.terms.map((w) => <tr key={w.term}><td>{w.term}</td><td className="num">{num(w.missed)}</td><td className="num">{num(w.requested)}</td><td>{w.markets.join(", ")}</td><td>{w.last}</td>

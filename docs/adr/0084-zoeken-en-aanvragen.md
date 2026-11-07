@@ -15,12 +15,12 @@ Bezoekers konden alleen bladeren met filters (onderwerp, leeftijd, soort). Met m
   - Woorden met @, een webadres of een reeks van 4 of meer cijfers worden niet bewaard. Zo komen er geen e-mailadressen of telefoonnummers in.
   - Elk woord telt één keer per bezoeker per dag. De browser stuurt een woord ook maar één keer per bezoek, en onthoudt een aanvraag tot morgen (`kh:gevraagd`, alleen op dit apparaat).
 - **Admin panel, Analytics › Gezocht:** per zoekwoord het aantal bezoekers dat het miste, het aantal aanvragen, de markten en de laatste dag.
-  - Gemiste woorden staan er pas vanaf 3 bezoekers; aanvragen meteen.
+  - Gemiste woorden en aanvragen staan er meteen, vanaf 1 bezoeker (`MISS_THRESHOLD`). Met nog weinig bezoekers wil Thijs elk signaal zien. Als de lijst vol raakt met tikfouten of namen, gaat de drempel omhoog (bijvoorbeeld naar 3). Woorden onder de drempel worden wel bewaard en verschijnen dan alsnog.
   - Status Open, Gemaakt of Verborgen, met de nieuwe permissie `analytics.wishes.manage` (in de rol Contentbeheerder). Elke wijziging komt in het auditlog en is ongedaan te maken (`UndoRegistry`).
 - Cloudflare: `/w` valt onder dezelfde rate limit als `/e`.
 
 ## Gevolgen
 - Nieuwe tabellen `analytics.search_wishes` en `analytics.search_wish_status` (migratie 0032), met row-level security.
-- Zoekwoorden zijn vrije tekst van bezoekers, soms kinderen. Daarom gelden de drempel, de filters tegen persoonsgegevens en de status Verborgen. De lijst staat alleen in het admin panel en gaat nooit in een export.
+- Zoekwoorden zijn vrije tekst van bezoekers, soms kinderen. Daarom gelden de filters tegen persoonsgegevens en de status Verborgen (een naam of iets persoonlijks: verbergen). De lijst staat alleen in het admin panel en gaat nooit in een export.
 - Zoeken werkt alleen op de voorpagina, waar het raster staat. Een zoekserver of zoeken in de plaatbeschrijvingen kan later, als de catalogus veel groter wordt.
 - Zoeken zelf telt niet als event: zoekwoorden met resultaat worden niet bewaard.

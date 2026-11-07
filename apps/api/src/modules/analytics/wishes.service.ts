@@ -10,8 +10,12 @@ import { PSEUDONYM_DAYS } from "./analytics.service";
 
 /** Langste zoekwoord dat we bewaren (ADR 0084). */
 export const WISH_MAX = 40;
-/** Een gemist zoekwoord verschijnt pas in het admin panel als zoveel verschillende bezoekers het zochten. */
-export const MISS_THRESHOLD = 3;
+/**
+ * Een gemist zoekwoord verschijnt in het admin panel vanaf zoveel verschillende bezoekers. Nu 1, omdat er nog weinig
+ * bezoekers zijn; ophogen (bijv. naar 3) als de lijst vol raakt met tikfouten of namen. Niets gaat verloren: lager
+ * dan de drempel wordt wel bewaard, alleen niet getoond.
+ */
+export const MISS_THRESHOLD = 1;
 
 /**
  * Zoekwoord gelijk maken: kleine letters, zonder accenten, één spatie. Null als het geen bruikbaar of
@@ -75,7 +79,7 @@ export class WishesService implements OnModuleInit {
 
   /**
    * Lijst voor het admin panel: per zoekwoord bezoekers die het misten, aanvragen, markten en de laatste dag.
-   * Gemist alleen vanaf drie bezoekers, aanvragen altijd. Verborgen woorden alleen als je erom vraagt.
+   * Gemist vanaf MISS_THRESHOLD bezoekers, aanvragen altijd. Verborgen woorden alleen als je erom vraagt.
    */
   async list(tenantId: string, opts: { hidden?: boolean } = {}) {
     const rows = await withTenant(this.db, tenantId, async (tx) => ({

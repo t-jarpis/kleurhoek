@@ -22,16 +22,15 @@ describe("gezocht: zoekwoorden en aanvragen (ADR 0084)", () => {
     expect(normalizeTerm("123")).toBeNull();
   });
 
-  it("telt bezoekers één keer per dag en toont gemist pas vanaf drie, aanvragen meteen", async () => {
+  it("telt bezoekers één keer per dag en toont gemiste woorden en aanvragen", async () => {
     expect((await wish("eenhoorn", "miss", "a", "fout")).statusCode).toBe(401);
     expect((await wish("Eenhoorn", "miss", "a")).json()).toEqual({ stored: true });
     await wish("eenhoorn", "miss", "a");
     await wish("eenhoorn", "miss", "b");
     await wish("draak", "request", "c");
-    let list = (await admin("analist")).json();
-    expect(list.terms.map((t: { term: string }) => t.term)).toEqual(["draak"]);
     await wish("eénhoorn", "miss", "d");
-    list = (await admin("analist")).json();
+    const list = (await admin("analist")).json();
+    expect(list.terms.map((t: { term: string }) => t.term).sort()).toEqual(["draak", "eenhoorn"]);
     expect(list.terms).toContainEqual(expect.objectContaining({ term: "eenhoorn", missed: 3, requested: 0, markets: ["nl-NL"], status: "open" }));
     expect((await wish("mail@x.nl", "request", "e")).json()).toEqual({ stored: false });
   });
