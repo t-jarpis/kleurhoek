@@ -59,5 +59,5 @@ export async function channel(f: FormData) {
   const kind = String(f.get("kind"));
   const action = String(f.get("action"));
   await attempt("kanalen", action === "ontkoppelen" ? "Ontkoppeld." : "Opgeslagen.", () =>
-    adminApi.socialChannel(kind, action === "ontkoppelen" ? { connected: false } : { enabled: action === "aan" }));
+    adminApi.socialChannel(kind, action === "ontkoppelen" ? { connected: false } : action === "live" || action === "niet-live" ? { live: action === "live" } : { enabled: action === "aan" }));
 }

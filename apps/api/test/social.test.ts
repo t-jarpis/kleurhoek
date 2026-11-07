@@ -66,6 +66,19 @@ describe("social (ADR 0063)", () => {
     for (const r of raw.rows) expect(r.token).not.toMatch(/geheim|access/);
   });
 
+  it("maakt geen voorstellen voor kanalen die nog niet openbaar mogen plaatsen (ADR 0086)", async () => {
+    const now = new Date("2026-11-02T04:30:00Z");
+    const overview = (await as("/v1/admin/social")).json();
+    expect(overview.channels.every((c: { live: boolean }) => c.live === false)).toBe(true);
+    await social.generate(now);
+    const list = (await as("/v1/admin/social/posts?status=voorstel")).json().posts as { channel: string; id: string }[];
+    expect(list.map((p) => p.channel).every((c) => c === "delen")).toBe(true);
+    // Opruimen: zelfde dag opnieuw genereren moet kunnen voor de volgende test.
+    await ctx.app.get<Database>(DB).execute(sql`delete from social.posts`);
+    for (const k of ["pinterest", "facebook", "instagram"]) expect((await as(`/v1/admin/social/channels/${k}`, { live: true }, "PUT")).statusCode).toBe(204);
+    expect((await as("/v1/admin/social")).json().channels.every((c: { live: boolean }) => c.live)).toBe(true);
+  });
+
   it("maakt voorstellen: pins per dag, en op maandag en woensdag een post over de eerstvolgende feestdag", async () => {
     const now = new Date("2026-11-02T04:30:00Z"); // maandag, 5:30 in Nederland
     expect(await social.generate(now)).toBeGreaterThan(0);

@@ -114,6 +114,15 @@ export class SocialService implements OnModuleInit {
           .where(and(eq(channels.tenantId, tenantId), eq(channels.kind, subject.replace(/^social-channel:/, ""))));
       },
     });
+    this.undo.register("social.channel.live", {
+      permission: "social.manage", label: "Social: goedgekeurd voor openbaar plaatsen",
+      apply: async (tx, tenantId, subject, before) => {
+        const kind = subject.replace(/^social-channel:/, "");
+        const [c] = await tx.select({ settings: channels.settings }).from(channels).where(and(eq(channels.tenantId, tenantId), eq(channels.kind, kind)));
+        await tx.update(channels).set({ settings: { ...(c?.settings ?? {}), live: (before as { live: boolean }).live }, updatedAt: new Date() })
+          .where(and(eq(channels.tenantId, tenantId), eq(channels.kind, kind)));
+      },
+    });
     this.undo.register("social.post.decide", {
       permission: "social.manage", label: "Social: post goedgekeurd of afgewezen",
       apply: async (tx, tenantId, subject, before) => {
@@ -176,7 +185,7 @@ export class SocialService implements OnModuleInit {
     return {
       channels: CHANNELS.map((kind) => {
         const r = rows.find((c) => c.kind === kind);
-        return { kind, available: this.available(kind), connected: !!r?.token, account: r?.account ?? null, enabled: r ? r.enabled === 1 : true, connectedAt: r?.connectedAt?.toISOString() ?? null, error: r?.error ?? null };
+        return { kind, available: this.available(kind), connected: !!r?.token, account: r?.account ?? null, enabled: r ? r.enabled === 1 : true, live: r?.settings.live === true, connectedAt: r?.connectedAt?.toISOString() ?? null, error: r?.error ?? null };
       }),
       counts,
       settings: await this.settings(),
@@ -243,6 +252,22 @@ export class SocialService implements OnModuleInit {
       await tx.insert(channels).values({ tenantId: this.tenant, kind, enabled: enabled ? 1 : 0 })
         .onConflictDoUpdate({ target: [channels.tenantId, channels.kind], set: { enabled: enabled ? 1 : 0, updatedAt: new Date() } });
       if (c && (c.enabled === 1) !== enabled) await this.audit.record(tx, this.tenant, { actor, action: "social.channel", subject: `social-channel:${kind}`, before: { enabled: c.enabled === 1 }, after: { enabled } });
+    });
+  }
+
+  /**
+   * Openbaar plaatsen goedgekeurd door het platform (ADR 0086). Pinterest-pins met Trial-toegang zijn alleen voor jezelf
+   * zichtbaar, en via de API is niet te zien of de app Standard-toegang heeft: de beheerder zet dit zelf aan. Zolang het
+   * uit staat, maakt Kleurhoek voor dit kanaal geen voorstellen en plaatst het niets.
+   */
+  async setLive(kind: ChannelKind, live: boolean, actor = "systeem") {
+    await this.tx(async (tx) => {
+      const [c] = await tx.select({ settings: channels.settings }).from(channels).where(and(eq(channels.tenantId, this.tenant), eq(channels.kind, kind)));
+      const before = c?.settings.live === true;
+      if (before === live) return;
+      await tx.insert(channels).values({ tenantId: this.tenant, kind, settings: { live } })
+        .onConflictDoUpdate({ target: [channels.tenantId, channels.kind], set: { settings: { ...(c?.settings ?? {}), live }, updatedAt: new Date() } });
+      await this.audit.record(tx, this.tenant, { actor, action: "social.channel.live", subject: `social-channel:${kind}`, before: { live: before }, after: { live } });
     });
   }
 
@@ -332,9 +357,11 @@ export class SocialService implements OnModuleInit {
     const s = await this.settings();
     const { list, market } = await this.plates();
     if (!market || !list.length) return 0;
-    const pinterest = await this.channel("pinterest");
-    const facebook = await this.channel("facebook");
-    const instagram = await this.channel("instagram");
+    // Alleen kanalen die openbaar mogen plaatsen (ADR 0086); "delen" (handmatig) altijd.
+    const live = <T extends { settings: Record<string, unknown> } | null>(c: T) => (c && c.settings.live === true ? c : null);
+    const pinterest = live(await this.channel("pinterest"));
+    const facebook = live(await this.channel("facebook"));
+    const instagram = live(await this.channel("instagram"));
     const today = localDay(now);
     const days = [0, 1, 2].map((n) => addDays(today, n));
     const season = await this.store.season(market, undefined, now);
@@ -431,7 +458,11 @@ export class SocialService implements OnModuleInit {
     const due = await this.tx((tx) => tx.select().from(posts).where(and(eq(posts.tenantId, this.tenant), eq(posts.status, "goedgekeurd"), lte(posts.scheduledAt, now), lt(posts.attempts, MAX_ATTEMPTS), inArray(posts.channel, [...CHANNELS])))
       .orderBy(asc(posts.scheduledAt)).limit(10));
     let done = 0;
+    const live = new Map<string, boolean>();
     for (const p of due) {
+      // Nog niet goedgekeurd door het platform (ADR 0086): laten staan tot het wel mag, zonder poging te tellen.
+      if (!live.has(p.channel)) live.set(p.channel, (await this.channel(p.channel as ChannelKind))?.settings.live === true);
+      if (!live.get(p.channel)) continue;
       try {
         const r = await this.publish(p);
         await this.tx((tx) => tx.update(posts).set({ status: "geplaatst", publishedAt: new Date(), externalUrl: r.url, error: null, updatedAt: new Date() }).where(eq(posts.id, p.id)));

@@ -72,7 +72,8 @@ function Channels({ o, canManage }: { o: SocialOverview; canManage: boolean }) {
     const c = ch(k);
     return (
       <div className="ui-channel" key={k}>
-        <h3>{CHANNEL[k]} <span className="ui-badge" data-tone={!c.available ? "warning" : c.connected ? "success" : undefined}>{!c.available ? "Niet ingesteld" : c.connected ? (c.enabled ? "Gekoppeld" : "Gekoppeld, uit") : "Niet gekoppeld"}</span></h3>
+        <h3>{CHANNEL[k]} <span className="ui-badge" data-tone={!c.available ? "warning" : c.connected ? (c.live ? "success" : "warning") : undefined}>{!c.available ? "Niet ingesteld" : c.connected ? (!c.live ? "Wacht op goedkeuring" : c.enabled ? "Gekoppeld" : "Gekoppeld, uit") : "Niet gekoppeld"}</span></h3>
+        {c.connected && !c.live && <p className="hint">Er komen geen nieuwe voorstellen en er wordt niets geplaatst tot {k === "pinterest" ? "Pinterest Standard access heeft gegeven" : "Meta openbaar plaatsen toestaat"}. Klik dan op de knop hieronder.</p>}
         <p>{c.connected ? `${c.account ?? ""}${c.connectedAt ? ` · sinds ${new Intl.DateTimeFormat("nl-NL", { day: "numeric", month: "short" }).format(new Date(c.connectedAt))}` : ""}` : !c.available ? "De app-sleutels ontbreken nog (zie hieronder)." : k === "instagram" ? "Koppelt mee met Facebook, als het Instagram-account aan de pagina hangt." : "Nog niet gekoppeld."}</p>
         {canManage && c.available && (
           <div className="ui-post-actions">
@@ -80,6 +81,7 @@ function Channels({ o, canManage }: { o: SocialOverview; canManage: boolean }) {
               <form action={connect}><input type="hidden" name="kind" value={k === "pinterest" ? "pinterest" : "meta"} /><input type="hidden" name="redirectBase" value={o.redirectBase} /><button className="ui-btn" data-variant="primary">{c.connected ? "Opnieuw koppelen" : "Koppelen"}</button></form>
             )}
             {c.connected && <form action={channel}><input type="hidden" name="kind" value={k} /><button className="ui-btn" name="action" value={c.enabled ? "uit" : "aan"}>{c.enabled ? "Uitzetten" : "Aanzetten"}</button></form>}
+            {c.connected && <form action={channel}><input type="hidden" name="kind" value={k} /><button className="ui-btn" data-variant={c.live ? "quiet" : undefined} name="action" value={c.live ? "niet-live" : "live"}>{c.live ? "Toch nog niet goedgekeurd" : `Goedgekeurd door ${k === "pinterest" ? "Pinterest" : "Meta"}`}</button></form>}
             {c.connected && <form action={channel}><input type="hidden" name="kind" value={k} /><button className="ui-btn" data-variant="quiet" name="action" value="ontkoppelen">Ontkoppelen</button></form>}
           </div>
         )}

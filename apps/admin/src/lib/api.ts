@@ -198,7 +198,7 @@ export type SocialStatus = "voorstel" | "goedgekeurd" | "geplaatst" | "mislukt" 
 export interface SocialPost { id: string; channel: SocialChannel; status: SocialStatus; source: string; plateSlug: string | null; title: string; body: string; link: string; image: string; board: string | null; scheduledAt: string; publishedAt: string | null; externalUrl: string | null; error: string | null; attempts: number; decidedBy: string | null }
 export interface SocialSettings { notifyEmail: string | null; pinsPerDay: number; feedDays: number[]; feedTime: string }
 export interface SocialOverview {
-  channels: { kind: Exclude<SocialChannel, "delen">; available: boolean; connected: boolean; account: string | null; enabled: boolean; connectedAt: string | null; error: string | null }[];
+  channels: { kind: Exclude<SocialChannel, "delen">; available: boolean; connected: boolean; account: string | null; enabled: boolean; live: boolean; connectedAt: string | null; error: string | null }[];
   counts: { status: SocialStatus; channel: SocialChannel; n: number }[];
   settings: SocialSettings & { generatedOn: string | null; digestSentOn: string | null };
   redirectBase: string;
@@ -299,7 +299,7 @@ export const adminApi = {
   saveSocialSettings: (body: SocialSettings) => call<SocialSettings>("/v1/admin/social/settings", { method: "PUT", body: JSON.stringify(body) }),
   socialConnectUrl: (kind: "pinterest" | "meta", redirectUri: string) => call<{ url: string }>(`/v1/admin/social/connect/${kind}?redirectUri=${encodeURIComponent(redirectUri)}`).then((r) => r.url),
   socialConnect: (kind: "pinterest" | "meta", body: { code: string; state: string; redirectUri: string }) => call<{ connected: string[]; page?: string; instagram?: string | null }>(`/v1/admin/social/connect/${kind}`, { method: "POST", body: JSON.stringify(body) }),
-  socialChannel: (kind: string, body: { enabled?: boolean; connected?: false }) => call(`/v1/admin/social/channels/${kind}`, { method: "PUT", body: JSON.stringify(body) }),
+  socialChannel: (kind: string, body: { enabled?: boolean; live?: boolean; connected?: false }) => call(`/v1/admin/social/channels/${kind}`, { method: "PUT", body: JSON.stringify(body) }),
   mailOverview: () => call<MailOverview>("/v1/admin/mail"),
   mailDeliverability: (days: number) => call<MailDeliverability>(`/v1/admin/mail/deliverability?days=${days}`),
   mailWebhooks: () => call<{ webhooks: Record<string, string> }>("/v1/admin/mail/deliverability/webhooks").then((r) => r.webhooks),

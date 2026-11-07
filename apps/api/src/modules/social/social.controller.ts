@@ -93,8 +93,9 @@ export class SocialController {
   @HttpCode(204)
   async channel(@Param("kind") kind: string, @Body() body: unknown, @Req() req: FastifyRequest) {
     const k = parse(z.enum(CHANNELS), kind);
-    const b = parse(z.object({ enabled: z.boolean().optional(), connected: z.literal(false).optional() }).strict(), body);
+    const b = parse(z.object({ enabled: z.boolean().optional(), live: z.boolean().optional(), connected: z.literal(false).optional() }).strict(), body);
     if (b.connected === false) await this.social.disconnect(k, req.admin!.subject);
     if (b.enabled !== undefined) await this.social.setEnabled(k, b.enabled, req.admin!.subject);
+    if (b.live !== undefined) await this.social.setLive(k, b.live, req.admin!.subject);
   }
 }
