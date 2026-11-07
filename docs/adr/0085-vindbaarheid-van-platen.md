@@ -26,6 +26,6 @@ Daarnaast noemde de sitemap de afbeeldingen van de platen niet, terwijl veel oud
 
 ## Gevolgen
 - Er is geen migratie nodig: `also` is een extra veld in de bestaande vertalingen.
-- Synoniemen in andere talen kunnen later in hetzelfde bestand.
+- Andere namen staan er voor alle 29 talen: in het Nederlands voor 590 platen, in de andere talen voor 336 tot 636 platen per taal. Per taal is gekeken wat mensen daar echt typen, dus geen letterlijke vertaling; regionale woorden staan erbij (Belgisch, Oostenrijks/Zwitsers, Braziliaans/Portugees, Latijns-Amerikaans). Buitenlandse feestdagen die iets anders betekenen, staan er niet bij, zoals 25 april bij de plaat over 5 mei.
 - De titels van alle platen veranderen tegelijk. Search Console laat over een paar weken zien of het aantal klikken stijgt.
 - De web-tests kennen nu het `@/`-pad (vitest.config.ts), zodat ook modules als de sitemap te testen zijn.
