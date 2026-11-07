@@ -22,3 +22,6 @@ Gedetailleerde platen (12+) krijgen een dikke omtrek per onderwerp en middellijn
 
 ## Sinterklaas (`batch44_sint.py`, ADR 0065)
 Figuren `sint()` (mijter, baard, mantel, staf), `piet()` (Roetveegpiet: baret met veer, kraag, pofbroek, roetvegen op de wangen) en `horse()` (het paard). `OUT=/tmp/sint python3 batch44_sint.py`; de 12+-plaat staat in `batch13e.py` (`sinterklaas-glas-in-lood`).
+
+## Illustratiestijl (`illu.py`, ADR 0090)
+Schattige, getekende platen: `smooth(punten)` voor vloeiende vormen met een licht trillende lijn, `O(vorm, code)` voor hoofdvormen met een inktrand die rechtsonder dikker wordt, `L2(pad)` voor penseelstreken, en onderdelen als `eye`, `leaf`, `fern`, `tuft`, `cloud`, `flower` en `scales`. `R`/`C` nemen de kleurcode mee en `codes()` geeft de reeks voor de meta. Dino's: `OUT=/tmp/illu python3 illu_dinos.py`, daarna `node ../ingest.mjs /tmp/illu`. Stijlregels: PlateIllustration in het design system.

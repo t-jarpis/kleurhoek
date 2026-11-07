@@ -84,3 +84,4 @@ Het volledige architectuurdocument met diagrammen staat hier: https://claude.ai/
 - Oude adressen van een vorige eigenaar van een domein (oude sitemaps, .html- en .php-pagina's) geven direct 410, zonder doorverwijzing, zodat Google ze snel loslaat (ADR 0087).
 - De catalogcontrole (`scripts/plates/check.mjs`) waarschuwt voor uitstekende hoekjes: een been of arm die net naast het vlak begint waar hij onder hoort (`stubs.mjs`). Na een kleine reparatie zet `relabel.mjs` de nummers opnieuw (ADR 0088).
 - De kleurstudio toont een ingekleurd voorbeeld (de plaat in zijn eigen kleur-op-nummerkleuren) en kan dat in kleur printen, naast leeg en je eigen werk (ADR 0089).
+- Nieuwe platen gebruiken de illustratiekit (`scripts/plates/generators/illu.py`): vloeiende vormen, een inktrand die aan de schaduwkant dikker wordt en penseelstreken voor details. Inkt en streken zijn zwarte vormen, geen vlakken, dus kleur-op-nummer en online kleuren werken zoals altijd (ADR 0090).
