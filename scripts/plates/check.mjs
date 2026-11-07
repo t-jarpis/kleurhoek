@@ -3,11 +3,13 @@
 //   node scripts/plates/check.mjs            controleren
 //   node scripts/plates/check.mjs --report   ook docs/content/voortgang.md bijwerken
 // Controles: dubbele tekeningen, ontbrekende gegevens per soort, alles binnen het vel (in een echte
-// browser gemeten), leesbare tekst, kleine vlakken voor jonge kinderen, en titels bij extra pagina's.
+// browser gemeten), leesbare tekst, kleine vlakken voor jonge kinderen, titels bij extra pagina's en uitstekende
+// hoekjes (stubs.mjs).
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { DATA, PLATE_CSS, ROOT, playwright } from "./lib.mjs";
+import { STUBS_JS } from "./stubs.mjs";
 import data from "../../packages/catalog-data/index.js";
 
 const plates = data.plates();
@@ -62,6 +64,9 @@ for (const p of plates) {
     if (r.outside) (p.kind === "kleurplaat" ? warn : fail)(p.slug, `pagina ${n}: ${r.outside} onderdelen (deels) buiten het vel`);
     if (r.tinyText) warn(p.slug, `pagina ${n}: ${r.tinyText} teksten kleiner dan 4,5 (onleesbaar geprint)`);
     if (r.tiny) warn(p.slug, `pagina ${n}: ${r.tiny} piepkleine vlakken`);
+    // Uitstekende hoekjes (ADR 0088): een been of arm die net naast het vlak begint waar hij onder hoort.
+    const stubs = n === 1 ? await page.evaluate(`(${STUBS_JS})({})`) : [];
+    if (stubs.length) warn(p.slug, `${stubs.length} uitstekend hoekje(s), vlak ${[...new Set(stubs.map((s) => s.i))].join(", ")} bij ${stubs.slice(0, 3).map((s) => `${s.x},${s.y}`).join(" ")}`);
   }
 }
 await browser.close();
