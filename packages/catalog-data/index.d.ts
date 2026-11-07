@@ -30,7 +30,7 @@ export interface PlateSource {
   };
   /** De plaat is taalgebonden (woordpuzzel, letters, rijmen): alleen in de brontaal, niet vertalen (ADR 0029). */
   languageBound?: boolean;
-  i18n: Translations<{ name: string; word: string | null; countQuestion: string | null; steps?: string[]; printNote?: string; pageTitles?: string[] }>;
+  i18n: Translations<{ name: string; word: string | null; countQuestion: string | null; steps?: string[]; printNote?: string; pageTitles?: string[]; also?: string[] }>;
 }
 export interface MaterialSource extends Named {}
 export interface Named { slug: string; order: number; i18n: Translations<{ name: string; hint?: string }> }

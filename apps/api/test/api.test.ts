@@ -80,7 +80,17 @@ describe("website-API", () => {
     expect(colored.headers["cache-control"]).toContain("immutable");
     expect(plain.body).not.toContain('style="fill:#');
     expect(colored.body).toMatch(/style="fill:#[0-9a-f]{6}"/i);
-    expect((await get("/v1/assets/plates/kat/1.kleur.png")).statusCode).toBe(404);
+    // Ingekleurd als PNG voor de sitemap (ADR 0085).
+    const png = await get("/v1/assets/plates/kat/1.kleur.png");
+    expect(png.statusCode).toBe(200);
+    expect(png.headers["content-type"]).toBe("image/png");
+  });
+
+  it("geeft andere namen van een plaat mee (ADR 0085)", async () => {
+    const list = (await get("/v1/markets/nl-NL/plates")).json().items as { slug: string; also: string[] }[];
+    expect(list.find((p) => p.slug === "brachiosaurus")?.also).toEqual(expect.arrayContaining(["langnek"]));
+    expect(list.find((p) => p.slug === "kat")?.also).toEqual(expect.any(Array));
+    expect((await get("/v1/markets/nl-NL/plates/brachiosaurus")).json().also).toEqual(expect.arrayContaining(["langnek"]));
   });
 
   it("weigert onbekende markten en ongeldige filters", async () => {

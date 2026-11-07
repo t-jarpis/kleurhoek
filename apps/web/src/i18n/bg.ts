@@ -1,4 +1,5 @@
 import type { Messages } from "./nl";
+import { plateDescription, type PlateExtra } from "./plate-meta";
 
 /** Interface texts in Bulgarian (Bulgaria). Same keys as nl.ts. */
 export const bg: Messages = {
@@ -45,7 +46,7 @@ export const bg: Messages = {
   atPartner: (p: string) => `в ${p}`,
   partnerDisclosure: "Партньорски връзки: ако купиш нещо чрез тези връзки, Kleurhoek получава малка комисиона от магазина. Ти плащаш същата цена. Така картинките остават безплатни.",
   deleteAccount: "Изтрий профила", deleteSure: "Сигурен ли си? Докосни отново",
-  disclaimer: "Правна информация", privacy: "Поверителност", colorPreview: "Цветно", newTitle: "Какво ново", newLede: "Най-новите ни картинки, първо най-новите.", contact: "Контакт", themes: "Теми от създателите", search: { label: "Търсене", placeholder: "Потърси картинка, напр. еднорог", found: (n: number) => `Намерени: ${n}`, noneTitle: "Тази още я нямаме", noneText: "Да я направим ли? Поискай я и ще я сложим в списъка си.", request: "Поискай тази картинка", requested: "Поискано! Благодарим.", notify: "Искаш ли имейл, когато има нови картинки?", maker: (name: string) => "Официални картинки за " + name + " ще намериш при създателите им" },
+  disclaimer: "Правна информация", privacy: "Поверителност", colorPreview: "Цветно", newTitle: "Какво ново", newLede: "Най-новите ни картинки, първо най-новите.", contact: "Контакт", themes: "Теми от създателите", alsoKnownAs: "Известно още като", search: { label: "Търсене", placeholder: "Потърси картинка, напр. еднорог", found: (n: number) => `Намерени: ${n}`, noneTitle: "Тази още я нямаме", noneText: "Да я направим ли? Поискай я и ще я сложим в списъка си.", request: "Поискай тази картинка", requested: "Поискано! Благодарим.", notify: "Искаш ли имейл, когато има нови картинки?", maker: (name: string) => "Официални картинки за " + name + " ще намериш при създателите им" },
   contactTitle: "Контакт", contactLede: "Имаш въпрос, идея за картинка или нещо не работи? Пиши ни. Обикновено отговаряме до няколко работни дни.",
   contactTopic: "За какво става дума?",
   contactTopics: { question: "Въпрос", idea: "Идея за картинка", bug: "Нещо не работи", partnership: "Сътрудничество", copyright: "Авторски права", privacy: "Поверителност и моите данни" } as Record<string, string>,
@@ -199,10 +200,11 @@ export const bg: Messages = {
     howTitle: "Как работи",
     how: ["Отвори картинка и докосни Оцветяваме заедно.", "Дай кода или линка на този, който се включва.", "Той въвежда кода тук или отваря линка. Каквото оцвети единият, другият го вижда веднага."],
   },
-  metaPlateTitle: (name: string, kind: string) => `${name} – ${kind.toLowerCase()}`,
+  metaPlateTitle: (name: string, kind: string) => (kind ? `${name} – ${kind.toLowerCase()}` : name),
+  plateTitle: (name: string, kind: string) => `${kind ? `${name} – ${kind.toLowerCase()}` : name}, безплатно за печат`,
   metaThemeTitle: (name: string) => `${name} – картинки за оцветяване`,
   metaTheme: (name: string, maker: string) => `Картинки за оцветяване с ${name}, безплатно от ${maker}.`,
-  metaPlate: (name: string, kind: string) => `${kind} ${name}: оцвети онлайн или разпечатай безплатно на A4.`,
+  metaPlate: (name: string, kind: string, extra?: PlateExtra) => plateDescription(kind ? `${kind} ${name}: оцвети онлайн или разпечатай безплатно на A4.` : `${name}: оцвети онлайн или разпечатай безплатно на A4.`, extra, "Известно още като"),
   mlTitle: "Пишете ми, когато има нещо ново", mlIntro: "Нови картинки, навреме за празник, или от време на време бюлетин. Можеш да се отпишеш с едно кликване.", mlEmail: "Имейл адрес", mlTopics: "За какво?", mlTopicNames: {"nieuwe-platen": "Нови картинки (най-много веднъж седмично)", "feestdagen": "Картинки за предстоящ празник", "nieuwsbrief": "Бюлетинът (от време на време)"} as Record<string, string>, mlAdult: "Навършил/а съм 16 години", mlSubmit: "Абонирай се", mlSending: "Абониране…", mlPrivacy: "Използваме адреса ти само за тези имейли.", mlCheckTitle: "Провери имейла си", mlCheckText: "Изпратихме ти имейл. Натисни бутона в него, за да потвърдиш абонамента.", mlError: "Не се получи. Провери имейл адреса си, избери тема и отметни квадратчето.", mlBusy: "Твърде много опити. Опитай отново след малко.", mlConfirming: "Потвърждаване на абонамента…", mlConfirmed: "Абониран/а си", mlConfirmedText: "Отсега ще получаваш нашите имейли. Можеш да се отпишеш най-долу във всеки имейл.", mlConfirmInvalid: "Тази връзка вече не работи. Абонирай се отново; връзката в имейла е валидна 7 дни.", mlPrefsTitle: "Настройки за имейли", mlPrefsFor: "За", mlSave: "Запази", mlSaved: "Запазено.", mlUnsubscribe: "Отпиши ме от всички имейли", mlUnsubscribeSure: "Сигурен ли си? Кликни отново, за да се отпишеш.", mlUnsubscribed: "Отписан/а си", mlUnsubscribedText: "Повече няма да получаваш имейли от нас, а адресът ти е изтрит.", mlLinkInvalid: "Тази връзка вече не работи. Използвай връзката най-долу в последния ни имейл.", mlAccount: "Имейли", mlAccountHint: "Избери какви имейли искаш да получаваш на адреса си. Нищо не е отметнато: няма имейли.",
   favSave: "Запази", favSaved: "Любима", favorites: "Любими", favLoginLink: "Влез", favLoginHint: "за да пазиш любимите си на всички устройства.", accBenefitsTitle: "Какво можеш с профил", accFavorites: "Виж любимите си",
   accBenefits: [["Любими на всички устройства", "Запазвай картинки със сърцето. Ще ги имаш на телефона, таблета и компютъра."], ["Имейли по твой избор", "Известие за нови картинки или предстоящ празник, или бюлетин от време на време."], ["За оцветяване не е нужен", "Децата оцветяват и разпечатват без вход."]] as [string, string][],

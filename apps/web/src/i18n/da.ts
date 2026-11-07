@@ -1,4 +1,5 @@
 import type { Messages } from "./nl";
+import { plateDescription, type PlateExtra } from "./plate-meta";
 
 /** Interface texts in Danish (Denmark). Same keys as nl.ts. */
 export const da: Messages = {
@@ -45,7 +46,7 @@ export const da: Messages = {
   atPartner: (p: string) => `hos ${p}`,
   partnerDisclosure: "Partnerlinks: Hvis du køber noget via disse links, får Kleurhoek et lille beløb fra butikken. Du betaler det samme. Sådan holder vi tegningerne gratis.",
   deleteAccount: "Slet konto", deleteSure: "Er du sikker? Tryk igen",
-  disclaimer: "Ansvarsfraskrivelse", privacy: "Privatliv", colorPreview: "I farver", newTitle: "Nyheder", newLede: "Vores nyeste tegninger, de nyeste først.", contact: "Kontakt", themes: "Temaer hos skaberne", search: { label: "Søg", placeholder: "Søg efter en tegning, fx enhjørning", found: (n: number) => `Fundet: ${n}`, noneTitle: "Den har vi ikke endnu", noneText: "Skal vi lave den? Ønsk den, så sætter vi den på vores liste.", request: "Ønsk denne tegning", requested: "Ønsket! Mange tak.", notify: "Vil du have en mail, når der er nye tegninger?", maker: (name: string) => "Officielle tegninger af " + name + " finder du hos skaberne" },
+  disclaimer: "Ansvarsfraskrivelse", privacy: "Privatliv", colorPreview: "I farver", newTitle: "Nyheder", newLede: "Vores nyeste tegninger, de nyeste først.", contact: "Kontakt", themes: "Temaer hos skaberne", alsoKnownAs: "Også kendt som", search: { label: "Søg", placeholder: "Søg efter en tegning, fx enhjørning", found: (n: number) => `Fundet: ${n}`, noneTitle: "Den har vi ikke endnu", noneText: "Skal vi lave den? Ønsk den, så sætter vi den på vores liste.", request: "Ønsk denne tegning", requested: "Ønsket! Mange tak.", notify: "Vil du have en mail, når der er nye tegninger?", maker: (name: string) => "Officielle tegninger af " + name + " finder du hos skaberne" },
   contactTitle: "Kontakt", contactLede: "Et spørgsmål, en idé til en tegning eller noget, der ikke virker? Skriv til os. Vi svarer som regel inden for et par hverdage.",
   contactTopic: "Hvad drejer det sig om?",
   contactTopics: { question: "Et spørgsmål", idea: "Idé til en tegning", bug: "Noget virker ikke", partnership: "Samarbejde", copyright: "Ophavsret", privacy: "Privatliv og mine data" } as Record<string, string>,
@@ -199,10 +200,11 @@ export const da: Messages = {
     howTitle: "Sådan virker det",
     how: ["Åbn en tegning, og tryk på Farvelæg sammen.", "Giv koden eller linket til dem, der vil være med.", "De skriver koden her eller åbner linket. Det, den ene farvelægger, ser den anden med det samme."],
   },
-  metaPlateTitle: (name: string, kind: string) => `${name} – ${kind.toLowerCase()}`,
+  metaPlateTitle: (name: string, kind: string) => (kind ? `${name} – ${kind.toLowerCase()}` : name),
+  plateTitle: (name: string, kind: string) => `${kind ? `${name} – ${kind.toLowerCase()}` : name}, gratis at printe`,
   metaThemeTitle: (name: string) => `Tegninger til farvelægning med ${name}`,
   metaTheme: (name: string, maker: string) => `Tegninger til farvelægning med ${name}, gratis hos ${maker}.`,
-  metaPlate: (name: string, kind: string) => `${kind} ${name}: farvelæg gratis online, eller print på A4.`,
+  metaPlate: (name: string, kind: string, extra?: PlateExtra) => plateDescription(kind ? `${kind} ${name}: farvelæg gratis online, eller print på A4.` : `${name}: farvelæg gratis online, eller print på A4.`, extra, "Også kendt som"),
   mlTitle: "Mail mig, når der er noget nyt", mlIntro: "Nye tegninger, i god tid før en højtid, eller et nyhedsbrev en gang imellem. Du kan afmelde dig med ét klik.", mlEmail: "E-mailadresse", mlTopics: "Om hvad?", mlTopicNames: {"nieuwe-platen": "Nye tegninger (højst én gang om ugen)", "feestdagen": "Tegninger til en kommende højtid", "nieuwsbrief": "Nyhedsbrevet (en gang imellem)"} as Record<string, string>, mlAdult: "Jeg er 16 år eller ældre", mlSubmit: "Tilmeld", mlSending: "Tilmelder…", mlPrivacy: "Vi bruger kun din adresse til disse mails.", mlCheckTitle: "Tjek din e-mail", mlCheckText: "Vi har sendt dig en mail. Klik på knappen i den for at bekræfte din tilmelding.", mlError: "Det lykkedes ikke. Tjek din e-mailadresse, vælg et emne, og sæt flueben i feltet.", mlBusy: "For mange forsøg. Prøv igen om lidt.", mlConfirming: "Bekræfter din tilmelding…", mlConfirmed: "Du er tilmeldt", mlConfirmedText: "Fremover får du vores mails. Du kan afmelde dig nederst i hver mail.", mlConfirmInvalid: "Dette link virker ikke længere. Tilmeld dig igen; linket i mailen virker i 7 dage.", mlPrefsTitle: "Dine mailindstillinger", mlPrefsFor: "Til", mlSave: "Gem", mlSaved: "Gemt.", mlUnsubscribe: "Afmeld alle mails", mlUnsubscribeSure: "Er du sikker? Klik igen for at afmelde dig.", mlUnsubscribed: "Du er afmeldt", mlUnsubscribedText: "Du får ikke flere mails fra os, og din adresse er slettet.", mlLinkInvalid: "Dette link virker ikke længere. Brug linket nederst i din seneste mail.", mlAccount: "Mail", mlAccountHint: "Vælg, hvilke mails du vil have på din e-mailadresse. Intet valgt: ingen mails.",
   favSave: "Gem", favSaved: "Favorit", favorites: "Favoritter", favLoginLink: "Log ind", favLoginHint: "for at gemme dine favoritter på alle dine enheder.", accBenefitsTitle: "Det kan du med en konto", accFavorites: "Se dine favoritter",
   accBenefits: [["Favoritter på alle dine enheder", "Gem tegninger med hjertet. Så ligger de på din telefon, tablet og computer."], ["Mails, du selv vælger", "Besked om nye tegninger eller en kommende højtid, eller nyhedsbrevet en gang imellem."], ["Farvelægning kræver aldrig en konto", "Børn farvelægger og printer uden at logge ind."]] as [string, string][],

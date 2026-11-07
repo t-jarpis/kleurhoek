@@ -54,6 +54,7 @@ export function Browse({ plates, taxonomy, market, language, themes = [], subscr
     p.name, taxonomy.categories.find((c) => c.slug === p.category)?.name, taxonomy.holidays.find((h) => h.slug === p.holiday)?.name,
     taxonomy.continents.find((c) => c.slug === p.world?.continent)?.name, p.world?.country, p.kind !== "kleurplaat" ? t.kindNames[p.kind] : "",
     ...p.goals.map((g) => taxonomy.goals.find((x) => x.slug === g)?.name),
+    ...(p.also ?? []),
   ].filter(Boolean).join(" ")])), [plates, taxonomy, t]);
   const match = useMemo(() => { const m = matcher(q); return m ? (p: PlateItem) => m(haystack.get(p.slug) ?? "") : null; }, [q, haystack]);
   const anywhere = useMemo(() => (match ? plates.filter(match).length : plates.length), [match, plates]);

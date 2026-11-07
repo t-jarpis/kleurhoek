@@ -174,6 +174,15 @@ export async function seed(db: Database, tenantId: string): Promise<SeedResult> 
     // en losse inserts per plaat maken elke koude start trager.
     for (const part of chunks(newMaterials, 2000)) await tx.insert(plateMaterials).values(part).onConflictDoNothing();
     for (const part of chunks(tr, 1000)) await tx.insert(translations).values(part.map((t) => ({ tenantId, ...t, status: "reviewed" as const }))).onConflictDoNothing();
+    // Andere namen van platen (ADR 0085) komen altijd uit catalog-data: ook bij een bestaande vertaling bijwerken,
+    // in één statement en alleen waar ze verschillen, zodat een koude start niet trager wordt.
+    const also = tr.filter((t) => t.entityType === "plate" && typeof t.fields.also === "string").map((t) => ({ key: t.entityKey, language: t.language, also: t.fields.also }));
+    if (also.length) {
+      await tx.execute(sql`update ${translations} set fields = ${translations.fields} || jsonb_build_object('also', v.also), updated_at = now()
+        from jsonb_to_recordset(${JSON.stringify(also)}::jsonb) as v(key text, language text, also text)
+        where ${translations.tenantId} = ${tenantId} and ${translations.entityType} = 'plate' and ${translations.entityKey} = v.key
+          and ${translations.language} = v.language and ${translations.fields}->>'also' is distinct from v.also`);
+    }
     await syncGlossaries(tx, tenantId);
     return { plates: added, updated: changed.length, added: addedSlugs, changed };
   });

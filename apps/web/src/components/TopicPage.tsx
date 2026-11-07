@@ -13,6 +13,7 @@ import { PlateCard } from "./PlateCard";
 import { SiteFooter } from "./SiteFooter";
 import { TopicLinks } from "./TopicLinks";
 import { Track } from "./Track";
+import { kindFor } from "@/i18n/plate-meta";
 
 type Params = { params: Promise<{ org: string; market: string; slug: string }> };
 
@@ -76,7 +77,7 @@ export function topicPage(dim: Dimension) {
         <main className="grid">
           {plates.map((p) => (
             <PlateCard key={p.slug} plate={p} base={base} taxonomy={taxonomy} view={dim === "onderwerp" ? slug : "alle"} yr={t.yr}
-              kindLabel={p.kind !== "kleurplaat" ? t.kindNames[p.kind] : undefined} alt={t.metaPlateTitle(p.name, t.kindNames[p.kind] ?? t.kindNames.kleurplaat!)} />
+              kindLabel={p.kind !== "kleurplaat" ? t.kindNames[p.kind] : undefined} alt={t.metaPlateTitle(p.name, kindFor(p.name, t.kindNames[p.kind] ?? t.kindNames.kleurplaat!))} />
           ))}
         </main>
         <TopicLinks groups={groups} base={base} t={t} current={path} />

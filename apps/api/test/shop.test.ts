@@ -83,6 +83,13 @@ describe("knutselwerk in de catalogus", () => {
     const db = ctx.app.get<Database>(DB);
     expect(await seed(db, TENANT)).toMatchObject({ plates: 0, updated: 0, added: [], changed: [] });
   });
+  it("andere namen komen bij elke seed uit catalog-data, ook bij bestaande vertalingen (ADR 0085)", async () => {
+    const db = ctx.app.get<Database>(DB);
+    await withTenant(db, TENANT, (tx) => tx.execute(sql`update localization.translations set fields = fields - 'also' where entity_type = 'plate' and entity_key = 'brachiosaurus'`));
+    await seed(db, TENANT);
+    const r = await ctx.http.inject({ method: "GET", url: "/v1/markets/nl-NL/plates/brachiosaurus" });
+    expect(r.json().also).toEqual(expect.arrayContaining(["langnek"]));
+  });
   it("een verbeterde tekening in catalog-data wordt een nieuwe versie, behalve na een versie uit het admin panel", async () => {
     const db = ctx.app.get<Database>(DB);
     // Doen alsof de opgeslagen tekening een oudere is (zonder de lijnen van ADR 0064).

@@ -1,4 +1,5 @@
 import type { Messages } from "./nl";
+import { plateDescription, type PlateExtra } from "./plate-meta";
 
 /** Srpske meervoudsvormen: 1, 21, 31 … → one; 2–4, 22–24 … → few; de rest (ook 11–14) → many. */
 const plural = (n: number, one: string, few: string, many: string): string => {
@@ -52,7 +53,7 @@ export const sr: Messages = {
   atPartner: (p: string) => `u prodavnici ${p}`,
   partnerDisclosure: "Partnerski linkovi: ako nešto kupiš preko ovih linkova, Kleurhoek dobija malu naknadu od prodavnice. Ti plaćaš isto. Tako bojanke ostaju besplatne.",
   deleteAccount: "Obriši nalog", deleteSure: "Sigurno? Dodirni još jednom",
-  disclaimer: "Pravne napomene", privacy: "Privatnost", colorPreview: "U boji", newTitle: "Novosti", newLede: "Naše najnovije bojanke, najnovije prve.", contact: "Kontakt", themes: "Teme kod autora", search: { label: "Pretraga", placeholder: "Potraži bojanku, npr. jednorog", found: (n: number) => `Pronađeno: ${n}`, noneTitle: "To još nemamo", noneText: "Da je napravimo? Zatraži je i stavićemo je na naš spisak.", request: "Zatraži ovu bojanku", requested: "Zatraženo! Hvala.", notify: "Želiš li imejl kada stignu nove bojanke?", maker: (name: string) => "Zvanične bojanke " + name + " nalaze se kod njihovih autora" },
+  disclaimer: "Pravne napomene", privacy: "Privatnost", colorPreview: "U boji", newTitle: "Novosti", newLede: "Naše najnovije bojanke, najnovije prve.", contact: "Kontakt", themes: "Teme kod autora", alsoKnownAs: "Poznato i kao", search: { label: "Pretraga", placeholder: "Potraži bojanku, npr. jednorog", found: (n: number) => `Pronađeno: ${n}`, noneTitle: "To još nemamo", noneText: "Da je napravimo? Zatraži je i stavićemo je na naš spisak.", request: "Zatraži ovu bojanku", requested: "Zatraženo! Hvala.", notify: "Želiš li imejl kada stignu nove bojanke?", maker: (name: string) => "Zvanične bojanke " + name + " nalaze se kod njihovih autora" },
   contactTitle: "Kontakt", contactLede: "Imaš pitanje, ideju za bojanku ili nešto ne radi? Javi nam. Obično odgovaramo u roku od nekoliko radnih dana.",
   contactTopic: "O čemu se radi?",
   contactTopics: { question: "Pitanje", idea: "Ideja za bojanku", bug: "Nešto ne radi", partnership: "Saradnja", copyright: "Autorska prava", privacy: "Privatnost i moji podaci" } as Record<string, string>,
@@ -206,10 +207,11 @@ export const sr: Messages = {
     howTitle: "Kako to funkcioniše",
     how: ["Otvori bojanku i dodirni Bojimo zajedno.", "Daj kod ili link onome ko se pridružuje.", "Ta osoba unese kod ovde ili otvori link. Šta jedan oboji, drugi odmah vidi."],
   },
-  metaPlateTitle: (name: string, kind: string) => `${name} – ${kind.toLowerCase()}`,
+  metaPlateTitle: (name: string, kind: string) => (kind ? `${name} – ${kind.toLowerCase()}` : name),
+  plateTitle: (name: string, kind: string) => `${kind ? `${name} – ${kind.toLowerCase()}` : name}, besplatno za štampu`,
   metaThemeTitle: (name: string) => `Bojanke ${name}`,
   metaTheme: (name: string, maker: string) => `Bojanke ${name}, besplatno na sajtu ${maker}.`,
-  metaPlate: (name: string, kind: string) => `${kind} ${name}: besplatno oboji onlajn ili odštampaj na A4.`,
+  metaPlate: (name: string, kind: string, extra?: PlateExtra) => plateDescription(kind ? `${kind} ${name}: besplatno oboji onlajn ili odštampaj na A4.` : `${name}: besplatno oboji onlajn ili odštampaj na A4.`, extra, "Poznato i kao"),
   mlTitle: "Javite mi imejlom kad ima nešto novo", mlIntro: "Nove bojanke, na vreme za praznik, ili povremeno bilten. Odjava je moguća jednim klikom.", mlEmail: "Imejl adresa", mlTopics: "O čemu?", mlTopicNames: {"nieuwe-platen": "Nove bojanke (najviše jednom nedeljno)", "feestdagen": "Bojanke za predstojeći praznik", "nieuwsbrief": "Bilten (povremeno)"} as Record<string, string>, mlAdult: "Imam 16 ili više godina", mlSubmit: "Prijavi se", mlSending: "Prijava…", mlPrivacy: "Tvoju adresu koristimo samo za ove poruke.", mlCheckTitle: "Proveri imejl", mlCheckText: "Poslali smo ti poruku. Klikni na dugme u njoj da potvrdiš prijavu.", mlError: "Nije uspelo. Proveri imejl adresu, izaberi temu i označi polje.", mlBusy: "Previše pokušaja. Pokušaj ponovo malo kasnije.", mlConfirming: "Potvrđujemo tvoju prijavu…", mlConfirmed: "Prijava je uspela", mlConfirmedText: "Od sada ćeš dobijati naše poruke. Odjaviti se možeš na dnu svake poruke.", mlConfirmInvalid: "Ovaj link više ne radi. Prijavi se ponovo; link u poruci važi 7 dana.", mlPrefsTitle: "Tvoja podešavanja imejla", mlPrefsFor: "Za", mlSave: "Sačuvaj", mlSaved: "Sačuvano.", mlUnsubscribe: "Odjavi se sa svih poruka", mlUnsubscribeSure: "Sigurno? Klikni još jednom za odjavu.", mlUnsubscribed: "Odjava je uspela", mlUnsubscribedText: "Više nećeš dobijati poruke od nas, a tvoja adresa je obrisana.", mlLinkInvalid: "Ovaj link više ne radi. Iskoristi link na dnu poslednje poruke.", mlAccount: "Imejl", mlAccountHint: "Izaberi koje poruke želiš da dobijaš na svoju imejl adresu. Ništa označeno: nema poruka.",
   favSave: "Sačuvaj", favSaved: "Omiljeno", favorites: "Omiljene", favLoginLink: "Prijavi se", favLoginHint: "da ti omiljene bojanke budu na svim uređajima.", accBenefitsTitle: "Šta možeš sa nalogom", accFavorites: "Pogledaj omiljene",
   accBenefits: [["Omiljene na svim uređajima", "Sačuvaj bojanke pomoću srca. Onda su na tvom telefonu, tabletu i računaru."], ["Poruke koje sam biraš", "Obaveštenje o novim bojankama ili predstojećem prazniku, ili povremeno bilten."], ["Za bojenje nalog nikad ne treba", "Deca boje i štampaju bez prijave."]] as [string, string][],

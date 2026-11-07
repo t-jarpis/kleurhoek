@@ -1,4 +1,5 @@
 import type { Messages } from "./nl";
+import { plateDescription, type PlateExtra } from "./plate-meta";
 
 /** Slowaakse meervoudsvormen: 1 → one, 2–4 → few, de rest → many. */
 const plural = (n: number, one: string, few: string, many: string): string =>
@@ -49,7 +50,7 @@ export const sk: Messages = {
   atPartner: (p: string) => `v obchode ${p}`,
   partnerDisclosure: "Partnerské odkazy: keď cez tieto odkazy niečo kúpiš, Kleurhoek dostane od obchodu malú odmenu. Ty zaplatíš rovnako. Vďaka tomu zostávajú obrázky zadarmo.",
   deleteAccount: "Vymazať účet", deleteSure: "Naozaj? Ťukni ešte raz",
-  disclaimer: "Právne upozornenie", privacy: "Ochrana súkromia", colorPreview: "Farebne", newTitle: "Novinky", newLede: "Naše najnovšie obrázky, od najnovších.", contact: "Kontakt", themes: "Témy od autorov", search: { label: "Hľadať", placeholder: "Hľadaj obrázok, napr. jednorožec", found: (n: number) => `Nájdené: ${n}`, noneTitle: "Ten ešte nemáme", noneText: "Máme ho nakresliť? Požiadaj oň a dáme ho na náš zoznam.", request: "Požiadať o tento obrázok", requested: "Odoslané! Ďakujeme.", notify: "Chceš e-mail, keď budú nové obrázky?", maker: (name: string) => "Oficiálne omaľovánky " + name + " nájdeš u ich tvorcov" },
+  disclaimer: "Právne upozornenie", privacy: "Ochrana súkromia", colorPreview: "Farebne", newTitle: "Novinky", newLede: "Naše najnovšie obrázky, od najnovších.", contact: "Kontakt", themes: "Témy od autorov", alsoKnownAs: "Známe aj ako", search: { label: "Hľadať", placeholder: "Hľadaj obrázok, napr. jednorožec", found: (n: number) => `Nájdené: ${n}`, noneTitle: "Ten ešte nemáme", noneText: "Máme ho nakresliť? Požiadaj oň a dáme ho na náš zoznam.", request: "Požiadať o tento obrázok", requested: "Odoslané! Ďakujeme.", notify: "Chceš e-mail, keď budú nové obrázky?", maker: (name: string) => "Oficiálne omaľovánky " + name + " nájdeš u ich tvorcov" },
   contactTitle: "Kontakt", contactLede: "Máš otázku, nápad na obrázok alebo ti niečo nefunguje? Daj nám vedieť. Zvyčajne odpovedáme do niekoľkých pracovných dní.",
   contactTopic: "O čo ide?",
   contactTopics: { question: "Otázka", idea: "Nápad na obrázok", bug: "Niečo nefunguje", partnership: "Spolupráca", copyright: "Autorské práva", privacy: "Súkromie a moje údaje" } as Record<string, string>,
@@ -203,10 +204,11 @@ export const sk: Messages = {
     howTitle: "Ako to funguje",
     how: ["Otvor obrázok a ťukni na Vyfarbovať spolu.", "Daj kód alebo odkaz tomu, kto sa pridá.", "Ten zadá kód tu alebo otvorí odkaz. Čo vyfarbí jeden, druhý hneď uvidí."],
   },
-  metaPlateTitle: (name: string, kind: string) => `${name} – ${kind.toLowerCase()}`,
+  metaPlateTitle: (name: string, kind: string) => (kind ? `${name} – ${kind.toLowerCase()}` : name),
+  plateTitle: (name: string, kind: string) => `${kind ? `${name} – ${kind.toLowerCase()}` : name}, zadarmo na tlač`,
   metaThemeTitle: (name: string) => `Omaľovánky ${name}`,
   metaTheme: (name: string, maker: string) => `Omaľovánky ${name}, zadarmo od ${maker}.`,
-  metaPlate: (name: string, kind: string) => `${kind} ${name}: zadarmo na vyfarbenie online alebo na vytlačenie na A4.`,
+  metaPlate: (name: string, kind: string, extra?: PlateExtra) => plateDescription(kind ? `${kind} ${name}: zadarmo na vyfarbenie online alebo na vytlačenie na A4.` : `${name}: zadarmo na vyfarbenie online alebo na vytlačenie na A4.`, extra, "Známe aj ako"),
   mlTitle: "Napíšte mi, keď bude niečo nové", mlIntro: "Nové obrázky, včas pred sviatkom, alebo občas spravodaj. Odhlásiť sa môžeš jedným kliknutím.", mlEmail: "E-mailová adresa", mlTopics: "O čom?", mlTopicNames: {"nieuwe-platen": "Nové obrázky (najviac raz za týždeň)", "feestdagen": "Obrázky k blížiacemu sa sviatku", "nieuwsbrief": "Spravodaj (občas)"} as Record<string, string>, mlAdult: "Mám 16 rokov alebo viac", mlSubmit: "Prihlásiť na odber", mlSending: "Prihlasuje sa…", mlPrivacy: "Tvoju adresu použijeme len na tieto e-maily.", mlCheckTitle: "Pozri sa do e-mailu", mlCheckText: "Poslali sme ti e-mail. Klikni na tlačidlo v ňom a potvrď prihlásenie.", mlError: "To sa nepodarilo. Skontroluj e-mailovú adresu, vyber tému a zaškrtni políčko.", mlBusy: "Príliš veľa pokusov. Skús to prosím o chvíľu.", mlConfirming: "Potvrdzuje sa prihlásenie…", mlConfirmed: "Si prihlásený(-á)", mlConfirmedText: "Odteraz ti budú chodiť naše e-maily. Odhlásiť sa môžeš dole v každom e-maile.", mlConfirmInvalid: "Tento odkaz už nefunguje. Prihlás sa prosím znova; odkaz v e-maile platí 7 dní.", mlPrefsTitle: "Tvoje nastavenia e-mailov", mlPrefsFor: "Pre", mlSave: "Uložiť", mlSaved: "Uložené.", mlUnsubscribe: "Odhlásiť sa zo všetkých e-mailov", mlUnsubscribeSure: "Naozaj? Klikni ešte raz a odhlásiš sa.", mlUnsubscribed: "Si odhlásený(-á)", mlUnsubscribedText: "Už ti od nás neprídu žiadne e-maily a tvoja adresa bola vymazaná.", mlLinkInvalid: "Tento odkaz už nefunguje. Použi odkaz dole vo svojom poslednom e-maile.", mlAccount: "E-maily", mlAccountHint: "Vyber, ktoré e-maily chceš dostávať na svoju adresu. Nič nezaškrtnuté: žiadne e-maily.",
   favSave: "Uložiť", favSaved: "Obľúbené", favorites: "Obľúbené", favLoginLink: "Prihlás sa", favLoginHint: "a maj svoje obľúbené obrázky na všetkých zariadeniach.", accBenefitsTitle: "Čo ti dá účet", accFavorites: "Zobraziť obľúbené",
   accBenefits: [["Obľúbené na všetkých zariadeniach", "Ulož si obrázky srdiečkom. Budeš ich mať v telefóne, tablete aj počítači."], ["E-maily, ktoré si vyberieš", "Upozornenie na nové obrázky alebo blížiaci sa sviatok, alebo občas spravodaj."], ["Vyfarbovať sa dá vždy aj bez neho", "Deti vyfarbujú a tlačia bez prihlásenia."]] as [string, string][],

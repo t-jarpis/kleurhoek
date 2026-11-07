@@ -45,3 +45,20 @@ test("elke plaat is compleet en consistent", () => {
   assert.ok(plates.length >= 218, `${plates.length} platen`);
   assert.ok(plates.some((p) => p.kind !== "kleurplaat"), "minstens één knutselwerk");
 });
+
+test("andere namen (synonyms.json, ADR 0085): bestaande platen, talen van die plaat, korte lijsten", () => {
+  const extra = JSON.parse(require("node:fs").readFileSync(require("node:path").join(__dirname, "..", "synonyms.json"), "utf8"));
+  const bySlug = new Map(require("..").plates().map((p) => [p.slug, p]));
+  for (const [slug, langs] of Object.entries(extra)) {
+    const p = bySlug.get(slug);
+    assert.ok(p, `${slug}: plaat bestaat niet`);
+    for (const [lang, list] of Object.entries(langs)) {
+      assert.ok(p.i18n[lang], `${slug}: geen vertaling in ${lang}`);
+      assert.ok(Array.isArray(list) && list.length >= 1 && list.length <= 8, `${slug}/${lang}: 1 tot 8 namen`);
+      for (const s of list) {
+        assert.ok(typeof s === "string" && s.trim().length > 1 && s.length <= 40 && !s.includes(","), `${slug}/${lang}: "${s}"`);
+        assert.ok(s.toLowerCase() !== p.i18n[lang].name.toLowerCase(), `${slug}/${lang}: "${s}" is de naam zelf`);
+      }
+    }
+  }
+});

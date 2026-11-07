@@ -1,4 +1,5 @@
 import type { Messages } from "./nl";
+import { plateDescription, type PlateExtra } from "./plate-meta";
 
 /** Interface texts in Estonian (Estonia). Same keys as nl.ts. */
 export const et: Messages = {
@@ -45,7 +46,7 @@ export const et: Messages = {
   atPartner: (p: string) => `poes ${p}`,
   partnerDisclosure: "Partnerlingid: kui ostad midagi nende linkide kaudu, saab Kleurhoek poelt väikese tasu. Sina maksad sama palju. Nii jäävad pildid tasuta.",
   deleteAccount: "Kustuta konto", deleteSure: "Oled kindel? Puuduta uuesti",
-  disclaimer: "Õigusteave", privacy: "Privaatsus", colorPreview: "Värviline", newTitle: "Mis on uut", newLede: "Meie uusimad pildid, uusimad eespool.", contact: "Kontakt", themes: "Teemad tegijatelt", search: { label: "Otsi", placeholder: "Otsi pilti, nt ükssarvik", found: (n: number) => `Leitud: ${n}`, noneTitle: "Seda meil veel pole", noneText: "Kas teeme selle? Soovi seda ja paneme selle oma nimekirja.", request: "Soovi seda pilti", requested: "Soovitud! Aitäh.", notify: "Kas soovid e-kirja, kui tuleb uusi pilte?", maker: (name: string) => "Ametlikud " + name + " pildid leiad nende loojatelt" },
+  disclaimer: "Õigusteave", privacy: "Privaatsus", colorPreview: "Värviline", newTitle: "Mis on uut", newLede: "Meie uusimad pildid, uusimad eespool.", contact: "Kontakt", themes: "Teemad tegijatelt", alsoKnownAs: "Tuntud ka kui", search: { label: "Otsi", placeholder: "Otsi pilti, nt ükssarvik", found: (n: number) => `Leitud: ${n}`, noneTitle: "Seda meil veel pole", noneText: "Kas teeme selle? Soovi seda ja paneme selle oma nimekirja.", request: "Soovi seda pilti", requested: "Soovitud! Aitäh.", notify: "Kas soovid e-kirja, kui tuleb uusi pilte?", maker: (name: string) => "Ametlikud " + name + " pildid leiad nende loojatelt" },
   contactTitle: "Kontakt", contactLede: "Küsimus, idee uueks pildiks või midagi ei tööta? Anna meile teada. Tavaliselt vastame mõne tööpäeva jooksul.",
   contactTopic: "Millega on tegu?",
   contactTopics: { question: "Küsimus", idea: "Idee pildiks", bug: "Midagi ei tööta", partnership: "Koostöö", copyright: "Autoriõigus", privacy: "Privaatsus ja minu andmed" } as Record<string, string>,
@@ -199,10 +200,11 @@ export const et: Messages = {
     howTitle: "Nii see käib",
     how: ["Ava pilt ja puuduta nuppu Värvime koos.", "Anna kood või link sellele, kes liitub.", "Tema sisestab koodi siia või avab lingi. Mida üks värvib, näeb teine kohe."],
   },
-  metaPlateTitle: (name: string, kind: string) => `${name} – ${kind.toLowerCase()}`,
+  metaPlateTitle: (name: string, kind: string) => (kind ? `${name} – ${kind.toLowerCase()}` : name),
+  plateTitle: (name: string, kind: string) => `${kind ? `${name} – ${kind.toLowerCase()}` : name}, tasuta välja printimiseks`,
   metaThemeTitle: (name: string) => `${name} – värvimispildid`,
   metaTheme: (name: string, maker: string) => `${name} – värvimispildid, tasuta tegijalt ${maker}.`,
-  metaPlate: (name: string, kind: string) => `${kind} ${name}: värvi tasuta veebis või prindi A4-lehele.`,
+  metaPlate: (name: string, kind: string, extra?: PlateExtra) => plateDescription(kind ? `${kind} ${name}: värvi tasuta veebis või prindi A4-lehele.` : `${name}: värvi tasuta veebis või prindi A4-lehele.`, extra, "Tuntud ka kui"),
   mlTitle: "Saada mulle e-kiri, kui on midagi uut", mlIntro: "Uued pildid, õigeks ajaks enne püha, või aeg-ajalt uudiskiri. Loobuda saab ühe klõpsuga.", mlEmail: "E-posti aadress", mlTopics: "Millest?", mlTopicNames: {"nieuwe-platen": "Uued pildid (kõige rohkem kord nädalas)", "feestdagen": "Pildid eelseisvaks pühaks", "nieuwsbrief": "Uudiskiri (aeg-ajalt)"} as Record<string, string>, mlAdult: "Olen 16-aastane või vanem", mlSubmit: "Telli", mlSending: "Tellimine…", mlPrivacy: "Kasutame sinu aadressi ainult nende e-kirjade jaoks.", mlCheckTitle: "Vaata oma postkasti", mlCheckText: "Saatsime sulle e-kirja. Klõpsa selles oleval nupul, et tellimus kinnitada.", mlError: "See ei õnnestunud. Kontrolli e-posti aadressi, vali teema ja tee linnuke.", mlBusy: "Liiga palju katseid. Proovi veidi hiljem uuesti.", mlConfirming: "Tellimuse kinnitamine…", mlConfirmed: "Oled tellinud", mlConfirmedText: "Nüüdsest saad meie e-kirju. Loobuda saab iga e-kirja allosas.", mlConfirmInvalid: "See link ei tööta enam. Telli uuesti; e-kirjas olev link kehtib 7 päeva.", mlPrefsTitle: "Sinu e-posti seaded", mlPrefsFor: "Kellele", mlSave: "Salvesta", mlSaved: "Salvestatud.", mlUnsubscribe: "Loobu kõigist e-kirjadest", mlUnsubscribeSure: "Oled kindel? Klõpsa uuesti, et loobuda.", mlUnsubscribed: "Oled loobunud", mlUnsubscribedText: "Sa ei saa meilt enam e-kirju ja sinu aadress on kustutatud.", mlLinkInvalid: "See link ei tööta enam. Kasuta viimase e-kirja allosas olevat linki.", mlAccount: "E-post", mlAccountHint: "Vali, milliseid e-kirju soovid oma e-posti aadressile saada. Midagi pole märgitud: e-kirju ei tule.",
   favSave: "Salvesta", favSaved: "Lemmik", favorites: "Lemmikud", favLoginLink: "Logi sisse", favLoginHint: "et hoida lemmikuid kõigis oma seadmetes.", accBenefitsTitle: "Mida saad kontoga teha", accFavorites: "Vaata oma lemmikuid",
   accBenefits: [["Lemmikud kõigis seadmetes", "Salvesta pilte südamega. Need on siis sinu telefonis, tahvelarvutis ja arvutis."], ["E-kirjad, mille ise valid", "Teade uutest piltidest või eelseisvast pühast või aeg-ajalt uudiskiri."], ["Värvimiseks pole kontot vaja", "Lapsed värvivad ja prindivad ilma sisse logimata."]] as [string, string][],

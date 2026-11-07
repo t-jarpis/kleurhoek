@@ -6,6 +6,17 @@ const textLayer = require("./text-layer");
 const goals = require("./goals");
 let overrides;
 
+/** Andere namen per plaat en taal (ADR 0085), apart van plates.json zodat ze makkelijk na te kijken zijn. */
+const withSynonyms = (list) => {
+  const extra = read("synonyms.json");
+  return list.map((p) => {
+    const own = extra[p.slug];
+    if (!own) return p;
+    const i18n = Object.fromEntries(Object.entries(p.i18n).map(([lang, f]) => [lang, own[lang] ? { ...f, also: own[lang] } : f]));
+    return { ...p, i18n };
+  });
+};
+
 /** Standaard voor kleurplaten: zonder knip- of bouwwerk, met potloden (stiften mag ook). */
 const DEFAULT_MATERIALS = [{ slug: "kleurpotloden" }, { slug: "stiften", optional: true }];
 const normalize = (p) => ({
@@ -18,7 +29,7 @@ module.exports = {
   KINDS: ["kleurplaat", "knipplaat", "bouwplaat", "spel", "vouwblad", "werkblad", "sjabloon", "kaart", "tekenles"],
   /** Groepen voor het filter op de site: kleurplaten, knutselen, leren en spelen, tekenen. */
   KIND_GROUPS: { kleurplaat: "kleurplaten", knipplaat: "knutselen", bouwplaat: "knutselen", vouwblad: "knutselen", kaart: "knutselen", spel: "leren", werkblad: "leren", tekenles: "tekenen", sjabloon: "tekenen" },
-  plates: () => read("plates.json").map(normalize),
+  plates: () => withSynonyms(read("plates.json").map(normalize)),
   /** Leerdoelen (ADR 0036). */
   GOALS: goals.GOALS,
   goalName: goals.goalName,

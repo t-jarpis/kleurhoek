@@ -1,4 +1,5 @@
 import type { Messages } from "./nl";
+import { plateDescription, type PlateExtra } from "./plate-meta";
 
 /** Polska odmiana liczebników: 1 → one, 2–4 (ale nie 12–14) → few, reszta → many. */
 const plural = (n: number, one: string, few: string, many: string): string => {
@@ -51,7 +52,7 @@ export const pl: Messages = {
   atPartner: (p: string) => `w sklepie ${p}`,
   partnerDisclosure: "Linki partnerskie: jeśli kupisz coś przez te linki, Kleurhoek dostaje od sklepu niewielkie wynagrodzenie. Ty płacisz tyle samo. Dzięki temu plansze pozostają darmowe.",
   deleteAccount: "Usuń konto", deleteSure: "Na pewno? Stuknij jeszcze raz",
-  disclaimer: "Zastrzeżenia prawne", privacy: "Prywatność", colorPreview: "W kolorze", newTitle: "Co nowego", newLede: "Najnowsze plansze, od najnowszych.", contact: "Kontakt", themes: "Motywy u twórców", search: { label: "Szukaj", placeholder: "Szukaj kolorowanki, np. jednorożec", found: (n: number) => `Znaleziono: ${n}`, noneTitle: "Jeszcze tego nie mamy", noneText: "Zrobić ją? Poproś, a dopiszemy ją do naszej listy.", request: "Poproś o tę kolorowankę", requested: "Wysłano! Dziękujemy.", notify: "Chcesz dostać e-mail, gdy pojawią się nowe kolorowanki?", maker: (name: string) => "Oficjalne kolorowanki " + name + " znajdziesz u twórców" },
+  disclaimer: "Zastrzeżenia prawne", privacy: "Prywatność", colorPreview: "W kolorze", newTitle: "Co nowego", newLede: "Najnowsze plansze, od najnowszych.", contact: "Kontakt", themes: "Motywy u twórców", alsoKnownAs: "Znane też jako", search: { label: "Szukaj", placeholder: "Szukaj kolorowanki, np. jednorożec", found: (n: number) => `Znaleziono: ${n}`, noneTitle: "Jeszcze tego nie mamy", noneText: "Zrobić ją? Poproś, a dopiszemy ją do naszej listy.", request: "Poproś o tę kolorowankę", requested: "Wysłano! Dziękujemy.", notify: "Chcesz dostać e-mail, gdy pojawią się nowe kolorowanki?", maker: (name: string) => "Oficjalne kolorowanki " + name + " znajdziesz u twórców" },
   contactTitle: "Kontakt", contactLede: "Masz pytanie, pomysł na planszę albo coś nie działa? Daj nam znać. Zwykle odpowiadamy w ciągu kilku dni roboczych.",
   contactTopic: "Czego dotyczy wiadomość?",
   contactTopics: { question: "Pytanie", idea: "Pomysł na planszę", bug: "Coś nie działa", partnership: "Współpraca", copyright: "Prawa autorskie", privacy: "Prywatność i moje dane" } as Record<string, string>,
@@ -205,10 +206,11 @@ export const pl: Messages = {
     howTitle: "Jak to działa",
     how: ["Otwórz planszę i dotknij Koloruj razem.", "Podaj kod albo link osobie, która dołącza.", "Ta osoba wpisuje tu kod albo otwiera link. Co koloruje jedna osoba, druga widzi od razu."],
   },
-  metaPlateTitle: (name: string, kind: string) => `${name} – ${kind.toLowerCase()}`,
+  metaPlateTitle: (name: string, kind: string) => (kind ? `${name} – ${kind.toLowerCase()}` : name),
+  plateTitle: (name: string, kind: string) => `${kind ? `${name} – ${kind.toLowerCase()}` : name}, do druku za darmo`,
   metaThemeTitle: (name: string) => `Kolorowanki ${name}`,
   metaTheme: (name: string, maker: string) => `Kolorowanki ${name} za darmo na stronie ${maker}.`,
-  metaPlate: (name: string, kind: string) => `${kind} ${name}: pokoloruj online albo wydrukuj na A4 za darmo.`,
+  metaPlate: (name: string, kind: string, extra?: PlateExtra) => plateDescription(kind ? `${kind} ${name}: pokoloruj online albo wydrukuj na A4 za darmo.` : `${name}: pokoloruj online albo wydrukuj na A4 za darmo.`, extra, "Znane też jako"),
   mlTitle: "Napisz do mnie, gdy pojawi się coś nowego", mlIntro: "Nowe plansze, na czas przed świętem albo od czasu do czasu newsletter. Wypisać się możesz jednym kliknięciem.", mlEmail: "Adres e-mail", mlTopics: "O czym?", mlTopicNames: {"nieuwe-platen": "Nowe plansze (najwyżej raz w tygodniu)", "feestdagen": "Plansze na nadchodzące święto", "nieuwsbrief": "Newsletter (od czasu do czasu)"} as Record<string, string>, mlAdult: "Mam 16 lat lub więcej", mlSubmit: "Zapisz się", mlSending: "Zapisywanie…", mlPrivacy: "Twojego adresu używamy tylko do tych wiadomości.", mlCheckTitle: "Sprawdź skrzynkę", mlCheckText: "Wysłaliśmy ci wiadomość. Kliknij przycisk w niej, aby potwierdzić zapis.", mlError: "Nie udało się. Sprawdź adres e-mail, wybierz temat i zaznacz pole.", mlBusy: "Zbyt wiele prób. Spróbuj za chwilę.", mlConfirming: "Potwierdzamy zapis…", mlConfirmed: "Jesteś zapisany", mlConfirmedText: "Od teraz będziesz dostawać nasze wiadomości. Wypisać się możesz na dole każdej z nich.", mlConfirmInvalid: "Ten link już nie działa. Zapisz się ponownie; link w wiadomości działa 7 dni.", mlPrefsTitle: "Twoje ustawienia e-mail", mlPrefsFor: "Dla", mlSave: "Zapisz", mlSaved: "Zapisano.", mlUnsubscribe: "Wypisz się ze wszystkich wiadomości", mlUnsubscribeSure: "Na pewno? Kliknij jeszcze raz, aby się wypisać.", mlUnsubscribed: "Wypisano cię", mlUnsubscribedText: "Nie będziesz już dostawać od nas wiadomości, a twój adres został usunięty.", mlLinkInvalid: "Ten link już nie działa. Użyj linku na dole ostatniej wiadomości.", mlAccount: "E-mail", mlAccountHint: "Wybierz, które wiadomości chcesz dostawać. Nic nie zaznaczono: brak wiadomości.",
   favSave: "Zapisz", favSaved: "Ulubiona", favorites: "Ulubione", favLoginLink: "Zaloguj się", favLoginHint: ", aby mieć ulubione na wszystkich urządzeniach.", accBenefitsTitle: "Co daje konto", accFavorites: "Zobacz ulubione",
   accBenefits: [["Ulubione na wszystkich urządzeniach", "Zapisuj plansze serduszkiem. Będą na telefonie, tablecie i komputerze."], ["E-maile, które sam wybierasz", "Informacja o nowych planszach albo zbliżającym się święcie, albo od czasu do czasu newsletter."], ["Kolorowanie zawsze bez konta", "Dzieci kolorują i drukują bez logowania."]] as [string, string][],

@@ -1,4 +1,5 @@
 import type { Messages } from "./nl";
+import { plateDescription, type PlateExtra } from "./plate-meta";
 
 /** Interface texts in Swedish (Sweden). Same keys as nl.ts. */
 export const sv: Messages = {
@@ -45,7 +46,7 @@ export const sv: Messages = {
   atPartner: (p: string) => `hos ${p}`,
   partnerDisclosure: "Partnerlänkar: om du köper något via de här länkarna får Kleurhoek en liten ersättning från butiken. Du betalar samma pris. Så håller vi bilderna gratis.",
   deleteAccount: "Radera konto", deleteSure: "Är du säker? Tryck igen",
-  disclaimer: "Ansvarsfriskrivning", privacy: "Integritet", colorPreview: "I färg", newTitle: "Nyheter", newLede: "Våra nyaste bilder, de nyaste först.", contact: "Kontakt", themes: "Teman hos skaparna", search: { label: "Sök", placeholder: "Sök en målarbild, t.ex. enhörning", found: (n: number) => `Hittade: ${n}`, noneTitle: "Den har vi inte än", noneText: "Ska vi göra den? Önska den så sätter vi upp den på vår lista.", request: "Önska den här bilden", requested: "Önskad! Tack så mycket.", notify: "Vill du få ett mejl när det finns nya bilder?", maker: (name: string) => "Officiella målarbilder av " + name + " finns hos skaparna" },
+  disclaimer: "Ansvarsfriskrivning", privacy: "Integritet", colorPreview: "I färg", newTitle: "Nyheter", newLede: "Våra nyaste bilder, de nyaste först.", contact: "Kontakt", themes: "Teman hos skaparna", alsoKnownAs: "Kallas också", search: { label: "Sök", placeholder: "Sök en målarbild, t.ex. enhörning", found: (n: number) => `Hittade: ${n}`, noneTitle: "Den har vi inte än", noneText: "Ska vi göra den? Önska den så sätter vi upp den på vår lista.", request: "Önska den här bilden", requested: "Önskad! Tack så mycket.", notify: "Vill du få ett mejl när det finns nya bilder?", maker: (name: string) => "Officiella målarbilder av " + name + " finns hos skaparna" },
   contactTitle: "Kontakt", contactLede: "En fråga, en idé till en bild eller något som inte fungerar? Hör av dig. Vi svarar oftast inom några arbetsdagar.",
   contactTopic: "Vad gäller det?",
   contactTopics: { question: "En fråga", idea: "Idé till en bild", bug: "Något fungerar inte", partnership: "Samarbete", copyright: "Upphovsrätt", privacy: "Integritet och mina uppgifter" } as Record<string, string>,
@@ -199,10 +200,11 @@ export const sv: Messages = {
     howTitle: "Så funkar det",
     how: ["Öppna en bild och tryck på Måla tillsammans.", "Ge koden eller länken till den som vill vara med.", "Den personen skriver in koden här eller öppnar länken. Det den ena färglägger ser den andra direkt."],
   },
-  metaPlateTitle: (name: string, kind: string) => `${name} – ${kind.toLowerCase()}`,
+  metaPlateTitle: (name: string, kind: string) => (kind ? `${name} – ${kind.toLowerCase()}` : name),
+  plateTitle: (name: string, kind: string) => `${kind ? `${name} – ${kind.toLowerCase()}` : name}, gratis att skriva ut`,
   metaThemeTitle: (name: string) => `Målarbilder med ${name}`,
   metaTheme: (name: string, maker: string) => `Målarbilder med ${name}, gratis hos ${maker}.`,
-  metaPlate: (name: string, kind: string) => `${kind} ${name}: färglägg gratis online eller skriv ut på A4.`,
+  metaPlate: (name: string, kind: string, extra?: PlateExtra) => plateDescription(kind ? `${kind} ${name}: färglägg gratis online eller skriv ut på A4.` : `${name}: färglägg gratis online eller skriv ut på A4.`, extra, "Kallas också"),
   mlTitle: "Mejla mig när det finns något nytt", mlIntro: "Nya bilder, i god tid före en högtid, eller ett nyhetsbrev då och då. Du kan avregistrera dig med ett klick.", mlEmail: "E-postadress", mlTopics: "Om vad?", mlTopicNames: {"nieuwe-platen": "Nya bilder (högst en gång i veckan)", "feestdagen": "Bilder inför en kommande högtid", "nieuwsbrief": "Nyhetsbrevet (då och då)"} as Record<string, string>, mlAdult: "Jag är 16 år eller äldre", mlSubmit: "Anmäl mig", mlSending: "Anmäler…", mlPrivacy: "Vi använder bara din adress för de här mejlen.", mlCheckTitle: "Kolla din e-post", mlCheckText: "Vi har skickat ett mejl till dig. Klicka på knappen i det för att bekräfta din anmälan.", mlError: "Det gick inte. Kontrollera din e-postadress, välj ett ämne och kryssa i rutan.", mlBusy: "För många försök. Försök igen om en stund.", mlConfirming: "Bekräftar din anmälan…", mlConfirmed: "Du är anmäld", mlConfirmedText: "Från och med nu får du våra mejl. Du kan avregistrera dig längst ner i varje mejl.", mlConfirmInvalid: "Den här länken fungerar inte längre. Anmäl dig igen; länken i mejlet fungerar i 7 dagar.", mlPrefsTitle: "Dina e-postinställningar", mlPrefsFor: "För", mlSave: "Spara", mlSaved: "Sparat.", mlUnsubscribe: "Avregistrera mig från alla mejl", mlUnsubscribeSure: "Är du säker? Klicka igen för att avregistrera dig.", mlUnsubscribed: "Du är avregistrerad", mlUnsubscribedText: "Du får inga fler mejl från oss, och din adress har raderats.", mlLinkInvalid: "Den här länken fungerar inte längre. Använd länken längst ner i ditt senaste mejl.", mlAccount: "E-post", mlAccountHint: "Välj vilka mejl du vill få till din e-postadress. Inget ikryssat: inga mejl.",
   favSave: "Spara", favSaved: "Favorit", favorites: "Favoriter", favLoginLink: "Logga in", favLoginHint: "för att spara dina favoriter på alla dina enheter.", accBenefitsTitle: "Det här kan du göra med ett konto", accFavorites: "Visa dina favoriter",
   accBenefits: [["Favoriter på alla dina enheter", "Spara bilder med hjärtat. Då finns de på din telefon, surfplatta och dator."], ["Mejl som du själv väljer", "En påminnelse om nya bilder eller en kommande högtid, eller nyhetsbrevet då och då."], ["Färgläggning fungerar alltid utan", "Barn färglägger och skriver ut utan att logga in."]] as [string, string][],

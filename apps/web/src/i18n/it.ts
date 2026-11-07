@@ -1,4 +1,5 @@
 import type { Messages } from "./nl";
+import { plateDescription, type PlateExtra } from "./plate-meta";
 
 /** Testi dell'interfaccia in italiano. Stesse chiavi di nl.ts. */
 export const it: Messages = {
@@ -45,7 +46,7 @@ export const it: Messages = {
   atPartner: (p: string) => `da ${p}`,
   partnerDisclosure: "Link partner: se compri qualcosa tramite questi link, il negozio dà a Kleurhoek un piccolo compenso. Tu paghi lo stesso prezzo. Così i disegni restano gratis.",
   deleteAccount: "Elimina account", deleteSure: "Sei sicuro? Tocca di nuovo",
-  disclaimer: "Note legali", privacy: "Privacy", colorPreview: "A colori", newTitle: "Novità", newLede: "I nostri disegni più nuovi, prima i più recenti.", contact: "Contatti", themes: "Temi dagli autori", search: { label: "Cerca", placeholder: "Cerca un disegno, ad es. unicorno", found: (n: number) => `Trovati: ${n}`, noneTitle: "Non ce l'abbiamo ancora", noneText: "Lo facciamo? Chiedilo e lo mettiamo nella nostra lista.", request: "Chiedi questo disegno", requested: "Richiesto! Grazie mille.", notify: "Vuoi un'e-mail quando ci sono nuovi disegni?", maker: (name: string) => "I disegni ufficiali di " + name + " si trovano presso i creatori" },
+  disclaimer: "Note legali", privacy: "Privacy", colorPreview: "A colori", newTitle: "Novità", newLede: "I nostri disegni più nuovi, prima i più recenti.", contact: "Contatti", themes: "Temi dagli autori", alsoKnownAs: "Detto anche", search: { label: "Cerca", placeholder: "Cerca un disegno, ad es. unicorno", found: (n: number) => `Trovati: ${n}`, noneTitle: "Non ce l'abbiamo ancora", noneText: "Lo facciamo? Chiedilo e lo mettiamo nella nostra lista.", request: "Chiedi questo disegno", requested: "Richiesto! Grazie mille.", notify: "Vuoi un'e-mail quando ci sono nuovi disegni?", maker: (name: string) => "I disegni ufficiali di " + name + " si trovano presso i creatori" },
   contactTitle: "Contatti", contactLede: "Hai una domanda, un'idea per un disegno o qualcosa non funziona? Scrivici. Di solito rispondiamo entro pochi giorni lavorativi.",
   contactTopic: "Di cosa si tratta?",
   contactTopics: { question: "Una domanda", idea: "Idea per un disegno", bug: "Qualcosa non funziona", partnership: "Collaborazione", copyright: "Diritto d'autore", privacy: "Privacy e i miei dati" } as Record<string, string>,
@@ -199,10 +200,11 @@ export const it: Messages = {
     howTitle: "Come funziona",
     how: ["Apri un disegno e tocca Colorare insieme.", "Dai il codice o il link a chi partecipa.", "L'altra persona inserisce qui il codice o apre il link. Quello che colora uno, l'altro lo vede subito."],
   },
-  metaPlateTitle: (name: string, kind: string) => `${name} – ${kind.toLowerCase()}`,
+  metaPlateTitle: (name: string, kind: string) => (kind ? `${name} – ${kind.toLowerCase()}` : name),
+  plateTitle: (name: string, kind: string) => `${kind ? `${name} – ${kind.toLowerCase()}` : name}, gratis da stampare`,
   metaThemeTitle: (name: string) => `Disegni di ${name} da colorare`,
   metaTheme: (name: string, maker: string) => `Disegni di ${name} da colorare, gratis su ${maker}.`,
-  metaPlate: (name: string, kind: string) => `${kind} ${name}: da colorare online o stampare in A4 gratis.`,
+  metaPlate: (name: string, kind: string, extra?: PlateExtra) => plateDescription(kind ? `${kind} ${name}: da colorare online o stampare in A4 gratis.` : `${name}: da colorare online o stampare in A4 gratis.`, extra, "Detto anche"),
   mlTitle: "Scrivimi quando c'è qualcosa di nuovo", mlIntro: "Nuovi disegni, in tempo per una festa, o una newsletter ogni tanto. Ti disiscrivi con un clic.", mlEmail: "Indirizzo email", mlTopics: "Su cosa?", mlTopicNames: {"nieuwe-platen": "Nuovi disegni (al massimo una volta a settimana)", "feestdagen": "Disegni per una festa in arrivo", "nieuwsbrief": "La newsletter (ogni tanto)"} as Record<string, string>, mlAdult: "Ho 16 anni o più", mlSubmit: "Iscriviti", mlSending: "Iscrizione…", mlPrivacy: "Usiamo il tuo indirizzo solo per queste email.", mlCheckTitle: "Controlla la tua email", mlCheckText: "Ti abbiamo inviato un'email. Clicca il pulsante al suo interno per confermare l'iscrizione.", mlError: "Non ha funzionato. Controlla l'indirizzo, scegli un argomento e spunta la casella.", mlBusy: "Troppi tentativi. Riprova tra poco.", mlConfirming: "Conferma dell'iscrizione…", mlConfirmed: "Sei iscritto", mlConfirmedText: "D'ora in poi riceverai le nostre email. Puoi disiscriverti in fondo a ogni email.", mlConfirmInvalid: "Questo link non funziona più. Iscriviti di nuovo; il link nell'email vale 7 giorni.", mlPrefsTitle: "Le tue impostazioni email", mlPrefsFor: "Per", mlSave: "Salva", mlSaved: "Salvato.", mlUnsubscribe: "Disiscriviti da tutte le email", mlUnsubscribeSure: "Sei sicuro? Clicca di nuovo per disiscriverti.", mlUnsubscribed: "Ti sei disiscritto", mlUnsubscribedText: "Non riceverai più email da noi e il tuo indirizzo è stato cancellato.", mlLinkInvalid: "Questo link non funziona più. Usa il link in fondo alla tua ultima email.", mlAccount: "Email", mlAccountHint: "Scegli quali email vuoi ricevere. Nulla selezionato: nessuna email.",
   favSave: "Salva", favSaved: "Preferito", favorites: "Preferiti", favLoginLink: "Accedi", favLoginHint: "per avere i tuoi preferiti su tutti i tuoi dispositivi.", accBenefitsTitle: "Cosa puoi fare con un account", accFavorites: "Vedi i tuoi preferiti",
   accBenefits: [["Preferiti su tutti i tuoi dispositivi", "Salva i disegni con il cuore. Li ritrovi su telefono, tablet e computer."], ["Email che scegli tu", "Un avviso per i nuovi disegni o una festa in arrivo, oppure ogni tanto la newsletter."], ["Colorare, sempre senza account", "I bambini colorano e stampano senza accedere."]] as [string, string][],

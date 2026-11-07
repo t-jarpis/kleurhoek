@@ -106,7 +106,7 @@ export class StorefrontService {
     return items.map((p) => ({
       slug: p.slug, name: names.get(p.slug)!.name, category: p.category, age: p.age,
       world: p.continent ? { continent: p.continent, country: p.depictedCountry } : null,
-      holiday: p.holiday, svg: path(p), kind: p.kind, goals: p.goals,
+      holiday: p.holiday, svg: path(p), kind: p.kind, goals: p.goals, also: synonyms(names.get(p.slug)!.also),
     }));
   }
 
@@ -128,7 +128,7 @@ export class StorefrontService {
       view.features.shop ? this.shop.forMaterials(market.code, market.language, needs.map((m) => m.slug)) : Promise.resolve(new Map()),
     ]);
     return {
-      slug, name: tr.name, word: tr.word ?? null, countQuestion: tr.countQuestion ?? null,
+      slug, name: tr.name, word: tr.word ?? null, countQuestion: tr.countQuestion ?? null, also: synonyms(tr.also),
       category: detail.category, age: detail.age, holiday: detail.holiday,
       world: detail.continent ? { continent: detail.continent, country: detail.depictedCountry } : null,
       version: detail.version, svg: this.svgPath(detail, market.language, texts, layer?.glossary), regionCount: detail.regionCount,
@@ -291,4 +291,9 @@ export class StorefrontService {
     // In kleur (ADR 0070): de vlakken in de kleuren van kleur-op-nummer, voor het platenraster.
     return colored ? colorIn(out, detail.colorByNumber.labels, detail.colorByNumber.palette) : out;
   }
+}
+
+/** Andere namen voor een plaat (ADR 0085): veld `also` in de vertaling, één per regel (of met komma's). Voor zoeken en vindbaarheid. */
+export function synonyms(value: string | null | undefined): string[] {
+  return (value ?? "").split(/[\n,]/).map((s) => s.trim()).filter((s) => s.length > 1).slice(0, 8);
 }

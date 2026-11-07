@@ -9,6 +9,8 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { Studio } from "@/components/Studio";
 import { Track } from "@/components/Track";
 import { messages } from "@/i18n/nl";
+import { kindFor } from "@/i18n/plate-meta";
+import { plateExtra } from "@/lib/plate-seo";
 import { getOrg } from "@/lib/org";
 import { SITE, absolute, hreflang, indexable, jsonLd, pageMeta, pageUrl, pinOf, pngOf } from "@/lib/seo";
 import Link from "next/link";
@@ -38,11 +40,12 @@ async function load(org: string, market: string, slug: string) {
 
 export async function generateMetadata({ params }: { params: Promise<{ org: string; market: string; slug: string }> }): Promise<Metadata> {
   const { org, market, slug } = await params;
-  const { plate } = await load(org, market, slug);
+  const { plate, taxonomy } = await load(org, market, slug);
   const t = messages(market);
-  const kind = t.kindNames[plate.kind] ?? t.kindNames.kleurplaat!;
-  const description = t.metaPlate(plate.name, kind);
-  const title = t.metaPlateTitle(plate.name, kind);
+  const kind = kindFor(plate.name, t.kindNames[plate.kind] ?? t.kindNames.kleurplaat!);
+  // Zoekgerichte titel en beschrijving (ADR 0085): soort niet dubbel, met onderwerp, leeftijd en andere namen.
+  const description = t.metaPlate(plate.name, kind, plateExtra(plate, taxonomy));
+  const title = t.plateTitle(plate.name, kind);
   const o = await getOrg(org);
   const image = absolute(market, pngOf(plate.svg));
   return { title, description, ...pageMeta(o, market, `/platen/${slug}`, false), ...(indexable(o) ? { openGraph: { title, description, type: "article", images: [image] }, twitter: { card: "summary_large_image", images: [image] } } : {}) };
@@ -56,7 +59,7 @@ export default async function PlatePage({ params }: { params: Promise<{ org: str
   const o = await getOrg(org);
   const base = baseFor(o, market);
   const t = messages(market);
-  const kind = t.kindNames[plate.kind] ?? t.kindNames.kleurplaat!;
+  const kind = kindFor(plate.name, t.kindNames[plate.kind] ?? t.kindNames.kleurplaat!);
   const category = taxonomy.categories.find((c) => c.slug === plate.category);
   const topicPath = `/onderwerp/${plate.category}`;
   const topicName = category ? topicTitle(t, { dim: "onderwerp", slug: plate.category, name: category.name }) : null;
@@ -65,10 +68,11 @@ export default async function PlatePage({ params }: { params: Promise<{ org: str
       {indexable(o) && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd([
         {
           "@context": "https://schema.org", "@type": "CreativeWork", name: plate.name, url: pageUrl(market, `/platen/${plate.slug}`),
-          description: t.metaPlate(plate.name, kind), inLanguage: hreflang(market), isAccessibleForFree: true,
+          description: t.metaPlate(plate.name, kind, plateExtra(plate, taxonomy)), inLanguage: hreflang(market), isAccessibleForFree: true,
           genre: kind, publisher: { "@type": "Organization", name: "Kleurhoek", url: SITE },
           image: { "@type": "ImageObject", contentUrl: absolute(market, pngOf(plate.svg)), thumbnailUrl: absolute(market, plate.svg), caption: t.metaPlateTitle(plate.name, kind) },
           ...(category ? { about: category.name } : {}),
+          ...(plate.also?.length ? { alternateName: plate.also } : {}),
         },
         {
           "@context": "https://schema.org", "@type": "BreadcrumbList",
@@ -80,6 +84,7 @@ export default async function PlatePage({ params }: { params: Promise<{ org: str
       <main><Studio plate={plate} inner={inner} ageWidth={ageWidth} market={market} language={language} accounts={o?.features.accounts ?? false} more={more} /></main>
       <div className="wrap after-studio" data-mode="ouder">
         <Crumbs base={base} label={t.crumbs} items={[{ name: "Kleurhoek", path: "" }, ...(topicName ? [{ name: topicName, path: topicPath }] : []), { name: plate.name }]} />
+        {plate.also && plate.also.length > 0 && <p className="hint kh-also">{t.alsoKnownAs}: {plate.also.join(", ")}</p>}
         {indexable(o) && (
           <div className="kh-share no-print">
             <PinButton market={market} plate={plate.slug} label={t.pinSave} url={pageUrl(market, `/platen/${plate.slug}`)} title={t.metaPlateTitle(plate.name, kind)}
@@ -93,7 +98,7 @@ export default async function PlatePage({ params }: { params: Promise<{ org: str
             <div className="ui-sectionhead"><h2>{t.moreIn(category.name)}</h2><Link href={link(base, topicPath)}>{t.seeAll(categoryCount)}</Link></div>
             <div className="grid">
               {related.map((p) => <PlateCard key={p.slug} plate={p} base={base} taxonomy={taxonomy} view={plate.category} yr={t.yr}
-                kindLabel={p.kind !== "kleurplaat" ? t.kindNames[p.kind] : undefined} alt={t.metaPlateTitle(p.name, t.kindNames[p.kind] ?? t.kindNames.kleurplaat!)} />)}
+                kindLabel={p.kind !== "kleurplaat" ? t.kindNames[p.kind] : undefined} alt={t.metaPlateTitle(p.name, kindFor(p.name, t.kindNames[p.kind] ?? t.kindNames.kleurplaat!))} />)}
             </div>
           </section>
         )}

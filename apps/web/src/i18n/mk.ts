@@ -1,4 +1,5 @@
 import type { Messages } from "./nl";
+import { plateDescription, type PlateExtra } from "./plate-meta";
 
 /** Macedonische meervoudsvormen: 1, 21, 31 … (niet 11) → enkelvoud; de rest → meervoud (mannelijk: telvorm). */
 const plural = (n: number, one: string, other: string): string => (n % 10 === 1 && n % 100 !== 11 ? one : other);
@@ -49,7 +50,7 @@ export const mk: Messages = {
   atPartner: (p: string) => `кај ${p}`,
   partnerDisclosure: "Партнерски линкови: ако купиш нешто преку овие линкови, Kleurhoek добива мал надомест од продавницата. Ти плаќаш исто. Така боенките остануваат бесплатни.",
   deleteAccount: "Избриши профил", deleteSure: "Сигурно? Допри уште еднаш",
-  disclaimer: "Правни напомени", privacy: "Приватност", colorPreview: "Во боја", newTitle: "Што има ново", newLede: "Нашите најнови боенки, најновите први.", contact: "Контакт", themes: "Теми кај авторите", search: { label: "Пребарај", placeholder: "Побарај цртеж, на пр. еднорог", found: (n: number) => `Пронајдено: ${n}`, noneTitle: "Тоа сè уште го немаме", noneText: "Да го направиме? Побарај го и ќе го ставиме на нашата листа.", request: "Побарај го овој цртеж", requested: "Побарано! Благодариме.", notify: "Сакаш е-пошта кога ќе има нови цртежи?", maker: (name: string) => "Официјални цртежи од " + name + " ќе најдеш кај нивните автори" },
+  disclaimer: "Правни напомени", privacy: "Приватност", colorPreview: "Во боја", newTitle: "Што има ново", newLede: "Нашите најнови боенки, најновите први.", contact: "Контакт", themes: "Теми кај авторите", alsoKnownAs: "Познато и како", search: { label: "Пребарај", placeholder: "Побарај цртеж, на пр. еднорог", found: (n: number) => `Пронајдено: ${n}`, noneTitle: "Тоа сè уште го немаме", noneText: "Да го направиме? Побарај го и ќе го ставиме на нашата листа.", request: "Побарај го овој цртеж", requested: "Побарано! Благодариме.", notify: "Сакаш е-пошта кога ќе има нови цртежи?", maker: (name: string) => "Официјални цртежи од " + name + " ќе најдеш кај нивните автори" },
   contactTitle: "Контакт", contactLede: "Имаш прашање, идеја за боенка или нешто не работи? Јави ни. Обично одговараме во рок од неколку работни дена.",
   contactTopic: "За што станува збор?",
   contactTopics: { question: "Прашање", idea: "Идеја за боенка", bug: "Нешто не работи", partnership: "Соработка", copyright: "Авторски права", privacy: "Приватност и моите податоци" } as Record<string, string>,
@@ -203,10 +204,11 @@ export const mk: Messages = {
     howTitle: "Како функционира",
     how: ["Отвори боенка и допри Боиме заедно.", "Дај му го кодот или линкот на тој што се приклучува.", "Тој го внесува кодот тука или го отвора линкот. Што ќе обои едниот, другиот веднаш го гледа."],
   },
-  metaPlateTitle: (name: string, kind: string) => `${name} – ${kind.toLowerCase()}`,
+  metaPlateTitle: (name: string, kind: string) => (kind ? `${name} – ${kind.toLowerCase()}` : name),
+  plateTitle: (name: string, kind: string) => `${kind ? `${name} – ${kind.toLowerCase()}` : name}, бесплатно за печатење`,
   metaThemeTitle: (name: string) => `Боенки ${name}`,
   metaTheme: (name: string, maker: string) => `Боенки ${name}, бесплатно од ${maker}.`,
-  metaPlate: (name: string, kind: string) => `${kind} ${name}: бесплатно обој онлајн или печати на А4.`,
+  metaPlate: (name: string, kind: string, extra?: PlateExtra) => plateDescription(kind ? `${kind} ${name}: бесплатно обој онлајн или печати на А4.` : `${name}: бесплатно обој онлајн или печати на А4.`, extra, "Познато и како"),
   mlTitle: "Известете ме по е-пошта кога има нешто ново", mlIntro: "Нови боенки, навреме за празник, или повремено билтен. Може да се одјавиш со еден клик.", mlEmail: "Е-пошта", mlTopics: "За што?", mlTopicNames: {"nieuwe-platen": "Нови боенки (најмногу еднаш неделно)", "feestdagen": "Боенки за претстоен празник", "nieuwsbrief": "Билтенот (повремено)"} as Record<string, string>, mlAdult: "Имам 16 или повеќе години", mlSubmit: "Пријави се", mlSending: "Се пријавува…", mlPrivacy: "Твојата адреса ја користиме само за овие пораки.", mlCheckTitle: "Провери ја е-поштата", mlCheckText: "Ти испративме порака. Кликни на копчето во неа за да ја потврдиш пријавата.", mlError: "Не успеа. Провери ја е-поштата, избери тема и штиклирај го полето.", mlBusy: "Премногу обиди. Обиди се повторно малку подоцна.", mlConfirming: "Ја потврдуваме твојата пријава…", mlConfirmed: "Пријавен си", mlConfirmedText: "Отсега ќе ги добиваш нашите пораки. Може да се одјавиш на дното на секоја порака.", mlConfirmInvalid: "Овој линк веќе не работи. Пријави се повторно; линкот во пораката важи 7 дена.", mlPrefsTitle: "Твоите поставки за е-пошта", mlPrefsFor: "За", mlSave: "Зачувај", mlSaved: "Зачувано.", mlUnsubscribe: "Одјави се од сите пораки", mlUnsubscribeSure: "Сигурно? Кликни уште еднаш за одјава.", mlUnsubscribed: "Одјавен си", mlUnsubscribedText: "Повеќе нема да добиваш пораки од нас, а твојата адреса е избришана.", mlLinkInvalid: "Овој линк веќе не работи. Користи го линкот на дното на последната порака.", mlAccount: "Е-пошта", mlAccountHint: "Избери кои пораки сакаш да ги добиваш на твојата е-пошта. Ништо штиклирано: нема пораки.",
   favSave: "Зачувај", favSaved: "Омилено", favorites: "Омилени", favLoginLink: "Најави се", favLoginHint: "за твоите омилени да бидат на сите твои уреди.", accBenefitsTitle: "Што можеш со профил", accFavorites: "Види ги омилените",
   accBenefits: [["Омилени на сите уреди", "Зачувај боенки со срцето. Тогаш се на твојот телефон, таблет и компјутер."], ["Пораки што самиот ги избираш", "Известување за нови боенки или претстоен празник, или повремено билтен."], ["За боење никогаш не треба профил", "Децата бојат и печатат без најава."]] as [string, string][],

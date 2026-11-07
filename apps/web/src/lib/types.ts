@@ -4,6 +4,8 @@ export interface PlateItem {
   holiday: string | null; svg: string; kind: PlateKind;
   /** Leerdoelen (ADR 0036). */
   goals: string[];
+  /** Andere namen ("langnek" bij Brachiosaurus) voor zoeken en vindbaarheid (ADR 0085). */
+  also?: string[];
 }
 export type PlateKind = "kleurplaat" | "knipplaat" | "bouwplaat" | "spel" | "vouwblad" | "werkblad" | "sjabloon" | "kaart" | "tekenles";
 /** Groepen voor het filter Soort (ADR 0027); "kleurplaat" is ook de waarde in de URL voor kleurplaten. */

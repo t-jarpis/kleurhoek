@@ -9,7 +9,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ path
   const { path } = await params;
   // Alleen /v1/assets/plates/<slug>/<versie>[.<taal>-<hash>].svg (ADR 0029), ingekleurd als .kleur.svg (ADR 0070),
   // of .png voor mails (ADR 0037); niets anders van de API is zo bereikbaar.
-  if (path.length !== 3 || path[0] !== "plates" || !SAFE.test(path[1] ?? "") || !/^\d{1,6}(\.[a-z]{2}-[0-9a-f]{8})?(\.kleur\.svg|\.svg|\.png)$/.test(path[2] ?? "")) {
+  if (path.length !== 3 || path[0] !== "plates" || !SAFE.test(path[1] ?? "") || !/^\d{1,6}(\.[a-z]{2}-[0-9a-f]{8})?(\.kleur)?\.(svg|png)$/.test(path[2] ?? "")) {
     return new Response("Niet gevonden", { status: 404 });
   }
   // Het IP van de bezoeker gaat mee, zodat de rate limit van de API per bezoeker telt en niet per website-server.

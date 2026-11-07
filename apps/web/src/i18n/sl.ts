@@ -1,4 +1,5 @@
 import type { Messages } from "./nl";
+import { plateDescription, type PlateExtra } from "./plate-meta";
 
 /** Sloveense meervoudsvormen: …01 → one, …02 → two (dualis), …03–04 → few, de rest → many. */
 const plural = (n: number, one: string, two: string, few: string, many: string): string => {
@@ -52,7 +53,7 @@ export const sl: Messages = {
   atPartner: (p: string) => `v trgovini ${p}`,
   partnerDisclosure: "Partnerske povezave: če prek teh povezav kaj kupiš, Kleurhoek od trgovine dobi majhno nadomestilo. Ti plačaš enako. Tako pobarvanke ostajajo brezplačne.",
   deleteAccount: "Izbriši račun", deleteSure: "Res? Tapni še enkrat",
-  disclaimer: "Pravno obvestilo", privacy: "Zasebnost", colorPreview: "Barvno", newTitle: "Novosti", newLede: "Naše najnovejše pobarvanke, najnovejše najprej.", contact: "Kontakt", themes: "Teme pri ustvarjalcih", search: { label: "Iskanje", placeholder: "Poišči pobarvanko, npr. samorog", found: (n: number) => `Najdeno: ${n}`, noneTitle: "Te še nimamo", noneText: "Jo naredimo? Prosi zanjo in jo bomo dodali na naš seznam.", request: "Prosi za to pobarvanko", requested: "Poslano! Hvala.", notify: "Želiš e-pošto, ko bodo nove pobarvanke?", maker: (name: string) => "Uradne pobarvanke " + name + " najdeš pri njihovih ustvarjalcih" },
+  disclaimer: "Pravno obvestilo", privacy: "Zasebnost", colorPreview: "Barvno", newTitle: "Novosti", newLede: "Naše najnovejše pobarvanke, najnovejše najprej.", contact: "Kontakt", themes: "Teme pri ustvarjalcih", alsoKnownAs: "Znano tudi kot", search: { label: "Iskanje", placeholder: "Poišči pobarvanko, npr. samorog", found: (n: number) => `Najdeno: ${n}`, noneTitle: "Te še nimamo", noneText: "Jo naredimo? Prosi zanjo in jo bomo dodali na naš seznam.", request: "Prosi za to pobarvanko", requested: "Poslano! Hvala.", notify: "Želiš e-pošto, ko bodo nove pobarvanke?", maker: (name: string) => "Uradne pobarvanke " + name + " najdeš pri njihovih ustvarjalcih" },
   contactTitle: "Kontakt", contactLede: "Imaš vprašanje, idejo za pobarvanko ali kaj ne deluje? Sporoči nam. Običajno odgovorimo v nekaj delovnih dneh.",
   contactTopic: "Za kaj gre?",
   contactTopics: { question: "Vprašanje", idea: "Ideja za pobarvanko", bug: "Nekaj ne deluje", partnership: "Sodelovanje", copyright: "Avtorske pravice", privacy: "Zasebnost in moji podatki" } as Record<string, string>,
@@ -206,10 +207,11 @@ export const sl: Messages = {
     howTitle: "Kako deluje",
     how: ["Odpri pobarvanko in tapni Barvajmo skupaj.", "Daj kodo ali povezavo tistemu, ki se pridruži.", "Ta vpiše kodo tukaj ali odpre povezavo. Kar pobarva eden, drugi takoj vidi."],
   },
-  metaPlateTitle: (name: string, kind: string) => `${name} – ${kind.toLowerCase()}`,
+  metaPlateTitle: (name: string, kind: string) => (kind ? `${name} – ${kind.toLowerCase()}` : name),
+  plateTitle: (name: string, kind: string) => `${kind ? `${name} – ${kind.toLowerCase()}` : name}, brezplačno za tiskanje`,
   metaThemeTitle: (name: string) => `Pobarvanke ${name}`,
   metaTheme: (name: string, maker: string) => `Pobarvanke ${name}, brezplačno na strani ${maker}.`,
-  metaPlate: (name: string, kind: string) => `${kind} ${name}: brezplačno pobarvaj na spletu ali natisni na A4.`,
+  metaPlate: (name: string, kind: string, extra?: PlateExtra) => plateDescription(kind ? `${kind} ${name}: brezplačno pobarvaj na spletu ali natisni na A4.` : `${name}: brezplačno pobarvaj na spletu ali natisni na A4.`, extra, "Znano tudi kot"),
   mlTitle: "Obvestite me po e-pošti, ko je kaj novega", mlIntro: "Nove pobarvanke, pravočasno za praznik, ali občasno e-novice. Odjaviš se lahko z enim klikom.", mlEmail: "E-poštni naslov", mlTopics: "O čem?", mlTopicNames: {"nieuwe-platen": "Nove pobarvanke (največ enkrat na teden)", "feestdagen": "Pobarvanke za bližajoči se praznik", "nieuwsbrief": "E-novice (občasno)"} as Record<string, string>, mlAdult: "Imam 16 let ali več", mlSubmit: "Prijavi me", mlSending: "Prijavljanje…", mlPrivacy: "Tvoj naslov uporabimo samo za ta sporočila.", mlCheckTitle: "Preveri e-pošto", mlCheckText: "Poslali smo ti sporočilo. Klikni gumb v njem, da potrdiš prijavo.", mlError: "Ni uspelo. Preveri e-poštni naslov, izberi temo in označi polje.", mlBusy: "Preveč poskusov. Poskusi znova malo pozneje.", mlConfirming: "Potrjujemo tvojo prijavo…", mlConfirmed: "Prijava je uspela", mlConfirmedText: "Odslej ti bomo pošiljali naša sporočila. Odjaviš se lahko na dnu vsakega sporočila.", mlConfirmInvalid: "Ta povezava ne deluje več. Prijavi se znova; povezava v sporočilu velja 7 dni.", mlPrefsTitle: "Tvoje nastavitve e-pošte", mlPrefsFor: "Za", mlSave: "Shrani", mlSaved: "Shranjeno.", mlUnsubscribe: "Odjava od vseh sporočil", mlUnsubscribeSure: "Res? Klikni še enkrat za odjavo.", mlUnsubscribed: "Odjava je uspela", mlUnsubscribedText: "Ne bomo ti več pošiljali sporočil, tvoj naslov pa smo izbrisali.", mlLinkInvalid: "Ta povezava ne deluje več. Uporabi povezavo na dnu zadnjega sporočila.", mlAccount: "E-pošta", mlAccountHint: "Izberi, katera sporočila želiš prejemati na svoj e-poštni naslov. Nič označeno: brez sporočil.",
   favSave: "Shrani", favSaved: "Priljubljeno", favorites: "Priljubljene", favLoginLink: "Prijavi se", favLoginHint: "in imej priljubljene na vseh svojih napravah.", accBenefitsTitle: "Kaj lahko narediš z računom", accFavorites: "Poglej priljubljene",
   accBenefits: [["Priljubljene na vseh napravah", "Shrani pobarvanke s srčkom. Potem so na tvojem telefonu, tablici in računalniku."], ["Sporočila po tvoji izbiri", "Obvestilo o novih pobarvankah ali bližajočem se prazniku ali občasne e-novice."], ["Za barvanje računa ne potrebuješ", "Otroci barvajo in tiskajo brez prijave."]] as [string, string][],

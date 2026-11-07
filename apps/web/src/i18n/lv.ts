@@ -1,4 +1,5 @@
 import type { Messages } from "./nl";
+import { plateDescription, type PlateExtra } from "./plate-meta";
 
 /** Letse meervoudsvormen: 1, 21, 31 … (niet 11) → enkelvoud; de rest → meervoud. */
 const plural = (n: number, one: string, other: string): string => (n % 10 === 1 && n % 100 !== 11 ? one : other);
@@ -48,7 +49,7 @@ export const lv: Messages = {
   atPartner: (p: string) => `veikalā ${p}`,
   partnerDisclosure: "Partneru saites: ja tu kaut ko nopērc, izmantojot šīs saites, Kleurhoek no veikala saņem nelielu atlīdzību. Tu maksā tikpat. Tā lapas paliek bezmaksas.",
   deleteAccount: "Dzēst kontu", deleteSure: "Vai tiešām? Pieskaries vēlreiz",
-  disclaimer: "Atruna", privacy: "Privātums", colorPreview: "Krāsains", newTitle: "Jaunumi", newLede: "Mūsu jaunākās lapas, jaunākās vispirms.", contact: "Kontakti", themes: "Tēmas no veidotājiem", search: { label: "Meklēt", placeholder: "Meklē zīmējumu, piem. vienradzis", found: (n: number) => `Atrasts: ${n}`, noneTitle: "Tāda mums vēl nav", noneText: "Uzzīmēsim? Palūdz, un mēs to ieliksim savā sarakstā.", request: "Palūgt šo zīmējumu", requested: "Palūgts! Paldies.", notify: "Vai vēlies e-pastu, kad būs jauni zīmējumi?", maker: (name: string) => "Oficiālos " + name + " zīmējumus atradīsi pie to veidotājiem" },
+  disclaimer: "Atruna", privacy: "Privātums", colorPreview: "Krāsains", newTitle: "Jaunumi", newLede: "Mūsu jaunākās lapas, jaunākās vispirms.", contact: "Kontakti", themes: "Tēmas no veidotājiem", alsoKnownAs: "Zināms arī kā", search: { label: "Meklēt", placeholder: "Meklē zīmējumu, piem. vienradzis", found: (n: number) => `Atrasts: ${n}`, noneTitle: "Tāda mums vēl nav", noneText: "Uzzīmēsim? Palūdz, un mēs to ieliksim savā sarakstā.", request: "Palūgt šo zīmējumu", requested: "Palūgts! Paldies.", notify: "Vai vēlies e-pastu, kad būs jauni zīmējumi?", maker: (name: string) => "Oficiālos " + name + " zīmējumus atradīsi pie to veidotājiem" },
   contactTitle: "Kontakti", contactLede: "Jautājums, ideja jaunai lapai vai kaut kas nedarbojas? Pastāsti mums. Parasti atbildam dažu darba dienu laikā.",
   contactTopic: "Par ko ir runa?",
   contactTopics: { question: "Jautājums", idea: "Ideja lapai", bug: "Kaut kas nedarbojas", partnership: "Sadarbība", copyright: "Autortiesības", privacy: "Privātums un mani dati" } as Record<string, string>,
@@ -202,10 +203,11 @@ export const lv: Messages = {
     howTitle: "Kā tas notiek",
     how: ["Atver lapu un pieskaries Krāsojam kopā.", "Iedod kodu vai saiti tam, kurš pievienojas.", "Viņš ievada kodu šeit vai atver saiti. Ko viens izkrāso, to otrs redz uzreiz."],
   },
-  metaPlateTitle: (name: string, kind: string) => `${name} – ${kind.toLowerCase()}`,
+  metaPlateTitle: (name: string, kind: string) => (kind ? `${name} – ${kind.toLowerCase()}` : name),
+  plateTitle: (name: string, kind: string) => `${kind ? `${name} – ${kind.toLowerCase()}` : name}, bez maksas izdrukai`,
   metaThemeTitle: (name: string) => `${name} – krāsojamās lapas`,
   metaTheme: (name: string, maker: string) => `${name} – krāsojamās lapas bez maksas, veidotājs: ${maker}.`,
-  metaPlate: (name: string, kind: string) => `${kind} ${name}: krāso tiešsaistē vai izdrukā uz A4 bez maksas.`,
+  metaPlate: (name: string, kind: string, extra?: PlateExtra) => plateDescription(kind ? `${kind} ${name}: krāso tiešsaistē vai izdrukā uz A4 bez maksas.` : `${name}: krāso tiešsaistē vai izdrukā uz A4 bez maksas.`, extra, "Zināms arī kā"),
   mlTitle: "Raksti man, kad ir kas jauns", mlIntro: "Jaunas lapas, laikus pirms svētkiem, vai laiku pa laikam jaunumu vēstule. Atteikties var ar vienu klikšķi.", mlEmail: "E-pasta adrese", mlTopics: "Par ko?", mlTopicNames: {"nieuwe-platen": "Jaunas lapas (ne biežāk kā reizi nedēļā)", "feestdagen": "Lapas gaidāmajiem svētkiem", "nieuwsbrief": "Jaunumu vēstule (laiku pa laikam)"} as Record<string, string>, mlAdult: "Man ir 16 gadu vai vairāk", mlSubmit: "Pierakstīties", mlSending: "Pieraksta…", mlPrivacy: "Tavu adresi izmantojam tikai šiem e-pastiem.", mlCheckTitle: "Pārbaudi savu e-pastu", mlCheckText: "Mēs tev nosūtījām e-pastu. Noklikšķini uz tajā esošās pogas, lai apstiprinātu pierakstīšanos.", mlError: "Neizdevās. Pārbaudi e-pasta adresi, izvēlies tēmu un atzīmē rūtiņu.", mlBusy: "Pārāk daudz mēģinājumu. Lūdzu, mēģini vēlreiz nedaudz vēlāk.", mlConfirming: "Apstiprina pierakstīšanos…", mlConfirmed: "Tu esi pierakstījies", mlConfirmedText: "Turpmāk saņemsi mūsu e-pastus. Atteikties var katra e-pasta apakšā.", mlConfirmInvalid: "Šī saite vairs nedarbojas. Lūdzu, pieraksties vēlreiz; saite e-pastā darbojas 7 dienas.", mlPrefsTitle: "Tavi e-pasta iestatījumi", mlPrefsFor: "Kam", mlSave: "Saglabāt", mlSaved: "Saglabāts.", mlUnsubscribe: "Atteikties no visiem e-pastiem", mlUnsubscribeSure: "Vai tiešām? Noklikšķini vēlreiz, lai atteiktos.", mlUnsubscribed: "Tu esi atteicies", mlUnsubscribedText: "Tu vairs nesaņemsi no mums e-pastus, un tava adrese ir dzēsta.", mlLinkInvalid: "Šī saite vairs nedarbojas. Izmanto saiti sava jaunākā e-pasta apakšā.", mlAccount: "E-pasts", mlAccountHint: "Izvēlies, kādus e-pastus vēlies saņemt savā e-pasta adresē. Nekas nav atzīmēts: e-pastu nebūs.",
   favSave: "Saglabāt", favSaved: "Izlasē", favorites: "Izlase", favLoginLink: "Piesakies", favLoginHint: "lai izlase būtu pieejama visās tavās ierīcēs.", accBenefitsTitle: "Ko vari darīt ar kontu", accFavorites: "Skatīt izlasi",
   accBenefits: [["Izlase visās ierīcēs", "Saglabā lapas ar sirsniņu. Tās būs tavā telefonā, planšetē un datorā."], ["E-pasti pēc tavas izvēles", "Ziņa par jaunām lapām vai gaidāmiem svētkiem, vai laiku pa laikam jaunumu vēstule."], ["Krāsošanai konts nav vajadzīgs", "Bērni krāso un drukā bez pieteikšanās."]] as [string, string][],

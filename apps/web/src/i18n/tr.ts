@@ -1,4 +1,5 @@
 import type { Messages } from "./nl";
+import { plateDescription, type PlateExtra } from "./plate-meta";
 
 /** Interface texts in Turkish (Türkiye). Same keys as nl.ts. */
 export const tr: Messages = {
@@ -45,7 +46,7 @@ export const tr: Messages = {
   atPartner: (p: string) => `${p} mağazasında`,
   partnerDisclosure: "İş ortağı bağlantıları: Bu bağlantılar üzerinden bir şey satın alırsan Kleurhoek mağazadan küçük bir komisyon alır. Sen aynı fiyatı ödersin. Sayfaları bu sayede ücretsiz tutuyoruz.",
   deleteAccount: "Hesabı sil", deleteSure: "Emin misin? Tekrar dokun",
-  disclaimer: "Yasal uyarı", privacy: "Gizlilik", colorPreview: "Renkli", newTitle: "Yenilikler", newLede: "En yeni sayfalarımız, en yeniler önce.", contact: "İletişim", themes: "Yapımcılardan temalar", search: { label: "Ara", placeholder: "Bir boyama ara, ör. tek boynuzlu at", found: (n: number) => `Bulunan: ${n}`, noneTitle: "Bu henüz bizde yok", noneText: "Yapalım mı? İste, listemize ekleyelim.", request: "Bu boyamayı iste", requested: "İstendi! Teşekkürler.", notify: "Yeni boyamalar geldiğinde e-posta ister misin?", maker: (name: string) => "Resmî " + name + " boyamaları yapımcılarında bulabilirsin" },
+  disclaimer: "Yasal uyarı", privacy: "Gizlilik", colorPreview: "Renkli", newTitle: "Yenilikler", newLede: "En yeni sayfalarımız, en yeniler önce.", contact: "İletişim", themes: "Yapımcılardan temalar", alsoKnownAs: "Diğer adı", search: { label: "Ara", placeholder: "Bir boyama ara, ör. tek boynuzlu at", found: (n: number) => `Bulunan: ${n}`, noneTitle: "Bu henüz bizde yok", noneText: "Yapalım mı? İste, listemize ekleyelim.", request: "Bu boyamayı iste", requested: "İstendi! Teşekkürler.", notify: "Yeni boyamalar geldiğinde e-posta ister misin?", maker: (name: string) => "Resmî " + name + " boyamaları yapımcılarında bulabilirsin" },
   contactTitle: "İletişim", contactLede: "Bir sorun, bir sayfa fikrin mi var ya da bir şey mi çalışmıyor? Bize yaz. Genellikle birkaç iş günü içinde yanıt veririz.",
   contactTopic: "Konu nedir?",
   contactTopics: { question: "Bir soru", idea: "Sayfa fikri", bug: "Bir şey çalışmıyor", partnership: "İş birliği", copyright: "Telif hakkı", privacy: "Gizlilik ve verilerim" } as Record<string, string>,
@@ -199,10 +200,11 @@ export const tr: Messages = {
     howTitle: "Nasıl çalışır?",
     how: ["Bir sayfa aç ve Birlikte boya'ya dokun.", "Kodu ya da bağlantıyı katılacak kişiye ver.", "O kişi kodu buraya girer ya da bağlantıyı açar. Birinin boyadığını diğeri hemen görür."],
   },
-  metaPlateTitle: (name: string, kind: string) => `${name} – ${kind.toLocaleLowerCase("tr-TR")}`,
+  metaPlateTitle: (name: string, kind: string) => (kind ? `${name} – ${kind.toLocaleLowerCase("tr-TR")}` : name),
+  plateTitle: (name: string, kind: string) => `${kind ? `${name} – ${kind.toLocaleLowerCase("tr-TR")}` : name}, ücretsiz yazdır`,
   metaThemeTitle: (name: string) => `${name} boyama sayfaları`,
   metaTheme: (name: string, maker: string) => `${name} boyama sayfaları, ${maker} tarafından ücretsiz.`,
-  metaPlate: (name: string, kind: string) => `${kind}: ${name}. Çevrimiçi boya ya da A4 olarak ücretsiz yazdır.`,
+  metaPlate: (name: string, kind: string, extra?: PlateExtra) => plateDescription(kind ? `${kind}: ${name}. Çevrimiçi boya ya da A4 olarak ücretsiz yazdır.` : `${name}. Çevrimiçi boya ya da A4 olarak ücretsiz yazdır.`, extra, "Diğer adı"),
   mlTitle: "Yeni bir şey olduğunda bana e-posta gönder", mlIntro: "Yeni sayfalar, bir bayram ya da özel gün öncesinde, ya da ara sıra bir bülten. Tek tıkla abonelikten çıkabilirsin.", mlEmail: "E-posta adresi", mlTopics: "Ne hakkında?", mlTopicNames: {"nieuwe-platen": "Yeni sayfalar (en fazla haftada bir)", "feestdagen": "Yaklaşan bir özel gün için sayfalar", "nieuwsbrief": "Bülten (ara sıra)"} as Record<string, string>, mlAdult: "16 yaşında ya da daha büyüğüm", mlSubmit: "Abone ol", mlSending: "Abone olunuyor…", mlPrivacy: "Adresini yalnızca bu e-postalar için kullanırız.", mlCheckTitle: "E-postanı kontrol et", mlCheckText: "Sana bir e-posta gönderdik. Aboneliğini onaylamak için içindeki düğmeye tıkla.", mlError: "Olmadı. E-posta adresini kontrol et, bir konu seç ve kutuyu işaretle.", mlBusy: "Çok fazla deneme. Lütfen biraz sonra tekrar dene.", mlConfirming: "Aboneliğin onaylanıyor…", mlConfirmed: "Abone oldun", mlConfirmedText: "Bundan sonra e-postalarımızı alacaksın. Her e-postanın en altından abonelikten çıkabilirsin.", mlConfirmInvalid: "Bu bağlantı artık çalışmıyor. Lütfen tekrar abone ol; e-postadaki bağlantı 7 gün geçerlidir.", mlPrefsTitle: "E-posta ayarların", mlPrefsFor: "Adres", mlSave: "Kaydet", mlSaved: "Kaydedildi.", mlUnsubscribe: "Tüm e-postalardan çık", mlUnsubscribeSure: "Emin misin? Abonelikten çıkmak için tekrar tıkla.", mlUnsubscribed: "Abonelikten çıktın", mlUnsubscribedText: "Artık bizden e-posta almayacaksın ve adresin silindi.", mlLinkInvalid: "Bu bağlantı artık çalışmıyor. Son e-postamızın altındaki bağlantıyı kullan.", mlAccount: "E-postalar", mlAccountHint: "E-posta adresine hangi e-postaların gelmesini istediğini seç. Hiçbiri işaretli değilse e-posta gelmez.",
   favSave: "Kaydet", favSaved: "Favori", favorites: "Favoriler", favLoginLink: "Giriş yap", favLoginHint: "ve favorilerin tüm cihazlarında olsun.", accBenefitsTitle: "Hesapla neler yapabilirsin", accFavorites: "Favorilerini gör",
   accBenefits: [["Tüm cihazlarında favoriler", "Sayfaları kalple kaydet. Telefonunda, tabletinde ve bilgisayarında olurlar."], ["Seçtiğin e-postalar", "Yeni sayfalar ya da yaklaşan bir özel gün için haber, ya da ara sıra bir bülten."], ["Boyamak için hesap gerekmez", "Çocuklar giriş yapmadan boyar ve yazdırır."]] as [string, string][],

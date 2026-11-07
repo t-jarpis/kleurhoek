@@ -144,9 +144,9 @@ export class StorefrontController {
   @RateLimit("assets")
   async svg(@Param("slug") slug: string, @Param("file") file: string, @Res() res: FastifyReply) {
     // <versie>.svg in de brontaal, <versie>.<taal>-<hash>.svg vertaald (ADR 0029); .png voor mails (ADR 0037);
-    // .kleur.svg ingekleurd voor het platenraster (ADR 0070).
+    // .kleur.svg ingekleurd voor het platenraster (ADR 0070), .kleur.png ingekleurd voor de sitemap (ADR 0085).
     const m = /^(\d{1,6})(?:\.([a-z]{2})-[0-9a-f]{8})?(\.kleur)?\.(svg|png)$/.exec(file);
-    if (!Slug.safeParse(slug).success || !m || (m[3] && m[4] !== "svg")) throw new NotFoundException();
+    if (!Slug.safeParse(slug).success || !m) throw new NotFoundException();
     const svg = await this.store.svg(slug, Number(m[1]), m[2], !!m[3]);
     if (!svg) throw new NotFoundException();
     if (m[4] === "png") {

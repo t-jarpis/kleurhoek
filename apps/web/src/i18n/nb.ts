@@ -1,4 +1,5 @@
 import type { Messages } from "./nl";
+import { plateDescription, type PlateExtra } from "./plate-meta";
 
 /** Interface texts in Norwegian Bokmål (Norway). Same keys as nl.ts. */
 export const nb: Messages = {
@@ -45,7 +46,7 @@ export const nb: Messages = {
   atPartner: (p: string) => `hos ${p}`,
   partnerDisclosure: "Partnerlenker: Hvis du kjøper noe via disse lenkene, får Kleurhoek en liten provisjon fra butikken. Du betaler det samme. Slik holder vi arkene gratis.",
   deleteAccount: "Slett konto", deleteSure: "Er du sikker? Trykk igjen",
-  disclaimer: "Ansvarsfraskrivelse", privacy: "Personvern", colorPreview: "I farger", newTitle: "Nyheter", newLede: "De nyeste arkene våre, de nyeste først.", contact: "Kontakt", themes: "Temaer hos skaperne", search: { label: "Søk", placeholder: "Søk etter en tegning, f.eks. enhjørning", found: (n: number) => `Funnet: ${n}`, noneTitle: "Den har vi ikke ennå", noneText: "Skal vi lage den? Ønsk deg den, så setter vi den på listen vår.", request: "Ønsk deg denne tegningen", requested: "Ønsket! Tusen takk.", notify: "Vil du ha en e-post når det kommer nye tegninger?", maker: (name: string) => "Offisielle tegninger av " + name + " finner du hos skaperne" },
+  disclaimer: "Ansvarsfraskrivelse", privacy: "Personvern", colorPreview: "I farger", newTitle: "Nyheter", newLede: "De nyeste arkene våre, de nyeste først.", contact: "Kontakt", themes: "Temaer hos skaperne", alsoKnownAs: "Også kjent som", search: { label: "Søk", placeholder: "Søk etter en tegning, f.eks. enhjørning", found: (n: number) => `Funnet: ${n}`, noneTitle: "Den har vi ikke ennå", noneText: "Skal vi lage den? Ønsk deg den, så setter vi den på listen vår.", request: "Ønsk deg denne tegningen", requested: "Ønsket! Tusen takk.", notify: "Vil du ha en e-post når det kommer nye tegninger?", maker: (name: string) => "Offisielle tegninger av " + name + " finner du hos skaperne" },
   contactTitle: "Kontakt", contactLede: "Et spørsmål, en idé til et ark eller noe som ikke fungerer? Gi oss beskjed. Vi svarer vanligvis innen noen få virkedager.",
   contactTopic: "Hva gjelder det?",
   contactTopics: { question: "Et spørsmål", idea: "Idé til et ark", bug: "Noe fungerer ikke", partnership: "Samarbeid", copyright: "Opphavsrett", privacy: "Personvern og mine opplysninger" } as Record<string, string>,
@@ -199,10 +200,11 @@ export const nb: Messages = {
     howTitle: "Slik fungerer det",
     how: ["Åpne et ark og trykk på Fargelegg sammen.", "Gi koden eller lenken til dem som vil være med.", "De skriver inn koden her eller åpner lenken. Det den ene fargelegger, ser den andre med en gang."],
   },
-  metaPlateTitle: (name: string, kind: string) => `${name} – ${kind.toLowerCase()}`,
+  metaPlateTitle: (name: string, kind: string) => (kind ? `${name} – ${kind.toLowerCase()}` : name),
+  plateTitle: (name: string, kind: string) => `${kind ? `${name} – ${kind.toLowerCase()}` : name}, gratis å skrive ut`,
   metaThemeTitle: (name: string) => `Fargeleggingsark med ${name}`,
   metaTheme: (name: string, maker: string) => `Fargeleggingsark med ${name}, gratis hos ${maker}.`,
-  metaPlate: (name: string, kind: string) => `${kind} ${name}: fargelegg gratis på nett eller skriv ut på A4.`,
+  metaPlate: (name: string, kind: string, extra?: PlateExtra) => plateDescription(kind ? `${kind} ${name}: fargelegg gratis på nett eller skriv ut på A4.` : `${name}: fargelegg gratis på nett eller skriv ut på A4.`, extra, "Også kjent som"),
   mlTitle: "Send meg e-post når det kommer noe nytt", mlIntro: "Nye ark, i god tid før en høytid, eller et nyhetsbrev innimellom. Du kan melde deg av med ett klikk.", mlEmail: "E-postadresse", mlTopics: "Om hva?", mlTopicNames: {"nieuwe-platen": "Nye ark (høyst én gang i uken)", "feestdagen": "Ark til en høytid som nærmer seg", "nieuwsbrief": "Nyhetsbrevet (innimellom)"} as Record<string, string>, mlAdult: "Jeg er 16 år eller eldre", mlSubmit: "Meld meg på", mlSending: "Melder på…", mlPrivacy: "Vi bruker adressen din bare til disse e-postene.", mlCheckTitle: "Sjekk e-posten din", mlCheckText: "Vi har sendt deg en e-post. Klikk på knappen i den for å bekrefte påmeldingen.", mlError: "Det gikk ikke. Sjekk e-postadressen din, velg et emne og kryss av i boksen.", mlBusy: "For mange forsøk. Prøv igjen om litt.", mlConfirming: "Bekrefter påmeldingen din…", mlConfirmed: "Du er påmeldt", mlConfirmedText: "Fra nå av får du e-postene våre. Du kan melde deg av nederst i hver e-post.", mlConfirmInvalid: "Denne lenken virker ikke lenger. Meld deg på igjen; lenken i e-posten virker i 7 dager.", mlPrefsTitle: "E-postinnstillingene dine", mlPrefsFor: "For", mlSave: "Lagre", mlSaved: "Lagret.", mlUnsubscribe: "Meld meg av alle e-poster", mlUnsubscribeSure: "Er du sikker? Klikk igjen for å melde deg av.", mlUnsubscribed: "Du er meldt av", mlUnsubscribedText: "Du får ikke flere e-poster fra oss, og adressen din er slettet.", mlLinkInvalid: "Denne lenken virker ikke lenger. Bruk lenken nederst i den siste e-posten din.", mlAccount: "E-post", mlAccountHint: "Velg hvilke e-poster du vil få på e-postadressen din. Ingenting avkrysset: ingen e-poster.",
   favSave: "Lagre", favSaved: "Favoritt", favorites: "Favoritter", favLoginLink: "Logg inn", favLoginHint: "for å lagre favorittene dine på alle enhetene dine.", accBenefitsTitle: "Dette kan du gjøre med en konto", accFavorites: "Se favorittene dine",
   accBenefits: [["Favoritter på alle enhetene dine", "Lagre ark med hjertet. Da ligger de på telefonen, nettbrettet og datamaskinen din."], ["E-post du velger selv", "Beskjed om nye ark eller en høytid som nærmer seg, eller nyhetsbrevet innimellom."], ["Fargelegging krever aldri konto", "Barn fargelegger og skriver ut uten å logge inn."]] as [string, string][],

@@ -13,6 +13,7 @@ import { getOrg } from "@/lib/org";
 import { packs } from "@/lib/packs";
 import { absolute, hreflang, indexable, jsonLd, pageMeta, pageUrl, pngOf } from "@/lib/seo";
 import { link } from "@/lib/sites";
+import { kindFor } from "@/i18n/plate-meta";
 
 export const revalidate = 300;
 type Params = { params: Promise<{ org: string; market: string; slug: string }> };
@@ -69,7 +70,7 @@ export default async function PackPage({ params }: Params) {
       <main className="grid">
         {pack.plates.map((p) => (
           <PlateCard key={p.slug} plate={p} base={base} taxonomy={taxonomy} view="alle" yr={t.yr}
-            kindLabel={p.kind !== "kleurplaat" ? t.kindNames[p.kind] : undefined} alt={t.metaPlateTitle(p.name, t.kindNames[p.kind] ?? t.kindNames.kleurplaat!)} />
+            kindLabel={p.kind !== "kleurplaat" ? t.kindNames[p.kind] : undefined} alt={t.metaPlateTitle(p.name, kindFor(p.name, t.kindNames[p.kind] ?? t.kindNames.kleurplaat!))} />
         ))}
       </main>
       <SiteFooter base={base} t={t} own={o.isDefault} />

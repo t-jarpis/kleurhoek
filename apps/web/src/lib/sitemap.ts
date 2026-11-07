@@ -1,7 +1,7 @@
 import { api } from "@/lib/api";
 import { LIVE_MARKETS } from "@/lib/markets";
 import { DEFAULT_ORG } from "@/lib/org-resolve";
-import { hreflang, pageUrl } from "@/lib/seo";
+import { absolute, hreflang, pageUrl, pngOf } from "@/lib/seo";
 import { siteDomains } from "@/lib/sites";
 import { messages } from "@/i18n/nl";
 import { DIMENSIONS, topics } from "@/lib/topics";
@@ -45,13 +45,18 @@ function byPath(): Promise<Map<string, string[]>> {
 export async function marketSitemap(market: string): Promise<string> {
   const domains = siteDomains();
   const urls: string[] = [];
+  // Afbeeldingen (ADR 0085): bij elke plaat de lijntekening (om te printen) en de ingekleurde versie als PNG,
+  // zodat Google Afbeeldingen de platen vindt.
+  const images = new Map((await api.plates(market, DEFAULT_ORG).catch(() => []))
+    .map((p) => [`/platen/${p.slug}`, [absolute(market, pngOf(p.svg)), absolute(market, pngOf(p.svg.replace(/\.svg$/, ".kleur.svg")))]]));
   for (const [path, markets] of await byPath()) {
     if (!markets.includes(market)) continue;
     const alts = markets.length > 1 && !ownLanguageOnly(path) ? markets.map((m) => `<xhtml:link rel="alternate" hreflang="${hreflang(m)}" href="${esc(pageUrl(m, path))}"/>`).join("")
       + `<xhtml:link rel="alternate" hreflang="x-default" href="${esc(path === "" && domains ? `${domains.com}/` : pageUrl(markets[0]!, path))}"/>` : "";
-    urls.push(`<url><loc>${esc(pageUrl(market, path))}</loc>${alts}</url>`);
+    const pics = (images.get(path) ?? []).map((src) => `<image:image><image:loc>${esc(src)}</image:loc></image:image>`).join("");
+    urls.push(`<url><loc>${esc(pageUrl(market, path))}</loc>${alts}${pics}</url>`);
   }
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join("\n")}\n</urlset>\n`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${urls.join("\n")}\n</urlset>\n`;
 }
 
 /** Index met per markt van dit domein een eigen sitemap. */

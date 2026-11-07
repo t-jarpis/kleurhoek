@@ -1,4 +1,5 @@
 import type { Messages } from "./nl";
+import { plateDescription, type PlateExtra } from "./plate-meta";
 
 /** Interface texts in British English (UK, Ireland, EU). Same keys as nl.ts. */
 export const en: Messages = {
@@ -45,7 +46,7 @@ export const en: Messages = {
   atPartner: (p: string) => `at ${p}`,
   partnerDisclosure: "Partner links: if you buy something through these links, Kleurhoek gets a small fee from the shop. You pay the same. That's how we keep the pages free.",
   deleteAccount: "Delete account", deleteSure: "Are you sure? Tap again",
-  disclaimer: "Disclaimer", privacy: "Privacy", colorPreview: "In colour", newTitle: "What's new", newLede: "Our newest colouring pages, newest first.", contact: "Contact", themes: "Themes from the makers", search: { label: "Search", placeholder: "Search for a page, e.g. unicorn", found: (n: number) => `Found: ${n}`, noneTitle: "We don't have that one yet", noneText: "Shall we make it? Ask for it and we'll put it on our list.", request: "Ask for this page", requested: "Asked! Thank you.", notify: "Want an email when there are new pages?", maker: (name: string) => "Official " + name + " pages are available from the makers" },
+  disclaimer: "Disclaimer", privacy: "Privacy", colorPreview: "In colour", newTitle: "What's new", newLede: "Our newest colouring pages, newest first.", contact: "Contact", themes: "Themes from the makers", alsoKnownAs: "Also known as", search: { label: "Search", placeholder: "Search for a page, e.g. unicorn", found: (n: number) => `Found: ${n}`, noneTitle: "We don't have that one yet", noneText: "Shall we make it? Ask for it and we'll put it on our list.", request: "Ask for this page", requested: "Asked! Thank you.", notify: "Want an email when there are new pages?", maker: (name: string) => "Official " + name + " pages are available from the makers" },
   contactTitle: "Contact", contactLede: "A question, an idea for a page or something that isn't working? Let us know. We usually reply within a few working days.",
   contactTopic: "What is it about?",
   contactTopics: { question: "A question", idea: "Idea for a page", bug: "Something isn't working", partnership: "Working together", copyright: "Copyright", privacy: "Privacy and my data" } as Record<string, string>,
@@ -199,10 +200,11 @@ export const en: Messages = {
     howTitle: "How it works",
     how: ["Open a page and tap Colour together.", "Give the code or the link to whoever is joining.", "They enter the code here or open the link. What one colours, the other sees straight away."],
   },
-  metaPlateTitle: (name: string, kind: string) => `${name} – ${kind.toLowerCase()}`,
+  metaPlateTitle: (name: string, kind: string) => (kind ? `${name} – ${kind.toLowerCase()}` : name),
+  plateTitle: (name: string, kind: string) => `${kind ? `${name} – ${kind.toLowerCase()}` : name}, free to print`,
   metaThemeTitle: (name: string) => `${name} colouring pages`,
   metaTheme: (name: string, maker: string) => `${name} colouring pages, free from ${maker}.`,
-  metaPlate: (name: string, kind: string) => `${kind} ${name}: colour in online or print on A4 for free.`,
+  metaPlate: (name: string, kind: string, extra?: PlateExtra) => plateDescription(kind ? `${kind} ${name}: colour in online or print on A4 for free.` : `${name}: colour in online or print on A4 for free.`, extra, "Also known as"),
   mlTitle: "Email me when there's something new", mlIntro: "New pages, in time for a holiday, or a newsletter now and then. You can unsubscribe with one click.", mlEmail: "Email address", mlTopics: "About what?", mlTopicNames: {"nieuwe-platen": "New pages (at most once a week)", "feestdagen": "Pages for an upcoming holiday", "nieuwsbrief": "The newsletter (now and then)"} as Record<string, string>, mlAdult: "I am 16 or older", mlSubmit: "Sign up", mlSending: "Signing up…", mlPrivacy: "We only use your address for these emails.", mlCheckTitle: "Check your email", mlCheckText: "We've sent you an email. Click the button in it to confirm your sign-up.", mlError: "That didn't work. Check your email address, pick a topic and tick the box.", mlBusy: "Too many tries. Please try again shortly.", mlConfirming: "Confirming your sign-up…", mlConfirmed: "You're signed up", mlConfirmedText: "You'll get our emails from now on. You can unsubscribe at the bottom of every email.", mlConfirmInvalid: "This link no longer works. Please sign up again; the link in the email works for 7 days.", mlPrefsTitle: "Your email settings", mlPrefsFor: "For", mlSave: "Save", mlSaved: "Saved.", mlUnsubscribe: "Unsubscribe from all emails", mlUnsubscribeSure: "Are you sure? Click again to unsubscribe.", mlUnsubscribed: "You're unsubscribed", mlUnsubscribedText: "You won't get any more emails from us, and your address has been deleted.", mlLinkInvalid: "This link no longer works. Use the link at the bottom of your latest email.", mlAccount: "Email", mlAccountHint: "Choose which emails you'd like at your email address. Nothing ticked: no emails.",
   favSave: "Save", favSaved: "Favourite", favorites: "Favourites", favLoginLink: "Sign in", favLoginHint: "to keep your favourites on all your devices.", accBenefitsTitle: "What you can do with an account", accFavorites: "See your favourites",
   accBenefits: [["Favourites on all your devices", "Save pages with the heart. They'll be on your phone, tablet and computer."], ["Emails you choose", "A heads-up about new pages or an upcoming holiday, or the occasional newsletter."], ["Colouring never needs one", "Children colour in and print without signing in."]] as [string, string][],
