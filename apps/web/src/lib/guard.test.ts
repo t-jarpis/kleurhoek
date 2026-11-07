@@ -25,7 +25,7 @@ describe("tegen scrapers (ADR 0045)", () => {
 
 describe("oude adressen van een vorige eigenaar (410)", () => {
   it("herkent oude sitemaps en .html/.php-pagina's", () => {
-    for (const p of ["/sitemap-99.xml", "/sitemap-100.txt", "/winkel/product-12.html", "/index.php", "/a/b.aspx"]) expect(legacyGone(p)).toBe(true);
+    for (const p of ["/sitemap-99.xml", "/sitemap-100.txt", "/sitemap_index.xml", "/post-sitemap.xml", "/page-sitemap2.xml", "/winkel/product-12.html", "/index.php", "/a/b.aspx"]) expect(legacyGone(p)).toBe(true);
   });
   it("laat de eigen adressen van Kleurhoek met rust", () => {
     for (const p of ["/sitemap.xml", "/sitemap/nl-nl.xml", "/robots.txt", "/indexnow.txt", "/llms.txt", "/nl/platen/kat", "/v1/assets/plates/kat/1.png"]) expect(legacyGone(p)).toBe(false);

@@ -7,9 +7,9 @@
 kleurhoek.be had tot 2025 een andere eigenaar en een andere site. In Search Console stonden nog 101 sitemaps uit juli 2025 met honderdduizenden adressen. Google probeert die adressen nog steeds. Ze kwamen via twee doorverwijzingen (naar www, dan naar /nl) uit op een 404, en dat kost crawltijd die naar de nieuwe pagina's moet.
 
 ## Besluit
-- Adressen die Kleurhoek zelf nooit gebruikt, geven direct een **410 Gone**, zonder doorverwijzing en met `X-Robots-Tag: noindex`. Het gaat om de oude sitemaps (`/sitemap-<nummer>.xml|txt`) en om pagina's op `.html`, `.php`, `.asp(x)`, `.jsp` of `.cgi` (`legacyGone` in `lib/guard.ts`). Dat geldt op elk domein.
+- Adressen die Kleurhoek zelf nooit gebruikt, geven direct een **410 Gone**, zonder doorverwijzing en met `X-Robots-Tag: noindex`. Het gaat om de oude sitemaps (`/sitemap-<nummer>.xml|txt`, en WordPress-namen als `/sitemap_index.xml` en `/post-sitemap.xml`) en om pagina's op `.html`, `.php`, `.asp(x)`, `.jsp` of `.cgi` (`legacyGone` in `lib/guard.ts`). Dat geldt op elk domein.
 - Een 410 laat Google sneller los dan een 404.
-- De oude sitemaps zijn uit Search Console verwijderd.
+- De oude sitemaps (101 stuks, plus een `sitemap_index.xml` uit 2023) zijn uit Search Console verwijderd; alleen `https://www.kleurhoek.be/sitemap.xml` staat er nog.
 
 ## Gevolgen
 - Eigen adressen zoals `/sitemap.xml`, `/sitemap/<markt>.xml`, `/robots.txt` en `/indexnow.txt` blijven werken; een test bewaakt dat.

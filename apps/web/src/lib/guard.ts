@@ -45,5 +45,5 @@ export class PageLimiter {
  * via doorverwijzingen. Kleurhoek zelf gebruikt zulke adressen nooit.
  */
 export function legacyGone(path: string): boolean {
-  return /^\/sitemap-\d+\.(xml|txt)$/i.test(path) || /\.(html?|php\d?|aspx?|jsp|cgi)$/i.test(path);
+  return /^\/(sitemap-\d+\.(xml|txt)|sitemap_index\.xml|[a-z_]+-sitemap\d*\.xml)$/i.test(path) || /\.(html?|php\d?|aspx?|jsp|cgi)$/i.test(path);
 }
