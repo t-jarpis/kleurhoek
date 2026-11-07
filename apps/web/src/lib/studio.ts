@@ -20,6 +20,14 @@ export function progress(labels: Label[], palette: { number: number; hex: string
   return { ok, total: labels.length, done: labels.length > 0 && ok === labels.length };
 }
 
+/** Het ingekleurde voorbeeld (ADR 0089): elk genummerd vlak in de kleur van zijn nummer, de rest wit. */
+export function exampleFills(labels: Label[], palette: { number: number; hex: string }[]): Fills {
+  const hex = new Map(palette.map((p) => [p.number, p.hex]));
+  const out: Fills = {};
+  for (const l of labels) { const c = hex.get(l.number); if (c) out[l.region] = c; }
+  return out;
+}
+
 /** Een vlak kleuren of gummen. Geeft de nieuwe stand en wat er eerst stond (voor ongedaan maken). */
 export function paint(fills: Fills, region: number, color: string): { next: Fills; prev: string | undefined } {
   const next = { ...fills };

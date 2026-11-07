@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { BOOK_MAX, ERASER, FRIDGE_MAX, hang, layout, paint, parseBook, progress, strokeWidth, togglePick } from "./studio";
+import { BOOK_MAX, ERASER, FRIDGE_MAX, exampleFills, hang, layout, paint, parseBook, progress, strokeWidth, togglePick } from "./studio";
 
 describe("kleurstudio", () => {
   it("telt goed gekleurde nummers, ongevoelig voor hoofdletters", () => {
@@ -45,5 +45,14 @@ describe("kleurstudio", () => {
   it("zet platen aan en uit in de keuze", () => {
     expect(togglePick(["kat"], "vis")).toEqual(["kat", "vis"]);
     expect(togglePick(["kat", "vis"], "kat")).toEqual(["vis"]);
+  });
+});
+
+describe("exampleFills (ADR 0089)", () => {
+  it("kleurt elk genummerd vlak in de kleur van zijn nummer en laat de rest wit", () => {
+    const labels = [{ region: 0, number: 1, x: 0, y: 0, size: 5 }, { region: 3, number: 2, x: 0, y: 0, size: 5 }, { region: 5, number: 9, x: 0, y: 0, size: 5 }];
+    const palette = [{ number: 1, hex: "#e2483d" }, { number: 2, hex: "#2fa45a" }];
+    expect(exampleFills(labels, palette)).toEqual({ 0: "#e2483d", 3: "#2fa45a" });
+    expect(progress(labels.slice(0, 2), palette, exampleFills(labels, palette)).done).toBe(true);
   });
 });

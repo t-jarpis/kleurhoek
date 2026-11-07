@@ -16,7 +16,7 @@ export const en: Messages = {
   lineAuto: "Best fit", lineThin: "Thin", lineNormal: "Normal", lineThick: "Thick",
   extra: "Extra on the page", nameHint: "Text in bubble letters that you can colour in too", namePlaceholder: "E.g. Happy birthday, Sam!",
   learn: "Worksheet: a word to trace and a counting question",
-  undo: "Undo", reset: "Start again", resetSure: "Sure? Tap again", print: "Print", printWhat: "Print", printColored: "Coloured in", printBlank: "Blank",
+  undo: "Undo", reset: "Start again", resetSure: "Sure? Tap again", print: "Print", printWhat: "Print", printColored: "Coloured in", printBlank: "Blank", printExample: "Colour example", example: "This is how it looks", exampleBig: "View large", exampleBack: "Back to my picture",
   progress: (ok: number, total: number) => (ok === total ? "All coloured in correctly!" : `${ok} of ${total} areas correct`),
   party: "All correct! Oki is proud of you.",
   months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],

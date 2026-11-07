@@ -16,7 +16,7 @@ export const nb: Messages = {
   lineAuto: "Tilpasset", lineThin: "Tynn", lineNormal: "Normal", lineThick: "Tykk",
   extra: "Ekstra på arket", nameHint: "Tekst med boblebokstaver som du også kan fargelegge", namePlaceholder: "F.eks. Gratulerer med dagen, Sam!",
   learn: "Oppgaveark: et ord å skrive etter og en telleoppgave",
-  undo: "Angre", reset: "Begynn på nytt", resetSure: "Sikker? Trykk igjen", print: "Skriv ut", printWhat: "Skriv ut", printColored: "Fargelagt", printBlank: "Tomt",
+  undo: "Angre", reset: "Begynn på nytt", resetSure: "Sikker? Trykk igjen", print: "Skriv ut", printWhat: "Skriv ut", printColored: "Fargelagt", printBlank: "Tomt", printExample: "Eksempel i farger", example: "Slik ser den ut", exampleBig: "Se den stor", exampleBack: "Tilbake til tegningen min",
   progress: (ok: number, total: number) => (ok === total ? "Alt er riktig fargelagt!" : `${ok} av ${total} felt riktig`),
   party: "Helt riktig! Oki er stolt av deg.",
   months: ["januar", "februar", "mars", "april", "mai", "juni", "juli", "august", "september", "oktober", "november", "desember"],

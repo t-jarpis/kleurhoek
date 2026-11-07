@@ -23,7 +23,7 @@ export const sl: Messages = {
   lineAuto: "Prilagojeno", lineThin: "Tanke", lineNormal: "Običajne", lineThick: "Debele",
   extra: "Dodatno na strani", nameHint: "Besedilo z napihnjenimi črkami, ki ga lahko tudi pobarvaš", namePlaceholder: "Npr. Vse najboljše, Luka!",
   learn: "Delovni list: beseda za prevlačenje in naloga s štetjem",
-  undo: "Razveljavi", reset: "Začni znova", resetSure: "Res? Tapni še enkrat", print: "Natisni", printWhat: "Natisni", printColored: "Pobarvano", printBlank: "Prazno",
+  undo: "Razveljavi", reset: "Začni znova", resetSure: "Res? Tapni še enkrat", print: "Natisni", printWhat: "Natisni", printColored: "Pobarvano", printBlank: "Prazno", printExample: "Primer v barvah", example: "Takole je videti", exampleBig: "Poglej večje", exampleBack: "Nazaj na mojo sliko",
   progress: (ok: number, total: number) => (ok === total ? "Vse je pravilno pobarvano!" : `${ok} od ${total} polj pravilno`),
   party: "Vse pravilno! Oki je ponosen nate.",
   months: ["januar", "februar", "marec", "april", "maj", "junij", "julij", "avgust", "september", "oktober", "november", "december"],

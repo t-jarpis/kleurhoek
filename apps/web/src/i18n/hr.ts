@@ -23,7 +23,7 @@ export const hr: Messages = {
   lineAuto: "Prilagođeno", lineThin: "Tanke", lineNormal: "Obične", lineThick: "Debele",
   extra: "Dodatno na stranici", nameHint: "Tekst napuhanim slovima koji možeš i obojiti", namePlaceholder: "Npr. Sretan rođendan, Luka!",
   learn: "Radni list: riječ za podebljavanje i zadatak s brojanjem",
-  undo: "Poništi", reset: "Ispočetka", resetSure: "Sigurno? Dodirni još jednom", print: "Ispis", printWhat: "Ispis", printColored: "Obojeno", printBlank: "Prazno",
+  undo: "Poništi", reset: "Ispočetka", resetSure: "Sigurno? Dodirni još jednom", print: "Ispis", printWhat: "Ispis", printColored: "Obojeno", printBlank: "Prazno", printExample: "Primjer u boji", example: "Ovako izgleda", exampleBig: "Pogledaj veće", exampleBack: "Natrag na moju sliku",
   progress: (ok: number, total: number) => (ok === total ? "Sve je ispravno obojeno!" : `${ok} od ${total} polja ispravno`),
   party: "Sve je ispravno! Oki je ponosan na tebe.",
   months: ["siječanj", "veljača", "ožujak", "travanj", "svibanj", "lipanj", "srpanj", "kolovoz", "rujan", "listopad", "studeni", "prosinac"],

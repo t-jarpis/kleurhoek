@@ -23,7 +23,7 @@ export const ro: Messages = {
   lineAuto: "Potrivite", lineThin: "Subțiri", lineNormal: "Normale", lineThick: "Groase",
   extra: "Extra pe planșă", nameHint: "Text cu litere rotunjite, pe care îl poți colora și pe el", namePlaceholder: "De ex. La mulți ani, Sam!",
   learn: "Fișă de lucru: un cuvânt de trasat și o problemă de numărat",
-  undo: "Anulează", reset: "Ia-o de la capăt", resetSure: "Sigur? Mai atinge o dată", print: "Printează", printWhat: "Printează", printColored: "Colorată", printBlank: "Goală",
+  undo: "Anulează", reset: "Ia-o de la capăt", resetSure: "Sigur? Mai atinge o dată", print: "Printează", printWhat: "Printează", printColored: "Colorată", printBlank: "Goală", printExample: "Model colorat", example: "Așa arată", exampleBig: "Vezi mare", exampleBack: "Înapoi la desenul meu",
   progress: (ok: number, total: number) => (ok === total ? "Totul e colorat corect!" : `${ok} din ${count(total, "zonă corectă", "zone corecte")}`),
   party: "Totul e corect! Oki e mândru de tine.",
   months: ["ianuarie", "februarie", "martie", "aprilie", "mai", "iunie", "iulie", "august", "septembrie", "octombrie", "noiembrie", "decembrie"],

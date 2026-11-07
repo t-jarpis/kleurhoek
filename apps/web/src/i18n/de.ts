@@ -16,7 +16,7 @@ export const de: Messages = {
   lineAuto: "Passend", lineThin: "Dünn", lineNormal: "Normal", lineThick: "Dick",
   extra: "Extras auf der Vorlage", nameHint: "Text in dicken Buchstaben, den du auch ausmalen kannst", namePlaceholder: "Z. B. Alles Gute zum Geburtstag, Sam!",
   learn: "Lernblatt: ein Wort zum Nachspuren und eine Zählfrage",
-  undo: "Rückgängig", reset: "Von vorn", resetSure: "Sicher? Tippe noch einmal", print: "Drucken", printWhat: "Drucken", printColored: "Ausgemalt", printBlank: "Leer",
+  undo: "Rückgängig", reset: "Von vorn", resetSure: "Sicher? Tippe noch einmal", print: "Drucken", printWhat: "Drucken", printColored: "Ausgemalt", printBlank: "Leer", printExample: "Vorlage in Farbe", example: "So sieht es aus", exampleBig: "Groß ansehen", exampleBack: "Zurück zu meinem Bild",
   progress: (ok: number, total: number) => (ok === total ? "Alles richtig ausgemalt!" : `${ok} von ${total} Flächen richtig`),
   party: "Alles richtig! Oki ist stolz auf dich.",
   months: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],

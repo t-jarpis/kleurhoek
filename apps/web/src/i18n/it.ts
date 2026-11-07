@@ -16,7 +16,7 @@ export const it: Messages = {
   lineAuto: "Adatte", lineThin: "Sottili", lineNormal: "Normali", lineThick: "Spesse",
   extra: "Extra sul disegno", nameHint: "Testo in lettere grandi e tonde, che puoi anche colorare", namePlaceholder: "Es. Buon compleanno, Sam!",
   learn: "Scheda: parola da ricalcare e una domanda per contare",
-  undo: "Annulla", reset: "Ricomincia", resetSure: "Sicuro? Tocca di nuovo", print: "Stampa", printWhat: "Stampa", printColored: "Colorato", printBlank: "Vuoto",
+  undo: "Annulla", reset: "Ricomincia", resetSure: "Sicuro? Tocca di nuovo", print: "Stampa", printWhat: "Stampa", printColored: "Colorato", printBlank: "Vuoto", printExample: "Esempio a colori", example: "Ecco come viene", exampleBig: "Guarda in grande", exampleBack: "Torna al mio disegno",
   progress: (ok: number, total: number) => (ok === total ? "Tutto colorato bene!" : `${ok} zone giuste su ${total}`),
   party: "Perfetto! Oki è fiero di te.",
   months: ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"],

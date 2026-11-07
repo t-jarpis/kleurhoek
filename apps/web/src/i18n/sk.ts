@@ -20,7 +20,7 @@ export const sk: Messages = {
   lineAuto: "Automaticky", lineThin: "Tenké", lineNormal: "Normálne", lineThick: "Hrubé",
   extra: "Niečo navyše na obrázku", nameHint: "Text veľkými bublinkovými písmenami, ktorý si môžeš tiež vyfarbiť", namePlaceholder: "Napr. Všetko najlepšie, Sára!",
   learn: "Pracovný list: slovo na obťahovanie a otázka na počítanie",
-  undo: "Späť", reset: "Začať odznova", resetSure: "Naozaj? Ťukni ešte raz", print: "Vytlačiť", printWhat: "Vytlačiť", printColored: "Vyfarbený", printBlank: "Prázdny",
+  undo: "Späť", reset: "Začať odznova", resetSure: "Naozaj? Ťukni ešte raz", print: "Vytlačiť", printWhat: "Vytlačiť", printColored: "Vyfarbený", printBlank: "Prázdny", printExample: "Vzor vo farbe", example: "Takto vyzerá", exampleBig: "Zobraziť veľké", exampleBack: "Späť na môj obrázok",
   progress: (ok: number, total: number) => (ok === total ? "Všetko je vyfarbené správne!" : `Správne ${ok} z ${total} plôch`),
   party: "Všetko správne! Oki je na teba hrdý.",
   months: ["január", "február", "marec", "apríl", "máj", "jún", "júl", "august", "september", "október", "november", "december"],

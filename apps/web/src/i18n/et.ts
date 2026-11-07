@@ -16,7 +16,7 @@ export const et: Messages = {
   lineAuto: "Sobiv", lineThin: "Peenike", lineNormal: "Tavaline", lineThick: "Paks",
   extra: "Lisaks pildil", nameHint: "Tekst mullitähtedega, mida saad ka värvida", namePlaceholder: "Nt Palju õnne, Sam!",
   learn: "Tööleht: sõna jäljendamiseks ja loendamisülesanne",
-  undo: "Võta tagasi", reset: "Alusta uuesti", resetSure: "Kindel? Puuduta uuesti", print: "Prindi", printWhat: "Prindi", printColored: "Värvitud", printBlank: "Tühi",
+  undo: "Võta tagasi", reset: "Alusta uuesti", resetSure: "Kindel? Puuduta uuesti", print: "Prindi", printWhat: "Prindi", printColored: "Värvitud", printBlank: "Tühi", printExample: "Värviline näidis", example: "Selline see välja näeb", exampleBig: "Vaata suurelt", exampleBack: "Tagasi minu pildi juurde",
   progress: (ok: number, total: number) => (ok === total ? "Kõik on õigesti värvitud!" : `${ok} ala ${total}-st õigesti`),
   party: "Kõik õige! Oki on sinu üle uhke.",
   months: ["jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", "august", "september", "oktoober", "november", "detsember"],

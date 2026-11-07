@@ -16,7 +16,7 @@ export const da: Messages = {
   lineAuto: "Tilpasset", lineThin: "Tynd", lineNormal: "Normal", lineThick: "Tyk",
   extra: "Ekstra på tegningen", nameHint: "Tekst med boblebogstaver, som du også kan farvelægge", namePlaceholder: "F.eks. Tillykke med fødselsdagen, Sam!",
   learn: "Opgaveark: et ord at skrive efter og en tælleopgave",
-  undo: "Fortryd", reset: "Start forfra", resetSure: "Sikker? Tryk igen", print: "Print", printWhat: "Print", printColored: "Farvelagt", printBlank: "Tom",
+  undo: "Fortryd", reset: "Start forfra", resetSure: "Sikker? Tryk igen", print: "Print", printWhat: "Print", printColored: "Farvelagt", printBlank: "Tom", printExample: "Eksempel i farver", example: "Sådan ser den ud", exampleBig: "Se den stor", exampleBack: "Tilbage til min tegning",
   progress: (ok: number, total: number) => (ok === total ? "Alt er farvelagt rigtigt!" : `${ok} af ${total} felter rigtige`),
   party: "Helt rigtigt! Oki er stolt af dig.",
   months: ["januar", "februar", "marts", "april", "maj", "juni", "juli", "august", "september", "oktober", "november", "december"],

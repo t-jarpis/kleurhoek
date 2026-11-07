@@ -19,7 +19,7 @@ export const lv: Messages = {
   lineAuto: "Piemērotas", lineThin: "Plānas", lineNormal: "Parastas", lineThick: "Biezas",
   extra: "Papildus lapā", nameHint: "Teksts apaļos burtos, ko vari arī izkrāsot", namePlaceholder: "Piem., Daudz laimes, Sam!",
   learn: "Darba lapa: vārds, ko apvilkt, un skaitīšanas uzdevums",
-  undo: "Atsaukt", reset: "Sākt no jauna", resetSure: "Droši? Pieskaries vēlreiz", print: "Drukāt", printWhat: "Drukāt", printColored: "Izkrāsotu", printBlank: "Tukšu",
+  undo: "Atsaukt", reset: "Sākt no jauna", resetSure: "Droši? Pieskaries vēlreiz", print: "Drukāt", printWhat: "Drukāt", printColored: "Izkrāsotu", printBlank: "Tukšu", printExample: "Krāsains paraugs", example: "Lūk, kā tas izskatās", exampleBig: "Skatīt lielu", exampleBack: "Atpakaļ uz manu zīmējumu",
   progress: (ok: number, total: number) => (ok === total ? "Viss izkrāsots pareizi!" : `${ok} no ${total} laukumiem pareizi`),
   party: "Viss pareizi! Oki ar tevi lepojas.",
   months: ["janvāris", "februāris", "marts", "aprīlis", "maijs", "jūnijs", "jūlijs", "augusts", "septembris", "oktobris", "novembris", "decembris"],

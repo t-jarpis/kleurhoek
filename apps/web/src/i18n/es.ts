@@ -16,7 +16,7 @@ export const es: Messages = {
   lineAuto: "Automático", lineThin: "Finas", lineNormal: "Normales", lineThick: "Gruesas",
   extra: "Extra en el dibujo", nameHint: "Texto con letras gorditas que también puedes colorear", namePlaceholder: "Ej.: ¡Feliz cumpleaños, Sam!",
   learn: "Ficha: palabra para repasar y una pregunta para contar",
-  undo: "Deshacer", reset: "Empezar de nuevo", resetSure: "¿Seguro? Toca otra vez", print: "Imprimir", printWhat: "Imprimir", printColored: "Coloreado", printBlank: "En blanco",
+  undo: "Deshacer", reset: "Empezar de nuevo", resetSure: "¿Seguro? Toca otra vez", print: "Imprimir", printWhat: "Imprimir", printColored: "Coloreado", printBlank: "En blanco", printExample: "Ejemplo en color", example: "Así queda", exampleBig: "Ver en grande", exampleBack: "Volver a mi dibujo",
   progress: (ok: number, total: number) => (ok === total ? "¡Todo bien coloreado!" : `${ok} de ${total} zonas bien`),
   party: "¡Perfecto! Oki está muy orgulloso de ti.",
   months: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],

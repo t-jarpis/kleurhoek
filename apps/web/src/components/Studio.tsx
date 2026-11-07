@@ -9,7 +9,7 @@ import { BookToggle, MoreToPrint } from "./BookPicker";
 import type { Messages } from "@/i18n/nl-base";
 import { useT } from "./I18n";
 import { track } from "@/lib/track";
-import { ERASER, FREE_PALETTE, progress, strokeWidth, type Fills, type Line } from "@/lib/studio";
+import { ERASER, exampleFills, FREE_PALETTE, progress, strokeWidth, type Fills, type Line } from "@/lib/studio";
 import {
   BRUSHES, composeInner, deriveShared, EMPTY_ART, fillOp, gradientValue, normalizeArt, patternValue, pickColor, replay, roundPoint, strokePath, toShared, undoLast,
   type Art, type Brush, type Pattern, type Stroke, type Tool,
@@ -65,7 +65,9 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
   const [learn, setLearn] = useState(false);
   const [sure, setSure] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
-  const [printWhat, setPrintWhat] = useState<"kleur" | "leeg">("kleur");
+  const [printWhat, setPrintWhat] = useState<"kleur" | "leeg" | "voorbeeld">("kleur");
+  // Ingekleurd voorbeeld groot op de plek van de plaat (ADR 0089).
+  const [showExample, setShowExample] = useState(false);
   const colored = useRef(false);
   const wasDone = useRef(false);
 
@@ -136,6 +138,9 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
   const palette = mode === "num" ? plate.colorByNumber.palette : FREE_PALETTE.map((hex, i) => ({ number: i + 1, code: hex, hex, name: hex }));
   const prog = useMemo(() => progress(plate.colorByNumber.labels, plate.colorByNumber.palette, fills), [plate, fills]);
   const numbers = mode === "num" && !atelier;
+  const example = useMemo(() => exampleFills(plate.colorByNumber.labels, plate.colorByNumber.palette), [plate]);
+  const hasExample = plate.colorByNumber.labels.length > 0;
+  const exampleOpen = showExample && hasExample && !atelier && !lining;
 
   useEffect(() => {
     if (!numbers) return;
@@ -181,6 +186,8 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
 
   const sw = strokeWidth(line, ageWidth);
   const hasColor = Object.values(fills).some(Boolean) || art.ops.some((o) => o.t === "s");
+  // Wat er geprint wordt: zonder eigen kleuren valt "Ingekleurd" terug op leeg (ADR 0089).
+  const printing = !hasColor && printWhat === "kleur" ? "leeg" : printWhat;
   const sheet = useMemo(() => sheetPlate(plate), [plate]);
   const toFridge = () => {
     const d = new Date();
@@ -360,7 +367,7 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
           <h1>{plate.name}</h1>
           <FavoriteButton slug={plate.slug} market={market} language={language} accounts={accounts} />
         </div>
-        <div className="canvas" data-print={hasColor ? printWhat : "kleur"} data-atelier={atelier ? (brush ? "penseel" : "vullen") : lining ? "penseel" : undefined}>
+        <div className="canvas" data-print={printing} data-example={exampleOpen ? "" : undefined} data-atelier={atelier ? (brush ? "penseel" : "vullen") : lining ? "penseel" : undefined}>
           <div ref={port} className="zoomport" onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp}>
             <div className="zoomed" style={view.s !== 1 ? { transform: `translate(${view.x}px, ${view.y}px) scale(${view.s})` } : undefined}>
               <Sheet className="sheet sheet-live" plate={sheet} inner={inner} fills={fills} sw={sw} numbers={numbers} name={name} learn={learn}
@@ -375,10 +382,17 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
               </div>
             )}
           </div>
-          {/* Leeg printen: dezelfde plaat zonder kleuren; het werk op het scherm blijft staan. */}
-          {hasColor && printWhat === "leeg" && (
+          {exampleOpen && (
+            <div className="example-big">
+              <Sheet plate={sheet} inner={inner} fills={example} sw={sw} name={name} />
+            </div>
+          )}
+          {/* Leeg of het voorbeeld printen: een eigen vel; het werk op het scherm blijft staan. */}
+          {printing !== "kleur" && (
             <div className="print-copy" aria-hidden="true">
-              <Sheet plate={sheet} inner={inner} sw={sw} numbers={numbers} legend={numbers} name={name} learn={learn} art={{ ...art, ops: [], sun: null }} />
+              {printing === "leeg"
+                ? <Sheet plate={sheet} inner={inner} sw={sw} numbers={numbers} legend={numbers} name={name} learn={learn} art={{ ...art, ops: [], sun: null }} />
+                : <Sheet plate={sheet} inner={inner} fills={example} sw={sw} name={name} learn={learn} />}
             </div>
           )}
         </div>
@@ -430,6 +444,15 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
                   <button type="button" className="sw eraser" aria-label={t.eraser} aria-pressed={color === ERASER} onClick={() => setColor(ERASER)} />
                 </div>
               </div>
+              {hasExample && mode !== "lijn" && (
+                <div className="tool">
+                  <h2>{t.example}</h2>
+                  <button type="button" className="example" aria-pressed={exampleOpen} aria-label={exampleOpen ? t.exampleBack : t.exampleBig} onClick={() => setShowExample(!exampleOpen)}>
+                    <Sheet plate={sheet} inner={inner} fills={example} sw={sw} marked={false} />
+                  </button>
+                  <button type="button" className="btn" onClick={() => setShowExample(!exampleOpen)}>{exampleOpen ? t.exampleBack : t.exampleBig}</button>
+                </div>
+              )}
             </>
           )}
           <div className="tool">
@@ -460,12 +483,13 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
               <button type="button" className="btn" onClick={() => void saveImage()}><Icon name="image" size={16} /> {t.atelier.saveImage}</button>
             </div>
           )}
-          {hasColor && (
+          {(hasColor || hasExample) && (
             <div className="tool">
               <h2>{t.printWhat}</h2>
               <div className="seg" role="group" aria-label={t.printWhat}>
-                <button type="button" aria-pressed={printWhat === "kleur"} onClick={() => setPrintWhat("kleur")}>{t.printColored}</button>
-                <button type="button" aria-pressed={printWhat === "leeg"} onClick={() => setPrintWhat("leeg")}>{t.printBlank}</button>
+                <button type="button" aria-pressed={printing === "leeg"} onClick={() => setPrintWhat("leeg")}>{t.printBlank}</button>
+                {hasExample && <button type="button" aria-pressed={printing === "voorbeeld"} onClick={() => setPrintWhat("voorbeeld")}>{t.printExample}</button>}
+                {hasColor && <button type="button" aria-pressed={printing === "kleur"} onClick={() => setPrintWhat("kleur")}>{t.printColored}</button>}
               </div>
             </div>
           )}

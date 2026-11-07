@@ -164,10 +164,18 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: var(--font-display-w
 @page letter { size: letter portrait; margin: 0.55in; }
 html[data-paper="letter"] body { page: letter; }
 .print-copy { display: none; }
+/* ColorExample (ADR 0089): ingekleurd voorbeeld in de kleurstudio. */
+.example { all: unset; box-sizing: border-box; cursor: pointer; display: block; width: 160px; max-width: 100%; padding: var(--space-2); background: var(--color-paper); border: var(--border-thin) solid var(--color-border); border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+.example svg { display: block; width: 100%; height: auto; }
+.example[aria-pressed="true"] { border-color: var(--chip-selected-bg); box-shadow: 0 0 0 var(--border-thin) var(--chip-selected-bg), var(--shadow-card); }
+.example:focus-visible { outline: var(--focus-width) solid var(--color-focus); outline-offset: var(--focus-offset); }
+.canvas[data-example] .zoomport { display: none; }
 @media print {
   body { background: var(--color-paper); }
-  .canvas[data-print="leeg"] .sheet-live { display: none; }
-  .canvas[data-print="leeg"] .print-copy { display: block; }
+  .canvas[data-print="leeg"] .sheet-live, .canvas[data-print="voorbeeld"] .sheet-live { display: none; }
+  .canvas[data-print="leeg"] .print-copy, .canvas[data-print="voorbeeld"] .print-copy { display: block; }
+  .example-big { display: none; }
+  .canvas[data-example] .zoomport { display: block; }
   .no-print, .tools, .studio-top .btn { display: none !important; }
   .studio { display: block; }
   .studio-top h1 { text-align: center; margin-bottom: 6mm; color: var(--print-ink); }
