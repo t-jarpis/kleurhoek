@@ -14,6 +14,7 @@ const Settings = z.object({
   pinsPerDay: z.number().int().min(0).max(10),
   feedDays: z.array(z.number().int().min(1).max(7)).max(7),
   feedTime: z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/),
+  weekendTime: z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/).default("09:00"),
 }).strict();
 const Connect = z.object({ code: z.string().min(1).max(2000), state: z.string().min(10).max(300), redirectUri: z.string().url().max(500) }).strict();
 const Kind = z.enum(["pinterest", "meta"]);

@@ -115,7 +115,8 @@ function Settings({ o, canManage }: { o: SocialOverview; canManage: boolean }) {
       <fieldset className="ui-field"><legend>Dagen met een post op Facebook en Instagram</legend>
         <div className="ui-post-actions">{DAYS.map(([n, l]) => <label key={n} className="ui-check"><input type="checkbox" name="feedDays" value={n} defaultChecked={s.feedDays.includes(n)} disabled={!canManage} /> {l}</label>)}</div>
       </fieldset>
-      <label className="ui-field"><span>Tijdstip van die post</span><input className="ui-input" type="time" name="feedTime" defaultValue={s.feedTime} disabled={!canManage} /></label>
+      <label className="ui-field"><span>Tijdstip van die post (ma–vr)</span><input className="ui-input" type="time" name="feedTime" defaultValue={s.feedTime} disabled={!canManage} /></label>
+      <label className="ui-field"><span>Tijdstip in het weekend (za en zo)</span><input className="ui-input" type="time" name="weekendTime" defaultValue={s.weekendTime} disabled={!canManage} /></label>
       {canManage && <div><button className="ui-btn" data-variant="primary">Opslaan</button></div>}
     </form>
   );

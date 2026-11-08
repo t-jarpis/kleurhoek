@@ -148,4 +148,13 @@ describe("social (ADR 0063)", () => {
     expect(failed).toHaveLength(1);
     expect(failed[0].error).toContain("Ongeldige afbeelding");
   });
+  it("zet de post in het weekend 's ochtends en doordeweeks 's avonds", async () => {
+    await ctx.app.get<Database>(DB).execute(sql`delete from social.posts`);
+    expect((await as("/v1/admin/social/settings", { notifyEmail: null, pinsPerDay: 5, feedDays: [1, 3, 5, 6, 7], feedTime: "19:30", weekendTime: "09:00" }, "PUT")).statusCode).toBe(200);
+    await social.generate(new Date("2026-11-07T04:30:00Z")); // zaterdag, 5:30 in Nederland
+    const fb = ((await as("/v1/admin/social/posts?status=voorstel")).json().posts as { channel: string; scheduledAt: string }[])
+      .filter((p) => p.channel === "facebook").map((p) => new Date(p.scheduledAt).toISOString()).sort();
+    expect(fb).toEqual([atLocal("2026-11-07", "09:00"), atLocal("2026-11-08", "09:00"), atLocal("2026-11-09", "19:30")].map((d) => d.toISOString()));
+    await ctx.app.get<Database>(DB).execute(sql`delete from social.posts`);
+  });
 });

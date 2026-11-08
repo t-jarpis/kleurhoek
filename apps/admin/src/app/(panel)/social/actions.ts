@@ -41,6 +41,7 @@ export async function saveSettings(f: FormData) {
     pinsPerDay: Number(f.get("pinsPerDay") ?? 5),
     feedDays: f.getAll("feedDays").map(Number),
     feedTime: String(f.get("feedTime") ?? "19:30"),
+    weekendTime: String(f.get("weekendTime") ?? "09:00"),
   };
   await attempt("instellingen", "Instellingen opgeslagen.", () => adminApi.saveSocialSettings(body));
 }

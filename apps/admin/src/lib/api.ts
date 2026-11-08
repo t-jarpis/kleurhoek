@@ -196,7 +196,7 @@ export interface SourceInput { title?: string; description?: string | null; basi
 export type SocialChannel = "pinterest" | "facebook" | "instagram" | "delen";
 export type SocialStatus = "voorstel" | "goedgekeurd" | "geplaatst" | "mislukt" | "afgewezen";
 export interface SocialPost { id: string; channel: SocialChannel; status: SocialStatus; source: string; plateSlug: string | null; title: string; body: string; link: string; image: string; board: string | null; scheduledAt: string; publishedAt: string | null; externalUrl: string | null; error: string | null; attempts: number; decidedBy: string | null }
-export interface SocialSettings { notifyEmail: string | null; pinsPerDay: number; feedDays: number[]; feedTime: string }
+export interface SocialSettings { notifyEmail: string | null; pinsPerDay: number; feedDays: number[]; feedTime: string; weekendTime: string }
 export interface SocialOverview {
   channels: { kind: Exclude<SocialChannel, "delen">; available: boolean; connected: boolean; account: string | null; enabled: boolean; live: boolean; connectedAt: string | null; error: string | null }[];
   counts: { status: SocialStatus; channel: SocialChannel; n: number }[];

@@ -30,10 +30,12 @@ export interface SocialSettings {
   pinsPerDay: number;
   /** Dagen met een post op Facebook, Instagram en om te delen (1 = maandag … 7 = zondag). */
   feedDays: number[];
-  /** Hoe laat de post komt (lokale tijd). */
+  /** Hoe laat de post komt op doordeweekse dagen (lokale tijd). */
   feedTime: string;
+  /** Hoe laat de post komt op zaterdag en zondag: ouders printen dan juist 's ochtends. */
+  weekendTime: string;
 }
-export const DEFAULT_SETTINGS: SocialSettings = { notifyEmail: null, pinsPerDay: 5, feedDays: [1, 3, 5, 6, 7], feedTime: "19:30" };
+export const DEFAULT_SETTINGS: SocialSettings = { notifyEmail: null, pinsPerDay: 5, feedDays: [1, 3, 5, 6, 7], feedTime: "19:30", weekendTime: "09:00" };
 const PIN_TIMES = ["08:30", "12:00", "15:30", "19:00", "20:30", "10:15", "13:45", "17:15", "21:30", "07:30"];
 
 // ---------- Tijd in Nederland ----------
@@ -168,7 +170,7 @@ export class SocialService implements OnModuleInit {
   async saveSettings(s: SocialSettings, actor = "systeem") {
     const [row] = await this.tx((tx) => tx.select({ value: settings.value }).from(settings).where(eq(settings.tenantId, this.tenant)));
     const { generatedOn: _g, digestSentOn: _d, ...current } = await this.settings();
-    const before: SocialSettings = { notifyEmail: current.notifyEmail, pinsPerDay: current.pinsPerDay, feedDays: current.feedDays, feedTime: current.feedTime };
+    const before: SocialSettings = { notifyEmail: current.notifyEmail, pinsPerDay: current.pinsPerDay, feedDays: current.feedDays, feedTime: current.feedTime, weekendTime: current.weekendTime };
     await this.tx(async (tx) => {
       await tx.insert(settings).values({ tenantId: this.tenant, value: { ...(row?.value ?? {}), ...s } })
         .onConflictDoUpdate({ target: settings.tenantId, set: { value: { ...(row?.value ?? {}), ...s }, updatedAt: new Date() } });
@@ -398,7 +400,7 @@ export class SocialService implements OnModuleInit {
     for (const day of days) {
       // In de Sinterklaaskalender (ADR 0065) elke dag een post met het deurtje van die dag, anders op de gekozen dagen.
       if (!s.feedDays.includes(weekday(day)) && !sintDoorOn(day, MARKET)) continue;
-      const at = atLocal(day, s.feedTime);
+      const at = atLocal(day, weekday(day) >= 6 ? s.weekendTime : s.feedTime);
       if (at < now) continue;
       const choice = this.feedChoice(day, list, soon, recent);
       if (!choice) continue;
