@@ -38,6 +38,8 @@ export interface Taxonomy {
   /** Leerdoelen in het aanbod, en of het filter Leerdoel aanstaat voor deze organisatie (ADR 0036). */
   goals: { slug: string; name: string }[];
   learningFilters: boolean;
+  /** Landen bij platen: slug is de Nederlandse bronnaam, name in de taal van de markt (ADR 0094). */
+  countries?: { slug: string; name: string }[];
 }
 export interface Season {
   today: string;

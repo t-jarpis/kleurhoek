@@ -11,6 +11,8 @@
     "plates",
     "texts",
     "index.js",
+    "countries.js",
+    "age-rule.js",
     "index.d.ts",
     "text-layer.js",
     "goals.js",

@@ -34,6 +34,9 @@ for (const p of plates) {
     if (!p.materials.length) fail(p.slug, "geen materialen");
   }
   if (["knipplaat", "bouwplaat", "kaart", "sjabloon"].includes(p.kind) && !p.materials.some((m) => m.slug === "kinderschaar")) warn(p.slug, "knippen zonder schaar in de materialen");
+  // Leeftijd past bij de tekening (ADR 0094); scripts/plates/ages.mjs --write zet hem goed.
+  const age = data.ageFor(p);
+  if (age && age !== p.age) fail(p.slug, `leeftijd ${p.age} past niet bij ${p.regionCount} vlakken (hoort ${age})`);
   if (p.kind === "werkblad" && !p.pages.some((x) => x.role === "antwoorden") && /(reken|som|tel|puzzel|doolhof|zoek)/i.test(nl.name + " " + (nl.steps ?? []).join(" "))) warn(p.slug, "werkblad met een opgave maar zonder antwoordblad");
 }
 

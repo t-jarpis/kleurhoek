@@ -1,6 +1,6 @@
 import { colorIn } from "./pin";
 import { createHash } from "node:crypto";
-import { goalName, localizeSvg, SOURCE_LANGUAGE } from "@kleurhoek/catalog-data";
+import { COUNTRY_CODES, countryName, goalName, localizeSvg, SOURCE_LANGUAGE } from "@kleurhoek/catalog-data";
 import { Inject, Injectable } from "@nestjs/common";
 import { ENV, type Env } from "../../config/env";
 import { todayIn } from "../../shared/dates";
@@ -174,6 +174,8 @@ export class StorefrontService {
       // Leerdoelen (ADR 0036): namen staan in de website (vaste lijst); het filter staat aan per organisatie.
       goals: GOALS.filter((g) => !view.offer.goals || view.offer.goals.includes(g)).map((slug) => ({ slug, name: goalName(slug, market.language) })),
       learningFilters: view.features.learningFilters,
+      // Landen bij platen in de taal van de markt (ADR 0094); slug = de Nederlandse bronnaam.
+      countries: Object.keys(COUNTRY_CODES).map((slug) => ({ slug, name: countryName(slug, market.language) })),
     };
   }
 

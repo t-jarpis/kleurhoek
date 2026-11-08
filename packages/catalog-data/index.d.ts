@@ -71,3 +71,7 @@ export type LearningGoal = "rekenen" | "taal" | "motoriek" | "knutselen" | "ruim
 export const GOALS: LearningGoal[];
 export function learningGoals(p: { slug: string; kind: string; category: string; holiday?: string | null; continent?: string | null }): LearningGoal[];
 export function goalName(goal: LearningGoal, language: string): string;
+export const COUNTRY_CODES: Record<string, string>;
+export function countryName(country: string, language: string): string;
+export const AGE_BANDS: { age: string; max: number }[];
+export function ageFor(p: { kind?: string; regionCount: number }): string | null;

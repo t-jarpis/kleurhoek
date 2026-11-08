@@ -4,6 +4,8 @@ const path = require("node:path");
 const read = (f) => JSON.parse(fs.readFileSync(path.join(__dirname, f), "utf8"));
 const textLayer = require("./text-layer");
 const goals = require("./goals");
+const countries = require("./countries");
+const ageRule = require("./age-rule");
 let overrides;
 
 /** Andere namen per plaat en taal (ADR 0085), apart van plates.json zodat ze makkelijk na te kijken zijn. */
@@ -33,6 +35,12 @@ module.exports = {
   /** Leerdoelen (ADR 0036). */
   GOALS: goals.GOALS,
   goalName: goals.goalName,
+  /** Landnamen in de taal van de markt (ADR 0094). */
+  COUNTRY_CODES: countries.COUNTRY_CODES,
+  countryName: countries.countryName,
+  /** Leeftijd uit het aantal vlakken (ADR 0094). */
+  AGE_BANDS: ageRule.AGE_BANDS,
+  ageFor: ageRule.ageFor,
   learningGoals: (p) => goals.learningGoals(p, overrides ??= read("goals-overrides.json")),
   categories: () => read("categories.json"),
   ages: () => read("ages.json"),

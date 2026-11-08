@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react"
 import { KIND_GROUP, type PlateItem, type Taxonomy } from "@/lib/types";
 import { useT } from "./I18n";
 import { PlateCard } from "./PlateCard";
+import { countryLabel } from "./labels";
 import { useBase } from "./Base";
 import { book, favorites, useBook, useFavorites } from "@/lib/local";
 import { link } from "@/lib/sites";
@@ -52,7 +53,7 @@ export function Browse({ plates, taxonomy, market, language, themes = [], subscr
   };
   const haystack = useMemo(() => new Map(plates.map((p) => [p.slug, [
     p.name, taxonomy.categories.find((c) => c.slug === p.category)?.name, taxonomy.holidays.find((h) => h.slug === p.holiday)?.name,
-    taxonomy.continents.find((c) => c.slug === p.world?.continent)?.name, p.world?.country, p.kind !== "kleurplaat" ? t.kindNames[p.kind] : "",
+    taxonomy.continents.find((c) => c.slug === p.world?.continent)?.name, p.world?.country && countryLabel(p.world.country, taxonomy), p.kind !== "kleurplaat" ? t.kindNames[p.kind] : "",
     ...p.goals.map((g) => taxonomy.goals.find((x) => x.slug === g)?.name),
     ...(p.also ?? []),
   ].filter(Boolean).join(" ")])), [plates, taxonomy, t]);
@@ -100,7 +101,7 @@ export function Browse({ plates, taxonomy, market, language, themes = [], subscr
   const request = () => { sendWish(q, market, "request"); setRequested(q); };
 
   const cont = taxonomy.continents.find((c) => c.slug === f.cont);
-  const lands = cont ? [...new Set(aged.filter((p) => p.world?.continent === cont.slug && p.world.country).map((p) => p.world!.country!))].sort((a, b) => a.localeCompare(b, language)) : [];
+  const lands = cont ? [...new Set(aged.filter((p) => p.world?.continent === cont.slug && p.world.country).map((p) => p.world!.country!))].sort((a, b) => countryLabel(a, taxonomy).localeCompare(countryLabel(b, taxonomy), language)) : [];
   const age = taxonomy.ages.find((a) => a.slug === f.age);
   const chip = (key: Key, value: string, name: string, color: string, n: number, on: boolean, small = false) => (
     <button key={value} type="button" className="chip" style={{ "--c": color } as CSSProperties} aria-pressed={on}
@@ -158,7 +159,7 @@ export function Browse({ plates, taxonomy, market, language, themes = [], subscr
           <div className="frow"><span className="flabel">{t.country}</span>
             <nav className="chips sm" aria-label={t.country}>
               {chip("land", "alle", t.whole(cont.name), cont.color, aged.filter((p) => p.world?.continent === cont.slug).length, f.land === "alle")}
-              {lands.map((l) => chip("land", l, l, cont.color, aged.filter((p) => p.world?.country === l).length, f.land === l))}
+              {lands.map((l) => chip("land", l, countryLabel(l, taxonomy), cont.color, aged.filter((p) => p.world?.country === l).length, f.land === l))}
             </nav>
           </div>
         )}
