@@ -17,3 +17,6 @@ Het dashboard toonde alleen totalen over 7 dagen. De eigenaar wil over een gekoz
 ## Afwegingen
 - *Een grafiekbibliotheek* scheelt code, maar haalt een groot pakket in het admin panel en volgt het design system minder strak. Twee kleine componenten zijn genoeg.
 - *Een "weekly active"-teller voor accounts per dag* vraagt een logboek van inlogdagen per persoon. Dat is meer persoonsgegevens dan nodig; de laatste inlog volstaat zolang de periode tot vandaag loopt.
+
+## Aanvulling (2026-11-08): elke print telt
+Tot nu toe telde een print alleen bij de printknop in de studio en het boekje. Prints via Ctrl+P, het browsermenu, de cadeaulabels en de extra pagina's misten. Nu telt ook het `beforeprint`-event van de browser (`components/PrintTracker.tsx` in de layout). Knop en event samen, binnen 5 seconden, tellen één keer. Staat er een plaat open in de studio, dan telt de print bij die plaat. Vanaf deze datum liggen de printaantallen daardoor hoger; vergelijk niet één op één met de periode ervoor.

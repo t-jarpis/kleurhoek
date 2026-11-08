@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import type { Messages } from "@/i18n/nl-base";
 import { useT } from "./I18n";
 import { book } from "@/lib/local";
-import { track } from "@/lib/track";
+import { trackPrint } from "@/lib/track";
 import type { PlateDetail } from "@/lib/types";
 import { Sheet, sheetPlate } from "./Sheet";
 
@@ -89,7 +89,7 @@ export function Booklet({ market, language, items, mascots, title, loose = false
           </div>
           <p className="hint">{items.length ? t.bookInfo(items.length) : t.bookEmpty}</p>
           <button type="button" className="btn primary" disabled={!items.length}
-            onClick={() => { track({ type: "print", market }); window.print(); }}>{t.printBook}</button>
+            onClick={() => { trackPrint(market); window.print(); }}>{t.printBook}</button>
         </aside>
         <div className="sheets">
           {cover && <div className="a4 cover"><Cover owner={owner} count={items.length} mascots={mascots} t={t} /><span className="pg">{t.cover}</span></div>}

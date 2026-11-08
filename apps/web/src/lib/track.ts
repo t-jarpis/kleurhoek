@@ -38,3 +38,20 @@ export function track(e: TrackEvent) {
     }
   } catch { /* tellen mag nooit de site breken */ }
 }
+
+/** Plaat die nu open staat (studio), zodat een print via Ctrl+P ook bij die plaat telt. */
+let printPlate: string | undefined;
+export function setPrintPlate(slug: string | undefined) { printPlate = slug; }
+
+let lastPrint = 0;
+/**
+ * Telt één print (ADR 0020). Komt van de printknoppen én van het beforeprint-event van de browser, dus
+ * ook Ctrl+P en het browsermenu tellen. Binnen 5 seconden telt het maar één keer, want een printknop
+ * geeft beide en sommige browsers melden beforeprint twee keer.
+ */
+export function trackPrint(market: string) {
+  const now = Date.now();
+  if (now - lastPrint < 5000) return;
+  lastPrint = now;
+  track({ type: "print", market, ...(printPlate ? { plate: printPlate } : {}) });
+}

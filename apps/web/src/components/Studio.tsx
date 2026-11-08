@@ -8,7 +8,7 @@ import type { PlateDetail, PlateItem } from "@/lib/types";
 import { BookToggle, MoreToPrint } from "./BookPicker";
 import type { Messages } from "@/i18n/nl-base";
 import { useT } from "./I18n";
-import { track } from "@/lib/track";
+import { setPrintPlate, track, trackPrint } from "@/lib/track";
 import { ERASER, exampleFills, FREE_PALETTE, progress, strokeWidth, type Fills, type Line } from "@/lib/studio";
 import {
   BRUSHES, composeInner, deriveShared, EMPTY_ART, fillOp, gradientValue, normalizeArt, patternValue, pickColor, replay, roundPoint, strokePath, toShared, undoLast,
@@ -134,6 +134,7 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
     if (!writeLocal(storageKey(plate), { fills, name, ...(empty ? {} : { art }) }) && !warnedFull.current) { warnedFull.current = true; flash(t.atelier.full); }
   }, [plate, fills, name, art, loaded]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { track({ type: "plate_view", market, plate: plate.slug }); }, [market, plate.slug]);
+  useEffect(() => { setPrintPlate(plate.slug); return () => setPrintPlate(undefined); }, [plate.slug]);
 
   const palette = mode === "num" ? plate.colorByNumber.palette : FREE_PALETTE.map((hex, i) => ({ number: i + 1, code: hex, hex, name: hex }));
   const prog = useMemo(() => progress(plate.colorByNumber.labels, plate.colorByNumber.palette, fills), [plate, fills]);
@@ -496,7 +497,7 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
           <div className="row">
             <button type="button" className="btn" onClick={toFridge}>{t.toFridge}</button>
             <BookToggle slug={plate.slug} language={language} />
-            <button type="button" className="btn primary" onClick={() => { track({ type: "print", market, plate: plate.slug }); window.print(); setPrinted(true); }}>{t.print}</button>
+            <button type="button" className="btn primary" onClick={() => { trackPrint(market); window.print(); setPrinted(true); }}>{t.print}</button>
           </div>
           {printed && <MoreToPrint plates={more} language={language} />}
         </aside>
