@@ -10,6 +10,8 @@ OUT = os.environ.get("OUT", "/tmp/illu")
 def dino_met_ijsje():
     reset()
     el = []
+    # lucht als eigen vlak, zodat de hele plaat in te kleuren is (ook in het voorbeeld)
+    el += [R("M0 0 H200 V200 H0 Z", "b")]
     el += [cloud(18, 34, 1.0), cloud(150, 26, 0.8)]
     el += [R(smooth([(96, 168), (120, 138), (150, 128), (180, 132), (204, 146), (204, 172)], closed=False) + " Z", "l")]
     el += [R("M4 172 Q20 132 31 99 Q34 92 42 92 L52 92 Q60 92 63 99 Q72 132 88 172 Z", "w")]
