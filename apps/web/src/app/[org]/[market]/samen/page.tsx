@@ -11,6 +11,9 @@ import { getOrg } from "@/lib/org";
 import { pageMeta } from "@/lib/seo";
 import { link } from "@/lib/sites";
 
+/** Leest de link of is persoonlijk: altijd per verzoek, nooit bewaard (ADR 0093). */
+export const dynamic = "force-dynamic";
+
 type Params = { params: Promise<{ org: string; market: string }>; searchParams: Promise<{ fout?: string }> };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {

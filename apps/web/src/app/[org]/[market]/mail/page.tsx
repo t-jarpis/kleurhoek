@@ -10,6 +10,9 @@ import { getOrg } from "@/lib/org";
 import { notFound } from "next/navigation";
 import { subscribe } from "./actions";
 
+/** Leest de link of is persoonlijk: altijd per verzoek, nooit bewaard (ADR 0093). */
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({ params }: { params: Promise<{ market: string }> }): Promise<Metadata> {
   return { title: messages((await params).market).mlPrefsTitle, robots: { index: false, follow: false } };
 }

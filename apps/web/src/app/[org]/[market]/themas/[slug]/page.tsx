@@ -12,6 +12,8 @@ import { getOrg } from "@/lib/org";
 import { pageMeta } from "@/lib/seo";
 
 export const revalidate = 300;
+/** Leeg: de pagina wordt bij het eerste verzoek gemaakt en daarna bewaard (ISR, ADR 0093). */
+export function generateStaticParams() { return []; }
 
 async function load(org: string, market: string, slug: string) {
   try { return await api.theme(market, slug, org); } catch (e) { if (e instanceof NotFound) notFound(); throw e; }

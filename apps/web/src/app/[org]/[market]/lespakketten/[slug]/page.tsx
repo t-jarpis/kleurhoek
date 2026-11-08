@@ -16,6 +16,8 @@ import { link } from "@/lib/sites";
 import { kindFor } from "@/i18n/plate-meta";
 
 export const revalidate = 300;
+/** Leeg: de pagina wordt bij het eerste verzoek gemaakt en daarna bewaard (ISR, ADR 0093). */
+export function generateStaticParams() { return []; }
 type Params = { params: Promise<{ org: string; market: string; slug: string }> };
 
 async function load(org: string, market: string, slug: string) {

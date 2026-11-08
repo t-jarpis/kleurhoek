@@ -13,6 +13,9 @@ import { pageMeta } from "@/lib/seo";
 import { sendOrgRequest } from "./actions";
 import { contactChallenge } from "../contact/actions";
 
+/** Leest de link of is persoonlijk: altijd per verzoek, nooit bewaard (ADR 0093). */
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({ params }: { params: Promise<{ org: string; market: string }> }): Promise<Metadata> {
   const { org, market } = await params;
   const t = messages(market);

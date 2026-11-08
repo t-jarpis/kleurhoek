@@ -59,5 +59,8 @@ export default async function MarketLayout({ children, params }: { children: Rea
   );
 }
 
-// Geen generateStaticParams: pagina's worden bij het eerste verzoek gebouwd en daarna gecachet (ISR),
-// zodat een build niet afhangt van een draaiende API.
+// Een lege lijst: geen pagina's bij de build (die hangt dan niet af van een draaiende API), maar wel
+// ISR. Zonder generateStaticParams is een route met dynamische segmenten altijd dynamisch en rendert
+// Next elke pagina bij elk verzoek opnieuw (ADR 0093). Geen force-static: dan zien boekje, contact,
+// mail en samen lege searchParams.
+export function generateStaticParams() { return []; }

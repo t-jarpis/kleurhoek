@@ -9,6 +9,9 @@ import { Track } from "@/components/Track";
 import { messages } from "@/i18n/nl";
 import { getOrg } from "@/lib/org";
 
+/** Leest de link of is persoonlijk: altijd per verzoek, nooit bewaard (ADR 0093). */
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({ params }: { params: Promise<{ market: string }> }): Promise<Metadata> {
   const t = messages((await params).market);
   return { title: t.metaBook, robots: { index: false } };

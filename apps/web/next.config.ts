@@ -20,6 +20,8 @@ const csp = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // Bewaarde pagina's (ISR, ADR 0093) hoogstens een dag oud uitgeven, ook als er lang geen verzoek kwam.
+  expireTime: 86_400,
   // Container-image met alleen wat nodig is; de monorepo-root zodat gedeelde pakketten meekomen.
   output: "standalone",
   outputFileTracingRoot: path.join(__dirname, "../.."),

@@ -20,6 +20,8 @@ import { PinButton } from "@/components/PinButton";
 import { topicTitle } from "@/lib/topics";
 
 export const revalidate = 300;
+/** Leeg: de pagina wordt bij het eerste verzoek gemaakt en daarna bewaard (ISR, ADR 0093). */
+export function generateStaticParams() { return []; }
 
 async function load(org: string, market: string, slug: string) {
   try {

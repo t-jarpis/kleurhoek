@@ -4,7 +4,7 @@
 - Datum: 2026-10-22
 
 ## Besluit
-- **Website (`apps/web`)**: Next.js 16 (App Router). Markt in de URL (`/nl-nl`); `/` stuurt via `src/proxy.ts` door op land (Cloudflare) en browsertaal. Pagina's worden bij het eerste verzoek gebouwd en 5 minuten gecachet (ISR), zodat het CDN ze kan bewaren en een build niet afhangt van de API.
+- **Website (`apps/web`)**: Next.js 16 (App Router). Markt in de URL (`/nl-nl`); `/` stuurt via `src/proxy.ts` door op land (Cloudflare) en browsertaal. Pagina's worden bij het eerste verzoek gebouwd en daarna bewaard (ISR), zodat het CDN ze kan bewaren en een build niet afhangt van de API. Hoe dat werkt en welke pagina's dynamisch blijven: ADR 0093.
 - **Filters** staan in de URL en worden in de browser toegepast op de platen van de markt (65 items). Zo blijft er één gecachete pagina per markt.
 - **Kleurstudio**: de SVG van de plaat staat inline; kleuren, tekst, leerblad en nummers zijn React-lagen erboven. Werk blijft alleen in de browser (localStorage), zonder account. Printen gebruikt het printvenster met een A4-printstijl.
 - **Koelkast en boekje**: de koelkast bewaart opgehangen werk (kleuren en tekst) in `localStorage`, hooguit 24 platen, zonder account en zonder server. Het boekje (`/nl-nl/boekje?platen=kat,vis`) zet een voorblad met naam en de gekozen platen elk op een eigen A4, optioneel als kleur-op-nummer met kleurenlijst of als leerblad. De keuze staat in de URL, dus een boekje is te delen en er wordt niets bewaard. Printen gaat via het printvenster met een A4-printstijl; daar maakt de browser ook een PDF van.
