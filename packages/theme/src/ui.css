@@ -707,3 +707,17 @@ a.ui-chip { text-decoration: none; }
 .kh-request { display: grid; gap: var(--space-2); justify-items: center; text-align: center; }
 .kh-request [role="status"] { color: var(--color-text-muted); }
 .kh-theme-hint { grid-column: 1 / -1; margin: 0; font-weight: 700; }
+/* ---------- CapacityCard: drukte en advies per container (admin, ADR 0092) ---------- */
+.ui-capacity-grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); }
+.ui-capacity { display: grid; gap: var(--space-2); align-content: start; background: var(--color-surface); border: var(--border-thin) solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-4); }
+.ui-capacity header { display: grid; gap: 2px; }
+.ui-capacity h3 { margin: 0; font-size: 18px; font-weight: 800; }
+.ui-capacity header small, .ui-capacity footer { font-size: 13px; color: var(--color-text-muted); }
+.ui-capacity dl { margin: 0; display: grid; gap: var(--space-2); }
+.ui-capacity dl > div { display: grid; grid-template-columns: 6.5em 1fr; align-items: center; gap: var(--space-2); }
+.ui-capacity dt { font-size: 14px; color: var(--color-text-muted); }
+.ui-capacity dd { margin: 0; display: grid; grid-template-columns: 1fr 3.5em; align-items: center; gap: var(--space-2); }
+.ui-capacity dd span { font-variant-numeric: tabular-nums; font-weight: 700; text-align: end; }
+.ui-capacity meter { inline-size: 100%; block-size: 10px; }
+.ui-capacity .ui-badge { justify-self: start; }
+.ui-capacity p { margin: 0; font-size: 14px; line-height: 1.45; }

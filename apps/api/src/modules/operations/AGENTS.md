@@ -15,6 +15,7 @@ Andere domeinen importeren alleen deze bestanden. De test `test/boundaries.test.
 - `site-access.service.ts` (gebruikt door: organizations)
 
 ## Endpoints
+- `/v1/admin/capacity`
 - `/v1/admin/rate-limits`
 - `/v1/admin/releases`
 - `/v1/admin/site-access`

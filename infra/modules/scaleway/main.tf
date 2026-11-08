@@ -178,3 +178,24 @@ resource "scaleway_cockpit_token" "diagnose" {
     write_metrics = false
   }
 }
+
+# ---------- Capaciteit (ADR 0092) ----------
+# De API leest één keer per kwartier processor en geheugen van de eigen containers uit Cockpit, voor
+# Beheer › Capaciteit. Alleen lezen, alleen metrics.
+
+data "scaleway_cockpit_source" "metrics" {
+  project_id = data.scaleway_account_project.current.id
+  type       = "metrics"
+  origin     = "scaleway"
+}
+
+resource "scaleway_cockpit_token" "capacity" {
+  project_id = data.scaleway_account_project.current.id
+  name       = "${local.name}-api-capacity"
+  scopes {
+    query_logs    = false
+    write_logs    = false
+    query_metrics = true
+    write_metrics = false
+  }
+}

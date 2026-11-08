@@ -33,11 +33,12 @@ export default async function PanelLayout({ children }: { children: React.ReactN
         {can("shop.read") && <NavLink href="/winkel" icon="shop">Winkel</NavLink>}
         {can("contact.read") && <NavLink href="/contact" icon="contact">Contact{unread > 0 && <span className="ui-count" aria-label={`${unread} nieuw`}>{unread}</span>}</NavLink>}
         {can("organizations.read") && <NavLink href="/organisaties" icon="organizations">Organisaties</NavLink>}
-        {(can("identity.users.read") || can("operations.access.read") || can("operations.ratelimit.read") || can("releases.read")) && <span className="ui-sidenav-group">Systeem</span>}
+        {(can("identity.users.read") || can("operations.access.read") || can("operations.ratelimit.read") || can("releases.read") || can("operations.capacity.read")) && <span className="ui-sidenav-group">Systeem</span>}
         {can("identity.users.read") && <NavLink href="/gebruikers" icon="users">Gebruikers</NavLink>}
         {can("operations.access.read") && <NavLink href="/toegang" icon="access">Toegang</NavLink>}
         {can("operations.ratelimit.read") && <NavLink href="/rate-limits" icon="limits">Rate limits</NavLink>}
         {can("audit.read") && <NavLink href="/wijzigingen" icon="undo">Wijzigingen</NavLink>}
+        {can("operations.capacity.read") && <NavLink href="/capaciteit" icon="analytics">Capaciteit</NavLink>}
         {can("releases.read") && <NavLink href="/releases" icon="releases">Releases</NavLink>}
         <div className="who">
           <span>{who.name ?? who.email ?? "Beheerder"}</span>

@@ -1,4 +1,4 @@
-import { boolean, date, index, integer, jsonb, pgSchema, text, timestamp, uniqueIndex } from "drizzle-orm/pg-core";
+import { boolean, date, index, integer, jsonb, pgSchema, real, text, timestamp, uniqueIndex } from "drizzle-orm/pg-core";
 import { baseColumns } from "../../shared/columns";
 
 export const operationsSchema = pgSchema("operations");
@@ -59,3 +59,27 @@ export const releases = operationsSchema.table("releases", {
   notes: jsonb("notes").$type<ReleaseNote[]>().notNull(),
   startedAt: timestamp("started_at", { withTimezone: true }).notNull().defaultNow(),
 }, (t) => [index("releases_tenant_started").on(t.tenantId, t.startedAt)]);
+
+/**
+ * Capaciteit per dag en container (ADR 0092): processor en geheugen uit Scaleway Cockpit, als percentage van
+ * wat de container mag gebruiken. Gemiddeld en op de drukste momenten (p95), plus het grootste aantal exemplaren.
+ */
+export const capacityDaily = operationsSchema.table("capacity_daily", {
+  ...baseColumns(),
+  day: date("day", { mode: "string" }).notNull(),
+  app: text("app").notNull(),
+  cpuAvg: real("cpu_avg"),
+  cpuP95: real("cpu_p95"),
+  memAvg: real("mem_avg"),
+  memP95: real("mem_p95"),
+  instancesMax: integer("instances_max"),
+}, (t) => [uniqueIndex("capacity_daily_unique").on(t.tenantId, t.day, t.app)]);
+
+/** Hoe snel de site antwoordt, gemeten zoals een bezoeker (ADR 0092): tijd tot het eerste antwoord per controle. */
+export const speedSamples = operationsSchema.table("speed_samples", {
+  ...baseColumns(),
+  at: timestamp("at", { withTimezone: true }).notNull(),
+  path: text("path").notNull(),
+  ms: integer("ms").notNull(),
+  status: integer("status").notNull(),
+}, (t) => [index("speed_samples_tenant_at").on(t.tenantId, t.at)]);

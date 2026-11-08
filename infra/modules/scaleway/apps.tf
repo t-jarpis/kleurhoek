@@ -13,13 +13,21 @@ resource "scaleway_container_namespace" "main" {
 locals {
   registry = scaleway_registry_namespace.main.endpoint
 
+  # Maat per container op één plek: de containers hieronder én de capaciteitspagina (ADR 0092) lezen dit.
+  sizes = {
+    api   = { cpu = 560, memory = 1024, min = var.scale.api_min, max = var.scale.api_max }
+    web   = { cpu = 560, memory = 1024, min = var.scale.web_min, max = var.scale.web_max }
+    admin = { cpu = 280, memory = 512, min = 0, max = 1 }
+    login = { cpu = 280, memory = 512, min = 0, max = 2 }
+  }
+
   apps = {
     api = {
       port    = 3001
-      cpu     = 560
-      memory  = 1024
-      min     = var.scale.api_min
-      max     = var.scale.api_max
+      cpu     = local.sizes.api.cpu
+      memory  = local.sizes.api.memory
+      min     = local.sizes.api.min
+      max     = local.sizes.api.max
       health  = "/health"
       public  = false
       timeout = 300
@@ -41,15 +49,19 @@ locals {
         MAIL_FROM = nonsensitive(var.mail.from)
         # Social (ADR 0063): terugkeeradressen na het koppelen van kanalen beginnen hiermee.
         ADMIN_URL = "https://${var.hosts.admin}"
+        # Capaciteit (ADR 0092): welke containers, hoe groot, en waar Cockpit de cijfers bewaart.
+        CAPACITY_APPS       = jsonencode([for k, v in local.sizes : merge(v, { app = k, container = k })])
+        COCKPIT_METRICS_URL = data.scaleway_cockpit_source.metrics.url
         },
         # Zoekcijfers (ADR 0041): alleen in productie.
         length(var.search_domains) > 0 ? { SEARCH_DOMAINS = join(",", var.search_domains) } : {},
       )
       secret_env = merge({
-        DATABASE_URL  = local.database_url
-        INGEST_KEY    = random_password.secret["ingest-key"].result
-        MAIL_SECRET   = random_password.secret["mail-secret"].result
-        SOCIAL_SECRET = random_password.secret["social-secret"].result
+        DATABASE_URL          = local.database_url
+        INGEST_KEY            = random_password.secret["ingest-key"].result
+        MAIL_SECRET           = random_password.secret["mail-secret"].result
+        SOCIAL_SECRET         = random_password.secret["social-secret"].result
+        COCKPIT_METRICS_TOKEN = scaleway_cockpit_token.capacity.secret_key
         },
         var.social.pinterest_app_id != "" ? { PINTEREST_APP_ID = var.social.pinterest_app_id, PINTEREST_APP_SECRET = var.social.pinterest_app_secret } : {},
         var.social.meta_app_id != "" ? { META_APP_ID = var.social.meta_app_id, META_APP_SECRET = var.social.meta_app_secret } : {},
@@ -61,10 +73,10 @@ locals {
     }
     web = {
       port    = 3000
-      cpu     = 560
-      memory  = 1024
-      min     = var.scale.web_min
-      max     = var.scale.web_max
+      cpu     = local.sizes.web.cpu
+      memory  = local.sizes.web.memory
+      min     = local.sizes.web.min
+      max     = local.sizes.web.max
       health  = "/healthz"
       public  = true
       timeout = 60
@@ -92,10 +104,10 @@ locals {
     }
     admin = {
       port    = 3002
-      cpu     = 280
-      memory  = 512
-      min     = 0
-      max     = 1
+      cpu     = local.sizes.admin.cpu
+      memory  = local.sizes.admin.memory
+      min     = local.sizes.admin.min
+      max     = local.sizes.admin.max
       health  = "/healthz"
       public  = true
       timeout = 60
@@ -116,10 +128,10 @@ locals {
     # Eigen inlogpagina (ADR 0018): praat met Zitadel (sessies, gebruikers) en de API (huisstijl).
     login = {
       port    = 3003
-      cpu     = 280
-      memory  = 512
-      min     = 0
-      max     = 2
+      cpu     = local.sizes.login.cpu
+      memory  = local.sizes.login.memory
+      min     = local.sizes.login.min
+      max     = local.sizes.login.max
       health  = "/healthz"
       public  = true
       timeout = 60

@@ -232,6 +232,13 @@
       "when": 1794036546164,
       "tag": "0032_search_wishes",
       "breakpoints": true
+    },
+    {
+      "idx": 33,
+      "version": "7",
+      "when": 1794149582909,
+      "tag": "0033_capacity",
+      "breakpoints": true
     }
   ]
 }

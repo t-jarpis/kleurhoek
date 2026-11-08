@@ -30,6 +30,9 @@ export interface Product {
   markets: string[]; name: string | null; note: string | null; materials: string[]; rank: number;
 }
 export interface Release { sha: string; previousSha: string | null; kind: "first" | "release" | "rollback"; startedAt: string; notes: { sha: string; date: string; text: string; technical: boolean; public?: string }[] }
+export interface CapacityDay { day: string; cpuAvg: number | null; cpuP95: number | null; memAvg: number | null; memP95: number | null; instancesMax: number | null }
+export interface CapacityApp { app: string; container: string; cpu: number; memory: number; min: number; max: number; monthlyBase: number; days: CapacityDay[]; advice: "omlaag" | "goed" | "omhoog" | "onbekend"; reason: string }
+export interface Capacity { configured: boolean; apps: CapacityApp[]; speed: { day: string; path: string; p50: number; p95: number; failed: number; total: number }[]; speedP95: number | null; paths: string[] }
 export type GoalMetric = "visits" | "plates" | "clicks";
 export interface GoalMilestone { month: number; target: number; stretch: number }
 export interface Goals {
@@ -237,6 +240,7 @@ export const adminApi = {
   rateLimits: () => call<{ rules: RateLimitRule[] }>("/v1/admin/rate-limits").then((r) => r.rules),
   updateRateLimit: (slug: string, body: { limit?: number; windowSeconds?: number; enabled?: boolean }) =>
     call(`/v1/admin/rate-limits/${encodeURIComponent(slug)}`, { method: "PUT", body: JSON.stringify(body) }),
+  capacity: () => call<Capacity>("/v1/admin/capacity"),
   releases: () => call<{ current: string | null; releases: Release[] }>("/v1/admin/releases"),
   goals: () => call<Goals>("/v1/admin/analytics/goals"),
   saveGoals: (body: { start: string; metrics: Record<GoalMetric, GoalMilestone[]> }) => call<Goals>("/v1/admin/analytics/goals", { method: "PUT", body: JSON.stringify(body) }),

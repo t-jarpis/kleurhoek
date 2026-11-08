@@ -14,7 +14,7 @@ export const AUDIENCE = "project-kleurhoek";
 /** Nep-beheerders voor tests die niet over inloggen gaan. */
 export const fakeAdmins: AdminAuthenticator = {
   async authenticate({ authorization }) {
-    if (authorization === "Bearer beheerder") return { userId: "0192f6a0-0000-7000-8000-0000000000b1", subject: "user-beheerder", permissions: ["operations.ratelimit.read", "operations.ratelimit.manage", "operations.access.read", "operations.access.manage", "organizations.read", "organizations.manage", "analytics.read", "analytics.goals.manage", "analytics.wishes.manage", "shop.read", "shop.manage", "contact.read", "contact.manage", "sources.read", "sources.manage", "seo.read", "seo.manage", "mail.read", "mail.manage", "social.read", "social.manage", "audit.read"] };
+    if (authorization === "Bearer beheerder") return { userId: "0192f6a0-0000-7000-8000-0000000000b1", subject: "user-beheerder", permissions: ["operations.ratelimit.read", "operations.ratelimit.manage", "operations.access.read", "operations.access.manage", "organizations.read", "organizations.manage", "analytics.read", "analytics.goals.manage", "analytics.wishes.manage", "shop.read", "shop.manage", "contact.read", "contact.manage", "sources.read", "sources.manage", "seo.read", "seo.manage", "mail.read", "mail.manage", "social.read", "social.manage", "audit.read", "operations.capacity.read"] };
     if (authorization === "Bearer analist") return { userId: "0192f6a0-0000-7000-8000-0000000000a1", subject: "user-analist", permissions: ["analytics.read", "operations.ratelimit.read", "releases.read"] };
     return null;
   },
@@ -33,6 +33,7 @@ export async function createTestApp(options: { oidc?: { issuer: string; bootstra
   process.env.INGEST_KEY = INGEST_KEY;
   process.env.AGGREGATE_INTERVAL_MS = "0";
   process.env.MAIL_INTERVAL_MS = "0";
+  process.env.CAPACITY_INTERVAL_MS = "0";
   process.env.SITE_URL = "https://www.kleurhoek.test";
   for (const key of OIDC_KEYS) delete process.env[key];
   if (options.oidc) {

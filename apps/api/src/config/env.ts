@@ -77,7 +77,29 @@ const schema = z.object({
   BING_WEBMASTER_KEY: z.string().optional(),
   /** Hoe vaak de zoekcijfers worden opgehaald. 0 = uit. */
   SEARCH_IMPORT_INTERVAL_MS: z.coerce.number().int().min(0).default(6 * 3_600_000),
+  /** Capaciteit (ADR 0092): adres van de metrics-bron in Scaleway Cockpit en een alleen-lezen-sleutel. */
+  COCKPIT_METRICS_URL: z.string().url().optional(),
+  COCKPIT_METRICS_TOKEN: z.string().min(1).optional(),
+  /** Containers om te volgen, als JSON: [{"app":"web","container":"kleurhoek-prod-web","cpu":560,"memory":1024,"min":1,"max":10}]. */
+  CAPACITY_APPS: z.string().default("[]").transform((v, ctx) => {
+    try { return CapacityApps.parse(JSON.parse(v)); } catch { ctx.addIssue({ code: "custom", message: "CAPACITY_APPS is geen geldige lijst" }); return z.NEVER; }
+  }),
+  /** Pagina's waarvan de snelheid wordt gemeten, gescheiden door komma's. */
+  CAPACITY_SPEED_PATHS: z.string().default("/,/platen/sinterklaas").transform((v) => v.split(",").map((s) => s.trim()).filter((s) => s.startsWith("/"))),
+  /** Hoe vaak de snelheid wordt gemeten en de cijfers worden bijgewerkt. 0 = uit. */
+  CAPACITY_INTERVAL_MS: z.coerce.number().int().min(0).default(900_000),
 });
+
+/** Eén container die de capaciteitspagina volgt, met zijn huidige maat uit Terraform. */
+export const CapacityApps = z.array(z.object({
+  app: z.string().regex(/^[a-z][a-z0-9-]{0,30}$/),
+  container: z.string().min(1).max(100),
+  cpu: z.number().int().positive(),
+  memory: z.number().int().positive(),
+  min: z.number().int().min(0),
+  max: z.number().int().min(1),
+}).strict()).max(20);
+export type CapacityApp = z.infer<typeof CapacityApps>[number];
 
 export type Env = Omit<z.infer<typeof schema>, "MAIL_SECRET" | "SOCIAL_SECRET"> & { MAIL_SECRET: string; SOCIAL_SECRET: string };
 
