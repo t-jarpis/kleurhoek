@@ -13,7 +13,7 @@ Kleurhoek heeft bezoekers nodig. Pinterest, Facebook en Instagram zijn voor kleu
   - instellingen.
 - **Voorstellen.** Elke ochtend (vanaf 5 uur, Nederlandse tijd) maakt het domein voorstellen voor vandaag en de twee dagen erna. Dubbele voorstellen worden overgeslagen.
   - **Pinterest:** elke dag een paar platen die er nog niet op staan (standaard 5). Eerst platen van feestdagen die eraan komen, dan het seizoen. Bord per onderwerp of feestdag, het staande plaatje (ADR 0057) en de link naar de plaat.
-  - **Facebook, Instagram en delen** (standaard maandag, woensdag en vrijdag om 19.30 uur): één post met dezelfde inhoud in drie vormen. Facebook krijgt een link, Instagram "link in bio" met hashtags, en "delen" krijgt een tekst om zelf in groepen en WhatsApp te zetten. De inhoud kiest het domein in deze volgorde:
+  - **Facebook, Instagram en delen** (standaard maandag, woensdag, vrijdag, zaterdag en zondag om 19.30 uur; het weekend kwam erbij omdat ouders dan juist printen): één post met dezelfde inhoud in drie vormen. Facebook krijgt een link, Instagram "link in bio" met hashtags, en "delen" krijgt een tekst om zelf in groepen en WhatsApp te zetten. De inhoud kiest het domein in deze volgorde:
     - in december het deurtje van de aftelkalender;
     - anders een feestdag binnen twee weken;
     - anders op maandag een lespakket, op vrijdag iets om te knutselen en verder de plaat van de week.

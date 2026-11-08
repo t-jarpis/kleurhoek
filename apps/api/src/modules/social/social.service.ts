@@ -33,7 +33,7 @@ export interface SocialSettings {
   /** Hoe laat de post komt (lokale tijd). */
   feedTime: string;
 }
-export const DEFAULT_SETTINGS: SocialSettings = { notifyEmail: null, pinsPerDay: 5, feedDays: [1, 3, 5], feedTime: "19:30" };
+export const DEFAULT_SETTINGS: SocialSettings = { notifyEmail: null, pinsPerDay: 5, feedDays: [1, 3, 5, 6, 7], feedTime: "19:30" };
 const PIN_TIMES = ["08:30", "12:00", "15:30", "19:00", "20:30", "10:15", "13:45", "17:15", "21:30", "07:30"];
 
 // ---------- Tijd in Nederland ----------
