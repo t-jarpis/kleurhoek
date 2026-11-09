@@ -7,6 +7,8 @@ export const RATE_LIMIT_RULE = "rateLimitRule";
 /** Koppelt een endpoint aan een rate-limitregel. Zonder decorator geldt `api-default`. */
 export const RateLimit = (rule: string) => SetMetadata(RATE_LIMIT_RULE, rule);
 export const SkipRateLimit = () => SetMetadata(RATE_LIMIT_RULE, false);
+/** Regels voor openbare leesverzoeken die de website zelf server-side doet. */
+const SERVER_READ_RULES = new Set(["public-read", "assets"]);
 
 /**
  * Het IP-adres van de bezoeker. De API heeft geen publieke ingang: alleen website en admin roepen hem
@@ -29,6 +31,10 @@ export class RateLimitGuard implements CanActivate {
     const req = ctx.switchToHttp().getRequest<FastifyRequest>();
     const reply = ctx.switchToHttp().getResponse<FastifyReply>();
     const slug = rule ?? "api-default";
+    // Leesverzoeken zonder CF-Connecting-IP komen van onze eigen website, die de cache vult (ISR, ADR 0093).
+    // Die delen één socket-adres: tellen per IP zou bij een zoekmachine die veel pagina's ophaalt 429's en
+    // dus 500's op de site geven (ADR 0005, addendum). Bezoekers via Cloudflare tellen wel.
+    if (SERVER_READ_RULES.has(slug) && !req.headers["cf-connecting-ip"]) return true;
     const identity = slug === "events-ingest" ? "worker" : req.admin?.subject ?? clientIp(req);
     const d = await this.limits.check(slug, identity);
     if (!d) return true;

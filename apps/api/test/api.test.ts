@@ -179,6 +179,8 @@ describe("rate limiting", () => {
     expect(Number(blocked.headers["retry-after"])).toBeGreaterThan(0);
     expect(blocked.json().message).toContain("Probeer het over");
     expect((await hit("198.51.100.1")).statusCode).toBe(200);
+    // De website zelf (server-side, zonder CF-Connecting-IP) vult de cache en wordt niet beperkt.
+    for (let i = 0; i < 5; i++) expect((await get("/v1/markets/nl-NL/taxonomy")).statusCode).toBe(200);
   });
 
   it("toont regels en geblokkeerde verzoeken in het admin panel", async () => {

@@ -17,7 +17,13 @@ import { kindFor } from "@/i18n/plate-meta";
 
 type Params = { params: Promise<{ org: string; market: string; slug: string }> };
 
-async function load(org: string, market: string, dim: Dimension, slug: string) {
+/** Next geeft een slug soms nog gecodeerd door (`9%2B` voor leeftijd `9+`, ADR 0094). */
+export function topicSlug(raw: string): string {
+  try { return decodeURIComponent(raw); } catch { return raw; }
+}
+
+async function load(org: string, market: string, dim: Dimension, raw: string) {
+  const slug = topicSlug(raw);
   const [plates, taxonomy] = await Promise.all([api.plates(market, org), api.taxonomy(market, org)]).catch((e) => {
     if (e instanceof NotFound) notFound();
     throw e;
@@ -26,7 +32,7 @@ async function load(org: string, market: string, dim: Dimension, slug: string) {
   const groups = topics(plates, taxonomy, t);
   const topic = groups[dim].find((x) => x.slug === slug);
   if (!topic) notFound();
-  return { plates: plates.filter((p) => inTopic(p, dim, slug)), taxonomy, groups, topic, t, title: topicTitle(t, topic) };
+  return { plates: plates.filter((p) => inTopic(p, dim, slug)), taxonomy, groups, topic, t, title: topicTitle(t, topic), slug };
 }
 
 /**
@@ -36,8 +42,8 @@ async function load(org: string, market: string, dim: Dimension, slug: string) {
  */
 export function topicPage(dim: Dimension) {
   async function generateMetadata({ params }: Params): Promise<Metadata> {
-    const { org, market, slug } = await params;
-    const { plates, title, t } = await load(org, market, dim, slug);
+    const { org, market, slug: raw } = await params;
+    const { plates, title, t, slug } = await load(org, market, dim, raw);
     const description = t.topicMeta(title, plates.length);
     const o = await getOrg(org);
     const first = plates[0];
@@ -48,8 +54,8 @@ export function topicPage(dim: Dimension) {
   }
 
   async function Page({ params }: Params) {
-    const { org, market, slug } = await params;
-    const { plates, taxonomy, groups, t, title } = await load(org, market, dim, slug);
+    const { org, market, slug: raw } = await params;
+    const { plates, taxonomy, groups, t, title, slug } = await load(org, market, dim, raw);
     const o = await getOrg(org);
     if (!o) notFound();
     const base = baseFor(o, market);

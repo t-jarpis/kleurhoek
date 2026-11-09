@@ -14,3 +14,6 @@
 ## Gevolgen
 - Met meer dan één API-replica moet de teller gedeeld worden: dan komt een Redis-store achter `RateLimitStore`. Tot die tijd telt elke replica apart.
 - Admin-verzoeken worden tot de koppeling met Zitadel per IP geteld in plaats van per gebruiker.
+
+## Addendum (9 november 2026): de eigen website telt niet mee voor leesverzoeken
+Sinds ISR (ADR 0093) haalt de website pagina-data server-side op, zonder `CF-Connecting-IP`. Al die verzoeken kwamen van één socket-adres en vielen onder `public-read` (300 per minuut). Toen zoekmachines veel nog niet gecachte pagina's tegelijk opvroegen, gaf de API 429 en de website 500 (Search Console: "Server error (5xx)" op kleurhoek.be). Voor `public-read` en `assets` geldt de limiet nu alleen voor verzoeken met `CF-Connecting-IP` (bezoekers via Cloudflare); server-side ophalen door de eigen website wordt niet beperkt. De API heeft geen publieke ingang, dus zonder die header is de afzender altijd een van onze eigen servers.
