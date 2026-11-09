@@ -52,6 +52,7 @@ export default async function Analytics({ searchParams }: { searchParams: Promis
   } catch (e) { const d = describe(e); return <div className="err"><h1>{d.title}</h1><p>{d.text}</p></div>; }
   const vs = PERIOD_TEXT[period];
   const dates = o.series.map((p) => p.date);
+  const trend = (k: Exclude<keyof (typeof o.series)[number], "date">) => o.series.map((p) => p[k]);
   const landings = o.entries.reduce((s, e) => s + e.landings, 0);
   const kinds = o.referrers.reduce((m, r) => m.set(refKind(r.referrer), (m.get(refKind(r.referrer)) ?? 0) + r.landings), new Map<RefKind, number>());
 
@@ -69,8 +70,8 @@ export default async function Analytics({ searchParams }: { searchParams: Promis
 
       {tab === "bezoekers" && <>
         <div className="ui-stats dash-stats">
-          <StatCard label="Bezoekers" value={o.totals.visitors} before={o.previousTotals.visitors} period={vs} note="Unieke bezoekers per dag, opgeteld" />
-          <StatCard label="Paginaweergaven" value={o.totals.pageViews} before={o.previousTotals.pageViews} period={vs} />
+          <StatCard label="Bezoekers" value={o.totals.visitors} before={o.previousTotals.visitors} period={vs} trend={trend("visitors")} note="Unieke bezoekers per dag, opgeteld" />
+          <StatCard label="Paginaweergaven" value={o.totals.pageViews} before={o.previousTotals.pageViews} period={vs} trend={trend("pageViews")} />
           <StatCard label="Pagina's per bezoeker" value={o.totals.visitors ? Math.round((o.totals.pageViews / o.totals.visitors) * 10) / 10 : 0} period={vs} />
           <StatCard label="Binnenkomsten" value={landings} period={vs} note="Eerste pagina van een bezoek van buitenaf" />
         </div>
@@ -104,14 +105,14 @@ export default async function Analytics({ searchParams }: { searchParams: Promis
 
       {tab === "inhoud" && <>
         <div className="ui-stats dash-stats">
-          <StatCard label="Platen bekeken" value={o.totals.plateViews} before={o.previousTotals.plateViews} period={vs} />
-          <StatCard label="Geprint" value={o.totals.prints} before={o.previousTotals.prints} period={vs} />
-          <StatCard label="Gedownload" value={o.totals.pdfDownloads} before={o.previousTotals.pdfDownloads} period={vs} note="Opgeslagen als afbeelding of filmpje" />
-          <StatCard label="Gedeeld" value={o.totals.shares ?? 0} before={o.previousTotals.shares ?? 0} period={vs} note={`${num(o.totals.sharedVisits ?? 0)} bezoeken via een gedeelde link`} />
-          <StatCard label="Online gekleurd" value={o.totals.colored ?? 0} before={o.previousTotals.colored ?? 0} period={vs} note={`${pct(o.totals.colored ?? 0, o.totals.plateViews)} van de bekeken platen, ook deels`} />
-          <StatCard label="Af met kleur op nummer" value={o.totals.completions} before={o.previousTotals.completions} period={vs} />
-          <StatCard label="'Wat heb je nodig' bekeken" value={o.totals.materialsViews} period={vs} />
-          <StatCard label="Doorkliks naar winkels" value={o.totals.productClicks} period={vs} note={`${pct(o.totals.productClicks, o.totals.materialsViews)} klikratio`} />
+          <StatCard label="Platen bekeken" value={o.totals.plateViews} before={o.previousTotals.plateViews} period={vs} trend={trend("plateViews")} />
+          <StatCard label="Geprint" value={o.totals.prints} before={o.previousTotals.prints} period={vs} trend={trend("prints")} />
+          <StatCard label="Gedownload" value={o.totals.pdfDownloads} before={o.previousTotals.pdfDownloads} period={vs} trend={trend("pdfDownloads")} note="Opgeslagen als afbeelding of filmpje" />
+          <StatCard label="Gedeeld" value={o.totals.shares ?? 0} before={o.previousTotals.shares ?? 0} period={vs} trend={trend("shares")} note={`${num(o.totals.sharedVisits ?? 0)} bezoeken via een gedeelde link`} />
+          <StatCard label="Online gekleurd" value={o.totals.colored ?? 0} before={o.previousTotals.colored ?? 0} period={vs} trend={trend("colored")} note={`${pct(o.totals.colored ?? 0, o.totals.plateViews)} van de bekeken platen, ook deels`} />
+          <StatCard label="Af met kleur op nummer" value={o.totals.completions} before={o.previousTotals.completions} period={vs} trend={trend("completions")} />
+          <StatCard label="'Wat heb je nodig' bekeken" value={o.totals.materialsViews} period={vs} trend={trend("materialsViews")} />
+          <StatCard label="Doorkliks naar winkels" value={o.totals.productClicks} period={vs} trend={trend("productClicks")} note={`${pct(o.totals.productClicks, o.totals.materialsViews)} klikratio`} />
         </div>
         <section className="panel">
           <h2>Populairste platen</h2>

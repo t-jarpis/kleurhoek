@@ -250,6 +250,10 @@ a.ui-chip { text-decoration: none; }
 .ui-barlist-value small { color: var(--color-text-muted); font-size: 12px; margin-inline-start: var(--space-1); }
 .ui-stat .ui-stat-delta { margin: var(--space-1) 0 0; }
 .ui-stat .ui-stat-delta span { display: inline; font-size: inherit; color: var(--color-text-muted); font-weight: 400; }
+/* Sparkline in de StatCard (ADR 0096): alleen de vorm, altijd chart-1, geen assen. */
+.ui-stat .ui-stat-spark { display: block; width: 100%; height: 36px; margin-top: var(--space-2); overflow: visible; }
+.ui-stat-spark-line { fill: none; stroke: var(--chart-1); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.ui-stat-spark-area { fill: var(--chart-1); opacity: .12; }
 
 /* ---------- CopyButton ---------- */
 .ui-copy { display: inline-flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; }

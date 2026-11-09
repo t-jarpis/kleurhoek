@@ -172,15 +172,24 @@ export class AnalyticsService {
       const seriesTotals = await tx.select({
         date: b(dailyTotals.day), pageViews: sql<number>`sum(${dailyTotals.pageViews})::int`, plateViews: sql<number>`sum(${dailyTotals.plateViews})::int`,
         downloads: sql<number>`sum(${dailyTotals.downloads} + ${dailyTotals.prints})::int`,
+        prints: sql<number>`sum(${dailyTotals.prints})::int`, pdfDownloads: sql<number>`sum(${dailyTotals.downloads})::int`,
+        colored: sql<number>`sum(${dailyTotals.colored})::int`, completions: sql<number>`sum(${dailyTotals.completions})::int`,
+        shares: sql<number>`sum(${dailyTotals.shares})::int`, materialsViews: sql<number>`sum(${dailyTotals.materialsViews})::int`,
+        productClicks: sql<number>`sum(${dailyTotals.productClicks})::int`,
       }).from(dailyTotals).where(range(from, to)).groupBy(sql`1`);
       const seriesVisitors = await tx.select({ date: b(dailyVisitors.day), visitors: sql<number>`sum(${dailyVisitors.visitors})::int` })
         .from(dailyVisitors).where(and(eq(dailyVisitors.tenantId, tenantId), eq(dailyVisitors.org, ALL_ORGS), gte(dailyVisitors.day, from), lte(dailyVisitors.day, to))).groupBy(sql`1`);
       const byDate = new Map(seriesTotals.map((r) => [r.date, r]));
       const vByDate = new Map(seriesVisitors.map((r) => [r.date, r.visitors]));
-      const series = buckets(from, to, bucket).map((date) => ({
-        date, visitors: vByDate.get(date) ?? 0, pageViews: byDate.get(date)?.pageViews ?? 0,
-        plateViews: byDate.get(date)?.plateViews ?? 0, downloads: byDate.get(date)?.downloads ?? 0,
-      }));
+      // Per dag (of week) ook de reeksen achter de kerngetallen, voor de sparklines in de StatCards (ADR 0096).
+      const series = buckets(from, to, bucket).map((date) => {
+        const r = byDate.get(date);
+        return {
+          date, visitors: vByDate.get(date) ?? 0, pageViews: r?.pageViews ?? 0, plateViews: r?.plateViews ?? 0, downloads: r?.downloads ?? 0,
+          prints: r?.prints ?? 0, pdfDownloads: r?.pdfDownloads ?? 0, colored: r?.colored ?? 0, completions: r?.completions ?? 0,
+          shares: r?.shares ?? 0, materialsViews: r?.materialsViews ?? 0, productClicks: r?.productClicks ?? 0,
+        };
+      });
 
       const sum = (col: typeof dailyPages.views | typeof dailyPages.visitors) => sql<number>`sum(${col})::int`;
       const pages = await tx.select({ page: dailyPages.page, views: sum(dailyPages.views), visitors: sum(dailyPages.visitors) })

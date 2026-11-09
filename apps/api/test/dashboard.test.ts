@@ -33,7 +33,7 @@ describe("dashboard: pagina's, tijdreeksen en accounts (ADR 0020)", () => {
     const o = (await admin(`/v1/admin/analytics/overview?from=2026-10-14&to=${day}`)).json();
     expect(o.bucket).toBe("day");
     expect(o.series).toHaveLength(7);
-    expect(o.series.at(-1)).toMatchObject({ date: day, visitors: 2, pageViews: 4, plateViews: 1, downloads: 1 });
+    expect(o.series.at(-1)).toMatchObject({ date: day, visitors: 2, pageViews: 4, plateViews: 1, downloads: 1, pdfDownloads: 1, prints: 0 });
     expect(o.totals).toMatchObject({ visitors: 2, pageViews: 4, downloads: 1 });
     expect(o.previous).toEqual({ from: "2026-10-07", to: "2026-10-13" });
     expect(o.pages).toEqual(expect.arrayContaining([{ page: "home", views: 2, visitors: 2 }, { page: "plaat", views: 1, visitors: 1 }, { page: "boekje", views: 1, visitors: 1 }]));

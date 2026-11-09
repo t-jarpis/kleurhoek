@@ -99,7 +99,8 @@ export interface Realtime { since: string; visitors: number; pageViews: number; 
 export interface Overview {
   from: string; to: string; bucket: "day" | "week"; previous: { from: string; to: string };
   totals: OverviewTotals; previousTotals: OverviewTotals;
-  series: { date: string; visitors: number; pageViews: number; plateViews: number; downloads: number }[];
+  /** Per dag (week vanaf 90 dagen). `downloads` = downloads + prints; de rest zoals in de totalen (ADR 0096). */
+  series: { date: string; visitors: number; pageViews: number; plateViews: number; downloads: number; prints: number; pdfDownloads: number; colored: number; completions: number; shares: number; materialsViews: number; productClicks: number }[];
   pages: { page: string; views: number; visitors: number }[]; devices: { device: string; views: number }[];
   entries: { entry: string; landings: number; visitors: number }[]; referrers: { referrer: string; landings: number }[];
   organizations: { org: string; visitors: number; views: number }[];
