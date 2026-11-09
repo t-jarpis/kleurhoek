@@ -41,9 +41,9 @@ export default async function Analytics({ searchParams }: { searchParams: Promis
   const period: Period = PERIODS.some(([p]) => p === sp.periode) ? (sp.periode as Period) : "30";
   const to = new Date(), from = new Date(Date.now() - (Number(period) - 1) * 86_400_000);
   const href = (t: Tab, p: Period = period) => `/analytics?tab=${t}&periode=${p}`;
-  let o, live, act, wishes: Wishes | null = null, canManageWishes = false, orgNames = new Map<string, string>();
+  let o, live, act, coloredAct, wishes: Wishes | null = null, canManageWishes = false, orgNames = new Map<string, string>();
   try {
-    [o, live, act] = await Promise.all([adminApi.overview(iso(from), iso(to)), tab === "nu" ? adminApi.realtime() : Promise.resolve(null), tab === "inhoud" ? adminApi.activity(iso(from), iso(to)) : Promise.resolve(null)]);
+    [o, live, act, coloredAct] = await Promise.all([adminApi.overview(iso(from), iso(to)), tab === "nu" ? adminApi.realtime() : Promise.resolve(null), tab === "inhoud" ? adminApi.activity(iso(from), iso(to)) : Promise.resolve(null), tab === "inhoud" ? adminApi.activity(iso(from), iso(to), "colored") : Promise.resolve(null)]);
     if (tab === "gezocht") {
       const [w, me] = await Promise.all([adminApi.wishes(sp.verborgen === "1"), adminApi.me()]);
       wishes = w; canManageWishes = me.permissions.includes("analytics.wishes.manage");
@@ -130,6 +130,16 @@ export default async function Analytics({ searchParams }: { searchParams: Promis
           {act.latest.length === 0 ? <p className="lead">Nog geen downloads of prints in deze periode.</p> : (
             <table><thead><tr><th>Tijdstip</th><th>Wat</th><th>Plaat</th><th>Markt</th><th>Apparaat</th><th>Kwam binnen via</th></tr></thead>
               <tbody>{act.latest.map((e, i) => <tr key={`${e.at}-${i}`}><td>{when(e.at)}</td><td>{e.type === "print" ? "Geprint" : "Gedownload"}</td><td>{e.plate || "—"}</td><td>{e.market}</td><td>{DEVICE_LABEL[e.device] ?? e.device}</td><td>{viaText(e.via)}</td></tr>)}</tbody></table>
+          )}
+        </section>}
+        {coloredAct && <section className="panel">
+          <h2>Wanneer wordt er online gekleurd en getekend?</h2>
+          <p className="lead">Per weekdag en uur, Nederlandse tijd{coloredAct.limited ? `, vanaf ${coloredAct.from}` : ""}. Telt als iemand op een plaat begint te kleuren of te tekenen, en nog eens als kleur op nummer af is.</p>
+          <ActivityHeatmap grid={coloredAct.grid} caption="Online kleuren en tekenen per weekdag en uur" />
+          <h3>Laatst online gekleurd en getekend</h3>
+          {coloredAct.latest.length === 0 ? <p className="lead">Nog niet online gekleurd of getekend in deze periode.</p> : (
+            <table><thead><tr><th>Tijdstip</th><th>Wat</th><th>Plaat</th><th>Markt</th><th>Apparaat</th><th>Kwam binnen via</th></tr></thead>
+              <tbody>{coloredAct.latest.map((e, i) => <tr key={`${e.at}-${i}`}><td>{when(e.at)}</td><td>{e.type === "plate_completed" ? "Af (kleur op nummer)" : "Begonnen"}</td><td>{e.plate || "—"}</td><td>{e.market}</td><td>{DEVICE_LABEL[e.device] ?? e.device}</td><td>{viaText(e.via)}</td></tr>)}</tbody></table>
           )}
         </section>}
       </>}

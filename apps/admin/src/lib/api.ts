@@ -246,7 +246,7 @@ export const adminApi = {
   goals: () => call<Goals>("/v1/admin/analytics/goals"),
   saveGoals: (body: { start: string; metrics: Record<GoalMetric, GoalMilestone[]> }) => call<Goals>("/v1/admin/analytics/goals", { method: "PUT", body: JSON.stringify(body) }),
   realtime: () => call<Realtime>("/v1/admin/analytics/realtime"),
-  activity: (from: string, to: string) => call<Activity>(`/v1/admin/analytics/activity?from=${from}&to=${to}`),
+  activity: (from: string, to: string, kind: "use" | "colored" = "use") => call<Activity>(`/v1/admin/analytics/activity?from=${from}&to=${to}&kind=${kind}`),
   wishes: (hidden = false) => call<Wishes>(`/v1/admin/analytics/wishes${hidden ? "?hidden=1" : ""}`),
   setWishStatus: (term: string, status: WishStatus) => call<Wishes>("/v1/admin/analytics/wishes/status", { method: "PUT", body: JSON.stringify({ term, status }) }),
   overview: (from: string, to: string) => call<Overview>(`/v1/admin/analytics/overview?from=${from}&to=${to}`),

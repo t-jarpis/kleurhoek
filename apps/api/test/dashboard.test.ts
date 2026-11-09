@@ -67,6 +67,21 @@ describe("dashboard: pagina's, tijdreeksen en accounts (ADR 0020)", () => {
     expect(JSON.stringify(a)).not.toContain(h);
   });
 
+  it("laat zien wanneer er online gekleurd en getekend wordt, apart van downloads (ADR 0097)", async () => {
+    expect((await ingest([
+      ev("plate_colored", { plate: "slak", visitorHash: "ffffffffffffffff", occurredAt: "2026-10-22T18:30:00.000Z" }),
+      ev("plate_completed", { plate: "slak", visitorHash: "ffffffffffffffff", occurredAt: "2026-10-22T18:50:00.000Z" }),
+      ev("print", { plate: "uil", visitorHash: "ffffffffffffffff", occurredAt: "2026-10-22T19:00:00.000Z" }),
+    ])).statusCode).toBe(202);
+    const svc = ctx.app.get(AnalyticsService);
+    const c = await svc.activity(TENANT, "2026-10-22", "2026-10-22", "colored");
+    expect(c.latest.map((e) => e.type)).toEqual(["plate_completed", "plate_colored"]);
+    expect(c.grid).toContainEqual({ weekday: 4, hour: 20, count: 2 });
+    expect((await svc.activity(TENANT, "2026-10-22", "2026-10-22")).latest.map((e) => e.type)).toEqual(["print"]);
+    expect((await admin("/v1/admin/analytics/activity?from=2026-10-22&to=2026-10-22&kind=colored")).statusCode).toBe(200);
+    expect((await admin("/v1/admin/analytics/activity?from=2026-10-22&to=2026-10-22&kind=iets")).statusCode).toBe(400);
+  });
+
   it("telt delen en binnenkomen via een gedeelde link, per plaat (ADR 0074)", async () => {
     const day = "2026-10-25", at = `${day}T12:00:00.000Z`;
     expect((await ingest([

@@ -5,14 +5,14 @@ export interface Activity {
   from: string; to: string; limited: boolean; timeZone: string;
   grid: { weekday: number; hour: number; count: number }[];
   /** `via`: binnenkomst van hetzelfde bezoek op dezelfde dag (ADR 0083); null als die er niet is. */
-  latest: { at: string; type: "pdf_download" | "print"; plate: string; market: string; device: string; via?: { referrer: string; page: string; entry: string } | null }[];
+  latest: { at: string; type: "pdf_download" | "print" | "plate_colored" | "plate_completed"; plate: string; market: string; device: string; via?: { referrer: string; page: string; entry: string } | null }[];
 }
 
 const DAYS = ["ma", "di", "wo", "do", "vr", "za", "zo"];
 const DAY_NAMES = ["maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag", "zondag"];
 const HOURS = Array.from({ length: 24 }, (_, h) => h);
 
-/** ActivityHeatmap uit het design system: een tabel met per weekdag en uur hoe vaak er gedownload of geprint is. */
+/** ActivityHeatmap uit het design system: een tabel met per weekdag en uur hoe vaak er gedownload of geprint (of online gekleurd) is. */
 export function ActivityHeatmap({ grid, caption }: { grid: Activity["grid"]; caption: string }) {
   const at = new Map(grid.map((c) => [`${c.weekday}-${c.hour}`, c.count]));
   const max = Math.max(1, ...grid.map((c) => c.count));

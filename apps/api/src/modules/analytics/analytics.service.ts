@@ -4,7 +4,7 @@ import { and, desc, eq, gte, inArray, lt, lte, sql } from "drizzle-orm";
 import { z } from "zod";
 import { DB, type Database } from "../../db/database";
 import { withTenant } from "../../db/tenant";
-import { dailyPages, dailyProductClicks, dailySources, dailyTotals, dailyVisitors, EVENT_TYPES, events } from "./analytics.schema";
+import { dailyPages, dailyProductClicks, dailySources, dailyTotals, dailyVisitors, EVENT_TYPES, events, type EventType } from "./analytics.schema";
 
 /** Eén event zoals de Cloudflare Worker het aanlevert: zonder IP-adres, land al ingevuld. */
 export const EventInput = z.object({
@@ -24,6 +24,9 @@ export const EventInput = z.object({
   referrer: z.string().max(100).regex(/^$|^([a-z0-9-]{1,63}\.)+[a-z]{2,24}$/).optional(),
 }).strict();
 /** Tijdzone van het admin panel voor "wanneer" (ADR 0073). */
+/** Welke events de activiteit telt: downloads en prints, of online kleuren en tekenen (begonnen en af). */
+export const ACTIVITY_TYPES = { use: ["pdf_download", "print"], colored: ["plate_colored", "plate_completed"] } as const satisfies Record<string, readonly EventType[]>;
+export type ActivityKind = keyof typeof ACTIVITY_TYPES;
 const ACTIVITY_TZ = "Europe/Amsterdam";
 
 export const EventBatch = z.array(EventInput).min(1).max(100);
@@ -218,14 +221,15 @@ export class AnalyticsService {
   }
 
   /**
-   * Wanneer er gedownload en geprint wordt (ADR 0073): aantallen per weekdag (1 = maandag) en uur in Nederlandse
-   * tijd, en de laatste 30 met tijdstip. Uit de ruwe events, die blijven bewaard (ADR 0078).
+   * Wanneer er gedownload en geprint wordt (ADR 0073), of met `kind: "colored"` online gekleurd en getekend (ADR 0097):
+   * aantallen per weekdag (1 = maandag) en uur in Nederlandse tijd, en de laatste 30 met tijdstip. Uit de ruwe events,
+   * die blijven bewaard (ADR 0078).
    */
-  async activity(tenantId: string, from: string, to: string) {
+  async activity(tenantId: string, from: string, to: string, kind: ActivityKind = "use") {
     const since = from;
     const tz = sql.raw(`'${ACTIVITY_TZ}'`);
     return withTenant(this.db, tenantId, async (tx) => {
-      const where = and(eq(events.tenantId, tenantId), inArray(events.type, ["pdf_download", "print"]),
+      const where = and(eq(events.tenantId, tenantId), inArray(events.type, [...ACTIVITY_TYPES[kind]]),
         gte(events.occurredAt, sql`(${since}::date)::timestamp at time zone ${tz}`), lt(events.occurredAt, sql`(${shiftDay(to, 1)}::date)::timestamp at time zone ${tz}`));
       const grid = await tx.select({
         weekday: sql<number>`extract(isodow from ${events.occurredAt} at time zone ${tz})::int`,
