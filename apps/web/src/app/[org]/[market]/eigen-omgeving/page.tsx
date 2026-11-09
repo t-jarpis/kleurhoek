@@ -66,7 +66,7 @@ export default async function OwnSpacePage({ params }: { params: Promise<{ org: 
           }} />
         </section>
       </main>
-      <SiteFooter base={base} t={t} own />
+      <SiteFooter base={base} t={t} market={market} own />
     </div>
   );
 }

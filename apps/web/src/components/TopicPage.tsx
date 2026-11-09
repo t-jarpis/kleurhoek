@@ -87,7 +87,7 @@ export function topicPage(dim: Dimension) {
           ))}
         </main>
         <TopicLinks groups={groups} base={base} t={t} current={path} />
-        <SiteFooter base={base} t={t} own={o.isDefault} />
+        <SiteFooter base={base} t={t} market={market} own={o.isDefault} />
         <Track event={{ type: "page_view", market, page: "onderwerp" }} />
       </div>
     );

@@ -37,7 +37,7 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ org
           <Disclaimer base={base} contact={contact} />
         </article>
       </main>
-      <SiteFooter base={base} t={t} own={org.isDefault} />
+      <SiteFooter base={base} t={t} market={market} own={org.isDefault} />
     </div>
   );
 }

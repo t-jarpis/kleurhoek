@@ -62,7 +62,7 @@ export default async function AdventPage({ params }: Params) {
         <p className="lede">{t.advent.lede}</p>
         <AdventCalendar doors={doors} order={doorOrder(year)} open={open} today={day !== null && day <= 24 ? day : null} year={year} base={base} market={market} />
       </main>
-      <SiteFooter base={base} t={t} own={o.isDefault} />
+      <SiteFooter base={base} t={t} market={market} own={o.isDefault} />
       <Track event={{ type: "page_view", market, page: "aftelkalender" }} />
     </div>
   );

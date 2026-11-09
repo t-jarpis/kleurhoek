@@ -1,11 +1,14 @@
 import Link from "next/link";
 import { link } from "@/lib/sites";
 import { MarketLinks } from "./MarketSwitch";
+import { SisterFooterLink } from "./SisterSite";
+import { denkhoekFor } from "@/lib/sister-sites";
 import type { Messages } from "@/i18n/nl";
 
 /** Onderaan elke pagina: disclaimer, privacy, contact en de Bronnengids (ADR 0024, 0025, 0028). */
 /** `own` = link naar "Eigen omgeving" tonen; alleen op Kleurhoek zelf, niet op de site van een organisatie. */
-export function SiteFooter({ base, t, own = false }: { base: string; t: Messages; own?: boolean }) {
+/** Op Kleurhoek zelf ook een regel naar Denkhoek, alleen in de markten uit lib/sister-sites.ts (ADR 0098). */
+export function SiteFooter({ base, t, market, own = false }: { base: string; t: Messages; market: string; own?: boolean }) {
   return (
     <footer className="kh-footer no-print">
       <nav aria-label="Over Kleurhoek">
@@ -23,6 +26,7 @@ export function SiteFooter({ base, t, own = false }: { base: string; t: Messages
         {!own && <Link href={link(base, "/beheer")} rel="nofollow">{t.mgFooter}</Link>}
       </nav>
       <MarketLinks label={t.marketsLabel} />
+      {own && <SisterFooterLink site={denkhoekFor(market)} />}
       <p>{t.note}</p>
     </footer>
   );

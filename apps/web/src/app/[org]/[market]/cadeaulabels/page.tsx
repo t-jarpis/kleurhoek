@@ -43,7 +43,7 @@ export default async function GiftLabelsPage({ params }: Params) {
         <GiftLabels />
         <p className="no-print"><Link href={link(base, "/sinterklaaskalender")}>{SINT_TEXT.teaserCta}</Link></p>
       </main>
-      <div className="no-print"><SiteFooter base={base} t={t} own={o.isDefault} /></div>
+      <div className="no-print"><SiteFooter base={base} t={t} market={market} own={o.isDefault} /></div>
       <Track event={{ type: "page_view", market, page: "cadeaulabels" }} />
     </div>
   );

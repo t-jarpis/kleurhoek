@@ -51,7 +51,7 @@ export default async function ThemesPage({ params }: { params: Promise<{ org: st
           </div>
         )}
       </main>
-      <SiteFooter base={base} t={t} own={org.isDefault} />
+      <SiteFooter base={base} t={t} market={market} own={org.isDefault} />
     </div>
   );
 }

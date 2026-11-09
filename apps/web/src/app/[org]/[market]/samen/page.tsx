@@ -43,7 +43,7 @@ export default async function TogetherPage({ params, searchParams }: Params) {
         <ol className="kh-steps-how">{t.together.how.map((s) => <li key={s}>{s}</li>)}</ol>
         <p className="hint">{t.together.expires}</p>
       </main>
-      <SiteFooter base={base} t={t} own={o.isDefault} />
+      <SiteFooter base={base} t={t} market={market} own={o.isDefault} />
       <Track event={{ type: "page_view", market, page: "samen" }} />
     </div>
   );

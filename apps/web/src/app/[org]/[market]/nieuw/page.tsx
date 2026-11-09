@@ -62,7 +62,7 @@ export default async function NewPage({ params }: Params) {
           </section>
         )}
       </main>
-      <SiteFooter base={base} t={t} own={o.isDefault} />
+      <SiteFooter base={base} t={t} market={market} own={o.isDefault} />
       <Track event={{ type: "page_view", market, page: "nieuw" }} />
     </div>
   );

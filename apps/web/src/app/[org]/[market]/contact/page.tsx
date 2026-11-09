@@ -45,7 +45,7 @@ export default async function ContactPage({ params, searchParams }: { params: Pr
           contactError: t.contactError, contactTooMany: t.contactTooMany, contactClosed: t.contactClosed,
         }} />
       </main>
-      <SiteFooter base={base} t={t} own={org.isDefault} />
+      <SiteFooter base={base} t={t} market={market} own={org.isDefault} />
     </div>
   );
 }

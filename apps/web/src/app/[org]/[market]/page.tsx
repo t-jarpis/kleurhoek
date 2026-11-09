@@ -16,6 +16,8 @@ import { SeasonBand } from "@/components/SeasonBand";
 import { Surprise } from "@/components/Surprise";
 import { Track } from "@/components/Track";
 import { TopicLinks } from "@/components/TopicLinks";
+import { SisterSite } from "@/components/SisterSite";
+import { denkhoekFor } from "@/lib/sister-sites";
 import { topics } from "@/lib/topics";
 import { SubscribeForm } from "@/components/SubscribeForm";
 import { subscribe } from "./mail/actions";
@@ -78,9 +80,11 @@ export default async function Home({ params }: { params: Promise<{ org: string; 
       )}
       <Suspense fallback={null}><Browse plates={plates} taxonomy={taxonomy} market={market} language={language} themes={themeList} subscribe={org.isDefault} /></Suspense>
       <TopicLinks groups={topics(plates, taxonomy, t)} base={base} t={t} />
+      {/* Zustersite Denkhoek (ADR 0098): alleen op Kleurhoek zelf en in de markten uit lib/sister-sites.ts. */}
+      {org.isDefault && <SisterSite site={denkhoekFor(market)} />}
       <Fridge market={market} plates={plates} language={language} />
       {org.isDefault && <SubscribeForm action={subscribe.bind(null, market)} language={language} />}
-      <SiteFooter base={base} t={t} own={org.isDefault} />
+      <SiteFooter base={base} t={t} market={market} own={org.isDefault} />
       <Track event={{ type: "page_view", market, page: "home" }} />
     </div>
   );

@@ -78,7 +78,7 @@ export default async function SintCalendarPage({ params }: Params) {
         {o.isDefault && <SubscribeForm action={subscribe.bind(null, market)} language={market} title={SINT_TEXT.mailTitle} intro={SINT_TEXT.mailIntro}
           topics={["sinterklaaskalender", "nieuwe-platen", "feestdagen"]} checked={["sinterklaaskalender"]} />}
       </main>
-      <SiteFooter base={base} t={t} own={o.isDefault} />
+      <SiteFooter base={base} t={t} market={market} own={o.isDefault} />
       <Track event={{ type: "page_view", market, page: "sinterklaaskalender" }} />
     </div>
   );

@@ -35,7 +35,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ org: s
         <h1 className="page-title">{text.title}</h1>
         <article className="kh-prose"><text.Body contact={contact} /></article>
       </main>
-      <SiteFooter base={base} t={t} own={org.isDefault} />
+      <SiteFooter base={base} t={t} market={market} own={org.isDefault} />
     </div>
   );
 }

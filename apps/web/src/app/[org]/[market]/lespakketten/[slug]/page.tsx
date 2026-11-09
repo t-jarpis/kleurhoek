@@ -75,7 +75,7 @@ export default async function PackPage({ params }: Params) {
             kindLabel={p.kind !== "kleurplaat" ? t.kindNames[p.kind] : undefined} alt={t.metaPlateTitle(p.name, kindFor(p.name, t.kindNames[p.kind] ?? t.kindNames.kleurplaat!))} />
         ))}
       </main>
-      <SiteFooter base={base} t={t} own={o.isDefault} />
+      <SiteFooter base={base} t={t} market={market} own={o.isDefault} />
       <Track event={{ type: "page_view", market, page: "lespakket" }} />
     </div>
   );

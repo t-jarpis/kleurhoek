@@ -104,7 +104,7 @@ export default async function PlatePage({ params }: { params: Promise<{ org: str
             </div>
           </section>
         )}
-        <SiteFooter base={base} t={t} own={o?.isDefault ?? false} />
+        <SiteFooter base={base} t={t} market={market} own={o?.isDefault ?? false} />
       </div>
     </>
   );
