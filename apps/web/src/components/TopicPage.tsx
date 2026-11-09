@@ -9,7 +9,8 @@ import { absolute, hreflang, indexable, jsonLd, pageMeta, pageUrl, pngOf } from 
 import { inTopic, topicTitle, topics, type Dimension } from "@/lib/topics";
 import { Crumbs } from "./Crumbs";
 import { Logo } from "./Logo";
-import { PlateCard } from "./PlateCard";
+import { PlateGrid } from "./PlateGrid";
+import { cardOf, packCard } from "@/lib/cards";
 import { SiteFooter } from "./SiteFooter";
 import { TopicLinks } from "./TopicLinks";
 import { Track } from "./Track";
@@ -80,11 +81,12 @@ export function topicPage(dim: Dimension) {
         <h1>{title}</h1>
         <p className="lede">{t.topicIntro(title, plates.length)}</p>
         <div className="frow frow-end"><ColorToggle label={t.colorPreview} /></div>
+        {/* Alle kaarten in de HTML (vindbaarheid), maar als korte rijen naar de browser (ADR 0099). */}
         <main className="grid">
-          {plates.map((p) => (
-            <PlateCard key={p.slug} plate={p} base={base} taxonomy={taxonomy} view={dim === "onderwerp" ? slug : "alle"} yr={t.yr}
-              kindLabel={p.kind !== "kleurplaat" ? t.kindNames[p.kind] : undefined} alt={t.metaPlateTitle(p.name, kindFor(p.name, t.kindNames[p.kind] ?? t.kindNames.kleurplaat!))} />
-          ))}
+          <PlateGrid base={base} yr={t.yr} cards={plates.map((p) => packCard(cardOf(p, taxonomy, dim === "onderwerp" ? slug : "alle", {
+            kindLabel: p.kind !== "kleurplaat" ? t.kindNames[p.kind] : undefined,
+            alt: t.metaPlateTitle(p.name, kindFor(p.name, t.kindNames[p.kind] ?? t.kindNames.kleurplaat!)),
+          })))} />
         </main>
         <TopicLinks groups={groups} base={base} t={t} current={path} />
         <SiteFooter base={base} t={t} market={market} own={o.isDefault} />

@@ -12,14 +12,27 @@ import { link } from "@/lib/sites";
 import Link from "next/link";
 import { matcher, worthKeeping } from "@/lib/search";
 import { asked, sendWish } from "@/lib/wish";
+import { usePlates } from "@/lib/plate-index";
 
 /** Platenraster in porties (LoadMore): zoveel kaartjes per keer, de volgende automatisch bij het scrollen. */
 const BATCH = 60;
 
 type Key = "soort" | "leerdoel" | "onderwerp" | "werelddeel" | "land" | "feestdag" | "leeftijd" | "q";
 
-/** Filters en raster. De filterstand staat in de URL, zodat je hem kunt delen en de pagina zelf gecachet blijft. */
-export function Browse({ plates, taxonomy, market, language, themes = [], subscribe = false }: { plates: PlateItem[]; taxonomy: Taxonomy; market: string; language: string; themes?: { slug: string; name: string }[]; subscribe?: boolean }) {
+type Props = { taxonomy: Taxonomy; market: string; language: string; themes?: { slug: string; name: string }[]; subscribe?: boolean };
+
+/**
+ * Filters en raster. De lijst van alle platen zit niet in de HTML maar komt van `platen.json` (ADR 0099); de pagina
+ * laadt hem al vooruit. Tot hij er is, staat alleen het anker #platen er (links uit de seizoensband springen erheen).
+ */
+export function Browse(props: Props) {
+  const plates = usePlates(useBase());
+  if (!Array.isArray(plates)) return <div id="platen" aria-busy={plates === null} />;
+  return <BrowseList plates={plates} {...props} />;
+}
+
+/** De filterstand staat in de URL, zodat je hem kunt delen en de pagina zelf gecachet blijft. */
+function BrowseList({ plates, taxonomy, market, language, themes = [], subscribe = false }: Props & { plates: PlateItem[] }) {
   const base = useBase();
   const t = useT();
   const router = useRouter();

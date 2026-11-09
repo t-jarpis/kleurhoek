@@ -4,6 +4,12 @@ import type { Messages } from "@/i18n/nl";
 import { link } from "@/lib/sites";
 import { PlateCard } from "./PlateCard";
 
+/**
+ * Zoveel minikaartjes laden meteen (ADR 0099); de rest van de strook is lazy. Anders zet React voor elk plaatje een
+ * preload in de <head>, nog vóór de CSS.
+ */
+const EAGER = 4;
+
 /** Scheurkalender met de feestdagen en het seizoen van nu, en de platen die erbij horen. */
 export function SeasonBand({ season, plates, taxonomy, market, base, t }: { season: Season; plates: PlateItem[]; taxonomy: Taxonomy; market: string; base: string; t: Messages }) {
   // Datums in de vorm van de taal ("5 december", "5. Dezember", "5 de diciembre", "5 grudnia").
@@ -35,7 +41,7 @@ export function SeasonBand({ season, plates, taxonomy, market, base, t }: { seas
         {holidays.length > 0 && <p className="soon">{holidays.map((h, i) => <span key={h.slug}>{i > 0 && " · "}{holiday(h)} ({label(h)})</span>)}</p>}
         {season.soon.length > 0 && <p className="soon">{t.soon}: {season.soon.map((h, i) => <span key={h.slug}>{i > 0 && " · "}{holiday(h)} ({label(h)})</span>)}</p>}
         <div className="minis">
-          {season.plates.map((s) => bySlug.get(s)).filter((p): p is PlateItem => !!p).map((p) => <PlateCard key={p.slug} plate={p} base={base} taxonomy={taxonomy} mini yr={t.yr} />)}
+          {season.plates.map((s) => bySlug.get(s)).filter((p): p is PlateItem => !!p).map((p, i) => <PlateCard key={p.slug} plate={p} base={base} taxonomy={taxonomy} mini eager={i < EAGER} yr={t.yr} />)}
         </div>
       </div>
     </section>

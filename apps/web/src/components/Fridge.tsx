@@ -1,28 +1,34 @@
 "use client";
-import { useHref } from "./Base";
+import { useBase, useHref } from "./Base";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, type CSSProperties } from "react";
 import { useT } from "./I18n";
 import { fridge, useFridge } from "@/lib/local";
 import { svgHeight, svgInner } from "@/lib/svg";
-import type { PlateItem } from "@/lib/types";
+import { usePlates } from "@/lib/plate-index";
 import { normalizeArt } from "@/lib/atelier";
 import { Sheet } from "./Sheet";
 
 const MAGNETS = ["var(--krijt-rood)", "var(--krijt-blauw)", "var(--krijt-geel)", "var(--krijt-groen)", "var(--krijt-roze)", "var(--krijt-oranje)"];
 const TILT = [-3, 2, -1.5, 3, -2, 1];
 type Loaded = { inner: string; height: number };
+const NONE: never[] = [];
 const svgCache = new Map<string, Promise<Loaded>>();
 const loadInner = (url: string) => {
   if (!svgCache.has(url)) svgCache.set(url, fetch(url).then((r) => (r.ok ? r.text() : "")).then((svg) => ({ inner: svgInner(svg), height: svgHeight(svg) })).catch(() => ({ inner: "", height: 200 })));
   return svgCache.get(url)!;
 };
 
-/** De koelkastdeur: eigen werk dat op dit apparaat is opgehangen. Niets gaat naar de server. */
-export function Fridge({ market, plates, language }: { market: string; plates: PlateItem[]; language: string }) {
+/**
+ * De koelkastdeur: eigen werk dat op dit apparaat is opgehangen. Niets gaat naar de server. Namen en adressen komen
+ * uit `platen.json` (ADR 0099), alleen als er iets op de koelkast hangt.
+ */
+export function Fridge() {
   const href = useHref();
   const t = useT();
   const items = useFridge();
+  const loaded = usePlates(useBase(), items.length > 0);
+  const plates = Array.isArray(loaded) ? loaded : NONE;
   const router = useRouter();
   const [inner, setInner] = useState<Record<string, Loaded>>({});
   const [sure, setSure] = useState<string | null>(null);

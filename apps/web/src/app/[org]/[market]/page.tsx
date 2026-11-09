@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { AccountButton } from "@/components/AccountButton";
 import { baseFor } from "@/lib/base";
-import { link } from "@/lib/sites";
+import { link, plateIndexPath } from "@/lib/sites";
 import { BookButton } from "@/components/BookPicker";
 import { Fridge } from "@/components/Fridge";
 import { Suspense } from "react";
+import { preload } from "react-dom";
 import { notFound } from "next/navigation";
 import { api, NotFound } from "@/lib/api";
 import { marketLanguage } from "@/lib/markets";
@@ -54,6 +55,8 @@ export default async function Home({ params }: { params: Promise<{ org: string; 
     throw e;
   });
   const themeList = await themes;
+  // De lijst voor zoeken en filters staat niet in de HTML (ADR 0099); de browser haalt hem meteen op, naast de scripts.
+  preload(plateIndexPath(base), { as: "fetch", crossOrigin: "anonymous" });
   return (
     <div className="wrap" data-mode="kind">
       {indexable(org) && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd({
@@ -62,7 +65,7 @@ export default async function Home({ params }: { params: Promise<{ org: string; 
       }) }} />}
       <header className="mast">
         <div><Logo market={market} org={org} /><h1 className="lede">{t.lede}</h1></div>
-        <div className="row no-print"><BookButton language={language} /><Surprise market={market} slugs={plates.map((p) => p.slug)} label={t.surprise} />{org.features.accounts && <AccountButton market={market} t={{ login: t.login, account: t.account, logout: t.logout }} />}</div>
+        <div className="row no-print"><BookButton language={language} /><Surprise label={t.surprise} />{org.features.accounts && <AccountButton market={market} t={{ login: t.login, account: t.account, logout: t.logout }} />}</div>
       </header>
       <SeasonBand season={season} plates={plates} taxonomy={taxonomy} market={market} base={base} t={t} />
       {/* Aftelkalender (ADR 0058): in november en december op de voorpagina. */}
@@ -78,11 +81,11 @@ export default async function Home({ params }: { params: Promise<{ org: string; 
           <Link className="ui-btn" data-variant="primary" href={link(base, "/aftelkalender")}>{t.advent.teaserCta}</Link>
         </div>
       )}
-      <Suspense fallback={null}><Browse plates={plates} taxonomy={taxonomy} market={market} language={language} themes={themeList} subscribe={org.isDefault} /></Suspense>
+      <Suspense fallback={<div id="platen" aria-busy="true" />}><Browse taxonomy={taxonomy} market={market} language={language} themes={themeList} subscribe={org.isDefault} /></Suspense>
       <TopicLinks groups={topics(plates, taxonomy, t)} base={base} t={t} />
       {/* Zustersite Denkhoek (ADR 0098): alleen op Kleurhoek zelf en in de markten uit lib/sister-sites.ts. */}
       {org.isDefault && <SisterSite site={denkhoekFor(market)} />}
-      <Fridge market={market} plates={plates} language={language} />
+      <Fridge />
       {org.isDefault && <SubscribeForm action={subscribe.bind(null, market)} language={language} />}
       <SiteFooter base={base} t={t} market={market} own={org.isDefault} />
       <Track event={{ type: "page_view", market, page: "home" }} />

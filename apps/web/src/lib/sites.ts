@@ -109,6 +109,9 @@ export function routeFor(input: {
 /** Link binnen de markt: `link("", "/platen/kat")` → "/platen/kat"; `link("", "")` → "/"; `link("/fr", "?x=1")` → "/fr?x=1". */
 export const link = (base: string, path = "") => (path === "" || /^[?#]/.test(path) ? (base || "/") + path : base + path);
 
+/** Alle platen van de markt als JSON, voor zoeken en filters in de browser (ADR 0099). */
+export const plateIndexPath = (base: string) => link(base, "/platen.json");
+
 /** Naam van een markt in haar eigen taal: "Nederland", "België · Nederlands", "Belgique · Français". */
 export function marketLabel(market: string): string {
   const [lang = "nl", country = ""] = market.split("-");
