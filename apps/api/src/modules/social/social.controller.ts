@@ -70,7 +70,7 @@ export class SocialController {
   @RequirePermission("social.manage")
   @HttpCode(200)
   async generate(@Body() body: unknown) {
-    const b = parse(z.object({ days: z.number().int().min(1).max(14).default(7) }).default({}), body ?? {});
+    const b = parse(z.object({ days: z.number().int().min(1).max(14).default(7) }), body ?? {});
     return { made: await this.social.generate(new Date(), b.days), days: b.days };
   }
 
