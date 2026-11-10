@@ -355,7 +355,8 @@ export class SocialService implements OnModuleInit {
   }
 
   /** Voorstellen voor vandaag en de twee dagen erna. Dubbele voorstellen worden overgeslagen, dus herhalen kan. */
-  async generate(now = new Date()) {
+  /** Voorstellen voor vandaag en de komende dagen: elke ochtend 3, met de knop in het admin panel tot 14 (ADR 0063, aanvulling). */
+  async generate(now = new Date(), horizon = 3) {
     const s = await this.settings();
     const { list, market } = await this.plates();
     if (!market || !list.length) return 0;
@@ -365,7 +366,7 @@ export class SocialService implements OnModuleInit {
     const facebook = live(await this.channel("facebook"));
     const instagram = live(await this.channel("instagram"));
     const today = localDay(now);
-    const days = [0, 1, 2].map((n) => addDays(today, n));
+    const days = Array.from({ length: Math.min(Math.max(horizon, 1), 14) }, (_, n) => addDays(today, n));
     const season = await this.store.season(market, undefined, now);
     const soon = [...season.active.filter((a) => a.kind === "holiday"), ...season.soon] as { slug: string; name: string; date?: string }[];
     let made = 0;

@@ -156,7 +156,7 @@ export default async function SocialPage({ searchParams }: { searchParams: Promi
               {tab === "voorstellen" && list.length > 1 && (
                 <form action={decide}>{list.map((p) => <input key={p.id} type="hidden" name="id" value={p.id} />)}<input type="hidden" name="tab" value={tab} /><button className="ui-btn" data-variant="primary" name="approve" value="1">Alles goedkeuren ({list.length})</button></form>
               )}
-              <form action={generate}><button className="ui-btn">Nu voorstellen maken</button></form>
+              <form action={generate}><button className="ui-btn">Voorstellen voor 7 dagen maken</button></form>
             </div>
           )}
           {list.length === 0 ? <div className="ui-empty"><p>{tab === "voorstellen" ? "Niets om goed te keuren. Elke ochtend komen er nieuwe voorstellen." : tab === "delen" ? "Geen teksten om te delen." : tab === "gepland" ? "Niets gepland." : "Nog niets geplaatst."}</p></div>

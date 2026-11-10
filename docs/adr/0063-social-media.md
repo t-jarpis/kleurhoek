@@ -42,3 +42,6 @@ Kleurhoek heeft bezoekers nodig. Pinterest, Facebook en Instagram zijn voor kleu
 - **Facebook-groepen:** kan niet automatisch, want Meta sloot de Groups API in 2024. Daarom bestaat het kanaal "delen".
 - Zonder gekoppelde kanalen maakt het domein alleen teksten om te delen.
 - De markt is voorlopig alleen nl-nl; de teksten zijn Nederlands.
+
+## Aanvulling (10 november 2026): een week vooruit met de knop
+Elke ochtend komen er voorstellen voor vandaag en de twee dagen daarna (zoals eerst). De knop in het admin panel heet nu "Voorstellen voor 7 dagen maken" en maakt voorstellen voor vandaag en de zes dagen daarna (`POST /v1/admin/social/generate` met `days`, 1 tot en met 14, standaard 7), zodat je een hele week in één keer kunt goedkeuren. Dubbele voorstellen blijven uitgesloten.

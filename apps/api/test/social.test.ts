@@ -93,6 +93,13 @@ describe("social (ADR 0063)", () => {
     expect(feed.find((p) => p.channel === "instagram")!.image).toMatch(/\.jpg\?r=2$/);
     expect(feed.find((p) => p.channel === "facebook")!.body).toMatch(/over \d+ dagen|morgen/);
     expect(new Date(feed[0]!.scheduledAt).toISOString()).toBe(atLocal("2026-11-02", "19:30").toISOString());
+    // Met de knop in het admin panel: een week vooruit (ADR 0063, aanvulling), zonder dubbele voorstellen.
+    expect(await social.generate(now, 7)).toBeGreaterThan(0);
+    expect(await social.generate(now, 7)).toBe(0);
+    const week = (await as("/v1/admin/social/posts?status=voorstel")).json().posts as { scheduledAt: string }[];
+    expect(week.some((p) => new Date(p.scheduledAt) >= atLocal("2026-11-08", "00:00"))).toBe(true);
+    expect(week.every((p) => new Date(p.scheduledAt) < atLocal("2026-11-09", "00:00"))).toBe(true);
+    await ctx.app.get<Database>(DB).execute(sql`delete from social.posts where scheduled_at >= ${atLocal("2026-11-05", "00:00")}`);
   });
 
   it("maakt tijdens de Sinterklaaskalender elke dag een post met het deurtje van die dag", async () => {

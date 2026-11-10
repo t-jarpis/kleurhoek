@@ -30,7 +30,7 @@ export async function markShared(f: FormData) {
 
 export async function generate() {
   let message = "";
-  try { const r = await adminApi.generateSocial(); message = r.made ? `${r.made} nieuwe voorstellen.` : "Geen nieuwe voorstellen: alles voor de komende dagen staat er al."; }
+  try { const r = await adminApi.generateSocial(); message = r.made ? `${r.made} nieuwe voorstellen voor de komende ${r.days} dagen.` : `Geen nieuwe voorstellen: alles voor de komende ${r.days} dagen staat er al.`; }
   catch (e) { if (e instanceof ApiError) message = e.message; else throw e; }
   back("voorstellen", message);
 }

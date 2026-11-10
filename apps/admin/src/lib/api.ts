@@ -300,7 +300,7 @@ export const adminApi = {
   updateSocialPost: (id: string, body: { title?: string; body?: string; scheduledAt?: string }) => call(`/v1/admin/social/posts/${encodeURIComponent(id)}`, { method: "PUT", body: JSON.stringify(body) }),
   decideSocial: (ids: string[], approve: boolean) => call<{ changed: number }>("/v1/admin/social/posts/decide", { method: "POST", body: JSON.stringify({ ids, approve }) }),
   sharedSocial: (id: string) => call(`/v1/admin/social/posts/${encodeURIComponent(id)}/shared`, { method: "POST", body: "{}" }),
-  generateSocial: () => call<{ made: number }>("/v1/admin/social/generate", { method: "POST", body: "{}" }),
+  generateSocial: (days = 7) => call<{ made: number; days: number }>("/v1/admin/social/generate", { method: "POST", body: JSON.stringify({ days }) }),
   saveSocialSettings: (body: SocialSettings) => call<SocialSettings>("/v1/admin/social/settings", { method: "PUT", body: JSON.stringify(body) }),
   socialConnectUrl: (kind: "pinterest" | "meta", redirectUri: string) => call<{ url: string }>(`/v1/admin/social/connect/${kind}?redirectUri=${encodeURIComponent(redirectUri)}`).then((r) => r.url),
   socialConnect: (kind: "pinterest" | "meta", body: { code: string; state: string; redirectUri: string }) => call<{ connected: string[]; page?: string; instagram?: string | null }>(`/v1/admin/social/connect/${kind}`, { method: "POST", body: JSON.stringify(body) }),
