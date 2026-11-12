@@ -557296,5 +557296,4369 @@
         "countQuestion": "Hvað sérðu mörg blóm?"
       }
     }
+  },
+  {
+    "slug": "bouwplaat-pakjesboot",
+    "order": 1111,
+    "category": "feest",
+    "age": "6-9",
+    "world": null,
+    "holiday": "sinterklaas",
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 40,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 84,
+    "colorByNumber": {
+      "codes": "nnnn-nwyrrybbbbbrybbbbbrygpy---w--ywybybbbbrnyrnyrr-ybbbbrnyrnyrywybrr-rrrxyxyyxxyxy",
+      "palette": [
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 148.3,
+          "y": 106,
+          "size": 6.5
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 153,
+          "y": 92.1,
+          "size": 6.4
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 67.1,
+          "y": 155.9,
+          "size": 8.3
+        },
+        {
+          "region": 3,
+          "number": 1,
+          "x": 67.1,
+          "y": 92.8,
+          "size": 8.3
+        },
+        {
+          "region": 5,
+          "number": 1,
+          "x": 38.7,
+          "y": 107.9,
+          "size": 11.8
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 103.1,
+          "y": 64,
+          "size": 13
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 160.3,
+          "y": 88.6,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 4,
+          "x": 164.4,
+          "y": 88.6,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 4,
+          "x": 66.6,
+          "y": 145.3,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 51.7,
+          "y": 164.4,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 5,
+          "x": 132.2,
+          "y": 156.1,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 5,
+          "x": 118.6,
+          "y": 156.1,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 5,
+          "x": 104.9,
+          "y": 156.1,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 5,
+          "x": 91.3,
+          "y": 156.1,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 5,
+          "x": 77.6,
+          "y": 156.1,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 4,
+          "x": 66.6,
+          "y": 103.1,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 3,
+          "x": 51.7,
+          "y": 84.1,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 5,
+          "x": 132.2,
+          "y": 92.4,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 5,
+          "x": 118.6,
+          "y": 92.4,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 5,
+          "x": 104.9,
+          "y": 92.4,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 5,
+          "x": 91.3,
+          "y": 92.4,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 5,
+          "x": 77.6,
+          "y": 92.4,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 4,
+          "x": 45.3,
+          "y": 120.5,
+          "size": 6.5
+        },
+        {
+          "region": 24,
+          "number": 3,
+          "x": 21.9,
+          "y": 107.1,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 6,
+          "x": 78.3,
+          "y": 72.7,
+          "size": 4.6
+        },
+        {
+          "region": 26,
+          "number": 7,
+          "x": 76.7,
+          "y": 58.3,
+          "size": 5.2
+        },
+        {
+          "region": 27,
+          "number": 3,
+          "x": 67.1,
+          "y": 65.5,
+          "size": 4.6
+        },
+        {
+          "region": 31,
+          "number": 2,
+          "x": 24.9,
+          "y": 225.8,
+          "size": 12.3
+        },
+        {
+          "region": 34,
+          "number": 3,
+          "x": 60.1,
+          "y": 179.6,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 2,
+          "x": 68.4,
+          "y": 196,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 3,
+          "x": 72.3,
+          "y": 193.6,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 5,
+          "x": 68.5,
+          "y": 190.3,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 3,
+          "x": 84,
+          "y": 179.6,
+          "size": 4.5
+        },
+        {
+          "region": 39,
+          "number": 5,
+          "x": 86.6,
+          "y": 189.5,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 5,
+          "x": 96.6,
+          "y": 189.5,
+          "size": 4.5
+        },
+        {
+          "region": 41,
+          "number": 5,
+          "x": 106.7,
+          "y": 189.5,
+          "size": 4.5
+        },
+        {
+          "region": 42,
+          "number": 5,
+          "x": 116.7,
+          "y": 189.5,
+          "size": 4.5
+        },
+        {
+          "region": 43,
+          "number": 4,
+          "x": 83.8,
+          "y": 182.7,
+          "size": 4.5
+        },
+        {
+          "region": 44,
+          "number": 1,
+          "x": 89.8,
+          "y": 182.7,
+          "size": 4.5
+        },
+        {
+          "region": 45,
+          "number": 3,
+          "x": 95.8,
+          "y": 182.7,
+          "size": 4.5
+        },
+        {
+          "region": 46,
+          "number": 4,
+          "x": 101.7,
+          "y": 182.7,
+          "size": 4.5
+        },
+        {
+          "region": 47,
+          "number": 1,
+          "x": 107.7,
+          "y": 182.7,
+          "size": 4.5
+        },
+        {
+          "region": 48,
+          "number": 3,
+          "x": 113.7,
+          "y": 182.7,
+          "size": 4.5
+        },
+        {
+          "region": 49,
+          "number": 4,
+          "x": 119.6,
+          "y": 182.7,
+          "size": 4.5
+        },
+        {
+          "region": 50,
+          "number": 4,
+          "x": 23.5,
+          "y": 209.4,
+          "size": 4.5
+        },
+        {
+          "region": 52,
+          "number": 3,
+          "x": 38.4,
+          "y": 202.8,
+          "size": 4.5
+        },
+        {
+          "region": 53,
+          "number": 5,
+          "x": 48.3,
+          "y": 235.5,
+          "size": 4.5
+        },
+        {
+          "region": 54,
+          "number": 5,
+          "x": 48.3,
+          "y": 225.5,
+          "size": 4.5
+        },
+        {
+          "region": 55,
+          "number": 5,
+          "x": 48.3,
+          "y": 215.4,
+          "size": 4.5
+        },
+        {
+          "region": 56,
+          "number": 5,
+          "x": 48.3,
+          "y": 205.4,
+          "size": 4.5
+        },
+        {
+          "region": 57,
+          "number": 4,
+          "x": 41.5,
+          "y": 238.4,
+          "size": 4.5
+        },
+        {
+          "region": 58,
+          "number": 1,
+          "x": 41.5,
+          "y": 232.5,
+          "size": 4.5
+        },
+        {
+          "region": 59,
+          "number": 3,
+          "x": 41.5,
+          "y": 226.5,
+          "size": 4.5
+        },
+        {
+          "region": 60,
+          "number": 4,
+          "x": 41.5,
+          "y": 220.5,
+          "size": 4.5
+        },
+        {
+          "region": 61,
+          "number": 1,
+          "x": 41.5,
+          "y": 214.6,
+          "size": 4.5
+        },
+        {
+          "region": 62,
+          "number": 3,
+          "x": 41.5,
+          "y": 208.6,
+          "size": 4.5
+        },
+        {
+          "region": 63,
+          "number": 4,
+          "x": 41.5,
+          "y": 202.6,
+          "size": 4.5
+        },
+        {
+          "region": 64,
+          "number": 3,
+          "x": 16,
+          "y": 243.1,
+          "size": 4.5
+        },
+        {
+          "region": 65,
+          "number": 2,
+          "x": 24.3,
+          "y": 259.5,
+          "size": 4.5
+        },
+        {
+          "region": 66,
+          "number": 3,
+          "x": 28.2,
+          "y": 257.1,
+          "size": 4.5
+        },
+        {
+          "region": 67,
+          "number": 5,
+          "x": 24.4,
+          "y": 253.8,
+          "size": 4.5
+        },
+        {
+          "region": 68,
+          "number": 4,
+          "x": 155.8,
+          "y": 243,
+          "size": 5.2
+        },
+        {
+          "region": 69,
+          "number": 4,
+          "x": 148.4,
+          "y": 206,
+          "size": 4.5
+        },
+        {
+          "region": 71,
+          "number": 4,
+          "x": 172.9,
+          "y": 239.8,
+          "size": 4.5
+        },
+        {
+          "region": 72,
+          "number": 4,
+          "x": 155.8,
+          "y": 230.1,
+          "size": 5.2
+        },
+        {
+          "region": 73,
+          "number": 4,
+          "x": 155.8,
+          "y": 217.3,
+          "size": 5.2
+        },
+        {
+          "region": 74,
+          "number": 8,
+          "x": 169.2,
+          "y": 240.4,
+          "size": 4.5
+        },
+        {
+          "region": 75,
+          "number": 3,
+          "x": 161.8,
+          "y": 240.4,
+          "size": 4.5
+        },
+        {
+          "region": 76,
+          "number": 8,
+          "x": 140.6,
+          "y": 194.3,
+          "size": 4.5
+        },
+        {
+          "region": 77,
+          "number": 3,
+          "x": 140.6,
+          "y": 201.7,
+          "size": 4.5
+        },
+        {
+          "region": 78,
+          "number": 3,
+          "x": 144.7,
+          "y": 207.7,
+          "size": 4.5
+        },
+        {
+          "region": 79,
+          "number": 8,
+          "x": 177.6,
+          "y": 244.4,
+          "size": 4.5
+        },
+        {
+          "region": 80,
+          "number": 8,
+          "x": 169.2,
+          "y": 227.5,
+          "size": 4.5
+        },
+        {
+          "region": 81,
+          "number": 3,
+          "x": 161.8,
+          "y": 227.5,
+          "size": 4.5
+        },
+        {
+          "region": 82,
+          "number": 8,
+          "x": 169.2,
+          "y": 214.7,
+          "size": 4.5
+        },
+        {
+          "region": 83,
+          "number": 3,
+          "x": 161.8,
+          "y": 214.7,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bouwplaat: pakjesboot",
+        "printNote": "Op stevig papier (160 gram) wordt hij het mooist.",
+        "steps": [
+          "Kleur alle vlakken en tekeningen. Knip de drie delen uit langs de streepjeslijnen; de grijze flapjes blijven eraan.",
+          "Vouw alle stippellijnen naar binnen, ook de flapjes: de tekening blijft aan de buitenkant. Met een liniaal en een lege balpen eerst krassen vouwt het strakker.",
+          "Maak eerst de romp: de twee lange vlakken met de patrijspoorten zijn de zijkanten, de punt is de voorkant. Het vlak met de pakjes is het dek.",
+          "Maak daarna de hut en de schoorsteen. Plak de flapjes één voor één vast aan de binnenkant van de rand ernaast.",
+          "Lijm de hut op het gestippelde vak op het dek en de schoorsteen op het gestippelde vakje op het dak van de hut. Laat alles goed drogen: de pakjesboot kan varen!"
+        ],
+        "word": null,
+        "countQuestion": null
+      },
+      "de": {
+        "name": "Bastelbogen: Geschenkeschiff",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Auf festem Papier (160 g) wird er am schönsten.",
+        "steps": [
+          "Male alle Flächen und Bilder an. Schneide die drei Teile an den gestrichelten Linien aus; die grauen Klebelaschen bleiben dran.",
+          "Falte alle gepunkteten Linien nach innen, auch die Klebelaschen: Das Bild bleibt außen. Wenn du die Linien vorher mit einem Lineal und einem leeren Kuli nachziehst, wird der Falz schärfer.",
+          "Bau zuerst den Rumpf: Die zwei langen Flächen mit den Bullaugen sind die Seiten, die Spitze ist vorne. Die Fläche mit den Geschenken ist das Deck.",
+          "Bau danach die Kajüte und den Schornstein. Klebe die Laschen nacheinander innen an den Rand daneben.",
+          "Klebe die Kajüte auf das gepunktete Feld auf dem Deck und den Schornstein auf das gepunktete Feldchen auf dem Kajütendach. Lass alles gut trocknen: Das Geschenkeschiff kann losfahren!"
+        ]
+      },
+      "fr": {
+        "name": "Modèle à construire : bateau à cadeaux",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Sur du papier épais (160 g), il est encore plus beau.",
+        "steps": [
+          "Colorie toutes les faces et tous les dessins. Découpe les trois pièces le long des lignes en tirets ; les rabats gris restent attachés.",
+          "Plie toutes les lignes pointillées vers l'intérieur, rabats compris : le dessin reste à l'extérieur. Marque d'abord les plis avec une règle et un stylo vide : ils seront plus nets.",
+          "Commence par la coque : les deux longues faces avec les hublots sont les côtés, la pointe est l'avant. La face avec les cadeaux est le pont.",
+          "Monte ensuite la cabine et la cheminée. Colle les rabats un par un à l'intérieur du bord voisin.",
+          "Colle la cabine sur le cadre pointillé du pont et la cheminée sur le petit cadre pointillé du toit de la cabine. Laisse bien sécher : le bateau à cadeaux peut partir !"
+        ]
+      },
+      "en": {
+        "name": "Paper model: present boat",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "It looks best on thick paper (160 gsm).",
+        "steps": [
+          "Colour in all the faces and pictures. Cut out the three parts along the dashed lines; leave the grey tabs attached.",
+          "Fold all the dotted lines inwards, tabs too: the picture stays on the outside. Score the lines first with a ruler and an empty ballpoint pen for crisper folds.",
+          "Make the hull first: the two long faces with the portholes are the sides, the point is the front. The face with the presents is the deck.",
+          "Then make the cabin and the funnel. Glue the tabs one by one to the inside of the edge next to them.",
+          "Glue the cabin onto the dotted box on the deck and the funnel onto the small dotted box on the cabin roof. Let everything dry well: the present boat is ready to sail!"
+        ]
+      },
+      "es": {
+        "name": "Recortable: barco de regalos",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "En papel grueso (160 g) queda más bonito.",
+        "steps": [
+          "Colorea todas las caras y los dibujos. Recorta las tres piezas por las líneas discontinuas; las pestañas grises se quedan unidas.",
+          "Dobla todas las líneas de puntos hacia dentro, también las pestañas: el dibujo queda por fuera. Si antes las marcas con una regla y un bolígrafo gastado, el doblez queda más limpio.",
+          "Haz primero el casco: las dos caras largas con los ojos de buey son los costados y la punta es la proa. La cara con los regalos es la cubierta.",
+          "Después haz el camarote y la chimenea. Pega las pestañas una a una por dentro del borde de al lado.",
+          "Pega el camarote sobre el recuadro de puntos de la cubierta y la chimenea sobre el recuadrito de puntos del techo del camarote. Deja que todo se seque: ¡el barco de regalos ya puede navegar!"
+        ]
+      },
+      "it": {
+        "name": "Modellino di carta: battello dei regali",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Su carta spessa (160 g) viene più bello.",
+        "steps": [
+          "Colora tutte le facce e i disegni. Ritaglia i tre pezzi lungo le linee tratteggiate; le linguette grigie restano attaccate.",
+          "Piega verso l'interno tutte le linee punteggiate, anche le linguette: il disegno resta all'esterno. Se prima le ripassi con un righello e una penna scarica, le pieghe vengono più nette.",
+          "Costruisci prima lo scafo: le due facce lunghe con gli oblò sono i fianchi, la punta è la prua. La faccia con i regali è il ponte.",
+          "Poi costruisci la cabina e la ciminiera. Incolla le linguette una alla volta all'interno del bordo accanto.",
+          "Incolla la cabina sul riquadro punteggiato del ponte e la ciminiera sul riquadrino punteggiato del tetto della cabina. Lascia asciugare tutto: il battello dei regali può salpare!"
+        ]
+      },
+      "pl": {
+        "name": "Model z papieru: statek z prezentami",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Najładniej wychodzi na grubym papierze (160 g).",
+        "steps": [
+          "Pokoloruj wszystkie ścianki i rysunki. Wytnij trzy części wzdłuż linii kreskowanych; szare zakładki zostają przyczepione.",
+          "Zegnij wszystkie linie kropkowane do środka, także zakładki: rysunek zostaje na zewnątrz. Jeśli najpierw przeciągniesz je pustym długopisem wzdłuż linijki, zgięcia będą równiejsze.",
+          "Najpierw zrób kadłub: dwie długie ścianki z bulajami to burty, a szpic to dziób. Ścianka z prezentami to pokład.",
+          "Potem zrób kajutę i komin. Przyklejaj zakładki po kolei od środka do sąsiedniego brzegu.",
+          "Przyklej kajutę na kropkowanym polu na pokładzie, a komin na małym kropkowanym polu na dachu kajuty. Poczekaj, aż wszystko wyschnie: statek z prezentami może płynąć!"
+        ]
+      },
+      "pt": {
+        "name": "Maquete: barco dos presentes",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Fica mais bonito em papel grosso (160 g).",
+        "steps": [
+          "Pinte todas as faces e desenhos. Recorte as três peças pelas linhas tracejadas; as abas cinza ficam presas.",
+          "Dobre todas as linhas pontilhadas para dentro, também as abas: o desenho fica do lado de fora. Se antes marcar as linhas com uma régua e uma caneta sem tinta, a dobra fica mais certa.",
+          "Faça primeiro o casco: as duas faces compridas com as vigias são os lados e a ponta é a proa. A face com os presentes é o convés.",
+          "Depois faça a cabine e a chaminé. Cole as abas uma a uma no lado de dentro da borda ao lado.",
+          "Cole a cabine no quadrado pontilhado do convés e a chaminé no quadradinho pontilhado do telhado da cabine. Deixe tudo secar bem: o barco dos presentes pode zarpar!"
+        ]
+      },
+      "sv": {
+        "name": "Byggark: paketbåt",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "På kraftigt papper (160 gram) blir den finast.",
+        "steps": [
+          "Färglägg alla ytor och bilder. Klipp ut de tre delarna längs de streckade linjerna; de grå flikarna sitter kvar.",
+          "Vik alla prickade linjer inåt, även flikarna: bilden blir kvar på utsidan. Rits först med linjal och en tom kulspetspenna, så blir vikarna skarpare.",
+          "Gör skrovet först: de två långa ytorna med hyttventilerna är sidorna och spetsen är fören. Ytan med paketen är däcket.",
+          "Gör sedan hytten och skorstenen. Limma fast flikarna en i taget på insidan av kanten bredvid.",
+          "Limma hytten på den prickade rutan på däcket och skorstenen på den lilla prickade rutan på hyttens tak. Låt allt torka: paketbåten kan segla!"
+        ]
+      },
+      "da": {
+        "name": "Papirmodel: gavebåd",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Den bliver flottest på kraftigt papir (160 gram).",
+        "steps": [
+          "Farvelæg alle flader og tegninger. Klip de tre dele ud langs de stiplede linjer; de grå flige skal blive siddende.",
+          "Fold alle de prikkede linjer indad, også fligene: tegningen bliver på ydersiden. Hvis du først ridser med en lineal og en tom kuglepen, bliver foldene skarpere.",
+          "Byg skroget først: de to lange flader med koøjerne er siderne, og spidsen er stævnen. Fladen med gaverne er dækket.",
+          "Byg derefter kahytten og skorstenen. Lim fligene fast én ad gangen på indersiden af kanten ved siden af.",
+          "Lim kahytten på det prikkede felt på dækket og skorstenen på det lille prikkede felt på kahyttens tag. Lad det hele tørre: gavebåden kan sejle!"
+        ]
+      },
+      "nb": {
+        "name": "Byggeark: gavebåt",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "På kraftig papir (160 gram) blir den finest.",
+        "steps": [
+          "Fargelegg alle flater og tegninger. Klipp ut de tre delene langs de stiplede linjene; de grå klaffene skal sitte på.",
+          "Brett alle stiplede linjer innover, også klaffene: tegningen blir på utsiden. Riper du først med linjal og en tom kulepenn, blir brettene skarpere.",
+          "Lag skroget først: de to lange flatene med koøyene er sidene, og spissen er baugen. Flaten med gavene er dekket.",
+          "Lag så lugaren og skorsteinen. Lim klaffene fast én etter én på innsiden av kanten ved siden av.",
+          "Lim lugaren på det prikkede feltet på dekket og skorsteinen på det lille prikkede feltet på lugartaket. La alt tørke godt: gavebåten kan seile!"
+        ]
+      },
+      "fi": {
+        "name": "Paperimalli: lahjalaiva",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Paksulle paperille (160 g) tulostettuna se on kaunein.",
+        "steps": [
+          "Väritä kaikki tahkot ja kuvat. Leikkaa kolme osaa irti katkoviivoja pitkin; harmaat läpät jäävät kiinni.",
+          "Taita kaikki pisteviivat sisäänpäin, myös läpät: kuva jää ulkopuolelle. Taitokset tulevat terävämmiksi, kun uurrat ensin viivaimella ja tyhjällä kuulakärkikynällä.",
+          "Tee ensin runko: kaksi pitkää tahkoa, joissa on ikkunat, ovat kyljet, ja kärki on keula. Tahko, jossa on lahjat, on kansi.",
+          "Tee sitten hytti ja savupiippu. Liimaa läpät yksi kerrallaan viereisen reunan sisäpuolelle.",
+          "Liimaa hytti kannen pisteviivaruutuun ja savupiippu hytin katon pieneen pisteviivaruutuun. Anna kaiken kuivua: lahjalaiva voi lähteä purjehtimaan!"
+        ]
+      },
+      "cs": {
+        "name": "Vystřihovánka: loď s dárky",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Nejhezčí bude na tvrdém papíře (160 g/m²).",
+        "steps": [
+          "Vybarvi všechny plošky a obrázky. Vystřihni tři díly podél čárkovaných čar; šedé chlopně nech na místě.",
+          "Přehni všechny tečkované čáry dovnitř, i chlopně: obrázek zůstane venku. Když čáry nejdřív vyrýhuješ prázdnou propiskou podle pravítka, ohyby budou ostřejší.",
+          "Nejdřív slep trup: dvě dlouhé plošky s okénky jsou boky, špička je příď. Ploška s dárky je paluba.",
+          "Potom slep kajutu a komín. Chlopně přilep jednu po druhé zevnitř k vedlejšímu okraji.",
+          "Kajutu přilep na tečkované pole na palubě a komín na malé tečkované políčko na střeše kajuty. Nech všechno zaschnout: loď s dárky může vyplout!"
+        ]
+      },
+      "sk": {
+        "name": "Vystrihovačka: loď s darčekmi",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Na tvrdom papieri (160 g) bude najkrajšia.",
+        "steps": [
+          "Vyfarbi všetky plôšky a obrázky. Tri diely vystrihni po čiarkovaných čiarach; sivé chlopne na nich zostanú.",
+          "Všetky bodkované čiary prelož dovnútra, aj chlopne: obrázok zostane zvonku. Keď ich najprv prejdeš pravítkom a prázdnym perom, ohyby budú ostrejšie.",
+          "Najprv zlep trup: dve dlhé plôšky s okienkami sú boky, špička je prova. Plôška s darčekmi je paluba.",
+          "Potom zlep kajutu a komín. Chlopne prilep jednu po druhej zvnútra k susednému okraju.",
+          "Kajutu prilep na bodkované pole na palube a komín na malé bodkované políčko na streche kajuty. Nechaj všetko zaschnúť: loď s darčekmi môže vyplávať!"
+        ]
+      },
+      "hu": {
+        "name": "Papírmakett: ajándékhajó",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Vastag papíron (160 g-os) lesz a legszebb.",
+        "steps": [
+          "Színezd ki az összes lapot és rajzot. Vágd ki a három részt a szaggatott vonalak mentén; a szürke fülek rajtuk maradnak.",
+          "Hajtsd befelé az összes pontozott vonalat, a füleket is: a rajz kívül marad. Ha előbb vonalzóval és üres golyóstollal bekarcolod, szebb lesz a hajtás.",
+          "Először a hajótestet készítsd el: a két hosszú, kerek ablakos lap az oldala, a csúcs az orra. Az ajándékos lap a fedélzet.",
+          "Utána készítsd el a kabint és a kéményt. Ragaszd fel a füleket egyenként a szomszédos szél belső oldalára.",
+          "Ragaszd a kabint a fedélzet pontozott keretére, a kéményt pedig a kabin tetején lévő kis pontozott keretre. Hagyd jól megszáradni: indulhat az ajándékhajó!"
+        ]
+      },
+      "ro": {
+        "name": "Machetă: vaporul cu daruri",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Pe hârtie groasă (160 g) iese cel mai frumos.",
+        "steps": [
+          "Colorează toate fețele și desenele. Decupează cele trei părți pe liniile întrerupte; clapetele gri rămân prinse.",
+          "Îndoaie toate liniile punctate înăuntru, și clapetele: desenul rămâne în afară. Dacă le marchezi întâi cu o riglă și un pix gol, îndoiturile ies mai drepte.",
+          "Fă mai întâi corpul vaporului: cele două fețe lungi cu hublouri sunt laturile, iar vârful este prora. Fața cu daruri este puntea.",
+          "Apoi fă cabina și coșul. Lipește clapetele una câte una pe interiorul marginii de lângă ele.",
+          "Lipește cabina pe chenarul punctat de pe punte și coșul pe chenarul mic punctat de pe acoperișul cabinei. Lasă totul să se usuce: vaporul cu daruri poate porni!"
+        ]
+      },
+      "el": {
+        "name": "Κατασκευή: καράβι με δώρα",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Σε χοντρό χαρτί (160 γρ.) γίνεται πιο όμορφο.",
+        "steps": [
+          "Χρωμάτισε όλες τις έδρες και τις ζωγραφιές. Κόψε τα τρία κομμάτια στις διακεκομμένες γραμμές· τα γκρι πτερύγια μένουν ενωμένα.",
+          "Δίπλωσε όλες τις γραμμές με τις τελείες προς τα μέσα, και τα πτερύγια: η ζωγραφιά μένει έξω. Αν τις χαράξεις πρώτα με χάρακα και άδειο στυλό, τα διπλώματα βγαίνουν πιο καθαρά.",
+          "Φτιάξε πρώτα το σκαρί: οι δύο μακριές έδρες με τα φινιστρίνια είναι τα πλάγια και η μύτη είναι η πλώρη. Η έδρα με τα δώρα είναι το κατάστρωμα.",
+          "Μετά φτιάξε την καμπίνα και το φουγάρο. Κόλλησε τα πτερύγια ένα ένα στο μέσα μέρος της διπλανής άκρης.",
+          "Κόλλησε την καμπίνα στο πλαίσιο με τις τελείες στο κατάστρωμα και το φουγάρο στο μικρό πλαίσιο με τις τελείες στη στέγη της καμπίνας. Άφησέ τα να στεγνώσουν: το καράβι με τα δώρα σαλπάρει!"
+        ]
+      },
+      "bg": {
+        "name": "Хартиен модел: корабът с подаръци",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "На дебела хартия (160 г/м²) става най-хубав.",
+        "steps": [
+          "Оцвети всички страни и рисунки. Изрежи трите части по прекъснатите линии; сивите капачета остават прикрепени.",
+          "Сгъни всички точкови линии навътре, и капачетата: рисунката остава отвън. Ако първо ги набраздиш с линийка и празна химикалка, сгъвките стават по-прави.",
+          "Първо направи корпуса: двете дълги страни с илюминаторите са бордовете, а върхът е носът. Страната с подаръците е палубата.",
+          "После направи каютата и комина. Залепи капачетата едно по едно от вътрешната страна на съседния ръб.",
+          "Залепи каютата върху точковото поле на палубата, а комина върху малкото точково поле на покрива на каютата. Остави всичко да изсъхне: корабът с подаръците може да отплава!"
+        ]
+      },
+      "hr": {
+        "name": "Maketa: brod s darovima",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Najljepše je na debljem papiru (160 g/m²).",
+        "steps": [
+          "Oboji sve plohe i slike. Izreži tri dijela po isprekidanim crtama; sivi jezičci ostaju pričvršćeni.",
+          "Presavij sve točkaste crte prema unutra, i jezičke: slika ostaje vani. Za oštrije pregibe najprije prijeđi crte ravnalom i praznom kemijskom olovkom.",
+          "Najprije napravi trup: dvije duge plohe s okruglim prozorčićima su bokovi, a šiljak je pramac. Ploha s darovima je paluba.",
+          "Zatim napravi kabinu i dimnjak. Zalijepi jezičke jedan po jedan s unutarnje strane susjednog ruba.",
+          "Zalijepi kabinu na točkasto polje na palubi, a dimnjak na malo točkasto polje na krovu kabine. Pusti da se sve osuši: brod s darovima može isploviti!"
+        ]
+      },
+      "sl": {
+        "name": "Izrezanka: ladja z darili",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Na trdem papirju (160 g) bo izdelek najlepši.",
+        "steps": [
+          "Pobarvaj vse ploskve in risbe. Tri dele izreži ob prekinjenih črtah; sivi zavihki naj ostanejo pritrjeni.",
+          "Vse pikčaste črte prepogni navznoter, tudi zavihke: risba ostane zunaj. Če črte prej zarišeš z ravnilom in prazno kemično, se lepše prepognejo.",
+          "Najprej naredi trup: dve dolgi ploskvi z okroglimi okenci sta boka, konica je premec. Ploskev z darili je krov.",
+          "Nato naredi kabino in dimnik. Zavihke enega za drugim prilepi na notranjo stran sosednjega roba.",
+          "Kabino prilepi na pikčasto polje na krovu, dimnik pa na majhno pikčasto polje na strehi kabine. Pusti, da se vse posuši: ladja z darili lahko odpluje!"
+        ]
+      },
+      "et": {
+        "name": "Paberimudel: kingilaev",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Paksul paberil (160 g/m²) tuleb see kõige ilusam.",
+        "steps": [
+          "Värvi kõik tahud ja pildid. Lõika kolm osa kriipsjooni mööda välja; hallid klapid jäävad külge.",
+          "Murra kõik punktiirjooned sissepoole, ka klapid: pilt jääb väljapoole. Kui tõmbad jooned enne joonlaua ja tühja pastapliiatsiga ette, tulevad murded teravamad.",
+          "Tee kõigepealt kere: kaks pikka tahku ümarate akendega on küljed ja tipp on vöör. Tahk kingitustega on tekk.",
+          "Siis tee kajut ja korsten. Kleebi klapid ükshaaval kõrvaloleva serva sisepoolele.",
+          "Kleebi kajut teki punktiirkastile ja korsten kajuti katuse väikesele punktiirkastile. Lase kõigel kuivada: kingilaev võib sõitma hakata!"
+        ]
+      },
+      "lv": {
+        "name": "Papīra modelis: dāvanu kuģis",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Uz bieza papīra (160 g/m²) tas izdosies visskaistāk.",
+        "steps": [
+          "Izkrāso visas plaknes un zīmējumus. Izgriez trīs daļas pa svītru līnijām; pelēkie atlociņi paliek klāt.",
+          "Pārloki visas punktotās līnijas uz iekšu, arī atlociņus: zīmējums paliek ārpusē. Ja vispirms ievelc rievas ar lineālu un tukšu pildspalvu, locījumi būs asāki.",
+          "Vispirms izveido korpusu: abas garās plaknes ar apaļajiem lodziņiem ir borti, smaile ir priekšgals. Plakne ar dāvanām ir klājs.",
+          "Pēc tam izveido kajīti un skursteni. Pielīmē atlociņus pa vienam pie blakus esošās malas iekšpuses.",
+          "Pielīmē kajīti uz punktotā lauka uz klāja un skursteni uz mazā punktotā lauciņa uz kajītes jumta. Ļauj visam nožūt: dāvanu kuģis var doties ceļā!"
+        ]
+      },
+      "lt": {
+        "name": "Maketas: dovanų laivas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Ant storo popieriaus (160 g/m²) jis atrodys gražiausiai.",
+        "steps": [
+          "Nuspalvink visas sieneles ir piešinius. Iškirpk tris dalis pagal brūkšnines linijas; pilki atlankai lieka prie jų.",
+          "Visas taškines linijas sulenk į vidų, ir atlankus: piešinys lieka išorėje. Jei pirma įbrėši linijas liniuote ir tuščiu tušinuku, sulenksi tiesiau.",
+          "Pirmiausia padaryk korpusą: dvi ilgos sienelės su apvaliais langeliais yra šonai, o smaigalys – laivo priekis. Sienelė su dovanomis yra denis.",
+          "Tada padaryk kajutę ir kaminą. Atlankus po vieną priklijuok prie gretimo krašto iš vidaus.",
+          "Kajutę priklijuok ant taškinio laukelio denyje, o kaminą – ant mažo taškinio laukelio ant kajutės stogo. Leisk viskam išdžiūti: dovanų laivas gali plaukti!"
+        ]
+      },
+      "uk": {
+        "name": "Модель із паперу: корабель із подарунками",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "На щільному папері (160 г/м²) він буде найгарніший.",
+        "steps": [
+          "Розфарбуй усі грані й малюнки. Виріж три частини по штрихових лініях; сірі клапани не відрізай.",
+          "Зігни всі лінії з крапок усередину, клапани теж: малюнок залишається назовні. Якщо спершу продавити лінії лінійкою й порожньою ручкою, згини будуть рівніші.",
+          "Спершу зроби корпус: дві довгі грані з ілюмінаторами — це борти, а гострий кінець — ніс. Грань із подарунками — це палуба.",
+          "Потім зроби каюту й трубу. Приклей клапани по одному зсередини до сусіднього краю.",
+          "Приклей каюту на поле з крапок на палубі, а трубу — на маленьке поле з крапок на даху каюти. Дай усьому висохнути: корабель із подарунками може вирушати!"
+        ]
+      },
+      "tr": {
+        "name": "Maket: hediye gemisi",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "En güzeli kalın kâğıtta (160 gram) olur.",
+        "steps": [
+          "Tüm yüzleri ve resimleri boya. Üç parçayı kesik çizgiler boyunca kes; gri kulakçıklar bağlı kalsın.",
+          "Kulakçıklar dahil tüm noktalı çizgileri içe katla: resim dışta kalır. Önce cetvel ve bitmiş bir tükenmez kalemle bastırarak çizersen daha düzgün katlanır.",
+          "Önce gövdeyi yap: lombozlu iki uzun yüz yanlardır, sivri uç geminin ön tarafıdır. Hediyeli yüz güvertedir.",
+          "Sonra kamarayı ve bacayı yap. Kulakçıkları tek tek yanındaki kenarın iç tarafına yapıştır.",
+          "Kamarayı güvertedeki noktalı alana, bacayı da kamara çatısındaki küçük noktalı alana yapıştır. Her şey kurusun: hediye gemisi yola çıkabilir!"
+        ]
+      },
+      "sr": {
+        "name": "Maketa: brod sa poklonima",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Najlepše ispada na debljem papiru (160 g).",
+        "steps": [
+          "Oboji sve stranice i crteže. Iseci tri dela duž isprekidanih linija; sivi jezičci ostaju na njima.",
+          "Savij sve tačkaste linije ka unutra, i jezičke: crtež ostaje spolja. Za oštrije pregibe prvo prevuci linije lenjirom i praznom hemijskom.",
+          "Prvo napravi trup: dve duge stranice sa okruglim prozorčićima su bokovi, a šiljak je pramac. Stranica sa poklonima je paluba.",
+          "Zatim napravi kabinu i dimnjak. Zalepi jezičke jedan po jedan s unutrašnje strane susedne ivice.",
+          "Zalepi kabinu na tačkasto polje na palubi, a dimnjak na malo tačkasto polje na krovu kabine. Pusti da se sve osuši: brod sa poklonima može da isplovi!"
+        ]
+      },
+      "mk": {
+        "name": "Модел од хартија: брод со подароци",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "На дебела хартија (160 грама) е најубав.",
+        "steps": [
+          "Обој ги сите страни и цртежи. Исечи ги трите дела по испрекинатите линии; сивите јазичиња остануваат прикачени.",
+          "Превиткај ги сите линии со точки навнатре, и јазичињата: цртежот останува однадвор. Ако прво ги изгребеш со линијар и празно пенкало, превивките се поубави.",
+          "Прво направи го трупот: двете долги страни со тркалезните прозорчиња се боковите, а врвот е предниот дел. Страната со подароците е палубата.",
+          "Потоа направи ги кабината и оџакот. Залепи ги јазичињата едно по едно одвнатре на работ до нив.",
+          "Залепи ја кабината на полето со точки на палубата, а оџакот на малото поле со точки на покривот од кабината. Остави сè да се исуши: бродот со подароци може да заплови!"
+        ]
+      },
+      "sq": {
+        "name": "Model letre: anija me dhurata",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Në letër të trashë (160 g) del më bukur.",
+        "steps": [
+          "Ngjyros të gjitha faqet dhe vizatimet. Prit tri pjesët përgjatë vijave me ndërprerje; kapakët gri mbeten të ngjitur.",
+          "Palos të gjitha vijat me pika nga brenda, edhe kapakët: vizatimi mbetet jashtë. Nëse i shënon më parë me vizore dhe stilolaps të mbaruar, palosja del më e drejtë.",
+          "Bëj së pari trupin: dy faqet e gjata me dritaret e rrumbullakëta janë anët, maja është përpara. Faqja me dhuratat është kuverta.",
+          "Pastaj bëj kabinën dhe oxhakun. Ngjit kapakët një nga një nga brenda, te ana pranë tyre.",
+          "Ngjit kabinën te kutia me pika në kuvertë dhe oxhakun te kutia e vogël me pika në çatinë e kabinës. Lëri të thahen: anija me dhurata mund të nisë!"
+        ]
+      },
+      "is": {
+        "name": "Pappírslíkan: gjafabátur",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Á þykkum pappír (160 g) verður hann fallegastur.",
+        "steps": [
+          "Litaðu alla fleti og myndir. Klipptu hlutana þrjá út eftir strikalínunum; gráu fliparnir eiga að sitja fastir.",
+          "Brjóttu allar punktalínurnar inn á við, líka flipana: myndin er að utan. Ef þú rispar fyrst með reglustiku og tómum kúlupenna verða brotin skarpari.",
+          "Búðu fyrst til skrokkinn: löngu fletirnir tveir með kýraugunum eru hliðarnar og oddurinn er stafninn. Flöturinn með gjöfunum er þilfarið.",
+          "Búðu svo til káetuna og reykháfinn. Límdu flipana einn af öðrum innan á brúnina við hliðina.",
+          "Límdu káetuna á punktareitinn á þilfarinu og reykháfinn á litla punktareitinn á þaki káetunnar. Láttu allt þorna: gjafabáturinn getur siglt af stað!"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "schoen-om-te-zetten",
+    "order": 1112,
+    "category": "feest",
+    "age": "6-9",
+    "world": null,
+    "holiday": "sinterklaas",
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 45,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "difficulty": 3,
+    "pages": [
+      {
+        "role": "extra",
+        "height": 280
+      }
+    ],
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 19,
+    "colorByNumber": {
+      "codes": "rywywwrywyww-yygggo",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 54.3,
+          "y": 70.8,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 155.4,
+          "y": 93.2,
+          "size": 13
+        },
+        {
+          "region": 2,
+          "number": 3,
+          "x": 29.1,
+          "y": 110.7,
+          "size": 7.6
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 102.4,
+          "y": 77.3,
+          "size": 6.1
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 76.8,
+          "y": 95.8,
+          "size": 5.4
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 120.8,
+          "y": 97.8,
+          "size": 5.4
+        },
+        {
+          "region": 6,
+          "number": 1,
+          "x": 145.6,
+          "y": 160.9,
+          "size": 13
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 44.6,
+          "y": 183.2,
+          "size": 13
+        },
+        {
+          "region": 8,
+          "number": 3,
+          "x": 162.9,
+          "y": 200.6,
+          "size": 7.6
+        },
+        {
+          "region": 9,
+          "number": 2,
+          "x": 96.4,
+          "y": 167.3,
+          "size": 6.1
+        },
+        {
+          "region": 10,
+          "number": 3,
+          "x": 122.8,
+          "y": 185.8,
+          "size": 5.4
+        },
+        {
+          "region": 11,
+          "number": 3,
+          "x": 78.8,
+          "y": 187.8,
+          "size": 5.4
+        },
+        {
+          "region": 13,
+          "number": 2,
+          "x": 25.8,
+          "y": 224.3,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 2,
+          "x": 79.8,
+          "y": 224.3,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 4,
+          "x": 108.2,
+          "y": 229.4,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 4,
+          "x": 110,
+          "y": 242.3,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 4,
+          "x": 112.6,
+          "y": 253.9,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 5,
+          "x": 137.8,
+          "y": 239.9,
+          "size": 9.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Schoen om te zetten",
+        "printNote": "Print beide vellen op ware grootte, het liefst op stevig papier (160 gram): dan blijft de schoen goed staan.",
+        "steps": [
+          "Kleur de twee zijkanten, de drie stroken van de band, het kaartje en de wortel. De stroken zijn de bovenkant, de neus, de zool en de hak.",
+          "Knip alles uit langs de streepjeslijnen. Knip ook tussen de grijze tandjes door, tot aan de stippellijn.",
+          "Vouw alle tandjes naar achteren langs de stippellijn, weg van de tekening. Vouw strook 3 ook op de stippellijn dwars over de strook: dat wordt de hoek bij de hak.",
+          "Maak één lange band: plak het grijze stuk A van strook 2 onder het einde A van strook 1, en het grijze stuk B van strook 3 onder het einde B van strook 2.",
+          "Leg het begin van strook 1, met de veters, bij de opening voorop. Plak de tandjes één voor één aan de binnenkant van een zijkant. De naden komen bij de streepjes A en B op de zool; bij de neus buig je de band rustig mee.",
+          "Plak de tweede zijkant op dezelfde manier aan de andere kant van de band. Druk de tandjes van binnenuit aan, door de opening.",
+          "Laat de lijm goed drogen. Zet je schoen bij de deur of de kachel, met een wortel voor het paard en een tekening op het kaartje voor Sinterklaas."
+        ],
+        "pageTitles": [
+          "De band in drie stroken"
+        ],
+        "word": null,
+        "countQuestion": null
+      },
+      "de": {
+        "name": "Schuh zum Rausstellen",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Druck beide Bogen in Originalgröße, am besten auf festem Papier (160 g): Dann steht der Schuh gut.",
+        "steps": [
+          "Male die zwei Seitenteile, die drei Streifen des Bandes, das Kärtchen und die Karotte an. Die Streifen sind Oberseite, Spitze, Sohle und Ferse.",
+          "Schneide alles an den gestrichelten Linien aus. Schneide auch zwischen den grauen Zähnchen ein, bis zur gepunkteten Linie.",
+          "Falte alle Zähnchen an der gepunkteten Linie nach hinten, weg vom Bild. Falte Streifen 3 auch quer an der gepunkteten Linie: Das wird die Ecke an der Ferse.",
+          "Mach ein langes Band: Klebe das graue Stück A von Streifen 2 unter das Ende A von Streifen 1 und das graue Stück B von Streifen 3 unter das Ende B von Streifen 2.",
+          "Leg den Anfang von Streifen 1 mit den Schnürsenkeln vorne an die Öffnung. Klebe die Zähnchen nacheinander innen an ein Seitenteil. Die Nähte kommen an die Striche A und B auf der Sohle; an der Spitze biegst du das Band vorsichtig mit.",
+          "Klebe das zweite Seitenteil genauso an die andere Seite des Bandes. Drück die Zähnchen von innen durch die Öffnung an.",
+          "Lass den Kleber gut trocknen. Stell deinen Schuh an die Tür oder an den Ofen, mit einer Karotte für das Pferd und einem Bild auf dem Kärtchen für Sinterklaas."
+        ],
+        "pageTitles": [
+          "Das Band in drei Streifen"
+        ]
+      },
+      "fr": {
+        "name": "Un soulier à déposer pour Saint-Nicolas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Imprime les deux feuilles en taille réelle, de préférence sur du papier épais (160 g) : le soulier tiendra bien debout.",
+        "steps": [
+          "Colorie les deux côtés, les trois bandes, la petite carte et la carotte. Les bandes forment le dessus, le bout, la semelle et le talon.",
+          "Découpe tout le long des lignes en tirets. Coupe aussi entre les petites dents grises, jusqu'à la ligne pointillée.",
+          "Plie toutes les dents vers l'arrière sur la ligne pointillée, à l'opposé du dessin. Plie aussi la bande 3 en travers sur la ligne pointillée : ce sera le coin du talon.",
+          "Fais une longue bande : colle la partie grise A de la bande 2 sous le bout A de la bande 1, et la partie grise B de la bande 3 sous le bout B de la bande 2.",
+          "Place le début de la bande 1, avec les lacets, à l'avant de l'ouverture. Colle les dents une par une à l'intérieur d'un côté. Les raccords tombent sur les traits A et B de la semelle ; au bout, courbe doucement la bande.",
+          "Colle le deuxième côté de la même façon de l'autre côté de la bande. Appuie sur les dents de l'intérieur, par l'ouverture.",
+          "Laisse bien sécher la colle. Dépose ton soulier près de la porte ou de la cheminée, avec une carotte pour le cheval et un dessin sur la petite carte pour Saint-Nicolas."
+        ],
+        "pageTitles": [
+          "La bande en trois parties"
+        ]
+      },
+      "en": {
+        "name": "A shoe to put out for Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Print both sheets at actual size, preferably on thick paper (160 gsm): then the shoe stands up well.",
+        "steps": [
+          "Colour in the two sides, the three strips of the band, the little card and the carrot. The strips make the top, the toe, the sole and the heel.",
+          "Cut everything out along the dashed lines. Also cut between the grey teeth, up to the dotted line.",
+          "Fold all the teeth backwards along the dotted line, away from the picture. Also fold strip 3 across on the dotted line: that becomes the corner at the heel.",
+          "Make one long band: glue the grey part A of strip 2 under end A of strip 1, and the grey part B of strip 3 under end B of strip 2.",
+          "Put the start of strip 1, with the laces, at the front of the opening. Glue the teeth one by one to the inside of one side. The joins go at the marks A and B on the sole; gently bend the band round the toe.",
+          "Glue the second side to the other edge of the band in the same way. Press the teeth from the inside, through the opening.",
+          "Let the glue dry well. Put your shoe by the door or the fireplace, with a carrot for the horse and a drawing on the card for Sinterklaas."
+        ],
+        "pageTitles": [
+          "The band in three strips"
+        ]
+      },
+      "es": {
+        "name": "Un zapato para dejar a Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Imprime las dos hojas a tamaño real, mejor en papel grueso (160 g): así el zapato se mantiene bien de pie.",
+        "steps": [
+          "Colorea los dos laterales, las tres tiras, la tarjetita y la zanahoria. Las tiras forman la parte de arriba, la punta, la suela y el talón.",
+          "Recorta todo por las líneas discontinuas. Corta también entre los dientecitos grises, hasta la línea de puntos.",
+          "Dobla todos los dientecitos hacia atrás por la línea de puntos, al lado contrario del dibujo. Dobla también la tira 3 de través por la línea de puntos: será la esquina del talón.",
+          "Haz una tira larga: pega la parte gris A de la tira 2 debajo del extremo A de la tira 1, y la parte gris B de la tira 3 debajo del extremo B de la tira 2.",
+          "Pon el principio de la tira 1, con los cordones, delante de la abertura. Pega los dientecitos uno a uno por dentro de un lateral. Las uniones van en las marcas A y B de la suela; en la punta, curva la tira con cuidado.",
+          "Pega el segundo lateral igual, al otro borde de la tira. Aprieta los dientecitos desde dentro, por la abertura.",
+          "Deja que se seque bien el pegamento. Pon tu zapato junto a la puerta o la chimenea, con una zanahoria para el caballo y un dibujo en la tarjetita para Sinterklaas."
+        ],
+        "pageTitles": [
+          "La tira en tres partes"
+        ]
+      },
+      "it": {
+        "name": "Una scarpa da mettere fuori per Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Stampa i due fogli in grandezza reale, meglio su carta spessa (160 g): così la scarpa sta ben in piedi.",
+        "steps": [
+          "Colora i due lati, le tre strisce della fascia, il bigliettino e la carota. Le strisce formano la parte di sopra, la punta, la suola e il tallone.",
+          "Ritaglia tutto lungo le linee tratteggiate. Taglia anche tra i dentini grigi, fino alla linea punteggiata.",
+          "Piega tutti i dentini all'indietro lungo la linea punteggiata, dalla parte opposta al disegno. Piega anche la striscia 3 di traverso sulla linea punteggiata: diventa l'angolo del tallone.",
+          "Fai una fascia lunga: incolla la parte grigia A della striscia 2 sotto l'estremità A della striscia 1, e la parte grigia B della striscia 3 sotto l'estremità B della striscia 2.",
+          "Metti l'inizio della striscia 1, con i lacci, davanti all'apertura. Incolla i dentini uno alla volta all'interno di un lato. Le giunture vanno ai segni A e B sulla suola; sulla punta piega la fascia con calma.",
+          "Incolla il secondo lato allo stesso modo sull'altro bordo della fascia. Premi i dentini da dentro, attraverso l'apertura.",
+          "Lascia asciugare bene la colla. Metti la scarpa vicino alla porta o alla stufa, con una carota per il cavallo e un disegno sul bigliettino per Sinterklaas."
+        ],
+        "pageTitles": [
+          "La fascia in tre strisce"
+        ]
+      },
+      "pl": {
+        "name": "But do wystawienia dla Sinterklaasa",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Wydrukuj obie kartki w rzeczywistym rozmiarze, najlepiej na grubym papierze (160 g): wtedy but dobrze stoi.",
+        "steps": [
+          "Pokoloruj dwa boki, trzy części paska, karteczkę i marchewkę. Paski tworzą wierzch, czubek, podeszwę i piętę.",
+          "Wytnij wszystko wzdłuż linii kreskowanych. Natnij też między szarymi ząbkami, aż do linii kropkowanej.",
+          "Zegnij wszystkie ząbki do tyłu wzdłuż linii kropkowanej, na stronę bez rysunku. Zegnij też pasek 3 w poprzek na linii kropkowanej: to będzie róg przy pięcie.",
+          "Zrób jeden długi pasek: przyklej szary kawałek A paska 2 pod koniec A paska 1, a szary kawałek B paska 3 pod koniec B paska 2.",
+          "Przyłóż początek paska 1, ze sznurówkami, z przodu otworu. Przyklejaj ząbki po kolei od środka do jednego boku. Łączenia wypadają przy kreskach A i B na podeszwie; przy czubku ostrożnie wyginaj pasek.",
+          "Tak samo przyklej drugi bok do drugiego brzegu paska. Dociśnij ząbki od środka, przez otwór.",
+          "Poczekaj, aż klej dobrze wyschnie. Postaw but przy drzwiach albo przy piecu, z marchewką dla konia i rysunkiem na karteczce dla Sinterklaasa."
+        ],
+        "pageTitles": [
+          "Pasek z trzech części"
+        ]
+      },
+      "pt": {
+        "name": "Um sapato para deixar ao Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Imprima as duas folhas em tamanho real, de preferência em papel grosso (160 g): assim o sapato fica bem de pé.",
+        "steps": [
+          "Pinte os dois lados, as três partes da tira, o cartãozinho e a cenoura. As tiras formam a parte de cima, a ponta, a sola e o calcanhar.",
+          "Recorte tudo pelas linhas tracejadas. Corte também entre os dentinhos cinzentos, até à linha pontilhada.",
+          "Dobre todos os dentinhos para trás pela linha pontilhada, para o lado sem desenho. Dobre também a tira 3 de lado a lado na linha pontilhada: será o canto do calcanhar.",
+          "Faça uma tira comprida: cole a parte cinzenta A da tira 2 por baixo da ponta A da tira 1, e a parte cinzenta B da tira 3 por baixo da ponta B da tira 2.",
+          "Ponha o início da tira 1, com os atacadores, à frente da abertura. Cole os dentinhos um a um no lado de dentro de um dos lados. As junções ficam nas marcas A e B da sola; na ponta, curve a tira com cuidado.",
+          "Cole o segundo lado da mesma maneira na outra borda da tira. Carregue nos dentinhos por dentro, pela abertura.",
+          "Deixe a cola secar bem. Ponha o sapato junto à porta ou à lareira, com uma cenoura para o cavalo e um desenho no cartãozinho para o Sinterklaas."
+        ],
+        "pageTitles": [
+          "A tira em três partes"
+        ]
+      },
+      "sv": {
+        "name": "En sko att ställa fram till Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Skriv ut båda arken i verklig storlek, helst på kraftigt papper (160 gram): då står skon stadigt.",
+        "steps": [
+          "Färglägg de två sidorna, bandets tre remsor, det lilla kortet och moroten. Remsorna blir ovansidan, tån, sulan och hälen.",
+          "Klipp ut allt längs de streckade linjerna. Klipp också mellan de grå tänderna, fram till den prickade linjen.",
+          "Vik alla tänder bakåt längs den prickade linjen, bort från bilden. Vik också remsa 3 tvärs över på den prickade linjen: det blir hörnet vid hälen.",
+          "Gör ett långt band: limma den grå biten A på remsa 2 under änden A på remsa 1, och den grå biten B på remsa 3 under änden B på remsa 2.",
+          "Lägg början av remsa 1, med skosnörena, framtill vid öppningen. Limma tänderna en i taget på insidan av ena sidan. Skarvarna hamnar vid strecken A och B på sulan; vid tån böjer du bandet försiktigt med.",
+          "Limma den andra sidan på samma sätt mot bandets andra kant. Tryck till tänderna inifrån, genom öppningen.",
+          "Låt limmet torka ordentligt. Ställ skon vid dörren eller kaminen, med en morot till hästen och en teckning på kortet till Sinterklaas."
+        ],
+        "pageTitles": [
+          "Bandet i tre remsor"
+        ]
+      },
+      "da": {
+        "name": "En sko at sætte frem til Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Print begge ark i fuld størrelse, helst på kraftigt papir (160 gram): så står skoen godt.",
+        "steps": [
+          "Farvelæg de to sider, båndets tre strimler, det lille kort og guleroden. Strimlerne bliver oversiden, snuden, sålen og hælen.",
+          "Klip det hele ud langs de stiplede linjer. Klip også mellem de grå tænder, ind til den prikkede linje.",
+          "Fold alle tænderne bagud langs den prikkede linje, væk fra tegningen. Fold også strimmel 3 på tværs ved den prikkede linje: det bliver hjørnet ved hælen.",
+          "Lav et langt bånd: lim det grå stykke A på strimmel 2 under enden A på strimmel 1, og det grå stykke B på strimmel 3 under enden B på strimmel 2.",
+          "Læg begyndelsen af strimmel 1, med snørebåndene, foran ved åbningen. Lim tænderne fast én ad gangen på indersiden af en side. Samlingerne kommer ved stregerne A og B på sålen; ved snuden bøjer du båndet forsigtigt med.",
+          "Lim den anden side fast på samme måde på båndets anden kant. Tryk tænderne fast indefra, gennem åbningen.",
+          "Lad limen tørre godt. Sæt skoen ved døren eller kaminen, med en gulerod til hesten og en tegning på kortet til Sinterklaas."
+        ],
+        "pageTitles": [
+          "Båndet i tre strimler"
+        ]
+      },
+      "nb": {
+        "name": "En sko å sette fram til Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Skriv ut begge arkene i full størrelse, helst på kraftig papir (160 gram): da står skoen godt.",
+        "steps": [
+          "Fargelegg de to sidene, de tre strimlene til båndet, det lille kortet og gulroten. Strimlene blir oversiden, tuppen, sålen og hælen.",
+          "Klipp ut alt langs de stiplede linjene. Klipp også mellom de grå tennene, inn til den prikkede linja.",
+          "Brett alle tennene bakover langs den prikkede linja, bort fra tegningen. Brett også strimmel 3 på tvers ved den prikkede linja: det blir hjørnet ved hælen.",
+          "Lag ett langt bånd: lim den grå biten A på strimmel 2 under enden A på strimmel 1, og den grå biten B på strimmel 3 under enden B på strimmel 2.",
+          "Legg begynnelsen av strimmel 1, med lissene, foran ved åpningen. Lim tennene fast én etter én på innsiden av den ene siden. Skjøtene kommer ved strekene A og B på sålen; ved tuppen bøyer du båndet forsiktig med.",
+          "Lim den andre siden fast på samme måte på den andre kanten av båndet. Trykk tennene fast fra innsiden, gjennom åpningen.",
+          "La limet tørke godt. Sett skoen ved døra eller ovnen, med en gulrot til hesten og en tegning på kortet til Sinterklaas."
+        ],
+        "pageTitles": [
+          "Båndet i tre strimler"
+        ]
+      },
+      "fi": {
+        "name": "Kenkä Sinterklaasille",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Tulosta molemmat arkit todellisessa koossa, mieluiten paksulle paperille (160 g): silloin kenkä pysyy hyvin pystyssä.",
+        "steps": [
+          "Väritä kaksi kylkeä, kaistaleen kolme osaa, pieni kortti ja porkkana. Osista tulee kengän päällinen, kärki, pohja ja kanta.",
+          "Leikkaa kaikki irti katkoviivoja pitkin. Leikkaa myös harmaiden hampaiden välit pisteviivaan asti.",
+          "Taita kaikki hampaat taaksepäin pisteviivaa pitkin, poispäin kuvasta. Taita myös osa 3 poikittain pisteviivan kohdalta: siitä tulee kannan kulma.",
+          "Tee yksi pitkä kaistale: liimaa osan 2 harmaa pala A osan 1 pään A alle ja osan 3 harmaa pala B osan 2 pään B alle.",
+          "Aseta osan 1 alku, jossa on kengännauhat, aukon etureunaan. Liimaa hampaat yksi kerrallaan toisen kyljen sisäpuolelle. Saumat tulevat pohjan viivoihin A ja B; kärjessä taivuta kaistaletta rauhallisesti mukana.",
+          "Liimaa toinen kylki samalla tavalla kaistaleen toiseen reunaan. Paina hampaat kiinni sisältä päin aukon kautta.",
+          "Anna liiman kuivua hyvin. Laita kenkä oven tai takan viereen, porkkana hevoselle ja piirustus kortissa Sinterklaasille."
+        ],
+        "pageTitles": [
+          "Kaistale kolmessa osassa"
+        ]
+      },
+      "cs": {
+        "name": "Bota na nadílku od Sinterklaase",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Vytiskni oba listy ve skutečné velikosti, nejlépe na tvrdý papír (160 g/m²): bota pak dobře stojí.",
+        "steps": [
+          "Vybarvi obě boční strany, tři proužky pruhu, kartičku a mrkev. Z proužků bude svršek, špička, podrážka a pata.",
+          "Vystřihni všechno podél čárkovaných čar. Nastřihni i mezi šedými zoubky, až k tečkované čáře.",
+          "Všechny zoubky přehni podél tečkované čáry dozadu, od obrázku. Proužek 3 přehni také napříč na tečkované čáře: to bude roh u paty.",
+          "Udělej jeden dlouhý pruh: šedý kousek A proužku 2 přilep pod konec A proužku 1 a šedý kousek B proužku 3 pod konec B proužku 2.",
+          "Začátek proužku 1 s tkaničkami přilož vpředu k otvoru. Zoubky přilep jeden po druhém zevnitř k jedné boční straně. Spoje budou u čárek A a B na podrážce; u špičky pruh opatrně ohýbej.",
+          "Stejně přilep druhou boční stranu k druhému okraji pruhu. Zoubky přitlač zevnitř otvorem.",
+          "Nech lepidlo dobře zaschnout. Postav botu ke dveřím nebo ke kamnům, s mrkví pro koně a obrázkem na kartičce pro Sinterklaase."
+        ],
+        "pageTitles": [
+          "Pruh ze tří proužků"
+        ]
+      },
+      "sk": {
+        "name": "Topánka na nádielku od Sinterklaasa",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Vytlač oba listy v skutočnej veľkosti, najlepšie na tvrdý papier (160 g): topánka potom dobre stojí.",
+        "steps": [
+          "Vyfarbi obe bočnice, tri pásiky pásu, kartičku a mrkvu. Z pásikov bude zvršok, špička, podrážka a päta.",
+          "Vystrihni všetko po čiarkovaných čiarach. Nastrihni aj medzi sivými zúbkami, až po bodkovanú čiaru.",
+          "Všetky zúbky prelož po bodkovanej čiare dozadu, od obrázka. Pásik 3 prelož aj naprieč na bodkovanej čiare: to bude roh pri päte.",
+          "Urob jeden dlhý pás: sivý kúsok A pásika 2 prilep pod koniec A pásika 1 a sivý kúsok B pásika 3 pod koniec B pásika 2.",
+          "Začiatok pásika 1 so šnúrkami prilož vpredu k otvoru. Zúbky prilep jeden po druhom zvnútra k jednej bočnici. Spoje budú pri čiarkach A a B na podrážke; pri špičke pás opatrne ohýbaj.",
+          "Rovnako prilep druhú bočnicu k druhému okraju pásu. Zúbky pritlač zvnútra cez otvor.",
+          "Nechaj lepidlo dobre zaschnúť. Polož topánku k dverám alebo ku kachliam, s mrkvou pre koňa a obrázkom na kartičke pre Sinterklaasa."
+        ],
+        "pageTitles": [
+          "Pás z troch pásikov"
+        ]
+      },
+      "hu": {
+        "name": "Kitehető cipő Sinterklaasnak",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Nyomtasd ki mindkét lapot valódi méretben, lehetőleg vastag papírra (160 g-os): így a cipő jól megáll.",
+        "steps": [
+          "Színezd ki a két oldalt, a szalag három csíkját, a kártyát és a répát. A csíkokból lesz a cipő teteje, orra, talpa és sarka.",
+          "Vágj ki mindent a szaggatott vonalak mentén. A szürke fogak között is vágj be, a pontozott vonalig.",
+          "Hajtsd hátra az összes fogat a pontozott vonal mentén, a rajztól elfelé. A 3. csíkot is hajtsd át keresztben a pontozott vonalon: ez lesz a sarok.",
+          "Készíts egy hosszú szalagot: a 2. csík szürke A darabját ragaszd az 1. csík A végének aljára, a 3. csík szürke B darabját pedig a 2. csík B végének aljára.",
+          "Az 1. csík elejét, a fűzővel, tedd elöl a nyíláshoz. Ragaszd a fogakat egyenként az egyik oldal belsejére. A toldások a talpon lévő A és B vonásokhoz kerülnek; a cipő orránál óvatosan hajlítsd a szalagot.",
+          "A második oldalt ugyanígy ragaszd a szalag másik széléhez. A fogakat belülről, a nyíláson át nyomd oda.",
+          "Hagyd jól megszáradni a ragasztót. Tedd a cipőt az ajtóhoz vagy a kályhához, egy répával a lónak és egy rajzzal a kártyán Sinterklaasnak."
+        ],
+        "pageTitles": [
+          "A szalag három csíkban"
+        ]
+      },
+      "ro": {
+        "name": "Un pantof de pus la ușă pentru Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Tipărește ambele foi la mărime reală, de preferat pe hârtie groasă (160 g): așa pantoful stă bine în picioare.",
+        "steps": [
+          "Colorează cele două laturi, cele trei fâșii ale benzii, cartonașul și morcovul. Fâșiile formează partea de sus, vârful, talpa și călcâiul.",
+          "Decupează totul pe liniile întrerupte. Taie și între dinții gri, până la linia punctată.",
+          "Îndoaie toți dinții înapoi pe linia punctată, în partea opusă desenului. Îndoaie și fâșia 3 de-a curmezișul pe linia punctată: acolo va fi colțul de la călcâi.",
+          "Fă o singură bandă lungă: lipește bucata gri A a fâșiei 2 sub capătul A al fâșiei 1, iar bucata gri B a fâșiei 3 sub capătul B al fâșiei 2.",
+          "Pune începutul fâșiei 1, cu șireturile, în fața deschiderii. Lipește dinții unul câte unul pe interiorul unei laturi. Îmbinările vin la liniuțele A și B de pe talpă; la vârf, îndoaie banda ușor.",
+          "Lipește a doua latură la fel pe cealaltă margine a benzii. Apasă dinții din interior, prin deschidere.",
+          "Lasă lipiciul să se usuce bine. Pune pantoful lângă ușă sau lângă sobă, cu un morcov pentru cal și un desen pe cartonaș pentru Sinterklaas."
+        ],
+        "pageTitles": [
+          "Banda din trei fâșii"
+        ]
+      },
+      "el": {
+        "name": "Παπούτσι για τον Σίντερκλάας",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Τύπωσε και τις δύο σελίδες σε πραγματικό μέγεθος, καλύτερα σε χοντρό χαρτί (160 γρ.): έτσι το παπούτσι στέκεται καλά.",
+        "steps": [
+          "Χρωμάτισε τις δύο πλευρές, τα τρία κομμάτια της λωρίδας, την καρτούλα και το καρότο. Τα κομμάτια γίνονται το πάνω μέρος, η μύτη, η σόλα και η φτέρνα.",
+          "Κόψε τα πάντα στις διακεκομμένες γραμμές. Κόψε και ανάμεσα στα γκρι δοντάκια, ως τη γραμμή με τις τελείες.",
+          "Δίπλωσε όλα τα δοντάκια προς τα πίσω στη γραμμή με τις τελείες, μακριά από τη ζωγραφιά. Δίπλωσε και το κομμάτι 3 κάθετα στη γραμμή με τις τελείες: εκεί θα είναι η γωνία της φτέρνας.",
+          "Φτιάξε μια μακριά λωρίδα: κόλλησε το γκρι κομμάτι A του κομματιού 2 κάτω από την άκρη A του κομματιού 1, και το γκρι κομμάτι B του κομματιού 3 κάτω από την άκρη B του κομματιού 2.",
+          "Βάλε την αρχή του κομματιού 1, με τα κορδόνια, μπροστά στο άνοιγμα. Κόλλησε τα δοντάκια ένα ένα στο μέσα μέρος της μιας πλευράς. Οι ενώσεις πέφτουν στα σημάδια A και B της σόλας· στη μύτη λύγισε τη λωρίδα απαλά.",
+          "Κόλλησε τη δεύτερη πλευρά με τον ίδιο τρόπο στην άλλη άκρη της λωρίδας. Πίεσε τα δοντάκια από μέσα, από το άνοιγμα.",
+          "Άφησε την κόλλα να στεγνώσει καλά. Βάλε το παπούτσι σου δίπλα στην πόρτα ή στο τζάκι, με ένα καρότο για το άλογο και μια ζωγραφιά στην καρτούλα για τον Σίντερκλάας."
+        ],
+        "pageTitles": [
+          "Η λωρίδα σε τρία κομμάτια"
+        ]
+      },
+      "bg": {
+        "name": "Обувка за Синтерклаас",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Отпечатай двата листа в реален размер, най-добре на дебела хартия (160 г/м²): така обувката стои добре.",
+        "steps": [
+          "Оцвети двете страни, трите части на лентата, картичката и моркова. Частите стават горната част, върхът, подметката и петата.",
+          "Изрежи всичко по прекъснатите линии. Изрежи и между сивите зъбчета, до точковата линия.",
+          "Сгъни всички зъбчета назад по точковата линия, далеч от рисунката. Сгъни и част 3 напряко по точковата линия: там ще е ъгълът при петата.",
+          "Направи една дълга лента: залепи сивото парче A на част 2 под края A на част 1, а сивото парче B на част 3 под края B на част 2.",
+          "Сложи началото на част 1, с връзките, отпред при отвора. Залепи зъбчетата едно по едно от вътрешната страна на едната страна. Съединенията идват при чертичките A и B на подметката; при върха извивай лентата внимателно.",
+          "Залепи втората страна по същия начин към другия край на лентата. Притисни зъбчетата отвътре, през отвора.",
+          "Остави лепилото да изсъхне добре. Сложи обувката до вратата или до печката, с морков за коня и рисунка на картичката за Синтерклаас."
+        ],
+        "pageTitles": [
+          "Лентата от три части"
+        ]
+      },
+      "hr": {
+        "name": "Cipela za Sinterklaasa",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Ispiši oba lista u stvarnoj veličini, najbolje na debljem papiru (160 g/m²): tako cipela dobro stoji.",
+        "steps": [
+          "Oboji obje bočne strane, tri dijela trake, karticu i mrkvu. Od dijelova trake nastaju gornji dio, vrh, potplat i peta.",
+          "Izreži sve po isprekidanim crtama. Zareži i između sivih zubaca, do točkaste crte.",
+          "Presavij sve zupce prema natrag po točkastoj crti, od crteža. Presavij i dio 3 poprijeko na točkastoj crti: to će biti kut kod pete.",
+          "Napravi jednu dugu traku: zalijepi sivi komad A dijela 2 ispod kraja A dijela 1, a sivi komad B dijela 3 ispod kraja B dijela 2.",
+          "Početak dijela 1, s vezicama, stavi sprijeda uz otvor. Zalijepi zupce jedan po jedan s unutarnje strane jedne bočne strane. Spojevi dolaze kod crtica A i B na potplatu; kod vrha traku pažljivo savij.",
+          "Na isti način zalijepi drugu bočnu stranu na drugi rub trake. Pritisni zupce iznutra, kroz otvor.",
+          "Pusti da se ljepilo dobro osuši. Stavi cipelu kraj vrata ili peći, s mrkvom za konja i crtežom na kartici za Sinterklaasa."
+        ],
+        "pageTitles": [
+          "Traka u tri dijela"
+        ]
+      },
+      "sl": {
+        "name": "Čevelj za Sinterklaasa",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Natisni oba lista v pravi velikosti, najbolje na trd papir (160 g): tako čevelj lepo stoji.",
+        "steps": [
+          "Pobarvaj obe stranici, tri dele traku, kartico in korenček. Iz delov nastanejo zgornji del, konica, podplat in peta.",
+          "Vse izreži ob prekinjenih črtah. Zareži tudi med sivimi zobci, do pikčaste črte.",
+          "Vse zobce prepogni nazaj ob pikčasti črti, stran od risbe. Prepogni tudi del 3 počez na pikčasti črti: tam bo vogal pri peti.",
+          "Naredi en dolg trak: sivi kos A dela 2 prilepi pod konec A dela 1, sivi kos B dela 3 pa pod konec B dela 2.",
+          "Začetek dela 1 z vezalkami postavi spredaj ob odprtino. Zobce enega za drugim prilepi na notranjo stran ene stranice. Spoji pridejo pri črticah A in B na podplatu; pri konici trak previdno ukrivi.",
+          "Drugo stranico na enak način prilepi na drugi rob traku. Zobce pritisni od znotraj, skozi odprtino.",
+          "Pusti, da se lepilo dobro posuši. Postavi čevelj k vratom ali k peči, s korenčkom za konja in risbo na kartici za Sinterklaasa."
+        ],
+        "pageTitles": [
+          "Trak iz treh delov"
+        ]
+      },
+      "et": {
+        "name": "King Sinterklaasile",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Prindi mõlemad lehed tegelikus suuruses, parem paksule paberile (160 g/m²): siis seisab king hästi.",
+        "steps": [
+          "Värvi kaks külge, riba kolm osa, kaardike ja porgand. Osadest saavad kinga pealne, nina, tald ja konts.",
+          "Lõika kõik kriipsjooni mööda välja. Lõika ka hallide hammaste vahelt sisse, kuni punktiirjooneni.",
+          "Murra kõik hambad punktiirjoont mööda taha, pildist eemale. Murra ka osa 3 punktiirjoonelt risti: sellest saab kanna nurk.",
+          "Tee üks pikk riba: kleebi osa 2 hall tükk A osa 1 otsa A alla ja osa 3 hall tükk B osa 2 otsa B alla.",
+          "Pane osa 1 algus, paeltega, ette ava juurde. Kleebi hambad ükshaaval ühe külje sisepoolele. Ühenduskohad tulevad talla kriipsude A ja B juurde; nina juures painuta riba rahulikult kaasa.",
+          "Kleebi teine külg samamoodi riba teise serva külge. Suru hambad seestpoolt ava kaudu kinni.",
+          "Lase liimil hästi kuivada. Pane king ukse või ahju juurde, porgand hobusele ja joonistus kaardil Sinterklaasile."
+        ],
+        "pageTitles": [
+          "Riba kolmes osas"
+        ]
+      },
+      "lv": {
+        "name": "Kurpe Sinterklāsam",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Izdrukā abas lapas īstajā izmērā, vēlams uz bieza papīra (160 g/m²): tad kurpe labi stāv.",
+        "steps": [
+          "Izkrāso abus sānus, joslas trīs daļas, kartīti un burkānu. No daļām sanāk kurpes virsa, purngals, zole un papēdis.",
+          "Izgriez visu pa svītru līnijām. Iegriez arī starp pelēkajiem zobiņiem, līdz punktotajai līnijai.",
+          "Pārloki visus zobiņus atpakaļ pa punktoto līniju, prom no zīmējuma. Pārloki arī daļu 3 šķērsām pa punktoto līniju: tur būs stūris pie papēža.",
+          "Izveido vienu garu joslu: pielīmē daļas 2 pelēko gabaliņu A zem daļas 1 gala A un daļas 3 pelēko gabaliņu B zem daļas 2 gala B.",
+          "Noliec daļas 1 sākumu ar šņorēm priekšā pie atveres. Pielīmē zobiņus pa vienam pie viena sāna iekšpuses. Savienojumi nāk pie svītriņām A un B uz zoles; pie purngala joslu uzmanīgi saliec.",
+          "Tāpat pielīmē otru sānu pie joslas otras malas. Piespied zobiņus no iekšpuses caur atveri.",
+          "Ļauj līmei labi nožūt. Noliec kurpi pie durvīm vai krāsns, ar burkānu zirgam un zīmējumu uz kartītes Sinterklāsam."
+        ],
+        "pageTitles": [
+          "Josla trīs daļās"
+        ]
+      },
+      "lt": {
+        "name": "Batas Sinterklasui",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Atspausdink abu lapus tikru dydžiu, geriausia ant storo popieriaus (160 g/m²): tada batas gerai stovi.",
+        "steps": [
+          "Nuspalvink abu šonus, tris juostos dalis, kortelę ir morką. Iš dalių bus bato viršus, nosis, padas ir kulnas.",
+          "Iškirpk viską pagal brūkšnines linijas. Įkirpk ir tarp pilkų dantukų, iki taškinės linijos.",
+          "Visus dantukus sulenk atgal pagal taškinę liniją, tolyn nuo piešinio. Sulenk ir 3 dalį skersai per taškinę liniją: ten bus kampas prie kulno.",
+          "Padaryk vieną ilgą juostą: 2 dalies pilką gabaliuką A priklijuok po 1 dalies galu A, o 3 dalies pilką gabaliuką B – po 2 dalies galu B.",
+          "1 dalies pradžią su raišteliais pridėk priekyje prie angos. Dantukus po vieną priklijuok prie vieno šono vidinės pusės. Sujungimai bus prie brūkšnelių A ir B ant pado; prie nosies juostą atsargiai palenk.",
+          "Lygiai taip pat priklijuok antrą šoną prie kito juostos krašto. Dantukus prispausk iš vidaus pro angą.",
+          "Leisk klijams gerai išdžiūti. Pastatyk batą prie durų ar krosnies su morka arkliui ir piešiniu ant kortelės Sinterklasui."
+        ],
+        "pageTitles": [
+          "Juosta iš trijų dalių"
+        ]
+      },
+      "uk": {
+        "name": "Черевик для Сінтерклааса",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Надрукуй обидва аркуші в реальному розмірі, найкраще на щільному папері (160 г/м²): тоді черевик добре стоїть.",
+        "steps": [
+          "Розфарбуй обидва боки, три частини смуги, листівочку й морквину. Із частин вийдуть верх, носок, підошва й п'ятка.",
+          "Виріж усе по штрихових лініях. Надріж також між сірими зубчиками, до лінії з крапок.",
+          "Зігни всі зубчики назад по лінії з крапок, у бік від малюнка. Частину 3 теж зігни впоперек по лінії з крапок: там буде кут біля п'ятки.",
+          "Зроби одну довгу смугу: приклей сірий шматочок A частини 2 під кінець A частини 1, а сірий шматочок B частини 3 під кінець B частини 2.",
+          "Приклади початок частини 1, зі шнурками, спереду до отвору. Приклей зубчики по одному зсередини до одного боку. Шви припадуть на рисочки A і B на підошві; біля носка обережно вигинай смугу.",
+          "Так само приклей другий бік до другого краю смуги. Притисни зубчики зсередини, через отвір.",
+          "Дай клею добре висохнути. Постав черевик біля дверей або грубки, з морквиною для коня і малюнком на листівочці для Сінтерклааса."
+        ],
+        "pageTitles": [
+          "Смуга з трьох частин"
+        ]
+      },
+      "tr": {
+        "name": "Sinterklaas için ayakkabı",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "İki sayfayı da gerçek boyutta, tercihen kalın kâğıda (160 gram) yazdır: böylece ayakkabı iyi durur.",
+        "steps": [
+          "İki yan parçayı, şeridin üç parçasını, kartı ve havucu boya. Şerit parçaları ayakkabının üstü, burnu, tabanı ve topuğu olur.",
+          "Her şeyi kesik çizgiler boyunca kes. Gri dişlerin arasını da noktalı çizgiye kadar kes.",
+          "Tüm dişleri noktalı çizgi boyunca resmin tersine, geriye katla. 3 numaralı parçayı da noktalı çizgiden enine katla: orası topuktaki köşe olur.",
+          "Tek bir uzun şerit yap: 2. parçanın gri A kısmını 1. parçanın A ucunun altına, 3. parçanın gri B kısmını da 2. parçanın B ucunun altına yapıştır.",
+          "Bağcıklı 1. parçanın başını öndeki açıklığa koy. Dişleri tek tek bir yan parçanın iç tarafına yapıştır. Ekler tabandaki A ve B çizgilerine gelir; burunda şeridi yavaşça bük.",
+          "İkinci yan parçayı da aynı şekilde şeridin öbür kenarına yapıştır. Dişleri açıklıktan içeriden bastır.",
+          "Yapıştırıcının iyice kurumasını bekle. Ayakkabını kapının ya da sobanın yanına koy; at için bir havuç ve kartın üstünde Sinterklaas için bir resimle."
+        ],
+        "pageTitles": [
+          "Üç parçalı şerit"
+        ]
+      },
+      "sr": {
+        "name": "Cipela za Sinterklasa",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Odštampaj oba lista u stvarnoj veličini, najbolje na debljem papiru (160 g): tako cipela dobro stoji.",
+        "steps": [
+          "Oboji obe bočne strane, tri dela trake, karticu i šargarepu. Od delova trake nastaju gornji deo, vrh, đon i peta.",
+          "Iseci sve duž isprekidanih linija. Zaseci i između sivih zubaca, do tačkaste linije.",
+          "Savij sve zupce unazad duž tačkaste linije, od crteža. Savij i deo 3 poprečno na tačkastoj liniji: to će biti ugao kod pete.",
+          "Napravi jednu dugu traku: zalepi sivi komad A dela 2 ispod kraja A dela 1, a sivi komad B dela 3 ispod kraja B dela 2.",
+          "Početak dela 1, sa pertlama, stavi napred uz otvor. Zalepi zupce jedan po jedan s unutrašnje strane jedne bočne strane. Spojevi dolaze kod crtica A i B na đonu; kod vrha traku pažljivo savij.",
+          "Na isti način zalepi drugu bočnu stranu za drugu ivicu trake. Pritisni zupce iznutra, kroz otvor.",
+          "Pusti da se lepak dobro osuši. Stavi cipelu pored vrata ili peći, sa šargarepom za konja i crtežom na kartici za Sinterklasa."
+        ],
+        "pageTitles": [
+          "Traka iz tri dela"
+        ]
+      },
+      "mk": {
+        "name": "Чевел за Синтерклас",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Испечати ги двата листа во вистинска големина, најдобро на дебела хартија (160 грама): така чевелот добро стои.",
+        "steps": [
+          "Обој ги двете страни, трите дела од лентата, картичката и морковот. Од деловите се прават горниот дел, врвот, ѓонот и петата.",
+          "Исечи сè по испрекинатите линии. Засечи и меѓу сивите запчиња, до линијата со точки.",
+          "Превиткај ги сите запчиња наназад по линијата со точки, подалеку од цртежот. Превиткај го и делот 3 попреку на линијата со точки: таму ќе биде аголот кај петата.",
+          "Направи една долга лента: залепи го сивото парче A од делот 2 под крајот A на делот 1, а сивото парче B од делот 3 под крајот B на делот 2.",
+          "Стави го почетокот на делот 1, со врвките, напред до отворот. Залепи ги запчињата едно по едно одвнатре на едната страна. Споевите доаѓаат кај цртичките A и B на ѓонот; кај врвот внимателно свиткај ја лентата.",
+          "На ист начин залепи ја втората страна на другиот раб од лентата. Притисни ги запчињата одвнатре, низ отворот.",
+          "Остави лепакот добро да се исуши. Стави го чевелот до вратата или до печката, со морков за коњот и цртеж на картичката за Синтерклас."
+        ],
+        "pageTitles": [
+          "Лентата од три дела"
+        ]
+      },
+      "sq": {
+        "name": "Këpucë për Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Printo të dyja faqet në madhësi reale, mundësisht në letër të trashë (160 g): kështu këpuca qëndron mirë.",
+        "steps": [
+          "Ngjyros dy anët, tri pjesët e shiritit, kartolinën dhe karotën. Pjesët bëhen pjesa e sipërme, maja, shputa dhe thembra.",
+          "Prit gjithçka përgjatë vijave me ndërprerje. Prit edhe midis dhëmbëzave gri, deri te vija me pika.",
+          "Palos të gjitha dhëmbëzat prapa përgjatë vijës me pika, larg vizatimit. Palos edhe pjesën 3 tërthor te vija me pika: aty do të jetë këndi i thembrës.",
+          "Bëj një shirit të gjatë: ngjit copën gri A të pjesës 2 poshtë fundit A të pjesës 1, dhe copën gri B të pjesës 3 poshtë fundit B të pjesës 2.",
+          "Vendos fillimin e pjesës 1, me lidhëset, përpara te hapja. Ngjit dhëmbëzat një nga një nga brenda njërës anë. Bashkimet bien te vijëzat A dhe B në shputë; te maja përkule shiritin me kujdes.",
+          "Ngjit anën e dytë në të njëjtën mënyrë në anën tjetër të shiritit. Shtyp dhëmbëzat nga brenda, përmes hapjes.",
+          "Lëre ngjitësin të thahet mirë. Vendose këpucën pranë derës ose sobës, me një karotë për kalin dhe një vizatim në kartolinë për Sinterklaas."
+        ],
+        "pageTitles": [
+          "Shiriti në tri pjesë"
+        ]
+      },
+      "is": {
+        "name": "Skór til að setja út fyrir Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Prentaðu báðar arkirnar í raunstærð, helst á þykkan pappír (160 g): þá stendur skórinn vel.",
+        "steps": [
+          "Litaðu báðar hliðarnar, þrjár ræmur borðans, litla kortið og gulrótina. Ræmurnar verða yfirborð, tá, sóli og hæll.",
+          "Klipptu allt út eftir strikalínunum. Klipptu líka á milli gráu tannanna, inn að punktalínunni.",
+          "Brjóttu allar tennurnar aftur á bak eftir punktalínunni, frá myndinni. Brjóttu líka ræmu 3 þvert á punktalínunni: það verður hornið við hælinn.",
+          "Búðu til einn langan borða: límdu gráa bútinn A á ræmu 2 undir enda A á ræmu 1, og gráa bútinn B á ræmu 3 undir enda B á ræmu 2.",
+          "Leggðu byrjunina á ræmu 1, með reimunum, fremst við opið. Límdu tennurnar eina af annarri innan á aðra hliðina. Samskeytin koma við strikin A og B á sólanum; við tána beygirðu borðann varlega með.",
+          "Límdu hina hliðina eins á hinn kant borðans. Þrýstu tönnunum að innan frá, í gegnum opið.",
+          "Láttu límið þorna vel. Settu skóinn við dyrnar eða ofninn, með gulrót handa hestinum og mynd á kortinu handa Sinterklaas."
+        ],
+        "pageTitles": [
+          "Borðinn í þremur ræmum"
+        ]
+      }
+    }
+  },
+  {
+    "slug": "sinterklaasslinger",
+    "order": 1113,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": "sinterklaas",
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 30,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "touw"
+      }
+    ],
+    "regionCount": 40,
+    "colorByNumber": {
+      "codes": "yryyrbbyyyyyyybwwwwwwwwwwwyorwbyyyyyrypy",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 34.6,
+          "y": 114.6,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 28.7,
+          "y": 85.1,
+          "size": 6.8
+        },
+        {
+          "region": 2,
+          "number": 1,
+          "x": 25.9,
+          "y": 95.6,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 1,
+          "x": 35.7,
+          "y": 75.9,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 2,
+          "x": 98.6,
+          "y": 114.6,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 3,
+          "x": 88,
+          "y": 85.4,
+          "size": 4.6
+        },
+        {
+          "region": 6,
+          "number": 3,
+          "x": 86.5,
+          "y": 68.1,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 1,
+          "x": 99.8,
+          "y": 68.3,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 1,
+          "x": 93.1,
+          "y": 61.6,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 1,
+          "x": 106.9,
+          "y": 61.6,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 1,
+          "x": 90.3,
+          "y": 79.7,
+          "size": 4.5
+        },
+        {
+          "region": 11,
+          "number": 1,
+          "x": 109.5,
+          "y": 79.7,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 1,
+          "x": 90.9,
+          "y": 90.4,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 108.9,
+          "y": 90.4,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 3,
+          "x": 159.8,
+          "y": 114.6,
+          "size": 13
+        },
+        {
+          "region": 15,
+          "number": 4,
+          "x": 152.8,
+          "y": 78.8,
+          "size": 5.4
+        },
+        {
+          "region": 16,
+          "number": 4,
+          "x": 163.8,
+          "y": 74.8,
+          "size": 5.4
+        },
+        {
+          "region": 17,
+          "number": 4,
+          "x": 174.8,
+          "y": 78.8,
+          "size": 5.4
+        },
+        {
+          "region": 18,
+          "number": 4,
+          "x": 157.8,
+          "y": 87.8,
+          "size": 5.4
+        },
+        {
+          "region": 19,
+          "number": 4,
+          "x": 169.8,
+          "y": 87.8,
+          "size": 5.4
+        },
+        {
+          "region": 20,
+          "number": 4,
+          "x": 147.8,
+          "y": 89.8,
+          "size": 5.4
+        },
+        {
+          "region": 21,
+          "number": 4,
+          "x": 179.8,
+          "y": 89.8,
+          "size": 5.4
+        },
+        {
+          "region": 22,
+          "number": 4,
+          "x": 163.8,
+          "y": 97.8,
+          "size": 5.4
+        },
+        {
+          "region": 23,
+          "number": 4,
+          "x": 154.8,
+          "y": 66.8,
+          "size": 5.4
+        },
+        {
+          "region": 24,
+          "number": 4,
+          "x": 172.8,
+          "y": 66.8,
+          "size": 5.4
+        },
+        {
+          "region": 25,
+          "number": 4,
+          "x": 163.8,
+          "y": 58.8,
+          "size": 5.4
+        },
+        {
+          "region": 26,
+          "number": 1,
+          "x": 45.8,
+          "y": 177.8,
+          "size": 13
+        },
+        {
+          "region": 27,
+          "number": 5,
+          "x": 20.7,
+          "y": 180.7,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 2,
+          "x": 23.5,
+          "y": 200.9,
+          "size": 11.9
+        },
+        {
+          "region": 29,
+          "number": 4,
+          "x": 15.9,
+          "y": 211.7,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 3,
+          "x": 87.4,
+          "y": 201.8,
+          "size": 13
+        },
+        {
+          "region": 31,
+          "number": 1,
+          "x": 104.9,
+          "y": 184.7,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 1,
+          "x": 92.3,
+          "y": 174.5,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 1,
+          "x": 94.8,
+          "y": 187.4,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 1,
+          "x": 87.8,
+          "y": 178.7,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 1,
+          "x": 113.8,
+          "y": 200.7,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 2,
+          "x": 162.6,
+          "y": 221,
+          "size": 13
+        },
+        {
+          "region": 37,
+          "number": 1,
+          "x": 172.2,
+          "y": 187.3,
+          "size": 4.5
+        },
+        {
+          "region": 38,
+          "number": 6,
+          "x": 150.5,
+          "y": 197.6,
+          "size": 5.8
+        },
+        {
+          "region": 39,
+          "number": 1,
+          "x": 162.5,
+          "y": 197.5,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Sinterklaasslinger",
+        "printNote": "Print het vel twee of drie keer voor een lange slinger.",
+        "steps": [
+          "Kleur de zes vlaggetjes in: een mijter, een pakje, pepernoten, een schoen, de staf en een Pietenbaret.",
+          "Knip de vlaggetjes uit langs de streepjeslijnen. Het grijze strookje bovenaan blijft eraan.",
+          "Vouw het grijze strookje naar achteren langs de stippellijn.",
+          "Leg een lang touw in de vouw. Doe lijm op het strookje, vouw het over het touw naar achteren en druk het vast tegen de achterkant van het vlaggetje.",
+          "Schuif de vlaggetjes een stukje uit elkaar en hang de slinger op."
+        ],
+        "word": null,
+        "countQuestion": null
+      },
+      "de": {
+        "name": "Sinterklaas-Girlande",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Druck den Bogen zwei- oder dreimal für eine lange Girlande.",
+        "steps": [
+          "Male die sechs Fähnchen an: eine Mitra, ein Geschenk, Pfeffernüsse, einen Schuh, den Stab und eine Piet-Mütze.",
+          "Schneide die Fähnchen an den gestrichelten Linien aus. Der graue Streifen oben bleibt dran.",
+          "Falte den grauen Streifen an der gepunkteten Linie nach hinten.",
+          "Leg eine lange Schnur in den Falz. Gib Kleber auf den Streifen, falte ihn über die Schnur nach hinten und drück ihn auf der Rückseite des Fähnchens fest.",
+          "Schieb die Fähnchen etwas auseinander und häng die Girlande auf."
+        ]
+      },
+      "fr": {
+        "name": "Guirlande de Saint-Nicolas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Imprime la feuille deux ou trois fois pour une longue guirlande.",
+        "steps": [
+          "Colorie les six fanions : une mitre, un cadeau, des biscuits de Saint-Nicolas, un soulier, la crosse et un béret de Piet.",
+          "Découpe les fanions le long des lignes en tirets. La bande grise du haut reste attachée.",
+          "Plie la bande grise vers l'arrière sur la ligne pointillée.",
+          "Place une longue ficelle dans le pli. Mets de la colle sur la bande, rabats-la par-dessus la ficelle vers l'arrière et appuie-la contre le dos du fanion.",
+          "Écarte un peu les fanions et accroche la guirlande."
+        ]
+      },
+      "en": {
+        "name": "Sinterklaas garland",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Print the sheet two or three times for a long garland.",
+        "steps": [
+          "Colour in the six flags: a mitre, a present, pepernoten, a shoe, the staff and a Piet beret.",
+          "Cut out the flags along the dashed lines. The grey strip at the top stays attached.",
+          "Fold the grey strip backwards along the dotted line.",
+          "Lay a long string in the fold. Put glue on the strip, fold it backwards over the string and press it onto the back of the flag.",
+          "Space the flags out a little and hang up the garland."
+        ]
+      },
+      "es": {
+        "name": "Guirnalda de Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Imprime la hoja dos o tres veces para una guirnalda larga.",
+        "steps": [
+          "Colorea los seis banderines: una mitra, un regalo, galletitas, un zapato, el báculo y una boina de Piet.",
+          "Recorta los banderines por las líneas discontinuas. La tira gris de arriba se queda unida.",
+          "Dobla la tira gris hacia atrás por la línea de puntos.",
+          "Pon una cuerda larga en el doblez. Echa pegamento en la tira, dóblala hacia atrás sobre la cuerda y apriétala contra el dorso del banderín.",
+          "Separa un poco los banderines y cuelga la guirnalda."
+        ]
+      },
+      "it": {
+        "name": "Festone di Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Stampa il foglio due o tre volte per un festone lungo.",
+        "steps": [
+          "Colora le sei bandierine: una mitra, un regalo, dei biscottini, una scarpa, il pastorale e un berretto da Piet.",
+          "Ritaglia le bandierine lungo le linee tratteggiate. La striscia grigia in alto resta attaccata.",
+          "Piega all'indietro la striscia grigia lungo la linea punteggiata.",
+          "Metti uno spago lungo nella piega. Spalma la colla sulla striscia, ripiegala all'indietro sopra lo spago e premila sul retro della bandierina.",
+          "Distanzia un po' le bandierine e appendi il festone."
+        ]
+      },
+      "pl": {
+        "name": "Girlanda Sinterklaasa",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Wydrukuj kartkę dwa lub trzy razy, aby girlanda była długa.",
+        "steps": [
+          "Pokoloruj sześć chorągiewek: mitrę, prezent, pierniczki, but, pastorał i beret Pieta.",
+          "Wytnij chorągiewki wzdłuż linii kreskowanych. Szary pasek u góry zostaje przyczepiony.",
+          "Zegnij szary pasek do tyłu wzdłuż linii kropkowanej.",
+          "Włóż długi sznurek w zgięcie. Posmaruj pasek klejem, zegnij go do tyłu nad sznurkiem i dociśnij do tylnej strony chorągiewki.",
+          "Rozsuń trochę chorągiewki i powieś girlandę."
+        ]
+      },
+      "pt": {
+        "name": "Grinalda do Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Imprima a folha duas ou três vezes para uma grinalda comprida.",
+        "steps": [
+          "Pinte as seis bandeirinhas: uma mitra, um presente, bolachinhas, um sapato, o báculo e uma boina de Piet.",
+          "Recorte as bandeirinhas pelas linhas tracejadas. A tira cinzenta de cima fica presa.",
+          "Dobre a tira cinzenta para trás pela linha pontilhada.",
+          "Ponha um fio comprido na dobra. Ponha cola na tira, dobre-a para trás por cima do fio e carregue-a contra as costas da bandeirinha.",
+          "Afaste um pouco as bandeirinhas e pendure a grinalda."
+        ]
+      },
+      "sv": {
+        "name": "Sinterklaas-girlang",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Skriv ut arket två eller tre gånger för en lång girlang.",
+        "steps": [
+          "Färglägg de sex flaggorna: en mitra, ett paket, pepparnötter, en sko, staven och en Piet-basker.",
+          "Klipp ut flaggorna längs de streckade linjerna. Den grå remsan upptill sitter kvar.",
+          "Vik den grå remsan bakåt längs den prickade linjen.",
+          "Lägg ett långt snöre i vikningen. Stryk lim på remsan, vik den bakåt över snöret och tryck fast den mot flaggans baksida.",
+          "Dra isär flaggorna lite och häng upp girlangen."
+        ]
+      },
+      "da": {
+        "name": "Sinterklaas-guirlande",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Print arket to eller tre gange til en lang guirlande.",
+        "steps": [
+          "Farvelæg de seks flag: en bispehue, en gave, pebernødder, en sko, staven og en Piet-baret.",
+          "Klip flagene ud langs de stiplede linjer. Den grå strimmel øverst bliver siddende.",
+          "Fold den grå strimmel bagud langs den prikkede linje.",
+          "Læg en lang snor i folden. Kom lim på strimlen, fold den bagud over snoren, og tryk den fast på flagets bagside.",
+          "Skub flagene lidt fra hinanden, og hæng guirlanden op."
+        ]
+      },
+      "nb": {
+        "name": "Sinterklaas-girlander",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Skriv ut arket to eller tre ganger for en lang girlander.",
+        "steps": [
+          "Fargelegg de seks flaggene: en bispelue, en gave, pepernøtter, en sko, staven og en Piet-alpelue.",
+          "Klipp ut flaggene langs de stiplede linjene. Den grå strimmelen øverst skal sitte på.",
+          "Brett den grå strimmelen bakover langs den prikkede linja.",
+          "Legg en lang snor i bretten. Smør lim på strimmelen, brett den bakover over snora og trykk den fast mot baksiden av flagget.",
+          "Skyv flaggene litt fra hverandre og heng opp girlanderen."
+        ]
+      },
+      "fi": {
+        "name": "Sinterklaas-lippunauha",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Tulosta arkki kaksi tai kolme kertaa, niin nauhasta tulee pitkä.",
+        "steps": [
+          "Väritä kuusi lippua: hiippa, lahja, pepernoot-keksejä, kenkä, sauva ja Pietin baskeri.",
+          "Leikkaa liput irti katkoviivoja pitkin. Ylhäällä oleva harmaa suikale jää kiinni.",
+          "Taita harmaa suikale taaksepäin pisteviivaa pitkin.",
+          "Laita pitkä naru taitokseen. Levitä liimaa suikaleelle, taita se narun yli taaksepäin ja paina se kiinni lipun taakse.",
+          "Siirrä lippuja vähän erilleen ja ripusta nauha."
+        ]
+      },
+      "cs": {
+        "name": "Girlanda pro Sinterklaase",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Vytiskni list dvakrát nebo třikrát a girlanda bude dlouhá.",
+        "steps": [
+          "Vybarvi šest vlaječek: mitru, dárek, perníčky, botu, berlu a Pietův baret.",
+          "Vystřihni vlaječky podél čárkovaných čar. Šedý proužek nahoře na nich zůstane.",
+          "Šedý proužek přehni podél tečkované čáry dozadu.",
+          "Do přehybu vlož dlouhý provázek. Natři proužek lepidlem, přehni ho přes provázek dozadu a přitlač ho na zadní stranu vlaječky.",
+          "Vlaječky trochu rozestup a girlandu pověs."
+        ]
+      },
+      "sk": {
+        "name": "Girlanda pre Sinterklaasa",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Vytlač list dvakrát alebo trikrát a girlanda bude dlhá.",
+        "steps": [
+          "Vyfarbi šesť vlajočiek: mitru, darček, medovníčky, topánku, berlu a Pietovu baretku.",
+          "Vystrihni vlajočky po čiarkovaných čiarach. Sivý pásik hore na nich zostane.",
+          "Sivý pásik prelož po bodkovanej čiare dozadu.",
+          "Do prehybu vlož dlhý špagát. Natri pásik lepidlom, prelož ho cez špagát dozadu a pritlač na zadnú stranu vlajočky.",
+          "Vlajočky trochu roztiahni a girlandu zaves."
+        ]
+      },
+      "hu": {
+        "name": "Sinterklaas-füzér",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Nyomtasd ki a lapot kétszer-háromszor, hogy hosszú legyen a füzér.",
+        "steps": [
+          "Színezd ki a hat zászlót: egy püspöksüveget, egy ajándékot, fűszeres kekszeket, egy cipőt, a pásztorbotot és egy Piet-sapkát.",
+          "Vágd ki a zászlókat a szaggatott vonalak mentén. A felső szürke csík rajtuk marad.",
+          "Hajtsd hátra a szürke csíkot a pontozott vonal mentén.",
+          "Tegyél egy hosszú zsinórt a hajtásba. Kenj ragasztót a csíkra, hajtsd hátra a zsinór fölött, és nyomd a zászló hátoldalára.",
+          "Húzd kicsit szét a zászlókat, és akaszd fel a füzért."
+        ]
+      },
+      "ro": {
+        "name": "Ghirlanda lui Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Tipărește foaia de două sau trei ori pentru o ghirlandă lungă.",
+        "steps": [
+          "Colorează cele șase stegulețe: o mitră, un cadou, biscuiți cu mirodenii, un pantof, toiagul și o beretă de Piet.",
+          "Decupează stegulețele pe liniile întrerupte. Fâșia gri de sus rămâne prinsă.",
+          "Îndoaie fâșia gri înapoi pe linia punctată.",
+          "Pune o sfoară lungă în îndoitură. Pune lipici pe fâșie, îndoaie-o înapoi peste sfoară și apas-o pe spatele stegulețului.",
+          "Depărtează puțin stegulețele și agață ghirlanda."
+        ]
+      },
+      "el": {
+        "name": "Γιρλάντα του Σίντερκλάας",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Τύπωσε τη σελίδα δύο ή τρεις φορές για μακριά γιρλάντα.",
+        "steps": [
+          "Χρωμάτισε τα έξι σημαιάκια: μια μίτρα, ένα δώρο, μπισκοτάκια, ένα παπούτσι, την ποιμαντορική ράβδο και έναν μπερέ του Πιτ.",
+          "Κόψε τα σημαιάκια στις διακεκομμένες γραμμές. Η γκρι λωρίδα από πάνω μένει ενωμένη.",
+          "Δίπλωσε τη γκρι λωρίδα προς τα πίσω στη γραμμή με τις τελείες.",
+          "Βάλε έναν μακρύ σπάγκο στο δίπλωμα. Βάλε κόλλα στη λωρίδα, δίπλωσέ τη προς τα πίσω πάνω από τον σπάγκο και πίεσέ τη στην πίσω πλευρά του σημαιακιού.",
+          "Άνοιξε λίγο τα σημαιάκια μεταξύ τους και κρέμασε τη γιρλάντα."
+        ]
+      },
+      "bg": {
+        "name": "Гирлянда за Синтерклаас",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Отпечатай листа два или три пъти за дълга гирлянда.",
+        "steps": [
+          "Оцвети шестте знаменца: митра, подарък, сладки с подправки, обувка, жезъла и барета на Пийт.",
+          "Изрежи знаменцата по прекъснатите линии. Сивата лентичка горе остава прикрепена.",
+          "Сгъни сивата лентичка назад по точковата линия.",
+          "Сложи дълга връв в сгъвката. Намажи лентичката с лепило, сгъни я назад над връвта и я притисни към гърба на знаменцето.",
+          "Раздалечи малко знаменцата и закачи гирляндата."
+        ]
+      },
+      "hr": {
+        "name": "Sinterklaasova girlanda",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Ispiši list dva ili tri puta za dugu girlandu.",
+        "steps": [
+          "Oboji šest zastavica: mitru, dar, kolačiće, cipelu, štap i Pietovu beretku.",
+          "Izreži zastavice po isprekidanim crtama. Siva trakica na vrhu ostaje na njima.",
+          "Presavij sivu trakicu prema natrag po točkastoj crti.",
+          "Stavi dugu uzicu u pregib. Namaži trakicu ljepilom, presavij je preko uzice prema natrag i pritisni je na stražnju stranu zastavice.",
+          "Malo razmakni zastavice i objesi girlandu."
+        ]
+      },
+      "sl": {
+        "name": "Sinterklaasova girlanda",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Natisni list dvakrat ali trikrat za dolgo girlando.",
+        "steps": [
+          "Pobarvaj šest zastavic: mitro, darilo, piškotke, čevelj, palico in Pietovo baretko.",
+          "Zastavice izreži ob prekinjenih črtah. Sivi trak zgoraj ostane na njih.",
+          "Sivi trak prepogni nazaj ob pikčasti črti.",
+          "V pregib položi dolgo vrvico. Trak namaži z lepilom, ga prepogni čez vrvico nazaj in pritisni na zadnjo stran zastavice.",
+          "Zastavice malo razmakni in girlando obesi."
+        ]
+      },
+      "et": {
+        "name": "Sinterklaasi lipuvanik",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Prindi leht kaks või kolm korda, et vanik tuleks pikk.",
+        "steps": [
+          "Värvi kuus lippu: piiskopimüts, kingitus, piparküpsised, king, kepp ja Pieti barett.",
+          "Lõika lipud kriipsjooni mööda välja. Ülemine hall riba jääb külge.",
+          "Murra hall riba punktiirjoont mööda taha.",
+          "Pane pikk nöör murdekohta. Määri ribale liimi, murra see üle nööri taha ja suru lipu tagaküljele kinni.",
+          "Lükka lipud veidi üksteisest eemale ja riputa vanik üles."
+        ]
+      },
+      "lv": {
+        "name": "Sinterklāsa virtene",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Izdrukā lapu divas vai trīs reizes garai virtenei.",
+        "steps": [
+          "Izkrāso sešus karodziņus: mitru, dāvanu, piparkūku cepumiņus, kurpi, zizli un Pīta bereti.",
+          "Izgriez karodziņus pa svītru līnijām. Pelēkā strēmelīte augšā paliek klāt.",
+          "Pārloki pelēko strēmelīti atpakaļ pa punktoto līniju.",
+          "Ieliec locījumā garu auklu. Uzsmērē līmi uz strēmelītes, pārloki to pāri auklai atpakaļ un piespied karodziņa aizmugurei.",
+          "Nedaudz pabīdi karodziņus vienu no otra un pakar virteni."
+        ]
+      },
+      "lt": {
+        "name": "Sinterklaso girlianda",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Atspausdink lapą du ar tris kartus, kad girlianda būtų ilga.",
+        "steps": [
+          "Nuspalvink šešias vėliavėles: mitrą, dovaną, sausainėlius, batą, lazdą ir Pyto beretę.",
+          "Iškirpk vėliavėles pagal brūkšnines linijas. Pilka juostelė viršuje lieka prie jų.",
+          "Pilką juostelę sulenk atgal pagal taškinę liniją.",
+          "Į sulenkimą įdėk ilgą virvelę. Ištepk juostelę klijais, perlenk ją per virvelę atgal ir prispausk prie vėliavėlės nugarėlės.",
+          "Šiek tiek atitrauk vėliavėles vieną nuo kitos ir pakabink girliandą."
+        ]
+      },
+      "uk": {
+        "name": "Гірлянда для Сінтерклааса",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Надрукуй аркуш двічі або тричі, щоб гірлянда була довга.",
+        "steps": [
+          "Розфарбуй шість прапорців: митру, подарунок, прянички, черевик, посох і берет Піта.",
+          "Виріж прапорці по штрихових лініях. Сіра смужка вгорі лишається.",
+          "Зігни сіру смужку назад по лінії з крапок.",
+          "Поклади довгу мотузку в згин. Намаж смужку клеєм, зігни її назад через мотузку й притисни до звороту прапорця.",
+          "Трохи розсунь прапорці й повісь гірлянду."
+        ]
+      },
+      "tr": {
+        "name": "Sinterklaas süsü",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Uzun bir süs için sayfayı iki ya da üç kez yazdır.",
+        "steps": [
+          "Altı bayrağı boya: bir piskopos şapkası, bir hediye, kurabiyeler, bir ayakkabı, asa ve bir Piet beresi.",
+          "Bayrakları kesik çizgiler boyunca kes. Üstteki gri şerit bağlı kalır.",
+          "Gri şeridi noktalı çizgi boyunca geriye katla.",
+          "Katın içine uzun bir ip koy. Şeride yapıştırıcı sür, ipin üstünden geriye katla ve bayrağın arkasına bastır.",
+          "Bayrakları biraz aç ve süsü as."
+        ]
+      },
+      "sr": {
+        "name": "Sinterklasova girlanda",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Odštampaj list dva ili tri puta za dugu girlandu.",
+        "steps": [
+          "Oboji šest zastavica: mitru, poklon, kolačiće, cipelu, štap i Pitovu beretku.",
+          "Iseci zastavice duž isprekidanih linija. Siva trakica na vrhu ostaje na njima.",
+          "Savij sivu trakicu unazad duž tačkaste linije.",
+          "Stavi dugačak kanap u pregib. Namaži trakicu lepkom, savij je preko kanapa unazad i pritisni je na poleđinu zastavice.",
+          "Malo razmakni zastavice i okači girlandu."
+        ]
+      },
+      "mk": {
+        "name": "Гирланда за Синтерклас",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Испечати го листот два или три пати за долга гирланда.",
+        "steps": [
+          "Обој ги шесте знаменца: митра, подарок, колачиња, чевел, стапот и беретка на Пит.",
+          "Исечи ги знаменцата по испрекинатите линии. Сивата лентичка горе останува прикачена.",
+          "Превиткај ја сивата лентичка наназад по линијата со точки.",
+          "Стави долг конец во превивката. Намачкај ја лентичката со лепак, превиткај ја преку конецот наназад и притисни ја на задната страна од знаменцето.",
+          "Малку раздалечи ги знаменцата и закачи ја гирландата."
+        ]
+      },
+      "sq": {
+        "name": "Varg flamujsh për Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Printoje faqen dy ose tri herë për një varg të gjatë.",
+        "steps": [
+          "Ngjyros gjashtë flamujt: një mitër, një dhuratë, biskota me erëza, një këpucë, shkopin dhe një beretë të Piet.",
+          "Prit flamujt përgjatë vijave me ndërprerje. Shiriti gri sipër mbetet i ngjitur.",
+          "Palos shiritin gri prapa përgjatë vijës me pika.",
+          "Vendos një spango të gjatë në palosje. Lyej shiritin me ngjitës, palose prapa mbi spangon dhe shtype pas flamurit.",
+          "Largoji pak flamujt nga njëri-tjetri dhe vare vargun."
+        ]
+      },
+      "is": {
+        "name": "Sinterklaas-fánalengja",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Prentaðu örkina tvisvar eða þrisvar fyrir langa fánalengju.",
+        "steps": [
+          "Litaðu sex fánana: biskupshúfu, gjöf, kryddsmákökur, skó, stafinn og Piet-alpahúfu.",
+          "Klipptu fánana út eftir strikalínunum. Gráa ræman efst situr föst.",
+          "Brjóttu gráu ræmuna aftur á bak eftir punktalínunni.",
+          "Leggðu langt band í brotið. Berðu lím á ræmuna, brjóttu hana aftur yfir bandið og þrýstu henni á bakhlið fánans.",
+          "Dreifðu fánunum aðeins og hengdu lengjuna upp."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "surprise-schoorsteendoosje",
+    "order": 1114,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": "sinterklaas",
+    "kind": "bouwplaat",
+    "height": 280,
+    "minutes": 25,
+    "adultHelp": true,
+    "paperGsm": 160,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      },
+      {
+        "slug": "stevig-papier",
+        "optional": true
+      }
+    ],
+    "regionCount": 28,
+    "colorByNumber": {
+      "codes": "rr-zrrzozo-xzozoxxxx--zygy--",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 125.2,
+          "y": 122.1,
+          "size": 13
+        },
+        {
+          "region": 1,
+          "number": 1,
+          "x": 162.4,
+          "y": 112.2,
+          "size": 13
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 107.6,
+          "y": 55.8,
+          "size": 4.5
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 81.3,
+          "y": 122.1,
+          "size": 13
+        },
+        {
+          "region": 5,
+          "number": 1,
+          "x": 37.5,
+          "y": 122.1,
+          "size": 13
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 107.7,
+          "y": 97.2,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 3,
+          "x": 112.1,
+          "y": 151.6,
+          "size": 8.6
+        },
+        {
+          "region": 8,
+          "number": 2,
+          "x": 151.5,
+          "y": 97.2,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 155.9,
+          "y": 151.6,
+          "size": 8.6
+        },
+        {
+          "region": 11,
+          "number": 4,
+          "x": 125.5,
+          "y": 71.4,
+          "size": 13
+        },
+        {
+          "region": 12,
+          "number": 2,
+          "x": 63.8,
+          "y": 97.2,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 3,
+          "x": 68.2,
+          "y": 151.6,
+          "size": 8.6
+        },
+        {
+          "region": 14,
+          "number": 2,
+          "x": 20,
+          "y": 97.2,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 3,
+          "x": 24.4,
+          "y": 151.6,
+          "size": 8.6
+        },
+        {
+          "region": 16,
+          "number": 4,
+          "x": 30.3,
+          "y": 229.6,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 4,
+          "x": 32,
+          "y": 240.9,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 4,
+          "x": 65.7,
+          "y": 229.6,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 4,
+          "x": 64,
+          "y": 240.9,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 2,
+          "x": 37.1,
+          "y": 235.3,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 5,
+          "x": 68.1,
+          "y": 203.6,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 6,
+          "x": 41.6,
+          "y": 216.5,
+          "size": 6.7
+        },
+        {
+          "region": 25,
+          "number": 5,
+          "x": 55.6,
+          "y": 216.6,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Bouwplaat: schoorsteendoosje",
+        "printNote": "Op stevig papier (160 gram) wordt hij het mooist.",
+        "steps": [
+          "Kleur de stenen, het dak en Piet. Knip de schoorsteen en Piet uit langs de streepjeslijnen; de grijze flapjes blijven eraan.",
+          "Vouw alle stippellijnen naar binnen, ook de flapjes: de stenen blijven aan de buitenkant.",
+          "Plak de flapjes één voor één vast aan de binnenkant van de rand ernaast. Stop er een klein cadeautje of een paar pepernoten in voordat je het zwarte vlak bovenop dichtplakt.",
+          "Schrijf op het bordje voor wie het is. Plak Piet met het grijze stukje tegen de achterkant, zo dat zijn hoofd boven de schoorsteen uitkijkt."
+        ],
+        "word": null,
+        "countQuestion": null
+      },
+      "de": {
+        "name": "Bastelbogen: Kaminschachtel",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Auf festem Papier (160 g) wird sie am schönsten.",
+        "steps": [
+          "Male die Steine, das Dach und Piet an. Schneide den Kamin und Piet an den gestrichelten Linien aus; die grauen Klebelaschen bleiben dran.",
+          "Falte alle gepunkteten Linien nach innen, auch die Klebelaschen: Die Steine bleiben außen.",
+          "Klebe die Laschen nacheinander innen an den Rand daneben. Leg ein kleines Geschenk oder ein paar Pfeffernüsse hinein, bevor du die schwarze Fläche oben zuklebst.",
+          "Schreib auf das Schild, für wen es ist. Klebe Piet mit dem grauen Stück so an die Rückseite, dass sein Kopf oben aus dem Kamin schaut."
+        ]
+      },
+      "fr": {
+        "name": "Modèle à construire : boîte cheminée",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Sur du papier épais (160 g), elle est encore plus belle.",
+        "steps": [
+          "Colorie les briques, le toit et Piet. Découpe la cheminée et Piet le long des lignes en tirets ; les rabats gris restent attachés.",
+          "Plie toutes les lignes pointillées vers l'intérieur, rabats compris : les briques restent à l'extérieur.",
+          "Colle les rabats un par un à l'intérieur du bord voisin. Glisse un petit cadeau ou quelques biscuits de Saint-Nicolas dedans avant de coller la face noire du dessus.",
+          "Écris sur la pancarte pour qui c'est. Colle Piet par la partie grise contre l'arrière, pour que sa tête dépasse de la cheminée."
+        ]
+      },
+      "en": {
+        "name": "Paper model: chimney box",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "It looks best on thick paper (160 gsm).",
+        "steps": [
+          "Colour in the bricks, the roof and Piet. Cut out the chimney and Piet along the dashed lines; leave the grey tabs attached.",
+          "Fold all the dotted lines inwards, tabs too: the bricks stay on the outside.",
+          "Glue the tabs one by one to the inside of the edge next to them. Put a small present or a few pepernoten inside before you glue down the black face on top.",
+          "Write on the sign who it is for. Glue Piet by the grey part to the back, so that his head peeps out over the top of the chimney."
+        ]
+      },
+      "es": {
+        "name": "Recortable: caja chimenea",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "En papel grueso (160 g) queda más bonita.",
+        "steps": [
+          "Colorea los ladrillos, el tejado y a Piet. Recorta la chimenea y a Piet por las líneas discontinuas; las pestañas grises se quedan unidas.",
+          "Dobla todas las líneas de puntos hacia dentro, también las pestañas: los ladrillos quedan por fuera.",
+          "Pega las pestañas una a una por dentro del borde de al lado. Mete un regalito o unas galletitas antes de pegar la cara negra de arriba.",
+          "Escribe en el cartel para quién es. Pega a Piet por la parte gris en la parte de atrás, de modo que su cabeza asome por encima de la chimenea."
+        ]
+      },
+      "it": {
+        "name": "Modellino di carta: scatola camino",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Su carta spessa (160 g) viene più bella.",
+        "steps": [
+          "Colora i mattoni, il tetto e Piet. Ritaglia il camino e Piet lungo le linee tratteggiate; le linguette grigie restano attaccate.",
+          "Piega verso l'interno tutte le linee punteggiate, anche le linguette: i mattoni restano all'esterno.",
+          "Incolla le linguette una alla volta all'interno del bordo accanto. Metti dentro un regalino o qualche biscottino prima di incollare la faccia nera in cima.",
+          "Scrivi sul cartellino per chi è. Incolla Piet con la parte grigia sul retro, in modo che la sua testa spunti sopra il camino."
+        ]
+      },
+      "pl": {
+        "name": "Model z papieru: pudełko komin",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Najładniej wychodzi na grubym papierze (160 g).",
+        "steps": [
+          "Pokoloruj cegły, dach i Pieta. Wytnij komin i Pieta wzdłuż linii kreskowanych; szare zakładki zostają przyczepione.",
+          "Zegnij wszystkie linie kropkowane do środka, także zakładki: cegły zostają na zewnątrz.",
+          "Przyklejaj zakładki po kolei od środka do sąsiedniego brzegu. Zanim zakleisz czarną ściankę na górze, włóż do środka mały prezent albo kilka pierniczków.",
+          "Napisz na tabliczce, dla kogo to jest. Przyklej Pieta szarym kawałkiem z tyłu, tak żeby jego głowa wystawała nad kominem."
+        ]
+      },
+      "pt": {
+        "name": "Maquete: caixa chaminé",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Fica mais bonita em papel grosso (160 g).",
+        "steps": [
+          "Pinte os tijolos, o telhado e o Piet. Recorte a chaminé e o Piet pelas linhas tracejadas; as abas cinza ficam presas.",
+          "Dobre todas as linhas pontilhadas para dentro, também as abas: os tijolos ficam do lado de fora.",
+          "Cole as abas uma a uma no lado de dentro da borda ao lado. Ponha lá dentro um presentinho ou umas bolachinhas antes de colar a face preta de cima.",
+          "Escreva na placa para quem é. Cole o Piet pela parte cinzenta na parte de trás, para que a cabeça dele espreite por cima da chaminé."
+        ]
+      },
+      "sv": {
+        "name": "Byggark: skorstensask",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "På kraftigt papper (160 gram) blir den finast.",
+        "steps": [
+          "Färglägg tegelstenarna, taket och Piet. Klipp ut skorstenen och Piet längs de streckade linjerna; de grå flikarna sitter kvar.",
+          "Vik alla prickade linjer inåt, även flikarna: teglet blir kvar på utsidan.",
+          "Limma fast flikarna en i taget på insidan av kanten bredvid. Lägg i en liten present eller några pepparnötter innan du limmar igen den svarta ytan överst.",
+          "Skriv på skylten vem den är till. Limma fast Piet med den grå biten på baksidan, så att hans huvud tittar upp över skorstenen."
+        ]
+      },
+      "da": {
+        "name": "Papirmodel: skorstensæske",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Den bliver flottest på kraftigt papir (160 gram).",
+        "steps": [
+          "Farvelæg murstenene, taget og Piet. Klip skorstenen og Piet ud langs de stiplede linjer; de grå flige skal blive siddende.",
+          "Fold alle de prikkede linjer indad, også fligene: murstenene bliver på ydersiden.",
+          "Lim fligene fast én ad gangen på indersiden af kanten ved siden af. Læg en lille gave eller nogle pebernødder i, før du limer den sorte flade øverst fast.",
+          "Skriv på skiltet, hvem den er til. Lim Piet fast med det grå stykke på bagsiden, så hans hoved kigger op over skorstenen."
+        ]
+      },
+      "nb": {
+        "name": "Byggeark: pipeeske",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "På kraftig papir (160 gram) blir den finest.",
+        "steps": [
+          "Fargelegg mursteinene, taket og Piet. Klipp ut pipa og Piet langs de stiplede linjene; de grå klaffene skal sitte på.",
+          "Brett alle stiplede linjer innover, også klaffene: mursteinene blir på utsiden.",
+          "Lim klaffene fast én etter én på innsiden av kanten ved siden av. Legg i en liten gave eller noen pepernøtter før du limer igjen den svarte flaten øverst.",
+          "Skriv på skiltet hvem den er til. Lim Piet fast med den grå biten på baksiden, slik at hodet hans titter opp over pipa."
+        ]
+      },
+      "fi": {
+        "name": "Paperimalli: savupiippurasia",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Paksulle paperille (160 g) tulostettuna se on kaunein.",
+        "steps": [
+          "Väritä tiilet, katto ja Piet. Leikkaa savupiippu ja Piet irti katkoviivoja pitkin; harmaat läpät jäävät kiinni.",
+          "Taita kaikki pisteviivat sisäänpäin, myös läpät: tiilet jäävät ulkopuolelle.",
+          "Liimaa läpät yksi kerrallaan viereisen reunan sisäpuolelle. Laita sisään pieni lahja tai muutama pepernoot-keksi ennen kuin liimaat päällä olevan mustan tahkon kiinni.",
+          "Kirjoita kylttiin, kenelle se on. Liimaa Piet harmaasta palasta takasivuun niin, että hänen päänsä kurkistaa piipun yli."
+        ]
+      },
+      "cs": {
+        "name": "Vystřihovánka: krabička komín",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Nejhezčí bude na tvrdém papíře (160 g/m²).",
+        "steps": [
+          "Vybarvi cihly, střechu a Pieta. Vystřihni komín a Pieta podél čárkovaných čar; šedé chlopně nech na místě.",
+          "Přehni všechny tečkované čáry dovnitř, i chlopně: cihly zůstanou venku.",
+          "Chlopně přilep jednu po druhé zevnitř k vedlejšímu okraji. Než zalepíš černou plošku nahoře, vlož dovnitř malý dárek nebo pár perníčků.",
+          "Na cedulku napiš, pro koho je. Pieta přilep šedým kouskem na zadní stranu tak, aby mu hlava koukala nad komínem."
+        ]
+      },
+      "sk": {
+        "name": "Vystrihovačka: krabička komín",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Na tvrdom papieri (160 g) bude najkrajšia.",
+        "steps": [
+          "Vyfarbi tehly, strechu a Pieta. Komín a Pieta vystrihni po čiarkovaných čiarach; sivé chlopne na nich zostanú.",
+          "Všetky bodkované čiary prelož dovnútra, aj chlopne: tehly zostanú zvonku.",
+          "Chlopne prilep jednu po druhej zvnútra k susednému okraju. Skôr než zalepíš čiernu plôšku hore, vlož dnu malý darček alebo pár medovníčkov.",
+          "Na tabuľku napíš, pre koho je. Pieta prilep sivým kúskom na zadnú stranu tak, aby mu hlava vykúkala nad komínom."
+        ]
+      },
+      "hu": {
+        "name": "Papírmakett: kéménydoboz",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Vastag papíron (160 g-os) lesz a legszebb.",
+        "steps": [
+          "Színezd ki a téglákat, a tetőt és Pietet. Vágd ki a kéményt és Pietet a szaggatott vonalak mentén; a szürke fülek rajtuk maradnak.",
+          "Hajtsd befelé az összes pontozott vonalat, a füleket is: a téglák kívül maradnak.",
+          "Ragaszd fel a füleket egyenként a szomszédos szél belső oldalára. Mielőtt leragasztod a fekete tetőlapot, tegyél bele egy kis ajándékot vagy pár fűszeres kekszet.",
+          "Írd a táblára, hogy kinek szól. Ragaszd Pietet a szürke résznél fogva a hátoldalra úgy, hogy a feje kikukucskáljon a kémény fölött."
+        ]
+      },
+      "ro": {
+        "name": "Machetă: cutie coș de fum",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Pe hârtie groasă (160 g) iese cel mai frumos.",
+        "steps": [
+          "Colorează cărămizile, acoperișul și pe Piet. Decupează coșul și pe Piet pe liniile întrerupte; clapetele gri rămân prinse.",
+          "Îndoaie toate liniile punctate înăuntru, și clapetele: cărămizile rămân în afară.",
+          "Lipește clapetele una câte una pe interiorul marginii de lângă ele. Pune înăuntru un mic cadou sau câțiva biscuiți cu mirodenii înainte să lipești fața neagră de sus.",
+          "Scrie pe plăcuță pentru cine este. Lipește-l pe Piet cu bucata gri pe spate, astfel încât capul lui să se uite peste coș."
+        ]
+      },
+      "el": {
+        "name": "Κατασκευή: κουτί καμινάδα",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Σε χοντρό χαρτί (160 γρ.) γίνεται πιο όμορφο.",
+        "steps": [
+          "Χρωμάτισε τα τούβλα, τη στέγη και τον Πιτ. Κόψε την καμινάδα και τον Πιτ στις διακεκομμένες γραμμές· τα γκρι πτερύγια μένουν ενωμένα.",
+          "Δίπλωσε όλες τις γραμμές με τις τελείες προς τα μέσα, και τα πτερύγια: τα τούβλα μένουν έξω.",
+          "Κόλλησε τα πτερύγια ένα ένα στο μέσα μέρος της διπλανής άκρης. Βάλε μέσα ένα μικρό δωράκι ή λίγα μπισκοτάκια πριν κολλήσεις τη μαύρη έδρα από πάνω.",
+          "Γράψε στην πινακίδα για ποιον είναι. Κόλλησε τον Πιτ με το γκρι κομμάτι στην πίσω πλευρά, ώστε το κεφάλι του να κρυφοκοιτάζει πάνω από την καμινάδα."
+        ]
+      },
+      "bg": {
+        "name": "Хартиен модел: кутия комин",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "На дебела хартия (160 г/м²) става най-хубава.",
+        "steps": [
+          "Оцвети тухлите, покрива и Пийт. Изрежи комина и Пийт по прекъснатите линии; сивите капачета остават прикрепени.",
+          "Сгъни всички точкови линии навътре, и капачетата: тухлите остават отвън.",
+          "Залепи капачетата едно по едно от вътрешната страна на съседния ръб. Сложи вътре малък подарък или няколко сладки с подправки, преди да залепиш черната страна отгоре.",
+          "Напиши на табелката за кого е. Залепи Пийт със сивото парче отзад, така че главата му да наднича над комина."
+        ]
+      },
+      "hr": {
+        "name": "Maketa: kutija dimnjak",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Najljepše je na debljem papiru (160 g/m²).",
+        "steps": [
+          "Oboji cigle, krov i Pieta. Izreži dimnjak i Pieta po isprekidanim crtama; sivi jezičci ostaju pričvršćeni.",
+          "Presavij sve točkaste crte prema unutra, i jezičke: cigle ostaju vani.",
+          "Zalijepi jezičke jedan po jedan s unutarnje strane susjednog ruba. Stavi unutra mali poklon ili nekoliko kolačića prije nego zalijepiš crnu plohu na vrhu.",
+          "Napiši na pločicu za koga je. Zalijepi Pieta sivim komadom na stražnju stranu, tako da mu glava viri iznad dimnjaka."
+        ]
+      },
+      "sl": {
+        "name": "Izrezanka: škatlica dimnik",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Na trdem papirju (160 g) bo izdelek najlepši.",
+        "steps": [
+          "Pobarvaj opeke, streho in Pieta. Dimnik in Pieta izreži ob prekinjenih črtah; sivi zavihki naj ostanejo pritrjeni.",
+          "Vse pikčaste črte prepogni navznoter, tudi zavihke: opeke ostanejo zunaj.",
+          "Zavihke enega za drugim prilepi na notranjo stran sosednjega roba. Preden zalepiš črno ploskev na vrhu, vanjo daj majhno darilce ali nekaj piškotkov.",
+          "Na tablico napiši, za koga je. Pieta prilepi s sivim kosom na zadnjo stran, tako da mu glava kuka nad dimnikom."
+        ]
+      },
+      "et": {
+        "name": "Paberimudel: korstnakarp",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Paksul paberil (160 g/m²) tuleb see kõige ilusam.",
+        "steps": [
+          "Värvi tellised, katus ja Piet. Lõika korsten ja Piet kriipsjooni mööda välja; hallid klapid jäävad külge.",
+          "Murra kõik punktiirjooned sissepoole, ka klapid: tellised jäävad väljapoole.",
+          "Kleebi klapid ükshaaval kõrvaloleva serva sisepoolele. Pane sisse väike kingitus või paar piparküpsist, enne kui pealmise musta tahu kinni kleebid.",
+          "Kirjuta sildile, kellele see on. Kleebi Piet halli tükiga tagaküljele nii, et tema pea piilub üle korstna."
+        ]
+      },
+      "lv": {
+        "name": "Papīra modelis: skursteņa kastīte",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Uz bieza papīra (160 g/m²) tā izdosies visskaistāk.",
+        "steps": [
+          "Izkrāso ķieģeļus, jumtu un Pītu. Izgriez skursteni un Pītu pa svītru līnijām; pelēkie atlociņi paliek klāt.",
+          "Pārloki visas punktotās līnijas uz iekšu, arī atlociņus: ķieģeļi paliek ārpusē.",
+          "Pielīmē atlociņus pa vienam pie blakus esošās malas iekšpuses. Pirms aizlīmē melno plakni augšā, ieliec iekšā mazu dāvaniņu vai dažus piparkūku cepumiņus.",
+          "Uzraksti uz plāksnītes, kam tā ir. Pielīmē Pītu ar pelēko gabaliņu aizmugurē tā, lai viņa galva lūrētu pāri skurstenim."
+        ]
+      },
+      "lt": {
+        "name": "Maketas: kamino dėžutė",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Ant storo popieriaus (160 g/m²) ji atrodys gražiausiai.",
+        "steps": [
+          "Nuspalvink plytas, stogą ir Pytą. Iškirpk kaminą ir Pytą pagal brūkšnines linijas; pilki atlankai lieka prie jų.",
+          "Visas taškines linijas sulenk į vidų, ir atlankus: plytos lieka išorėje.",
+          "Atlankus po vieną priklijuok prie gretimo krašto iš vidaus. Prieš užklijuodamas juodą sienelę viršuje, įdėk vidun mažą dovanėlę ar kelis prieskoninius sausainėlius.",
+          "Ant lentelės užrašyk, kam ji skirta. Pytą pilku gabaliuku priklijuok prie galinės pusės taip, kad jo galva žvelgtų virš kamino."
+        ]
+      },
+      "uk": {
+        "name": "Модель із паперу: коробочка-комин",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "На щільному папері (160 г/м²) вона буде найгарніша.",
+        "steps": [
+          "Розфарбуй цеглини, дах і Піта. Виріж комин і Піта по штрихових лініях; сірі клапани не відрізай.",
+          "Зігни всі лінії з крапок усередину, клапани теж: цегла залишається назовні.",
+          "Приклей клапани по одному зсередини до сусіднього краю. Поклади всередину маленький подарунок або кілька пряничків, перш ніж заклеїти чорну грань угорі.",
+          "Напиши на табличці, для кого вона. Приклей Піта сірим шматочком ззаду так, щоб його голова визирала над комином."
+        ]
+      },
+      "tr": {
+        "name": "Maket: baca kutusu",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "En güzeli kalın kâğıtta (160 gram) olur.",
+        "steps": [
+          "Tuğlaları, çatıyı ve Piet'i boya. Bacayı ve Piet'i kesik çizgiler boyunca kes; gri kulakçıklar bağlı kalsın.",
+          "Kulakçıklar dahil tüm noktalı çizgileri içe katla: tuğlalar dışta kalır.",
+          "Kulakçıkları tek tek yanındaki kenarın iç tarafına yapıştır. Üstteki siyah yüzü kapatmadan önce içine küçük bir hediye ya da birkaç Sinterklaas kurabiyesi koy.",
+          "Tabelaya kimin için olduğunu yaz. Piet'i gri kısmından arka yüze yapıştır; başı bacanın üstünden baksın."
+        ]
+      },
+      "sr": {
+        "name": "Maketa: kutija dimnjak",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Najlepše ispada na debljem papiru (160 g).",
+        "steps": [
+          "Oboji cigle, krov i Pita. Iseci dimnjak i Pita duž isprekidanih linija; sivi jezičci ostaju na njima.",
+          "Savij sve tačkaste linije ka unutra, i jezičke: cigle ostaju spolja.",
+          "Zalepi jezičke jedan po jedan s unutrašnje strane susedne ivice. Stavi unutra mali poklon ili nekoliko kolačića pre nego što zalepiš crnu stranicu na vrhu.",
+          "Napiši na pločicu za koga je. Zalepi Pita sivim komadom na zadnju stranu, tako da mu glava viri iznad dimnjaka."
+        ]
+      },
+      "mk": {
+        "name": "Модел од хартија: кутија оџак",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "На дебела хартија (160 грама) е најубава.",
+        "steps": [
+          "Обој ги тулите, покривот и Пит. Исечи ги оџакот и Пит по испрекинатите линии; сивите јазичиња остануваат прикачени.",
+          "Превиткај ги сите линии со точки навнатре, и јазичињата: тулите остануваат однадвор.",
+          "Залепи ги јазичињата едно по едно одвнатре на работ до нив. Пред да ја залепиш црната страна горе, стави внатре мал подарок или неколку колачиња.",
+          "Напиши на таблата за кого е. Залепи го Пит со сивото парче на задната страна, така што неговата глава да ѕирка над оџакот."
+        ]
+      },
+      "sq": {
+        "name": "Model letre: kuti oxhak",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Në letër të trashë (160 g) del më bukur.",
+        "steps": [
+          "Ngjyros tullat, çatinë dhe Piet. Prit oxhakun dhe Piet përgjatë vijave me ndërprerje; kapakët gri mbeten të ngjitur.",
+          "Palos të gjitha vijat me pika nga brenda, edhe kapakët: tullat mbeten jashtë.",
+          "Ngjit kapakët një nga një nga brenda, te ana pranë tyre. Para se të ngjitësh faqen e zezë sipër, fut brenda një dhuratë të vogël ose disa biskota me erëza.",
+          "Shkruaj në tabelë për kë është. Ngjite Piet me copën gri te pjesa e pasme, që koka e tij të shikojë mbi oxhak."
+        ]
+      },
+      "is": {
+        "name": "Pappírslíkan: strompaaskja",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Á þykkum pappír (160 g) verður hún fallegust.",
+        "steps": [
+          "Litaðu múrsteinana, þakið og Piet. Klipptu strompinn og Piet út eftir strikalínunum; gráu fliparnir eiga að sitja fastir.",
+          "Brjóttu allar punktalínurnar inn á við, líka flipana: múrsteinarnir eru að utan.",
+          "Límdu flipana einn af öðrum innan á brúnina við hliðina. Settu litla gjöf eða nokkrar kryddsmákökur í öskjuna áður en þú límir svarta flötinn efst fastan.",
+          "Skrifaðu á skiltið hverjum askjan er ætluð. Límdu Piet með gráa bútnum aftan á, þannig að höfuðið á honum gægist upp fyrir strompinn."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "verlanglijstje-voor-sinterklaas",
+    "order": 1115,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": "sinterklaas",
+    "kind": "werkblad",
+    "height": 280,
+    "minutes": 20,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 1,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "potlood"
+      },
+      {
+        "slug": "stiften",
+        "optional": true
+      }
+    ],
+    "regionCount": 38,
+    "colorByNumber": {
+      "codes": "ryybbyyy----rryyyyyyywwwwwworwggrrryyy",
+      "palette": [
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 19.5,
+          "y": 24.1,
+          "size": 4.5
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 17.9,
+          "y": 30.6,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 23.8,
+          "y": 18.5,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 3,
+          "x": 170.5,
+          "y": 21.9,
+          "size": 4.6
+        },
+        {
+          "region": 4,
+          "number": 3,
+          "x": 167.6,
+          "y": 15.2,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 2,
+          "x": 175.9,
+          "y": 15.2,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 171.4,
+          "y": 11.1,
+          "size": 4.5
+        },
+        {
+          "region": 7,
+          "number": 2,
+          "x": 180.6,
+          "y": 11.1,
+          "size": 4.5
+        },
+        {
+          "region": 12,
+          "number": 1,
+          "x": 20.8,
+          "y": 259.8,
+          "size": 4.5
+        },
+        {
+          "region": 13,
+          "number": 1,
+          "x": 19.7,
+          "y": 248,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 2,
+          "x": 28.9,
+          "y": 248.1,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 2,
+          "x": 24.3,
+          "y": 243.5,
+          "size": 4.5
+        },
+        {
+          "region": 16,
+          "number": 2,
+          "x": 33.4,
+          "y": 243.9,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 2,
+          "x": 22.3,
+          "y": 255.8,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 2,
+          "x": 35.5,
+          "y": 255.8,
+          "size": 4.5
+        },
+        {
+          "region": 19,
+          "number": 2,
+          "x": 22.7,
+          "y": 263.2,
+          "size": 4.5
+        },
+        {
+          "region": 20,
+          "number": 2,
+          "x": 35.1,
+          "y": 263.2,
+          "size": 4.5
+        },
+        {
+          "region": 21,
+          "number": 4,
+          "x": 52.5,
+          "y": 261.5,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 4,
+          "x": 59.8,
+          "y": 257.8,
+          "size": 4.5
+        },
+        {
+          "region": 23,
+          "number": 4,
+          "x": 68.2,
+          "y": 262.1,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 4,
+          "x": 57.8,
+          "y": 265.8,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 4,
+          "x": 47.8,
+          "y": 265.8,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 4,
+          "x": 65.8,
+          "y": 267.8,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 5,
+          "x": 91.8,
+          "y": 244.8,
+          "size": 4.5
+        },
+        {
+          "region": 28,
+          "number": 1,
+          "x": 93.9,
+          "y": 260,
+          "size": 8.9
+        },
+        {
+          "region": 29,
+          "number": 4,
+          "x": 88.2,
+          "y": 268,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 6,
+          "x": 136.5,
+          "y": 254,
+          "size": 4.6
+        },
+        {
+          "region": 31,
+          "number": 6,
+          "x": 133.6,
+          "y": 247.2,
+          "size": 4.5
+        },
+        {
+          "region": 32,
+          "number": 1,
+          "x": 141.9,
+          "y": 247.6,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 1,
+          "x": 137,
+          "y": 243,
+          "size": 4.5
+        },
+        {
+          "region": 34,
+          "number": 1,
+          "x": 146,
+          "y": 243.3,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 2,
+          "x": 167.8,
+          "y": 255.7,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 2,
+          "x": 183.8,
+          "y": 249.8,
+          "size": 4.5
+        },
+        {
+          "region": 37,
+          "number": 2,
+          "x": 179.8,
+          "y": 264.8,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Verlanglijstje voor Sinterklaas",
+        "printNote": "Gewoon printpapier is goed. Print er een paar als er broertjes of zusjes zijn.",
+        "steps": [
+          "Kleur de mijter, de pakjes, de pepernoten en de schoen in.",
+          "Teken in elk vak iets wat je graag zou willen hebben. Kun je al schrijven? Schrijf het dan op de lijn eronder, of vraag een grote om te helpen.",
+          "Schrijf je naam bij 'Groetjes van'.",
+          "Vouw je verlanglijstje dubbel en stop het in je schoen, samen met een wortel voor het paard."
+        ],
+        "word": null,
+        "countQuestion": null
+      },
+      "de": {
+        "name": "Wunschzettel für Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Normales Druckerpapier reicht. Druck ein paar mehr, wenn es Geschwister gibt.",
+        "steps": [
+          "Male die Mitra, die Geschenke, die Pfeffernüsse und den Schuh an.",
+          "Mal in jedes Feld etwas, das du dir wünschst. Kannst du schon schreiben? Dann schreib es auf die Linie darunter, oder frag einen Großen, ob er dir hilft.",
+          "Schreib deinen Namen neben 'Viele Grüße von'.",
+          "Falte deinen Wunschzettel in der Mitte und steck ihn in deinen Schuh, zusammen mit einer Karotte für das Pferd."
+        ]
+      },
+      "fr": {
+        "name": "Liste de souhaits pour Saint-Nicolas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Du papier d'imprimante ordinaire suffit. Imprime-en plusieurs s'il y a des frères et sœurs.",
+        "steps": [
+          "Colorie la mitre, les cadeaux, les biscuits et le soulier.",
+          "Dans chaque case, dessine quelque chose que tu aimerais avoir. Tu sais déjà écrire ? Écris-le sur la ligne en dessous, ou demande à un grand de t'aider.",
+          "Écris ton prénom à côté de « Bisous de ».",
+          "Plie ta liste en deux et glisse-la dans ton soulier, avec une carotte pour le cheval."
+        ]
+      },
+      "en": {
+        "name": "A wish list for Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Ordinary printer paper is fine. Print a few if there are brothers or sisters.",
+        "steps": [
+          "Colour in the mitre, the presents, the pepernoten and the shoe.",
+          "In each box, draw something you would really like. Can you write already? Then write it on the line underneath, or ask a grown-up to help.",
+          "Write your name next to 'Love from'.",
+          "Fold your wish list in half and put it in your shoe, together with a carrot for the horse."
+        ]
+      },
+      "es": {
+        "name": "Lista de deseos para Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Basta con papel de impresora normal. Imprime varias si hay hermanos.",
+        "steps": [
+          "Colorea la mitra, los regalos, las galletitas y el zapato.",
+          "En cada recuadro, dibuja algo que te gustaría tener. ¿Ya sabes escribir? Escríbelo en la línea de abajo o pide ayuda a un mayor.",
+          "Escribe tu nombre junto a «Besos de».",
+          "Dobla tu lista por la mitad y métela en tu zapato, junto con una zanahoria para el caballo."
+        ]
+      },
+      "it": {
+        "name": "Letterina per Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Va bene la normale carta da stampante. Stampane qualcuna in più se ci sono fratelli o sorelle.",
+        "steps": [
+          "Colora la mitra, i regali, i biscottini e la scarpa.",
+          "In ogni riquadro disegna una cosa che ti piacerebbe avere. Sai già scrivere? Allora scrivila sulla riga sotto, oppure chiedi aiuto a un grande.",
+          "Scrivi il tuo nome accanto a 'Un bacio da'.",
+          "Piega la letterina a metà e mettila nella scarpa, insieme a una carota per il cavallo."
+        ]
+      },
+      "pl": {
+        "name": "Lista życzeń dla Sinterklaasa",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Wystarczy zwykły papier do drukarki. Wydrukuj kilka, jeśli jest rodzeństwo.",
+        "steps": [
+          "Pokoloruj mitrę, prezenty, pierniczki i but.",
+          "W każdym polu narysuj coś, co chciałbyś dostać. Umiesz już pisać? To napisz to na linii pod spodem albo poproś o pomoc kogoś dorosłego.",
+          "Napisz swoje imię przy „Pozdrowienia od”.",
+          "Złóż listę na pół i włóż ją do buta, razem z marchewką dla konia."
+        ]
+      },
+      "pt": {
+        "name": "Lista de desejos para o Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Papel de impressora normal serve. Imprima várias se houver irmãos.",
+        "steps": [
+          "Pinte a mitra, os presentes, as bolachinhas e o sapato.",
+          "Em cada quadrado, desenhe uma coisa que gostava de ter. Já sabe escrever? Então escreva na linha por baixo, ou peça ajuda a um adulto.",
+          "Escreva o seu nome ao lado de «Beijinhos de».",
+          "Dobre a lista ao meio e ponha-a no sapato, junto com uma cenoura para o cavalo."
+        ]
+      },
+      "sv": {
+        "name": "Önskelista till Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Vanligt skrivarpapper räcker. Skriv ut flera om det finns syskon.",
+        "steps": [
+          "Färglägg mitran, paketen, pepparnötterna och skon.",
+          "Rita något du gärna vill ha i varje ruta. Kan du redan skriva? Skriv det då på linjen under, eller be en vuxen om hjälp.",
+          "Skriv ditt namn vid 'Hälsningar från'.",
+          "Vik önskelistan på mitten och lägg den i skon, tillsammans med en morot till hästen."
+        ]
+      },
+      "da": {
+        "name": "Ønskeseddel til Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Almindeligt printerpapir er fint. Print flere, hvis der er søskende.",
+        "steps": [
+          "Farvelæg bispehuen, gaverne, pebernødderne og skoen.",
+          "Tegn noget, du gerne vil have, i hvert felt. Kan du allerede skrive? Så skriv det på stregen nedenunder, eller bed en voksen om hjælp.",
+          "Skriv dit navn ved 'Kærlig hilsen fra'.",
+          "Fold ønskesedlen på midten, og læg den i din sko sammen med en gulerod til hesten."
+        ]
+      },
+      "nb": {
+        "name": "Ønskeliste til Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Vanlig skriverpapir holder. Skriv ut flere hvis det er søsken.",
+        "steps": [
+          "Fargelegg bispeluen, gavene, pepernøttene og skoen.",
+          "Tegn noe du gjerne vil ha i hver rute. Kan du skrive allerede? Skriv det på linja under, eller spør en voksen om hjelp.",
+          "Skriv navnet ditt ved 'Hilsen fra'.",
+          "Brett ønskelista på midten og legg den i skoen, sammen med en gulrot til hesten."
+        ]
+      },
+      "fi": {
+        "name": "Toivelista Sinterklaasille",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Tavallinen tulostinpaperi riittää. Tulosta useampi, jos on sisaruksia.",
+        "steps": [
+          "Väritä hiippa, lahjat, pepernoot-keksit ja kenkä.",
+          "Piirrä jokaiseen ruutuun jotain, mitä haluaisit. Osaatko jo kirjoittaa? Kirjoita se alla olevalle viivalle tai pyydä aikuista auttamaan.",
+          "Kirjoita nimesi kohtaan 'Terveisin'.",
+          "Taita toivelista kahtia ja laita se kenkääsi yhdessä porkkanan kanssa hevoselle."
+        ]
+      },
+      "cs": {
+        "name": "Seznam přání pro Sinterklaase",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Stačí obyčejný papír do tiskárny. Pokud máš sourozence, vytiskni jich víc.",
+        "steps": [
+          "Vybarvi mitru, dárky, perníčky a botu.",
+          "Do každého políčka nakresli něco, co by sis přál. Umíš už psát? Napiš to na čáru pod ním, nebo požádej o pomoc někoho dospělého.",
+          "Napiš své jméno k „S pozdravem“.",
+          "Přelož seznam přání napůl a dej ho do boty, spolu s mrkví pro koně."
+        ]
+      },
+      "sk": {
+        "name": "Zoznam želaní pre Sinterklaasa",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Stačí obyčajný papier do tlačiarne. Ak máš súrodencov, vytlač ich viac.",
+        "steps": [
+          "Vyfarbi mitru, darčeky, medovníčky a topánku.",
+          "Do každého políčka nakresli niečo, čo by si chcel. Vieš už písať? Napíš to na čiaru pod ním alebo požiadaj o pomoc niekoho dospelého.",
+          "Napíš svoje meno k „S pozdravom“.",
+          "Prelož zoznam želaní na polovicu a daj ho do topánky spolu s mrkvou pre koňa."
+        ]
+      },
+      "hu": {
+        "name": "Kívánságlista Sinterklaasnak",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Sima nyomtatópapír is jó. Nyomtass többet, ha vannak testvérek.",
+        "steps": [
+          "Színezd ki a püspöksüveget, az ajándékokat, a fűszeres kekszeket és a cipőt.",
+          "Minden keretbe rajzolj valamit, amit szeretnél. Tudsz már írni? Akkor írd a vonalra alatta, vagy kérj segítséget egy felnőttől.",
+          "Írd a neved az „Üdvözlettel” mellé.",
+          "Hajtsd félbe a kívánságlistát, és tedd a cipődbe egy répával együtt a lónak."
+        ]
+      },
+      "ro": {
+        "name": "Listă de dorințe pentru Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Ajunge hârtia obișnuită de imprimantă. Tipărește mai multe dacă sunt frați.",
+        "steps": [
+          "Colorează mitra, cadourile, biscuiții și pantoful.",
+          "În fiecare chenar desenează ceva ce ți-ai dori. Știi deja să scrii? Atunci scrie pe linia de dedesubt sau roagă un adult să te ajute.",
+          "Scrie-ți numele lângă „Cu drag, de la”.",
+          "Îndoaie lista în două și pune-o în pantof, împreună cu un morcov pentru cal."
+        ]
+      },
+      "el": {
+        "name": "Λίστα με ευχές για τον Σίντερκλάας",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Αρκεί απλό χαρτί εκτυπωτή. Τύπωσε μερικές αν υπάρχουν αδέρφια.",
+        "steps": [
+          "Χρωμάτισε τη μίτρα, τα δώρα, τα μπισκοτάκια και το παπούτσι.",
+          "Σε κάθε κουτί ζωγράφισε κάτι που θα ήθελες. Ξέρεις ήδη να γράφεις; Γράψ' το στη γραμμή από κάτω ή ζήτα βοήθεια από έναν μεγάλο.",
+          "Γράψε το όνομά σου δίπλα στο «Με αγάπη από».",
+          "Δίπλωσε τη λίστα στη μέση και βάλ' την στο παπούτσι σου, μαζί με ένα καρότο για το άλογο."
+        ]
+      },
+      "bg": {
+        "name": "Списък с желания за Синтерклаас",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Стига обикновена хартия за принтер. Отпечатай няколко, ако има братя и сестри.",
+        "steps": [
+          "Оцвети митрата, подаръците, сладките и обувката.",
+          "Във всяко квадратче нарисувай нещо, което би искал. Можеш ли вече да пишеш? Тогава го напиши на линията отдолу или помоли голям за помощ.",
+          "Напиши името си до „Поздрави от“.",
+          "Сгъни списъка на две и го сложи в обувката си, заедно с морков за коня."
+        ]
+      },
+      "hr": {
+        "name": "Popis želja za Sinterklaasa",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Dovoljan je običan papir za pisač. Ispiši ih više ako ima braće i sestara.",
+        "steps": [
+          "Oboji mitru, darove, kolačiće i cipelu.",
+          "U svako polje nacrtaj nešto što bi volio dobiti. Znaš li već pisati? Onda to napiši na crtu ispod ili zamoli nekoga odraslog za pomoć.",
+          "Napiši svoje ime pokraj „Pozdrav od”.",
+          "Presavij popis želja napola i stavi ga u cipelu, zajedno s mrkvom za konja."
+        ]
+      },
+      "sl": {
+        "name": "Seznam želja za Sinterklaasa",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Dovolj je navaden papir za tiskalnik. Natisni jih več, če so v družini bratje in sestre.",
+        "steps": [
+          "Pobarvaj mitro, darila, piškotke in čevelj.",
+          "V vsako polje nariši nekaj, kar bi rad imel. Že znaš pisati? Potem napiši na črto spodaj ali prosi odraslega za pomoč.",
+          "Napiši svoje ime zraven »Lep pozdrav«.",
+          "Seznam želja prepogni na pol in ga daj v čevelj, skupaj s korenčkom za konja."
+        ]
+      },
+      "et": {
+        "name": "Soovinimekiri Sinterklaasile",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Tavaline printeripaber sobib. Prindi mitu, kui on õdesid-vendi.",
+        "steps": [
+          "Värvi piiskopimüts, kingitused, piparküpsised ja king.",
+          "Joonista igasse kasti midagi, mida sa sooviksid. Oskad juba kirjutada? Siis kirjuta see alumisele joonele või palu suurel aidata.",
+          "Kirjuta oma nimi sõna „Tervitades” juurde.",
+          "Murra soovinimekiri pooleks ja pane see kinga sisse koos porgandiga hobusele."
+        ]
+      },
+      "lv": {
+        "name": "Vēlmju saraksts Sinterklāsam",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Pietiek ar parastu printera papīru. Izdrukā vairākus, ja ir brāļi vai māsas.",
+        "steps": [
+          "Izkrāso mitru, dāvanas, cepumiņus un kurpi.",
+          "Katrā rūtiņā uzzīmē kaut ko, ko tu vēlētos. Vai jau proti rakstīt? Tad uzraksti to uz līnijas zem tās vai palūdz palīdzību pieaugušajam.",
+          "Uzraksti savu vārdu pie „Sveicieni no”.",
+          "Pārloki vēlmju sarakstu uz pusēm un ieliec to kurpē kopā ar burkānu zirgam."
+        ]
+      },
+      "lt": {
+        "name": "Norų sąrašas Sinterklasui",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Užtenka paprasto spausdintuvo popieriaus. Atspausdink kelis, jei yra brolių ar seserų.",
+        "steps": [
+          "Nuspalvink mitrą, dovanas, sausainėlius ir batą.",
+          "Kiekviename langelyje nupiešk tai, ko norėtum. Jau moki rašyti? Tada parašyk ant linijos apačioje arba paprašyk suaugusiojo pagalbos.",
+          "Parašyk savo vardą prie „Linkėjimai nuo“.",
+          "Perlenk norų sąrašą pusiau ir įdėk į batą kartu su morka arkliui."
+        ]
+      },
+      "uk": {
+        "name": "Список бажань для Сінтерклааса",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Вистачить звичайного паперу для принтера. Надрукуй кілька, якщо є брати чи сестри.",
+        "steps": [
+          "Розфарбуй митру, подарунки, прянички й черевик.",
+          "У кожній клітинці намалюй те, що хотів би отримати. Уже вмієш писати? Тоді напиши це на лінії внизу або попроси дорослого допомогти.",
+          "Напиши своє ім'я біля «З любов'ю від».",
+          "Склади список бажань навпіл і поклади в черевик разом із морквиною для коня."
+        ]
+      },
+      "tr": {
+        "name": "Sinterklaas için dilek listesi",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Normal yazıcı kâğıdı yeterli. Kardeşler varsa birkaç tane yazdır.",
+        "steps": [
+          "Piskopos şapkasını, hediyeleri, kurabiyeleri ve ayakkabıyı boya.",
+          "Her kutuya çok istediğin bir şeyi çiz. Yazmayı biliyor musun? O zaman alttaki çizgiye yaz ya da bir büyükten yardım iste.",
+          "Adını 'Sevgiyle' yazısının yanına yaz.",
+          "Dilek listeni ikiye katla ve at için bir havuçla birlikte ayakkabının içine koy."
+        ]
+      },
+      "sr": {
+        "name": "Spisak želja za Sinterklasa",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Dovoljan je običan papir za štampač. Odštampaj više ako ima braće i sestara.",
+        "steps": [
+          "Oboji mitru, poklone, kolačiće i cipelu.",
+          "U svako polje nacrtaj nešto što bi voleo da dobiješ. Znaš li već da pišeš? Onda to napiši na liniju ispod ili zamoli nekog odraslog za pomoć.",
+          "Napiši svoje ime pored „Pozdrav od”.",
+          "Presavij spisak želja napola i stavi ga u cipelu, zajedno sa šargarepom za konja."
+        ]
+      },
+      "mk": {
+        "name": "Список со желби за Синтерклас",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Доволна е обична хартија за печатач. Испечати неколку ако има браќа и сестри.",
+        "steps": [
+          "Обој ги митрата, подароците, колачињата и чевелот.",
+          "Во секое поле нацртај нешто што би сакал да добиеш. Веќе знаеш да пишуваш? Тогаш напиши го на линијата долу или замоли некој возрасен за помош.",
+          "Напиши го твоето име до „Поздрав од“.",
+          "Превиткај го списокот на половина и стави го во чевелот, заедно со морков за коњот."
+        ]
+      },
+      "sq": {
+        "name": "Lista e dëshirave për Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Mjafton letra e zakonshme e printerit. Printo disa nëse ka vëllezër ose motra.",
+        "steps": [
+          "Ngjyros mitrën, dhuratat, biskotat dhe këpucën.",
+          "Në çdo kuti vizato diçka që do të doje. A di të shkruash? Atëherë shkruaje në vijën poshtë ose kërko ndihmë nga një i rritur.",
+          "Shkruaj emrin tënd pranë 'Me dashuri nga'.",
+          "Palose listën përgjysmë dhe vendose në këpucë, bashkë me një karotë për kalin."
+        ]
+      },
+      "is": {
+        "name": "Óskalisti til Sinterklaas",
+        "word": null,
+        "countQuestion": null,
+        "printNote": "Venjulegur prentarapappír dugar. Prentaðu nokkra ef það eru systkini.",
+        "steps": [
+          "Litaðu biskupshúfuna, gjafirnar, smákökurnar og skóinn.",
+          "Teiknaðu eitthvað sem þig langar í í hvern reit. Kanntu að skrifa? Skrifaðu það þá á línuna fyrir neðan eða biddu einhvern fullorðinn um hjálp.",
+          "Skrifaðu nafnið þitt við 'Kveðja frá'.",
+          "Brjóttu óskalistann saman í miðjunni og settu hann í skóinn ásamt gulrót handa hestinum."
+        ]
+      }
+    }
+  },
+  {
+    "slug": "vingerpoppetjes-sint-en-piet",
+    "order": 1116,
+    "category": "feest",
+    "age": "4-6",
+    "world": null,
+    "holiday": "sinterklaas",
+    "kind": "knipplaat",
+    "height": 280,
+    "minutes": 25,
+    "adultHelp": false,
+    "paperGsm": null,
+    "difficulty": 2,
+    "materials": [
+      {
+        "slug": "kleurpotloden"
+      },
+      {
+        "slug": "kinderschaar"
+      },
+      {
+        "slug": "lijmstift"
+      }
+    ],
+    "regionCount": 60,
+    "colorByNumber": {
+      "codes": "yrrryyryyng---kyrroggyy-xxxx-zygyyrrbppyy-ww-zypyyrr----rrzz",
+      "palette": [
+        {
+          "code": "y",
+          "hex": "#f2c618"
+        },
+        {
+          "code": "r",
+          "hex": "#e2483d"
+        },
+        {
+          "code": "n",
+          "hex": "#2f5bd3"
+        },
+        {
+          "code": "g",
+          "hex": "#2fa45a"
+        },
+        {
+          "code": "k",
+          "hex": "#f59fc4"
+        },
+        {
+          "code": "o",
+          "hex": "#ff8a3d"
+        },
+        {
+          "code": "x",
+          "hex": "#222222"
+        },
+        {
+          "code": "z",
+          "hex": "#7a7f87"
+        },
+        {
+          "code": "b",
+          "hex": "#4fa3f0"
+        },
+        {
+          "code": "p",
+          "hex": "#7b5bd6"
+        },
+        {
+          "code": "w",
+          "hex": "#a0673d"
+        }
+      ],
+      "labels": [
+        {
+          "region": 0,
+          "number": 1,
+          "x": 32.3,
+          "y": 119.9,
+          "size": 8.2
+        },
+        {
+          "region": 1,
+          "number": 2,
+          "x": 21.8,
+          "y": 119.3,
+          "size": 4.5
+        },
+        {
+          "region": 2,
+          "number": 2,
+          "x": 70.8,
+          "y": 119.3,
+          "size": 4.5
+        },
+        {
+          "region": 3,
+          "number": 2,
+          "x": 38.8,
+          "y": 106.1,
+          "size": 7.6
+        },
+        {
+          "region": 4,
+          "number": 1,
+          "x": 47.8,
+          "y": 111.2,
+          "size": 4.5
+        },
+        {
+          "region": 5,
+          "number": 1,
+          "x": 55.4,
+          "y": 111.2,
+          "size": 4.5
+        },
+        {
+          "region": 6,
+          "number": 2,
+          "x": 45.4,
+          "y": 57.6,
+          "size": 6.2
+        },
+        {
+          "region": 7,
+          "number": 1,
+          "x": 62.5,
+          "y": 66.3,
+          "size": 4.5
+        },
+        {
+          "region": 8,
+          "number": 1,
+          "x": 51.7,
+          "y": 50.1,
+          "size": 4.5
+        },
+        {
+          "region": 9,
+          "number": 3,
+          "x": 44.7,
+          "y": 66.7,
+          "size": 4.5
+        },
+        {
+          "region": 10,
+          "number": 4,
+          "x": 59.3,
+          "y": 66.7,
+          "size": 4.5
+        },
+        {
+          "region": 14,
+          "number": 5,
+          "x": 51.9,
+          "y": 78.6,
+          "size": 4.5
+        },
+        {
+          "region": 15,
+          "number": 1,
+          "x": 128.3,
+          "y": 119.9,
+          "size": 8.2
+        },
+        {
+          "region": 16,
+          "number": 2,
+          "x": 117.8,
+          "y": 119.3,
+          "size": 4.5
+        },
+        {
+          "region": 17,
+          "number": 2,
+          "x": 166.8,
+          "y": 119.3,
+          "size": 4.5
+        },
+        {
+          "region": 18,
+          "number": 6,
+          "x": 143.1,
+          "y": 98.4,
+          "size": 8.1
+        },
+        {
+          "region": 19,
+          "number": 4,
+          "x": 129.7,
+          "y": 98.2,
+          "size": 6.9
+        },
+        {
+          "region": 20,
+          "number": 4,
+          "x": 165.7,
+          "y": 98.2,
+          "size": 6.9
+        },
+        {
+          "region": 21,
+          "number": 1,
+          "x": 147.9,
+          "y": 104.8,
+          "size": 4.5
+        },
+        {
+          "region": 22,
+          "number": 1,
+          "x": 147.9,
+          "y": 110.2,
+          "size": 4.5
+        },
+        {
+          "region": 24,
+          "number": 7,
+          "x": 133.5,
+          "y": 71.9,
+          "size": 4.5
+        },
+        {
+          "region": 25,
+          "number": 7,
+          "x": 134.8,
+          "y": 80.7,
+          "size": 4.5
+        },
+        {
+          "region": 26,
+          "number": 7,
+          "x": 162.5,
+          "y": 71.9,
+          "size": 4.5
+        },
+        {
+          "region": 27,
+          "number": 7,
+          "x": 161.2,
+          "y": 80.7,
+          "size": 4.5
+        },
+        {
+          "region": 29,
+          "number": 8,
+          "x": 138.9,
+          "y": 76.2,
+          "size": 4.5
+        },
+        {
+          "region": 30,
+          "number": 1,
+          "x": 163.3,
+          "y": 50.9,
+          "size": 4.5
+        },
+        {
+          "region": 31,
+          "number": 4,
+          "x": 142.7,
+          "y": 60.7,
+          "size": 5.5
+        },
+        {
+          "region": 32,
+          "number": 1,
+          "x": 154.2,
+          "y": 60.9,
+          "size": 4.5
+        },
+        {
+          "region": 33,
+          "number": 1,
+          "x": 32.3,
+          "y": 237.9,
+          "size": 8.2
+        },
+        {
+          "region": 34,
+          "number": 2,
+          "x": 21.8,
+          "y": 237.3,
+          "size": 4.5
+        },
+        {
+          "region": 35,
+          "number": 2,
+          "x": 70.8,
+          "y": 237.3,
+          "size": 4.5
+        },
+        {
+          "region": 36,
+          "number": 9,
+          "x": 47.1,
+          "y": 216.4,
+          "size": 8.1
+        },
+        {
+          "region": 37,
+          "number": 10,
+          "x": 33.7,
+          "y": 216.2,
+          "size": 6.9
+        },
+        {
+          "region": 38,
+          "number": 10,
+          "x": 69.7,
+          "y": 216.2,
+          "size": 6.9
+        },
+        {
+          "region": 39,
+          "number": 1,
+          "x": 51.9,
+          "y": 222.8,
+          "size": 4.5
+        },
+        {
+          "region": 40,
+          "number": 1,
+          "x": 51.9,
+          "y": 228.2,
+          "size": 4.5
+        },
+        {
+          "region": 42,
+          "number": 11,
+          "x": 37.9,
+          "y": 197.9,
+          "size": 4.5
+        },
+        {
+          "region": 43,
+          "number": 11,
+          "x": 66.1,
+          "y": 197.9,
+          "size": 4.5
+        },
+        {
+          "region": 45,
+          "number": 8,
+          "x": 43.1,
+          "y": 194.1,
+          "size": 4.5
+        },
+        {
+          "region": 46,
+          "number": 1,
+          "x": 65,
+          "y": 170.7,
+          "size": 4.5
+        },
+        {
+          "region": 47,
+          "number": 10,
+          "x": 46.7,
+          "y": 178.7,
+          "size": 5.5
+        },
+        {
+          "region": 48,
+          "number": 1,
+          "x": 58.4,
+          "y": 178.7,
+          "size": 4.5
+        },
+        {
+          "region": 49,
+          "number": 1,
+          "x": 128.3,
+          "y": 237.1,
+          "size": 8.2
+        },
+        {
+          "region": 50,
+          "number": 2,
+          "x": 117.8,
+          "y": 237.3,
+          "size": 4.5
+        },
+        {
+          "region": 51,
+          "number": 2,
+          "x": 166.8,
+          "y": 237.3,
+          "size": 4.5
+        },
+        {
+          "region": 56,
+          "number": 2,
+          "x": 160.1,
+          "y": 191.5,
+          "size": 4.5
+        },
+        {
+          "region": 57,
+          "number": 2,
+          "x": 170.5,
+          "y": 197.8,
+          "size": 4.5
+        },
+        {
+          "region": 58,
+          "number": 8,
+          "x": 127.7,
+          "y": 219.8,
+          "size": 6.4
+        },
+        {
+          "region": 59,
+          "number": 8,
+          "x": 153.1,
+          "y": 176.5,
+          "size": 4.5
+        }
+      ]
+    },
+    "i18n": {
+      "nl": {
+        "name": "Vingerpoppetjes: Sinterklaas en Piet",
+        "steps": [
+          "Kleur Sinterklaas, de twee Pieten en het paard in. Kies voor de Pieten je eigen kleuren.",
+          "Knip elk poppetje uit langs de streepjeslijn. Het poppetje en het strookje blijven aan elkaar vast.",
+          "Leg het strookje om je vinger en plak het einde op het grijze vakje. Niet te strak: je vinger moet er makkelijk in en uit kunnen.",
+          "Steek je vingers in de poppetjes en speel de intocht of pakjesavond na!"
+        ],
+        "word": null,
+        "countQuestion": null
+      },
+      "de": {
+        "name": "Fingerpuppen: Sinterklaas und Piet",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Male Sinterklaas, die zwei Piets und das Pferd an. Für die Piets suchst du dir deine eigenen Farben aus.",
+          "Schneide jedes Püppchen an der gestrichelten Linie aus. Das Püppchen und der Streifen bleiben aneinander.",
+          "Leg den Streifen um deinen Finger und kleb das Ende auf das graue Feld. Nicht zu eng: Dein Finger muss leicht hinein- und herauskommen.",
+          "Steck deine Finger in die Püppchen und spiel die Ankunft von Sinterklaas oder den Geschenkeabend nach!"
+        ]
+      },
+      "fr": {
+        "name": "Marionnettes à doigt : Saint-Nicolas et Piet",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Colorie Saint-Nicolas, les deux Piet et le cheval. Pour les Piet, choisis tes propres couleurs.",
+          "Découpe chaque marionnette le long de la ligne en tirets. La marionnette et la bande restent attachées.",
+          "Enroule la bande autour de ton doigt et colle le bout sur la case grise. Pas trop serré : ton doigt doit pouvoir entrer et sortir facilement.",
+          "Mets les marionnettes sur tes doigts et rejoue l'arrivée de Saint-Nicolas ou la soirée des cadeaux !"
+        ]
+      },
+      "en": {
+        "name": "Finger puppets: Sinterklaas and Piet",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Colour in Sinterklaas, the two Piets and the horse. Choose your own colours for the Piets.",
+          "Cut out each puppet along the dashed line. The puppet and the strip stay joined together.",
+          "Wrap the strip around your finger and glue the end onto the grey box. Not too tight: your finger needs to slide in and out easily.",
+          "Put your fingers in the puppets and act out Sinterklaas arriving or gift evening!"
+        ]
+      },
+      "es": {
+        "name": "Títeres de dedo: Sinterklaas y Piet",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Colorea a Sinterklaas, a los dos Piets y al caballo. Para los Piets elige tus propios colores.",
+          "Recorta cada muñequito por la línea discontinua. El muñequito y la tira quedan unidos.",
+          "Enrolla la tira alrededor del dedo y pega el final en la casilla gris. Sin apretar: el dedo tiene que poder entrar y salir fácilmente.",
+          "Mete los dedos en los muñequitos ¡y representa la llegada de Sinterklaas o la noche de los regalos!"
+        ]
+      },
+      "it": {
+        "name": "Burattini da dito: Sinterklaas e Piet",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Colora Sinterklaas, i due Piet e il cavallo. Per i Piet scegli i tuoi colori.",
+          "Ritaglia ogni burattino lungo la linea tratteggiata. Il burattino e la striscia restano attaccati.",
+          "Avvolgi la striscia intorno al dito e incolla la fine sulla casella grigia. Non troppo stretta: il dito deve entrare e uscire facilmente.",
+          "Infila le dita nei burattini e recita l'arrivo di Sinterklaas o la sera dei regali!"
+        ]
+      },
+      "pl": {
+        "name": "Pacynki na palec: Sinterklaas i Piet",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Pokoloruj Sinterklaasa, dwóch Pietów i konia. Dla Pietów wybierz własne kolory.",
+          "Wytnij każdą pacynkę wzdłuż linii kreskowanej. Pacynka i pasek zostają połączone.",
+          "Owiń pasek wokół palca i przyklej koniec do szarego pola. Nie za ciasno: palec musi łatwo wchodzić i wychodzić.",
+          "Włóż palce do pacynek i odegraj przybycie Sinterklaasa albo wieczór prezentów!"
+        ]
+      },
+      "pt": {
+        "name": "Fantoches de dedo: Sinterklaas e Piet",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Pinte o Sinterklaas, os dois Piet e o cavalo. Escolha as suas próprias cores para os Piet.",
+          "Recorte cada bonequinho pela linha tracejada. O bonequinho e a tirinha ficam juntos.",
+          "Enrole a tirinha no dedo e cole a ponta no quadradinho cinzento. Não muito apertado: o dedo tem de entrar e sair com facilidade.",
+          "Ponha os dedos nos bonequinhos e faça de conta que é a chegada do Sinterklaas ou a noite dos presentes!"
+        ]
+      },
+      "sv": {
+        "name": "Fingerdockor: Sinterklaas och Piet",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Färglägg Sinterklaas, de två Piet och hästen. Välj egna färger till Piet.",
+          "Klipp ut varje docka längs den streckade linjen. Dockan och remsan sitter ihop.",
+          "Lägg remsan runt fingret och limma slutet på den grå rutan. Inte för hårt: fingret måste lätt kunna komma in och ut.",
+          "Stick in fingrarna i dockorna och spela när Sinterklaas kommer eller paketkvällen!"
+        ]
+      },
+      "da": {
+        "name": "Fingerdukker: Sinterklaas og Piet",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Farvelæg Sinterklaas, de to Piet og hesten. Vælg selv farverne til Piet.",
+          "Klip hver dukke ud langs den stiplede streg. Dukken og strimlen hænger sammen.",
+          "Læg strimlen om fingeren, og lim enden på det grå felt. Ikke for stramt: fingeren skal let kunne komme ind og ud.",
+          "Stik fingrene i dukkerne, og spil Sinterklaas' ankomst eller gaveaftenen!"
+        ]
+      },
+      "nb": {
+        "name": "Fingerdukker: Sinterklaas og Piet",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Fargelegg Sinterklaas, de to Piet og hesten. Velg dine egne farger til Piet.",
+          "Klipp ut hver figur langs den stiplede linja. Figuren og strimmelen skal henge sammen.",
+          "Legg strimmelen rundt fingeren og lim enden på den grå ruta. Ikke for stramt: fingeren må lett kunne komme inn og ut.",
+          "Stikk fingrene inn i figurene og spill når Sinterklaas kommer, eller gavekvelden!"
+        ]
+      },
+      "fi": {
+        "name": "Sorminuket: Sinterklaas ja Piet",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Väritä Sinterklaas, kaksi Pietiä ja hevonen. Valitse Pieteille omat värit.",
+          "Leikkaa jokainen nukke irti katkoviivaa pitkin. Nukke ja suikale pysyvät kiinni toisissaan.",
+          "Kierrä suikale sormesi ympäri ja liimaa pää harmaaseen ruutuun. Ei liian tiukalle: sormen pitää mennä helposti sisään ja ulos.",
+          "Laita sormet nukkeihin ja leiki Sinterklaasin saapumista tai lahjailtaa!"
+        ]
+      },
+      "cs": {
+        "name": "Prstoví maňásci: Sinterklaas a Piet",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Vybarvi Sinterklaase, oba Piety a koně. Pro Piety si vyber vlastní barvy.",
+          "Vystřihni každého maňáska podél čárkované čáry. Maňásek a proužek zůstanou spojené.",
+          "Obtoč proužek kolem prstu a konec přilep na šedé políčko. Ne moc natěsno: prst musí jít snadno dovnitř i ven.",
+          "Strč prsty do maňásků a zahraj příjezd Sinterklaase nebo večer s dárky!"
+        ]
+      },
+      "sk": {
+        "name": "Prstové bábky: Sinterklaas a Piet",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Vyfarbi Sinterklaasa, oboch Pietov a koňa. Pre Pietov si vyber vlastné farby.",
+          "Vystrihni každú bábku po čiarkovanej čiare. Bábka a pásik ostanú spojené.",
+          "Obtoč pásik okolo prsta a koniec prilep na sivé pole. Nie príliš natesno: prst musí ľahko vojsť dnu aj von.",
+          "Nastrč si bábky na prsty a zahraj príchod Sinterklaasa alebo večer s darčekmi!"
+        ]
+      },
+      "hu": {
+        "name": "Ujjbábok: Sinterklaas és Piet",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Színezd ki Sinterklaast, a két Pietet és a lovat. A Pieteknek saját színeket választhatsz.",
+          "Vágd ki mindegyik bábut a szaggatott vonal mentén. A bábu és a csík összefüggve marad.",
+          "Tekerd a csíkot az ujjad köré, és ragaszd a végét a szürke mezőre. Ne túl szorosan: az ujjadnak könnyen ki-be kell csúsznia.",
+          "Dugd az ujjaidat a bábokba, és játszd el Sinterklaas érkezését vagy az ajándékozás estéjét!"
+        ]
+      },
+      "ro": {
+        "name": "Păpuși pe deget: Sinterklaas și Piet",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Colorează-i pe Sinterklaas, pe cei doi Piet și calul. Pentru Piet alege-ți propriile culori.",
+          "Decupează fiecare păpușă pe linia întreruptă. Păpușa și fâșia rămân legate.",
+          "Înfășoară fâșia în jurul degetului și lipește capătul pe căsuța gri. Nu prea strâns: degetul trebuie să intre și să iasă ușor.",
+          "Pune-ți degetele în păpuși și joacă sosirea lui Sinterklaas sau seara cadourilor!"
+        ]
+      },
+      "el": {
+        "name": "Δαχτυλόκουκλες: ο Σίντερκλάας και ο Πιτ",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Χρωμάτισε τον Σίντερκλάας, τους δύο Πιτ και το άλογο. Για τους Πιτ διάλεξε τα δικά σου χρώματα.",
+          "Κόψε κάθε κουκλάκι στη διακεκομμένη γραμμή. Το κουκλάκι και η λωρίδα μένουν ενωμένα.",
+          "Τύλιξε τη λωρίδα γύρω από το δάχτυλό σου και κόλλησε την άκρη στο γκρι κουτί. Όχι πολύ σφιχτά: το δάχτυλό σου πρέπει να μπαίνει και να βγαίνει εύκολα.",
+          "Βάλε τα δάχτυλά σου στα κουκλάκια και παίξε τον ερχομό του Σίντερκλάας ή τη βραδιά των δώρων!"
+        ]
+      },
+      "bg": {
+        "name": "Куклички за пръсти: Синтерклаас и Пийт",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Оцвети Синтерклаас, двамата Пийт и коня. За Пийт избери свои собствени цветове.",
+          "Изрежи всяка кукличка по прекъснатата линия. Кукличката и лентичката остават свързани.",
+          "Увий лентичката около пръста си и залепи края на сивото квадратче. Не много стегнато: пръстът ти трябва лесно да влиза и излиза.",
+          "Сложи пръстите си в кукличките и изиграй пристигането на Синтерклаас или вечерта на подаръците!"
+        ]
+      },
+      "hr": {
+        "name": "Lutkice za prste: Sinterklaas i Piet",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Oboji Sinterklaasa, oba Pieta i konja. Za Pietove odaberi vlastite boje.",
+          "Izreži svaku lutkicu po isprekidanoj crti. Lutkica i trakica ostaju spojene.",
+          "Omotaj trakicu oko prsta i zalijepi kraj na sivo polje. Ne prečvrsto: prst mora lako ulaziti i izlaziti.",
+          "Stavi lutkice na prste i odigraj Sinterklaasov dolazak ili večer darova!"
+        ]
+      },
+      "sl": {
+        "name": "Prstne lutke: Sinterklaas in Piet",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Pobarvaj Sinterklaasa, oba Pieta in konja. Za Pieta izberi svoje barve.",
+          "Vsako lutko izreži po prekinjeni črti. Lutka in trak ostaneta skupaj.",
+          "Trak ovij okoli prsta in konec prilepi na sivo polje. Ne preveč tesno: prst mora zlahka noter in ven.",
+          "Vtakni prste v lutke in zaigraj Sinterklaasov prihod ali večer daril!"
+        ]
+      },
+      "et": {
+        "name": "Sõrmenukud: Sinterklaas ja Piet",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Värvi Sinterklaas, kaks Pieti ja hobune. Pietidele vali oma värvid.",
+          "Lõika iga nukk välja mööda kriipsjoont. Nukk ja riba jäävad omavahel kokku.",
+          "Keera riba ümber sõrme ja kleebi ots hallile kastile. Mitte liiga tihedalt: sõrm peab kergelt sisse ja välja käima.",
+          "Pista sõrmed nukkudesse ja mängi Sinterklaasi saabumist või kingiõhtut!"
+        ]
+      },
+      "lv": {
+        "name": "Pirkstu lellītes: Sinterklāss un Pīts",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Izkrāso Sinterklāsu, abus Pītus un zirgu. Pītiem izvēlies pats savas krāsas.",
+          "Izgriez katru lellīti pa svītru līniju. Lellīte un strēmelīte paliek kopā.",
+          "Apliec strēmelīti ap pirkstu un pielīmē galu pie pelēkās rūtiņas. Ne pārāk cieši: pirkstam jāvar viegli ieslīdēt un izslīdēt.",
+          "Uzvelc lellītes uz pirkstiem un izspēlē Sinterklāsa ierašanos vai dāvanu vakaru!"
+        ]
+      },
+      "lt": {
+        "name": "Pirštukų lėlytės: Sinterklasas ir Pytas",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Nuspalvink Sinterklasą, abu Pytus ir arklį. Pytams pasirink savo spalvas.",
+          "Iškirpk kiekvieną lėlytę pagal brūkšninę liniją. Lėlytė ir juostelė lieka sujungtos.",
+          "Užmauk juostelę ant piršto ir galą priklijuok prie pilko langelio. Ne per ankštai: pirštas turi lengvai įlįsti ir išlįsti.",
+          "Įkišk pirštus į lėlytes ir suvaidink Sinterklaso atvykimą arba dovanų vakarą!"
+        ]
+      },
+      "uk": {
+        "name": "Пальчикові ляльки: Сінтерклаас і Піт",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Розфарбуй Сінтерклааса, обох Пітів і коня. Для Пітів обери власні кольори.",
+          "Виріж кожну ляльку по штриховій лінії. Лялька і смужка лишаються разом.",
+          "Обгорни смужку довкола пальця й приклей кінець на сіру клітинку. Не надто туго: палець має легко входити й виходити.",
+          "Одягни ляльок на пальці й покажи прибуття Сінтерклааса або вечір подарунків!"
+        ]
+      },
+      "tr": {
+        "name": "Parmak kuklaları: Sinterklaas ve Piet",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Sinterklaas'ı, iki Piet'i ve atı boya. Piet'ler için kendi renklerini seç.",
+          "Her kuklayı kesik çizgi boyunca kes. Kukla ve şerit birbirine bağlı kalır.",
+          "Şeridi parmağına sar ve ucunu gri kutuya yapıştır. Çok sıkı değil: parmağın kolayca girip çıkabilmeli.",
+          "Parmaklarını kuklalara sok ve Sinterklaas'ın gelişini ya da hediye akşamını canlandır!"
+        ]
+      },
+      "sr": {
+        "name": "Lutke za prste: Sinterklas i Pit",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Oboji Sinterklasa, oba Pita i konja. Za Pitove izaberi svoje boje.",
+          "Iseci svaku lutkicu duž isprekidane linije. Lutkica i trakica ostaju spojene.",
+          "Obmotaj trakicu oko prsta i zalepi kraj na sivo polje. Ne previše čvrsto: prst mora lako da ulazi i izlazi.",
+          "Stavi prste u lutkice i odigraj Sinterklasov dolazak ili veče poklona!"
+        ]
+      },
+      "mk": {
+        "name": "Кукли за прсти: Синтерклас и Пит",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Обој ги Синтерклас, двата Пита и коњот. За Питовците избери свои бои.",
+          "Исечи ја секоја кукла по испрекинатата линија. Куклата и лентичката остануваат споени.",
+          "Стави ја лентичката околу прстот и залепи го крајот на сивото поле. Не премногу тесно: прстот мора лесно да влегува и излегува.",
+          "Стави ги прстите во куклите и одглуми го доаѓањето на Синтерклас или вечерта на подароците!"
+        ]
+      },
+      "sq": {
+        "name": "Kukulla gishtash: Sinterklaas dhe Piet",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Ngjyros Sinterklaas, dy Piet dhe kalin. Për Piet zgjidh ngjyrat e tua.",
+          "Prit çdo kukull përgjatë vijës me ndërprerje. Kukulla dhe shiriti mbeten bashkë.",
+          "Mbështille shiritin rreth gishtit dhe ngjite fundin te kutia gri. Jo shumë shtrënguar: gishti duhet të hyjë e të dalë lehtë.",
+          "Futi gishtat në kukulla dhe luaj ardhjen e Sinterklaas ose mbrëmjen e dhuratave!"
+        ]
+      },
+      "is": {
+        "name": "Fingrabrúður: Sinterklaas og Piet",
+        "word": null,
+        "countQuestion": null,
+        "steps": [
+          "Litaðu Sinterklaas, báða Piet og hestinn. Veldu þína eigin liti á Piet.",
+          "Klipptu hverja fingrabrúðu út eftir strikalínunni. Brúðan og ræman haldast saman.",
+          "Vefðu ræmunni um fingurinn og límdu endann á gráa reitinn. Ekki of fast: fingurinn verður að komast auðveldlega inn og út.",
+          "Settu fingurna í brúðurnar og leiktu komu Sinterklaas eða gjafakvöldið!"
+        ]
+      }
+    }
   }
 ]
