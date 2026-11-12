@@ -42,6 +42,7 @@ export const sq: Messages = {
   kindNames: { kleurplaat: "Fletë për ngjyrosje", knipplaat: "Për të prerë", bouwplaat: "Model letre", spel: "Lojë", vouwblad: "Palosje letre", werkblad: "Fletë pune", sjabloon: "Shabllon", kaart: "Kartolinë", tekenles: "Mësim vizatimi" } as Record<string, string>,
   difficulty: ["", "e lehtë", "mesatare", "sfiduese"], morePages: "Më shumë fletë", howItWorks: "Si funksionon", answers: "Përgjigjet (për prindërit)", printPage: (n: number | string) => `Printo faqen ${n}`,
   forParents: "Për prindërit", howToMake: "Si bëhet", whatYouNeed: "Çfarë të duhet", optional: "sipas dëshirës",
+  resultTitle: "Kështu do të duket", resultAlt: (name: string) => `${name}: kështu duket kur është gati`,
   aboutMinutes: (n: number) => `rreth ${n} ${n === 1 ? "minutë" : "minuta"}`, adultHelp: "me ndihmën e një të rrituri", paper: (g: number) => `letër ${g} g/m²`,
   atPartner: (p: string) => `te ${p}`,
   partnerDisclosure: "Lidhje partnerësh: nëse blen diçka përmes këtyre lidhjeve, Kleurhoek merr një tarifë të vogël nga dyqani. Ti paguan njësoj. Kështu fletët mbeten falas.",

@@ -42,6 +42,7 @@ export const nb: Messages = {
   kindNames: { kleurplaat: "Fargeleggingsark", knipplaat: "Klippeark", bouwplaat: "Papirmodell", spel: "Spill", vouwblad: "Bretting", werkblad: "Oppgaveark", sjabloon: "Mal", kaart: "Kort", tekenles: "Tegnetime" } as Record<string, string>,
   difficulty: ["", "lett", "middels", "utfordrende"], morePages: "Flere sider", howItWorks: "Slik fungerer det", answers: "Svar (for foreldre)", printPage: (n: number | string) => `Skriv ut side ${n}`,
   forParents: "For foreldre", howToMake: "Slik lager du det", whatYouNeed: "Dette trenger du", optional: "valgfritt",
+  resultTitle: "Slik blir det", resultAlt: (name: string) => `${name}: slik ser det ut når det er ferdig`,
   aboutMinutes: (n: number) => `cirka ${n} minutter`, adultHelp: "med hjelp fra en voksen", paper: (g: number) => `${g} g papir`,
   atPartner: (p: string) => `hos ${p}`,
   partnerDisclosure: "Partnerlenker: Hvis du kjøper noe via disse lenkene, får Kleurhoek en liten provisjon fra butikken. Du betaler det samme. Slik holder vi arkene gratis.",

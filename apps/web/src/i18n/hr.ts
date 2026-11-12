@@ -49,6 +49,7 @@ export const hr: Messages = {
   kindNames: { kleurplaat: "Bojanka", knipplaat: "Za izrezivanje", bouwplaat: "Papirnati model", spel: "Igra", vouwblad: "Savijanje papira", werkblad: "Radni list", sjabloon: "Šablona", kaart: "Čestitka", tekenles: "Lekcija crtanja" } as Record<string, string>,
   difficulty: ["", "lako", "srednje", "zahtjevno"], morePages: "Više stranica", howItWorks: "Kako to ide", answers: "Rješenja (za roditelje)", printPage: (n: number | string) => `Ispiši stranicu ${n}`,
   forParents: "Za roditelje", howToMake: "Kako se izrađuje", whatYouNeed: "Potreban pribor", optional: "po želji",
+  resultTitle: "Ovako će izgledati", resultAlt: (name: string) => `${name}: ovako izgleda kad je gotovo`,
   aboutMinutes: (n: number) => `oko ${n} ${plural(n, "minute", "minute", "minuta")}`, adultHelp: "uz pomoć odrasle osobe", paper: (g: number) => `papir od ${g} g/m²`,
   atPartner: (p: string) => `u trgovini ${p}`,
   partnerDisclosure: "Partnerski linkovi: ako nešto kupiš preko ovih linkova, Kleurhoek dobiva malu naknadu od trgovine. Ti plaćaš isto. Tako bojanke ostaju besplatne.",

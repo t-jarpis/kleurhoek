@@ -42,6 +42,7 @@ export const da: Messages = {
   kindNames: { kleurplaat: "Tegning til farvelægning", knipplaat: "Klippeark", bouwplaat: "Papirmodel", spel: "Spil", vouwblad: "Foldning", werkblad: "Opgaveark", sjabloon: "Skabelon", kaart: "Kort", tekenles: "Tegnelektion" } as Record<string, string>,
   difficulty: ["", "let", "mellem", "udfordrende"], morePages: "Flere sider", howItWorks: "Sådan virker det", answers: "Svar (til forældre)", printPage: (n: number | string) => `Print side ${n}`,
   forParents: "Til forældre", howToMake: "Sådan gør du", whatYouNeed: "Det skal du bruge", optional: "valgfrit",
+  resultTitle: "Sådan bliver det", resultAlt: (name: string) => `${name}: sådan ser det ud, når det er færdigt`,
   aboutMinutes: (n: number) => `cirka ${n} minutter`, adultHelp: "med hjælp fra en voksen", paper: (g: number) => `${g} g papir`,
   atPartner: (p: string) => `hos ${p}`,
   partnerDisclosure: "Partnerlinks: Hvis du køber noget via disse links, får Kleurhoek et lille beløb fra butikken. Du betaler det samme. Sådan holder vi tegningerne gratis.",

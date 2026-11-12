@@ -732,3 +732,12 @@ a.ui-chip { text-decoration: none; }
 .ui-capacity meter { inline-size: 100%; block-size: 10px; }
 .ui-capacity .ui-badge { justify-self: start; }
 .ui-capacity p { margin: 0; font-size: 14px; line-height: 1.45; }
+/* ResultPicture (ADR 0100): "Zo wordt het" bij bouwplaten, naast de stappen in Voor ouders. */
+.kh-howto { display: grid; gap: var(--space-4); align-items: start; }
+@media (min-width: 640px) { .kh-howto { grid-template-columns: minmax(0, 1fr) auto; } }
+.kh-result-block { display: grid; gap: var(--space-2); justify-items: start; margin: 0; }
+.kh-result-block h3 { margin: 0; font: 800 17px var(--font-sans); letter-spacing: 0; }
+.kh-result-paper { box-sizing: border-box; inline-size: 200px; max-inline-size: 100%; padding: var(--space-3); background: var(--color-paper); border: var(--border-thin) solid var(--color-border); border-radius: var(--radius-md); }
+.kh-result-paper svg { display: block; inline-size: 100%; block-size: auto; }
+.kh-result-paper .l { fill: none; stroke: var(--plate-ink); stroke-width: var(--sw); stroke-linecap: round; stroke-linejoin: round; }
+.kh-result-paper .dot { fill: var(--plate-ink); }

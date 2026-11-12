@@ -42,6 +42,7 @@ export const tr: Messages = {
   kindNames: { kleurplaat: "Boyama sayfası", knipplaat: "Kes-yapıştır", bouwplaat: "Kâğıt maket", spel: "Oyun", vouwblad: "Katlama", werkblad: "Çalışma sayfası", sjabloon: "Şablon", kaart: "Kart", tekenles: "Çizim dersi" } as Record<string, string>,
   difficulty: ["", "kolay", "orta", "zorlayıcı"], morePages: "Daha fazla sayfa", howItWorks: "Nasıl çalışır", answers: "Cevaplar (ebeveynler için)", printPage: (n: number | string) => `${n}. sayfayı yazdır`,
   forParents: "Ebeveynler için", howToMake: "Nasıl yapılır", whatYouNeed: "Neye ihtiyacın var", optional: "isteğe bağlı",
+  resultTitle: "Böyle olacak", resultAlt: (name: string) => `${name}: bitince böyle görünür`,
   aboutMinutes: (n: number) => `yaklaşık ${n} dakika`, adultHelp: "bir yetişkinin yardımıyla", paper: (g: number) => `${g} g/m² kâğıt`,
   atPartner: (p: string) => `${p} mağazasında`,
   partnerDisclosure: "İş ortağı bağlantıları: Bu bağlantılar üzerinden bir şey satın alırsan Kleurhoek mağazadan küçük bir komisyon alır. Sen aynı fiyatı ödersin. Sayfaları bu sayede ücretsiz tutuyoruz.",

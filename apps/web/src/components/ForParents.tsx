@@ -2,14 +2,16 @@ import type { Messages } from "@/i18n/nl";
 import type { PlateDetail } from "@/lib/types";
 import { ExtraPages } from "./ExtraPages";
 import { MaterialArt } from "./MaterialArt";
+import { ResultPicture } from "./ResultPicture";
 import { SeenTracker } from "./SeenTracker";
 
 /**
  * Onder de plaat, voor de volwassene die print: hoe je het maakt, op welk papier, en wat je nodig
  * hebt. Producten staan alleen hier, duidelijk gemarkeerd als partnerlink, nooit in de kleurstudio
- * en nooit gericht op kinderen (ADR 0011).
+ * en nooit gericht op kinderen (ADR 0011). Bij een bouwplaat met een resultaatplaatje staat "Zo wordt het" naast
+ * de stappen (ADR 0100); `result` komt uit lib/result.ts.
  */
-export function ForParents({ plate, market, t }: { plate: PlateDetail; market: string; t: Messages }) {
+export function ForParents({ plate, market, t, result = null }: { plate: PlateDetail; market: string; t: Messages; result?: string | null }) {
   const craft = plate.kind !== "kleurplaat";
   const withProducts = plate.materials.filter((m) => m.product);
   const facts = [
@@ -19,6 +21,7 @@ export function ForParents({ plate, market, t }: { plate: PlateDetail; market: s
     plate.paperGsm ? t.paper(plate.paperGsm) : null,
   ].filter((f): f is string => !!f);
   if (!craft && !plate.materials.length && !plate.pages.length) return null;
+  const steps = craft && plate.steps.length > 0 ? <ol className="steps">{plate.steps.map((s, i) => <li key={i}>{s}</li>)}</ol> : null;
   return (
     <section className="parents no-print" aria-labelledby="voor-ouders">
       <div className="parents-head">
@@ -26,9 +29,7 @@ export function ForParents({ plate, market, t }: { plate: PlateDetail; market: s
         <h2 id="voor-ouders">{craft ? (plate.kind === "werkblad" || plate.kind === "spel" ? t.howItWorks : t.howToMake) : t.whatYouNeed}</h2>
         {facts.length > 0 && <p className="facts-line">{facts.map((f, i) => <span key={f}>{i > 0 && <span aria-hidden="true"> · </span>}{plate.difficulty && f === t.difficulty[plate.difficulty as 1 | 2 | 3] ? <span className="kh-difficulty"><i aria-hidden="true">{[1, 2, 3].map((n) => <b key={n} data-on={n <= plate.difficulty! ? "" : undefined} />)}</i>{f}</span> : f}</span>)}</p>}
       </div>
-      {craft && plate.steps.length > 0 && (
-        <ol className="steps">{plate.steps.map((s, i) => <li key={i}>{s}</li>)}</ol>
-      )}
+      {craft && result ? <div className="kh-howto">{steps}<ResultPicture svg={result} title={t.resultTitle} /></div> : steps}
       {plate.printNote && <p className="hint">{plate.printNote}</p>}
       <ExtraPages pages={plate.pages} labels={{ morePages: t.morePages, answers: t.answers, printPage: t.printPage("{n}") }} />
       {plate.materials.length > 0 && (

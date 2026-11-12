@@ -46,6 +46,7 @@ export const mk: Messages = {
   kindNames: { kleurplaat: "Боенка", knipplaat: "За сечење", bouwplaat: "Модел од хартија", spel: "Игра", vouwblad: "Виткање хартија", werkblad: "Работен лист", sjabloon: "Шаблон", kaart: "Честитка", tekenles: "Час по цртање" } as Record<string, string>,
   difficulty: ["", "лесно", "средно", "предизвикувачко"], morePages: "Уште страници", howItWorks: "Како функционира", answers: "Решенија (за родители)", printPage: (n: number | string) => `Печати страница ${n}`,
   forParents: "За родители", howToMake: "Како се прави", whatYouNeed: "Што ти треба", optional: "по желба",
+  resultTitle: "Вака ќе изгледа", resultAlt: (name: string) => `${name}: вака изгледа кога е готово`,
   aboutMinutes: (n: number) => `околу ${n} ${plural(n, "минута", "минути")}`, adultHelp: "со помош од возрасен", paper: (g: number) => `хартија од ${g} г/м²`,
   atPartner: (p: string) => `кај ${p}`,
   partnerDisclosure: "Партнерски линкови: ако купиш нешто преку овие линкови, Kleurhoek добива мал надомест од продавницата. Ти плаќаш исто. Така боенките остануваат бесплатни.",

@@ -49,6 +49,7 @@ export const ro: Messages = {
   kindNames: { kleurplaat: "Planșă de colorat", knipplaat: "Decupaj", bouwplaat: "Machetă din hârtie", spel: "Joc", vouwblad: "Pliere", werkblad: "Fișă de lucru", sjabloon: "Șablon", kaart: "Felicitare", tekenles: "Lecție de desen" } as Record<string, string>,
   difficulty: ["", "ușor", "mediu", "dificil"], morePages: "Mai multe pagini", howItWorks: "Cum funcționează", answers: "Răspunsuri (pentru părinți)", printPage: (n: number | string) => `Printează pagina ${n}`,
   forParents: "Pentru părinți", howToMake: "Cum se face", whatYouNeed: "De ce ai nevoie", optional: "opțional",
+  resultTitle: "Așa va arăta", resultAlt: (name: string) => `${name}: așa arată când e gata`,
   aboutMinutes: (n: number) => `cam ${count(n, "minut", "minute")}`, adultHelp: "cu ajutorul unui adult", paper: (g: number) => `hârtie de ${g} g/m²`,
   atPartner: (p: string) => `la ${p}`,
   partnerDisclosure: "Linkuri de partener: dacă cumperi ceva prin aceste linkuri, Kleurhoek primește un mic comision de la magazin. Tu plătești la fel. Așa planșele rămân gratuite.",

@@ -48,6 +48,7 @@ export const uk: Messages = {
   kindNames: { kleurplaat: "Розмальовка", knipplaat: "Для вирізання", bouwplaat: "Паперова модель", spel: "Гра", vouwblad: "Складанка", werkblad: "Робочий аркуш", sjabloon: "Шаблон", kaart: "Листівка", tekenles: "Урок малювання" } as Record<string, string>,
   difficulty: ["", "легко", "середньо", "складніше"], morePages: "Більше розмальовок", howItWorks: "Як це працює", answers: "Відповіді (для батьків)", printPage: (n: number | string) => `Роздрукувати сторінку ${n}`,
   forParents: "Для батьків", howToMake: "Як зробити", whatYouNeed: "Що потрібно", optional: "за бажанням",
+  resultTitle: "Ось що вийде", resultAlt: (name: string) => `${name}: такий вигляд має готовий виріб`,
   aboutMinutes: (n: number) => `приблизно ${n} хв`, adultHelp: "з допомогою дорослого", paper: (g: number) => `папір ${g} г/м²`,
   atPartner: (p: string) => `у ${p}`,
   partnerDisclosure: "Партнерські посилання: якщо ти купиш щось за цими посиланнями, Kleurhoek отримає невелику винагороду від магазину. Ти платиш стільки ж. Так розмальовки залишаються безкоштовними.",

@@ -4,7 +4,7 @@
 //   node scripts/plates/check.mjs --report   ook docs/content/voortgang.md bijwerken
 // Controles: dubbele tekeningen, ontbrekende gegevens per soort, alles binnen het vel (in een echte
 // browser gemeten), leesbare tekst, kleine vlakken voor jonge kinderen, titels bij extra pagina's en uitstekende
-// hoekjes (stubs.mjs).
+// hoekjes (stubs.mjs). Een resultaatplaatje "Zo wordt het" (ADR 0100) mag niets van de uitslag raken en bevat geen vlakken.
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
@@ -48,8 +48,11 @@ for (const p of plates) {
   const svgs = [[1, data.plateSvg(p.slug), p.height], ...p.pages.map((pg, i) => [i + 2, data.pageSvg(p.slug, i + 2), pg.height])];
   for (const [n, svg, height] of svgs) {
     await page.setContent(`<style>${PLATE_CSS}</style>${svg.replace("<svg ", '<svg width="400" ')}`);
+    // Resultaatplaatje (ADR 0100): geen kleurvlakken erin.
+    const results = svg.match(/<svg class="kh-result"[^>]*>[\s\S]*?<\/svg>/g) ?? [];
+    if (results.some((x) => /class="r"/.test(x))) fail(p.slug, `pagina ${n}: kleurvlak in het resultaatplaatje`);
     const r = await page.evaluate(({ height, kleur }) => {
-      const out = { outside: 0, tinyText: 0, tiny: 0 };
+      const out = { outside: 0, tinyText: 0, tiny: 0, resultOverlap: 0 };
       const svg = document.querySelector("svg"), box = svg.getBoundingClientRect(), k = 200 / box.width;
       for (const el of document.querySelectorAll("svg *")) {
         if (!(el instanceof SVGGraphicsElement) || el.closest("defs,clipPath,mask") || el.tagName === "g") continue;
@@ -61,10 +64,23 @@ for (const p of plates) {
         if (el.tagName === "text" && Number(getComputedStyle(el).fontSize.replace("px", "")) < 4.5) out.tinyText++;
         if (kleur && el.classList.contains("r") && b.width * b.height < 1) out.tiny++;
       }
+      // Het kader van "Zo wordt het" mag niets anders raken (omhullende rechthoeken, 0,5 marge).
+      const rb = svg.querySelector(".kh-result-box");
+      if (rb) {
+        const q = rb.getBoundingClientRect();
+        const a = { x0: (q.left - box.left) * k + .5, y0: (q.top - box.top) * k + .5, x1: (q.right - box.left) * k - .5, y1: (q.bottom - box.top) * k - .5 };
+        for (const el of svg.querySelectorAll("*")) {
+          if (!(el instanceof SVGGraphicsElement) || el.tagName === "g" || el.closest(".kh-result-box") || el.closest("defs,clipPath,mask")) continue;
+          const e = el.getBoundingClientRect();
+          const x0 = (e.left - box.left) * k, y0 = (e.top - box.top) * k, x1 = (e.right - box.left) * k, y1 = (e.bottom - box.top) * k;
+          if (x0 < a.x1 && a.x0 < x1 && y0 < a.y1 && a.y0 < y1) out.resultOverlap++;
+        }
+      }
       return out;
     }, { height, kleur: n === 1 });
     // Een kleurplaat mag aflopen (wordt bijgesneden); onderdelen van knutselwerk moeten op het vel passen.
     if (r.outside) (p.kind === "kleurplaat" ? warn : fail)(p.slug, `pagina ${n}: ${r.outside} onderdelen (deels) buiten het vel`);
+    if (r.resultOverlap) fail(p.slug, `pagina ${n}: ${r.resultOverlap} onderdelen onder het resultaatplaatje`);
     if (r.tinyText) warn(p.slug, `pagina ${n}: ${r.tinyText} teksten kleiner dan 4,5 (onleesbaar geprint)`);
     if (r.tiny) warn(p.slug, `pagina ${n}: ${r.tiny} piepkleine vlakken`);
     // Uitstekende hoekjes (ADR 0088): een been of arm die net naast het vlak begint waar hij onder hoort.

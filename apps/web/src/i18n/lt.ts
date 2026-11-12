@@ -48,6 +48,7 @@ export const lt: Messages = {
   kindNames: { kleurplaat: "Spalvinimo paveikslėlis", knipplaat: "Iškarpa", bouwplaat: "Popierinis modelis", spel: "Žaidimas", vouwblad: "Lankstymas", werkblad: "Užduočių lapas", sjabloon: "Šablonas", kaart: "Atvirukas", tekenles: "Piešimo pamoka" } as Record<string, string>,
   difficulty: ["", "lengva", "vidutiniška", "sudėtinga"], morePages: "Daugiau puslapių", howItWorks: "Kaip tai veikia", answers: "Atsakymai (tėvams)", printPage: (n: number | string) => `Spausdinti puslapį ${n}`,
   forParents: "Tėvams", howToMake: "Kaip pasidaryti", whatYouNeed: "Ko reikia", optional: "nebūtina",
+  resultTitle: "Štai kas išeis", resultAlt: (name: string) => `${name}: taip atrodo, kai baigta`,
   aboutMinutes: (n: number) => `apie ${n} min.`, adultHelp: "padedant suaugusiajam", paper: (g: number) => `${g} g/m² popierius`,
   atPartner: (p: string) => `parduotuvėje ${p}`,
   partnerDisclosure: "Partnerių nuorodos: jei per šias nuorodas ką nors nusiperki, Kleurhoek gauna nedidelį atlygį iš parduotuvės. Tu moki tiek pat. Taip paveikslėliai lieka nemokami.",

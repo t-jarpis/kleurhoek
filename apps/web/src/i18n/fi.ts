@@ -42,6 +42,7 @@ export const fi: Messages = {
   kindNames: { kleurplaat: "Värityskuva", knipplaat: "Leikkuuarkki", bouwplaat: "Paperimalli", spel: "Peli", vouwblad: "Taittelu", werkblad: "Tehtäväsivu", sjabloon: "Sapluuna", kaart: "Kortti", tekenles: "Piirustustunti" } as Record<string, string>,
   difficulty: ["", "helppo", "keskitaso", "haastava"], morePages: "Lisää sivuja", howItWorks: "Näin se toimii", answers: "Vastaukset (vanhemmille)", printPage: (n: number | string) => `Tulosta sivu ${n}`,
   forParents: "Vanhemmille", howToMake: "Näin teet sen", whatYouNeed: "Tarvitset", optional: "valinnainen",
+  resultTitle: "Tällainen siitä tulee", resultAlt: (name: string) => `${name}: tältä se näyttää valmiina`,
   aboutMinutes: (n: number) => `noin ${n} minuuttia`, adultHelp: "aikuisen avustuksella", paper: (g: number) => `${g} g:n paperi`,
   atPartner: (p: string) => `myyjä: ${p}`,
   partnerDisclosure: "Kumppanilinkit: jos ostat jotain näiden linkkien kautta, Kleurhoek saa kaupalta pienen palkkion. Sinä maksat saman verran. Näin pidämme kuvat ilmaisina.",

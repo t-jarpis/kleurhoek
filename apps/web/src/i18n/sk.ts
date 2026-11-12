@@ -46,6 +46,7 @@ export const sk: Messages = {
   kindNames: { kleurplaat: "Omaľovánka", knipplaat: "Vystrihovačka", bouwplaat: "Papierový model", spel: "Hra", vouwblad: "Skladačka", werkblad: "Pracovný list", sjabloon: "Šablóna", kaart: "Pozdrav", tekenles: "Lekcia kreslenia" } as Record<string, string>,
   difficulty: ["", "ľahké", "stredné", "náročné"], morePages: "Ďalšie strany", howItWorks: "Ako na to", answers: "Riešenie (pre rodičov)", printPage: (n: number | string) => `Vytlačiť stranu ${n}`,
   forParents: "Pre rodičov", howToMake: "Ako to vyrobiť", whatYouNeed: "Čo budeš potrebovať", optional: "nepovinné",
+  resultTitle: "Takto to bude", resultAlt: (name: string) => `${name}: takto to vyzerá hotové`,
   aboutMinutes: (n: number) => `asi ${n} ${plural(n, "minúta", "minúty", "minút")}`, adultHelp: "s pomocou dospelého", paper: (g: number) => `papier ${g} g/m²`,
   atPartner: (p: string) => `v obchode ${p}`,
   partnerDisclosure: "Partnerské odkazy: keď cez tieto odkazy niečo kúpiš, Kleurhoek dostane od obchodu malú odmenu. Ty zaplatíš rovnako. Vďaka tomu zostávajú obrázky zadarmo.",

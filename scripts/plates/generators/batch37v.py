@@ -12,6 +12,7 @@ from lib_gen import *
 import polyhedra as ph
 from shapely.geometry import Polygon, box as sbox
 from shapes import heart_path, star_path, cloud_path, leaf_path
+from result import Camera, place_result, solid
 
 MAT = [{"slug": "kleurpotloden"}, {"slug": "kinderschaar"}, {"slug": "lijmstift"}, {"slug": "stevig-papier", "optional": True}]
 def P(points): return "M" + " L".join(f"{f(float(x))} {f(float(y))}" for x, y in points) + "Z"
@@ -292,7 +293,8 @@ def face_codes(model, codes_fn):
         out.append(codes_fn(tmp))
     return out
 
-def bouwplaat(slug, name, sub, parts, cat, age, diff, minutes, steps_extra, holiday=None, adult=None, note=None, last=None):
+def bouwplaat(slug, name, sub, parts, cat, age, diff, minutes, steps_extra, holiday=None, adult=None, note=None, last=None, result=None):
+    """result = (kader, build): optioneel resultaatplaatje "Zo wordt het" (result.py, ADR 0100) in dat kader."""
     if not isinstance(parts, list): parts = [parts]
     sh = Sheet(); title(sh, cap(name.split(": ", 1)[-1]), 16); sh.text(100, 27, sub, 6.5)
     pres = [best_layout(*p.model, p.box, p.depth, p.tries, p.upright) for p in parts]
@@ -303,6 +305,7 @@ def bouwplaat(slug, name, sub, parts, cat, age, diff, minutes, steps_extra, holi
         if p.label:
             x, y = p.label[1] if isinstance(p.label, tuple) else ((bb[0] + bb[2]) / 2, bb[1] - 2.5 if bb[1] > 38 else bb[3] + 7)
             sh.text(x, y, p.label[0] if isinstance(p.label, tuple) else p.label, 6.5, weight="800")
+    if result: place_result(sh, *result)
     sh.legend(["cut", "fold", "glue"], 274)
     steps = ["Kleur alle vlakken en tekeningen. Knip " + ("de delen" if len(parts) > 1 else "de bouwplaat") + " uit langs de streepjeslijnen; de grijze flapjes blijven eraan.",
              "Vouw alle stippellijnen naar binnen, ook de flapjes: de tekening blijft aan de buitenkant. Met een liniaal en een lege balpen eerst krassen vouwt het strakker."] + steps_extra + [
@@ -913,10 +916,14 @@ def mijter(sh, F):
             sh.seg(x - w * .36, y + h * .14, x + w * .37, y + h * .14, "l", "stroke-width:.8")
     elif s.startswith("roof"):
         for (x, y) in ((-w * .2, h * .15), (w * .2, h * .05), (0, -h * .2)): sh.region(star_path(x, y, h * .06, h * .025), "y")
-bouwplaat("surprise-mijterdoosje", "Bouwplaat: mijterdoosje", "Een surprisedoosje in de vorm van een mijter.", Part(house_y(3, 2.4, 3, 5.4),
-          lambda F: "-" if side(F) == "bottom" else "r", mijter, FULL),
+MIJTER = house_y(3, 2.4, 3, 5.4)
+MIJTER_CODES = lambda F: "-" if side(F) == "bottom" else "r"
+def mijter_result(rs, s):
+    solid(rs, Camera(-30, 22, s), MIJTER, MIJTER_CODES, mijter)
+bouwplaat("surprise-mijterdoosje", "Bouwplaat: mijterdoosje", "Een surprisedoosje in de vorm van een mijter.", Part(MIJTER, MIJTER_CODES, mijter, FULL),
           "feest", "6-9", 2, 30, ["De kant met de gouden ruit is de voorkant; op de achterkant schrijf je voor wie het is. De twee schuine vlakken vormen samen de punt.",
-                                  "Stop er een klein cadeautje of een paar pepernoten in voordat je het laatste vlak dichtplakt."], holiday="sinterklaas")
+                                  "Stop er een klein cadeautje of een paar pepernoten in voordat je het laatste vlak dichtplakt."], holiday="sinterklaas",
+          result=((140, 196, 52, 66), mijter_result))
 
 # --- kerstcadeau ---
 def kerstcadeau(sh, F):

@@ -46,6 +46,7 @@ export const is: Messages = {
   kindNames: { kleurplaat: "Litamynd", knipplaat: "Klippiörk", bouwplaat: "Pappírslíkan", spel: "Leikur", vouwblad: "Brot", werkblad: "Verkefnablað", sjabloon: "Sniðmát", kaart: "Kort", tekenles: "Teiknikennsla" } as Record<string, string>,
   difficulty: ["", "auðvelt", "miðlungs", "krefjandi"], morePages: "Fleiri síður", howItWorks: "Svona virkar það", answers: "Svör (fyrir foreldra)", printPage: (n: number | string) => `Prenta síðu ${n}`,
   forParents: "Fyrir foreldra", howToMake: "Svona er það gert", whatYouNeed: "Það sem þú þarft", optional: "valfrjálst",
+  resultTitle: "Svona verður það", resultAlt: (name: string) => `${name}: svona lítur það út þegar það er tilbúið`,
   aboutMinutes: (n: number) => `um ${n} ${plural(n, "mínúta", "mínútur")}`, adultHelp: "með hjálp fullorðinna", paper: (g: number) => `${g} g pappír`,
   atPartner: (p: string) => `hjá ${p}`,
   partnerDisclosure: "Samstarfstenglar: ef þú kaupir eitthvað í gegnum þessa tengla fær Kleurhoek litla þóknun frá versluninni. Þú borgar það sama. Þannig höldum við myndunum ókeypis.",

@@ -44,6 +44,7 @@ export const nl = {
   kindNames: { kleurplaat: "Kleurplaat", knipplaat: "Knipplaat", bouwplaat: "Bouwplaat", spel: "Spel", vouwblad: "Vouwen", werkblad: "Werkblad", sjabloon: "Sjabloon", kaart: "Kaart", tekenles: "Tekenles" } as Record<string, string>,
   difficulty: ["", "makkelijk", "gemiddeld", "uitdagend"] as const, morePages: "Meer pagina's", howItWorks: "Zo werkt het", answers: "Antwoorden (voor ouders)", printPage: (n: number | string) => `Print pagina ${n}`,
   forParents: "Voor ouders", howToMake: "Zo maak je het", whatYouNeed: "Wat heb je nodig", optional: "mag ook",
+  resultTitle: "Zo wordt het", resultAlt: (name: string) => `${name}: zo ziet het eruit als het klaar is`,
   aboutMinutes: (n: number) => `ongeveer ${n} minuten`, adultHelp: "met hulp van een volwassene", paper: (g: number) => `papier van ${g} gram`,
   atPartner: (p: string) => `bij ${p}`,
   partnerDisclosure: "Partnerlinks: als je via deze links iets koopt, krijgt Kleurhoek een kleine vergoeding van de winkel. Jij betaalt hetzelfde. Zo blijven de platen gratis.",

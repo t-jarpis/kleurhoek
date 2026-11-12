@@ -18,6 +18,7 @@ import { Crumbs } from "@/components/Crumbs";
 import { PlateCard } from "@/components/PlateCard";
 import { PinButton } from "@/components/PinButton";
 import { topicTitle } from "@/lib/topics";
+import { resultSvg } from "@/lib/result";
 
 export const revalidate = 300;
 /** Leeg: de pagina wordt bij het eerste verzoek gemaakt en daarna bewaard (ISR, ADR 0093). */
@@ -94,7 +95,7 @@ export default async function PlatePage({ params }: { params: Promise<{ org: str
             <span className="hint">{t.pinHint}</span>
           </div>
         )}
-        <ForParents plate={plate} market={market} t={t} />
+        <ForParents plate={plate} market={market} t={t} result={resultSvg([inner, ...plate.pages.map((p) => p.svg)], t.resultAlt(plate.name))} />
         {related.length > 0 && category && (
           <section className="no-print">
             <div className="ui-sectionhead"><h2>{t.moreIn(category.name)}</h2><Link href={link(base, topicPath)}>{t.seeAll(categoryCount)}</Link></div>

@@ -45,6 +45,7 @@ export const lv: Messages = {
   kindNames: { kleurplaat: "Krāsojamā lapa", knipplaat: "Izgriežamā lapa", bouwplaat: "Papīra modelis", spel: "Spēle", vouwblad: "Locīšana", werkblad: "Darba lapa", sjabloon: "Šablons", kaart: "Kartīte", tekenles: "Zīmēšanas nodarbība" } as Record<string, string>,
   difficulty: ["", "viegli", "vidēji", "izaicinoši"], morePages: "Vairāk lappušu", howItWorks: "Kā tas darbojas", answers: "Atbildes (vecākiem)", printPage: (n: number | string) => `Drukāt ${n}. lappusi`,
   forParents: "Vecākiem", howToMake: "Kā to izgatavot", whatYouNeed: "Kas nepieciešams", optional: "pēc izvēles",
+  resultTitle: "Tā tas izskatīsies", resultAlt: (name: string) => `${name}: tā tas izskatās, kad ir gatavs`,
   aboutMinutes: (n: number) => `apmēram ${n} minūtes`, adultHelp: "ar pieaugušā palīdzību", paper: (g: number) => `${g} g/m² papīrs`,
   atPartner: (p: string) => `veikalā ${p}`,
   partnerDisclosure: "Partneru saites: ja tu kaut ko nopērc, izmantojot šīs saites, Kleurhoek no veikala saņem nelielu atlīdzību. Tu maksā tikpat. Tā lapas paliek bezmaksas.",

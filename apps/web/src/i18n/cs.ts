@@ -46,6 +46,7 @@ export const cs: Messages = {
   kindNames: { kleurplaat: "Omalovánka", knipplaat: "Vystřihovánka", bouwplaat: "Papírový model", spel: "Hra", vouwblad: "Skládačka", werkblad: "Pracovní list", sjabloon: "Šablona", kaart: "Přáníčko", tekenles: "Lekce kreslení" } as Record<string, string>,
   difficulty: ["", "snadné", "střední", "náročné"], morePages: "Další strany", howItWorks: "Jak na to", answers: "Řešení (pro rodiče)", printPage: (n: number | string) => `Vytisknout stranu ${n}`,
   forParents: "Pro rodiče", howToMake: "Jak to vyrobit", whatYouNeed: "Co budeš potřebovat", optional: "nepovinné",
+  resultTitle: "Takhle to bude", resultAlt: (name: string) => `${name}: takhle to vypadá hotové`,
   aboutMinutes: (n: number) => `asi ${n} ${plural(n, "minuta", "minuty", "minut")}`, adultHelp: "s pomocí dospělého", paper: (g: number) => `papír ${g} g/m²`,
   atPartner: (p: string) => `v obchodě ${p}`,
   partnerDisclosure: "Partnerské odkazy: když přes tyto odkazy něco koupíš, dostane Kleurhoek od obchodu malou odměnu. Ty zaplatíš stejně. Díky tomu zůstávají obrázky zdarma.",

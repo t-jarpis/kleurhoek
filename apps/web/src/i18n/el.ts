@@ -42,6 +42,7 @@ export const el: Messages = {
   kindNames: { kleurplaat: "Σελίδα ζωγραφικής", knipplaat: "Για κόψιμο", bouwplaat: "Χάρτινη μακέτα", spel: "Παιχνίδι", vouwblad: "Χαρτοδιπλωτική", werkblad: "Φύλλο εργασίας", sjabloon: "Πρότυπο", kaart: "Κάρτα", tekenles: "Μάθημα σχεδίου" } as Record<string, string>,
   difficulty: ["", "εύκολο", "μέτριο", "απαιτητικό"], morePages: "Περισσότερες σελίδες", howItWorks: "Πώς λειτουργεί", answers: "Απαντήσεις (για γονείς)", printPage: (n: number | string) => `Εκτύπωση σελίδας ${n}`,
   forParents: "Για γονείς", howToMake: "Πώς το φτιάχνεις", whatYouNeed: "Τι χρειάζεσαι", optional: "προαιρετικά",
+  resultTitle: "Έτσι θα γίνει", resultAlt: (name: string) => `${name}: έτσι φαίνεται όταν είναι έτοιμο`,
   aboutMinutes: (n: number) => `περίπου ${n} ${n === 1 ? "λεπτό" : "λεπτά"}`, adultHelp: "με τη βοήθεια ενός ενήλικα", paper: (g: number) => `χαρτί ${g} γραμμαρίων`,
   atPartner: (p: string) => `στο ${p}`,
   partnerDisclosure: "Σύνδεσμοι συνεργατών: αν αγοράσεις κάτι μέσα από αυτούς τους συνδέσμους, το Kleurhoek παίρνει μια μικρή αμοιβή από το κατάστημα. Εσύ πληρώνεις το ίδιο. Έτσι οι ζωγραφιές μένουν δωρεάν.",

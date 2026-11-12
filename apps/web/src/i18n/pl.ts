@@ -48,6 +48,7 @@ export const pl: Messages = {
   kindNames: { kleurplaat: "Kolorowanka", knipplaat: "Wycinanka", bouwplaat: "Model z papieru", spel: "Gra", vouwblad: "Składanie", werkblad: "Karta pracy", sjabloon: "Szablon", kaart: "Kartka", tekenles: "Lekcja rysunku" } as Record<string, string>,
   difficulty: ["", "łatwy", "średni", "wymagający"], morePages: "Więcej stron", howItWorks: "Jak to działa", answers: "Odpowiedzi (dla rodziców)", printPage: (n: number | string) => `Drukuj stronę ${n}`,
   forParents: "Dla rodziców", howToMake: "Jak to zrobić", whatYouNeed: "Czego potrzebujesz", optional: "opcjonalnie",
+  resultTitle: "Tak to wygląda", resultAlt: (name: string) => `${name}: tak wygląda po złożeniu`,
   aboutMinutes: (n: number) => `około ${n} ${n === 1 ? "minuty" : "minut"}`, adultHelp: "z pomocą dorosłego", paper: (g: number) => `papier o gramaturze ${g} g`,
   atPartner: (p: string) => `w sklepie ${p}`,
   partnerDisclosure: "Linki partnerskie: jeśli kupisz coś przez te linki, Kleurhoek dostaje od sklepu niewielkie wynagrodzenie. Ty płacisz tyle samo. Dzięki temu plansze pozostają darmowe.",

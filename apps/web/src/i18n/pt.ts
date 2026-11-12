@@ -42,6 +42,7 @@ export const pt: Messages = {
   kindNames: { kleurplaat: "Para colorir", knipplaat: "Para recortar", bouwplaat: "Maquete de papel", spel: "Jogo", vouwblad: "Dobradura", werkblad: "Folha de atividades", sjabloon: "Molde", kaart: "Cartão", tekenles: "Aula de desenho" } as Record<string, string>,
   difficulty: ["", "fácil", "médio", "desafiador"], morePages: "Mais páginas", howItWorks: "Como funciona", answers: "Respostas (para os pais)", printPage: (n: number | string) => `Imprimir página ${n}`,
   forParents: "Para os pais", howToMake: "Como fazer", whatYouNeed: "Do que você precisa", optional: "opcional",
+  resultTitle: "Fica assim", resultAlt: (name: string) => `${name}: assim fica quando estiver pronto`,
   aboutMinutes: (n: number) => `cerca de ${n} minutos`, adultHelp: "com a ajuda de um adulto", paper: (g: number) => `papel de ${g} gramas`,
   atPartner: (p: string) => `em ${p}`,
   partnerDisclosure: "Links de afiliado: se você comprar algo por esses links, a loja paga ao Kleurhoek uma pequena comissão. Você paga o mesmo. Assim os desenhos continuam grátis.",

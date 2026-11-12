@@ -42,6 +42,7 @@ export const et: Messages = {
   kindNames: { kleurplaat: "Värvimispilt", knipplaat: "Väljalõige", bouwplaat: "Paberimudel", spel: "Mäng", vouwblad: "Voltimine", werkblad: "Tööleht", sjabloon: "Šabloon", kaart: "Kaart", tekenles: "Joonistamistund" } as Record<string, string>,
   difficulty: ["", "lihtne", "keskmine", "väljakutsuv"], morePages: "Rohkem lehti", howItWorks: "Kuidas see käib", answers: "Vastused (vanematele)", printPage: (n: number | string) => `Prindi leht ${n}`,
   forParents: "Vanematele", howToMake: "Kuidas teha", whatYouNeed: "Mida on vaja", optional: "valikuline",
+  resultTitle: "Selline see tuleb", resultAlt: (name: string) => `${name}: selline see valmis kujul välja näeb`,
   aboutMinutes: (n: number) => `umbes ${n} minutit`, adultHelp: "täiskasvanu abiga", paper: (g: number) => `${g} g/m² paber`,
   atPartner: (p: string) => `poes ${p}`,
   partnerDisclosure: "Partnerlingid: kui ostad midagi nende linkide kaudu, saab Kleurhoek poelt väikese tasu. Sina maksad sama palju. Nii jäävad pildid tasuta.",

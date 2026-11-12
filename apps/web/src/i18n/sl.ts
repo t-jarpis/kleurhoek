@@ -49,6 +49,7 @@ export const sl: Messages = {
   kindNames: { kleurplaat: "Pobarvanka", knipplaat: "Za izrezovanje", bouwplaat: "Model iz papirja", spel: "Igra", vouwblad: "Zgibanje", werkblad: "Delovni list", sjabloon: "Šablona", kaart: "Voščilnica", tekenles: "Lekcija risanja" } as Record<string, string>,
   difficulty: ["", "lahko", "srednje", "zahtevno"], morePages: "Več strani", howItWorks: "Kako deluje", answers: "Rešitve (za starše)", printPage: (n: number | string) => `Natisni stran ${n}`,
   forParents: "Za starše", howToMake: "Tako ga izdelaš", whatYouNeed: "Kaj potrebuješ", optional: "po želji",
+  resultTitle: "Tako bo", resultAlt: (name: string) => `${name}: tako je videti, ko je končano`,
   aboutMinutes: (n: number) => `približno ${n} ${plural(n, "minuta", "minuti", "minute", "minut")}`, adultHelp: "s pomočjo odrasle osebe", paper: (g: number) => `papir ${g} g/m²`,
   atPartner: (p: string) => `v trgovini ${p}`,
   partnerDisclosure: "Partnerske povezave: če prek teh povezav kaj kupiš, Kleurhoek od trgovine dobi majhno nadomestilo. Ti plačaš enako. Tako pobarvanke ostajajo brezplačne.",

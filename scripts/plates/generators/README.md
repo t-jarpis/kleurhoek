@@ -31,3 +31,7 @@ Schattige, getekende platen: `smooth(punten)` voor vloeiende vormen met een lich
 
 ## Lijntekening omzetten (`trace.py`, ADR 0091)
 `python3 trace.py bron.png uit.svg --kier 21 --nummers vlakken.png`: lijnen worden een inktlaag, witte gebieden gesloten vlakken (kiertjes gedicht). Met `--nummers` zie je het volgnummer per vlak om de kleurcodes te kiezen. Proefplaat: `OUT=/tmp/proef python3 beeldmodel_proef.py`. Nodig: `pip install opencv-python-headless numpy`.
+
+## Resultaatplaatje "Zo wordt het" (`result.py`, ADR 0100)
+Een kleine tekening van het in elkaar gezette werkstuk in een hoek van het vel. Schrijf in de generator `build(rs, s)` (s = mm per eenheid van het model) en roep `place_result(sh, (x, y, w, h), build)` aan op een vrije plek (minstens 44 mm breed). In `build`: `solid(rs, Camera(-30, 24, s), model, codes, draw_face, offset)` voor elk convex deel (met dezelfde `draw_face` als de uitslag), `flat()` voor platte onderdelen en `poly()` voor vrije vormen. Vlakken worden vaste kleuren (geen `class="r"`), tekst valt weg. `check.mjs` meldt als het kader iets van de uitslag raakt. Daarna `ingest.mjs <map> <slug> --vervang` en de vertalingen in `plates.json` terugzetten. In batch37v: `bouwplaat(..., result=((x, y, w, h), build))`.
+

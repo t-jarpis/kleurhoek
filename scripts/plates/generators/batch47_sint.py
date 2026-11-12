@@ -21,6 +21,7 @@ from shapely.ops import unary_union
 from shapes import star_path
 from batch5_kit import eye, smile
 from batch44_sint import mitre, staff, beret, soot, sint, pepernoot
+from result import Camera, place_result, solid, poly, plane, flat
 
 ONLY = set(sys.argv[1:])
 MAT = [{"slug": "kleurpotloden"}, {"slug": "kinderschaar"}, {"slug": "lijmstift"}, {"slug": "stevig-papier", "optional": True}]
@@ -192,6 +193,89 @@ def shoe_strip(sh, x0, y0, L, flap, regions, folds_at=(), label=None, end_label=
     return teeth
 
 
+def shoe_result(rs, s):
+    """Zo wordt het: de schoen zoals hij uit de uitslag komt. Profiel (x naar voren, y omhoog) wordt in het model
+    x = x, y = breedte (zijkant met de ster vooraan, y = 0), z = y. De band volgt de rand van het profiel; aan de
+    binnenkant zie je hem door de opening."""
+    g = shoe_geometry(); pts = g["pts"]; S_ = arclen(pts)
+    cam = Camera(-28, 30, s)
+    P3 = lambda p, t: (p[0], t, p[1])
+    def band_code(sm):
+        return "r" if sm < g["s_cap"] else "y" if sm < g["s_sole"] else "w" if sm < g["s_corner"] + HEEL_Y else "r"
+    def at(sv):  # punt op het profiel bij booglengte sv
+        for i in range(1, len(pts)):
+            if S_[i] >= sv:
+                t = (sv - S_[i - 1]) / max(S_[i] - S_[i - 1], 1e-9)
+                return (pts[i - 1][0] + (pts[i][0] - pts[i - 1][0]) * t, pts[i - 1][1] + (pts[i][1] - pts[i - 1][1]) * t)
+        return pts[-1]
+    BP = lambda sv, t: P3(at(sv), t)
+    # band in stukjes; buitennormaal = profielrichting een kwartslag linksom (het profiel loopt met de klok mee)
+    segs = []
+    for i in range(len(pts) - 1):
+        a, b = pts[i], pts[i + 1]
+        n = (-(b[1] - a[1]), 0, b[0] - a[0])
+        segs.append((i, a, b, n, band_code((S_[i] + S_[i + 1]) / 2)))
+    # 1. de verre zijkant van binnen (door de opening te zien)
+    poly(rs, cam, [P3(p, W) for p in pts], "-", shade=.18)
+    # 2 en 3. de band in stroken van dezelfde kleur en kant (één vlak per strook, geen naadjes tussen de stukjes):
+    # eerst de binnenkant (van ons af gekeerd, door de opening te zien), dan de buitenkant; elk van achter naar voor.
+    runs = []
+    for sg in segs:
+        key = (cam.sees(sg[3]), sg[4] if cam.sees(sg[3]) else "-")
+        if runs and runs[-1][0] == key: runs[-1][1].append(sg)
+        else: runs.append((key, [sg]))
+    def strip(run):
+        edge = [run[0][1]] + [sg[2] for sg in run]
+        return [P3(p, 0) for p in edge] + [P3(p, W) for p in reversed(edge)]
+    dep = lambda run: -sum(cam.depth(P3(sg[1], W / 2)) for sg in run[1]) / len(run[1])
+    for (vis_, code), run in sorted((r for r in runs if not r[0][0]), key=dep):
+        poly(rs, cam, strip(run), "-", outline=False, shade=.12)
+    outer = [sg for sg in segs if cam.sees(sg[3])]
+    for (vis_, code), run in sorted((r for r in runs if r[0][0]), key=dep):
+        n = run[len(run) // 2][3]
+        poly(rs, cam, strip(run), code, outline=False, shade=cam.light(n) * .8)
+    # veters op de wreef (begin van strook 1): blauw vak, gele oogjes, gekruiste veters en een strik
+    lace = [(sv, 9) for sv in range(8, 55, 2)] + [(54 + 8 * math.sin(k / 12 * math.pi), W / 2 - (W / 2 - 9) * math.cos(k / 12 * math.pi)) for k in range(13)] + [(sv, W - 9) for sv in range(54, 7, -2)]
+    poly(rs, cam, [BP(a, b) for a, b in lace], "b")
+    ys = (W / 2 - 13, W / 2 + 13); xs = [16 + k * 11 for k in range(4)]
+    d = ""
+    for k in range(3):
+        for (a1, b1), (a2, b2) in (((xs[k], ys[0]), (xs[k + 1], ys[1])), ((xs[k], ys[1]), (xs[k + 1], ys[0]))):
+            p1, p2 = cam.xy(BP(a1, b1)), cam.xy(BP(a2, b2)); d += f"M{f(p1[0])} {f(p1[1])}L{f(p2[0])} {f(p2[1])}"
+    rs.line(d, "l", "stroke-width:.6")
+    for x_ in xs:
+        for y_ in ys:
+            c0 = cam.xy(BP(x_, y_)); rs.dot(c0[0], c0[1], .55)
+    for dy in (-1, 1):
+        loop = cubic((6, W / 2), (2, W / 2 + dy * 12), (14, W / 2 + dy * 13), (6, W / 2), 16)[:-1]
+        poly(rs, cam, [BP(a, b) for a, b in loop], "-")
+    # lijnen op de band: rand aan de verre kant, grenzen tussen de kleuren, silhouet en de randen van de opening
+    d = ""
+    for i, a, b, n, c in outer:
+        p1, p2 = cam.xy(P3(a, W)), cam.xy(P3(b, W)); d += f"M{f(p1[0])} {f(p1[1])}L{f(p2[0])} {f(p2[1])}"
+    vis = [cam.sees(sg[3]) for sg in segs]
+    cross_at = [S_[k] for k in range(1, len(segs)) if vis[k] != vis[k - 1]] + [0, S_[-1]]
+    cross_at += [sv for sv in (g["s_cap"], g["s_sole"], g["s_corner"] + HEEL_Y) if cam.sees(segs[max(i for i in range(len(segs)) if S_[i] <= sv)][3])]
+    for sv in cross_at:
+        p1, p2 = cam.xy(BP(sv, 0)), cam.xy(BP(sv, W)); d += f"M{f(p1[0])} {f(p1[1])}L{f(p2[0])} {f(p2[1])}"
+    rs.line(d, "l")
+    # 4. de zijkant vooraan: rood, gele neus, bruine zool, naad van het hielstuk, ster en pepernoten
+    prof = Polygon(pts)
+    sole = prof.intersection(unary_union([sbox(-5, -5, 200, SOLE_Y), sbox(-5, -5, HEEL_X, HEEL_Y)]))
+    cap = prof.intersection(Polygon([(CAP_X, SOLE_Y), (200, SOLE_Y), (200, 100), (CAP_X + 14, 100)])).difference(sole)
+    poly(rs, cam, [P3(p, 0) for p in pts], "r", outline=False)
+    for geom, code in ((cap, "y"), (sole, "w")):
+        if geom.geom_type != "Polygon": geom = max(geom.geoms, key=lambda q: q.area)
+        poly(rs, cam, [P3(p, 0) for p in list(geom.exterior.coords)[:-1]], code)
+    seam = [cam.xy(P3(p, 0)) for p in cubic((8, 80), (30, 60), (40, 30), (52, SOLE_Y))]
+    rs.line(PL(seam), "l", "stroke-width:.6")
+    star = [(86 + (13 if k % 2 == 0 else 5.5) * math.sin(math.pi * k / 5), 40 + (13 if k % 2 == 0 else 5.5) * math.cos(math.pi * k / 5)) for k in range(10)]
+    poly(rs, cam, [P3(p, 0) for p in star], "y")
+    for (px, py) in ((60, 22), (104, 20)):
+        poly(rs, cam, [P3((px + 5 * math.cos(k / 12 * math.pi), py + 5 * math.sin(k / 12 * math.pi)), 0) for k in range(24)], "w")
+    rs.line(PL([cam.xy(P3(p, 0)) for p in pts] + [cam.xy(P3(pts[0], 0))]), "l")
+
+
 def schoen():
     g = shoe_geometry()
     S, sj1, sj2, sc = g["S"], g["s_j1"], g["s_j2"], g["s_corner"]
@@ -251,10 +335,11 @@ def schoen():
     xs1 = (200 - L1) / 2
     shoe_strip(pg, xs1, y1, L1, 0, [(0, g["s_cap"], "r"), (g["s_cap"], sole_start, "y"), (sole_start, L1, "w")],
                label="1", end_label="A", deco=lambda xb, top: (laces(xb, top), tread(xb, top, sole_start + 4, L1)))
-    xs2 = (200 - L2 - FLAP) / 2
+    xs2 = 12  # stroken 2 en 3 links, rechts ernaast het resultaat
+    place_result(pg, (134, 133, 58, 52), shoe_result)
     shoe_strip(pg, xs2, y2, L2, FLAP, [(0, L2, "w")], label="2", end_label="B", start_label="A",
                deco=lambda xb, top: tread(xb, top, 0, L2))
-    xs3 = (200 - L3 - FLAP) / 2
+    xs3 = 12
     corner = sc - sj2
     shoe_strip(pg, xs3, y3, L3, FLAP, [(0, corner + HEEL_Y, "w"), (corner + HEEL_Y, L3, "r")], folds_at=(corner,), label="3", start_label="B",
                deco=lambda xb, top: tread(xb, top, 0, corner))
@@ -494,12 +579,29 @@ def pijp(sh, F):
         sh.rect_r(-w * .3, -h * .3, w * .6, h * .6, "x")
 
 
+HULL_CODES = lambda F: "-" if F.n[2] < -.95 else "w" if F.n[2] > .95 else "n"
+CABIN_CODES = lambda F: "-" if side(F) == "bottom" else "w" if side(F) == "top" else "-"
+FUNNEL_CODES = lambda F: "-" if side(F) == "bottom" else "r"
+CABIN_AT = (2.3 - CABIN[0] / 2, HULL_D / 2 - CABIN[1] / 2, HULL[-1][1])  # gestippeld vak op het dek (romp)
+FUNNEL_AT = (2.3 + CABIN[0] * .18 - FUNNEL[0] / 2, HULL_D / 2 - FUNNEL[1] / 2, CABIN_AT[2] + CABIN[2])  # vakje op het dak (hut)
+
+
+def boot_result(rs, s):
+    """Zo wordt het: romp, hut op het vak op het dek, schoorsteen op het vakje op het dak."""
+    cam = Camera(-30, 24, s)
+    solid(rs, cam, profile_y(HULL, HULL_D), HULL_CODES, romp)
+    solid(rs, cam, box_model(*CABIN), CABIN_CODES, hut, offset=CABIN_AT)
+    solid(rs, cam, box_model(*FUNNEL), FUNNEL_CODES, pijp, offset=FUNNEL_AT)
+
+
 def pakjesboot():
     sh = Sheet(); title(sh, "Pakjesboot", 16); sh.text(100, 27, "Een stoomboot met een hut en een schoorsteen.", 6.5)
-    parts = [Part(profile_y(HULL, HULL_D), lambda F: "-" if F.n[2] < -.95 else "w" if F.n[2] > .95 else "n", romp, (8, 34, 184, 138)),
-             Part(box_model(*CABIN), lambda F: "-" if side(F) == "bottom" else "w" if side(F) == "top" else "-", hut, (8, 178, 116, 90), upright=(0, -1, 0)),
-             Part(box_model(*FUNNEL), lambda F: "-" if side(F) == "bottom" else "r", pijp, (128, 178, 64, 90), upright=(0, -1, 0))]
+    # De romp staat 12 mm naar links (zelfde maat van het kader, dus dezelfde uitslag): rechtsboven past dan het resultaat.
+    parts = [Part(profile_y(HULL, HULL_D), HULL_CODES, romp, (8 - 12, 34, 184, 138)),
+             Part(box_model(*CABIN), CABIN_CODES, hut, (8, 178, 116, 90), upright=(0, -1, 0)),
+             Part(box_model(*FUNNEL), FUNNEL_CODES, pijp, (128, 178, 64, 90), upright=(0, -1, 0))]
     nets(sh, parts)
+    place_result(sh, (149, 31, 47, 51), boot_result)
     sh.legend(["cut", "fold", "glue"], 274)
     steps = ["Kleur alle vlakken en tekeningen. Knip de drie delen uit langs de streepjeslijnen; de grijze flapjes blijven eraan.",
              "Vouw alle stippellijnen naar binnen, ook de flapjes: de tekening blijft aan de buitenkant. Met een liniaal en een lege balpen eerst krassen vouwt het strakker.",
@@ -534,14 +636,15 @@ def schoorsteen_face(sh, F):
         sh.rect_r(-w * .36, -h * .36, w * .72, h * .72, "x")
 
 
-def piet_kop(sh, cx, cy, s, hair="x", cap="g", feather="y"):
-    """Kop van Roetveegpiet met kraag en twee handen op de rand (cx, cy = midden van het gezicht)."""
+def piet_kop(sh, cx, cy, s, hair="x", cap="g", feather="y", skin="-"):
+    """Kop van Roetveegpiet met kraag en twee handen op de rand (cx, cy = midden van het gezicht).
+    skin: kleurcode van het gezicht ("-" op de plaat; "h" = lichte huid in het resultaatplaatje)."""
     S = lambda v: v * s
     for d in (-1, 1):
         sh.circle_r(cx + d * S(14), cy - S(1), S(4.8), hair); sh.circle_r(cx + d * S(13.5), cy + S(7), S(4.4), hair)
     sh.region(f"M{f(cx - S(14))} {f(cy + S(14))}Q{f(cx - S(8))} {f(cy + S(24))} {f(cx)} {f(cy + S(20))}Q{f(cx + S(8))} {f(cy + S(24))} {f(cx + S(14))} {f(cy + S(14))}"
               f"Q{f(cx)} {f(cy + S(17))} {f(cx - S(14))} {f(cy + S(14))}Z", "-")
-    sh.circle_r(cx, cy, S(14), "-")
+    sh.circle_r(cx, cy, S(14), skin)
     eye(sh, cx - S(5), cy + S(1), S(1.8)); eye(sh, cx + S(5), cy + S(1), S(1.8)); smile(sh, cx, cy + S(6), S(4.5))
     x, y = cx - S(9.5), cy + S(3.2)  # één lichte roetveeg op de wang (zoals piet(light_soot=True))
     sh.region(f"M{f(x - S(2.6))} {f(y)}Q{f(x)} {f(y - S(1.8))} {f(x + S(2.6))} {f(y)}Q{f(x)} {f(y + S(1.2))} {f(x - S(2.6))} {f(y)}Z", "z")
@@ -549,9 +652,26 @@ def piet_kop(sh, cx, cy, s, hair="x", cap="g", feather="y"):
     sh.circle_r(cx + S(7), cy - S(14), S(2.6), "y")
 
 
+CHIM_CODES = lambda F: "-" if side(F) == "bottom" else "z" if side(F) == "top" else "r"
+
+
+def schoorsteen_result(rs, s):
+    """Zo wordt het: de schoorsteen met Piet achter op de achterkant; zijn hoofd en handen kijken over de rand."""
+    cam = Camera(-30, 22, s)
+    sp = CHIM[0] * s / 40  # zelfde verhouding als op het vel (s = fw / 40)
+    z0 = CHIM[2] + 15 * sp / s  # handen op de rand
+    def piet(r):
+        piet_kop(r, 0, 0, sp, skin="h")
+        for d in (-1, 1): r.circle_r(d * sp * 21, sp * 14, sp * 4.5, "h")
+    sil = [(math.cos(t / 12 * math.pi) * sp * 20, math.sin(t / 12 * math.pi) * sp * 20) for t in range(24)] + [(sp * 33, -sp * 34), (-sp * 26, sp * 14), (sp * 26, sp * 14)]
+    flat(rs, cam, (CHIM[0] / 2, CHIM[1] + .02, z0), (1 / s, 0, 0), (0, 0, -1 / s), piet, sil)
+    solid(rs, cam, box_model(*CHIM), CHIM_CODES, schoorsteen_face)
+
+
 def schoorsteendoosje():
     sh = Sheet(); title(sh, "Schoorsteendoosje", 16); sh.text(100, 27, "Een surprisedoosje met Piet die uit de schoorsteen kijkt.", 6.5)
-    sc, boxes = nets(sh, [Part(box_model(*CHIM), lambda F: "-" if side(F) == "bottom" else "z" if side(F) == "top" else "r", schoorsteen_face, (8, 34, 184, 186))])
+    sc, boxes = nets(sh, [Part(box_model(*CHIM), CHIM_CODES, schoorsteen_face, (8, 34, 184, 186))])
+    place_result(sh, (148, 210, 48, 56), schoorsteen_result)
     # Piet om achter op te plakken
     fw = CHIM[0] * sc
     cx, cy = 48, 232

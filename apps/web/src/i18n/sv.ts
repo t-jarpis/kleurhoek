@@ -42,6 +42,7 @@ export const sv: Messages = {
   kindNames: { kleurplaat: "Målarbild", knipplaat: "Klippark", bouwplaat: "Pappersmodell", spel: "Spel", vouwblad: "Vikning", werkblad: "Arbetsblad", sjabloon: "Mall", kaart: "Kort", tekenles: "Ritlektion" } as Record<string, string>,
   difficulty: ["", "lätt", "medel", "utmanande"], morePages: "Fler sidor", howItWorks: "Så fungerar det", answers: "Svar (för föräldrar)", printPage: (n: number | string) => `Skriv ut sida ${n}`,
   forParents: "För föräldrar", howToMake: "Så gör du", whatYouNeed: "Det här behöver du", optional: "valfritt",
+  resultTitle: "Så blir det", resultAlt: (name: string) => `${name}: så ser det ut när det är klart`,
   aboutMinutes: (n: number) => `cirka ${n} minuter`, adultHelp: "med hjälp av en vuxen", paper: (g: number) => `${g} g papper`,
   atPartner: (p: string) => `hos ${p}`,
   partnerDisclosure: "Partnerlänkar: om du köper något via de här länkarna får Kleurhoek en liten ersättning från butiken. Du betalar samma pris. Så håller vi bilderna gratis.",

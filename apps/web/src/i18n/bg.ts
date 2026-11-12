@@ -42,6 +42,7 @@ export const bg: Messages = {
   kindNames: { kleurplaat: "Картинка за оцветяване", knipplaat: "За изрязване", bouwplaat: "Хартиен модел", spel: "Игра", vouwblad: "Сгъване", werkblad: "Работен лист", sjabloon: "Шаблон", kaart: "Картичка", tekenles: "Урок по рисуване" } as Record<string, string>,
   difficulty: ["", "лесно", "средно", "по-трудно"], morePages: "Още картинки", howItWorks: "Как става", answers: "Отговори (за родители)", printPage: (n: number | string) => `Разпечатай страница ${n}`,
   forParents: "За родители", howToMake: "Как се прави", whatYouNeed: "Какво ти трябва", optional: "по желание",
+  resultTitle: "Ето какво ще стане", resultAlt: (name: string) => `${name}: така изглежда, когато е готово`,
   aboutMinutes: (n: number) => `около ${n} минути`, adultHelp: "с помощ от възрастен", paper: (g: number) => `хартия ${g} г/м²`,
   atPartner: (p: string) => `в ${p}`,
   partnerDisclosure: "Партньорски връзки: ако купиш нещо чрез тези връзки, Kleurhoek получава малка комисиона от магазина. Ти плащаш същата цена. Така картинките остават безплатни.",

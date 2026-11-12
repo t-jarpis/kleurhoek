@@ -42,6 +42,7 @@ export const de: Messages = {
   kindNames: { kleurplaat: "Malvorlage", knipplaat: "Schneidebogen", bouwplaat: "Bastelbogen", spel: "Spiel", vouwblad: "Falten", werkblad: "Arbeitsblatt", sjabloon: "Schablone", kaart: "Karte", tekenles: "Zeichenkurs" } as Record<string, string>,
   difficulty: ["", "leicht", "mittel", "anspruchsvoll"], morePages: "Weitere Seiten", howItWorks: "So funktioniert es", answers: "Lösungen (für Eltern)", printPage: (n: number | string) => `Seite ${n} drucken`,
   forParents: "Für Eltern", howToMake: "So geht es", whatYouNeed: "Das brauchst du", optional: "optional",
+  resultTitle: "So wird es", resultAlt: (name: string) => `${name}: so sieht es fertig aus`,
   aboutMinutes: (n: number) => `etwa ${n} Minuten`, adultHelp: "mit Hilfe eines Erwachsenen", paper: (g: number) => `Papier mit ${g} Gramm`,
   atPartner: (p: string) => `bei ${p}`,
   partnerDisclosure: "Partnerlinks: Wenn du über diese Links etwas kaufst, bekommt Kleurhoek eine kleine Vergütung vom Shop. Du zahlst dasselbe. So bleiben die Vorlagen kostenlos.",

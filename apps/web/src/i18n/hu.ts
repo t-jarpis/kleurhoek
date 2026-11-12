@@ -42,6 +42,7 @@ export const hu: Messages = {
   kindNames: { kleurplaat: "Színező", knipplaat: "Kivágós lap", bouwplaat: "Papírmodell", spel: "Játék", vouwblad: "Hajtogatás", werkblad: "Munkalap", sjabloon: "Sablon", kaart: "Képeslap", tekenles: "Rajzlecke" } as Record<string, string>,
   difficulty: ["", "könnyű", "közepes", "nehezebb"], morePages: "További oldalak", howItWorks: "Így működik", answers: "Megoldások (szülőknek)", printPage: (n: number | string) => `${n}. oldal nyomtatása`,
   forParents: "Szülőknek", howToMake: "Így készítsd el", whatYouNeed: "Amire szükséged lesz", optional: "nem kötelező",
+  resultTitle: "Ez lesz belőle", resultAlt: (name: string) => `${name}: így néz ki elkészítve`,
   aboutMinutes: (n: number) => `kb. ${n} perc`, adultHelp: "felnőtt segítségével", paper: (g: number) => `${g} g/m²-es papír`,
   atPartner: (p: string) => `itt: ${p}`,
   partnerDisclosure: "Partnerlinkek: ha ezeken a linkeken keresztül vásárolsz valamit, a Kleurhoek kis jutalékot kap a bolttól. Te ugyanannyit fizetsz. Így maradhatnak ingyenesek a lapok.",
