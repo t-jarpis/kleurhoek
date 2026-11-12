@@ -76,6 +76,20 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
   const [printWhat, setPrintWhat] = useState<"kleur" | "leeg" | "voorbeeld">("kleur");
   // Ingekleurd voorbeeld groot op de plek van de plaat (ADR 0089).
   const [showExample, setShowExample] = useState(false);
+  const canvasBox = useRef<HTMLDivElement>(null);
+  // Op een telefoon staat het tekenvlak boven de knoppen: na wisselen tussen voorbeeld en eigen tekening ernaartoe scrollen,
+  // anders lijkt de knop niets te doen.
+  const toggleExample = (open: boolean) => {
+    setShowExample(open);
+    requestAnimationFrame(() => {
+      const box = canvasBox.current;
+      if (!box) return;
+      const r = box.getBoundingClientRect();
+      if (r.top >= 0 && r.top < window.innerHeight / 2) return;
+      const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      box.scrollIntoView({ block: "start", behavior: smooth ? "smooth" : "auto" });
+    });
+  };
   const colored = useRef(false);
   const wasDone = useRef(false);
 
@@ -376,7 +390,7 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
           <h1>{plate.name}</h1>
           <FavoriteButton slug={plate.slug} market={market} language={language} accounts={accounts} />
         </div>
-        <div className="canvas" data-print={printing} data-example={exampleOpen ? "" : undefined} data-atelier={atelier ? (brush ? "penseel" : "vullen") : lining ? "penseel" : undefined}>
+        <div ref={canvasBox} className="canvas" data-print={printing} data-example={exampleOpen ? "" : undefined} data-atelier={atelier ? (brush ? "penseel" : "vullen") : lining ? "penseel" : undefined}>
           <div ref={port} className="zoomport" onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp}>
             <div className="zoomed" style={view.s !== 1 ? { transform: `translate(${view.x}px, ${view.y}px) scale(${view.s})` } : undefined}>
               <Sheet className="sheet sheet-live" plate={sheet} inner={inner} fills={fills} sw={sw} numbers={numbers} name={name} learn={learn}
@@ -456,10 +470,10 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
               {hasExample && mode !== "lijn" && (
                 <div className="tool">
                   <h2>{t.example}</h2>
-                  <button type="button" className="example" aria-pressed={exampleOpen} aria-label={exampleOpen ? t.exampleBack : t.exampleBig} onClick={() => setShowExample(!exampleOpen)}>
+                  <button type="button" className="example" aria-pressed={exampleOpen} aria-label={exampleOpen ? t.exampleBack : t.exampleBig} onClick={() => toggleExample(!exampleOpen)}>
                     <Sheet plate={sheet} inner={inner} fills={example} sw={sw} marked={false} />
                   </button>
-                  <button type="button" className="btn" onClick={() => setShowExample(!exampleOpen)}>{exampleOpen ? t.exampleBack : t.exampleBig}</button>
+                  <button type="button" className="btn" onClick={() => toggleExample(!exampleOpen)}>{exampleOpen ? t.exampleBack : t.exampleBig}</button>
                 </div>
               )}
             </>
