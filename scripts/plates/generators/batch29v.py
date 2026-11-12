@@ -161,7 +161,7 @@ def bouwplaat(slug, name, sub, model, codes_fn, draw_face, cat, age, diff, minut
         codes.append(codes_fn(tmp))
     build_net(sh, verts, faces, codes, box, draw_face, depth, tries, upright=upright)
     sh.legend(["cut", "fold", "glue"], 274)
-    steps = ["Kleur alle vlakken en tekeningen. Knip de bouwplaat uit langs de doorgetrokken lijnen; de grijze flapjes blijven eraan.",
+    steps = ["Kleur alle vlakken en tekeningen. Knip de bouwplaat uit langs de streepjeslijnen; de grijze flapjes blijven eraan.",
              "Vouw alle stippellijnen naar binnen, ook de flapjes: de tekening blijft aan de buitenkant. Met een liniaal en een lege balpen eerst krassen vouwt het strakker."] + steps_extra + [
              "Plak de flapjes één voor één vast aan de binnenkant van de rand ernaast. Het laatste vlak sluit je als een deksel: druk het even aan tot de lijm droog is."]
     write(OUT, slug, sh, {"category": cat, "age": age, "kind": "bouwplaat", "difficulty": diff, "minutes": minutes, "paperGsm": 160,

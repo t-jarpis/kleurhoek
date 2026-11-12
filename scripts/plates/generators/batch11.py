@@ -10,7 +10,7 @@ def bp(slug, name, sub, model, age, diff, minutes, cat="vormen", codes=None, ext
     cs = [pal[i % len(pal)] for i in range(len(faces))]
     ph.draw(sh, verts, faces, cs, (12, 36, 176, 222))
     sh.legend(["cut", "fold", "glue"], 274)
-    steps = ["Kleur de vlakken in. Knip de bouwplaat uit langs de doorgetrokken lijnen; de grijze flapjes blijven eraan.",
+    steps = ["Kleur de vlakken in. Knip de bouwplaat uit langs de streepjeslijnen; de grijze flapjes blijven eraan.",
              "Vouw alle stippellijnen en flapjes naar binnen (de tekening blijft buiten). Kras ze eerst met een lege balpen en een liniaal, dan vouwt het strakker.",
              "Plak de flapjes één voor één vast, aan de binnenkant van de rand ernaast. Begin bij de flapjes die het verst van het laatste vlak af zitten.",
              extra_step or "Het laatste vlak sluit je als deksel: druk de flapjes van buitenaf aan tot de lijm droog is."]

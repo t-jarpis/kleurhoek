@@ -19,7 +19,7 @@ def arch(slug, name, sub, verts, colors_by_sides, minutes):
     write(OUT, slug, sh, {"category": "vormen", "age": "12+", "kind": "bouwplaat", "difficulty": 3, "minutes": minutes, "paperGsm": 160,
         "materials": MAT, "i18n": {"nl": {"name": name, "printNote": "Gebruik stevig papier (160 gram) en een liniaal om de vouwlijnen te krassen.", "steps": [
             "Kleur de vlakken: alle vlakken met hetzelfde aantal hoeken in dezelfde kleur geeft het mooiste patroon.",
-            "Knip de bouwplaat uit langs de doorgetrokken lijnen; de grijze flapjes blijven eraan.",
+            "Knip de bouwplaat uit langs de streepjeslijnen; de grijze flapjes blijven eraan.",
             "Kras alle stippellijnen met een lege balpen langs een liniaal en vouw ze naar binnen, ook de flapjes.",
             "Plak de flapjes één voor één, steeds aan de rand die ernaast komt te liggen. Werk rondom en sluit als laatste het vlak dat nog open is."]}}})
 arch("afgeknot-achtvlak", "Bouwplaat: afgeknot achtvlak", "Zes vierkanten en acht zeshoeken.", perms_sign((0, 1, 2)), {4: "o", 6: "b"}, 50)

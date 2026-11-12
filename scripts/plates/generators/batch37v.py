@@ -304,7 +304,7 @@ def bouwplaat(slug, name, sub, parts, cat, age, diff, minutes, steps_extra, holi
             x, y = p.label[1] if isinstance(p.label, tuple) else ((bb[0] + bb[2]) / 2, bb[1] - 2.5 if bb[1] > 38 else bb[3] + 7)
             sh.text(x, y, p.label[0] if isinstance(p.label, tuple) else p.label, 6.5, weight="800")
     sh.legend(["cut", "fold", "glue"], 274)
-    steps = ["Kleur alle vlakken en tekeningen. Knip " + ("de delen" if len(parts) > 1 else "de bouwplaat") + " uit langs de doorgetrokken lijnen; de grijze flapjes blijven eraan.",
+    steps = ["Kleur alle vlakken en tekeningen. Knip " + ("de delen" if len(parts) > 1 else "de bouwplaat") + " uit langs de streepjeslijnen; de grijze flapjes blijven eraan.",
              "Vouw alle stippellijnen naar binnen, ook de flapjes: de tekening blijft aan de buitenkant. Met een liniaal en een lege balpen eerst krassen vouwt het strakker."] + steps_extra + [
              last or "Plak de flapjes één voor één vast aan de binnenkant van de rand ernaast. Het laatste vlak sluit je als een deksel: druk het even aan tot de lijm droog is."]
     write(OUT, slug, sh, {"category": cat, "age": age, "kind": "bouwplaat", "difficulty": diff, "minutes": minutes, "paperGsm": 160,
@@ -1022,7 +1022,7 @@ def star_plate(slug, name, sub, base, kfac, t, spike_code, age, diff, minutes, s
     for p1, p2 in cuts: sh.seg(*T(p1), *T(p2), "cut")
     sh.legend(["cut", "fold", "glue"], 268)
     sh.seg(20, 274, 34, 274, "fold", "stroke-dasharray:5 1.6 1 1.6;stroke-width:1"); sh.tip(37, 276, "andersom vouwen: naar voren (tussen twee punten)")
-    steps = ["Kleur de vlakken: alle driehoeken van één punt krijgen dezelfde kleur. Knip de uitslag heel precies uit langs de doorgetrokken lijnen; de grijze flapjes blijven eraan.",
+    steps = ["Kleur de vlakken: alle driehoeken van één punt krijgen dezelfde kleur. Knip de uitslag heel precies uit langs de streepjeslijnen; de grijze flapjes blijven eraan.",
              "Kras alle vouwlijnen eerst met een liniaal en een lege balpen. Vouw de gewone stippellijnen naar achteren, zodat de kleur buiten blijft. De streep-puntlijnen vouw je juist naar voren: daar zit een kuiltje tussen twee punten."] + steps_mid + [
              "Plak de flapjes één voor één vast, aan de binnenkant van het vlak ernaast. De laatste punten zijn lastig: druk ze van buitenaf aan met een potlood of pincet en laat de lijm even drogen."]
     write(OUT, slug, sh, {"category": "vormen", "age": age, "kind": "bouwplaat", "difficulty": diff, "minutes": minutes, "paperGsm": 160,

@@ -46,7 +46,7 @@ def icosaeder():
     write(OUT, "twintigvlak", sh, {"category": "vormen", "age": "12+", "kind": "bouwplaat", "difficulty": 3, "minutes": 45, "adultHelp": False, "paperGsm": 160,
         "materials": [{"slug": "kleurpotloden"}, {"slug": "kinderschaar"}, {"slug": "lijmstift"}, {"slug": "stevig-papier", "optional": True}],
         "i18n": {"nl": {"name": "Bouwplaat: twintigvlak", "printNote": "Op stevig papier (160 gram) wordt hij het mooist.", "steps": [
-            "Kleur de driehoeken in. Knip de bouwplaat uit langs de doorgetrokken lijnen; knip de grijze flapjes niet los.",
+            "Kleur de driehoeken in. Knip de bouwplaat uit langs de streepjeslijnen; knip de grijze flapjes niet los.",
             "Vouw alle stippellijnen en alle flapjes naar binnen (de tekening blijft buiten).",
             "Plak de lange middenbaan dicht tot een ring: het flapje aan de rechterkant komt onder de linkerrand.",
             "Plak de vijf bovenste driehoeken één voor één aan elkaar tot een puntdak. Doe daarna hetzelfde aan de onderkant; het laatste flapje druk je van buitenaf aan."]}}})
@@ -68,7 +68,7 @@ def viervlak():
         "materials": [{"slug": "kleurpotloden"}, {"slug": "kinderschaar"}, {"slug": "lijmstift"}],
         "i18n": {"nl": {"name": "Bouwplaat: viervlak", "steps": [
             "Kleur de vier driehoeken elk in een andere kleur.",
-            "Knip langs de doorgetrokken lijnen, de grijze flapjes blijven eraan.",
+            "Knip langs de streepjeslijnen, de grijze flapjes blijven eraan.",
             "Vouw de stippellijnen en de flapjes naar binnen.",
             "Breng de drie punten van de grote driehoek boven elkaar bij elkaar en plak de flapjes vast. Klaar is je viervlak!"]}}})
 viervlak()

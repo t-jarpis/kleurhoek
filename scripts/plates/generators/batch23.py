@@ -16,7 +16,7 @@ def dice(slug, name, sub, faces_draw, codes, cat, age, steps_use):
     write(OUT, slug, sh, {"category": cat, "age": age, "kind": "bouwplaat", "difficulty": 2, "minutes": 25, "paperGsm": 160, "adultHelp": True,
         "materials": [{"slug": "kleurpotloden"}, {"slug": "kinderschaar"}, {"slug": "lijmstift"}, {"slug": "stevig-papier", "optional": True}],
         "i18n": {"nl": {"name": name, "printNote": "Op stevig papier (160 gram) rolt hij het best.", "steps": [
-            "Kleur de vlakken in en knip de bouwplaat uit langs de doorgetrokken lijnen; de grijze flapjes blijven eraan.",
+            "Kleur de vlakken in en knip de bouwplaat uit langs de streepjeslijnen; de grijze flapjes blijven eraan.",
             "Vouw alle stippellijnen en flapjes naar binnen.",
             "Plak de flapjes één voor één vast tot er een dobbelsteen ontstaat. Het laatste vlak sluit je als een deksel."] + steps_use}}})
 
