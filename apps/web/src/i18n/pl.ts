@@ -22,6 +22,7 @@ export const pl: Messages = {
   lineAuto: "Dopasowane", lineThin: "Cienkie", lineNormal: "Zwykłe", lineThick: "Grube",
   extra: "Dodatki na planszy", nameHint: "Napis grubymi literami, który też możesz pokolorować", namePlaceholder: "Np. Wszystkiego najlepszego, Zosiu!",
   learn: "Karta do nauki: słowo do obrysowania i pytanie do liczenia",
+  printResult: "Wydrukuj też obrazek gotowej pracy",
   undo: "Cofnij", reset: "Od nowa", resetSure: "Na pewno? Stuknij jeszcze raz", print: "Drukuj", printWhat: "Drukuj", printColored: "Pokolorowane", printBlank: "Puste", printExample: "Wzór w kolorze", example: "Tak to wygląda", exampleBig: "Zobacz w dużym rozmiarze", exampleBack: "Wróć do mojego obrazka",
   progress: (ok: number, total: number) => (ok === total ? "Wszystko dobrze pokolorowane!" : `Dobrze: ${ok} z ${total} ${total === 1 ? "pola" : "pól"}`),
   party: "Wszystko dobrze! Oki jest z ciebie dumny.",

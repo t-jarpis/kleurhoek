@@ -63,6 +63,14 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
   const [line, setLine] = useState<Line>("auto");
   const [name, setName] = useState("");
   const [learn, setLearn] = useState(false);
+  // Resultaatplaatje "Zo wordt het" (ADR 0100): staat op het vel, maar print alleen als je het aanvinkt.
+  const hasResult = useMemo(() => [plate.svg, ...plate.pages.map((p) => p.svg)].some((s) => s.includes('class="kh-result"')), [plate]);
+  const [printResult, setPrintResult] = useState(false);
+  useEffect(() => {
+    if (printResult) document.documentElement.dataset.printResult = "1";
+    else delete document.documentElement.dataset.printResult;
+    return () => { delete document.documentElement.dataset.printResult; };
+  }, [printResult]);
   const [sure, setSure] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
   const [printWhat, setPrintWhat] = useState<"kleur" | "leeg" | "voorbeeld">("kleur");
@@ -494,6 +502,7 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
               </div>
             </div>
           )}
+          {hasResult && <label className="chk"><input type="checkbox" checked={printResult} onChange={(e) => setPrintResult(e.target.checked)} /> <span>{t.printResult}</span></label>}
           <div className="row">
             <button type="button" className="btn" onClick={toFridge}>{t.toFridge}</button>
             <BookToggle slug={plate.slug} language={language} />

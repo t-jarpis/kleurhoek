@@ -16,6 +16,7 @@ export const fr: Messages = {
   lineAuto: "Adapté", lineThin: "Fin", lineNormal: "Normal", lineThick: "Épais",
   extra: "En plus sur le coloriage", nameHint: "Un texte en lettres rondes, que tu peux aussi colorier", namePlaceholder: "Ex. : Joyeux anniversaire, Sam !",
   learn: "Fiche d'apprentissage : un mot à repasser et une question pour compter",
+  printResult: "Imprimer aussi l'image du résultat final",
   undo: "Annuler", reset: "Recommencer", resetSure: "Sûr ? Appuie encore une fois", print: "Imprimer", printWhat: "Imprimer", printColored: "Colorié", printBlank: "Vierge", printExample: "Modèle en couleur", example: "Voilà à quoi il ressemble", exampleBig: "Voir en grand", exampleBack: "Retour à mon dessin",
   progress: (ok: number, total: number) => (ok === total ? "Tout est bien colorié !" : `${ok} zone${ok > 1 ? "s" : ""} sur ${total} bien coloriée${ok > 1 ? "s" : ""}`),
   party: "Bravo, tout est juste ! Oki est fier de toi.",

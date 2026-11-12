@@ -16,6 +16,7 @@ export const fi: Messages = {
   lineAuto: "Sopiva", lineThin: "Ohut", lineNormal: "Normaali", lineThick: "Paksu",
   extra: "Lisää kuvaan", nameHint: "Tekstiä kuplakirjaimin, joita voit myös värittää", namePlaceholder: "Esim. Hyvää syntymäpäivää, Sam!",
   learn: "Tehtäväsivu: jäljennettävä sana ja laskutehtävä",
+  printResult: "Tulosta myös kuva valmiista työstä",
   undo: "Kumoa", reset: "Aloita alusta", resetSure: "Varmasti? Napauta uudelleen", print: "Tulosta", printWhat: "Tulosta", printColored: "Väritettynä", printBlank: "Tyhjänä", printExample: "Värillinen malli", example: "Tältä se näyttää", exampleBig: "Näytä isona", exampleBack: "Takaisin omaan kuvaan",
   progress: (ok: number, total: number) => (ok === total ? "Kaikki väritetty oikein!" : `${ok}/${total} aluetta oikein`),
   party: "Kaikki oikein! Oki on ylpeä sinusta.",

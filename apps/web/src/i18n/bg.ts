@@ -16,6 +16,7 @@ export const bg: Messages = {
   lineAuto: "Най-подходящи", lineThin: "Тънки", lineNormal: "Нормални", lineThick: "Дебели",
   extra: "Още нещо на листа", nameHint: "Текст с балонени букви, който също можеш да оцветиш", namePlaceholder: "Напр. Честит рожден ден, Мария!",
   learn: "Работен лист: дума за изписване и задача за броене",
+  printResult: "Отпечатай и картинката на готовата изработка",
   undo: "Назад", reset: "Започни отначало", resetSure: "Сигурен ли си? Докосни отново", print: "Разпечатай", printWhat: "Разпечатай", printColored: "Оцветена", printBlank: "Празна", printExample: "Пример в цвят", example: "Така изглежда", exampleBig: "Виж в голям размер", exampleBack: "Обратно към моята рисунка",
   progress: (ok: number, total: number) => (ok === total ? "Всичко е оцветено правилно!" : `${ok} от ${total} полета са верни`),
   party: "Всичко е вярно! Oki се гордее с теб.",

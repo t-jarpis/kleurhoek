@@ -22,6 +22,7 @@ export const lt: Messages = {
   lineAuto: "Tinkamos", lineThin: "Plonos", lineNormal: "Įprastos", lineThick: "Storos",
   extra: "Papildomai paveikslėlyje", nameHint: "Tekstas apvaliomis raidėmis, kurį taip pat gali nuspalvinti", namePlaceholder: "Pvz., Su gimtadieniu, Sam!",
   learn: "Užduočių lapas: žodis apvedžioti ir skaičiavimo užduotis",
+  printResult: "Spausdinti ir baigto darbelio paveikslėlį",
   undo: "Atšaukti", reset: "Pradėti iš naujo", resetSure: "Tikrai? Paliesk dar kartą", print: "Spausdinti", printWhat: "Spausdinti", printColored: "Nuspalvintą", printBlank: "Tuščią", printExample: "Spalvotas pavyzdys", example: "Štai kaip atrodo", exampleBig: "Žiūrėti didelį", exampleBack: "Atgal į mano piešinį",
   progress: (ok: number, total: number) => (ok === total ? "Viskas nuspalvinta teisingai!" : `Teisingai ${ok} iš ${total} plotų`),
   party: "Viskas teisingai! Oki tavimi didžiuojasi.",

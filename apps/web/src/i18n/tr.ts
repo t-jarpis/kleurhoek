@@ -16,6 +16,7 @@ export const tr: Messages = {
   lineAuto: "En uygun", lineThin: "İnce", lineNormal: "Normal", lineThick: "Kalın",
   extra: "Sayfaya ekle", nameHint: "Senin de boyayabileceğin balon harflerle yazı", namePlaceholder: "Örn. İyi ki doğdun, Elif!",
   learn: "Çalışma sayfası: üzerinden geçilecek bir kelime ve bir sayma sorusu",
+  printResult: "Bitmiş halinin resmini de yazdır",
   undo: "Geri al", reset: "Baştan başla", resetSure: "Emin misin? Tekrar dokun", print: "Yazdır", printWhat: "Yazdır", printColored: "Boyalı", printBlank: "Boş", printExample: "Renkli örnek", example: "İşte böyle görünüyor", exampleBig: "Büyük gör", exampleBack: "Resmime dön",
   progress: (ok: number, total: number) => (ok === total ? "Hepsi doğru boyandı!" : `${total} alandan ${ok} tanesi doğru`),
   party: "Hepsi doğru! Oki seninle gurur duyuyor.",

@@ -23,6 +23,7 @@ export const sr: Messages = {
   lineAuto: "Prilagođeno", lineThin: "Tanke", lineNormal: "Obične", lineThick: "Debele",
   extra: "Dodatno na stranici", nameHint: "Tekst naduvanim slovima koji možeš i da obojiš", namePlaceholder: "Npr. Srećan rođendan, Luka!",
   learn: "Radni list: reč za precrtavanje i zadatak sa brojanjem",
+  printResult: "Odštampaj i sliku gotovog rada",
   undo: "Poništi", reset: "Ispočetka", resetSure: "Sigurno? Dodirni još jednom", print: "Štampaj", printWhat: "Štampaj", printColored: "Obojeno", printBlank: "Prazno", printExample: "Primer u boji", example: "Ovako izgleda", exampleBig: "Pogledaj veće", exampleBack: "Nazad na moju sliku",
   progress: (ok: number, total: number) => (ok === total ? "Sve je tačno obojeno!" : `${ok} od ${total} polja tačno`),
   party: "Sve je tačno! Oki je ponosan na tebe.",

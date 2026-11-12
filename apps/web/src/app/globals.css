@@ -184,6 +184,11 @@ html[data-paper="letter"] body { page: letter; }
   * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
 
+/* Resultaatplaatje "Zo wordt het" (ADR 0100): op het scherm altijd, op papier alleen als het is aangevinkt. */
+@media print {
+  html:not([data-print-result]) .kh-result-box { display: none; }
+}
+
 /* Account */
 .wrap.narrow { max-width: var(--container-narrow); }
 .page-title { font-size: clamp(28px, 5vw, 36px); line-height: 1.1; margin: var(--space-8) 0 var(--space-4); }

@@ -18,6 +18,7 @@ export const nl = {
   lineAuto: "Passend", lineThin: "Dun", lineNormal: "Normaal", lineThick: "Dik",
   extra: "Extra op de plaat", nameHint: "Tekst in bolle letters, die je ook kunt inkleuren", namePlaceholder: "Bijv. Fijne verjaardag, Sam!",
   learn: "Leerblad: woord om over te trekken en een telvraag",
+  printResult: "Ook het plaatje van het eindresultaat printen",
   undo: "Ongedaan maken", reset: "Opnieuw", resetSure: "Zeker? Tik nog eens", print: "Printen", printWhat: "Printen", printColored: "Ingekleurd", printBlank: "Leeg", printExample: "Voorbeeld in kleur", example: "Zo ziet hij eruit", exampleBig: "Groot bekijken", exampleBack: "Terug naar mijn plaat",
   progress: (ok: number, total: number) => (ok === total ? "Alles goed gekleurd!" : `${ok} van ${total} vlakken goed`),
   party: "Helemaal goed! Oki is trots op je.",

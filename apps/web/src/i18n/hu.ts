@@ -16,6 +16,7 @@ export const hu: Messages = {
   lineAuto: "Illeszkedő", lineThin: "Vékony", lineNormal: "Normál", lineThick: "Vastag",
   extra: "Extra a lapon", nameHint: "Felirat kövér betűkkel, amit ki is színezhetsz", namePlaceholder: "Pl. Boldog szülinapot, Panni!",
   learn: "Munkalap: átírandó szó és egy számolós kérdés",
+  printResult: "A kész munka képét is nyomtasd ki",
   undo: "Visszavonás", reset: "Újrakezdés", resetSure: "Biztos? Koppints még egyszer", print: "Nyomtatás", printWhat: "Nyomtatás", printColored: "Kiszínezve", printBlank: "Üresen", printExample: "Színes minta", example: "Így néz ki", exampleBig: "Nagy nézet", exampleBack: "Vissza a képemhez",
   progress: (ok: number, total: number) => (ok === total ? "Minden helyesen kiszínezve!" : `${total} mezőből ${ok} jó`),
   party: "Minden helyes! Oki büszke rád.",

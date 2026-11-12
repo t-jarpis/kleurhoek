@@ -22,6 +22,7 @@ export const uk: Messages = {
   lineAuto: "Найкраще", lineThin: "Тонкі", lineNormal: "Звичайні", lineThick: "Товсті",
   extra: "Додатково на аркуші", nameHint: "Текст об'ємними літерами, які теж можна розфарбувати", namePlaceholder: "Напр. З днем народження, Софійко!",
   learn: "Робочий аркуш: слово, яке треба обвести, і завдання на лічбу",
+  printResult: "Надрукувати й малюнок готового виробу",
   undo: "Скасувати", reset: "Почати знову", resetSure: "Точно? Торкнися ще раз", print: "Роздрукувати", printWhat: "Роздрукувати", printColored: "Розфарбовану", printBlank: "Порожню", printExample: "Приклад у кольорі", example: "Ось який він", exampleBig: "Дивитися великим", exampleBack: "Назад до мого малюнка",
   progress: (ok: number, total: number) => (ok === total ? "Усе розфарбовано правильно!" : `Правильно: ${ok} з ${total} ділянок`),
   party: "Усе правильно! Oki пишається тобою.",

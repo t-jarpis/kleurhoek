@@ -16,6 +16,7 @@ export const sv: Messages = {
   lineAuto: "Anpassad", lineThin: "Tunn", lineNormal: "Normal", lineThick: "Tjock",
   extra: "Extra på bilden", nameHint: "Text med bubbelbokstäver som du också kan färglägga", namePlaceholder: "T.ex. Grattis på födelsedagen, Sam!",
   learn: "Arbetsblad: ett ord att skriva efter och en räknefråga",
+  printResult: "Skriv också ut bilden av det färdiga resultatet",
   undo: "Ångra", reset: "Börja om", resetSure: "Säker? Tryck igen", print: "Skriv ut", printWhat: "Skriv ut", printColored: "Färglagd", printBlank: "Tom", printExample: "Exempel i färg", example: "Så här ser den ut", exampleBig: "Visa stor", exampleBack: "Tillbaka till min bild",
   progress: (ok: number, total: number) => (ok === total ? "Allt är rätt färglagt!" : `${ok} av ${total} fält rätt`),
   party: "Helt rätt! Oki är stolt över dig.",

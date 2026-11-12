@@ -20,6 +20,7 @@ export const mk: Messages = {
   lineAuto: "Прилагодено", lineThin: "Тенки", lineNormal: "Обични", lineThick: "Дебели",
   extra: "Дополнително на страницата", nameHint: "Текст со надуени букви што можеш и да го обоиш", namePlaceholder: "На пр. Среќен роденден, Марко!",
   learn: "Работен лист: збор за повлекување и задача со броење",
+  printResult: "Испечати ја и сликата од готовата изработка",
   undo: "Врати", reset: "Одново", resetSure: "Сигурно? Допри уште еднаш", print: "Печати", printWhat: "Печати", printColored: "Обоено", printBlank: "Празно", printExample: "Пример во боја", example: "Вака изгледа", exampleBig: "Види поголемо", exampleBack: "Назад кон мојата слика",
   progress: (ok: number, total: number) => (ok === total ? "Сè е точно обоено!" : `${ok} од ${total} полиња точно`),
   party: "Сè е точно! Oki е горд на тебе.",

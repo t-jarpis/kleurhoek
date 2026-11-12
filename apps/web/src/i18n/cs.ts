@@ -20,6 +20,7 @@ export const cs: Messages = {
   lineAuto: "Automaticky", lineThin: "Tenké", lineNormal: "Normální", lineThick: "Silné",
   extra: "Něco navíc na obrázku", nameHint: "Text velkými bublinkovými písmeny, který si můžeš také vybarvit", namePlaceholder: "Např. Všechno nejlepší, Ani!",
   learn: "Pracovní list: slovo k obtažení a otázka na počítání",
+  printResult: "Vytisknout i obrázek hotového výrobku",
   undo: "Zpět", reset: "Začít znovu", resetSure: "Opravdu? Klepni ještě jednou", print: "Vytisknout", printWhat: "Vytisknout", printColored: "Vybarvený", printBlank: "Prázdný", printExample: "Vzor v barvě", example: "Takhle vypadá", exampleBig: "Zobrazit velké", exampleBack: "Zpět k mému obrázku",
   progress: (ok: number, total: number) => (ok === total ? "Všechno je vybarvené správně!" : `Správně ${ok} z ${total} ploch`),
   party: "Všechno správně! Oki je na tebe pyšný.",

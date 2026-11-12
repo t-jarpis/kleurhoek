@@ -16,6 +16,7 @@ export const sq: Messages = {
   lineAuto: "Më e përshtatshmja", lineThin: "Të holla", lineNormal: "Normale", lineThick: "Të trasha",
   extra: "Shtesë në fletë", nameHint: "Tekst me shkronja të fryra që mund ta ngjyrosësh edhe atë", namePlaceholder: "P.sh. Gëzuar ditëlindjen, Arta!",
   learn: "Fletë pune: një fjalë për ta ndjekur me laps dhe një pyetje numërimi",
+  printResult: "Printo edhe figurën e punimit të përfunduar",
   undo: "Zhbëj", reset: "Fillo nga e para", resetSure: "Je i sigurt? Prek përsëri", print: "Printo", printWhat: "Printo", printColored: "E ngjyrosur", printBlank: "Bosh", printExample: "Shembull me ngjyra", example: "Ja si duket", exampleBig: "Shiko të madh", exampleBack: "Kthehu te vizatimi im",
   progress: (ok: number, total: number) => (ok === total ? "Gjithçka është ngjyrosur saktë!" : `${ok} nga ${total} fusha saktë`),
   party: "Gjithçka saktë! Oki është krenar për ty.",

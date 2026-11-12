@@ -16,6 +16,7 @@ export const el: Messages = {
   lineAuto: "Ταιριαστές", lineThin: "Λεπτές", lineNormal: "Κανονικές", lineThick: "Χοντρές",
   extra: "Επιπλέον στη σελίδα", nameHint: "Κείμενο με φουσκωτά γράμματα, που μπορείς να το χρωματίσεις κι αυτό", namePlaceholder: "Π.χ. Χρόνια πολλά, Sam!",
   learn: "Φύλλο εργασίας: μια λέξη για ξεσήκωμα και ένα πρόβλημα μετρήματος",
+  printResult: "Εκτύπωσε και την εικόνα του τελικού αποτελέσματος",
   undo: "Αναίρεση", reset: "Από την αρχή", resetSure: "Σίγουρα; Πάτα ξανά", print: "Εκτύπωση", printWhat: "Εκτύπωση", printColored: "Χρωματισμένη", printBlank: "Κενή", printExample: "Παράδειγμα σε χρώμα", example: "Έτσι μοιάζει", exampleBig: "Δες το σε μεγάλο", exampleBack: "Πίσω στη ζωγραφιά μου",
   progress: (ok: number, total: number) => (ok === total ? "Όλα χρωματισμένα σωστά!" : `${ok} από ${total} περιοχές σωστές`),
   party: "Όλα σωστά! Ο Oki είναι περήφανος για σένα.",

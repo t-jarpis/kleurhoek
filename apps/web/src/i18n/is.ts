@@ -20,6 +20,7 @@ export const is: Messages = {
   lineAuto: "Sjálfvirkt", lineThin: "Mjóar", lineNormal: "Venjulegar", lineThick: "Þykkar",
   extra: "Aukalega á síðunni", nameHint: "Texti með bólustöfum sem þú getur líka litað", namePlaceholder: "T.d. Til hamingju með afmælið, Sara!",
   learn: "Verkefnablað: orð til að draga eftir og talningarspurning",
+  printResult: "Prenta líka mynd af tilbúna verkinu",
   undo: "Afturkalla", reset: "Byrja upp á nýtt", resetSure: "Viss? Ýttu aftur", print: "Prenta", printWhat: "Prenta", printColored: "Litað", printBlank: "Ólitað", printExample: "Litað dæmi", example: "Svona lítur hún út", exampleBig: "Skoða stórt", exampleBack: "Aftur í myndina mína",
   progress: (ok: number, total: number) => (ok === total ? "Allt rétt litað!" : `${ok} af ${total} svæðum rétt`),
   party: "Allt rétt! Oki er stoltur af þér.",
