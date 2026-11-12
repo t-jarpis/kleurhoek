@@ -19,6 +19,7 @@ import { canvasSize, download, drawSvg, playFrames, snapshotSvg, videoType } fro
 import { fridge } from "@/lib/local";
 import { ColorMixer, LinePicker, PatternPicker, Range, SunDial, ToolPicker } from "./Atelier";
 import { Sheet, sheetPlate } from "./Sheet";
+import { resultSvg } from "@/lib/result";
 import { TogetherPanel, useTogether } from "./Together";
 import { ShareButton } from "./Share";
 import { decodeFills, encodeFills, SHARE_PARAM, SHARED_FLAG, shareUrl } from "@/lib/share";
@@ -64,7 +65,8 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
   const [name, setName] = useState("");
   const [learn, setLearn] = useState(false);
   // Resultaatplaatje "Zo wordt het" (ADR 0100): staat op het vel, maar print alleen als je het aanvinkt.
-  const hasResult = useMemo(() => [plate.svg, ...plate.pages.map((p) => p.svg)].some((s) => s.includes('class="kh-result"')), [plate]);
+  const result = useMemo(() => resultSvg([plate.svg, ...plate.pages.map((p) => p.svg)], t.resultAlt(plate.name)), [plate, t]);
+  const hasResult = result !== null;
   const [printResult, setPrintResult] = useState(false);
   useEffect(() => {
     if (printResult) document.documentElement.dataset.printResult = "1";
@@ -469,9 +471,11 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
               </div>
               {hasExample && mode !== "lijn" && (
                 <div className="tool">
-                  <h2>{t.example}</h2>
+                  <h2>{result ? t.resultTitle : t.example}</h2>
                   <button type="button" className="example" aria-pressed={exampleOpen} aria-label={exampleOpen ? t.exampleBack : t.exampleBig} onClick={() => toggleExample(!exampleOpen)}>
-                    <Sheet plate={sheet} inner={inner} fills={example} sw={sw} marked={false} />
+                    {result
+                      ? <span className="example-result" aria-hidden="true" dangerouslySetInnerHTML={{ __html: result }} />
+                      : <Sheet plate={sheet} inner={inner} fills={example} sw={sw} marked={false} />}
                   </button>
                   <button type="button" className="btn" onClick={() => toggleExample(!exampleOpen)}>{exampleOpen ? t.exampleBack : t.exampleBig}</button>
                 </div>

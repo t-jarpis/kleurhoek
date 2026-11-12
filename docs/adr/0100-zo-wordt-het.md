@@ -21,3 +21,6 @@ Bij een bouwplaat zie je op het vel alleen de uitslag. Ouders willen vóór het 
 
 ## Aanvulling 12 november 2026: printen optioneel
 Op de website is het plaatje genoeg; op papier is het vaak overbodig. Daarom print het niet meer standaard: in de kleurstudio staat bij een plaat met een resultaatplaatje het vinkje "Ook het plaatje van het eindresultaat printen" (standaard uit). Aangevinkt zet het `data-print-result` op `<html>`; `globals.css` verbergt `.kh-result-box` in print zolang dat er niet staat. Dat geldt ook voor het printen van een los vel (ExtraPages) en het boekje. De plek op het vel blijft gereserveerd, zodat de uitslag en de nummering niet veranderen.
+
+## Aanvulling 12 november 2026: het voorbeeld in de kleurstudio
+Bij een bouwplaat liet het blokje "Zo ziet hij eruit" (ColorExample, ADR 0089) het ingekleurde vel zien, terwijl een kind wil weten wat het wordt. Heeft de plaat een resultaatplaatje, dan toont het blokje het werkstuk in elkaar gezet, met de kop "Zo wordt het". Tikken of "Groot bekijken" toont zoals voorheen groot het ingekleurde vel op de plek van de plaat, als kleurvoorbeeld; daarna scrolt de pagina ernaartoe, zodat je het op een telefoon ook ziet. Gewone kleurplaten blijven gelijk.
