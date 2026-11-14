@@ -12,14 +12,19 @@ describe("prints tellen (ADR 0020)", () => {
 
   it("telt knop plus beforeprint één keer, met de open plaat erbij", async () => {
     setPrintPlate("sinterklaas");
-    trackPrint("nl-nl");
-    trackPrint("nl-nl"); // beforeprint direct na de knop
+    trackPrint("nl-nl", "button");
+    trackPrint("nl-nl", "browser"); // beforeprint direct na de knop
     vi.advanceTimersByTime(20_000);
-    trackPrint("nl-nl"); // Safari op iOS meldt beforeprint later nog eens
-    vi.advanceTimersByTime(45_000);
+    trackPrint("nl-nl", "browser"); // Safari op iOS meldt beforeprint later nog eens
+    trackPrint("nl-nl", "button"); // nog een keer printen met de knop telt wel
+    vi.advanceTimersByTime(65_000);
     setPrintPlate(undefined);
-    trackPrint("nl-nl"); // later: Ctrl+P op een pagina zonder studio
-    await vi.waitFor(() => expect(sent).toHaveLength(2));
-    expect(sent).toEqual([{ type: "print", market: "nl-nl", plate: "sinterklaas" }, { type: "print", market: "nl-nl" }]);
+    trackPrint("nl-nl", "browser"); // later: Ctrl+P op een pagina zonder studio
+    await vi.waitFor(() => expect(sent).toHaveLength(3));
+    expect(sent).toEqual([
+      { type: "print", market: "nl-nl", plate: "sinterklaas" },
+      { type: "print", market: "nl-nl", plate: "sinterklaas" },
+      { type: "print", market: "nl-nl" },
+    ]);
   });
 });

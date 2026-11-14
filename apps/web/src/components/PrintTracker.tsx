@@ -5,7 +5,7 @@ import { trackPrint } from "@/lib/track";
 /** Telt elke print, ook via Ctrl+P, het browsermenu of de knoppen bij cadeaulabels (ADR 0020). */
 export function PrintTracker({ market }: { market: string }) {
   useEffect(() => {
-    const on = () => trackPrint(market);
+    const on = () => trackPrint(market, "browser");
     window.addEventListener("beforeprint", on);
     return () => window.removeEventListener("beforeprint", on);
   }, [market]);

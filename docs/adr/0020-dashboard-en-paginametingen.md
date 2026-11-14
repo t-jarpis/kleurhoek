@@ -23,5 +23,5 @@ Tot nu toe telde een print alleen bij de printknop in de studio en het boekje. P
 
 ## Aanvulling 14 november 2026: dubbel tellen en printen op iPhone
 Op een iPhone telde één print twee keer, en kreeg je bij printen de melding "Voorkom verdere waarschuwingen voor deze pagina"; wie dan "Onderdruk waarschuwingen" koos, kon op die pagina niet meer printen tot herladen. Het printvenster verschijnt op iOS pas na een tel, dus een tweede tik vraagt een tweede venster. Daarom:
-- Alle printknoppen gaan via `openPrint()` (`apps/web/src/lib/print.ts`): een tweede tik binnen 5 seconden, of binnen 1 seconde na het sluiten van het venster, doet niets.
-- `trackPrint` telt binnen een minuut maar één keer (was 5 seconden), omdat Safari `beforeprint` ook later nog kan melden.
+- Alle printknoppen gaan via `usePrint()` (`apps/web/src/lib/print.ts`): een tweede tik binnen 5 seconden, of binnen 1 seconde na het sluiten van het venster, doet niets. Zo lang staat de knop op "bezig" (design system: Button › Bezig): een draaiend rondje en "Printen…".
+- `trackPrint` kent twee bronnen. Een printknop telt altijd, en telt vóór `window.print()`. Het `beforeprint`-event (Ctrl+P, browsermenu) telt niet binnen een minuut na een printknop, omdat Safari het bij dezelfde print later nog eens kan melden, en niet binnen 5 seconden na een vorige print. Twee echte prints met de knop tellen dus als twee.

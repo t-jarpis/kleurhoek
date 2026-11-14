@@ -1,5 +1,5 @@
 "use client";
-import { openPrint } from "@/lib/print";
+import { usePrint } from "@/lib/print";
 import { useHref } from "./Base";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -48,6 +48,7 @@ export function Booklet({ market, language, items, mascots, title, loose = false
   const t = useT();
   const router = useRouter();
   const [owner, setOwner] = useState("");
+  const printer = usePrint(() => trackPrint(market));
   const [numbers, setNumbers] = useState(false);
   const [learn, setLearn] = useState(false);
   const [cover, setCover] = useState(!loose);
@@ -90,7 +91,7 @@ export function Booklet({ market, language, items, mascots, title, loose = false
           </div>
           <p className="hint">{items.length ? t.bookInfo(items.length) : t.bookEmpty}</p>
           <button type="button" className="btn primary" disabled={!items.length}
-            onClick={() => { if (openPrint()) trackPrint(market); }}>{t.printBook}</button>
+            aria-busy={printer.busy} aria-disabled={printer.busy} onClick={() => printer.print()}>{printer.busy ? `${t.printBook}…` : t.printBook}</button>
         </aside>
         <div className="sheets">
           {cover && <div className="a4 cover"><Cover owner={owner} count={items.length} mascots={mascots} t={t} /><span className="pg">{t.cover}</span></div>}

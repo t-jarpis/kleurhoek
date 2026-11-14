@@ -1,5 +1,5 @@
 "use client";
-import { openPrint } from "@/lib/print";
+import { usePrint } from "@/lib/print";
 import { useState } from "react";
 import { GIFT_TEXT as T } from "@/lib/sint";
 
@@ -64,6 +64,7 @@ function Card({ x, y, name, motif }: { x: number; y: number; name: string; motif
 
 export function GiftLabels() {
   const [kind, setKind] = useState<Kind>("labels");
+  const printer = usePrint();
   const [names, setNames] = useState("");
   const [from, setFrom] = useState(T.defaultFrom);
   const list = names.split(/[\n,]/).map((n) => n.trim().slice(0, MAX)).filter(Boolean);
@@ -72,7 +73,7 @@ export function GiftLabels() {
   const cells = Array.from({ length: per }, (_, i) => ({ name: shown[i % shown.length]!, motif: MOTIFS[i % MOTIFS.length]! }));
   return (
     <div className="kh-labels">
-      <form className="kh-labels-form no-print" onSubmit={(e) => { e.preventDefault(); openPrint(); }}>
+      <form className="kh-labels-form no-print" onSubmit={(e) => { e.preventDefault(); printer.print(); }}>
         <fieldset className="ui-seg" aria-label={T.kind}>
           {(["labels", "kaartjes"] as const).map((k) => (
             <label key={k}><input type="radio" name="kind" value={k} checked={kind === k} onChange={() => setKind(k)} /> {k === "labels" ? T.labels : T.cards}</label>
@@ -90,7 +91,7 @@ export function GiftLabels() {
           </div>
         )}
         <p className="ui-hint">{T.privacy}</p>
-        <div className="row"><button type="submit" className="ui-btn" data-variant="primary">{T.print}</button></div>
+        <div className="row"><button type="submit" className="ui-btn" data-variant="primary" aria-busy={printer.busy} aria-disabled={printer.busy}>{printer.busy ? `${T.print}…` : T.print}</button></div>
       </form>
       <div className="kh-labels-sheet">
         <svg viewBox="0 0 210 297" role="img" aria-label={kind === "labels" ? T.labels : T.cards}>

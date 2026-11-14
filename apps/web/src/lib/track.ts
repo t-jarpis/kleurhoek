@@ -43,15 +43,17 @@ export function track(e: TrackEvent) {
 let printPlate: string | undefined;
 export function setPrintPlate(slug: string | undefined) { printPlate = slug; }
 
-let lastPrint = 0;
+let lastPrint = 0, lastButton = 0;
 /**
- * Telt één print (ADR 0020). Komt van de printknoppen én van het beforeprint-event van de browser, dus
- * ook Ctrl+P en het browsermenu tellen. Binnen een minuut telt het maar één keer: een printknop geeft beide,
- * en Safari op iPhone en iPad kan beforeprint later nog eens melden, ook na meer dan 5 seconden.
+ * Telt één print (ADR 0020). `button`: een printknop van de site; die telt altijd (de knop zelf voorkomt een
+ * dubbele tik binnen 5 seconden). `browser`: het beforeprint-event, voor Ctrl+P en het browsermenu. Dat telt niet
+ * binnen een minuut na een printknop, want Safari op iPhone en iPad kan beforeprint bij dezelfde print later nog
+ * eens melden, en niet binnen 5 seconden na een vorige print.
  */
-export function trackPrint(market: string) {
+export function trackPrint(market: string, source: "button" | "browser" = "button") {
   const now = Date.now();
-  if (now - lastPrint < 60_000) return;
+  if (source === "browser" && (now - lastButton < 60_000 || now - lastPrint < 5000)) return;
+  if (source === "button") lastButton = now;
   lastPrint = now;
   track({ type: "print", market, ...(printPlate ? { plate: printPlate } : {}) });
 }

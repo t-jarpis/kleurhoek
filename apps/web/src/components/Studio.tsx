@@ -1,5 +1,5 @@
 "use client";
-import { openPrint } from "@/lib/print";
+import { usePrint } from "@/lib/print";
 import { useHref } from "./Base";
 import { FavoriteButton } from "./FavoriteButton";
 import Link from "next/link";
@@ -54,6 +54,7 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
   more?: PlateItem[];
 }) {
   const [printed, setPrinted] = useState(false);
+  const printer = usePrint(() => trackPrint(market));
   const href = useHref();
   const t = useT();
   const lineKind = LINE_KINDS.has(plate.kind);
@@ -525,7 +526,7 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
           <div className="row">
             <button type="button" className="btn" onClick={toFridge}>{t.toFridge}</button>
             <BookToggle slug={plate.slug} language={language} />
-            <button type="button" className="btn primary" onClick={() => { if (!openPrint()) return; trackPrint(market); setPrinted(true); }}>{t.print}</button>
+            <button type="button" className="btn primary" aria-busy={printer.busy} aria-disabled={printer.busy} onClick={() => { if (printer.print()) setPrinted(true); }}>{printer.busy ? `${t.print}…` : t.print}</button>
           </div>
           {printed && <MoreToPrint plates={more} language={language} />}
         </aside>
