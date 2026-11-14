@@ -1,4 +1,5 @@
 "use client";
+import { openPrint } from "@/lib/print";
 import { useState } from "react";
 import { GIFT_TEXT as T } from "@/lib/sint";
 
@@ -71,7 +72,7 @@ export function GiftLabels() {
   const cells = Array.from({ length: per }, (_, i) => ({ name: shown[i % shown.length]!, motif: MOTIFS[i % MOTIFS.length]! }));
   return (
     <div className="kh-labels">
-      <form className="kh-labels-form no-print" onSubmit={(e) => { e.preventDefault(); window.print(); }}>
+      <form className="kh-labels-form no-print" onSubmit={(e) => { e.preventDefault(); openPrint(); }}>
         <fieldset className="ui-seg" aria-label={T.kind}>
           {(["labels", "kaartjes"] as const).map((k) => (
             <label key={k}><input type="radio" name="kind" value={k} checked={kind === k} onChange={() => setKind(k)} /> {k === "labels" ? T.labels : T.cards}</label>

@@ -20,3 +20,8 @@ Het dashboard toonde alleen totalen over 7 dagen. De eigenaar wil over een gekoz
 
 ## Aanvulling (2026-11-08): elke print telt
 Tot nu toe telde een print alleen bij de printknop in de studio en het boekje. Prints via Ctrl+P, het browsermenu, de cadeaulabels en de extra pagina's misten. Nu telt ook het `beforeprint`-event van de browser (`components/PrintTracker.tsx` in de layout). Knop en event samen, binnen 5 seconden, tellen één keer. Staat er een plaat open in de studio, dan telt de print bij die plaat. Vanaf deze datum liggen de printaantallen daardoor hoger; vergelijk niet één op één met de periode ervoor.
+
+## Aanvulling 14 november 2026: dubbel tellen en printen op iPhone
+Op een iPhone telde één print twee keer, en kreeg je bij printen de melding "Voorkom verdere waarschuwingen voor deze pagina"; wie dan "Onderdruk waarschuwingen" koos, kon op die pagina niet meer printen tot herladen. Het printvenster verschijnt op iOS pas na een tel, dus een tweede tik vraagt een tweede venster. Daarom:
+- Alle printknoppen gaan via `openPrint()` (`apps/web/src/lib/print.ts`): een tweede tik binnen 5 seconden, of binnen 1 seconde na het sluiten van het venster, doet niets.
+- `trackPrint` telt binnen een minuut maar één keer (was 5 seconden), omdat Safari `beforeprint` ook later nog kan melden.

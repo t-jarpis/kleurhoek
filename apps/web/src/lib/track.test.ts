@@ -14,7 +14,9 @@ describe("prints tellen (ADR 0020)", () => {
     setPrintPlate("sinterklaas");
     trackPrint("nl-nl");
     trackPrint("nl-nl"); // beforeprint direct na de knop
-    vi.advanceTimersByTime(6000);
+    vi.advanceTimersByTime(20_000);
+    trackPrint("nl-nl"); // Safari op iOS meldt beforeprint later nog eens
+    vi.advanceTimersByTime(45_000);
     setPrintPlate(undefined);
     trackPrint("nl-nl"); // later: Ctrl+P op een pagina zonder studio
     await vi.waitFor(() => expect(sent).toHaveLength(2));

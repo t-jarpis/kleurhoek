@@ -1,4 +1,5 @@
 "use client";
+import { openPrint } from "@/lib/print";
 import { useHref } from "./Base";
 import { FavoriteButton } from "./FavoriteButton";
 import Link from "next/link";
@@ -524,7 +525,7 @@ export function Studio({ plate, inner, ageWidth, market, language, accounts = fa
           <div className="row">
             <button type="button" className="btn" onClick={toFridge}>{t.toFridge}</button>
             <BookToggle slug={plate.slug} language={language} />
-            <button type="button" className="btn primary" onClick={() => { trackPrint(market); window.print(); setPrinted(true); }}>{t.print}</button>
+            <button type="button" className="btn primary" onClick={() => { if (!openPrint()) return; trackPrint(market); setPrinted(true); }}>{t.print}</button>
           </div>
           {printed && <MoreToPrint plates={more} language={language} />}
         </aside>

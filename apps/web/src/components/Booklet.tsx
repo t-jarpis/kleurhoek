@@ -1,4 +1,5 @@
 "use client";
+import { openPrint } from "@/lib/print";
 import { useHref } from "./Base";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -89,7 +90,7 @@ export function Booklet({ market, language, items, mascots, title, loose = false
           </div>
           <p className="hint">{items.length ? t.bookInfo(items.length) : t.bookEmpty}</p>
           <button type="button" className="btn primary" disabled={!items.length}
-            onClick={() => { trackPrint(market); window.print(); }}>{t.printBook}</button>
+            onClick={() => { if (openPrint()) trackPrint(market); }}>{t.printBook}</button>
         </aside>
         <div className="sheets">
           {cover && <div className="a4 cover"><Cover owner={owner} count={items.length} mascots={mascots} t={t} /><span className="pg">{t.cover}</span></div>}

@@ -1,4 +1,5 @@
 "use client";
+import { openPrint } from "@/lib/print";
 import type { PlatePage } from "@/lib/types";
 
 /**
@@ -12,7 +13,7 @@ export function ExtraPages({ pages, labels }: { pages: PlatePage[]; labels: Extr
   const extra = pages.filter((p) => p.role === "extra"), answers = pages.filter((p) => p.role === "antwoorden");
   // Eén vel printen: een kopie direct onder <body>; de rest van de pagina doet in print niet mee.
   const print = (el: HTMLElement | null) => {
-    if (!el) return;
+    if (!el || document.getElementById("kh-print-sheet")) return;
     const sheet = document.createElement("div");
     sheet.id = "kh-print-sheet";
     sheet.innerHTML = el.innerHTML;
@@ -20,7 +21,7 @@ export function ExtraPages({ pages, labels }: { pages: PlatePage[]; labels: Extr
     document.body.dataset.printPage = "1";
     const done = () => { sheet.remove(); delete document.body.dataset.printPage; window.removeEventListener("afterprint", done); };
     window.addEventListener("afterprint", done);
-    window.print();
+    if (!openPrint()) { done(); return; }
     setTimeout(done, 1000);
   };
   const card = (p: PlatePage) => (
