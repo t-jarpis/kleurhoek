@@ -29,3 +29,6 @@ Daarnaast noemde de sitemap de afbeeldingen van de platen niet, terwijl veel oud
 - Andere namen staan er voor alle 29 talen: in het Nederlands voor 590 platen, in de andere talen voor 336 tot 636 platen per taal. Per taal is gekeken wat mensen daar echt typen, dus geen letterlijke vertaling; regionale woorden staan erbij (Belgisch, Oostenrijks/Zwitsers, Braziliaans/Portugees, Latijns-Amerikaans). Buitenlandse feestdagen die iets anders betekenen, staan er niet bij, zoals 25 april bij de plaat over 5 mei.
 - De titels van alle platen veranderen tegelijk. Search Console laat over een paar weken zien of het aantal klikken stijgt.
 - De web-tests kennen nu het `@/`-pad (vitest.config.ts), zodat ook modules als de sitemap te testen zijn.
+
+## Aanvulling 14 november 2026: een plaat hernoemen
+De seed vult vertalingen alleen aan en overschrijft bestaande namen niet (een naam uit het admin panel moet blijven). Daardoor kwam een nieuwe naam in catalog-data niet op de site (de triceratops). Nu staat een vroegere naam in `packages/catalog-data/renamed.json` (slug → taal → vroegere naam); de seed zet de nieuwe naam uit `plates.json` alleen waar de opgeslagen naam nog precies de vroegere is. Een naam die in het admin panel is aangepast, blijft staan. Wie een plaat hernoemt, zet de oude namen in `renamed.json`.

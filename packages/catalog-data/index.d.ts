@@ -47,6 +47,8 @@ export interface HolidayOverride { fixed?: [number, number] | null; dates?: Reco
 export interface SeasonSource { slug: string; from: [number, number]; to: [number, number]; plates: string[]; countries: string[]; i18n: Translations<{ name: string }> }
 export interface ColorSource { code: string; hex: string; i18n: Translations<{ name: string }> }
 export function plates(): PlateSource[];
+/** Vroegere namen: slug → taal → naam zoals die eerder in catalog-data stond. */
+export function renamedPlates(): Record<string, Record<string, string>>;
 export function categories(): CategorySource[];
 export function ages(): AgeSource[];
 export function continents(): ContinentSource[];

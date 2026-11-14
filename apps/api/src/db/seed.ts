@@ -183,6 +183,18 @@ export async function seed(db: Database, tenantId: string): Promise<SeedResult> 
         where ${translations.tenantId} = ${tenantId} and ${translations.entityType} = 'plate' and ${translations.entityKey} = v.key
           and ${translations.language} = v.language and ${translations.fields}->>'also' is distinct from v.also`);
     }
+    // Een hernoemde plaat (renamed.json): de nieuwe naam uit catalog-data, maar alleen waar de opgeslagen naam nog de
+    // vroegere is; een naam die in het admin panel is aangepast, blijft staan.
+    const renames = Object.entries(source.renamedPlates()).flatMap(([key, byLang]) => Object.entries(byLang).flatMap(([language, from]) => {
+      const to = list.find((p) => p.slug === key)?.i18n[language]?.name;
+      return to && to !== from ? [{ key, language, from, to }] : [];
+    }));
+    if (renames.length) {
+      await tx.execute(sql`update ${translations} set fields = ${translations.fields} || jsonb_build_object('name', v."to"), updated_at = now()
+        from jsonb_to_recordset(${JSON.stringify(renames)}::jsonb) as v(key text, language text, "from" text, "to" text)
+        where ${translations.tenantId} = ${tenantId} and ${translations.entityType} = 'plate' and ${translations.entityKey} = v.key
+          and ${translations.language} = v.language and ${translations.fields}->>'name' = v."from"`);
+    }
     await syncGlossaries(tx, tenantId);
     return { plates: added, updated: changed.length, added: addedSlugs, changed };
   });

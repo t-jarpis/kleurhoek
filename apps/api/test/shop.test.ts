@@ -90,6 +90,18 @@ describe("knutselwerk in de catalogus", () => {
     const r = await ctx.http.inject({ method: "GET", url: "/v1/markets/nl-NL/plates/brachiosaurus" });
     expect(r.json().also).toEqual(expect.arrayContaining(["langnek"]));
   });
+  it("een hernoemde plaat krijgt de nieuwe naam, behalve na een naam uit het admin panel", async () => {
+    const db = ctx.app.get<Database>(DB);
+    const name = async (lang: string) => {
+      const r = await withTenant(db, TENANT, (tx) => tx.execute(sql`select fields->>'name' as n from localization.translations where entity_type = 'plate' and entity_key = 'triceratops' and language = ${lang}`));
+      return (r as unknown as { rows: { n?: string }[] }).rows[0]?.n;
+    };
+    await withTenant(db, TENANT, (tx) => tx.execute(sql`update localization.translations set fields = fields || '{"name":"Triceratops met drie hoorns"}' where entity_type = 'plate' and entity_key = 'triceratops' and language = 'nl'`));
+    await withTenant(db, TENANT, (tx) => tx.execute(sql`update localization.translations set fields = fields || '{"name":"Eigen naam"}' where entity_type = 'plate' and entity_key = 'triceratops' and language = 'de'`));
+    await seed(db, TENANT);
+    expect(await name("nl")).toBe("Triceratops bij de palmboom");
+    expect(await name("de")).toBe("Eigen naam");
+  });
   it("een verbeterde tekening in catalog-data wordt een nieuwe versie, behalve na een versie uit het admin panel", async () => {
     const db = ctx.app.get<Database>(DB);
     // Doen alsof de opgeslagen tekening een oudere is (zonder de lijnen van ADR 0064).

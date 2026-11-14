@@ -32,6 +32,8 @@ module.exports = {
   /** Groepen voor het filter op de site: kleurplaten, knutselen, leren en spelen, tekenen. */
   KIND_GROUPS: { kleurplaat: "kleurplaten", knipplaat: "knutselen", bouwplaat: "knutselen", vouwblad: "knutselen", kaart: "knutselen", spel: "leren", werkblad: "leren", tekenles: "tekenen", sjabloon: "tekenen" },
   plates: () => withSynonyms(read("plates.json").map(normalize)),
+  /** Vroegere namen per plaat en taal (ADR 0100-addendum): de seed vervangt een opgeslagen naam alleen als die nog zo luidt. */
+  renamedPlates: () => read("renamed.json"),
   /** Leerdoelen (ADR 0036). */
   GOALS: goals.GOALS,
   goalName: goals.goalName,
