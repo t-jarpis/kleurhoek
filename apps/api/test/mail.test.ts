@@ -2,6 +2,7 @@ import { startMockOidc, type MockUser } from "@t-jarpis/auth/testing";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { MemoryTransport } from "../src/modules/messaging/mailer";
 import { MessagingScheduler } from "../src/modules/messaging/messaging.scheduler";
+import { localNow } from "../src/modules/messaging/workflows.service";
 import { ADMIN_ORG, AUDIENCE, createTestApp, SITE_ORG } from "./app";
 
 const OWNER: MockUser = { sub: "z-mail-eigenaar", name: "Thijs", email: "thijs@example.test", organizationId: ADMIN_ORG };
@@ -103,15 +104,19 @@ describe("mail (ADR 0037)", () => {
     const me = await as(PARENT, "PUT", "/v1/me/mail", { topics: ["nieuwsbrief", "sinterklaaskalender"], market: "nl-nl" });
     expect(me.json()).toMatchObject({ topics: ["nieuwsbrief", "sinterklaaskalender"] });
     expect(me.json().topicsAll).toContain("sinterklaaskalender");
-    const intocht = new Date("2026-11-14T06:30:00Z"); // 7:30 in Nederland
+    // De intocht (deurtje 1). Draait de test óp die dag, dan heeft een eerdere test met de echte klok dat deurtje
+    // al verstuurd, vóór deze ouder zich aanmeldde; neem dan deurtje 2.
+    const day = localNow(new Date()).day === "2026-11-14" ? "2026-11-15" : "2026-11-14";
+    const intocht = new Date(`${day}T06:30:00Z`); // 7:30 in Nederland
     const before = mail.sent.length;
-    await run(new Date("2026-11-14T05:30:00Z")); // 6:30: nog niet
+    await run(new Date(`${day}T05:30:00Z`)); // 6:30: nog niet
     expect(mail.sent.slice(before).filter((m) => /Sinterklaaskalender/.test(m.subject))).toHaveLength(0);
     await run(intocht);
     await run(intocht);
     const door = mail.sent.slice(before).filter((m) => /Sinterklaaskalender/.test(m.subject));
     expect(door.map((m) => m.to)).toEqual(["ouder@example.test"]);
-    expect(door[0]!.html).toContain("/plates/stoomboot-komt-aan/");
+    if (day === "2026-11-14") expect(door[0]!.html).toContain("/plates/stoomboot-komt-aan/");
+    else expect(door[0]!.html).toMatch(/\/plates\/[a-z0-9-]+\//);
     expect(door[0]!.html).toContain("/sinterklaaskalender");
     // Buiten de kalender niets.
     await run(new Date("2026-12-10T08:00:00Z"));
